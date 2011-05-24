@@ -1,0 +1,45 @@
+body{
+	margin: 0 auto;
+	padding 0;
+	background-color: #FFFFFF;
+	text-align: center;
+}
+
+img{
+	border: 0;
+}
+
+#content{
+	margin-left: auto ;
+  	margin-right: auto ;
+	margin-top: 50px;
+}
+
+#main{
+	margin-top: 20px;
+}
+
+
+#results{
+	margin: 20px;
+}
+
+#spinner {
+	  display: none;
+	  position: relative;
+}
+
+#query{
+	width: 60%;
+}
+
+#map{
+	margin-left: auto ;
+  	margin-right: auto ;
+	width: 60%;
+	height: 500px;
+}
+
+#findRule{
+    display: none;
+}

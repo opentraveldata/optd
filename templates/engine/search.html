@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block extra_js %}
+<script type="text/javascript" src="{{ MEDIA_URL }}js/search.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<div id="main">
+	<input id="query" type="text"/>
+	<input id="searchSubmit" type="submit" value="Search"/>
+	<br/>
+	<div class="margin">
+		<span id="spinner"><img src="{{ MEDIA_URL }}imgs/spinner.gif"/></span>
+		<div id="results">
+		  <br>
+		  <br>
+		  <div id="map"> </div>
+		  <br><br>
+		  <div id="someText"> </div>
+		  <br><br>
+		  <div id="airlineResult"> </div>
+		  <br><br>
+		  <div id="findRule">
+		    <input id="origin" type="hidden"/>
+	      <input id="destination" type="hidden"/>
+		    <label for="airline">Airline: </label><input id="airline" type="text"/>
+		    <label for="classOfService">Class Of Service: </label><input id="classOfService" type="text"/>
+	      <label for="datepicker">Date: </label><input id="datepicker" type="text"/>
+	      <label for="flightNumber">Flight Number: </label><input id="flightNumber" type="text"/>
+	
+	      <input id="ruleSubmit" type="button" value="Search"/>
+		    <div id="findRuleResult"></div>
+		  </div>
+		</div>
+	</div>
+</div>
+{% endblock %}
