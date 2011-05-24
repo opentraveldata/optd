@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block extra_js %}
+<link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}css/jquery-ui-1.8.11.custom.css">
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-ui-1.8.11.custom.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/ruleSearch.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<div id="main">
+<!--	<select id="airline">-->
+<!--  </select>-->
+  <input id="airline" type="text"/>
+	<input id="origin" type="text"/>
+	<input id="destination" type="text"/>
+	<input id="classOfService" type="text"/>
+	<input id="datepicker" type="text"/>
+	<input id="flightNumber" type="text"/>
+	
+	<input id="searchSubmit" type="button" value="Search"/>
+	<br/>
+	<div class="margin">
+		<span id="spinner"><img src="{{ MEDIA_URL }}imgs/spinner.gif"/></span>
+		<div id="results">
+		</div>
+		<br><br>
+		<div id="map"></div>
+	</div>
+</div>
+{% endblock %}
