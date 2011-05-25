@@ -3,7 +3,7 @@ from engine.views import *
 
 urlpatterns = patterns( '',
 #    url( r'^search$', search ),
-    url( r'^search$', keyword_search ),
+    url( r'^search$', handler ),
 #    url( r'^rsearch$', rule_search ),
     url( r'^get_airlines$', get_airlines ),
 )

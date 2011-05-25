@@ -35,6 +35,29 @@ def handler ( request ):
     return render_to_response( template, {}, 
                                context_instance = RequestContext( request ) )
                                
+                               
+def handler(request):
+    if request.is_ajax():
+        query = request.GET.get( 'q' )
+        if query is not None:
+            results = []
+            search = query.split(':')
+            if len(search) > 1:
+                if search[0] == 'key':
+                    results = keyword_search(search[1])
+                    
+                if search[0] == 'code':
+                    results = code_search(search[1])
+            
+            
+            data = json.dumps(results)
+            return HttpResponse(data,mimetype='application/json')
+            
+    else:
+        template = 'engine/search.html'
+        return render_to_response( template, {}, 
+                               context_instance = RequestContext( request ) )    
+                               
    
 
 def search( request ):
@@ -55,38 +78,41 @@ def search( request ):
                                context_instance = RequestContext( request ) )
 
 
-def keyword_search(request):
-    if request.is_ajax():
-        query = split_query_into_keywords(request.GET.get( 'q' ).encode('utf-8'))
+def keyword_search(q):
+#    if request.is_ajax():
+        query = split_query_into_keywords(q.encode('utf-8'))
         if query:
             results = []
             index = gdb.nodes.indexes.get("keywords")
-            q = ""
-            for x in query:
-                q += "*" + x + "* "
-            for result in index.query("name", q):
-                results.append(result.properties)
-            for result in index.query("description", q):
-                results.append(result.properties)
-            data = json.dumps(results)
-            return HttpResponse(data,mimetype='application/json')
+            keys = ""
+            for key in query:
+                keys += "*" + key + "* "
             
-    else:
-        template = 'engine/search.html'
-        return render_to_response( template, {}, 
-                               context_instance = RequestContext( request ) )
+            final_query = keys + "OR description:" + keys
+            for result in index.query("name", final_query):
+                results.append(result.properties)
+                
+            return results
+            
+#    else:
+#        template = 'engine/search.html'
+#        return render_to_response( template, {}, 
+#                               context_instance = RequestContext( request ) )
 
 
-def code_Search(keys):
+def code_search(query):
+    keys = split_query_into_keywords(query)
     index = gdb.nodes.indexes.get("codes")
     results = []
     for key in keys:
-        iata = index['iata'][key]
-        icao = index['icao'][key]
+        iata = index['iata'][key.upper()]
+        icao = index['icao'][key.upper()]
         if iata:
             node = iata[0]
-        else:
+        elif icao:
             node = icao[0]
+        else:
+            continue
         
         result = get_lng_lat(node.url)
         result.update(node.properties)
