@@ -32,7 +32,7 @@ function doKeywordSearch(){
 //    console.info(navigator.language)
     $('#someText').empty()
     $('#map').remove()
-	$.getJSON('/engine/search', {q : q}, function(data){
+	$.getJSON('/engine', {q : q}, function(data){
         if(data.length > 0){
             
             $.each(data,function(key, val){
@@ -49,7 +49,7 @@ function doKeywordSearch(){
 //Ajax function that is called when the main search input is used.
 function doSimpleSearch(){
     q = $( '#query' ).val();
-		$.getJSON('/engine/search', {q : q}, function(data){
+		$.getJSON('/engine', {q : q}, function(data){
          if(data.length > 0){
             
 			$('#map').empty();
@@ -97,7 +97,7 @@ function doSimpleSearch(){
 //This method does an ajax call to find a Rule with the given
 //parameters.
 function doRuleSearch(){
-	$.getJSON('/engine/rsearch', {a : $( '#airline' ).val(), 
+	$.getJSON('/engine', {a : $( '#airline' ).val(), 
 	                              o : $(" #origin").val(), 
 	                              d : $(" #destination").val(), 
 	                              c : $( '#classOfService' ).val(), 

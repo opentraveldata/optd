@@ -1,42 +1,52 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
-import sys, traceback
-import httplib
-import ast
-import json, psycopg2
+import sys, traceback, json 
 from neo4jrestclient import *
 from django.conf import settings
+from engine import manager
 
-gdb = GraphDatabase(settings.NEO4J_URL)
-
-def handler ( request ):
-    httpServ = httplib.HTTPConnection("127.0.0.1", 7474)
-    httpServ.connect()
-
+def test (request):
     if request.method == 'GET':
-        httpServ.request('GET', "/db/data/node/1/")
-        response = httpServ.getresponse()
-    
-        if response.status == httplib.OK:
-            results= json.loads(response.read())
-        httpServ.close()
-        return HttpResponse(json.loads(results))
-        
-    if request.method == 'POST':
-       return
-        
-    if request.is_ajax():
-        query = request.GET.get( 'q' )
-        return
-    
-    httpServ.close()    
-    template = 'engine/search.html'
-    return render_to_response( template, {}, 
-                               context_instance = RequestContext( request ) )
-                               
-                               
+        print request.META['QUERY_STRING']
+#        results = manager.code_search(settings.BASE_CODES, search[1])
+        gdb = GraphDatabase(settings.NEO4J_URL)
+        results= gdb.node[14].properties
+        return HttpResponse(json.dumps(results))
+
+
 def handler(request):
+    if request.method == 'GET':
+        search_type = request.GET.get('type')
+        query = request.GET.get( 'q' )
+        print search_type
+        
+        results = [] 
+        
+        if search_type == 'code':
+            results = manager.code_search(code_list, query)
+        if search_type == 'key':
+            results = manager.keyword_search(query)
+            
+        return HttpResponse(json.dumps(results))            
+    else: 
+       print request.method + "," +  request.META['QUERY_STRING']
+       #escrever num arquivo o metodo seguido dos parametros         
+        
+def code_search(request):
+    if request.method == 'GET':
+        code_list = request.GET.get( 'codes' )
+        query = request.GET.get( 'q' )
+        if code_list:
+            code_list= manager.split_keywords(query)
+        else:
+            code_list = settings.BASE_CODES    
+        
+        results = manager.code_search(code_list, query) 
+        return HttpResponse(json.dumps(results))
+                               
+                               
+def web_handler(request):
     if request.is_ajax():
         query = request.GET.get( 'q' )
         if query is not None:
@@ -44,14 +54,12 @@ def handler(request):
             search = query.split(':')
             if len(search) > 1:
                 if search[0] == 'key':
-                    results = keyword_search(search[1])
+                    results = manager.keyword_search(search[1])
                     
                 if search[0] == 'code':
-                    results = code_search(search[1])
+                    results = manager.code_search(settings.BASE_CODES, search[1])
             
-            
-            data = json.dumps(results)
-            return HttpResponse(data,mimetype='application/json')
+            return HttpResponse(json.dumps(results),mimetype='application/json')
             
     else:
         template = 'engine/search.html'
@@ -60,112 +68,7 @@ def handler(request):
                                
    
 
-def search( request ):
-    if request.is_ajax():
-        query = request.GET.get( 'q' )
-        if query is not None:
-            keys = split_query_into_keywords(query)
-            results = code_Search(keys)
-#            if not results:
-#                results = makeNameSearch(keys)
-            data = json.dumps(results)
-#            data = serializers.serialize('json', results)
-            return HttpResponse(data,mimetype='application/json')
-            
-    else:
-        template = 'engine/search.html'
-        return render_to_response( template, {}, 
-                               context_instance = RequestContext( request ) )
-
-
-def keyword_search(q):
-#    if request.is_ajax():
-        query = split_query_into_keywords(q.encode('utf-8'))
-        if query:
-            results = []
-            index = gdb.nodes.indexes.get("keywords")
-            keys = ""
-            for key in query:
-                keys += "*" + key + "* "
-            
-            final_query = keys + "OR description:" + keys
-            for result in index.query("name", final_query):
-                results.append(result.properties)
-                
-            return results
-            
-#    else:
-#        template = 'engine/search.html'
-#        return render_to_response( template, {}, 
-#                               context_instance = RequestContext( request ) )
-
-
-def code_search(query):
-    keys = split_query_into_keywords(query)
-    index = gdb.nodes.indexes.get("codes")
-    results = []
-    for key in keys:
-        iata = index['iata'][key.upper()]
-        icao = index['icao'][key.upper()]
-        if iata:
-            node = iata[0]
-        elif icao:
-            node = icao[0]
-        else:
-            continue
-        
-        result = get_lng_lat(node.url)
-        result.update(node.properties)
-        result['id'] = node.id
-        results.append(result)
-        
-    return results
-
-def get_lng_lat(graphid):
-    try:
-       conn = psycopg2.connect("dbname='geodb' user='postgres' host='localhost' password='geodb'");
-       cursor = conn.cursor()
-       
-       sql = "SELECT st_X(place), st_Y(place) FROM poi where graphid= '"+ graphid + "'"
-       
-       cursor.execute(sql)
-       rows = cursor.fetchall()
-       
-       result = {}
-       result['longitude'] = rows[0][1]
-       result['latitude'] = rows[0][0]
-       
-       return result
-       conn.close()
-    except:
-       print "I am unable to connect to the database"
-       print traceback.format_exc()
  
-def get_airlines(request):
-    data = None
-    query = request.GET.get( 'id' )
-    if query is not None:
-        result = []
-        node = gdb.nodes[query]
-        rels =  node.relationships.incoming(["ACTS"])
-        for rel in rels:
-            result.append(rel.start.properties)
-        data = json.dumps(result)
-        
-    return HttpResponse(data,mimetype='application/json')
-     
-                               
-def split_query_into_keywords(query):
-    keywords = []
-    # Deal with quoted keywords
-    while '"' in query:
-        first_quote = query.find('"')
-        second_quote = query.find('"', first_quote + 1)
-        quoted_keywords = query[first_quote:second_quote + 1]
-        keywords.append(quoted_keywords.strip('"'))
-        query = query.replace(quoted_keywords, ' ')
-    # Split the rest by spaces
-    keywords.extend(query.split())
-    return keywords
+
 
     

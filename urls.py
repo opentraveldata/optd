@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'TSE.views.home', name='home'),
     # url(r'^TSE/', include('TSE.foo.urls')),
-    (r'^engine/', include('engine.urls')),
+    (r'^engine', include('engine.urls')),
     (r'^TSE/media/(?P<path>.*)$', 'django.views.static.serve', { 'document_root': settings.MEDIA_ROOT }),
 
     # Uncomment the admin/doc line below to enable admin documentation:
