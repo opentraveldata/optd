@@ -22,6 +22,7 @@ MANAGERS = ADMINS
 #    }
 #} 
 
+
 #Informations needed to create nodes in the graph database. Change only if you need.
 BASE = '/home/milena/workspace/TSE/base/'
 BASE_REF_NODE = BASE + 'reference_nodes.ref'
@@ -30,6 +31,7 @@ BASE_AIRPORT_AIRLINE = BASE + 'airport_airline.ref'
 
 
 BASE_CODES = ['iata','icao','city_code','country_code','continent_code']
+FULLTEXT_PROPERTIES_INDEX = ['','']
 
 #NEO4J_
 

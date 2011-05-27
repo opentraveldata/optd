@@ -59,8 +59,7 @@ def index_node(ind, key, value, node):
         
     index.add(key, value, node)
     
-    
-    
+
 def get_node_from_index(index, key, value):
     index = gdb.nodes.indexes.get(index)
     result = index[key][value]
