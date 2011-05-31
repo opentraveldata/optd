@@ -49,8 +49,11 @@ public class BatchInsert {
 		long start = System.currentTimeMillis();
 		BatchInsert bi = new BatchInsert();
 		bi.makeReferenceNodes(new File(BASE_REF_NODE));
+		
+		//TODO change files or databases ..
 		bi.createContinentNodes(null);
 		bi.createCountryNodes(null);
+		
 		bi.createAirportNodes();
 		bi.createAirlineNodes(BASE_AIRLINE_FILE);
 		
@@ -122,10 +125,8 @@ public class BatchInsert {
 			reader.close();
 			typeIndex.flush();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -133,29 +134,29 @@ public class BatchInsert {
 	void createAirportNodes(){
 		long refNode = typeIndex.get("type", "airport").getSingle();
 		
-		String dbtime;
 		String dbUrl = "jdbc:mysql://nceoridb01.nce.amadeus.net/geography";
 		String dbClass = "com.mysql.jdbc.Driver";
 		String query = "SELECT * FROM icao";
 
 		try {
 
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName(dbClass);
 			Connection con = DriverManager.getConnection (dbUrl, "sim", "pods3030");
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 
 			while (rs.next()) {
 				long node = createAndIndexNode(createPOIProperties(rs), keywordIndex);
+				//TODO change this numbers with the right number or name.
 				addPOIGeoDb(rs.getString(1),rs.getString(1), node );
 				long cityNode = getOrCreateCityNode(rs.getString("city"));
 				relateNodes(refNode, node, "IS");
 				relateNodes(node, cityNode, "IS AT");
 				
-			} //end while
+			}
 
 			con.close();
-		} //end try
+		} 
 
 		catch(ClassNotFoundException e) {
 			e.printStackTrace();
@@ -169,27 +170,35 @@ public class BatchInsert {
 	
 	void createAirlineNodes(String baseAirlineFile) {
 		long refNode = typeIndex.get("type", "airline").getSingle();
-		//TODO
+		//TODO well ... to do :P
 		
 	}
 	
 	private void addPOIGeoDb(String longitude, String latitude, long node) {
-		// TODO Auto-generated method stub
+		// TODO Connect with PostGIS
 		
 	}
 
 	private long getOrCreateCityNode(String name) {
-		// TODO Auto-generated method stub
-		return 0;
+		long node = 0;
+		try{
+			node = placeIndex.get("name", name).getSingle();
+		}catch (Exception e){
+			Map<String,Object> properties = new HashMap<String,Object>();
+			properties.put("name", name);
+			node = createAndIndexNode(properties, placeIndex);
+			//TODO how to relate with the country or region
+		}
+		return node;
 	}
 	
-	private Map createPOIProperties(ResultSet rs){
-		//TODO finish properties
+	private Map<String,Object> createPOIProperties(ResultSet rs) throws SQLException{
 		Map<String,Object> properties = new HashMap<String,Object>();
         
-//        properties.put( "name", "Mr" + i );
-//        properties.put( "iata", i );
-//        properties.put( "icao", i );
+		//TODO finish properties names/numbers
+        properties.put( "name", rs.getString(1) );
+        properties.put( "iata", rs.getString(1).toUpperCase() );
+        properties.put( "icao", rs.getString(1).toUpperCase() );
         
         return properties;
 		
@@ -199,7 +208,7 @@ public class BatchInsert {
 		inserter.createRelationship( node1, node2, DynamicRelationshipType.withName( label ), null );
 	}
 	
-	private long createAndIndexNode(Map properties, BatchInserterIndex index){
+	private long createAndIndexNode(Map<String,Object> properties, BatchInserterIndex index){
         long node = inserter.createNode( properties );
         index.add( node, properties );
         
@@ -207,4 +216,5 @@ public class BatchInsert {
 	}
 	
 }
+
 
