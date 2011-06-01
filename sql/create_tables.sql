@@ -6,10 +6,6 @@ CREATE sequence continent_id_seq;
 
 CREATE TABLE POI ( 
     id integer PRIMARY KEY DEFAULT NEXTVAL('poi_id_seq'),
-    city VARCHAR(70),
-    region VARCHAR(70),
-    country VARCHAR(70),
-    continent VARCHAR(70),
     type VARCHAR(70),
     graphid VARCHAR(70) NOT NULL );
 SELECT AddGeometryColumn('poi', 'place', 32661, 'POINT', 2);
