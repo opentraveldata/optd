@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
@@ -36,7 +35,6 @@ public class BatchInsert {
 	private BatchInserter inserter = null;
 	private BatchInserterIndexProvider indexProvider = null;
 	private BatchInserterIndex typeIndex = null;
-	private BatchInserterIndex codeIndex = null;
 	private BatchInserterIndex keywordIndex = null;
 	private BatchInserterIndex placeIndex = null;
 
@@ -46,7 +44,6 @@ public class BatchInsert {
 		indexProvider = new LuceneBatchInserterIndexProvider( inserter );
 
 		typeIndex = indexProvider.nodeIndex( "types", MapUtil.stringMap( "type", "exact" ) );
-		codeIndex = indexProvider.nodeIndex( "codes", MapUtil.stringMap( "type", "exact" ) );
 		keywordIndex = indexProvider.nodeIndex( "keywords", MapUtil.stringMap( "type", "fulltext" ) );
 		placeIndex = indexProvider.nodeIndex( "places", MapUtil.stringMap( "type", "fulltext" ) );
 	}
@@ -161,11 +158,15 @@ public class BatchInsert {
 			ResultSet rs = stmt.executeQuery(query);
 
 			while (rs.next()) {
-				long node = createAndIndexNode(createPOIProperties(rs), keywordIndex);
-				addPOIGeoDb(rs.getString("longitude"),rs.getString("latitude"), "airport" ,  node );
-				long cityNode = getOrCreateCityNode(rs.getString("city"), rs.getString("country"));
-				relateNodes(refNode, node, "IS");
-				relateNodes(node, cityNode, "IS AT");
+				if(keywordIndex.get("iata",rs.getString("iata")).getSingle() == null){
+					long node = createAndIndexNode(createPOIProperties(rs), keywordIndex);
+					addPOIGeoDb(rs.getString("longitude"),rs.getString("latitude"), "airport" ,  node );
+					long cityNode = getOrCreateCityNode(rs.getString("city"), rs.getString("country"));
+					relateNodes(refNode, node, "IS");
+					relateNodes(node, cityNode, "IS AT");
+					keywordIndex.flush();
+				}
+				
 			}
 
 			con.close();
@@ -183,17 +184,19 @@ public class BatchInsert {
 
 	void createAirlineNodes(File file) {
 		long refNode = typeIndex.get("type", "airline").getSingle();
-		//TODO well ... to do :P
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
 			String line;
 			while( (line = reader.readLine()) != null ){
-				long node = createAndIndexNode(createAirlinesProperties(line), keywordIndex);
-				relateNodes(node, refNode, "IS");
-				keywordIndex.flush();
+				String[] props = line.split("\\^");
+				if(keywordIndex.get("iata", props[0]).getSingle() == null){
+					long node = createAndIndexNode(createAirlinesProperties(props), keywordIndex);
+					relateNodes(node, refNode, "IS");
+					keywordIndex.flush();
+				}
+				
 			}
 			reader.close();
-			keywordIndex.flush();
 			
 			relateAirlinesAndAirports(createAirlineToAirportMap());
 			
@@ -263,9 +266,9 @@ public class BatchInsert {
 		return map;
 	}
 
-	private Map<String, Object> createAirlinesProperties(String line) {
+	private Map<String, Object> createAirlinesProperties(String[] props) {
 		Map<String,Object> properties = new HashMap<String,Object>();
-		String[] props = line.split("\\^");
+		
 		properties.put( "name", props[2] );
 		properties.put( "call_sign", props[4] );
 		properties.put( "nationality", props[3] );
