@@ -1,9 +1,13 @@
-SELECT DISTINCT p1.city
+SELECT *
 FROM poi p1
-WHERE st_dwithin(p1.place,
-       (SELECT place FROM poi p2 WHERE p2.graphid = 'http://localhost:7474/db/data/node/145'),
-       200
-     );
+WHERE p1.graphid = '2536';
+     
+--SELECT DISTINCT p1.city
+--FROM poi p1
+--WHERE st_dwithin(p1.place,
+--       (SELECT place FROM poi p2 WHERE p2.graphid = 'http://localhost:7474/db/data/node/145'),
+--       200
+--     );
 
 --WHERE DISTANCE((SELECT place FROM poi p2 WHERE p2.graphid = 'http://localhost:7474/db/data/node/145'), p1.place) < 100
 

@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 import org.neo4j.graphdb.DynamicRelationshipType;
 import org.neo4j.graphdb.index.BatchInserterIndex;
@@ -25,6 +26,9 @@ public class BatchInsert {
 	private static final String GRAPH_URL = "/home/milena/graph/data/graph.db/";
 	private static final String BASE_AIRLINE_FILE = "/home/milena/workspace/TSE/base/airlines.ref";
 	private static final String BASE_REF_NODE = "/home/milena/workspace/TSE/base/reference_nodes.ref";
+	private static final String BASE_CONTINENTS = "/home/milena/workspace/TSE/base/continents.ref";
+	private static final String BASE_COUNTRIES = "/home/milena/workspace/TSE/base/countryInfo.ref";
+	
 	
 	
 	private BatchInserter inserter = null;
@@ -49,13 +53,10 @@ public class BatchInsert {
 		long start = System.currentTimeMillis();
 		BatchInsert bi = new BatchInsert();
 		bi.makeReferenceNodes(new File(BASE_REF_NODE));
-		
-		//TODO change files or databases ..
-		bi.createContinentNodes(null);
-		bi.createCountryNodes(null);
-		
+		bi.createContinentNodes(new File(BASE_CONTINENTS));
+		bi.createCountryNodes(new File(BASE_COUNTRIES));
 		bi.createAirportNodes();
-		bi.createAirlineNodes(BASE_AIRLINE_FILE);
+//		bi.createAirlineNodes(BASE_AIRLINE_FILE);
 		
 		bi.stopBatch();
 		
@@ -66,17 +67,23 @@ public class BatchInsert {
 
 
 	void createCountryNodes(File file) {
+		long refNode = typeIndex.get("type", "country").getSingle();
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
 			String line;
+			String[] props;
 			Map<String,Object> properties = new HashMap<String,Object>();
 			while( (line = reader.readLine()) != null ){
-				//TODO change the properties according to the file it cames from
-		        properties.put("name", line.split("\n")[0]);
-				long node = createAndIndexNode(properties, placeIndex);
-				//TODO mudar aqui para o nome do continente ou código ...
-				long continentNode = placeIndex.get("name", line).getSingle();
-				relateNodes(node, continentNode, "IS AT");
+				if(!line.startsWith("#")){
+					props = line.split("	");
+			        properties.put("name", props[4]);
+			        properties.put("code", props[1]);
+					long node = createAndIndexNode(properties, placeIndex);
+					long continentNode = placeIndex.get("code", props[8]).getSingle();
+					relateNodes(node, refNode, "IS");
+					relateNodes(node, continentNode, "IS AT");
+				}
+				
 			}
 			reader.close();
 			placeIndex.flush();
@@ -84,19 +91,25 @@ public class BatchInsert {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		}catch (Exception e){
+			e.printStackTrace();
 		}
 		
 	}
 
 	void createContinentNodes(File file) {
+		long refNode = typeIndex.get("type", "continent").getSingle();
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
 			String line;
+			String[] props;
 			Map<String,Object> properties = new HashMap<String,Object>();
 			while( (line = reader.readLine()) != null ){
-				//TODO change the properties according to the file it cames from
-		        properties.put("name", line.split("\n")[0]);
-				createAndIndexNode(properties, placeIndex);
+				props = line.split("	");
+		        properties.put("name", props[1]);
+		        properties.put("code", props[0]);
+				long node = createAndIndexNode(properties, placeIndex);
+				relateNodes(node, refNode, "IS");
 			}
 			reader.close();
 			placeIndex.flush();
@@ -147,12 +160,10 @@ public class BatchInsert {
 
 			while (rs.next()) {
 				long node = createAndIndexNode(createPOIProperties(rs), keywordIndex);
-				//TODO change this numbers with the right number or name.
-				addPOIGeoDb(rs.getString(1),rs.getString(1), node );
-				long cityNode = getOrCreateCityNode(rs.getString("city"));
+				addPOIGeoDb(rs.getString("longitude"),rs.getString("latitude"), "airport" ,  node );
+				long cityNode = getOrCreateCityNode(rs.getString("city"), rs.getString("country"));
 				relateNodes(refNode, node, "IS");
 				relateNodes(node, cityNode, "IS AT");
-				
 			}
 
 			con.close();
@@ -174,31 +185,64 @@ public class BatchInsert {
 		
 	}
 	
-	private void addPOIGeoDb(String longitude, String latitude, long node) {
-		// TODO Connect with PostGIS
+	private void addPOIGeoDb(String longitude, String latitude,String kind, long node) {
+		String dbUrl = "jdbc:postgresql://localhost/geodb";
+		String dbClass = "org.postgresql.Driver";
+		
+		String sql = "INSERT INTO poi (graphid, type, place) ";
+		sql += "VALUES ('"+node + "','" + kind +"',";
+		sql += "ST_GeomFromText('SRID=32661;POINT("+longitude+" "+ latitude+")') );";
+		
+		try {
+
+			Class.forName(dbClass);
+			Connection con = DriverManager.getConnection (dbUrl, "postgres", "geodb");
+			Statement stmt = con.createStatement();
+			stmt.executeUpdate(sql);
+			con.close();
+		} 
+
+		catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
-	private long getOrCreateCityNode(String name) {
-		long node = 0;
-		try{
-			node = placeIndex.get("name", name).getSingle();
-		}catch (Exception e){
+	private long getOrCreateCityNode(String name, String country) {
+		Long node = placeIndex.get("name", name).getSingle();
+		if(node == null){
+			long refNode = typeIndex.get("type", "city").getSingle();
 			Map<String,Object> properties = new HashMap<String,Object>();
 			properties.put("name", name);
 			node = createAndIndexNode(properties, placeIndex);
-			//TODO how to relate with the country or region
+			long countryNode;
+			try{
+				countryNode = placeIndex.query("name", removeSpecialCharacters(country) + "~").next();
+			}catch (NoSuchElementException e){
+				countryNode = placeIndex.query("code", country + "~").next();
+			}
+			relateNodes(node, refNode, "IS");
+			relateNodes(node, countryNode, "IS AT");
 		}
+		
 		return node;
+	}
+	
+	private String removeSpecialCharacters(String word){
+		
+		return word.replaceAll("[^a-zA-Z 0-9]+"," ");
 	}
 	
 	private Map<String,Object> createPOIProperties(ResultSet rs) throws SQLException{
 		Map<String,Object> properties = new HashMap<String,Object>();
         
-		//TODO finish properties names/numbers
-        properties.put( "name", rs.getString(1) );
-        properties.put( "iata", rs.getString(1).toUpperCase() );
-        properties.put( "icao", rs.getString(1).toUpperCase() );
+        properties.put( "name", rs.getString("name") );
+        properties.put( "iata", rs.getString("iata").toUpperCase() );
+        properties.put( "icao", rs.getString("icao").toUpperCase() );
         
         return properties;
 		
