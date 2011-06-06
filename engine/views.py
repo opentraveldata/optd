@@ -60,7 +60,17 @@ def web_handler(request):
     else:
         template = 'engine/search.html'
         return render_to_response( template, {}, 
-                               context_instance = RequestContext( request ) )    
+                               context_instance = RequestContext( request ) )  
+                               
+                               
+                               
+def node_search (request, node=0):
+    template = 'engine/node.html'
+    node_info = manager.get_node_properties(int(node))
+    node_links = manager.get_node_relationships(int(node))
+    resp = {'node_info': node_info, 'node_links': node_links}
+    return render_to_response( template, resp, 
+                               context_instance = RequestContext( request ) )
                                
    
 

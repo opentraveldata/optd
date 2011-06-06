@@ -12,21 +12,19 @@ ADMINS = (
 MANAGERS = ADMINS
 
 #Informations needed to create nodes in the graph database.
-BASE = '/base/'
+BASE = '/home/milena/workspace/TSE/base/'
 BASE_REF_NODE = BASE + 'reference_nodes.ref'
 BASE_AIRLINE_FILE = BASE + 'airlines.ref'
 BASE_AIRPORT_AIRLINE = BASE + 'airport_airline.ref'
 
-
 BASE_CODES = ['iata','icao','city_code','country_code','continent_code']
-FULLTEXT_PROPERTIES_INDEX = ['','']
-
-#NEO4J_
+MAX_RESULTS = 20
 
 #Data to connect to the graph database
 NEO4J_URL = 'http://localhost:7474/db/data/'
 NEO4J_ADD_NODE = NEO4J_URL + 'node'
 NEO4J_INDEX_NODE = NEO4J_URL + 'index/node/'
+
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -51,8 +49,9 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-MEDIA_ROOT = '/TSE/media/'
+MEDIA_ROOT = '/home/milena/workspace/TSE/media/'
 MEDIA_URL = 'http://localhost:8000/TSE/media/'
+ENGINE_URL = 'http://localhost:8000/TSE/engine/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
