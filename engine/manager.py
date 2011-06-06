@@ -23,6 +23,19 @@ def keyword_search(q):
             results.append(result.properties)
                 
         return results
+        
+#def code_search(q):
+#    query = split_query_keywords(q.encode('utf-8'))
+#    if query:
+#        results = []
+#        index = gdb.nodes.indexes.get("keywords")
+#            
+#        final_query = query + "OR icao:" + query
+#        
+#        for result in index.query("iata", final_query):
+#            results.append(result.properties)
+#                
+#        return results        
             
 
 def code_search(code_list, query):
@@ -40,6 +53,7 @@ def code_search(code_list, query):
                 data = dict(script="g.v("+ str(ref.id)+ ").bothE('IS').outV{it."+code +"=='"+key+"'}")
                 resp, content = h.request(url,"POST",headers=headers, body= urlencode(data))
                 result = json.loads(content)
+                print result
                 if result:
                     for r in result:
                         results.append(Node(r["self"]).properties)

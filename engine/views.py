@@ -15,23 +15,19 @@ def test (request):
         return HttpResponse(json.dumps(results))
 
 
-def handler(request):
+def handler(request, type="", q=""):
     if request.method == 'GET':
-        search_type = request.GET.get('type')
-        query = request.GET.get( 'q' )
-        print search_type
-        
         results = [] 
         
-        if search_type == 'code':
-            results = manager.code_search(code_list, query)
-        if search_type == 'key':
-            results = manager.keyword_search(query)
+        if type == 'code':
+            results = manager.code_search(code_list, q)
+        if type == 'key':
+            results = manager.keyword_search(q)
             
         return HttpResponse(json.dumps(results))            
     else: 
        print request.method + "," +  request.META['QUERY_STRING']
-       #escrever num arquivo o metodo seguido dos parametros         
+
         
 def code_search(request):
     if request.method == 'GET':

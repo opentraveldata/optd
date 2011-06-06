@@ -11,20 +11,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-#DATABASES = {
-#    'default': {
-##        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-##        'NAME': 'tse',                      # Or path to database file if using sqlite3.
-#        'USER': 'tse',                      # Not used with sqlite3.
-#        'PASSWORD': 'tse',                  # Not used with sqlite3.
-#        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-#        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-#    }
-#} 
-
-
-#Informations needed to create nodes in the graph database. Change only if you need.
-BASE = '/home/milena/workspace/TSE/base/'
+#Informations needed to create nodes in the graph database.
+BASE = '/base/'
 BASE_REF_NODE = BASE + 'reference_nodes.ref'
 BASE_AIRLINE_FILE = BASE + 'airlines.ref'
 BASE_AIRPORT_AIRLINE = BASE + 'airport_airline.ref'
@@ -35,14 +23,10 @@ FULLTEXT_PROPERTIES_INDEX = ['','']
 
 #NEO4J_
 
+#Data to connect to the graph database
 NEO4J_URL = 'http://localhost:7474/db/data/'
 NEO4J_ADD_NODE = NEO4J_URL + 'node'
 NEO4J_INDEX_NODE = NEO4J_URL + 'index/node/'
-
-NEO4J_DATABASE = '/home/milena/workspace/TSE/graphdb/'
-# NEO4J_RESOURCE_URI should be the path to where
-#    you want to store the Neo4j database.
-
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -67,7 +51,7 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-MEDIA_ROOT = '/home/milena/workspace/TSE/media/'
+MEDIA_ROOT = '/TSE/media/'
 MEDIA_URL = 'http://localhost:8000/TSE/media/'
 
 # Absolute path to the directory static files should be collected to.
