@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block extra_js %}
+<script type="text/javascript" src="{{ MEDIA_URL }}js/search.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<div id="main">
+	<br/>
+	<div class="margin">
+		<span id="spinner"><img src="{{ MEDIA_URL }}imgs/spinner.gif"/></span>
+		<div id="node">
+		    {% for key, value in node_info.items %}
+                {{ key }}: {{ value }}<br>
+            {% endfor %}
+            <br>
+            <br>
+            {% for key in node_links %}
+                <a href="{{ ENGINE_URL }}{{ key.id }}">{{ key.name }}</a><br>
+            {% endfor %}
+            <div id="links"></div>
+		</div>
+	</div>
+</div>
+{% endblock %}

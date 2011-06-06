@@ -2,9 +2,9 @@ $( document ).ready( function() {
 
     // Clear the divs before doing a new ajax call for the search.
     $( '#searchSubmit' ).click(function() {
-        $("#findRule").hide();
-        $("#findRuleResult").empty()
-        $('#findRule :input').not(':button, :submit').val("");
+//        $("#findRule").hide();
+//        $("#findRuleResult").empty()
+//        $('#findRule :input').not(':button, :submit').val("");
 //	    doSimpleSearch();
 	    doKeywordSearch();
 	 });
@@ -19,6 +19,8 @@ $( document ).ready( function() {
 
 });
 
+url = 'http://localhost:8000/engine/'
+
 //Shows a spinner while it doesn't recieve the response from
 //the controller.
 $( document ).ajaxStart( function() {
@@ -30,13 +32,13 @@ $( document ).ajaxStart( function() {
 function doKeywordSearch(){
     q = $( '#query' ).val();
 //    console.info(navigator.language)
-    $('#someText').empty()
-    $('#map').remove()
+    $('#results').empty()
+//    $('#map').remove()
 	$.getJSON('/engine', {q : q}, function(data){
         if(data.length > 0){
             
             $.each(data,function(key, val){
-                $('#someText').append(val.name + "<br>")
+                $('<a href="'+ url + 'node/' + val.id +'" class="myNewLink">'+ val.name + '</a><br>').appendTo('#results')
             });
             
          }
@@ -163,8 +165,10 @@ function getAirlines(id){
         });
     
     });
+}
+
+function getInformationById(id){
 
 }
 
-
-
+//function 

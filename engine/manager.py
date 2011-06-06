@@ -20,9 +20,10 @@ def keyword_search(q):
         final_query = keys + "OR description:" + keys
         
         for result in index.query("name", final_query):
+            result.properties['id'] = result.id
             results.append(result.properties)
                 
-        return results
+        return results[:settings.MAX_RESULTS]
         
 #def code_search(q):
 #    query = split_query_keywords(q.encode('utf-8'))
@@ -56,9 +57,11 @@ def code_search(code_list, query):
                 print result
                 if result:
                     for r in result:
-                        results.append(Node(r["self"]).properties)
+                        node = Node(r["self"])
+                        node.properties['id'] = r.id
+                        results.append(node.properties)
     
-    return results
+    return results[:settings.MAX_RESULTS]
     
     
 
@@ -82,7 +85,25 @@ def get_lng_lat(graphid):
        print "I am unable to connect to the database"
        print traceback.format_exc()
        
-       
+
+def get_node_properties(id):
+    return gdb.node[id].properties
+    
+def get_node_relationships(id):
+    results = []
+    node = gdb.node[id]
+    nodes = node.traverse(order=[constants.BREADTH_FIRST])
+    for n in nodes:
+        try:
+            nd = {}
+            nd['name'] = n.properties['name']
+            nd['id'] = n.id
+            results.append(nd)
+        except:
+            pass
+           
+        
+    return results            
                                
 def split_query_keywords(query):
     keywords = []
