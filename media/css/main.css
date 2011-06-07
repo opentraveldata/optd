@@ -44,7 +44,7 @@ img{
     display: none;
 }
 
-#results{
+#results, #node{
     text-align: left;
 }
 
