@@ -51,7 +51,6 @@ USE_L10N = True
 
 MEDIA_ROOT = '/home/milena/workspace/TSE/media/'
 MEDIA_URL = 'http://localhost:8000/TSE/media/'
-ENGINE_URL = 'http://localhost:8000/TSE/engine/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files

@@ -14,7 +14,7 @@
 
 <body>
     <div id="content">
-    	<a href="{{ ENGINE_URL }}"><img src="{{ MEDIA_URL }}imgs/tse.jpeg" ></a>
+    	<a href="{% url engine.views.web_handler %}"><img src="{{ MEDIA_URL }}imgs/tse.jpeg" ></a>
         {% block content %}{% endblock %}
     </div>
 

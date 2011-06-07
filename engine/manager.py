@@ -89,6 +89,15 @@ def get_lng_lat(graphid):
 def get_node_properties(id):
     return gdb.node[id].properties
     
+def get_node_type(id):
+    node = gdb.node[id]
+    type_node = node.relationships.all(types=["IS"])[0].start
+    if 'type' not in type_node.properties.keys():
+        type_node = node.relationships.all(types=["IS"])[0].end
+        
+    rel_type = type_node.properties['type']
+    return rel_type
+    
 def get_node_relationships(id):
     results = []
     node = gdb.node[id]

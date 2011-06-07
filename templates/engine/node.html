@@ -11,6 +11,7 @@
 	<div class="margin">
 		<span id="spinner"><img src="{{ MEDIA_URL }}imgs/spinner.gif"/></span>
 		<div id="node">
+		    <b>{{ node_type|upper }}</b><br>
 		    {% for key, value in node_info.items %}
                 {{ key }}: {{ value }}<br>
             {% endfor %}
@@ -20,6 +21,8 @@
                 <a href="{{ ENGINE_URL }}{{ key.id }}">{{ key.name }}</a><br>
             {% endfor %}
             <div id="links"></div>
+            <br>
+            <br>
 		</div>
 	</div>
 </div>
