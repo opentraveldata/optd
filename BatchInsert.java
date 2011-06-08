@@ -22,16 +22,30 @@ import org.neo4j.kernel.impl.batchinsert.BatchInserter;
 import org.neo4j.kernel.impl.batchinsert.BatchInserterImpl;
 
 
+/**
+ * Class responsible to insert bulk information into the graph and geo databases.
+ * @author Milena Araujo
+ *
+ */
 public class BatchInsert {
 
+	/**
+	 * Absolute path to the graph database.
+	 */
 	private static final String GRAPH_URL = "/home/milena/graph/data/graph.db/";
+	
+	/**
+	 * Absolute path to the files used to gather information.
+	 */
 	private static final String BASE_AIRLINE_FILE = "/home/milena/workspace/TSE/base/airlines.ref";
 	private static final String BASE_REF_NODE = "/home/milena/workspace/TSE/base/reference_nodes.ref";
 	private static final String BASE_CONTINENTS = "/home/milena/workspace/TSE/base/continents.ref";
 	private static final String BASE_COUNTRIES = "/home/milena/workspace/TSE/base/countryInfo.ref";
 
 
-
+	/**
+	 * Neo4j's classes to do the bulk insert.
+	 */
 	private BatchInserter inserter = null;
 	private BatchInserterIndexProvider indexProvider = null;
 	private BatchInserterIndex typeIndex = null;
@@ -39,6 +53,9 @@ public class BatchInsert {
 	private BatchInserterIndex placeIndex = null;
 
 
+	/**
+	 * Constructor that only initiates the batchinsert.
+	 */
 	public BatchInsert(){
 		inserter = new BatchInserterImpl( GRAPH_URL );
 		indexProvider = new LuceneBatchInserterIndexProvider( inserter );
@@ -48,6 +65,9 @@ public class BatchInsert {
 		placeIndex = indexProvider.nodeIndex( "places", MapUtil.stringMap( "type", "fulltext" ) );
 	}
 
+	/**
+	 * Executes the bulk insert and shows the duration of it in the default output.
+	 */
 	public static void main(String [] args){
 		long start = System.currentTimeMillis();
 		BatchInsert bi = new BatchInsert();
@@ -65,6 +85,10 @@ public class BatchInsert {
 	}
 
 
+	/**
+	 * Creates nodes for the entity of the kind Country.
+	 * @param file which has all the information concerned to the country.
+	 */
 	void createCountryNodes(File file) {
 		long refNode = typeIndex.get("type", "country").getSingle();
 		try {
@@ -96,6 +120,10 @@ public class BatchInsert {
 
 	}
 
+	/**
+	 * Creates nodes for the entity of the kind Continent.
+	 * @param file which has all the information concerned to the continents.
+	 */
 	void createContinentNodes(File file) {
 		long refNode = typeIndex.get("type", "continent").getSingle();
 		try {
@@ -120,11 +148,10 @@ public class BatchInsert {
 
 	}
 
-	void stopBatch(){
-		indexProvider.shutdown();
-		inserter.shutdown();
-	}
-
+	/**
+	 * Creates the reference nodes used to navigate thought the graph.
+	 * @param file with the name of each kind of information, one per line.
+	 */
 	void makeReferenceNodes(File file){
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -143,6 +170,9 @@ public class BatchInsert {
 		}
 	}
 
+	/**
+	 * Creates nodes for the entity of the kind Airport.
+	 */
 	void createAirportNodes(){
 		long refNode = typeIndex.get("type", "airport").getSingle();
 
@@ -182,6 +212,10 @@ public class BatchInsert {
 
 	}
 
+	/**
+	 * Creates nodes for the entity of the kind Airline.
+	 * @param file which has all the information concerned to the airlines.
+	 */
 	void createAirlineNodes(File file) {
 		long refNode = typeIndex.get("type", "airline").getSingle();
 		try {
@@ -211,6 +245,11 @@ public class BatchInsert {
 
 	}
 	
+	/**
+	 * Create all the relationships between airline and airport of the kind
+	 * "ACTS" that means that an airline operates on that airport.
+	 * @param map that would have the airline:airport list information. 
+	 */
 	private void relateAirlinesAndAirports(Map<String, ArrayList<String>> map) {
 		for (String airline : map.keySet()) {
 			Long al = keywordIndex.get("iata", airline).getSingle();
@@ -227,6 +266,11 @@ public class BatchInsert {
 		
 	}
 
+	/**
+	 * Extract from the schedules the information about in which airport
+	 * each airline acts.
+	 * @return A Map like <airline iata code, list of airport iata codes>
+	 */
 	private Map<String, ArrayList<String>> createAirlineToAirportMap(){
 		Map<String,ArrayList<String>> map = new HashMap<String,ArrayList<String>>();
 		
@@ -266,18 +310,13 @@ public class BatchInsert {
 		return map;
 	}
 
-	private Map<String, Object> createAirlinesProperties(String[] props) {
-		Map<String,Object> properties = new HashMap<String,Object>();
-		
-		properties.put( "name", props[2] );
-		properties.put( "call_sign", props[4] );
-		properties.put( "nationality", props[3] );
-		properties.put( "iata", props[0].toUpperCase() );
-		properties.put( "icao", props[1].toUpperCase() );
-
-		return properties;
-	}
-
+	/**
+	 * Create a new entry in the Geo database.
+	 * @param longitude 
+	 * @param latitude
+	 * @param kind the name of the "kind" entity in the graph database.
+	 * @param node id of the entity in the graph database that has the related information.
+	 */
 	private void addPOIGeoDb(String longitude, String latitude,String kind, long node) {
 		String dbUrl = "jdbc:postgresql://localhost/geodb";
 		String dbClass = "org.postgresql.Driver";
@@ -305,6 +344,12 @@ public class BatchInsert {
 
 	}
 
+	/**
+	 * Tries to get a node of the type City by it's name. If note found, creates a new City.
+	 * @param name of the city
+	 * @param country that the City belongs to. It's only used if the city is not found.
+	 * @return The found or created City node.
+	 */
 	private long getOrCreateCityNode(String name, String country) {
 		Long node = placeIndex.get("name", name).getSingle();
 		if(node == null){
@@ -325,10 +370,21 @@ public class BatchInsert {
 		return node;
 	}
 
+	/**
+	 * Removes non alphanumeric digit.
+	 * @param word String with the characters to be removed.
+	 * @return The same string with only alphanumeric characters and spaces.
+	 */
 	private String removeSpecialCharacters(String word){
 		return word.replaceAll("[^a-zA-Z 0-9]+"," ");
 	}
 
+	/**
+	 * Take the information needed and make a properties Map for including on a node.
+	 * @param rs Set of information that comes from a database.
+	 * @return A Maps <key, information> for creating a node.
+	 * @throws SQLException If it tries to access an information that doesn't exist.
+	 */
 	private Map<String,Object> createPOIProperties(ResultSet rs) throws SQLException{
 		Map<String,Object> properties = new HashMap<String,Object>();
 
@@ -339,16 +395,54 @@ public class BatchInsert {
 		return properties;
 
 	}
+	
+	/**
+	 * Take the information needed and make a properties Map for including on a node.
+	 * @param props List of information that comes from a file.
+	 * @return A Maps <key, information> for creating a node.
+	 */
+	private Map<String, Object> createAirlinesProperties(String[] props) {
+		Map<String,Object> properties = new HashMap<String,Object>();
+		
+		properties.put( "name", props[2] );
+		properties.put( "call_sign", props[4] );
+		properties.put( "nationality", props[3] );
+		properties.put( "iata", props[0].toUpperCase() );
+		properties.put( "icao", props[1].toUpperCase() );
 
+		return properties;
+	}
+
+	/**
+	 * Create a relationship between the two given nodes.
+	 * @param node1
+	 * @param node2
+	 * @param label the "type" or "name" of the relationship.
+	 */
 	private void relateNodes(long node1,long node2,String label){
 		inserter.createRelationship( node1, node2, DynamicRelationshipType.withName( label ), null );
 	}
 
+	/**
+	 * Method that creates a node and index it.
+	 * @param properties the fields of the new entity
+	 * @param index the one that should be used to index the new entity
+	 * @return the new node.
+	 */
 	private long createAndIndexNode(Map<String,Object> properties, BatchInserterIndex index){
 		long node = inserter.createNode( properties );
 		index.add( node, properties );
 
 		return node;
+	}
+	
+	/**
+	 * Helper method to end the connection with the Index provider and the 
+	 * Graph Database.
+	 */
+	void stopBatch(){
+		indexProvider.shutdown();
+		inserter.shutdown();
 	}
 
 }

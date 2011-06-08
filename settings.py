@@ -12,7 +12,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 #Informations needed to create nodes in the graph database.
-BASE = './base/'
+BASE = '/home/milena/workspace/TSE/base/'
 BASE_REF_NODE = BASE + 'reference_nodes.ref'
 BASE_AIRLINE_FILE = BASE + 'airlines.ref'
 BASE_AIRPORT_AIRLINE = BASE + 'airport_airline.ref'
@@ -49,8 +49,8 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-MEDIA_ROOT = './media/'
-MEDIA_URL = 'http://localhost:8000/media/'
+MEDIA_ROOT = '/home/milena/workspace/TSE/media/'
+MEDIA_URL = 'http://localhost:8000/TSE/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
