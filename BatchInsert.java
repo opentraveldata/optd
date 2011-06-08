@@ -100,9 +100,10 @@ public class BatchInsert {
 				if(!line.startsWith("#")){
 					props = line.split("	");
 					properties.put("name", props[4]);
-					properties.put("code", props[1]);
-					long node = createAndIndexNode(properties, placeIndex);
-					long continentNode = placeIndex.get("code", props[8]).getSingle();
+					properties.put("placeCode", props[1]);
+					long node = createAndIndexNode(properties, keywordIndex);
+					placeIndex.add( node, properties );
+					long continentNode = placeIndex.get("placeCode", props[8]).getSingle();
 					relateNodes(node, refNode, "IS");
 					relateNodes(node, continentNode, "IS AT");
 				}
@@ -134,7 +135,7 @@ public class BatchInsert {
 			while( (line = reader.readLine()) != null ){
 				props = line.split("	");
 				properties.put("name", props[1]);
-				properties.put("code", props[0]);
+				properties.put("placeCode", props[0]);
 				long node = createAndIndexNode(properties, placeIndex);
 				relateNodes(node, refNode, "IS");
 			}
@@ -361,7 +362,7 @@ public class BatchInsert {
 			try{
 				countryNode = placeIndex.query("name", removeSpecialCharacters(country) + "~").next();
 			}catch (NoSuchElementException e){
-				countryNode = placeIndex.query("code", country + "~").next();
+				countryNode = placeIndex.query("placeCode", country + "~").next();
 			}
 			relateNodes(node, refNode, "IS");
 			relateNodes(node, countryNode, "IS AT");
