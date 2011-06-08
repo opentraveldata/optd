@@ -25,6 +25,16 @@ def keyword_search(q):
                 
         return results[:settings.MAX_RESULTS]
         
+def make_query(keys, fields_list):
+    the_keys = ""
+    query = ""
+    for key in keys:
+        the_keys += "*" + key + "*"
+    
+#    for field in fields_list:
+#        query += keys + "OR " + field + ":" + the_keys 
+    
+        
 #def code_search(q):
 #    query = split_query_keywords(q.encode('utf-8'))
 #    if query:
@@ -87,6 +97,7 @@ def get_lng_lat(graphid):
        
 
 def get_node_properties(id):
+    print gdb.nodes.indexes.get("keywords")
     return gdb.node[id].properties
     
 def get_node_type(id):
