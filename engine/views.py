@@ -46,7 +46,7 @@ def web_handler(request):
     if request.is_ajax():
         query = request.GET.get( 'q' )
         if query is not None:
-            results = manager.keyword_search(search[1])
+            results = manager.keyword_search(query)
             
             return HttpResponse(json.dumps(results),mimetype='application/json')
             
