@@ -15,40 +15,11 @@ def keyword_search(q):
         index = gdb.nodes.indexes.get("keywords")
         keys = ""
         for key in query:
-            keys += "*" + key + "* "
+            keys += "*" + key + "*%20"
             
-        final_query = keys + "OR description:" + keys
-        
-        for result in index.query("name", final_query):
-            result.properties['id'] = result.id
-            results.append(result.properties)
-                
-        return results[:settings.MAX_RESULTS]
-        
-def make_query(keys, fields_list):
-    the_keys = ""
-    query = ""
-    for key in keys:
-        the_keys += "*" + key + "*"
-    
-#    for field in fields_list:
-#        query += keys + "OR " + field + ":" + the_keys 
-    
-        
-#def code_search(q):
-#    query = split_query_keywords(q.encode('utf-8'))
-#    if query:
-#        results = []
-#        index = gdb.nodes.indexes.get("keywords")
-#            
-#        final_query = query + "OR icao:" + query
-#        
-#        for result in index.query("iata", final_query):
-#            results.append(result.properties)
-#                
-#        return results        
-            
+        return  make_custom_query(keys)[:settings.MAX_RESULTS]
 
+        
 def code_search(code_list, query):
     keys = split_query_keywords(query.upper())
     results = []
@@ -97,8 +68,8 @@ def get_lng_lat(graphid):
        
 
 def get_node_properties(id):
-    print gdb.nodes.indexes.get("keywords")
     return gdb.node[id].properties
+    
     
 def get_node_type(id):
     node = gdb.node[id]
@@ -108,6 +79,7 @@ def get_node_type(id):
         
     rel_type = type_node.properties['type']
     return rel_type
+    
     
 def get_node_relationships(id):
     results = []
@@ -123,7 +95,30 @@ def get_node_relationships(id):
             pass
            
         
-    return results            
+    return results  
+    
+def make_custom_query(keys):
+    nodes = []
+    query = ""
+        
+    for field in settings.FULLTEXT_FIELDS:
+        query += field + ":" + keys + "%20OR%20"
+        
+    query = query[:-8]   
+    
+    from httplib2 import Http
+    h = Http()
+    resp, content = h.request(settings.NEO4J_INDEX_NODE + "keywords?query=" + query, "GET") 
+    response = json.loads(content)
+            
+    for result in response:
+        node = Node(result['self'])
+        node.properties['id'] = node.id
+        nodes.append(node.properties)
+        
+    return nodes    
+        
+        
                                
 def split_query_keywords(query):
     keywords = []

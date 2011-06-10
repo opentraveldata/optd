@@ -19,6 +19,7 @@ BASE_AIRPORT_AIRLINE = BASE + 'airport_airline.ref'
 
 BASE_CODES = ['iata','icao','city_code','country_code','continent_code']
 MAX_RESULTS = 20
+FULLTEXT_FIELDS = ['name','description','iata','icao','place_code']
 
 #Data to connect to the graph database
 NEO4J_URL = 'http://localhost:7474/db/data/'

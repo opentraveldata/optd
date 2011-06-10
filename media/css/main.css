@@ -3,10 +3,31 @@ body{
 	padding 0;
 	background-color: #FFFFFF;
 	text-align: center;
+	font-size: 62.5%;
 }
 
 img{
 	border: 0;
+}
+
+fieldset { 
+    padding:0; 
+    border:0; 
+    margin-top:25px; 
+}
+
+input.textarea { 
+    margin-bottom:12px; 
+    width:95%; 
+    height:95%; 
+    padding: .4em; 
+}
+
+textarea{
+    margin-bottom:12px; 
+    width:95%; 
+    height:95%; 
+    padding: .4em; 
 }
 
 #content{
@@ -18,7 +39,6 @@ img{
 #main{
 	margin-top: 20px;
 }
-
 
 #results{
 	margin: 20px;
@@ -45,7 +65,12 @@ img{
 }
 
 #results, #node{
+    font-size: 120%;
     text-align: left;
+}
+
+#dialog{
+    
 }
 
 .margin{

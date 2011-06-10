@@ -11,7 +11,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.NoSuchElementException;
 
 import org.neo4j.graphdb.DynamicRelationshipType;
 import org.neo4j.graphdb.index.BatchInserterIndex;
@@ -20,6 +19,8 @@ import org.neo4j.helpers.collection.MapUtil;
 import org.neo4j.index.impl.lucene.LuceneBatchInserterIndexProvider;
 import org.neo4j.kernel.impl.batchinsert.BatchInserter;
 import org.neo4j.kernel.impl.batchinsert.BatchInserterImpl;
+
+import com.csvreader.CsvReader;
 
 
 /**
@@ -33,14 +34,15 @@ public class BatchInsert {
 	 * Absolute path to the graph database.
 	 */
 	private static final String GRAPH_URL = "/home/milena/graph/data/graph.db/";
-	
+
 	/**
 	 * Absolute path to the files used to gather information.
 	 */
 	private static final String BASE_AIRLINE_FILE = "/home/milena/workspace/TSE/base/airlines.ref";
+	private static final String BASE_AIRPORT_FILE = "/home/milena/workspace/TSE/base/airports.csv";
 	private static final String BASE_REF_NODE = "/home/milena/workspace/TSE/base/reference_nodes.ref";
 	private static final String BASE_CONTINENTS = "/home/milena/workspace/TSE/base/continents.ref";
-	private static final String BASE_COUNTRIES = "/home/milena/workspace/TSE/base/countryInfo.ref";
+	private static final String BASE_COUNTRIES = "/home/milena/workspace/TSE/base/countries.csv";
 
 
 	/**
@@ -73,7 +75,7 @@ public class BatchInsert {
 		BatchInsert bi = new BatchInsert();
 		bi.makeReferenceNodes(new File(BASE_REF_NODE));
 		bi.createContinentNodes(new File(BASE_CONTINENTS));
-		bi.createCountryNodes(new File(BASE_COUNTRIES));
+		bi.createCountryNodes();
 		bi.createAirportNodes();
 		bi.createAirlineNodes(new File(BASE_AIRLINE_FILE));
 
@@ -89,36 +91,33 @@ public class BatchInsert {
 	 * Creates nodes for the entity of the kind Country.
 	 * @param file which has all the information concerned to the country.
 	 */
-	void createCountryNodes(File file) {
+	void createCountryNodes() {
 		long refNode = typeIndex.get("type", "country").getSingle();
-		try {
-			BufferedReader reader = new BufferedReader(new FileReader(file));
-			String line;
-			String[] props;
-			Map<String,Object> properties = new HashMap<String,Object>();
-			while( (line = reader.readLine()) != null ){
-				if(!line.startsWith("#")){
-					props = line.split("	");
-					properties.put("name", props[4]);
-					properties.put("placeCode", props[1]);
-					long node = createAndIndexNode(properties, keywordIndex);
-					placeIndex.add( node, properties );
-					long continentNode = placeIndex.get("placeCode", props[8]).getSingle();
-					relateNodes(node, refNode, "IS");
-					relateNodes(node, continentNode, "IS AT");
-				}
 
+		try {
+			CsvReader countries = new CsvReader(BASE_COUNTRIES);
+			countries.readHeaders();
+
+			while (countries.readRecord()){
+				Map<String,Object> properties = new HashMap<String,Object>();
+				properties.put("name", countries.get("name"));
+				properties.put("place_code", countries.get("code"));
+				long node = createAndIndexNode(properties, keywordIndex);
+				placeIndex.add( node, properties );
+				long continentNode = placeIndex.get("placeCode", countries.get("continent")).getSingle();
+				relateNodes(node, refNode, "IS");
+				relateNodes(node, continentNode, "IS AT");
+
+				placeIndex.flush();
 			}
-			reader.close();
-			placeIndex.flush();
+
+			countries.close();
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}catch (Exception e){
-			e.printStackTrace();
 		}
-
 	}
 
 	/**
@@ -176,42 +175,33 @@ public class BatchInsert {
 	 */
 	void createAirportNodes(){
 		long refNode = typeIndex.get("type", "airport").getSingle();
-
-		String dbUrl = "jdbc:mysql://nceoridb01.nce.amadeus.net/geography";
-		String dbClass = "com.mysql.jdbc.Driver";
-		String query = "SELECT * FROM icao";
-
 		try {
+			CsvReader airports = new CsvReader(BASE_AIRPORT_FILE);
+			airports.readHeaders();
 
-			Class.forName(dbClass);
-			Connection con = DriverManager.getConnection (dbUrl, "sim", "pods3030");
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
-
-			while (rs.next()) {
-				if(keywordIndex.get("iata",rs.getString("iata")).getSingle() == null){
-					long node = createAndIndexNode(createPOIProperties(rs), keywordIndex);
-					addPOIGeoDb(rs.getString("longitude"),rs.getString("latitude"), "airport" ,  node );
-					long cityNode = getOrCreateCityNode(rs.getString("city"), rs.getString("country"));
+			while (airports.readRecord()){
+				String iata = airports.get("iata_code");
+				if ((iata != "") && (keywordIndex.get("iata", iata).getSingle() == null)){
+					Map<String, Object> properties = createPOIProperties(iata,"", airports.get("name"),airports.get("id"));
+					long node = createAndIndexNode(properties, keywordIndex);
+					addPOIGeoDb(airports.get("longitude_deg"),airports.get("latitude_deg"), "airport" ,  node );
+					long cityNode = getOrCreateCityNode(airports.get("municipality"), airports.get("iso_country"));
 					relateNodes(refNode, node, "IS");
 					relateNodes(node, cityNode, "IS AT");
 					keywordIndex.flush();
 				}
-				
+
 			}
 
-			con.close();
-		} 
+			airports.close();
 
-		catch(ClassNotFoundException e) {
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		catch(SQLException e) {
-			e.printStackTrace();
-		}
-
 	}
+
 
 	/**
 	 * Creates nodes for the entity of the kind Airline.
@@ -229,13 +219,13 @@ public class BatchInsert {
 					relateNodes(node, refNode, "IS");
 					keywordIndex.flush();
 				}
-				
+
 			}
 			reader.close();
-			
+
 			relateAirlinesAndAirports(createAirlineToAirportMap());
-			
-			
+
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -245,7 +235,7 @@ public class BatchInsert {
 		}
 
 	}
-	
+
 	/**
 	 * Create all the relationships between airline and airport of the kind
 	 * "ACTS" that means that an airline operates on that airport.
@@ -262,9 +252,9 @@ public class BatchInsert {
 					}
 				}
 			}
-			
+
 		}
-		
+
 	}
 
 	/**
@@ -274,7 +264,7 @@ public class BatchInsert {
 	 */
 	private Map<String, ArrayList<String>> createAirlineToAirportMap(){
 		Map<String,ArrayList<String>> map = new HashMap<String,ArrayList<String>>();
-		
+
 		String dbUrl = "jdbc:mysql://nceoridb01.nce.amadeus.net/geography";
 		String dbClass = "com.mysql.jdbc.Driver";
 		String query = "SELECT DISTINCT destination, airline FROM `schedules`";
@@ -294,7 +284,7 @@ public class BatchInsert {
 					list.add(rs.getString("destination"));
 					map.put(rs.getString("airline"), list);
 				}
-				
+
 			}
 
 			con.close();
@@ -307,7 +297,7 @@ public class BatchInsert {
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return map;
 	}
 
@@ -357,13 +347,8 @@ public class BatchInsert {
 			long refNode = typeIndex.get("type", "city").getSingle();
 			Map<String,Object> properties = new HashMap<String,Object>();
 			properties.put("name", name);
-			node = createAndIndexNode(properties, placeIndex);
-			long countryNode;
-			try{
-				countryNode = placeIndex.query("name", removeSpecialCharacters(country) + "~").next();
-			}catch (NoSuchElementException e){
-				countryNode = placeIndex.query("placeCode", country + "~").next();
-			}
+			node = createAndIndexNode(properties, keywordIndex);
+			long countryNode = placeIndex.get("place_code", country).getSingle();
 			relateNodes(node, refNode, "IS");
 			relateNodes(node, countryNode, "IS AT");
 		}
@@ -382,21 +367,23 @@ public class BatchInsert {
 
 	/**
 	 * Take the information needed and make a properties Map for including on a node.
-	 * @param rs Set of information that comes from a database.
+	 * @param iata
+	 * @param icao
+	 * @param name
+	 * @param ourAirportId for further use, making possible the user edit this information online
 	 * @return A Maps <key, information> for creating a node.
-	 * @throws SQLException If it tries to access an information that doesn't exist.
 	 */
-	private Map<String,Object> createPOIProperties(ResultSet rs) throws SQLException{
+	private Map<String,Object> createPOIProperties(String iata, String icao, String name, String ourAirportId) {
 		Map<String,Object> properties = new HashMap<String,Object>();
 
-		properties.put( "name", rs.getString("name") );
-		properties.put( "iata", rs.getString("iata").toUpperCase() );
-		properties.put( "icao", rs.getString("icao").toUpperCase() );
+		properties.put( "name", name );
+		properties.put( "our_airport_id", ourAirportId );
+		properties.put( "iata", iata.toUpperCase() );
+		properties.put( "icao", icao.toUpperCase() );
 
 		return properties;
-
 	}
-	
+
 	/**
 	 * Take the information needed and make a properties Map for including on a node.
 	 * @param props List of information that comes from a file.
@@ -404,7 +391,7 @@ public class BatchInsert {
 	 */
 	private Map<String, Object> createAirlinesProperties(String[] props) {
 		Map<String,Object> properties = new HashMap<String,Object>();
-		
+
 		properties.put( "name", props[2] );
 		properties.put( "call_sign", props[4] );
 		properties.put( "nationality", props[3] );
@@ -436,7 +423,7 @@ public class BatchInsert {
 
 		return node;
 	}
-	
+
 	/**
 	 * Helper method to end the connection with the Index provider and the 
 	 * Graph Database.
