@@ -1,9 +1,16 @@
 $( document ).ready( function() {
 
-    // Listener for the 
-    $( '#searchSubmit' ).submit(function() {
-	    doKeywordSearch();
-	 });
+    // Listener for the submit click.
+    $( '#searchSubmit' ).click(function() {
+        doKeywordSearch();
+    });
+	 
+	//Listener for the "enter" key submit. 
+    $( '#query' ).keypress(function(event){
+        if (event.keyCode == 13) {
+            $( '#searchSubmit' ).click();
+        }
+    });
 
 });
 
@@ -22,7 +29,6 @@ function doKeywordSearch(){
     q = $( '#query' ).val();
 //    console.info(navigator.language)
     $('#results').empty()
-//    $('#map').remove()
 	$.getJSON('/engine', {q : q}, function(data){
         if(data.length > 0){
             
@@ -33,7 +39,7 @@ function doKeywordSearch(){
          }
          //Clear everything and show an alert if no data is found.
          else{
-            $('#someText').html("no data");
+            $('#results').html("no data");
          }});
 }
 
