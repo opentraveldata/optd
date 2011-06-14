@@ -1,24 +1,13 @@
 $( document ).ready( function() {
 
-    // Clear the divs before doing a new ajax call for the search.
-    $( '#searchSubmit' ).click(function() {
-//        $("#findRule").hide();
-//        $("#findRuleResult").empty()
-//        $('#findRule :input').not(':button, :submit').val("");
-//	    doSimpleSearch();
+    // Listener for the 
+    $( '#searchSubmit' ).submit(function() {
 	    doKeywordSearch();
 	 });
-	 
-	 //do the ajax search for a rule
-	 $( '#ruleSubmit' ).click(function() {
-	    doRuleSearch();
-	 });
-	 
-	 //for ease the date input in the rule search form
-//	 $( "#datepicker" ).datepicker();
 
 });
 
+//The url for the django application
 url = 'http://localhost:8000/engine/'
 
 //Shows a spinner while it doesn't recieve the response from
@@ -94,27 +83,6 @@ function doSimpleSearch(){
 
 }
 
-//When there is 2 points of interest on the map, a form is shown
-//and the user is able to make a seach within the Rules.
-//This method does an ajax call to find a Rule with the given
-//parameters.
-function doRuleSearch(){
-	$.getJSON('/engine', {a : $( '#airline' ).val(), 
-	                              o : $(" #origin").val(), 
-	                              d : $(" #destination").val(), 
-	                              c : $( '#classOfService' ).val(), 
-	                              t : $( '#datepicker' ).val(), 
-	                              f : $( '#flightNumber' ).val()}, 
-    function(data){
-        if(data.length > 0){
-			$('#findRuleResult').html("Cabin: " + data[0].fields.cabin.fields.fullName);
-        }
-         else{
-            $('#findRuleResult').html("no data");
-         }});
-
-}
-
 //Calculates the distance between all the points of a given map
 //and shows the path.
 function getDistance(map){
@@ -157,18 +125,3 @@ function addMarkers(data, map){
     });
 }
 
-function getAirlines(id){
-    $.getJSON('/engine/get_airlines', {id : id}, function(data){
-        $('#airlineResult').empty()
-        $.each(data,function(key, val){
-            $('#airlineResult').append(val.name + "<br>")
-        });
-    
-    });
-}
-
-function getInformationById(id){
-
-}
-
-//function 
