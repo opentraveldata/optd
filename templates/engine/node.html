@@ -12,24 +12,34 @@
 		<span id="spinner"><img src="{{ MEDIA_URL }}imgs/spinner.gif"/></span>
 		<div id="node">
 		    <b>{{ node_type|upper }}</b><br>
-		    {% for key, value in node_info.items %}
-                {{ key }}: {{ value }}<br>
-            {% endfor %}
+		    <ul>
+		        {% for key, value in node_info.items %}
+                    <li>{{ key }}: <span id="{{ key }}">{{ value }}</span></li>
+                {% endfor %}
+		    </ul>
             <br>
             <br>
             <div id="links">
+                <ul id="navlist">
                 {% for key in node_links %}
-                    <a href="{{ ENGINE_URL }}{{ key.id }}">{{ key.name }}</a><br>
+                    <li><a href="{{ ENGINE_URL }}{{ key.id }}">{{ key.name }} ({{ key.link }})</a></li>
                 {% endfor %}
+                </ul>
             </div>
             <br>
             <br>
+            {% ifequal node_type 'airport' %}
+                <button id="showMap" class="ui-state-default ui-corner-all">Show Map!</button>
+            {% endifequal %}
+                
+            <br>
+		    <button id="opener" class="ui-state-default ui-corner-all">Wrong information !</button>
 		</div>
-		<button id="opener" class="ui-state-default ui-corner-all">Click-me</button>
-		<div id="dialog" title="Basic dialog">
+		<div id="dialog" title="Send us information about what is wrong !">
+		    <p class="tips"></p>
 		    <form>
 	        <fieldset>
-		        <label for="text">What's wrong ?</label>
+		        <label for="text" class="wrong">What's wrong ?</label>
 		        <textarea name="text" id="text" cols="40" rows="7" class="textarea ui-widget-content ui-corner-all" ></textarea>
 	        </fieldset>
 	        </form>

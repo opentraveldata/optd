@@ -4,6 +4,7 @@ body{
 	background-color: #FFFFFF;
 	text-align: center;
 	font-size: 62.5%;
+	color: #201913
 }
 
 img{
@@ -16,18 +17,22 @@ fieldset {
     margin-top:25px; 
 }
 
-input.textarea { 
+textarea{
     margin-bottom:12px; 
     width:95%; 
     height:95%; 
     padding: .4em; 
 }
 
-textarea{
-    margin-bottom:12px; 
-    width:95%; 
-    height:95%; 
-    padding: .4em; 
+ul#navlist{
+    width: 80%;
+    display: inline;
+    list-style: none;
+}
+
+ul#navlist li{
+    display: inline;
+    list-style: none;
 }
 
 #content{
@@ -76,4 +81,10 @@ textarea{
 .margin{
     margin-left: 15%;
     margin-right: 15%;
+}
+
+.wrong {
+    font-weight:bold;
+    font-size: 12px;
+    
 }
