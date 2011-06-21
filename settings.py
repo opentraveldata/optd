@@ -6,10 +6,15 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+     ('Milena Araujo', 'milena@localhost'),
 )
 
 MANAGERS = ADMINS
+
+EMAIL_SUBJECT_PREFIX = "[TSE]"
+EMAIL_HOST = 'virtual'
+EMAIL_PORT = '25'
+SERVER_EMAIL = 'root@localhost'
 
 #Informations needed to create nodes in the graph database.
 BASE = '/home/milena/workspace/TSE/base/'

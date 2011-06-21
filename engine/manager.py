@@ -48,27 +48,33 @@ def code_search(code_list, query):
 
 def get_lng_lat(graphid):
     try:
-       conn = psycopg2.connect("dbname='geodb' user='postgres' host='localhost' password='geodb'");
-       cursor = conn.cursor()
+        conn = psycopg2.connect("dbname='geodb' user='postgres' host='localhost' password='geodb'");
+        cursor = conn.cursor()
        
-       sql = "SELECT st_X(place), st_Y(place) FROM poi where graphid= '"+ graphid + "'"
+        sql = "SELECT st_X(place), st_Y(place) FROM poi where graphid= '"+ str(graphid) + "'"
        
-       cursor.execute(sql)
-       rows = cursor.fetchall()
+        cursor.execute(sql)
+        rows = cursor.fetchall()
        
-       result = {}
-       result['longitude'] = rows[0][1]
-       result['latitude'] = rows[0][0]
+        result = {}
+        if rows:
+            result['latitude'] = rows[0][1]
+            result['longitude'] = rows[0][0]
        
-       return result
-       conn.close()
+        return result
+        conn.close()
     except:
        print "I am unable to connect to the database"
        print traceback.format_exc()
        
 
 def get_node_properties(id):
-    return gdb.node[id].properties
+    longlat = get_lng_lat(id)
+    results = gdb.node[id].properties
+    if longlat:
+        results['longitude'] = longlat['longitude']
+        results['latitude'] = longlat['latitude']
+    return results
     
     
 def get_node_type(id):
@@ -90,6 +96,7 @@ def get_node_relationships(id):
             nd = {}
             nd['name'] = n.properties['name']
             nd['id'] = n.id
+#            nd['link'] = get_relationship_kind(node, n)
             results.append(nd)
         except:
             pass
@@ -97,10 +104,17 @@ def get_node_relationships(id):
         
     return results  
     
+    
+def get_relationship_kind(node1, node2):
+    for rel in node1.relationships.all():
+        if(rel.start == node2 or rel.end == node2):
+            return rel.type
+    
+    
 def make_custom_query(keys):
     nodes = []
     query = ""
-        
+    print keys    
     for field in settings.FULLTEXT_FIELDS:
         query += field + ":" + keys + "%20OR%20"
         
@@ -111,7 +125,7 @@ def make_custom_query(keys):
     resp, content = h.request(settings.NEO4J_INDEX_NODE + "keywords?query=" + query, "GET") 
     response = json.loads(content)
             
-    for result in response:
+    for result in response[:settings.MAX_RESULTS]:
         node = Node(result['self'])
         node.properties['id'] = node.id
         nodes.append(node.properties)

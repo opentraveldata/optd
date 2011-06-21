@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
+from django.core.mail import *
 import sys, traceback, json 
 from neo4jrestclient import *
 from django.conf import settings
@@ -68,7 +69,15 @@ def node_search (request, node=0):
                                
    
 
- 
+def send_email(request):
+    if request.is_ajax():
+        mail = request.GET.get( 'text' )
+        if mail is not None:
+            mail_admins('Erros', mail)
+            
+            return HttpResponse(status=200) 
+    
+    
 
 
     
