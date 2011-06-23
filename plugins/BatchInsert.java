@@ -52,6 +52,7 @@ public class BatchInsert {
 	private BatchInserterIndexProvider indexProvider = null;
 	private BatchInserterIndex typeIndex = null;
 	private BatchInserterIndex keywordIndex = null;
+	private BatchInserterIndex labelIndex = null;
 	private BatchInserterIndex placeIndex = null;
 
 
@@ -64,6 +65,7 @@ public class BatchInsert {
 
 		typeIndex = indexProvider.nodeIndex( "types", MapUtil.stringMap( "type", "exact" ) );
 		keywordIndex = indexProvider.nodeIndex( "keywords", MapUtil.stringMap( "type", "fulltext" ) );
+		labelIndex = indexProvider.relationshipIndex( "labels", MapUtil.stringMap( "type", "fulltext" ) );
 		placeIndex = indexProvider.nodeIndex( "places", MapUtil.stringMap( "type", "fulltext" ) );
 	}
 
@@ -409,6 +411,7 @@ public class BatchInsert {
 	 */
 	private void relateNodes(long node1,long node2,String label){
 		inserter.createRelationship( node1, node2, DynamicRelationshipType.withName( label ), null );
+//		labelIndex.add(arg0, arg1)
 	}
 
 	/**
