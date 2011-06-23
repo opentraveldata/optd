@@ -1,8 +1,11 @@
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -63,7 +66,7 @@ public class BatchInsert {
 		inserter = new BatchInserterImpl( GRAPH_URL );
 		indexProvider = new LuceneBatchInserterIndexProvider( inserter );
 
-		typeIndex = indexProvider.nodeIndex( "types", MapUtil.stringMap( "type", "exact" ) );
+		typeIndex = indexProvider.nodeIndex( "types", MapUtil.stringMap( "type", "fulltext" ) );
 		keywordIndex = indexProvider.nodeIndex( "keywords", MapUtil.stringMap( "type", "fulltext" ) );
 		labelIndex = indexProvider.relationshipIndex( "labels", MapUtil.stringMap( "type", "fulltext" ) );
 		placeIndex = indexProvider.nodeIndex( "places", MapUtil.stringMap( "type", "fulltext" ) );
@@ -71,15 +74,17 @@ public class BatchInsert {
 
 	/**
 	 * Executes the bulk insert and shows the duration of it in the default output.
+	 * @throws FileNotFoundException 
+	 * @throws UnsupportedEncodingException 
 	 */
-	public static void main(String [] args){
+	public static void main(String [] args) throws UnsupportedEncodingException, FileNotFoundException{
 		long start = System.currentTimeMillis();
 		BatchInsert bi = new BatchInsert();
-		bi.makeReferenceNodes(new File(BASE_REF_NODE));
-		bi.createContinentNodes(new File(BASE_CONTINENTS));
+		bi.makeReferenceNodes(new InputStreamReader(new FileInputStream(BASE_REF_NODE), "UTF-8"));
+		bi.createContinentNodes(new InputStreamReader(new FileInputStream(BASE_CONTINENTS), "UTF-8"));
 		bi.createCountryNodes();
 		bi.createAirportNodes();
-		bi.createAirlineNodes(new File(BASE_AIRLINE_FILE));
+		bi.createAirlineNodes(new InputStreamReader(new FileInputStream(BASE_AIRLINE_FILE), "UTF-8"));
 
 		bi.stopBatch();
 
@@ -97,7 +102,7 @@ public class BatchInsert {
 		long refNode = typeIndex.get("type", "country").getSingle();
 
 		try {
-			CsvReader countries = new CsvReader(BASE_COUNTRIES);
+			CsvReader countries = new CsvReader(new InputStreamReader(new FileInputStream(BASE_COUNTRIES), "UTF-8"));
 			countries.readHeaders();
 
 			while (countries.readRecord()){
@@ -126,10 +131,10 @@ public class BatchInsert {
 	 * Creates nodes for the entity of the kind Continent.
 	 * @param file which has all the information concerned to the continents.
 	 */
-	void createContinentNodes(File file) {
+	void createContinentNodes(InputStreamReader file) {
 		long refNode = typeIndex.get("type", "continent").getSingle();
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(file));
+			BufferedReader reader = new BufferedReader(file);
 			String line;
 			String[] props;
 			Map<String,Object> properties = new HashMap<String,Object>();
@@ -154,9 +159,9 @@ public class BatchInsert {
 	 * Creates the reference nodes used to navigate thought the graph.
 	 * @param file with the name of each kind of information, one per line.
 	 */
-	void makeReferenceNodes(File file){
+	void makeReferenceNodes(InputStreamReader file){
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(file));
+			BufferedReader reader = new BufferedReader(file);
 			String line;
 			Map<String,Object> properties = new HashMap<String,Object>();
 			while( (line = reader.readLine()) != null ){
@@ -178,7 +183,7 @@ public class BatchInsert {
 	void createAirportNodes(){
 		long refNode = typeIndex.get("type", "airport").getSingle();
 		try {
-			CsvReader airports = new CsvReader(BASE_AIRPORT_FILE);
+			CsvReader airports = new CsvReader(new InputStreamReader(new FileInputStream(BASE_AIRPORT_FILE), "UTF-8"));
 			airports.readHeaders();
 
 			while (airports.readRecord()){
@@ -209,10 +214,10 @@ public class BatchInsert {
 	 * Creates nodes for the entity of the kind Airline.
 	 * @param file which has all the information concerned to the airlines.
 	 */
-	void createAirlineNodes(File file) {
+	void createAirlineNodes(InputStreamReader file) {
 		long refNode = typeIndex.get("type", "airline").getSingle();
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(file));
+			BufferedReader reader = new BufferedReader(file);
 			String line;
 			while( (line = reader.readLine()) != null ){
 				String[] props = line.split("\\^");
