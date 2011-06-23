@@ -1,5 +1,7 @@
 Using
 
-Neo4j.py
-Jpype
+httplib2
+psycopg2
+python-dev
+neo4jrestclient
 
