@@ -93,32 +93,20 @@ def get_node_relationships(id):
     results = []
     node = gdb.node[id]
 #    nodes = node.traverse(order=[constants.BREADTH_FIRST])
-    
-    for rel in node.relationships.incoming():
+
+    for rel in node.relationships.all():
         if rel.type != 'IS':
             nd = {}
-            nd['name'] = rel.start.properties['name']
-            nd['id'] = rel.start.id
             nd['link'] = rel.type
-            results.append(nd)    
-             
-    for rel in node.relationships.outgoing():
-        if rel.type != 'IS':
-            nd = {}
-            nd['name'] = rel.end.properties['name']
-            nd['id'] = rel.end.id
-            nd['link'] = rel.type
-            results.append(nd)          
+            if rel.end == node:
+                nd['name'] = rel.start.properties['name']
+                nd['id'] = rel.start.id
+            else:
+                nd['name'] = rel.end.properties['name']
+                nd['id'] = rel.end.id 
+                
+            results.append(nd) 
     
-#    for rel in node.relationships.all():
-#        for n in nodes:
-#            if (rel.end == n or rel.start == n) and rel.type != 'IS':
-#                nd = {}
-#                nd['name'] = n.properties['name']
-#                nd['id'] = n.id
-#                nd['link'] = rel.type
-#                results.append(nd)
-        
     return results  
     
     
@@ -146,7 +134,8 @@ def make_custom_query(query):
         
     return results    
         
-        
+#def get_poi_around(node_id, distance):
+    #start        
                                
 def split_query_keywords(query):
     keywords = []
