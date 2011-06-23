@@ -1,8 +1,8 @@
 import sys, traceback
 import httplib2
 import json, psycopg2
-from neo4jrestclient import *
-from neo4jrestclient.client import Node
+#from neo4jrestclient import *
+from neo4jrestclient.client import *
 from django.conf import settings
 from urllib import urlencode
 
@@ -11,11 +11,10 @@ gdb = GraphDatabase(settings.NEO4J_URL)
 def keyword_search(q):
     query = split_query_keywords(q.encode('utf-8'))
     if query:
-        results = []
+        keys = []
         index = gdb.nodes.indexes.get("keywords")
-        keys = ""
         for key in query:
-            keys += "*" + key + "*%20"
+            keys.append(key + "*")
             
         return  make_custom_query(keys)[:settings.MAX_RESULTS]
 
@@ -114,12 +113,14 @@ def get_relationship_kind(node1, node2):
 def make_custom_query(keys):
     nodes = []
     query = ""
-    print keys    
     for field in settings.FULLTEXT_FIELDS:
-        query += field + ":" + keys + "%20OR%20"
-        
-    query = query[:-8]   
+        for key in keys:
+            query += field + ":" + key + "%20OR%20"
     
+    query = query[:-8]    
+        
+    print gdb.extensions.CustomQuery.makeQuery(query='name:rec* OR name:airport', max='2')
+        
     from httplib2 import Http
     h = Http()
     resp, content = h.request(settings.NEO4J_INDEX_NODE + "keywords?query=" + query, "GET") 
