@@ -1,8 +1,8 @@
 import sys, traceback
 import httplib2
 import json, psycopg2
-#from neo4jrestclient import *
 from neo4jrestclient.client import *
+from neo4jrestclient.client import Node
 from django.conf import settings
 from urllib import urlencode
 
@@ -16,7 +16,7 @@ def keyword_search(q):
         for key in query:
             keys.append(key + "*")
             
-        return  make_custom_query(keys)[:settings.MAX_RESULTS]
+        return  make_custom_query(keys)
 
         
 def code_search(code_list, query):
@@ -111,27 +111,20 @@ def get_relationship_kind(node1, node2):
     
     
 def make_custom_query(keys):
-    nodes = []
     query = ""
     for field in settings.FULLTEXT_FIELDS:
         for key in keys:
-            query += field + ":" + key + "%20OR%20"
+            query += field + ":" + key + " OR "
     
-    query = query[:-8]    
-        
-    print gdb.extensions.CustomQuery.makeQuery(query='name:rec* OR name:airport', max='2')
-        
-    from httplib2 import Http
-    h = Http()
-    resp, content = h.request(settings.NEO4J_INDEX_NODE + "keywords?query=" + query, "GET") 
-    response = json.loads(content)
-            
-    for result in response[:settings.MAX_RESULTS]:
-        node = Node(result['self'])
+    query = query[:-4]   
+    
+    nodes = gdb.extensions.CustomQuery.makeQuery(query=query, max=settings.MAX_RESULTS) 
+    results = []        
+    for node in nodes:
         node.properties['id'] = node.id
-        nodes.append(node.properties)
+        results.append(node.properties)
         
-    return nodes    
+    return results    
         
         
                                
