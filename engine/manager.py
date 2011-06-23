@@ -1,6 +1,7 @@
 import sys, traceback
 import httplib2
 import json, psycopg2
+from neo4jrestclient import constants
 from neo4jrestclient.client import *
 from neo4jrestclient.client import Node
 from django.conf import settings
@@ -16,10 +17,12 @@ def keyword_search(q):
         for key in query:
             keys.append(key + "*")
             
-        return  make_custom_query(keys)
+        return  make_custom_query(make_query(keys, settings.FULLTEXT_FIELDS))
 
         
 def code_search(code_list, query):
+    
+    
     keys = split_query_keywords(query.upper())
     results = []
     h = httplib2.Http()
@@ -89,17 +92,32 @@ def get_node_type(id):
 def get_node_relationships(id):
     results = []
     node = gdb.node[id]
-    nodes = node.traverse(order=[constants.BREADTH_FIRST])
-    for n in nodes:
-        try:
+#    nodes = node.traverse(order=[constants.BREADTH_FIRST])
+    
+    for rel in node.relationships.incoming():
+        if rel.type != 'IS':
             nd = {}
-            nd['name'] = n.properties['name']
-            nd['id'] = n.id
-#            nd['link'] = get_relationship_kind(node, n)
-            results.append(nd)
-        except:
-            pass
-           
+            nd['name'] = rel.start.properties['name']
+            nd['id'] = rel.start.id
+            nd['link'] = rel.type
+            results.append(nd)    
+             
+    for rel in node.relationships.outgoing():
+        if rel.type != 'IS':
+            nd = {}
+            nd['name'] = rel.end.properties['name']
+            nd['id'] = rel.end.id
+            nd['link'] = rel.type
+            results.append(nd)          
+    
+#    for rel in node.relationships.all():
+#        for n in nodes:
+#            if (rel.end == n or rel.start == n) and rel.type != 'IS':
+#                nd = {}
+#                nd['name'] = n.properties['name']
+#                nd['id'] = n.id
+#                nd['link'] = rel.type
+#                results.append(nd)
         
     return results  
     
@@ -109,14 +127,16 @@ def get_relationship_kind(node1, node2):
         if(rel.start == node2 or rel.end == node2):
             return rel.type
     
-    
-def make_custom_query(keys):
+
+def make_query(keys, fields):
     query = ""
-    for field in settings.FULLTEXT_FIELDS:
+    for field in fields:
         for key in keys:
             query += field + ":" + key + " OR "
     
-    query = query[:-4]   
+    return query[:-4]
+    
+def make_custom_query(query):
     
     nodes = gdb.extensions.CustomQuery.makeQuery(query=query, max=settings.MAX_RESULTS) 
     results = []        

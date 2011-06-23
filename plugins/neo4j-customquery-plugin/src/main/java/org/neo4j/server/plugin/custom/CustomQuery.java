@@ -28,7 +28,6 @@ public class CustomQuery extends ServerPlugin{
 		IndexManager index = graphDb.index();
 		Index<Node> keywordsIndex = index.forNodes( "keywords" );
 
-		System.out.println(query);
 		QueryContext theQuery = new QueryContext( query );
 		IndexHits<Node> hits = keywordsIndex.query( theQuery.sortByScore() );
 		List<Node> results = new ArrayList<Node>();
