@@ -53,7 +53,7 @@ def get_lng_lat(graphid):
         conn = psycopg2.connect("dbname='geodb' user='postgres' host='localhost' password='geodb'");
         cursor = conn.cursor()
        
-        sql = "SELECT st_X(place), st_Y(place) FROM poi where graphid= '"+ str(graphid) + "'"
+        sql = "SELECT st_X(Geometry(place)), st_Y(Geometry(place)) FROM poi where graphid= '"+ str(graphid) + "'"
        
         cursor.execute(sql)
         rows = cursor.fetchall()
@@ -134,8 +134,25 @@ def make_custom_query(query):
         
     return results    
         
-#def get_poi_around(node_id, distance):
-    #start        
+def get_poi_around(node_id, distance):
+    try:
+        conn = psycopg2.connect("dbname='geodb' user='postgres' host='localhost' password='geodb'");
+        cursor = conn.cursor()
+       
+        sql = "SELECT DISTINCT p1.graphid FROM poi p1, poi p2 WHERE p2.graphid = '"+ str(node_id) 
+        sql += "' AND p1.graphid <> p2.graphid AND ST_DWithin(p1.place, p2.place, "+ str(distance) +", false); "
+        cursor.execute(sql)
+        rows = cursor.fetchall()
+       
+        result = {}
+        for row in rows:
+            result.append(gdb.node[int(row[0])])
+        
+        return result
+        conn.close()
+    except:
+       print "I am unable to connect to the database"
+       print traceback.format_exc()
                                
 def split_query_keywords(query):
     keywords = []

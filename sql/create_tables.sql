@@ -7,8 +7,10 @@ CREATE sequence continent_id_seq;
 CREATE TABLE POI ( 
     id integer PRIMARY KEY DEFAULT NEXTVAL('poi_id_seq'),
     type VARCHAR(70),
-    graphid VARCHAR(70) NOT NULL );
-SELECT AddGeometryColumn('poi', 'place', 32661, 'POINT', 2);
+    graphid VARCHAR(70) NOT NULL, 
+    place GEOGRAPHY(POINT,4326)
+    );
+--SELECT AddGeographyColumn('poi', 'place', 32661, 'POINT', 2);
 
 CREATE INDEX pois_gist ON poi USING gist (place);
 
