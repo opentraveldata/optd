@@ -134,7 +134,7 @@ def make_custom_query(query):
         
     return results    
         
-def get_poi_around(node_id, distance):
+def get_pois_around(node_id, distance):
     try:
         conn = psycopg2.connect("dbname='geodb' user='postgres' host='localhost' password='geodb'");
         cursor = conn.cursor()
@@ -144,12 +144,13 @@ def get_poi_around(node_id, distance):
         cursor.execute(sql)
         rows = cursor.fetchall()
        
-        result = {}
+        result = []
         for row in rows:
             result.append(gdb.node[int(row[0])])
         
         return result
         conn.close()
+        
     except:
        print "I am unable to connect to the database"
        print traceback.format_exc()
