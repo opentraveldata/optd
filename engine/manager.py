@@ -7,9 +7,15 @@ from neo4jrestclient.client import Node
 from django.conf import settings
 from urllib import urlencode
 
+"""
+Creates an object for the graph database with the default
+path for it.
+"""
 gdb = GraphDatabase(settings.NEO4J_URL)
 
 def keyword_search(q):
+    """
+    """
     query = split_query_keywords(q.encode('utf-8'))
     if query:
         keys = []
@@ -21,7 +27,9 @@ def keyword_search(q):
 
         
 def code_search(code_list, query):
-    
+    """
+    to be rebuild.
+    """
     
     keys = split_query_keywords(query.upper())
     results = []
@@ -49,6 +57,10 @@ def code_search(code_list, query):
     
 
 def get_lng_lat(graphid):
+    """
+    Returns a dictionary with the latitude and longitude for
+    the given node id. These informations are in the geodb.
+    """
     try:
         conn = psycopg2.connect("dbname='geodb' user='postgres' host='localhost' password='geodb'");
         cursor = conn.cursor()
@@ -71,25 +83,42 @@ def get_lng_lat(graphid):
        
 
 def get_node_properties(id):
+    """
+    For the given node id, return all the properties for that
+    node in the graph database and in the geodb, if applicable.
+    """
     longlat = get_lng_lat(id)
     results = gdb.node[id].properties
     if longlat:
-        results['longitude'] = longlat['longitude']
-        results['latitude'] = longlat['latitude']
+        results.update(longlat)
     return results
     
     
 def get_node_type(id):
+    """
+    From the node, find the relationship "IS" (it's
+    supposed to have only one) and get's the node with
+    the type. Return a string with the type's name.
+    """
     node = gdb.node[id]
-    type_node = node.relationships.all(types=["IS"])[0].start
+    is_rel = node.relationships.all(types=["IS"])[0]
+    type_node = is_rel.start
     if 'type' not in type_node.properties.keys():
-        type_node = node.relationships.all(types=["IS"])[0].end
+        type_node = is_rel.end
         
     rel_type = type_node.properties['type']
     return rel_type
     
     
 def get_node_relationships(id):
+    """
+    For a given node1 id, returns all the nodes that
+    have a direct relatioship with it (if the node2
+    has more than one direct relationship, the node is 
+    returned as many times as relationships) and the
+    name of the relationship is added to the node2 
+    properties.
+    """
     results = []
     node = gdb.node[id]
 #    nodes = node.traverse(order=[constants.BREADTH_FIRST])
@@ -111,12 +140,20 @@ def get_node_relationships(id):
     
     
 def get_relationship_kind(node1, node2):
+    """
+    Returns a string with the name of the 
+    relationship between the two given nodes.
+    """
     for rel in node1.relationships.all():
         if(rel.start == node2 or rel.end == node2):
             return rel.type
     
 
 def make_query(keys, fields):
+    """
+    Builds a string for make a custom query with
+    the given keys and fields (both lists).
+    """
     query = ""
     for field in fields:
         for key in keys:
@@ -125,7 +162,9 @@ def make_query(keys, fields):
     return query[:-4]
     
 def make_custom_query(query):
-    
+    """
+    Using the CustomQuery plugin, executes the given query.
+    """
     nodes = gdb.extensions.CustomQuery.makeQuery(query=query, max=settings.MAX_RESULTS) 
     results = []        
     for node in nodes:
@@ -135,6 +174,10 @@ def make_custom_query(query):
     return results    
         
 def get_pois_around(node_id, distance):
+    """
+    Makes a "within distance" query in the geodatabase
+    that returns all the POIs inside the buffer of distance in metters.
+    """
     try:
         conn = psycopg2.connect("dbname='geodb' user='postgres' host='localhost' password='geodb'");
         cursor = conn.cursor()
@@ -156,6 +199,10 @@ def get_pois_around(node_id, distance):
        print traceback.format_exc()
                                
 def split_query_keywords(query):
+    """
+    Splits the string in the spaces, but the ones 
+    between quotation marks are kept together.
+    """
     keywords = []
     # Deal with quoted keywords
     while '"' in query:
