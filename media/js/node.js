@@ -17,7 +17,8 @@ $( document ).ready( function() {
                 showMap();
             }
 	    });   
-
+    
+    //Gets the text for the e-mail.
     var name = $( "#text" ),
 	    allFields = $( [] ).add( name )
 
@@ -52,7 +53,6 @@ url = 'http://localhost:8000/engine/'
 //information of this POI displayed on the screen.
 function showMap(){
     //Google Maps api objects inicialization.
-    
     var point = new google.maps.LatLng($("#latitude").text(),$("#longitude").text())
     
     var options = {

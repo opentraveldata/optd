@@ -1,4 +1,4 @@
-docs/
+doc/
 geonames-dump/
 *.pyc
 settings.py

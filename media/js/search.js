@@ -27,7 +27,6 @@ $( document ).ajaxStart( function() {
 
 function doKeywordSearch(){
     q = $( '#query' ).val();
-//    console.info(navigator.language)
     $('#results').empty()
 	$.getJSON('/engine', {q : q}, function(data){
         if(data.length > 0){
@@ -72,13 +71,6 @@ function doSimpleSearch(){
             
             //Shows airlines that acts in the found airport
             getAirlines(data[0].id)
-            
-            //Only shown when there's only two points in the map. The form to search for a Rule.
-//            if(data.length == 2){ 
-//                $("#origin").val(data[0].fields.IATA);
-//                $("#destination").val(data[1].fields.IATA)
-//                $("#findRule").show()
-//            }
             
          }
          //Clear everything and show an alert if no data is found.

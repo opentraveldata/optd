@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
@@ -7,44 +8,33 @@ from neo4jrestclient import *
 from django.conf import settings
 from engine import manager
 
-def handler(request, type="", q=""):
+def handler(request):
     """
+    Handler for requests other than the ones
+    for the GUI. Supports the "key" search and 
+    the "code" search. It expects a GET request
+    and a json with a query and type fields.
     """
     if request.method == 'GET':
         results = [] 
-        
-        if type == 'code':
-            results = manager.code_search(code_list, q)
-        if type == 'key':
-            results = manager.keyword_search(q)
+        params = json.loads(request.raw_post_data)
+        if params["type"] == 'code':
+            results = manager.keyword_search(params["query"], settings.CODES_FIELDS)
+        if params["type"] == 'key':
+            results = manager.keyword_search(params["query"], settings.FULLTEXT_FIELDS)
             
         return HttpResponse(json.dumps(results))            
     else: 
-       print request.method + "," +  request.META['QUERY_STRING']
+       return HttpResponseBadRequest("You should send a json via a GET request.")   
 
         
-def code_search(request):
-    """
-    """
-    if request.method == 'GET':
-        code_list = request.GET.get( 'codes' )
-        query = request.GET.get( 'q' )
-        if code_list:
-            code_list= manager.split_keywords(query)
-        else:
-            code_list = settings.BASE_CODES    
-        
-        results = manager.code_search(code_list, query) 
-        return HttpResponse(json.dumps(results))
-                               
-                               
 def web_handler(request):
     """
     """
     if request.is_ajax():
         query = request.GET.get( 'q' )
         if query is not None:
-            results = manager.keyword_search(query)
+            results = manager.keyword_search(query, settings.FULLTEXT_FIELDS)
             
             return HttpResponse(json.dumps(results),mimetype='application/json')
             
@@ -72,12 +62,13 @@ def node_search (request, node=0):
 
 def send_email(request):
     """
+    Sends an e-mail for the Administator (django settings)
+    with the text sent in the request.
     """
     if request.is_ajax():
         mail = request.GET.get( 'text' )
         if mail is not None:
             mail_admins('Erros', mail)
-            
             return HttpResponse(status=200) 
     
     
