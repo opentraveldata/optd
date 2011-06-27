@@ -6,23 +6,19 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-     ('Milena Araujo', 'milena@localhost'),
+     ('Administrator', 'admin@localhost'),
 )
 
 MANAGERS = ADMINS
 
+#Informations for sending an e-mail via the postfix server.
 EMAIL_SUBJECT_PREFIX = "[TSE]"
 EMAIL_HOST = 'virtual'
 EMAIL_PORT = '25'
 SERVER_EMAIL = 'root@localhost'
 
-#Informations needed to create nodes in the graph database.
-BASE = '/home/milena/workspace/TSE/base/'
-BASE_REF_NODE = BASE + 'reference_nodes.ref'
-BASE_AIRLINE_FILE = BASE + 'airlines.ref'
-BASE_AIRPORT_AIRLINE = BASE + 'airport_airline.ref'
-
-BASE_CODES = ['iata','icao','city_code','country_code','continent_code']
+#Informations for the index search.
+CODES_FIELDS = ['iata','icao','city_code','country_code','continent_code']
 MAX_RESULTS = 20
 FULLTEXT_FIELDS = ['name','description','iata','icao','place_code']
 
@@ -55,7 +51,7 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-MEDIA_ROOT = '/home/milena/workspace/TSE/media/'
+MEDIA_ROOT = '/media/'
 MEDIA_URL = 'http://localhost:8000/TSE/media/'
 
 # Absolute path to the directory static files should be collected to.

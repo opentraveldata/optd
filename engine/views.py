@@ -7,16 +7,9 @@ from neo4jrestclient import *
 from django.conf import settings
 from engine import manager
 
-def test (request):
-    if request.method == 'GET':
-        print request.META['QUERY_STRING']
-#        results = manager.code_search(settings.BASE_CODES, search[1])
-        gdb = GraphDatabase(settings.NEO4J_URL)
-        results= gdb.node[14].properties
-        return HttpResponse(json.dumps(results))
-
-
 def handler(request, type="", q=""):
+    """
+    """
     if request.method == 'GET':
         results = [] 
         
@@ -31,6 +24,8 @@ def handler(request, type="", q=""):
 
         
 def code_search(request):
+    """
+    """
     if request.method == 'GET':
         code_list = request.GET.get( 'codes' )
         query = request.GET.get( 'q' )
@@ -44,6 +39,8 @@ def code_search(request):
                                
                                
 def web_handler(request):
+    """
+    """
     if request.is_ajax():
         query = request.GET.get( 'q' )
         if query is not None:
@@ -59,6 +56,10 @@ def web_handler(request):
                                
                                
 def node_search (request, node=0):
+    """
+    Responsable to get all the information shown in the
+    single node page and send it to a django template.
+    """
     template = 'engine/node.html'
     node_info = manager.get_node_properties(int(node))
     node_links = manager.get_node_relationships(int(node))
@@ -70,6 +71,8 @@ def node_search (request, node=0):
    
 
 def send_email(request):
+    """
+    """
     if request.is_ajax():
         mail = request.GET.get( 'text' )
         if mail is not None:
