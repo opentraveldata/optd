@@ -14,7 +14,7 @@ path for it.
 """
 gdb = GraphDatabase(settings.NEO4J_URL)
 
-def keyword_search(q, fields):
+def keyword_search(q, fields, maximum):
     """
     Pré-build the request for make a query with the 
     keywords index, within all the fields given as
@@ -27,7 +27,7 @@ def keyword_search(q, fields):
         for key in query:
             keys.append(key + "*")
             
-        return  make_custom_query(make_query(keys, fields))
+        return  make_custom_query(make_query(keys, fields), maximum)
     
 
 def get_lng_lat(graphid):
@@ -135,11 +135,11 @@ def make_query(keys, fields):
     
     return query[:-4]
     
-def make_custom_query(query):
+def make_custom_query(query, maximum):
     """
     Using the CustomQuery plugin, executes the given query.
     """
-    nodes = gdb.extensions.CustomQuery.makeQuery(query=query, max=settings.MAX_RESULTS) 
+    nodes = gdb.extensions.CustomQuery.makeQuery(query=query, max=maximum) 
     results = []        
     for node in nodes:
         node.properties['id'] = node.id
