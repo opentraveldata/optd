@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys, traceback
 import httplib2
 import json, psycopg2
@@ -13,11 +14,11 @@ path for it.
 """
 gdb = GraphDatabase(settings.NEO4J_URL)
 
-def keyword_search(q):
+def keyword_search(q, fields):
     """
-    Pré-build the query for make the query with the 
-    keywords index, within all fields declared in the
-    settings file.
+    Pré-build the request for make a query with the 
+    keywords index, within all the fields given as
+    parameters.
     """
     query = split_query_keywords(q.encode('utf-8'))
     if query:
@@ -26,37 +27,7 @@ def keyword_search(q):
         for key in query:
             keys.append(key + "*")
             
-        return  make_custom_query(make_query(keys, settings.FULLTEXT_FIELDS))
-
-        
-def code_search(code_list, query):
-    """
-    to be rebuild.
-    """
-    
-    keys = split_query_keywords(query.upper())
-    results = []
-    h = httplib2.Http()
-    url = "http://localhost:7474/db/data/ext/GremlinPlugin/graphdb/execute_script"
-    headers = {'Content-Type':'application/x-www-form-urlencoded'}
-
-    ref_nodes = gdb.nodes.indexes.get("types").query("type", "*")
-    
-    for key in keys:
-        for ref in ref_nodes:
-            for code in code_list:
-                data = dict(script="g.v("+ str(ref.id)+ ").bothE('IS').outV{it."+code +"=='"+key+"'}")
-                resp, content = h.request(url,"POST",headers=headers, body= urlencode(data))
-                result = json.loads(content)
-                print result
-                if result:
-                    for r in result:
-                        node = Node(r["self"])
-                        node.properties['id'] = r.id
-                        results.append(node.properties)
-    
-    return results[:settings.MAX_RESULTS]
-    
+        return  make_custom_query(make_query(keys, fields))
     
 
 def get_lng_lat(graphid):

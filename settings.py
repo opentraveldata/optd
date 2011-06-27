@@ -6,7 +6,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-     ('Administrator', 'admin@localhost'),
+     ('Milena Araujo', 'milena@localhost'),
 )
 
 MANAGERS = ADMINS
@@ -18,8 +18,8 @@ EMAIL_PORT = '25'
 SERVER_EMAIL = 'root@localhost'
 
 #Informations for the index search.
-CODES_FIELDS = ['iata','icao','city_code','country_code','continent_code']
 MAX_RESULTS = 20
+CODES_FIELDS = ['iata','icao','city_code','country_code','continent_code']
 FULLTEXT_FIELDS = ['name','description','iata','icao','place_code']
 
 #Data to connect to the graph database
@@ -51,7 +51,7 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-MEDIA_ROOT = '/media/'
+MEDIA_ROOT = '/home/milena/workspace/TSE/media/'
 MEDIA_URL = 'http://localhost:8000/TSE/media/'
 
 # Absolute path to the directory static files should be collected to.
