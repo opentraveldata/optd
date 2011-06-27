@@ -15,6 +15,9 @@ gdb = GraphDatabase(settings.NEO4J_URL)
 
 def keyword_search(q):
     """
+    Pré-build the query for make the query with the 
+    keywords index, within all fields declared in the
+    settings file.
     """
     query = split_query_keywords(q.encode('utf-8'))
     if query:
