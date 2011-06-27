@@ -1,0 +1,33 @@
+Important Folders
+====================
+
+Media
+-------
+
+CSS
++++++
+Files responsibles for the stylesheet of the pages in the templates
+
+imgs
++++++
+Images used in the templates
+
+js
+++++
+Javascript files for ajax requests and some ajax effects.
+
+
+Templates
+----------
+Files html resposables to show the information that comes from
+the models/views either via django tags or ajax requests via 
+javascript.
+
+Base
+-------
+Files used to populate the graph and geo databases.
+
+SQL
+-------
+SQL files to create the tables and make some queries
+in the geodatabase.

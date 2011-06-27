@@ -6,7 +6,7 @@ from django.core.mail import *
 import sys, traceback, json 
 from neo4jrestclient import *
 from django.conf import settings
-from engine import manager
+from TSE.engine import manager
 
 def handler(request):
     """
@@ -19,22 +19,25 @@ def handler(request):
         results = [] 
         params = json.loads(request.raw_post_data)
         if params["type"] == 'code':
-            results = manager.keyword_search(params["query"], settings.CODES_FIELDS)
+            results = manager.keyword_search(params["query"], settings.CODES_FIELDS, params["max"])
         if params["type"] == 'key':
-            results = manager.keyword_search(params["query"], settings.FULLTEXT_FIELDS)
+            results = manager.keyword_search(params["query"], settings.FULLTEXT_FIELDS, params["max"])
             
         return HttpResponse(json.dumps(results))            
     else: 
-       return HttpResponseBadRequest("You should send a json via a GET request.")   
+       return HttpResponseBadRequest("You should send a json via a GET request. The following params are required: type, query, max")   
 
         
 def web_handler(request):
     """
+    Handler for ajax requests for the view.
+    If it's not an ajax request, it renders the
+    main page.
     """
     if request.is_ajax():
         query = request.GET.get( 'q' )
         if query is not None:
-            results = manager.keyword_search(query, settings.FULLTEXT_FIELDS)
+            results = manager.keyword_search(query, settings.FULLTEXT_FIELDS, settrings.MAX_RESULTS)
             
             return HttpResponse(json.dumps(results),mimetype='application/json')
             
