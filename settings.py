@@ -139,15 +139,41 @@ INSTALLED_APPS = (
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
     'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'class': 'django.utils.log.AdminEmailHandler'
+        'null': {
+            'level':'DEBUG',
+            'class':'django.utils.log.NullHandler',
+        },
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+            'formatter': 'verbose',
+            'stream'  : 'ext://sys.stdout',
+            
+        },
+        'file':{
+            'class' : 'logging.handlers.RotatingFileHandler',
+            'filename': 'logconfig.log',
+            'formatter': 'verbose',
+            'maxBytes' : '1024',
+            'backupCount': '3'
         }
     },
     'loggers': {
+        'engine.views':{
+            'handlers' : ['file'],
+            'level': 'ERROR',
+        },
         'django.request': {
-            'handlers': ['mail_admins'],
+            'handlers': ['console'],
             'level': 'ERROR',
             'propagate': True,
         },

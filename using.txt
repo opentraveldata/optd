@@ -1,7 +1,0 @@
-Using
-
-httplib2
-psycopg2
-python-dev
-neo4jrestclient
-

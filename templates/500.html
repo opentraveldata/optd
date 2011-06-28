@@ -3,13 +3,13 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 		<link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}css/error.css">
-		<title>File Not Found - 404</title>
+		<title>Internal Server Error - 500</title>
 	</head>
 	<body>
 	    <div id="main">
-	    <h1>Not Found !</h1>
-	    <p>Sorry, the page you're looking for doesn't exist.<br>
-	    Try going back to the <a href="{% url engine.views.web_handler %}">main page</a>.</p>
+	    <h1>Oops !</h1>
+	    <p>Sorry, but it seems that something went wrong.<br>
+	    For more information, see the log file and go back to <a href="{% url engine.views.web_handler %}">main page</a>.</p>
 	    </div>
 	</body>
 </html>

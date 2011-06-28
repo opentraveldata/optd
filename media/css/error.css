@@ -1,0 +1,28 @@
+body{
+    text-align: center;
+    
+}
+
+h1{
+    font-size: 40px;
+    text-shadow: 2px 2px 2px #000;
+}
+
+p{
+
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#main{
+
+    margin-top: 20%;
+    
+}
