@@ -1,0 +1,34 @@
+= '''Travel Search Engine''' =
+
+== Summary ==
+
+This application aims to put together as many data as possible (starting with the most simple and most used) and make it available through a machine interface - as a RESTful web service - as well as through a web Guided User Interface - GUI, that the user would be able to browse the data as if a search engine.
+
+This application aims to put together as many data as possible (starting with the most simple and most used) and make it available through a machine interface - as a RESTful web service - as well as through a web Guided User Interface - GUI, that the user would be able to browse the data as if a search engine.
+
+== Technologies used ==
+
+To put all the elements together, this application uses the Django framework that is built in Python language. For the database, at first it was used a ORM SQLite as provided with Django, but it's going to be migrated to a NoSQL Graph Database - Neo4j. It's intended to add Geographical information and features to this database also, using PostgreSQL with PostGIS. And, finally, the GUI is made using plain HTML and uses JavaScript (jQuery) scripts to aid with the requests to the server and better organization of the page/information.
+
+=== Why change to graph database ? ===
+
+Relational database are great for mapping data for simple applications. But, they become not so great when we have sort of mutable data and we want to access, not only one specific information, but all the data that have some kind of relationship with it. Graph databases provide an easy way to map a model into a graph and make it easy to traverse it. Moreover, an entity is not attached to a type, so it could have any mix of information for representing the same "kind". Also, Graph Databases are optimized to traversing through large amount of data, so it's faster to navigate through pieces of stored data.
+
+=== How the graph database works ? ===
+
+Basically, every piece of information that we have on our model is a Node in the Graph. Each Node has it's own characteristics (properties) and it's Relationships with other nodes. A Relationship can have it's own properties also.  
+Each Node and Relationship could be indexed. The default index engine used in Neo4j is Lucene (Neo4j doesn't have it's own indexer). So, we have two ways of querying for information in the GraphDatabase: Traversing or through Indexes.
+
+=== Bulk Insertion ===
+
+The Bulk Insertion is a Java Class using the Neo4j API specialized on inserting a lot of data at once. These methods and classes used on BatchInsert API are intended to bulk insert only as, for performance increase, transactions and concurrency protection are disabled. 
+
+=== Integrating Neo4j with Django ===
+
+It does exists a biding for Neo4j for Python and Django called Neo4j.py but it's not being updated for a while and the support for the actual Django version is not so good. Thought, this project uses a Neo4j REST client that eases the access to the Neo4j's REST API. 
+
+The Django's ORM is not used. Instead, it was built a manager that "talks to" the GraphDatabase and to the GeoDatabase and send the information required to the view. This view is responsible to decide which information and to where to send it. And, finally, Django templates, with the help of jQuery (JavaScript) scripts are used to render the GUI.
+
+=== PostGIS ===
+
+PostGIS it's a complement for the PostGres database that allows it to represent geographical data. The use for it is to make easy to make queries based on the real location of each point of interest.

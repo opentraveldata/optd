@@ -27,6 +27,17 @@ Base
 -------
 Files used to populate the graph and geo databases.
 
+These are the sources:
+
+* airlines.ref -> airlinecodes.co.uk
+* airport_airline.ref -> internal data
+* airports.csv -> ourairports.com
+* continents.ref -> self-made
+* countries.csv -> ourairports.com
+* countryInfo.ref -> geonames.com
+* reference_nodes.ref -> self-made
+
+
 SQL
 -------
 SQL files to create the tables and make some queries
