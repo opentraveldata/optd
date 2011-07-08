@@ -1,20 +1,24 @@
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.neo4j.graphdb.DynamicRelationshipType;
 import org.neo4j.graphdb.index.BatchInserterIndex;
 import org.neo4j.graphdb.index.BatchInserterIndexProvider;
@@ -34,21 +38,6 @@ import com.csvreader.CsvReader;
 public class BatchInsert {
 
 	/**
-	 * Absolute path to the graph database.
-	 */
-	private static final String GRAPH_URL = "/home/milena/graph/data/graph.db/";
-
-	/**
-	 * Absolute path to the files used to gather information.
-	 */
-	private static final String BASE_AIRLINE_FILE = "/home/milena/workspace/TSE/base/airlines.ref";
-	private static final String BASE_AIRPORT_FILE = "/home/milena/workspace/TSE/base/airports.csv";
-	private static final String BASE_REF_NODE = "/home/milena/workspace/TSE/base/reference_nodes.ref";
-	private static final String BASE_CONTINENTS = "/home/milena/workspace/TSE/base/continents.ref";
-	private static final String BASE_COUNTRIES = "/home/milena/workspace/TSE/base/countries.csv";
-
-
-	/**
 	 * Neo4j's classes to do the bulk insert.
 	 */
 	private BatchInserter inserter = null;
@@ -58,18 +47,35 @@ public class BatchInsert {
 	private BatchInserterIndex labelIndex = null;
 	private BatchInserterIndex placeIndex = null;
 
+	/*
+	 * Responsible for the properties file.
+	 */
+	private Properties properties = null;
 
 	/**
 	 * Constructor that only initiates the batchinsert.
 	 */
 	public BatchInsert(){
-		inserter = new BatchInserterImpl( GRAPH_URL );
-		indexProvider = new LuceneBatchInserterIndexProvider( inserter );
+		properties = new Properties();
 
-		typeIndex = indexProvider.nodeIndex( "types", MapUtil.stringMap( "type", "fulltext" ) );
-		keywordIndex = indexProvider.nodeIndex( "keywords", MapUtil.stringMap( "type", "fulltext" ) );
-		labelIndex = indexProvider.relationshipIndex( "labels", MapUtil.stringMap( "type", "fulltext" ) );
-		placeIndex = indexProvider.nodeIndex( "places", MapUtil.stringMap( "type", "fulltext" ) );
+		try{
+			properties.load(new FileInputStream("bulk.properties"));
+
+			inserter = new BatchInserterImpl( properties.getProperty("graphurl") );
+			indexProvider = new LuceneBatchInserterIndexProvider( inserter );
+
+			typeIndex = indexProvider.nodeIndex( "types", MapUtil.stringMap( "type", "fulltext" ) );
+			keywordIndex = indexProvider.nodeIndex( "keywords", MapUtil.stringMap( "type", "fulltext" ) );
+			labelIndex = indexProvider.relationshipIndex( "labels", MapUtil.stringMap( "type", "fulltext" ) );
+			placeIndex = indexProvider.nodeIndex( "places", MapUtil.stringMap( "type", "fulltext" ) );
+
+			createAirlineToAirportMap();
+
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+
+
 	}
 
 	/**
@@ -79,12 +85,14 @@ public class BatchInsert {
 	 */
 	public static void main(String [] args) throws UnsupportedEncodingException, FileNotFoundException{
 		long start = System.currentTimeMillis();
+
+
 		BatchInsert bi = new BatchInsert();
-		bi.makeReferenceNodes(new InputStreamReader(new FileInputStream(BASE_REF_NODE), "UTF-8"));
-		bi.createContinentNodes(new InputStreamReader(new FileInputStream(BASE_CONTINENTS), "UTF-8"));
+		bi.makeReferenceNodes();
+		bi.createContinentNodes();
 		bi.createCountryNodes();
 		bi.createAirportNodes();
-		bi.createAirlineNodes(new InputStreamReader(new FileInputStream(BASE_AIRLINE_FILE), "UTF-8"));
+		bi.createAirlineNodes();
 
 		bi.stopBatch();
 
@@ -96,13 +104,13 @@ public class BatchInsert {
 
 	/**
 	 * Creates nodes for the entity of the kind Country.
-	 * @param file which has all the information concerned to the country.
 	 */
 	void createCountryNodes() {
 		long refNode = typeIndex.get("type", "country").getSingle();
 
 		try {
-			CsvReader countries = new CsvReader(new InputStreamReader(new FileInputStream(BASE_COUNTRIES), "UTF-8"));
+			InputStreamReader file = new InputStreamReader(new FileInputStream(properties.getProperty("baseCoutries")), "UTF-8");
+			CsvReader countries = new CsvReader(file);
 			countries.readHeaders();
 
 			while (countries.readRecord()){
@@ -131,9 +139,10 @@ public class BatchInsert {
 	 * Creates nodes for the entity of the kind Continent.
 	 * @param file which has all the information concerned to the continents.
 	 */
-	void createContinentNodes(InputStreamReader file) {
+	void createContinentNodes() {
 		long refNode = typeIndex.get("type", "continent").getSingle();
 		try {
+			InputStreamReader file = new InputStreamReader(new FileInputStream(properties.getProperty("baseContinents")), "UTF-8");
 			BufferedReader reader = new BufferedReader(file);
 			String line;
 			String[] props;
@@ -159,8 +168,9 @@ public class BatchInsert {
 	 * Creates the reference nodes used to navigate thought the graph.
 	 * @param file with the name of each kind of information, one per line.
 	 */
-	void makeReferenceNodes(InputStreamReader file){
+	void makeReferenceNodes(){
 		try {
+			InputStreamReader file = new InputStreamReader(new FileInputStream(properties.getProperty("baseRefNode")), "UTF-8");
 			BufferedReader reader = new BufferedReader(file);
 			String line;
 			Map<String,Object> properties = new HashMap<String,Object>();
@@ -183,7 +193,8 @@ public class BatchInsert {
 	void createAirportNodes(){
 		long refNode = typeIndex.get("type", "airport").getSingle();
 		try {
-			CsvReader airports = new CsvReader(new InputStreamReader(new FileInputStream(BASE_AIRPORT_FILE), "UTF-8"));
+			InputStreamReader file = new InputStreamReader(new FileInputStream(properties.getProperty("baseAirports")), "UTF-8");
+			CsvReader airports = new CsvReader(file);
 			airports.readHeaders();
 
 			while (airports.readRecord()){
@@ -214,9 +225,10 @@ public class BatchInsert {
 	 * Creates nodes for the entity of the kind Airline.
 	 * @param file which has all the information concerned to the airlines.
 	 */
-	void createAirlineNodes(InputStreamReader file) {
+	void createAirlineNodes() {
 		long refNode = typeIndex.get("type", "airline").getSingle();
 		try {
+			InputStreamReader file = new InputStreamReader(new FileInputStream(properties.getProperty("baseAirlines")), "UTF-8");
 			BufferedReader reader = new BufferedReader(file);
 			String line;
 			while( (line = reader.readLine()) != null ){
@@ -250,7 +262,7 @@ public class BatchInsert {
 	 */
 	private void relateAirlinesAndAirports(Map<String, ArrayList<String>> map) {
 		for (String airline : map.keySet()) {
-			Long al = keywordIndex.get("iata", airline).getSingle();
+			Long al = keywordIndex.get("icao", airline).getSingle();
 			if(! (al==null)){
 				for (String airport : map.get(airline)) {
 					Long ap = keywordIndex.get("iata", airport).getSingle();
@@ -272,37 +284,37 @@ public class BatchInsert {
 	private Map<String, ArrayList<String>> createAirlineToAirportMap(){
 		Map<String,ArrayList<String>> map = new HashMap<String,ArrayList<String>>();
 
-		String dbUrl = "jdbc:mysql://nceoridb01.nce.amadeus.net/geography";
-		String dbClass = "com.mysql.jdbc.Driver";
-		String query = "SELECT DISTINCT destination, airline FROM `schedules`";
-
+		File file = new File(properties.getProperty("airlinesAirportsRelatioships"));
+		byte[] buffer = new byte[(int) file.length()];
+		BufferedInputStream f = null;
 		try {
+			f = new BufferedInputStream(new FileInputStream(file));
+			f.read(buffer);
+			f.close();
 
-			Class.forName(dbClass);
-			Connection con = DriverManager.getConnection (dbUrl, "sim", "pods3030");
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
+			JSONObject json = new JSONObject(new String(buffer));
+			String[] keys = JSONObject.getNames(json);
+			for (int i = 0; i < keys.length; i++) {
+				String airline = keys[i];
+				JSONArray airports = json.getJSONArray(airline);
 
-			while (rs.next()) {
-				if(map.containsKey(rs.getString("airline"))){
-					map.get(rs.getString("airline")).add(rs.getString("destination"));
-				}else{
-					ArrayList<String> list = new ArrayList<String>();
-					list.add(rs.getString("destination"));
-					map.put(rs.getString("airline"), list);
+				ArrayList<String> airportCodes = new ArrayList<String>();
+				for (int j = 0; j < airports.length(); j++) {
+					airportCodes.add(airports.getString(j));
 				}
-
+				map.put(airline, airportCodes);
 			}
 
-			con.close();
-		} 
 
-		catch(ClassNotFoundException e) {
-			e.printStackTrace();
-		}
 
-		catch(SQLException e) {
-			e.printStackTrace();
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}catch (JSONException e1) {
+			e1.printStackTrace();
 		}
 
 		return map;
@@ -316,17 +328,15 @@ public class BatchInsert {
 	 * @param node id of the entity in the graph database that has the related information.
 	 */
 	private void addPOIGeoDb(String longitude, String latitude,String kind, long node) {
-		String dbUrl = "jdbc:postgresql://localhost/geodb";
-		String dbClass = "org.postgresql.Driver";
 
 		String sql = "INSERT INTO poi (graphid, type, place) ";
 		sql += "VALUES ('"+node + "','" + kind +"',";
-		sql += "ST_GeomFromText('SRID=32661;POINT("+longitude+" "+ latitude+")') );";
+		sql += "ST_GeographyFromText('SRID=4326;POINT("+longitude+" "+ latitude+")') );";
 
 		try {
 
-			Class.forName(dbClass);
-			Connection con = DriverManager.getConnection (dbUrl, "postgres", "geodb");
+			Class.forName(properties.getProperty("geodbClass"));
+			Connection con = DriverManager.getConnection (properties.getProperty("geodbUrl"), properties.getProperty("geodbUserName"), properties.getProperty("geodbName"));
 			Statement stmt = con.createStatement();
 			stmt.executeUpdate(sql);
 			con.close();
@@ -416,7 +426,7 @@ public class BatchInsert {
 	 */
 	private void relateNodes(long node1,long node2,String label){
 		inserter.createRelationship( node1, node2, DynamicRelationshipType.withName( label ), null );
-//		labelIndex.add(arg0, arg1)
+		//		labelIndex.add(arg0, arg1)
 	}
 
 	/**
@@ -442,4 +452,5 @@ public class BatchInsert {
 	}
 
 }
+
 
