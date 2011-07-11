@@ -37,7 +37,7 @@ import com.csvreader.CsvReader;
  */
 public class BatchInsert {
 
-	/**
+	/*
 	 * Neo4j's classes to do the bulk insert.
 	 */
 	private BatchInserter inserter = null;
@@ -137,7 +137,6 @@ public class BatchInsert {
 
 	/**
 	 * Creates nodes for the entity of the kind Continent.
-	 * @param file which has all the information concerned to the continents.
 	 */
 	void createContinentNodes() {
 		long refNode = typeIndex.get("type", "continent").getSingle();
@@ -166,7 +165,6 @@ public class BatchInsert {
 
 	/**
 	 * Creates the reference nodes used to navigate thought the graph.
-	 * @param file with the name of each kind of information, one per line.
 	 */
 	void makeReferenceNodes(){
 		try {
@@ -223,7 +221,6 @@ public class BatchInsert {
 
 	/**
 	 * Creates nodes for the entity of the kind Airline.
-	 * @param file which has all the information concerned to the airlines.
 	 */
 	void createAirlineNodes() {
 		long refNode = typeIndex.get("type", "airline").getSingle();
@@ -452,5 +449,4 @@ public class BatchInsert {
 	}
 
 }
-
 

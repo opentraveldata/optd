@@ -6,7 +6,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-     ('Admin', 'admin@localhost'),
+     ('Milena Araujo', 'milena@localhost'),
 )
 
 MANAGERS = ADMINS
@@ -56,7 +56,7 @@ USE_L10N = True
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
 STATIC_ROOT = 'media/'
-MEDIA_ROOT = './TSE/media/'
+MEDIA_ROOT = '/home/milena/workspace/TSE/media/'
 MEDIA_URL = 'http://localhost:8000/TSE/media/'
 
 # URL prefix for static files.
