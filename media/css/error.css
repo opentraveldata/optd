@@ -1,15 +1,10 @@
 body{
     text-align: center;
-    
 }
 
 h1{
     font-size: 40px;
     text-shadow: 2px 2px 2px #000;
-}
-
-p{
-
 }
 
 a {
@@ -24,5 +19,4 @@ a:hover {
 #main{
 
     margin-top: 20%;
-    
 }
