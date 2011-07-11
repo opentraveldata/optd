@@ -95,7 +95,6 @@ def get_node_relationships(id):
     """
     results = []
     node = gdb.node[id]
-#    nodes = node.traverse(order=[constants.BREADTH_FIRST])
 
     for rel in node.relationships.all():
         if rel.type != 'IS':
