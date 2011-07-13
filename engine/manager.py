@@ -95,6 +95,7 @@ def get_node_relationships(id):
     """
     results = []
     node = gdb.node[id]
+#    nodes = node.traverse(order=[constants.BREADTH_FIRST])
 
     for rel in node.relationships.all():
         if rel.type != 'IS':
@@ -131,7 +132,6 @@ def make_query(keys, fields):
     for field in fields:
         for key in keys:
             query += field + ":" + key + " OR "
-    
     return query[:-4]
     
 def make_custom_query(query, maximum):
@@ -143,7 +143,7 @@ def make_custom_query(query, maximum):
     for node in nodes:
         node.properties['id'] = node.id
         results.append(node.properties)
-        
+     
     return results    
         
 def get_pois_around(node_id, distance):
