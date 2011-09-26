@@ -1,7 +1,0 @@
-.. _engine_views:
-
-Engine Views
-================
-
-.. automodule:: TSE.engine.views
-   :members:

@@ -1,9 +1,0 @@
-Engine application
-====================
-
-.. toctree::
-   :maxdepth: 2
-   
-   engine_manager
-   engine_views
-

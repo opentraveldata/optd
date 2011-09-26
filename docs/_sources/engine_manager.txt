@@ -1,7 +1,0 @@
-.. _engine_manager:
-
-Engine Manager
-================
-
-.. automodule:: TSE.engine.manager
-   :members:
