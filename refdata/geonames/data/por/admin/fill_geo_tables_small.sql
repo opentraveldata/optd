@@ -43,10 +43,6 @@ INTO TABLE iso_language_codes CHARACTER SET UTF8 (
 iso_639_3, iso_639_2, iso_639_1, language_name);
 commit;
  
--- LOAD DATA LOCAL INFILE '../../por/data/admin1Codes.txt'
--- INTO TABLE admin1_codes CHARACTER SET UTF8 (code, name);
--- commit;
-
 LOAD DATA LOCAL INFILE '../../por/data/admin1CodesASCII.txt'
 INTO TABLE admin1_codes_ascii (code, name, nameAscii, geonameid);
 commit;
