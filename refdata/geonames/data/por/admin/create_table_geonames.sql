@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: geonames
 -- ------------------------------------------------------
--- Server version	5.0.67
+-- Server version	5.5.18
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -37,18 +37,6 @@ CREATE TABLE `zip_codes` (
 ) DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
---
--- Table structure for table `admin1_codes`
---
-
-DROP TABLE IF EXISTS `admin1_codes`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-CREATE TABLE `admin1_codes` (
-  `code` char(40) default NULL,
-  `name` text
-) DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `admin1_codes_ascii`
@@ -62,8 +50,25 @@ CREATE TABLE `admin1_codes_ascii` (
   `name` text,
   `nameAscii` text,
   `geonameid` int(11) default NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
+
+
+--
+-- Table structure for table `admin2_codes`
+--
+
+DROP TABLE IF EXISTS `admin2_codes`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `admin2_codes` (
+  `code` char(10) default NULL,
+  `name_local` text,
+  `name` text NOT NULL,
+  `geonameid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
 
 --
 -- Table structure for table `alternate_name`
@@ -78,10 +83,10 @@ CREATE TABLE `alternate_name` (
   `isoLanguage` varchar(7) default NULL,
   `alternateName` varchar(200) default NULL,
   `isPreferredName` tinyint(1) default NULL,
-  `isShortName` tinyint(1) default NULL,
-  PRIMARY KEY  (`alternatenameId`)
-) DEFAULT CHARSET=utf8;
+  `isShortName` tinyint(1) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
+
 
 --
 -- Table structure for table `continent_codes`
@@ -94,8 +99,9 @@ CREATE TABLE `continent_codes` (
   `code` char(2) default NULL,
   `name` varchar(20) default NULL,
   `geonameid` int(11) default NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
+
 
 --
 -- Table structure for table `country_info`
@@ -124,8 +130,9 @@ CREATE TABLE `country_info` (
   `geonameId` int(11) default NULL,
   `neighbours` varchar(64) default NULL,
   `equivalent_fips_code` varchar(3) default NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
+
 
 --
 -- Table structure for table `feature_codes`
@@ -138,8 +145,9 @@ CREATE TABLE `feature_codes` (
   `code` char(7) default NULL,
   `name` varchar(200) default NULL,
   `description` text
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
+
 
 --
 -- Table structure for table `geoname`
@@ -167,59 +175,10 @@ CREATE TABLE `geoname` (
   `elevation` int(11) default NULL,
   `gtopo30` int(11) default NULL,
   `timezone` varchar(40) default NULL,
-  `moddate` date default NULL,
-  PRIMARY KEY  (`geonameid`)
-) DEFAULT CHARSET=utf8;
+  `moddate` date default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
---
--- Table structure for table `geonames`
---
-
-DROP TABLE IF EXISTS `geonames`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-CREATE TABLE `geonames` (
-  `geonameid` int(10) unsigned NOT NULL default '0',
-  `name` varchar(200) NOT NULL default '',
-  `ansiname` varchar(200) NOT NULL default '',
-  `alternames` varchar(2000) NOT NULL default '',
-  `latitude` double NOT NULL default '0',
-  `longitude` double NOT NULL default '0',
-  `feature_class` char(1) default NULL,
-  `feature_code` varchar(10) default NULL,
-  `country_code` char(2) default NULL,
-  `cc2` varchar(60) default NULL,
-  `admin1_code` varchar(20) default '',
-  `admin2_code` varchar(80) default '',
-  `admin3_code` varchar(20) default '',
-  `admin4_code` varchar(20) default '',
-  `population` int(11) default '0',
-  `elevation` int(11) default '0',
-  `gtopo30` int(11) default '0',
-  `timezone` varchar(40) default NULL,
-  `modification_date` date default '0000-00-00',
-  PRIMARY KEY  (`geonameid`),
-  KEY `cc2` (`cc2`),
-  KEY `timezone` (`timezone`),
-  KEY `latlong` (`latitude`,`longitude`)
-) DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
-
---
--- Table structure for table `admin2_codes`
---
-
-DROP TABLE IF EXISTS `admin2_codes`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-CREATE TABLE `admin2_codes` (
-  `code` char(10) default NULL,
-  `name_local` text,
-  `name` text NOT NULL,
-  `geonameid` int(11) NOT NULL
-) DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `iso_language_codes`
@@ -233,8 +192,9 @@ CREATE TABLE `iso_language_codes` (
   `iso_639_2` varchar(50) default NULL,
   `iso_639_1` varchar(50) default NULL,
   `language_name` varchar(200) default NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
+
 
 --
 -- Table structure for table `time_zones`
@@ -247,10 +207,15 @@ CREATE TABLE `time_zones` (
   `timeZoneId` varchar(200) default NULL,
   `GMT_offset` decimal(3,1) default NULL,
   `DST_offset` decimal(3,1) default NULL,
-	`raw_offset` decimal(3,1) default NULL
-) DEFAULT CHARSET=utf8;
+  `raw_offset` decimal(3,1) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+
+--
+-- Table structure for table `hierarchy`
+--
 
 DROP TABLE IF EXISTS `hierarchy`;
 SET @saved_cs_client     = @@character_set_client;
@@ -259,9 +224,9 @@ CREATE TABLE hierarchy (
         parentId int(11),
         childId int(11),
         relationType varchar(20),
-        PRIMARY KEY (parentId, childId)
-) CHARACTER SET utf8;
+) ENGINE=InnoDB DEFAULT CHARSET utf8;
 SET character_set_client = @saved_cs_client;
+
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

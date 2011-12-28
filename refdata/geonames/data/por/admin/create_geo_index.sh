@@ -36,13 +36,8 @@ DB_PASSWD="geo"
 # Database Name
 DB_NAME="geo_geonames"
 
-# Create the tables
-SQL_FILE="create_table_geonames.sql"
-echo "Creating the tables for Geonames:"
+# Create the indexes on the tables
+SQL_FILE="create_index_geonames.sql"
+echo "Creating the index on the tables of Geonames:"
 mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} < ${SQL_FILE}
 
-# Load the data of the smallest tables, i.e., all the tables but
-# geoname and alternate_name
-SQL_FILE="fill_geo_tables_small.sql"
-echo "Load data into the tables of Geonames:"
-mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} < ${SQL_FILE}
