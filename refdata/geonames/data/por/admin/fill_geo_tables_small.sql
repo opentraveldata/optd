@@ -52,7 +52,7 @@ INTO TABLE admin2_codes CHARACTER SET UTF8 (code, name_local, name, geonameid);
 commit;
 
 LOAD DATA LOCAL INFILE '../../por/data/featureCodes_en.txt'
-INTO TABLE feature_codes CHARACTER SET UTF8 (code, name, description);
+INTO TABLE feature_codes CHARACTER SET UTF8 (code, name_en, description_en);
 commit;
 
 LOAD DATA LOCAL INFILE '../../por/data/hierarchy.txt'
