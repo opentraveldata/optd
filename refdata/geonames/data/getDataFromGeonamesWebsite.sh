@@ -36,7 +36,7 @@ retrieveFiles() {
 # Retrieve the data files for the Point Of Reference (POR), i.e., the main
 # Geonames database
 BASE_URL=http://download.geonames.org/export/dump
-FILES="allCountries.zip alternateNames.zip cities1000.zip cities5000.zip cities15000.zip admin1Codes.txt admin1CodesASCII.txt admin2Codes.txt countryInfo.txt iso-languagecodes.txt featureCodes_en.txt hierarchy.zip no-country.zip timeZones.txt userTags.zip"
+FILES="admin1CodesASCII.txt admin2Codes.txt allCountries.zip alternateNames.zip cities1000.zip cities5000.zip cities15000.zip countryInfo.txt featureCodes_en.txt featureCodes_ru.txt iso-languagecodes.txt hierarchy.zip no-country.zip timeZones.txt userTags.zip"
 TARGET_DIR=por/data
 retrieveFiles
 

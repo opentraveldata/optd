@@ -143,8 +143,10 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 CREATE TABLE `feature_codes` (
   `code` char(7) default NULL,
-  `name` varchar(200) default NULL,
-  `description` text
+  `name_en` varchar(200) default NULL,
+  `description_en` text,
+  `name_ru` varchar(200) default NULL,
+  `description_ru` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
