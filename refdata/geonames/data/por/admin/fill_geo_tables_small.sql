@@ -51,6 +51,13 @@ LOAD DATA LOCAL INFILE '../../por/data/admin2Codes.txt'
 INTO TABLE admin2_codes CHARACTER SET UTF8 (code, name_local, name, geonameid);
 commit;
 
+-- Feature Classes
+-- That table has been created from the geonames.org page
+-- (http://www.geonames.org/export/codes.html)
+LOAD DATA LOCAL INFILE '../../por/data/featureClasses_en.txt'
+INTO TABLE feature_classes FIELDS TERMINATED BY ';' (class, names);
+commit;
+
 LOAD DATA LOCAL INFILE '../../por/data/featureCodes_en.txt'
 INTO TABLE feature_codes CHARACTER SET UTF8 (code, name_en, description_en);
 commit;

@@ -59,6 +59,7 @@ ALTER TABLE `feature_codes` ADD PRIMARY KEY (`code`);
 --
 
 ALTER TABLE `geoname` ADD PRIMARY KEY (`geonameid`);
+ALTER TABLE `geoname` ADD INDEX (`fcode`);
 
 
 --
