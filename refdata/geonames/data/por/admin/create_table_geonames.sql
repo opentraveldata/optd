@@ -96,7 +96,7 @@ DROP TABLE IF EXISTS `continent_codes`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 CREATE TABLE `continent_codes` (
-  `code` char(2) default NULL,
+  `code` char(2) NOT NULL,
   `name` varchar(20) default NULL,
   `geonameid` int(11) default NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -135,6 +135,20 @@ SET character_set_client = @saved_cs_client;
 
 
 --
+-- Table structure for table `feature_classes`
+--
+
+DROP TABLE IF EXISTS `feature_classes`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `feature_classes` (
+  `class` char(1) NOT NULL,
+  `names` varchar(200) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+
+--
 -- Table structure for table `feature_codes`
 --
 
@@ -142,7 +156,7 @@ DROP TABLE IF EXISTS `feature_codes`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 CREATE TABLE `feature_codes` (
-  `code` char(7) default NULL,
+  `code` char(7) NOT NULL,
   `name_en` varchar(200) default NULL,
   `description_en` text,
   `name_ru` varchar(200) default NULL,
