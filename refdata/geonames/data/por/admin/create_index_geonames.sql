@@ -10,7 +10,7 @@
 --
 
 ALTER TABLE `admin1_codes_ascii` ADD PRIMARY KEY (`geonameid`);
-ALTER TABLE `admin1_codes_ascii` ADD UNIQUE (`code`);
+ALTER TABLE `admin1_codes_ascii` ADD UNIQUE (`ccode`, `code`);
 
 
 --
@@ -18,6 +18,13 @@ ALTER TABLE `admin1_codes_ascii` ADD UNIQUE (`code`);
 --
 
 ALTER TABLE `admin2_codes` ADD PRIMARY KEY (`geonameid`);
+ALTER TABLE `admin2_codes` ADD UNIQUE (`ccode`, `code1`, `code2`);
+
+
+--
+-- Index structure for table `airports_pageranked`
+--
+ALTER TABLE `airports_pageranked` ADD PRIMARY KEY (`code`);
 
 
 --
@@ -37,7 +44,6 @@ ALTER TABLE `continent_codes` ADD PRIMARY KEY (`code`);
 --
 -- Index structure for table `country_info`
 --
-DELETE FROM `country_info` WHERE `iso_alpha2` = 'iso';
 
 ALTER TABLE `country_info` ADD PRIMARY KEY (`iso_alpha2`);
 ALTER TABLE `country_info` ADD UNIQUE (`iso_alpha3`);
@@ -52,6 +58,7 @@ ALTER TABLE `country_info` ADD INDEX (`geonameId`);
 --
 
 ALTER TABLE `feature_codes` ADD PRIMARY KEY (`code`);
+ALTER TABLE `feature_codes` ADD INDEX (`class`);
 
 
 --
@@ -65,7 +72,6 @@ ALTER TABLE `geoname` ADD INDEX (`fcode`);
 --
 -- Index structure for table `iso_language_codes`
 --
-DELETE FROM `iso_language_codes` WHERE `iso_639_3` = 'iso';
 
 ALTER TABLE `iso_language_codes` ADD PRIMARY KEY (`iso_639_3`);
 
