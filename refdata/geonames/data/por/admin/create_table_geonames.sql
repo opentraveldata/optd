@@ -16,29 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `zip_codes`
---
-
-DROP TABLE IF EXISTS `zip_codes`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-CREATE TABLE `zip_codes` (
-  `iso_alpha2` char(2) default NULL,
-  `postal_code` varchar(10) default NULL,
-  `place_name` varchar(200) default NULL,
-  `admin_name1` varchar(100) default NULL,
-  `admin_code1` varchar(20) default NULL,
-  `admin_name2` varchar(100) default NULL,
-  `admin_code2` varchar(20) default NULL,
-  `admin_name3` varchar(100) default NULL,
-  `latitude` decimal(10,7) default NULL,
-  `longitude` decimal(10,7) default NULL,
-  `accuracy` int(1) default NULL
-) DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
-
-
---
 -- Table structure for table `admin1_codes_ascii`
 --
 
@@ -46,10 +23,11 @@ DROP TABLE IF EXISTS `admin1_codes_ascii`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 CREATE TABLE `admin1_codes_ascii` (
-  `code` char(10) default NULL,
-  `name` text,
-  `nameAscii` text,
-  `geonameid` int(11) default NULL
+  `ccode` char(2) NOT NULL,
+  `code` varchar(7) NOT NULL,
+  `name` text NOT NULL,
+  `nameAscii` text default NULL,
+  `geonameid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
@@ -62,10 +40,27 @@ DROP TABLE IF EXISTS `admin2_codes`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 CREATE TABLE `admin2_codes` (
-  `code` char(10) default NULL,
-  `name_local` text,
+  `ccode` char(2) NOT NULL,
+  `code1` varchar(7) default NULL,
+  `code2` varchar(100) NOT NULL,
+  `name_local` text default NULL,
   `name` text NOT NULL,
   `geonameid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+
+--
+-- Table structure for table `airports_pageranked`
+--
+
+DROP TABLE IF EXISTS `airports_pageranked`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `airports_pageranked` (
+  `id` int(6) NOT NULL,
+  `code` char(3) NOT NULL,
+  `rank` decimal(15,12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
@@ -156,11 +151,12 @@ DROP TABLE IF EXISTS `feature_codes`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 CREATE TABLE `feature_codes` (
-  `code` char(7) NOT NULL,
+  `class` char(1) NOT NULL,
+  `code` varchar(5) NOT NULL,
   `name_en` varchar(200) default NULL,
-  `description_en` text,
+  `description_en` text default NULL,
   `name_ru` varchar(200) default NULL,
-  `description_ru` text
+  `description_ru` text default NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
@@ -193,6 +189,21 @@ CREATE TABLE `geoname` (
   `timezone` varchar(40) default NULL,
   `moddate` date default NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+
+--
+-- Table structure for table `hierarchy`
+--
+
+DROP TABLE IF EXISTS `hierarchy`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE hierarchy (
+  `parentId` int(11) NOT NULL,
+  `childId` int(11) NOT NULL,
+  `relationType` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET utf8;
 SET character_set_client = @saved_cs_client;
 
 
@@ -230,17 +241,25 @@ SET character_set_client = @saved_cs_client;
 
 
 --
--- Table structure for table `hierarchy`
+-- Table structure for table `zip_codes`
 --
 
-DROP TABLE IF EXISTS `hierarchy`;
+DROP TABLE IF EXISTS `zip_codes`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
-CREATE TABLE hierarchy (
-        parentId int(11),
-        childId int(11),
-        relationType varchar(20),
-) ENGINE=InnoDB DEFAULT CHARSET utf8;
+CREATE TABLE `zip_codes` (
+  `iso_alpha2` char(2) default NULL,
+  `postal_code` varchar(10) default NULL,
+  `place_name` varchar(200) default NULL,
+  `admin_name1` varchar(100) default NULL,
+  `admin_code1` varchar(20) default NULL,
+  `admin_name2` varchar(100) default NULL,
+  `admin_code2` varchar(20) default NULL,
+  `admin_name3` varchar(100) default NULL,
+  `latitude` decimal(10,7) default NULL,
+  `longitude` decimal(10,7) default NULL,
+  `accuracy` int(1) default NULL
+) DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 
