@@ -1,7 +1,8 @@
 #!/bin/sh
 
-URL_CATCH=wget
-UNCOMPRESS="unzip -u"
+#URL_CATCH=wget
+URL_CATCH=copy_if_changed.py
+UNCOMPRESS="unzip -u -o"
 
 # Retrieve a file from the Geonames.org Web site, and unzip it when needed
 retrieveFiles() {
@@ -14,17 +15,17 @@ retrieveFiles() {
 
 	for file in ${FILES};
 	do
-		if [ ! -r ${file} ];
+		echo "Checking whether '${file}' must be downloaded from ${BASE_URL}"
+		if ${URL_TARGET_DIR}${URL_CATCH} ${BASE_URL}/${file} ${file};
 		then
-			echo "Retrieving ${file} from ${BASE_URL}"
-			${URL_CATCH} ${BASE_URL}/${file}
+			echo "  Data file '${file}' has been downloaded and updated."
 		fi
 		if [ -r ${file} ];
 		then
 			BASE_FILE=`basename ${file} .zip`
 			if [ "${file}" = "${BASE_FILE}.zip" ];
 			then
-				echo "Uncompressing, if necessary, ${file}"
+				echo "Uncompressing '${file}' (e.g., into '${BASE_FILE}.txt')"
 				${UNCOMPRESS} ${file}
 			fi
 		fi
@@ -38,6 +39,7 @@ retrieveFiles() {
 BASE_URL=http://download.geonames.org/export/dump
 FILES="admin1CodesASCII.txt admin2Codes.txt allCountries.zip alternateNames.zip cities1000.zip cities5000.zip cities15000.zip countryInfo.txt featureCodes_en.txt featureCodes_ru.txt iso-languagecodes.txt hierarchy.zip no-country.zip timeZones.txt userTags.zip"
 TARGET_DIR=por/data
+URL_TARGET_DIR=../../
 retrieveFiles
 
 # Retrieve the data files for the Postal Codes (Zip)
@@ -48,5 +50,6 @@ retrieveFiles
 BASE_URL=http://download.geonames.org/export/zip
 FILES="allCountries.zip"
 TARGET_DIR=zip
+URL_TARGET_DIR=../
 retrieveFiles
 
