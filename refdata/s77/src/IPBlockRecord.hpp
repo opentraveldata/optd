@@ -4,6 +4,11 @@
 // //////////////////////////////////////////////////////////////////////
 // Import section
 // //////////////////////////////////////////////////////////////////////
+// STL
+#include <map>
+// Boost
+#include <boost/date_time/posix_time/posix_time.hpp>
+#include <boost/date_time/gregorian/gregorian.hpp>
 
 namespace OPENGEOPP {
   
@@ -19,6 +24,7 @@ namespace OPENGEOPP {
     std::string _country3Char;
     std::string _country;
     boost::gregorian::date _dateAssigned;
+    //int _dateAssigned;
     
     /** Constructor. */
     IPBlockRecord_T();
@@ -34,3 +40,4 @@ namespace OPENGEOPP {
   typedef std::map<IPNumber_T, IPBlockRecord_T> IPBlockRecordList_T;
 }
 #endif // __OPENGEOPP_BOM_IPBLOCKRECORD_HPP
+
