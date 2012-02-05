@@ -1,5 +1,5 @@
 // C
-#include <assert.h>
+#include <cassert>
 
 // STL
 #include <iostream>
@@ -17,61 +17,65 @@
 
 // Boost Spirit (Parsing)
 // #define BOOST_SPIRIT_DEBUG
-#include <boost/spirit/core.hpp>
-#include <boost/spirit/attribute.hpp>
-#include <boost/spirit/utility/functor_parser.hpp>
-#include <boost/spirit/utility/loops.hpp>
-#include <boost/spirit/utility/chset.hpp>
-#include <boost/spirit/utility/confix.hpp>
-#include <boost/spirit/iterator/file_iterator.hpp>
-#include <boost/spirit/actor/push_back_actor.hpp>
-#include <boost/spirit/actor/assign_actor.hpp>
+#include <boost/spirit/include/classic_core.hpp>
+#include <boost/spirit/include/classic_attribute.hpp>
+#include <boost/spirit/include/classic_functor_parser.hpp>
+#include <boost/spirit/include/classic_loops.hpp>
+#include <boost/spirit/include/classic_chset.hpp>
+#include <boost/spirit/include/classic_confix.hpp>
+#include <boost/spirit/include/classic_file_iterator.hpp>
+#include <boost/spirit/include/classic_push_back_actor.hpp>
+#include <boost/spirit/include/classic_assign_actor.hpp>
 
 // SOCI
-#include <soci/core/soci.h>
-#include <soci/backends/mysql/soci-mysql.h>
+#include <soci/soci.h>
+#include <soci/mysql/soci-mysql.h>
 
+// OpenGeoPP
+#include "IPBlockRecord.hpp"
+#include "DbaIPBlockRecord.hpp"
 
 // Type definitions
 typedef char char_t;
 //typedef char const* iterator_t;
-typedef boost::spirit::file_iterator<char_t> iterator_t;
-typedef boost::spirit::scanner<iterator_t> scanner_t;
-typedef boost::spirit::rule<scanner_t> rule_t;
+typedef boost::spirit::classic::file_iterator<char_t> iterator_t;
+typedef boost::spirit::classic::scanner<iterator_t> scanner_t;
+typedef boost::spirit::classic::rule<scanner_t> rule_t;
 
-/** Structure holding the list of IP Block Records. */
-struct IPBlockRecordHolder_T {
-  // Attributes
-  IPBlockRecordList_T _ipBlockRecordList;
+namespace OPENGEOPP {
 
-  /** Constructor. */
-  IPBlockRecordHolder_T () {}
+	/** Structure holding the list of IP Block Records. */
+	struct IPBlockRecordHolder_T {
+	  // Attributes
+	  IPBlockRecordList_T _ipBlockRecordList;
 
-  /** Display. */
-  void display() const {
-    unsigned int idx = 0;
-    for (IPBlockRecordList_T::const_iterator itIPRecord =
-           _ipBlockRecordList.begin();
-         itIPRecord != _ipBlockRecordList.end(); ++itIPRecord, ++idx) {
-      const IPBlockRecord_T& lIPBlockRecord = itIPRecord->second;
-      std::cout << "[" << idx << "]: " << lIPBlockRecord.toString()
-                << std::endl;
-    }
-  }
+	  /** Constructor. */
+	  IPBlockRecordHolder_T () {}
 
-  /** Staging IP Block Record. */
-  IPBlockRecord_T _ipBlockRecord;
+	  /** Display. */
+	  void display() const {
+    	unsigned int idx = 0;
+	    for (IPBlockRecordList_T::const_iterator itIPRecord =
+    	       _ipBlockRecordList.begin();
+        	 itIPRecord != _ipBlockRecordList.end(); ++itIPRecord, ++idx) {
+	      const IPBlockRecord_T& lIPBlockRecord = itIPRecord->second;
+    	  std::cout << "[" << idx << "]: " << lIPBlockRecord.toString()
+	                << std::endl;
+	    }
+	  }
 
-  /** Index. */
-  unsigned int _index;
-};
+	  /** Staging IP Block Record. */
+	  IPBlockRecord_T _ipBlockRecord;
 
-///////////////////////////////////////////////////////////////////////////////
-//
-//  Semantic actions
-//
-///////////////////////////////////////////////////////////////////////////////
-namespace {
+	  /** Index. */
+	  unsigned int _index;
+	};
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  //  Semantic actions
+  //
+  ///////////////////////////////////////////////////////////////////////////////
 
   /** Store the parsed assignment date. */
   struct store_date_assigned {
@@ -148,8 +152,7 @@ namespace {
 
     IPBlockRecordHolder_T& _ipBlockRecordHolder;
   };
-  
-}
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -167,11 +170,11 @@ namespace {
                                 ',' Country3Char ',' Country
     */
 
-using namespace boost::spirit;
+using namespace boost::spirit::classic;
 
 /** Grammar for the Flight-Period parser. */
 struct IPBlockRecordParser : 
-  public boost::spirit::grammar<IPBlockRecordParser> {
+  public boost::spirit::classic::grammar<IPBlockRecordParser> {
 
   IPBlockRecordParser (IPBlockRecordHolder_T& ioIPBlockRecordHolder)
     : _ipBlockRecordHolder (ioIPBlockRecordHolder) {
@@ -181,7 +184,7 @@ struct IPBlockRecordParser :
   struct definition {
     definition (IPBlockRecordParser const& self) {
 
-      ip_block_record_list = *( boost::spirit::comment_p("#")
+      ip_block_record_list = *( boost::spirit::classic::comment_p("#")
                               | ip_block_record )
         ;
       
@@ -230,7 +233,7 @@ struct IPBlockRecordParser :
         ;
 
       ip_block_record_end =
-        boost::spirit::ch_p('"')
+        boost::spirit::classic::ch_p('"')
         ;
       
       
@@ -248,11 +251,11 @@ struct IPBlockRecordParser :
 
     //         >> (repeat_p(0,50)[chset_p("a-zA-Z':;()-.")])[assign_a(self._ipBlockRecord._country)]
     
-    boost::spirit::rule<ScannerT> ip_block_record_list, ip_block_record,
+    boost::spirit::classic::rule<ScannerT> ip_block_record_list, ip_block_record,
       ip_block_record_end, ip_from, ip_to, registry, date, country_2char,
       country_3char, country;
 
-    boost::spirit::rule<ScannerT> const& start() const { return ip_block_record_list; }
+    boost::spirit::classic::rule<ScannerT> const& start() const { return ip_block_record_list; }
   };
 
   IPBlockRecordHolder_T& _ipBlockRecordHolder;
@@ -264,9 +267,9 @@ struct IPBlockRecordParser :
 int fillTable (const IPBlockRecordHolder_T& iIPBlockRecordHolder) {
 
   // Database parameters
-  const std::string lUserName ("magicolta");
-  const std::string lPassword ("mag3030");
-  const std::string lDBName ("magicolta");
+  const std::string lUserName ("geo");
+  const std::string lPassword ("geo");
+  const std::string lDBName ("geo_s77");
   const std::string lDBPort ("3306");
   const std::string lDBHost ("localhost");
   std::ostringstream oStr;
@@ -290,6 +293,7 @@ int fillTable (const IPBlockRecordHolder_T& iIPBlockRecordHolder) {
   
   soci::statement lInsertStatement (lSociSession);
 
+  IPBlockRecord_T lIPBlockRecord;
   lInsertStatement =
     (lSociSession.prepare
      << "insert into ip_to_country (ip_from, ip_to, registry, assigned_date, "
@@ -307,6 +311,8 @@ int fillTable (const IPBlockRecordHolder_T& iIPBlockRecordHolder) {
   }
   
   return 0;
+}
+
 }
 
 
@@ -333,12 +339,12 @@ int main (int argc, char* argv[]) {
     iterator_t lFileIteratorEnd = lFileIterator.make_end();
     
     // Instantiate the structure that will hold the result of the parsing.
-    IPBlockRecordHolder_T lIPBlockRecordHolder;
-    IPBlockRecordParser lIPBlockRecordParser (lIPBlockRecordHolder);
-    boost::spirit::parse_info<iterator_t> info =
-      boost::spirit::parse (lFileIterator, lFileIteratorEnd,
+    OPENGEOPP::IPBlockRecordHolder_T lIPBlockRecordHolder;
+    OPENGEOPP::IPBlockRecordParser lIPBlockRecordParser (lIPBlockRecordHolder);
+    boost::spirit::classic::parse_info<iterator_t> info =
+      boost::spirit::classic::parse (lFileIterator, lFileIteratorEnd,
                             lIPBlockRecordParser, 
-                            boost::spirit::space_p);
+                            boost::spirit::classic::space_p);
 
     // DEBUG
     // std::cout << "IP Block Record List:" << std::endl;
@@ -378,8 +384,8 @@ int main (int argc, char* argv[]) {
       }
 
       // Translate the string into a decimal IP Number
-      const IPNumber_T kIPNumberError = std::numeric_limits<IPNumber_T>::max();
-      IPNumber_T lUserInputInt = kIPNumberError;
+      const OPENGEOPP::IPNumber_T kIPNumberError = std::numeric_limits<OPENGEOPP::IPNumber_T>::max();
+      OPENGEOPP::IPNumber_T lUserInputInt = kIPNumberError;
       std::istringstream iStr (lUserInput);
       iStr >> lUserInputInt;
       if (lUserInputInt == kIPNumberError) {
@@ -388,15 +394,15 @@ int main (int argc, char* argv[]) {
       }
       
       // Get a handle on the list of IP Block Records
-      const IPBlockRecordList_T& lIPBlockRecordList =
+      const OPENGEOPP::IPBlockRecordList_T& lIPBlockRecordList =
         lIPBlockRecordHolder._ipBlockRecordList;
       
       // Find the IP Number
-      IPBlockRecordList_T::const_iterator itIPRecord =
+      OPENGEOPP::IPBlockRecordList_T::const_iterator itIPRecord =
         lIPBlockRecordList.lower_bound (lUserInputInt);
 
       if (itIPRecord != lIPBlockRecordList.end()) {
-        const IPNumber_T lIPFrom = itIPRecord->first;
+        const OPENGEOPP::IPNumber_T lIPFrom = itIPRecord->first;
 
         // As the lower_bound() function goes too far, we must go back from
         // 1 row
@@ -404,7 +410,7 @@ int main (int argc, char* argv[]) {
           --itIPRecord;
         }
         
-        const IPBlockRecord_T& lIPBlockRecord = itIPRecord->second;
+        const OPENGEOPP::IPBlockRecord_T& lIPBlockRecord = itIPRecord->second;
         std::cout << "Record found: " << lIPBlockRecord.toString()
                   << std::endl;
       } else {
@@ -423,3 +429,4 @@ int main (int argc, char* argv[]) {
   
   return 0;
 }
+

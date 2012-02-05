@@ -5,6 +5,7 @@
 #include <string>
 #include <exception>
 // Opengeopp
+#include "IPBlockRecord.hpp"
 #include "DbaIPBlockRecord.hpp"
 
 namespace soci {
@@ -17,17 +18,18 @@ namespace soci {
       ip_from, ip_to, registry, assigned_date,
       country_code_2, country_code_3, country_name
     */
-    ioIPBlockRecord.setIPFrom (iIPBlockRecordValues.get<int> ("ip_from"));
-    ioIPBlockRecord.setIPTo (iIPBlockRecordValues.get<int> ("ip_to"));
-    ioIPBlockRecord.setRegistry (iIPBlockRecordValues.get<std::string> ("registry"));
-    ioIPBlockRecord.setAssignedDate (iIPBlockRecordValues.get<int> ("assigned_date"));
-    ioIPBlockRecord.setCountryCode2 (iIPBlockRecordValues.get<std::string> ("country_code_2"));
+    ioIPBlockRecord._ipFrom = iIPBlockRecordValues.get<int> ("ip_from");
+    ioIPBlockRecord._ipTo = iIPBlockRecordValues.get<int> ("ip_to");
+    ioIPBlockRecord._registry = iIPBlockRecordValues.get<std::string> ("registry");
+    //const int lAssignedDate = iIPBlockRecordValues.get<int> ("assigned_date");
+    //ioIPBlockRecord._dateAssigned = lAssignedDate;
+    ioIPBlockRecord._country2Char = iIPBlockRecordValues.get<std::string> ("country_code_2");
     // The city code will be set to the default value (empty string)
     // when the column is null
-    ioIPBlockRecord.setCountryCode3 (iIPBlockRecordValues.get<std::string> ("country_code_3", ""));
+    ioIPBlockRecord._country3Char = iIPBlockRecordValues.get<std::string> ("country_code_3", "");
     // The city code will be set to the default value (empty string)
     // when the column is null
-    ioIPBlockRecord.setCountry (iIPBlockRecordValues.get<std::string> ("country_name", ""));
+    ioIPBlockRecord._country = iIPBlockRecordValues.get<std::string> ("country_name", "");
   }
 
   // //////////////////////////////////////////////////////////////////////
@@ -36,21 +38,22 @@ namespace soci {
            values& ioIPBlockRecordValues,
            indicator& ioIndicator) {
     const indicator lCountryCodeIndicator =
-      iIPBlockRecord.getCountryCode3().empty() ? i_null : i_ok;
+      iIPBlockRecord._country3Char.empty() ? i_null : i_ok;
     const indicator lCountryNameIndicator =
-      iIPBlockRecord.getCountryName().empty() ? i_null : i_ok;
-    ioIPBlockRecordValues.set ("ip_from", iIPBlockRecord.getIPFrom());
-    ioIPBlockRecordValues.set ("ip_to", iIPBlockRecord.getIPTo());
-    ioIPBlockRecordValues.set ("registry", iIPBlockRecord.getRegistry());
-    ioIPBlockRecordValues.set ("assigned_date",
-                               iIPBlockRecord.getAssignedDate());
+      iIPBlockRecord._country.empty() ? i_null : i_ok;
+    ioIPBlockRecordValues.set ("ip_from", iIPBlockRecord._ipFrom);
+    ioIPBlockRecordValues.set ("ip_to", iIPBlockRecord._ipTo);
+    ioIPBlockRecordValues.set ("registry", iIPBlockRecord._registry);
+    const int lAssignedDate = 1;
+    // const int lAssignedDate = iIPBlockRecord._dateAssigned
+    ioIPBlockRecordValues.set ("assigned_date", lAssignedDate);
     ioIPBlockRecordValues.set ("country_code2",
-                               iIPBlockRecord.getCountryCode2());
+                               iIPBlockRecord._country2Char);
     ioIPBlockRecordValues.set ("country_code3",
-                               iIPBlockRecord.getCountryCode3(),
+                               iIPBlockRecord._country3Char,
                                lCountryCodeIndicator);
     ioIPBlockRecordValues.set ("country_name",
-                               iIPBlockRecord.getCountryName(),
+                               iIPBlockRecord._country,
                                lCountryNameIndicator);
     ioIndicator = i_ok;
   }
