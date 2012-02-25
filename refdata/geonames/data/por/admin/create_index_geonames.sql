@@ -1,8 +1,8 @@
--- MySQL dump 10.11
 --
--- Host: localhost    Database: geonames
--- ------------------------------------------------------
--- Server version	5.5.18
+-- @brief SQL script creating the indexes for the Geonames-related tables.
+--        See also create_table_geonames.sql in the same directory.
+-- @author Denis Arnaud <denis.arnaud_geonames@m4x.org>
+--
 
 
 --
@@ -87,7 +87,12 @@ ALTER TABLE `time_zones` ADD PRIMARY KEY (`timeZoneId`);
 -- Index structure for table `hierarchy`
 --
 
-ALTER TABLE `hierarchy` ADD PRIMARY KEY (`parentId`, `childId`);
+-- ALTER TABLE `hierarchy` ADD PRIMARY KEY (`parentId`, `childId`);
+ALTER TABLE `hierarchy` ADD INDEX (`parentId`, `childId`);
 
 
--- Dump completed on 2011-12-29  0:52:34
+--
+-- Index structure for table `zip`
+--
+
+ALTER TABLE `zip_codes` ADD INDEX (`iso_alpha2`, `postal_code`);
