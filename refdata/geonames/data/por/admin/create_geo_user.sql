@@ -3,5 +3,7 @@ insert into `user` (`Host`, `User`, `Password`, `Select_priv`, `Insert_priv`, `U
 ('%', 'geo', '7a2430d921db5965', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'N', 'N', 'N', 'Y', 'N', 'N', 'Y', 'Y', 'N', 'N', 'Y', 'N', 'Y', 'N', 'N', 'Y', 'Y', 'Y', 'Y', 'N', '', '', '', '', 0, 0, 0, 0),
 ('localhost', 'geo', '7a2430d921db5965', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'N', 'N', 'N', 'Y', 'N', 'N', 'Y', 'Y', 'N', 'N', 'Y', 'N', 'Y', 'N', 'N', 'Y', 'Y', 'Y', 'Y', 'N', '', '', '', '', 0, 0, 0, 0);
 
+grant file on *.* to geo;
+
 flush privileges;
 
