@@ -5,8 +5,8 @@
 #
 
 displayGeonamesDetails() {
-	echo "The data dump from Geonames can be obtained from the OpenTravelData project"
-	echo "(http://github.com/opentraveldata/optd). For instance:"
+	echo "The data dump from Geonames can be obtained from this project (OpenTravelData:"
+	echo "http://github.com/opentraveldata/optd). For instance:"
 	echo "mkdir -p ~/dev/geo"
 	echo "cd ~/dev/geo"
 	echo "git clone git://github.com/opentraveldata/optd.git optdgit"
@@ -16,18 +16,21 @@ displayGeonamesDetails() {
 	echo "./create_geo_user.sh"
 	echo "./create_geo_db.sh"
 	echo "./loadGeonamesData.sh"
-	echo "./loadGeonamesPorAllByChunks.sh  # follow the instructions"
-	echo "./loadGeonamesPorAltByChunks.sh  # follow the instructions"
-	echo "./create_geo_index.sh  # it may take several minutes"
-	echo "./extract_airports.sh  # it may take several minutes"
-	echo "It produces a por_air_iata_YYYYMMDD.csv file, which has to be copied as"
-	echo "${TMP_DIR}dump_from_geonames.csv:"
+	echo "./loadGeonamesPorAllByChunks.sh # follow the instructions"
+	echo "./loadGeonamesPorAltByChunks.sh # follow the instructions"
+	echo "./create_geo_index.sh           # it may take several minutes"
+	echo "cd ../../../../tools            # it should be ~/dev/geo/optdgit/refdata/tools"
+	echo "./extract_por_with_iata_icao.sh # it may take several minutes"
+	echo "It produces a por_all_iata_YYYYMMDD.csv file,"
+	echo "which has to be copied as ${TMP_DIR}dump_from_geonames.csv:"
 	if [ "${TMP_DIR}" = "/tmp/por/" ]
 	then
 		echo "mkdir -p ${TMP_DIR}"
 	fi
-	echo "\cp -f ~/dev/geo/optdgit/refdata/geonames/data/por/admin/por_air_iata_YYYYMMDD.csv ${TMP_DIR}dump_from_geonames.csv"
-	echo ""
+	echo "\cp -f ~/dev/geo/optdgit/refdata/tools/por_all_iata_YYYYMMDD.csv ${TMP_DIR}dump_from_geonames.csv"
+	echo "~/dev/geo/optdgit/refdata/tools/update_airports_csv_after_getting_geonames_iata_dump.sh"
+	echo "ls -l ${TMP_DIR}"
+	echo
 }
 
 ##
