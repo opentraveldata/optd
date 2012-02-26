@@ -25,6 +25,7 @@ select g1.geonameid, a1.isoLanguage, a1.alternateName
 from geoname as g1 
 left join alternate_name as a1 on g1.geonameid = a1.geonameid
 where (g1.fcode = 'AIRP' or g1.fcode = 'AIRH' or g1.fcode = 'AIRB'
+	  or g1.fcode = 'RSTN'
 	  or g1.fcode = 'PPLA' or g1.fcode = 'PPLA2' or g1.fcode = 'PPLA3'
 	  or g1.fcode = 'PPLA4' or g1.fcode = 'PPLC' or g1.fcode = 'PPLG')
   and a1.isoLanguage = 'iata'
@@ -36,6 +37,7 @@ select g2.geonameid, a2.isoLanguage, a2.alternateName
 from geoname as g2 
 left join alternate_name as a2 on g2.geonameid = a2.geonameid
 where (g2.fcode = 'AIRP' or g2.fcode = 'AIRH' or g2.fcode = 'AIRB'
+	  or g2.fcode = 'RSTN'
 	  or g2.fcode = 'PPLA' or g2.fcode = 'PPLA2' or g2.fcode = 'PPLA3'
 	  or g2.fcode = 'PPLA4' or g2.fcode = 'PPLC' or g2.fcode = 'PPLG')
   and a2.isoLanguage = 'icao'
@@ -43,6 +45,7 @@ order by g2.geonameid
 ) as icao_codes on g.geonameid = icao_codes.geonameid
 
 where (g.fcode = 'AIRP' or g.fcode = 'AIRH' or g.fcode = 'AIRB'
+	  or g.fcode = 'RSTN'
 	  or g.fcode = 'PPLA' or g.fcode = 'PPLA2' or g.fcode = 'PPLA3'
 	  or g.fcode = 'PPLA4' or g.fcode = 'PPLC' or g.fcode = 'PPLG')
 
