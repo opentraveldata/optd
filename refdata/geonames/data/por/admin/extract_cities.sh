@@ -1,5 +1,8 @@
 #!/bin/sh
 #
+# That script is fairly simple. See extract_por_with_iata_icao.sh for far more
+# options and operations.
+#
 # Two parameters are optional:
 # - the host server of the database
 # - the port of the database
