@@ -109,11 +109,32 @@ fi
 ##
 # Aggregate both the file of best known coordinates together with the
 # ORI-maintained file.
-join -t'^' -a 1 -e NULL ${GEO_BEST_KNOWN_FILE} ${GEO_ORI_FILE} > ${GEO_ORI_NEW_FILE}.tmp
+join -t'^' -a 1 ${GEO_BEST_KNOWN_FILE} ${GEO_ORI_FILE} > ${GEO_ORI_NEW_FILE}.tmp
 
 ##
 # Expand unknown entries (IATA codes), so that the CSV file can be properly
 # parsed. For all the known entries (IATA codes), replace the old ORI
 # coordinates by the best known ones.
-awk -F'^' '{printf ($1); if (NF == 3) {printf ("^UNKNOWN^UNKNOWN^UNKNOWN/ZZ^ZZZ^Y^NULL^ZZ^ZZZZZ^ITZ1^ZZ^" $2 "^" $3)} else {for (i=4; i<=18; i=i+1) {printf ("^" $i)}} printf ("\n")}' ${GEO_ORI_NEW_FILE}.tmp > ${GEO_ORI_NEW_FILE}
+awk -F'^' -v idx=1 '{printf ($1); if (NF == 3) {printf ("^UNKNOWN" idx "^UNKNOWN" idx "^UNKNOWN" idx "/ZZ^ZZZ^Y^NULL^ZZ^ZZZZZ^ITZ1^ZZ^" $2 "^" $3)} else {for (i=4; i<=18; i=i+1) {printf ("^" $i)}} printf ("\n"); idx=idx+1}' ${GEO_ORI_NEW_FILE}.tmp > ${GEO_ORI_NEW_FILE}
 \rm -f ${GEO_ORI_NEW_FILE}.tmp
+
+##
+# Reporting
+GEO_ORI_DIFF_FILE=${TMP_DIR}ori_airports_diff.txt
+comm -13 ${GEO_ORI_FILE} ${GEO_ORI_NEW_FILE} > ${GEO_ORI_DIFF_FILE}
+DIFF_NB=`wc -l ${GEO_ORI_DIFF_FILE} | cut -d' ' -f1`
+\rm -f ${GEO_ORI_DIFF_FILE}
+DIFF_ALL_NB=`wc -l ${GEO_ORI_NEW_FILE} | cut -d' ' -f1`
+echo
+echo "There are ${DIFF_NB} differences between '${GEO_ORI_FILE}' and '${GEO_ORI_NEW_FILE}',"
+echo "over ${DIFF_ALL_NB} lines in that latter data file. To see them:"
+echo "diff -y -W 220 ${GEO_ORI_FILE} ${GEO_ORI_NEW_FILE} | less"
+echo
+
+##
+# Cleaning
+echo
+echo "In order to clean the temporary files, simply do:"
+echo "\rm -f ${GEO_ORI_FILE} ${GEO_BEST_KNOWN_FILE} ${GEO_ORI_NEW_FILE}"
+echo
+
