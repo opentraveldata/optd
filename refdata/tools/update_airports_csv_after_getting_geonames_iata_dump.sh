@@ -43,7 +43,7 @@ COMP_MIN_DIST=10
 ##
 # Geo data files
 GEO_FILE_1=${TMP_DIR}${GEO_FILE_1_FILENAME}
-GEO_FILE_2=${EXEC_PATH}${GEO_FILE_2_FILENAME}
+GEO_FILE_2=${TMP_DIR}${GEO_FILE_2_FILENAME}
 # Comparison files
 POR_MAIN_DIFF=${TMP_DIR}${POR_MAIN_DIFF_FILENAME}
 # Combined data files of both the other sources
@@ -84,6 +84,7 @@ GEO_FILE_1_SORTED_CUT=${TMP_DIR}${GEO_FILE_1_SORTED_CUT}
 
 if [ ! -f "${GEO_FILE_1}" ]
 then
+	echo
 	echo "The '${GEO_FILE_1}' file does not exist."
 	if [ "$1" = "" ];
 	then
@@ -104,11 +105,6 @@ ${PREPARE_EXEC} ${GEO_FILE_1}
 if [ "$2" != "" ];
 then
 	GEO_FILE_2="$2"
-	GEO_FILE_2_FILENAME=`basename ${GEO_FILE_2}`
-	if [ "${GEO_FILE_2}" = "${GEO_FILE_2_FILENAME}" ]
-	then
-		GEO_FILE_2="${TMP_DIR}${GEO_FILE_2}"
-	fi
 fi
 
 ##
