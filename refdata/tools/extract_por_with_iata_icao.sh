@@ -140,7 +140,7 @@ sed -i -e "s/^alternateName\(.\+\)//g" ${DUMP_FILE}
 sed -i -e "/^$/d" ${DUMP_FILE}
 
 # 4.1. Extract the entries having no ICAO code.
-grep "^\([A-Z][A-Z][A-Z]\)\^NULL\^\(.\+\)" ${DUMP_FILE} > ${DUMP_FILE_NO_ICAO}
+grep "^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)" ${DUMP_FILE} > ${DUMP_FILE_NO_ICAO}
 
 # 4.2. Remove the entries having no ICAO code.
 #      Note that there is no ICAO code for a city. Hence, city entries are also
@@ -149,7 +149,7 @@ grep "^\([A-Z][A-Z][A-Z]\)\^NULL\^\(.\+\)" ${DUMP_FILE} > ${DUMP_FILE_NO_ICAO}
 #      airports (e.g, AMS, LAX, SFO), two entries with the same IATA code
 #      should appear. But, as the city entries are removed in this step, that
 #      case of IATA duplicity is avoided/removed.
-sed -i -e "s/^\([A-Z][A-Z][A-Z]\)\^NULL\^\(.\+\)//g" ${DUMP_FILE}
+sed -i -e "s/^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)//g" ${DUMP_FILE}
 
 # 4.3. Spot the (potential) remaining entries having duplicated IATA codes.
 #      Here, only the airport entries having duplicated IATA codes are spotted.
@@ -192,6 +192,7 @@ fi
 
 # 4.4. Re-add the header
 cat ${DUMP_FILE_HEADER} ${DUMP_UNIQ_FILE} > ${DUMP_FILE}
+sed -i -e "/^$/d" ${DUMP_FILE}
 
 ##
 # Clean
