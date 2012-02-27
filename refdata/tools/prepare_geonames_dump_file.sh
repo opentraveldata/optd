@@ -28,6 +28,7 @@ displayGeonamesDetails() {
 		echo "mkdir -p ${TMP_DIR}"
 	fi
 	echo "\cp -f ~/dev/geo/optdgit/refdata/tools/por_all_iata_YYYYMMDD.csv ${TMP_DIR}dump_from_geonames.csv"
+	echo "\cp -f ~/dev/geo/optdgit/refdata/ORI/best_coordinates_known_so_far.csv ${TMP_DIR}"
 	echo "~/dev/geo/optdgit/refdata/tools/update_airports_csv_after_getting_geonames_iata_dump.sh"
 	echo "ls -l ${TMP_DIR}"
 	echo
