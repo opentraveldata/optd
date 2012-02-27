@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Two parameters are optional for this script:
+# Three parameters are optional for this script:
 # - the first file of geographical coordinates
 # - the second file of geographical coordinates
 # - the minimal distance (in km) triggering a difference
