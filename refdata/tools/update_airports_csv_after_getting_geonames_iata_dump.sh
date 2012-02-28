@@ -107,6 +107,20 @@ then
 	GEO_FILE_2="$2"
 fi
 
+if [ ! -f "${GEO_FILE_2}" ]
+then
+	echo
+	echo "The '${GEO_FILE_2}' file does not exist."
+	if [ "$2" = "" ];
+	then
+		echo
+		echo "Hint:"
+		echo "\cp -f ${EXEC_PATH}../ORI/${GEO_FILE_2_FILENAME} ${TMP_DIR}"
+		echo
+	fi
+	exit -1
+fi
+
 ##
 # Minimal distance (in km) triggering a difference
 if [ "$3" != "" ]
@@ -273,6 +287,6 @@ if [ "${TMP_DIR}" = "/tmp/por/" ]
 then
 	echo "\rm -rf ${TMP_DIR}"
 else
-	echo "\rm -f ${GEO_FILE_1_MISSING} ${GEO_COMBINED_FILE} ${POR_MAIN_DIFF}"
+	echo "\rm -f ${GEO_FILE_2} ${GEO_FILE_1_MISSING} ${GEO_COMBINED_FILE} ${POR_MAIN_DIFF}"
 fi
 echo
