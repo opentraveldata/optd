@@ -14,8 +14,8 @@ then
 	echo "Usage: $0 [<Database Username> [<Database Name> [<Database Server Hostname> [<Database Server Port>]]]]"
 	echo ""
 	echo "Default values:"
-	echo "<Database Username> = geo"
-	echo "<Database Name> = geo_geonames"
+	echo "<Database Username> = rfd"
+	echo "<Database Name> = rfd_rfd"
 	echo "<Database Server Hostname> = localhost"
 	echo "<Database Server Port> = 3306"
 	echo ""
@@ -24,7 +24,7 @@ fi
 
 ##
 # Database User
-DB_USER="geo"
+DB_USER="rfd"
 if [ "$1" != "" ];
 then
 	DB_USER="$1"
@@ -34,7 +34,7 @@ fi
 DB_PASSWD="${DB_USER}"
 
 # Database Name
-DB_NAME="${DB_USER}_geonames"
+DB_NAME="${DB_USER}_rfd"
 if [ "$2" != "" ];
 then
 	DB_NAME="$2"
@@ -65,12 +65,17 @@ function exportAirportCityGeoDetails() {
 }
 
 # Export the city geographical details
-SQL_FILE="./tables/export_ref_place_details.sql"
+SQL_FILE="export_ref_data.sql"
+CSV_FILE="ref_data_details.csv"
+exportAirportCityGeoDetails
+
+# Export the city geographical details
+SQL_FILE="export_ref_place_details.sql"
 CSV_FILE="ref_place_details.csv"
 #exportAirportCityGeoDetails
 
 # Export the city geographical details
-SQL_FILE="./tables/export_ref_place_names.sql"
+SQL_FILE="export_ref_place_names.sql"
 CSV_FILE="ref_place_names.csv"
-exportAirportCityGeoDetails
+#exportAirportCityGeoDetails
 
