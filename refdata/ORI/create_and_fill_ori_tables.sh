@@ -46,25 +46,33 @@ function countElements() {
 }
 
 ##
-# Create the tables for the ORI-generated list of POR (points of reference,
-# i.e., airports, cities, places, etc.)
+# Create the tables for the ORI-maintained data:
+# 1. List of POR (points of reference, i.e., airports, cities, places, etc.)
+# 2. Airport popularity
 SQL_FILE="create_ori_tables.sql"
-echo "Creating the tables for ORI-generated POR (points of reference, i.e., airports, cities, places, etc.):"
+echo "Creating the tables for ORI-maintained data:"
 mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} < ${SQL_FILE}
 
 ##
 # Load the ORI-related data
+# Load the POR
 SQL_FILE="fill_table_ori_por.sql"
-echo "Load data into the MySQL table for the ORI-generated POR:"
+echo "Load data into the MySQL table for the POR (points of reference, i.e., airports, cities, places, etc.):"
+mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} < ${SQL_FILE}
+
+##
+# Load the airport popularity
+SQL_FILE="fill_table_ori_airport_popularity.sql"
+echo "Load data into the MySQL table for the airport popularity:"
 mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} < ${SQL_FILE}
 
 ##
 # Create the indexes for the ORI tables
 SQL_FILE="create_ori_indexes.sql"
-echo "Creating the indexes for ORI-generated POR:"
+echo "Creating the indexes for ORI-maintained data:"
 mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} < ${SQL_FILE}
 
-TABLES="por"
+TABLES="por airport_popularity"
 
 # Count rows
 for table_name in ${TABLES}

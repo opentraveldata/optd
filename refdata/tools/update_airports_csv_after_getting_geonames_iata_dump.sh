@@ -1,8 +1,9 @@
 #!/bin/bash
 #
-# Three parameters are optional for this script:
-# - the first file of geographical coordinates
-# - the second file of geographical coordinates
+# Four parameters are optional for this script:
+# - the first file of geographical coordinates (data dump from Geonames)
+# - the second file of geographical coordinates (ORI-maintained POR)
+# - the airport (ORI-maintained) popularity details
 # - the minimal distance (in km) triggering a difference
 #
 
@@ -33,6 +34,9 @@ GEO_FILE_1_FILENAME=dump_from_geonames.csv
 GEO_FILE_1_SORTED=sorted_${GEO_FILE_1_FILENAME}
 GEO_FILE_1_SORTED_CUT=cut_${GEO_FILE_1_SORTED}
 GEO_FILE_2_FILENAME=best_coordinates_known_so_far.csv
+AIRPORT_POP_FILENAME=ref_airport_popularity.csv
+AIRPORT_POP_SORTED=sorted_${AIRPORT_POP_FILENAME}
+AIRPORT_POP_SORTED_CUT=cut_sorted_${AIRPORT_POP_FILENAME}
 # Comparison files
 POR_MAIN_DIFF_FILENAME=por_main_diff.csv
 # Combined data files of both the other sources
@@ -44,6 +48,7 @@ COMP_MIN_DIST=10
 # Geo data files
 GEO_FILE_1=${TMP_DIR}${GEO_FILE_1_FILENAME}
 GEO_FILE_2=${TMP_DIR}${GEO_FILE_2_FILENAME}
+AIRPORT_POP=${TMP_DIR}${AIRPORT_POP_FILENAME}
 # Comparison files
 POR_MAIN_DIFF=${TMP_DIR}${POR_MAIN_DIFF_FILENAME}
 # Combined data files of both the other sources
@@ -53,9 +58,10 @@ GEO_COMBINED_FILE=${TMP_DIR}${GEO_COMBINED_FILE_FILENAME}
 if [ "$1" = "-h" -o "$1" = "--help" ];
 then
 	echo
-	echo "Usage: $0 [<Geo data file #1> [<Geo data file #2>]]"
+	echo "Usage: $0 [<Geo data file #1> [<Geo data file #2> [<Airport popularity>]]]"
 	echo "  - Default name for the geo data file #1: '${GEO_FILE_1}'"
 	echo "  - Default name for the geo data file #2: '${GEO_FILE_2}'"
+	echo "  - Default name for the airport popularity: '${AIRPORT_POP}'"
 	echo "  - Default distance (in km) triggering a difference: '${COMP_MIN_DIST}'"
 	echo
 	exit -1
@@ -64,6 +70,7 @@ fi
 ##
 # Local helper scripts
 PREPARE_EXEC="bash ${EXEC_PATH}prepare_geonames_dump_file.sh"
+PREPARE_POP_EXEC="bash ${EXEC_PATH}prepare_popularity.sh"
 COMPARE_EXEC="bash ${EXEC_PATH}compare_geo_files.sh"
 
 ##
@@ -122,25 +129,45 @@ then
 fi
 
 ##
-# Minimal distance (in km) triggering a difference
-if [ "$3" != "" ]
+# Data file with airport popularity
+if [ "$3" != "" ];
 then
-	DIFF_EXPR=`echo "$3" | bc 2> /dev/null`
-	if [ "${DIFF_EXPR}" = "" ]
+	AIRPORT_POP=$3
+	AIRPORT_POP_FILENAME=`basename ${AIRPORT_POP}`
+	AIRPORT_POP_SORTED=sorted_${AIRPORT_POP_FILENAME}
+	AIRPORT_POP_SORTED_CUT=cut_${AIRPORT_POP_SORTED}
+	if [ "${AIRPORT_POP}" = "${AIRPORT_POP_FILENAME}" ]
 	then
-		echo
-		echo "The minimal distance (in km) must be a number greater than zero, and less than 65000. It is currently $3."
-		echo
-		exit -1
+		AIRPORT_POP="${TMP_DIR}${AIRPORT_POP_FILENAME}"
 	fi
-	if [ ${DIFF_EXPR} -lt 1 -o ${DIFF_EXPR} -gt 65000 ]
+fi
+AIRPORT_POP_SORTED=${TMP_DIR}${AIRPORT_POP_SORTED}
+AIRPORT_POP_SORTED_CUT=${TMP_DIR}${AIRPORT_POP_SORTED_CUT}
+
+if [ ! -f "${AIRPORT_POP}" ]
+then
+	echo
+	echo "The '${AIRPORT_POP}' file does not exist."
+	if [ "$3" = "" ];
 	then
+		${PREPARE_POP_EXEC} --popularity
+		echo "The default name of the airport popularity copy is '${AIRPORT_POP}'."
 		echo
-		echo "The minimal distance (in km) must be greater than zero, and less than 65000. It is currently $3."
-		echo
-		exit -1
 	fi
-	COMP_MIN_DIST=$3
+	exit -1
+fi
+
+##
+# Prepare the Geonames dump file, exported from Geonames.
+# Basically, the coordinates are extracted, in order to keep a data file with
+# only three fields/columns: the airport/city code and the coordinates.
+${PREPARE_POP_EXEC} ${AIRPORT_POP}
+
+##
+# Minimal distance (in km) triggering a difference
+if [ "$4" != "" ]
+then
+	COMP_MIN_DIST=$4
 fi
 
 ##
@@ -165,7 +192,8 @@ JOINED_COORD_1=${GEO_COMBINED_FILE}.tmp.1
 join -t'^' -a 1 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} > ${JOINED_COORD_1}
 
 
-# Sanity check
+##
+# Sanity check: calculate the minimal number of fields on the resulting file
 MIN_FIELD_NB=$(awk -F'^' 'BEGIN{n=10};{if (NF<n) {n=NF}}END{print n}' ${JOINED_COORD_1} | uniq | sort | uniq)
 
 if [ "${MIN_FIELD_NB}" != "5" ];
@@ -261,7 +289,7 @@ fi
 # It generates a data file (${POR_MAIN_DIFF}, e.g., por_main_diff.csv)
 # containing the greatest distances (in km), for each airport/city, between
 # both sets of coordinates (Geonames and best known ones).
-${COMPARE_EXEC} ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} ${COMP_MIN_DIST}
+${COMPARE_EXEC} ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} ${AIRPORT_POP_SORTED_CUT} ${COMP_MIN_DIST}
 
 ##
 # Clean
@@ -287,6 +315,8 @@ if [ "${TMP_DIR}" = "/tmp/por/" ]
 then
 	echo "\rm -rf ${TMP_DIR}"
 else
-	echo "\rm -f ${GEO_FILE_2} ${GEO_FILE_1_MISSING} ${GEO_COMBINED_FILE} ${POR_MAIN_DIFF}"
+	echo "\rm -f ${GEO_FILE_2} ${GEO_FILE_1_MISSING} ${AIRPORT_POP} \\"
+	echo "${AIRPORT_POP_SORTED} ${AIRPORT_POP_SORTED_CUT} \\"
+	echo "${GEO_COMBINED_FILE} ${POR_MAIN_DIFF}"
 fi
 echo
