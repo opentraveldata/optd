@@ -5,6 +5,7 @@
 #
 
 displayGeonamesDetails() {
+	echo
 	echo "The data dump from Geonames can be obtained from this project (OpenTravelData:"
 	echo "http://github.com/opentraveldata/optd). For instance:"
 	echo "mkdir -p ~/dev/geo"
@@ -68,7 +69,7 @@ if [ "$1" = "-h" -o "$1" = "--help" ];
 then
 	echo
 	echo "Usage: $0 [<Geonames data dump file>]"
-	echo "  - Default name for the geo data dump file: '${GEO_FILE_1}'"
+	echo "  - Default name for the geo data dump file: '${DUMP_FROM_GEONAMES}'"
 	echo
 	exit -1
 fi

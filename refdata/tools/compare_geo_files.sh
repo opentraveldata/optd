@@ -30,6 +30,7 @@ fi
 # Geo data files
 GEO_FILE_1_FILENAME=cut_sorted_dump_from_geonames.csv
 GEO_FILE_2_FILENAME=best_coordinates_known_so_far.csv
+AIRPORT_POP_FILENAME=cut_sorted_ref_airport_popularity.csv
 # Comparison files
 COMP_FILE_COORD_FILENAME=por_comparison_coord.csv
 COMP_FILE_DIST_FILENAME=por_comparison_dist.csv
@@ -41,6 +42,7 @@ COMP_MIN_DIST=10
 # Geo data files
 GEO_FILE_1=${TMP_DIR}${GEO_FILE_1_FILENAME}
 GEO_FILE_2=${TMP_DIR}${GEO_FILE_2_FILENAME}
+AIRPORT_POP=${TMP_DIR}${AIRPORT_POP_FILENAME}
 # Comparison files
 COMP_FILE_COORD=${TMP_DIR}${COMP_FILE_COORD_FILENAME}
 COMP_FILE_DIST=${TMP_DIR}${COMP_FILE_DIST_FILENAME}
@@ -53,6 +55,7 @@ then
 	echo "Usage: $0 [<Geo data file 1> [<Geo data file 2>]]"
 	echo "  - Default name for the geo data file #1: '${GEO_FILE_1}'"
 	echo "  - Default name for the geo data file #2: '${GEO_FILE_2}'"
+	echo "  - Default name for the airport popularity: '${AIRPORT_POP}'"
 	echo "  - Default distance (in km) triggering a difference: '${COMP_MIN_DIST}'"
 	echo
 	exit -1
@@ -61,6 +64,7 @@ fi
 ##
 # Local helper scripts
 PREPARE_EXEC="bash ${EXEC_PATH}prepare_geonames_dump_file.sh"
+PREPARE_POP_EXEC="bash ${EXEC_PATH}prepare_popularity.sh"
 
 ##
 # First data file with geographical coordinates
@@ -87,7 +91,7 @@ then
 fi
 
 
-
+##
 # Second data file with geographical coordinates
 if [ "$2" != "" ];
 then
@@ -99,32 +103,65 @@ then
 	fi
 fi
 
+
+##
+# Data file with airport popularity
+if [ "$3" != "" ];
+then
+	AIRPORT_POP=$3
+	AIRPORT_POP_FILENAME=`basename ${AIRPORT_POP}`
+	if [ "${AIRPORT_POP}" = "${AIRPORT_POP_FILENAME}" ]
+	then
+		AIRPORT_POP="${TMP_DIR}${AIRPORT_POP_FILENAME}"
+	fi
+fi
+
+if [ ! -f "${AIRPORT_POP}" ]
+then
+	echo
+	echo "The '${AIRPORT_POP}' file does not exist."
+	if [ "$3" = "" ];
+	then
+		${PREPARE_POP_EXEC} --popularity
+		echo "The default name of the airport popularity copy is '${AIRPORT_POP}'."
+		echo
+	fi
+	exit -1
+fi
+
+
 ##
 # Minimal distance (in km) triggering a difference
-if [ "$3" != "" ]
+if [ "$4" != "" ]
 then
-	DIFF_EXPR=`echo "$3" | bc 2> /dev/null`
+	DIFF_EXPR=`echo "$4 / 1" | bc 2> /dev/null`
 	if [ "${DIFF_EXPR}" = "" ]
 	then
 		echo
-		echo "The minimal distance (in km) must be a number greater than zero, and less than 65000. It is currently $3."
+		echo "The minimal distance (in km) must be a number greater than zero, and less than 65000. It is currently $4."
 		echo
 		exit -1
 	fi
-	if [ ${DIFF_EXPR} -lt 1 -o ${DIFF_EXPR} -gt 65000 ]
+	if [ ${DIFF_EXPR} -lt 0 -o ${DIFF_EXPR} -gt 65000 ]
 	then
 		echo
-		echo "The minimal distance (in km) must be greater than zero, and less than 65000. It is currently $3."
+		echo "The minimal distance (in km) must be greater than (or equal to) zero, and less than 65000. It is currently $4."
 		echo
 		exit -1
 	fi
-	COMP_MIN_DIST=$3
+	COMP_MIN_DIST=$4
 fi
 
 
 ##
 # For each airport/city code, join the two geographical coordinate sets.
-join -t'^' -a 1 -e NULL ${GEO_FILE_1} ${GEO_FILE_2} > ${COMP_FILE_COORD}
+COMP_FILE_COORD_TMP=${COMP_FILE_COORD}.tmp2
+join -t'^' -a 1 -e NULL ${GEO_FILE_1} ${GEO_FILE_2} > ${COMP_FILE_COORD_TMP}
+
+##
+# For each airport/city code, join the airport popularity.
+join -t'^' -a 1 -e 0 ${COMP_FILE_COORD_TMP} ${AIRPORT_POP} > ${COMP_FILE_COORD}
+\rm -f ${COMP_FILE_COORD_TMP}
 
 ##
 # Suppress empty coordinate fields, from the geonames dump file:
@@ -143,12 +180,15 @@ POR_ALL_DIFF_NB=`wc -l ${COMP_FILE_DIST} | cut -d' ' -f1`
 ##
 # Filter the difference data file for all the distances greater than
 # ${COMP_MIN_DIST} (in km; by default 1km).
-awk -F'^' -v comp_min_dist=${COMP_MIN_DIST} '{if ($2 >= comp_min_dist) {printf($1 "^" $2 "\n")}}' ${COMP_FILE_DIST} > ${POR_MAIN_DIFF}.tmp
+POR_MAIN_DIFF_TMP=${POR_MAIN_DIFF}.tmp
+awk -F'^' -v comp_min_dist=${COMP_MIN_DIST} '{if ($2 >= comp_min_dist) {printf($1 "^" $2 "^" $3 "^" $4 "\n")}}' ${COMP_FILE_DIST} > ${POR_MAIN_DIFF_TMP}
 
 ##
-# Sort the differences, from the greatest to the least.
-sort -t'^' -k2nr -k1 ${POR_MAIN_DIFF}.tmp > ${POR_MAIN_DIFF}
-\rm -f ${POR_MAIN_DIFF}.tmp
+# Sort the differences, weighted by the popularity of the airport (equal to 1
+# when not specified), from the greatest to the least.
+sort -t'^' -k4nr -k2nr -k1 ${POR_MAIN_DIFF_TMP} > ${POR_MAIN_DIFF}
+echo "dep_city^distance^nb_of_pax^dist_weighted_by_pop" | cat - ${POR_MAIN_DIFF} > ${POR_MAIN_DIFF_TMP}
+\mv -f ${POR_MAIN_DIFF_TMP} ${POR_MAIN_DIFF}
 
 ##
 # Count the differences
