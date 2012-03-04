@@ -1,0 +1,118 @@
+
+############################
+##       Use cases        ##
+############################
+
+##
+# 1.1. Update from Geonames
+# -------------------------
+#
+# The Geonames (database/Web) service has been updated, i.e., new Geonames
+# data files have been downloaded and the geo_geonames database has been
+# refreshed/updated.
+#
+
+\cp -f ../ORI/best_coordinates_known_so_far.csv .
+\cp -f ../ORI/ref_airport_popularity.csv .
+./update_airports_csv_after_getting_geonames_iata_dump.sh \
+  dump_from_geonames.csv best_coordinates_known_so_far.csv \
+  ref_airport_popularity.csv 0
+
+# The new suggested file of ORI-maintained airport is 'new_airports.csv'.
+# However, as of now (March 2012), its format (Geonames-based) does not
+# correspond to the ORI-maintained data file format (RFD-based).
+# When the ORI-maintained data file will be based on Geonames, it could
+# replace the old one:
+# \cp -f new_airports.csv ../ORI/ori_por.csv
+
+# But, more importantly, a data file, summing up all the differences,
+# is generated, namely 'por_main_diff.csv'. Those differences correspond to
+# the geographical distance weighted by the airport popularity (expressed as
+# a number of passengers per year).
+less por_main_diff.csv
+
+# To see the respective details of a given airport, just type something like:
+grep "^LHR" dump_from_geonames.csv best_coordinates_known_so_far.csv
+
+# Then, compare
+# a. in Geonames:
+midori http://www.geonames.org/maps/google.html
+# b. in Google Maps:
+midori http://maps.google.com
+# c. in Wikipedia:
+midori http://en.wikipedia.org
+# d. in Bing Maps:
+midori http://maps.bing.com
+
+
+##
+# 1.2. Geonames has better coordinates for a known POR
+# ----------------------------------------------------
+#
+# When the geographical details of a given POR are proved better in Geonames
+# than in the ORI-maintained data files, those latters have to be corrected.
+# Just update the coordinates within the ORI-maintained list of best known
+# coordinates:
+vi ../ORI/best_coordinates_known_so_far.csv
+git add ../ORI/best_coordinates_known_so_far.csv
+
+# Proceed with the use case 2.1, since the ORI-maintained list of best known
+# coordinates has now better coordinates than the ORI-maintained list of POR.
+
+
+##
+# 1.3. Geonames has details for an unknown POR
+# --------------------------------------------
+#
+# A new POR, still unknown from ORI, may have been specified within Geonames.
+# UPDATE ACTION TO BE SPECIFIED
+
+
+##
+# 2.1. ORI-maintained best known coordinates file has better coordinates
+# ----------------------------------------------------------------------
+#
+# The ORI-maintained list of POR needs to be updated
+\cp -f ../ORI/ori_por.csv ori_airports.csv    # The file to be updated
+\cp -f ../ORI/best_coordinates_known_so_far.csv .
+./update_airports_csv_from_best_known_coordinates.sh
+
+# Check that everything is fine:
+diff -c ori_airports.csv ori_new_airports.csv
+
+# Then:
+\cp -f ori_new_airports.csv ../ORI/ori_por.csv
+git add ../ORI/ori_por.csv
+
+
+##
+# 3.1. ORI-maintained list has a new POR unknown from the best coordinates
+# ------------------------------------------------------------------------
+#
+# The file of best known coordinates has to be updated:
+\cp -f ../ORI/ori_por.csv ori_airports.csv
+\cp -f ../ORI/best_coordinates_known_so_far.csv .    # The file to be updated
+./update_best_known_coordinates_from_airports_csv.sh
+
+# Check that everything is fine:
+diff -c best_coordinates_known_so_far.csv best_new_coordinates_known_so_far.csv
+
+# Then:
+\cp -f best_new_coordinates_known_so_far.csv ../ORI/best_coordinates_known_so_far.csv
+git add ../ORI/best_coordinates_known_so_far.csv
+
+
+##
+# 4.1. ORI-maintained list has a new POR unknown from Geonames
+# ------------------------------------------------------------
+#
+# Add the POR in Geonames:
+midori http://www.geonames.org/maps/google.html
+# Check with:
+# a. in Google Maps:
+midori http://maps.google.com
+# b. in Wikipedia:
+midori http://en.wikipedia.org
+# c. in Bing Maps:
+midori http://maps.bing.com
+
