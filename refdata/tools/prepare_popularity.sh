@@ -16,8 +16,8 @@ displayPopularityDetails() {
 	then
 		echo "mkdir -p ${TMP_DIR}"
 	fi
-	echo "\cp -f ~/dev/geo/optdgit/refdata/ORI/ref_airport_popularity.csv ${TMP_DIR}"
-	echo "~/dev/geo/optdgit/refdata/tools/update_airports_csv_after_getting_geonames_iata_dump.sh"
+	echo "\cp -f ../ORI/ref_airport_popularity.csv ${TMP_DIR}"
+	echo "./update_airports_csv_after_getting_geonames_iata_dump.sh"
 	echo "ls -l ${TMP_DIR}"
 	echo
 }

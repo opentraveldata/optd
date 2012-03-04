@@ -22,15 +22,17 @@ displayGeonamesDetails() {
 	echo "./create_geo_index.sh           # it may take several minutes"
 	echo "cd ../../../../tools            # it should be ~/dev/geo/optdgit/refdata/tools"
 	echo "./extract_por_with_iata_icao.sh # it may take several minutes"
-	echo "It produces a por_all_iata_YYYYMMDD.csv file,"
-	echo "which has to be copied as ${TMP_DIR}dump_from_geonames.csv:"
+	echo "It produces both a por_all_iata_YYYYMMDD.csv and a por_all_noicao_YYYYMMDD.csv files,"
+	echo "which have to be aggregated into the dump_from_geonames.csv file."
 	if [ "${TMP_DIR}" = "/tmp/por/" ]
 	then
 		echo "mkdir -p ${TMP_DIR}"
 	fi
-	echo "\cp -f ~/dev/geo/optdgit/refdata/tools/por_all_iata_YYYYMMDD.csv ${TMP_DIR}dump_from_geonames.csv"
-	echo "\cp -f ~/dev/geo/optdgit/refdata/ORI/best_coordinates_known_so_far.csv ${TMP_DIR}"
-	echo "~/dev/geo/optdgit/refdata/tools/update_airports_csv_after_getting_geonames_iata_dump.sh"
+	echo "./preprepare_geonames_dump_file.sh"
+	echo "\cp -f ../ORI/best_coordinates_known_so_far.csv ${TMP_DIR}"
+	echo "\cp -f ../ORI/ref_airport_popularity.csv ${TMP_DIR}"
+	echo "\cp -f ../ORI/ori_por.csv ${TMP_DIR}ori_airports.csv"
+	echo "./update_airports_csv_after_getting_geonames_iata_dump.sh"
 	echo "ls -l ${TMP_DIR}"
 	echo
 }
