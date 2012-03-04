@@ -12,9 +12,6 @@ displayPopularityDetails() {
 	echo "cd ~/dev/geo"
 	echo "git clone git://github.com/opentraveldata/optd.git optdgit"
 	echo "cd optdgit/refdata/tools"
-	echo "./extract_por_with_iata_icao.sh # it may take several minutes"
-	echo "It produces a por_all_iata_YYYYMMDD.csv file,"
-	echo "which has to be copied as ${TMP_DIR}dump_from_geonames.csv:"
 	if [ "${TMP_DIR}" = "/tmp/por/" ]
 	then
 		echo "mkdir -p ${TMP_DIR}"

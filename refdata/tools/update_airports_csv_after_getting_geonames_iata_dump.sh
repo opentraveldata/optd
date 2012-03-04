@@ -58,11 +58,11 @@ GEO_COMBINED_FILE=${TMP_DIR}${GEO_COMBINED_FILE_FILENAME}
 if [ "$1" = "-h" -o "$1" = "--help" ];
 then
 	echo
-	echo "Usage: $0 [<Geo data file #1> [<Geo data file #2> [<Airport popularity>]]]"
+	echo "Usage: $0 [<Geo data file #1> [<Geo data file #2> [<Airport popularity>] [<minimum distance>]]]]"
 	echo "  - Default name for the geo data file #1: '${GEO_FILE_1}'"
 	echo "  - Default name for the geo data file #2: '${GEO_FILE_2}'"
 	echo "  - Default name for the airport popularity: '${AIRPORT_POP}'"
-	echo "  - Default distance (in km) triggering a difference: '${COMP_MIN_DIST}'"
+	echo "  - Default minimum distance (in km) triggering a difference: '${COMP_MIN_DIST}'"
 	echo
 	exit -1
 fi
