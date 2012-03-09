@@ -88,7 +88,7 @@ displayReaggregateIATA() {
 	echo "sed -i -e \"/^$/d\" ${GEO_ALL_FILE}"
 	echo "sort -t'^' -k1,1 -k2,2 ${GEO_ALL_FILE} > ${GEO_ALL_FILE}.tmp"
 	echo "\mv -f ${GEO_ALL_FILE}.tmp ${GEO_ALL_FILE}"
-	echo "sed -i -e \"s/^alternateName\(.\+\)//g\" ${GEO_ALL_FILE}"
+	echo "sed -i -e \"s/^iata\(.\+\)//g\" ${GEO_ALL_FILE}"
 	echo "sed -i -e \"/^$/d\" ${GEO_ALL_FILE}"
 	echo
 }
@@ -101,7 +101,7 @@ displayReaggregateICAO() {
 	echo "sed -i -e \"/^$/d\" ${GEO_ALL_FILE}"
 	echo "sort -t'^' -k2,2 -k1,1 ${GEO_ALL_FILE} > ${GEO_ALL_FILE}.tmp"
 	echo "\mv -f ${GEO_ALL_FILE}.tmp ${GEO_ALL_FILE}"
-	echo "sed -i -e \"s/^alternateName\(.\+\)//g\" ${GEO_ALL_FILE}"
+	echo "sed -i -e \"s/^iata\(.\+\)//g\" ${GEO_ALL_FILE}"
 	echo "sed -i -e \"/^$/d\" ${GEO_ALL_FILE}"
 	echo
 }

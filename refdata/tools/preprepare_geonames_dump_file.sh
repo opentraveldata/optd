@@ -111,10 +111,10 @@ cat ${DUMP_IATA_FILE} ${DUMP_NOICAO_FILE} > ${DUMP_FILE}
 ##
 # 2.1. Extract the header into a temporary file
 DUMP_FILE_HEADER=${DUMP_FILE}.tmp.hdr
-grep "^alternateName\(.\+\)" ${DUMP_FILE} > ${DUMP_FILE_HEADER}
+grep "^iata\(.\+\)" ${DUMP_FILE} > ${DUMP_FILE_HEADER}
 
 # 2.2. Remove the header
-sed -i -e "s/^alternateName\(.\+\)//g" ${DUMP_FILE}
+sed -i -e "s/^iata\(.\+\)//g" ${DUMP_FILE}
 sed -i -e "/^$/d" ${DUMP_FILE}
 
 ##
