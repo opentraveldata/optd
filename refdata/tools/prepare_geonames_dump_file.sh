@@ -112,7 +112,7 @@ fi
 ##
 # First, remove the header (first line)
 DUMP_FROM_GEONAMES_TMP=${DUMP_FROM_GEONAMES}.tmp
-sed -e "s/^alternateName\(.\+\)//g" ${DUMP_FROM_GEONAMES} > ${DUMP_FROM_GEONAMES_TMP}
+sed -e "s/^iata\(.\+\)//g" ${DUMP_FROM_GEONAMES} > ${DUMP_FROM_GEONAMES_TMP}
 sed -i -e "/^$/d" ${DUMP_FROM_GEONAMES_TMP}
 
 
@@ -126,7 +126,7 @@ sort -t'^' -k 1,1 ${DUMP_FROM_GEONAMES_TMP} > ${SORTED_DUMP_FROM_GEONAMES}
 # Only three columns/fields are kept in that version of the file:
 # the airport/city IATA code and the geographical coordinates (latitude,
 # longitude).
-cut -d'^' -f 1,5,6 ${SORTED_DUMP_FROM_GEONAMES} > ${SORTED_CUT_DUMP_FROM_GEONAMES}
+cut -d'^' -f 1,6,7 ${SORTED_DUMP_FROM_GEONAMES} > ${SORTED_CUT_DUMP_FROM_GEONAMES}
 
 ##
 # Reporting
