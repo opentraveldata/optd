@@ -5,22 +5,36 @@
 #
 
 displayPopularityDetails() {
+	if [ -z "${OPTDDIR}" ]
+	then
+		export OPTDDIR=~/dev/geo/optdgit/refdata
+	fi
+	if [ -z "${MYCURDIR}" ]
+	then
+		export MYCURDIR=`pwd`
+	fi
 	echo
 	echo "The data dump for airport popularity can be obtained from this project (OpenTravelData:"
 	echo "http://github.com/opentraveldata/optd). For instance:"
+	echo "MYCURDIR=`pwd`"
+	echo "OPTDDIR=~/dev/geo/optdgit/refdata"
 	echo "mkdir -p ~/dev/geo"
 	echo "cd ~/dev/geo"
 	echo "git clone git://github.com/opentraveldata/optd.git optdgit"
-	echo "cd optdgit/refdata/tools"
 	if [ "${TMP_DIR}" = "/tmp/por/" ]
 	then
 		echo "mkdir -p ${TMP_DIR}"
 	fi
-	echo "\cp -f ../ORI/ref_airport_popularity.csv ${TMP_DIR}"
-	echo "./update_airports_csv_after_getting_geonames_iata_dump.sh"
+	echo "cd ${MYCURDIR}"
+	echo "\cp -f ${OPTDDIR}/ORI/ref_airport_popularity.csv ${TMP_DIR}"
+	echo "${OPTDDIR}/tools/update_airports_csv_after_getting_geonames_iata_dump.sh"
 	echo "ls -l ${TMP_DIR}"
 	echo
 }
+
+##
+#
+AIRPORT_POP_FILENAME=ref_airport_popularity.csv
 
 ##
 # Temporary path
@@ -35,6 +49,12 @@ then
 	EXEC_PATH="."
 	TMP_DIR="."
 fi
+# If the airport popularity file is in the current directory, then the current
+# directory is certainly intended to be the temporary directory.
+if [ -f ${AIRPORT_POP_FILENAME} ]
+then
+	TMP_DIR="."
+fi
 EXEC_PATH="${EXEC_PATH}/"
 TMP_DIR="${TMP_DIR}/"
 
@@ -45,7 +65,6 @@ fi
 
 ##
 #
-AIRPORT_POP_FILENAME=ref_airport_popularity.csv
 AIRPORT_POP_SORTED=sorted_${AIRPORT_POP_FILENAME}
 AIRPORT_POP_SORTED_CUT=cut_sorted_${AIRPORT_POP_FILENAME}
 #

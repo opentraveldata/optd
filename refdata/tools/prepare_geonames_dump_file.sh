@@ -5,9 +5,19 @@
 #
 
 displayGeonamesDetails() {
+	if [ -z "${OPTDDIR}" ]
+	then
+		export OPTDDIR=~/dev/geo/optdgit/refdata
+	fi
+	if [ -z "${MYCURDIR}" ]
+	then
+		export MYCURDIR=`pwd`
+	fi
 	echo
-	echo "The data dump from Geonames can be obtained from this project (OpenTravelData:"
-	echo "http://github.com/opentraveldata/optd). For instance:"
+	echo "The data dump from Geonames can be obtained from the OpenTravelData project"
+	echo "(http://github.com/opentraveldata/optd). For instance:"
+	echo "MYCURDIR=`pwd`"
+	echo "OPTDDIR=~/dev/geo/optdgit/refdata"
 	echo "mkdir -p ~/dev/geo"
 	echo "cd ~/dev/geo"
 	echo "git clone git://github.com/opentraveldata/optd.git optdgit"
@@ -20,22 +30,26 @@ displayGeonamesDetails() {
 	echo "./loadGeonamesPorAllByChunks.sh # follow the instructions"
 	echo "./loadGeonamesPorAltByChunks.sh # follow the instructions"
 	echo "./create_geo_index.sh           # it may take several minutes"
-	echo "cd ../../../../tools            # it should be ~/dev/geo/optdgit/refdata/tools"
-	echo "./extract_por_with_iata_icao.sh # it may take several minutes"
-	echo "It produces both a por_all_iata_YYYYMMDD.csv and a por_all_noicao_YYYYMMDD.csv files,"
-	echo "which have to be aggregated into the dump_from_geonames.csv file."
 	if [ "${TMP_DIR}" = "/tmp/por/" ]
 	then
 		echo "mkdir -p ${TMP_DIR}"
 	fi
-	echo "./preprepare_geonames_dump_file.sh"
-	echo "\cp -f ../ORI/best_coordinates_known_so_far.csv ${TMP_DIR}"
-	echo "\cp -f ../ORI/ref_airport_popularity.csv ${TMP_DIR}"
-	echo "\cp -f ../ORI/ori_por.csv ${TMP_DIR}ori_airports.csv"
-	echo "./update_airports_csv_after_getting_geonames_iata_dump.sh"
+	echo "cd ${MYCURDIR}"
+	echo "${OPTDDIR}/tools/extract_por_with_iata_icao.sh # it may take several minutes"
+	echo "It produces both a por_all_iata_YYYYMMDD.csv and a por_all_noicao_YYYYMMDD.csv files,"
+	echo "which have to be aggregated into the dump_from_geonames.csv file."
+	echo "${OPTDDIR}/tools/preprepare_geonames_dump_file.sh"
+	echo "\cp -f ${OPTDDIR}/ORI/best_coordinates_known_so_far.csv ${TMP_DIR}"
+	echo "\cp -f ${OPTDDIR}/ORI/ref_airport_popularity.csv ${TMP_DIR}"
+	echo "\cp -f ${OPTDDIR}/ORI/ori_por.csv ${TMP_DIR}ori_airports.csv"
+	echo "${OPTDDIR}/tools/update_airports_csv_after_getting_geonames_iata_dump.sh"
 	echo "ls -l ${TMP_DIR}"
 	echo
 }
+
+##
+#
+DUMP_FROM_GEONAMES_FILENAME=dump_from_geonames.csv
 
 ##
 # Temporary path
@@ -50,6 +64,12 @@ then
 	EXEC_PATH="."
 	TMP_DIR="."
 fi
+# If the Geonames dump file is in the current directory, then the current
+# directory is certainly intended to be the temporary directory.
+if [ -f ${DUMP_FROM_GEONAMES_FILENAME} ]
+then
+	TMP_DIR="."
+fi
 EXEC_PATH="${EXEC_PATH}/"
 TMP_DIR="${TMP_DIR}/"
 
@@ -60,7 +80,6 @@ fi
 
 ##
 #
-DUMP_FROM_GEONAMES_FILENAME=dump_from_geonames.csv
 SORTED_DUMP_FROM_GEONAMES=sorted_${DUMP_FROM_GEONAMES_FILENAME}
 SORTED_CUT_DUMP_FROM_GEONAMES=cut_sorted_${DUMP_FROM_GEONAMES_FILENAME}
 #

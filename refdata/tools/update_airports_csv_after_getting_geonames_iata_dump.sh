@@ -158,9 +158,9 @@ then
 fi
 
 ##
-# Prepare the Geonames dump file, exported from Geonames.
-# Basically, the coordinates are extracted, in order to keep a data file with
-# only three fields/columns: the airport/city code and the coordinates.
+# Prepare the ORI-maintained airport popularity dump file. Basically, the file
+# is sorted by IATA code. Then, only two columns/fields are kept in that
+# version of the file: the airport/city IATA code and the airport popularity.
 ${PREPARE_POP_EXEC} ${AIRPORT_POP}
 
 ##
@@ -172,14 +172,14 @@ fi
 
 ##
 # The two files contain only three fields (the code and both coordinates).
-# Note that the ${PREPARE_EXEC} (e.g., prepare_geonames_dump_file.sh) scrit
+# Note that the ${PREPARE_EXEC} (e.g., prepare_geonames_dump_file.sh) script
 # prepares such a file for Geonames (named ${GEO_FILE_1_SORTED_CUT}, e.g.,
 # cut_sorted_dump_from_geonames.csv) from the data dump (named ${GEO_FILE_1},
 # e.g., dump_from_geonames.csv).
 # The 'join' command aggregates:
-#  * The three fields of the geonames dump file. That is the file #1 (standard
-#    input here) for the join command.
-#  * The two coordinates of the file of best coordinates (the code being
+#  * The three fields of the (stripped) geonames dump file. That is the file #1
+#    for the join command.
+#  * The two coordinates of the file of best coordinates (the IATA code being
 #    stripped by the join command). That is the file #2 for the join command.
 # The 'join' command takes all the rows from the file #1 (geonames dump file):
 # when there is no corresponding entry in the file of best coordinates, only
@@ -196,14 +196,14 @@ join -t'^' -a 1 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} > ${JOINED_COORD_
 # Sanity check: calculate the minimal number of fields on the resulting file
 MIN_FIELD_NB=$(awk -F'^' 'BEGIN{n=10};{if (NF<n) {n=NF}}END{print n}' ${JOINED_COORD_1} | uniq | sort | uniq)
 
-if [ "${MIN_FIELD_NB}" != "5" ];
+if [ "${MIN_FIELD_NB}" != "5" -a "${MIN_FIELD_NB}" != "3" ];
 then
 	echo
 	echo "Update step"
 	echo "-----------"
 	echo "Minimum number of fields in the new coordinate file should be 5. It is ${MIN_FIELD_NB}"
 	echo "Problem!"
-	echo "Check file ${JOINED_COORD}, which is a join of the coordinates from ${GEO_FILE_1_SORTED_CUT} and ${GEO_FILE_2}"
+	echo "Check file ${JOINED_COORD_1}, which is a join of the coordinates from ${GEO_FILE_1_SORTED_CUT} and ${GEO_FILE_2}"
 	echo
   exit
 fi
@@ -239,10 +239,11 @@ paste -d'^' ${JOINED_COORD_1} ${GEO_FILE_1_SORTED} > ${JOINED_COORD_FULL}
 
 ##
 # Filter and re-order a few fields, so that the format of the generated file be
-# the same as the geonames dump file.
+# the same as the Geonames dump file.
 # The awk in the following line is likely to be affected by a change
-# in the fields of the geonames dump file.
-awk -F'^' '{printf($1); for (i=5;i<=7;i=i+1) {printf("^" $i)}; print "^" $2 "^" $3 "^" $10 "^" $11 "^" $12 "^" $13 "^" $14}' ${JOINED_COORD_FULL} > ${GEO_COMBINED_FILE}
+# in the fields of the Geonames dump file.
+REDUCER_AWK=${TMP_DIR}reduce_airports_csv_from_geonames.awk
+awk -F'^' -f ${REDUCER_AWK} ${JOINED_COORD_FULL} > ${GEO_COMBINED_FILE}
 
 ##
 # Do some reporting
@@ -276,9 +277,11 @@ if [ ${POR_NB_FILE1} -gt 0 ]
 then
 	GEO_FILE_2_MISSING=${GEO_FILE_2}.missing
 	comm -23 ${JOINED_COORD_1} ${JOINED_COORD_2} > ${GEO_FILE_2_MISSING}
+	POR_MISSING_BEST_NB=`wc -l ${GEO_FILE_2_MISSING} | cut -d' ' -f1`
 	echo
 	echo "Suggestion step"
 	echo "---------------"
+	echo "${POR_MISSING_BEST_NB} points of reference (POR) are missing from the file of best coordinates ('${GEO_FILE_2}')."
 	echo "To incorporate the missing POR into '${GEO_FILE_2}', just do:"
 	echo "cat ${GEO_FILE_2} ${GEO_FILE_2_MISSING} | sort -t'^' -k1,1 > ${GEO_FILE_2}.tmp && \mv -f ${GEO_FILE_2}.tmp ${GEO_FILE_2} && \rm -f ${GEO_FILE_2_MISSING}"
 	echo
@@ -310,7 +313,7 @@ echo "Check that the format of the new file is the same as the old file before r
 echo
 
 echo
-echo "If you want to do some cleaning everything:"
+echo "If you want to do some cleaning:"
 if [ "${TMP_DIR}" = "/tmp/por/" ]
 then
 	echo "\rm -rf ${TMP_DIR}"
