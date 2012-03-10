@@ -6,6 +6,10 @@
 #
 
 ##
+#
+GEO_FILE_2_FILENAME=best_coordinates_known_so_far.csv
+
+##
 # Temporary path
 TMP_DIR="/tmp/por"
 
@@ -16,6 +20,12 @@ CURRENT_DIR=`pwd`
 if [ ${CURRENT_DIR} -ef ${EXEC_PATH} ]
 then
 	EXEC_PATH="."
+	TMP_DIR="."
+fi
+# If the file of best coordinates is in the current directory, then the current
+# directory is certainly intended to be the temporary directory.
+if [ -f ${GEO_FILE_2_FILENAME} ]
+then
 	TMP_DIR="."
 fi
 EXEC_PATH="${EXEC_PATH}/"
@@ -29,7 +39,6 @@ fi
 ##
 # Geo data files
 GEO_FILE_1_FILENAME=cut_sorted_dump_from_geonames.csv
-GEO_FILE_2_FILENAME=best_coordinates_known_so_far.csv
 AIRPORT_POP_FILENAME=cut_sorted_ref_airport_popularity.csv
 # Comparison files
 COMP_FILE_COORD_FILENAME=por_comparison_coord.csv
