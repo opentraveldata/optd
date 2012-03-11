@@ -4,21 +4,30 @@
 -- @author Denis Arnaud <denis.arnaud_ori@m4x.org>
 --
 
-
 --
 -- Index structure for table por (points of reference)
---
+-- 
 
--- code, ref_name, ref_name2, full_name, city_code, is_airport, 
--- state_code, country_code, region_code, pricing_zone, tz_group,
--- latitude, longitude, numeric_code, is_commercial, location_type
+ALTER TABLE por ADD PRIMARY KEY (`iata_code`);
 
-ALTER TABLE por ADD PRIMARY KEY (`code`);
+ALTER TABLE por ADD INDEX (`icao_code`);
 
-ALTER TABLE por ADD INDEX (`ref_name`);
+ALTER TABLE por ADD INDEX (`geonameid`);
 
--- ALTER TABLE por ADD UNIQUE INDEX (`full_name`);
-ALTER TABLE por ADD INDEX (`full_name`);
+ALTER TABLE por ADD INDEX (`name`);
+
+ALTER TABLE por ADD INDEX (`asciiname`);
+
+ALTER TABLE por ADD INDEX (`alternatenames`);
+
+ALTER TABLE por ADD INDEX (`latitude`);
+
+ALTER TABLE por ADD INDEX (`longitude`);
+
+ALTER TABLE por ADD INDEX (`fcode`);
+
+-- ALTER TABLE por ADD INDEX (`admin1`);
+-- ALTER TABLE por ADD INDEX (`admin2`);
 
 ALTER TABLE por ADD INDEX (`city_code`);
 
@@ -30,11 +39,18 @@ ALTER TABLE por ADD INDEX (`region_code`);
 
 ALTER TABLE por ADD INDEX (`pricing_zone`);
 
+ALTER TABLE por ADD INDEX (`location_type`);
+
 ALTER TABLE por ADD INDEX (`tz_group`);
 
-ALTER TABLE por ADD INDEX (`latitude`);
+ALTER TABLE por ADD INDEX (`population`);
 
-ALTER TABLE por ADD INDEX (`longitude`);
+ALTER TABLE por ADD INDEX (`elevation`);
+-- ALTER TABLE por ADD INDEX (`gtopo30`);
+
+ALTER TABLE por ADD INDEX (`timezone`);
+
+ALTER TABLE por ADD INDEX (`moddate`);
 
 
 --
