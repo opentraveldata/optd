@@ -1,35 +1,99 @@
 --
--- ORI-generated list of POR (points of reference, i.e., airports, cities,
+-- ORI-maintained list of POR (points of reference, i.e., airports, cities,
 -- places, etc.)
--- See http://mediawiki.orinet.nce.amadeus.net/index.php/Airport_ORI
+-- See https://github.com/opentraveldata/optd/tree/trunk/refdata/ORI
 --
--- Sample:
--- CDG^PARIS CDG^PARIS CDG^PARIS/FR:CHARLES DE GAULLE^PAR^Y^^FR^EUROP^ITC2^FR052^49.01278^2.55^838^Y^A
--- => IATA code ^ Ref name ^ Ref name 2 ^ Full name ^ IATA City code ^ \
---    Is it airport flag ^ State code ^ Country code ^ Region code ^ \
---    Pricing zone ^ Time-zone Group ^ Latitude ^ Longitude ^ \
---    Numeric code ^ Is commercial ^ Type
+
+set @saved_cs_client     = @@character_set_client;
+set character_set_client = utf8;
+
 --
 -- Note: the index is created in a separate file, namely create_ori_indexes.sql
 --
 --
+-- ORI-related part:
+-- -----------------
+-- is_geonames       : Whether that POR is known by Geonames; varchar(1)
+-- is_airport        : Whether that POR is an airport; varchar(1)
+-- is_commercial     : Whether that POR is open to commerce; varchar(1)
+-- city_code         : Code of the city related to the POR; varchar(3)
+-- state_code        : Code of the state related to the POR; varchar(3)
+-- region_code       : Code of the region related to the POR; varchar(5)
+-- location_type     : Type of the POR; varchar(4)
+--
+--
+-- Geonames-related part:
+-- ----------------------
+-- iata_code         : IATA code; varchar(3)
+-- icao_code         : ICAO code; varchar(4)
+-- geonameid         : Integer ID of record in geonames database
+-- name              : Name of geographical point
+--                     (UTF8) varchar(200)
+-- asciiname         : Name of geographical point in plain ascii characters
+--                     (ASCII) varchar(200)
+-- alternatenames    : Alternate names, comma separated
+--                     varchar(5000)
+-- latitude          : Latitude in decimal degrees (wgs84)
+-- longitude         : Longitude in decimal degrees (wgs84)
+-- feature class     : See http://www.geonames.org/export/codes.html
+--                     char(1)
+-- feature code      : See http://www.geonames.org/export/codes.html
+--                     varchar(10)
+-- country code      : ISO-3166 2-letter country code, 2 characters
+-- cc2               : Alternate country codes, comma separated, ISO-3166
+--                     2-letter country code, 60 characters
+-- admin1 code       : FIPS code (subject to change to ISO code), see exceptions
+--                     below. See file admin1Codes.txt for display names of
+--                     this code; varchar(20)
+-- admin2 code       : Code for the second administrative division, a county
+--                     in the US. See file admin2Codes.txt; varchar(80)
+-- admin3 code       : Code for third level administrative division
+--                     varchar(20)
+-- admin4 code       : Code for fourth level administrative division
+--                     varchar(20)
+-- population        : bigint (8 byte int) 
+-- elevation         : In meters, integer
+-- dem               : Digital elevation model, srtm3 or gtopo30, average
+--                     elevation of 3''x3'' (ca 90mx90m) or 30''x30''
+--                     (ca 900mx900m) area in meters, integer.
+--                     srtm processed by cgiar/ciat.
+-- timezone          : The time-zone ID (see file timeZone.txt)
+-- modification date : Date of last modification in yyyy-MM-dd format
+--
+-- Samples:
+-- CDG^LFPG^6269554^Paris - Charles-de-Gaulle^Paris - Charles-de-Gaulle^49.0127800^2.5500000^FR^AIRP^0^Europe/Paris^1.0^2.0^1.0^CDG,LFPG,Paris - Charles de Gaulle,París - Charles de Gaulle,Roissy Charles de Gaulle
+-- PAR^ZZZZ^2988507^Paris^Paris^48.8534100^2.3488000^FR^PPLC^2138551^Europe/Paris^1.0^2.0^1.0^Lungsod ng Paris,Lutece,Lutetia Parisorum,PAR,Pa-ri,Paarys,Paname,Pantruche,Paraeis,Paras,Pari,Paries,Pariggi,Parigi,Pariis,Pariisi,Parijs,Paris,Paris - Paris,Parisi,Pariz,Parize,Parizh,Parizo,Parizs,Parys,Paryz,Paryzh,Paryzius,Paryż,Paryžius,Paräis,París,París - Paris,Paríž,Parîs,Parīze,Paříž,Páras,Párizs,Ville-Lumiere,Ville-Lumière,ba li,barys,pali si,pari,paris,parys,paryzh,perisa,prys,pryz,pyaris,pyrs,Παρίσι,Париж,Париз,Парыж,Փարիզ,פריז,باريس,پارىژ,پاریس,پیرس,ܦܪܝܣ,पॅरिस,பாரிஸ்,ಪ್ಯಾರಿಸ್,ปารีส,პარიზი,ፓሪስ,パリ,巴黎,파리 시
+--
+
 drop table if exists por;
 create table por (
- code VARCHAR(3) NOT NULL,
- ref_name varchar(20) NOT NULL,
- ref_name2 varchar(20) NOT NULL,
- full_name varchar(50) NOT NULL,
- city_code varchar(3) NOT NULL,
+ iata_code varchar(3) NOT NULL,
+ icao_code varchar(4) default NULL,
+ is_geonames varchar(1) NOT NULL,
+ geonameid int(11),
+ name varchar(200) default NULL,
+ asciiname varchar(200) default NULL,
+ alternatenames varchar(4000) default NULL,
+ latitude decimal(10,7) default NULL,
+ longitude decimal(10,7) default NULL,
+ fclass char(1) default NULL,
+ fcode varchar(10) default NULL,
+ country_code varchar(2) default NULL,
+ cc2 varchar(60) default NULL,
+ admin1 varchar(20) default NULL,
+ admin2 varchar(80) default NULL,
+ admin3 varchar(20) default NULL,
+ admin4 varchar(20) default NULL,
+ population int(11) default NULL,
+ elevation int(11) default NULL,
+ gtopo30 int(11) default NULL,
+ timezone varchar(40) default NULL,
+ moddate date default NULL,
  is_airport varchar(1) NOT NULL,
- state_code varchar(3),
- country_code varchar(2) NOT NULL,
- region_code varchar(5) NOT NULL,
- pricing_zone varchar(4),
- tz_group varchar(5) NOT NULL,
- latitude float(20),
- longitude float(20),
- numeric_code decimal,
  is_commercial varchar(1) NOT NULL,
+ city_code varchar(3) NOT NULL,
+ state_code varchar(3),
+ region_code varchar(5) NOT NULL,
  location_type varchar(4)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -74,5 +138,24 @@ create table airport_popularity (
   ltfrt int(8) NULL,
   lmail int(8) NULL,
   ltcgo int(8) NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) engine=InnoDB default charset=utf8 collate=utf8_unicode_ci;
+
+
+--
+-- Table structure for tableairports_pageranked
+--
+
+drop table if exists airports_pageranked;
+create table airports_pageranked (
+ localid int(6) NOT NULL,
+ iata_code char(3) NOT NULL,
+ page_rank decimal(15,12) NOT NULL
+) engine=InnoDB default charset=utf8;
+
+
+--
+--
+--
+set character_set_client = @saved_cs_client;
+
 
