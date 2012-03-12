@@ -17,8 +17,11 @@
 
 select iata_codes.alternateName as iata, icao_codes.alternateName as icao,
 	   g.geonameid, g.name, g.asciiname, g.latitude, g.longitude,
-	   g.country, g.fcode, g.population, g.timezone, 
-	   tz.GMT_offset, tz.DST_offset, tz.raw_offset, g.alternatenames
+	   g.country, g.cc2, g.fclass, g.fcode,
+	   g.admin1, g.admin2, g.admin3, g.admin4,
+	   g.population, g.elevation, g.gtopo30,
+	   g.timezone, tz.GMT_offset, tz.DST_offset, tz.raw_offset,
+	   g.moddate, g.alternatenames
 from time_zones as tz, geoname as g
 
 left join (
