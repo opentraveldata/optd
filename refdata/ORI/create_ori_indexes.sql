@@ -26,8 +26,8 @@ ALTER TABLE por ADD INDEX (`longitude`);
 
 ALTER TABLE por ADD INDEX (`fcode`);
 
--- ALTER TABLE por ADD INDEX (`admin1`);
--- ALTER TABLE por ADD INDEX (`admin2`);
+ALTER TABLE por ADD INDEX (`admin1`);
+ALTER TABLE por ADD INDEX (`admin2`);
 
 ALTER TABLE por ADD INDEX (`city_code`);
 
@@ -37,11 +37,7 @@ ALTER TABLE por ADD INDEX (`country_code`);
 
 ALTER TABLE por ADD INDEX (`region_code`);
 
-ALTER TABLE por ADD INDEX (`pricing_zone`);
-
 ALTER TABLE por ADD INDEX (`location_type`);
-
-ALTER TABLE por ADD INDEX (`tz_group`);
 
 ALTER TABLE por ADD INDEX (`population`);
 

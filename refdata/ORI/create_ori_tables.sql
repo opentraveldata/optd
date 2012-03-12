@@ -58,7 +58,47 @@ set character_set_client = utf8;
 --                     (ca 900mx900m) area in meters, integer.
 --                     srtm processed by cgiar/ciat.
 -- timezone          : The time-zone ID (see file timeZone.txt)
+-- gmt offset        : GMT offset on 1st of January
+-- dst offset        : DST offset to GMT on 1st of July (of the current year)
+-- raw offset        : Raw Offset without DST
 -- modification date : Date of last modification in yyyy-MM-dd format
+--
+-- ORI-related part:
+-- -----------------
+--
+-- is airport        : Whether or not that POR is an airport
+-- is commercial     : Whether or not that POR hosts commercial activities
+-- city code         : The IATA code of the related city, when knwon
+-- state code        : The ISO code of the related state
+-- region code       : The code of the related region (see below)
+-- continent code    : The code of the related continent (ITC1, ITC2 or ITC3)
+-- location type     : A/APT airport; B/BUS bus/coach station; C/CITY City;
+--                     G/GRD ground transport (this code is used for SK in
+--                     Sweden only); H/HELI Heliport;
+--                     O/OFF-PT off-line point, i.e. a city without an airport;
+--                     R/RAIL railway Station; S/ASSOC a location without its
+--                     own IATA code, but attached to an IATA location.
+--
+-- Regions:
+-- --------
+-- AFRIC / AF        : Africa (geonameId=6255146)
+-- ASIA  / AS        : Asia (geonameId=6255147)
+-- ATLAN             : Atlantic
+-- AUSTL             : Australia
+-- CAMER             : Central America
+-- CARIB             : Carribean
+-- EEURO             : Eastern Europe
+-- EURAS             : Euras
+-- EUROP / EU        : Europe (geonameId=6255148)
+-- IOCEA             :
+-- MEAST             : Middle-East
+-- NAMER / NA        : North America (geonameId=6255149)
+-- NONE              : Non real POR
+-- PACIF             : Pacific
+-- SAMER / SA        : South America (geonameId=6255150)
+-- SEASI             : South East
+--       / OC        : Oceania (geonameId=6255151)
+--       / AN        : Antarctica (geonameId=6255152)
 --
 -- Samples:
 -- CDG^LFPG^6269554^Paris - Charles-de-Gaulle^Paris - Charles-de-Gaulle^49.0127800^2.5500000^FR^AIRP^0^Europe/Paris^1.0^2.0^1.0^CDG,LFPG,Paris - Charles de Gaulle,París - Charles de Gaulle,Roissy Charles de Gaulle
@@ -70,13 +110,13 @@ create table por (
  iata_code varchar(3) NOT NULL,
  icao_code varchar(4) default NULL,
  is_geonames varchar(1) NOT NULL,
- geonameid int(11),
+ geonameid int(11) default NULL,
  name varchar(200) default NULL,
  asciiname varchar(200) default NULL,
  alternatenames varchar(4000) default NULL,
  latitude decimal(10,7) default NULL,
  longitude decimal(10,7) default NULL,
- fclass char(1) default NULL,
+ fclass varchar(1) default NULL,
  fcode varchar(10) default NULL,
  country_code varchar(2) default NULL,
  cc2 varchar(60) default NULL,
@@ -88,13 +128,17 @@ create table por (
  elevation int(11) default NULL,
  gtopo30 int(11) default NULL,
  timezone varchar(40) default NULL,
+ gmt_offset decimal(3,1) default NULL,
+ dst_offset decimal(3,1) default NULL,
+ raw_offset decimal(3,1) default NULL,
  moddate date default NULL,
- is_airport varchar(1) NOT NULL,
- is_commercial varchar(1) NOT NULL,
- city_code varchar(3) NOT NULL,
- state_code varchar(3),
- region_code varchar(5) NOT NULL,
- location_type varchar(4)
+ is_airport varchar(1) default NULL,
+ is_commercial varchar(1) default NULL,
+ city_code varchar(3) default NULL,
+ state_code varchar(3) default NULL,
+ region_code varchar(5) default NULL,
+ continent_code varchar(4) default NULL,
+ location_type varchar(4) default NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
