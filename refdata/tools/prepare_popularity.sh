@@ -17,7 +17,7 @@ displayPopularityDetails() {
 	echo "The data dump for airport popularity can be obtained from this project (OpenTravelData:"
 	echo "http://github.com/opentraveldata/optd). For instance:"
 	echo "MYCURDIR=`pwd`"
-	echo "OPTDDIR=~/dev/geo/optdgit/refdata"
+	echo "OPTDDIR=${OPTDDIR}"
 	echo "mkdir -p ~/dev/geo"
 	echo "cd ~/dev/geo"
 	echo "git clone git://github.com/opentraveldata/optd.git optdgit"

@@ -5,10 +5,19 @@
 #
 
 displayRFDDetails() {
+	if [ -z "${DARFD}" ]
+	then
+		export DARFD=~/dev/dataanalysis/dataanalysisgit/data_generation
+	fi
+	if [ -z "${MYCURDIR}" ]
+	then
+		export MYCURDIR=`pwd`
+	fi
 	echo
 	echo "# The data dump from Amadeus RFD can be obtained from this project"
 	echo "# (http://gitorious.orinet.nce.amadeus.net/dataanalysis/dataanalysis.git). For instance:"
-	echo "DARFD=~/dev/dataanalysis/dataanalysisgit/data_generation"
+	echo "MYCURDIR=${MYCURDIR}"
+	echo "DARFD=${DARFD}"
 	echo "mkdir -p ~/dev/dataanalysis"
 	echo "cd ~/dev/dataanalysis"
 	echo "git clone git://gitorious.orinet.nce.amadeus.net/dataanalysis/dataanalysis.git dataanalysisgit"
@@ -79,7 +88,7 @@ fi
 #
 if [ "$1" = "-r" -o "$1" = "--rfd" ];
 then
-	displayRfdDetails
+	displayRFDDetails
 	exit -1
 fi
 
@@ -104,7 +113,7 @@ then
 	echo "The '${DUMP_FROM_RFD}' file does not exist."
 	if [ "$1" = "" ];
 	then
-		displayRfdDetails
+		displayRFDDetails
 	fi
 	exit -1
 fi

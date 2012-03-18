@@ -10,7 +10,7 @@ BEGIN {
 	printf ("^population^elevation^gtopo30")
 	printf ("^timezone^gmt_offset^dst_offset^raw_offset^moddate")
 	printf ("^is_airport^is_commercial")
-	printf ("^city_code^state_code^region_code^continent_code^location_type\n")
+	printf ("^city_code^state_code^region_code^location_type\n")
 	today_date = mktime ("YYYY-MM-DD")
 }
 
@@ -48,11 +48,11 @@ BEGIN {
 		# ^ Is airport ^ Is commercial
 		printf ("^" $46 "^" $55)
 
-		# ^ City code ^ State code ^ Region code ^ Continent code
-		printf ("^" $45 "^" $47 "^" $49 "^" $50)
+		# ^ City code ^ State code ^ Region code
+		printf ("^" $45 "^" $47 "^" $49)
 
 		# ^ Location type
-		printf ("^" $56)
+		printf ("^" $55)
 
 		# ----
 		# From ORI-POR ($1 - $16)
@@ -122,8 +122,8 @@ BEGIN {
 		# ^ Is airport ^ Is commercial
 		printf ("^" $6 "^" $15)
 
-		# ^ City code ^ State code ^ Region code ^ Continent code
-		printf ("^" $5 "^" $7 "^" $9 "^" $10)
+		# ^ City code ^ State code ^ Region code
+		printf ("^" $5 "^" $7 "^" $9)
 
 		# ^ Location type
 		printf ("^" $16)
@@ -194,8 +194,8 @@ BEGIN {
 			printf ("^N^Z")
 		}
 
-		# ^ City code ^ State code ^ Region code ^ Continent code
-		printf ("^" $5 "^" $7 "^" $9 "^" $10)
+		# ^ City code ^ State code ^ Region code
+		printf ("^" $5 "^" $7 "^" $9)
 
 		#  ^ Location type
 		if ($26 == "AIRP") {
@@ -258,8 +258,8 @@ BEGIN {
 		# ^ Is airport ^ Is commercial
 		printf ("^" $6 "^" $15)
 
-		# ^ City code ^ State code ^ Region code ^ Continent code
-		printf ("^" $5 "^" $7 "^" $9 "^" $10)
+		# ^ City code ^ State code ^ Region code
+		printf ("^" $5 "^" $7 "^" $9)
 
 		#  ^ Location type
 		printf ("^" $16)
