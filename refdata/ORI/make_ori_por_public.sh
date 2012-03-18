@@ -29,6 +29,23 @@ bash prepare_geonames_dump_file.sh
 bash prepare_rfd_dump_file.sh
 
 ##
+#
+if [ ! -f ${GEONAME_SORTED_FILE} ]
+then
+	echo
+	echo "The '${GEONAME_SORTED_FILE}' file does not exist."
+	echo
+	exit -1
+fi
+if [ ! -f ${RFD_SORTED_FILE} ]
+then
+	echo
+	echo "The '${RFD_SORTED_FILE}' file does not exist."
+	echo
+	exit -1
+fi
+
+##
 # Aggregate all the data sources into a single file
 join -t'^' -a 1 ${ORI_POR_FILE} ${GEONAME_SORTED_FILE} > ${ORI_POR_WITH_GEO}
 join -t'^' -a 1 ${ORI_POR_WITH_GEO} ${RFD_SORTED_FILE} > ${ORI_POR_WITH_GEORFD}

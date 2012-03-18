@@ -17,7 +17,7 @@ displayGeonamesDetails() {
 	echo "The data dump from Geonames can be obtained from the OpenTravelData project"
 	echo "(http://github.com/opentraveldata/optd). For instance:"
 	echo "MYCURDIR=`pwd`"
-	echo "OPTDDIR=~/dev/geo/optdgit/refdata"
+	echo "OPTDDIR=${OPTDDIR}"
 	echo "mkdir -p ~/dev/geo"
 	echo "cd ~/dev/geo"
 	echo "git clone git://github.com/opentraveldata/optd.git optdgit"

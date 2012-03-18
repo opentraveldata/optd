@@ -11,17 +11,6 @@ set character_set_client = utf8;
 -- Note: the index is created in a separate file, namely create_ori_indexes.sql
 --
 --
--- ORI-related part:
--- -----------------
--- is_geonames       : Whether that POR is known by Geonames; varchar(1)
--- is_airport        : Whether that POR is an airport; varchar(1)
--- is_commercial     : Whether that POR is open to commerce; varchar(1)
--- city_code         : Code of the city related to the POR; varchar(3)
--- state_code        : Code of the state related to the POR; varchar(3)
--- region_code       : Code of the region related to the POR; varchar(5)
--- location_type     : Type of the POR; varchar(4)
---
---
 -- Geonames-related part:
 -- ----------------------
 -- iata_code         : IATA code; varchar(3)
@@ -63,15 +52,17 @@ set character_set_client = utf8;
 -- raw offset        : Raw Offset without DST
 -- modification date : Date of last modification in yyyy-MM-dd format
 --
+--
 -- ORI-related part:
 -- -----------------
 --
--- is airport        : Whether or not that POR is an airport
+-- is_geonames       : Whether that POR is known by Geonames; varchar(1)
+-- is_airport        : Whether that POR is an airport; varchar(1)
 -- is commercial     : Whether or not that POR hosts commercial activities
--- city code         : The IATA code of the related city, when knwon
--- state code        : The ISO code of the related state
--- region code       : The code of the related region (see below)
--- continent code    : The code of the related continent (ITC1, ITC2 or ITC3)
+--                     varchar(1)
+-- city_code         : The IATA code of the related city, when knwon; varchar(3)
+-- state_code        : The ISO code of the related state; varchar(3)
+-- region_code       : The code of the related region (see below); varchar(5)
 -- location type     : A/APT airport; B/BUS bus/coach station; C/CITY City;
 --                     G/GRD ground transport (this code is used for SK in
 --                     Sweden only); H/HELI Heliport;
@@ -137,7 +128,6 @@ create table por (
  city_code varchar(3) default NULL,
  state_code varchar(3) default NULL,
  region_code varchar(5) default NULL,
- continent_code varchar(4) default NULL,
  location_type varchar(4) default NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
