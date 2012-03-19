@@ -20,10 +20,9 @@
 
 # The new suggested file of ORI-maintained airport is 'new_airports.csv'.
 # However, as of now (March 2012), its format (Geonames-based) does not
-# correspond to the ORI-maintained data file format (RFD-based).
-# When the ORI-maintained data file will be based on Geonames, it could
-# replace the old one:
-# \cp -f new_airports.csv ../ORI/ori_por.csv
+# correspond to the ORI-maintained data file format (ORI-enriched).
+# Both files can be compared, though:
+# diff -c new_airports.csv ../ORI/ori_por.csv
 
 # But, more importantly, a data file, summing up all the differences,
 # is generated, namely 'por_main_diff.csv'. Those differences correspond to
