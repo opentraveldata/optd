@@ -1368,7 +1368,7 @@ CFV^KCFV^Y^4269794^Coffeyville Municipal Airport^Coffeyville Municipal Airport^C
 CGA^ZZZZ^Y^5845548^Craig Seaplane Base^Craig Seaplane Base^CGA^55.48^-133.2^S^AIRP^US^^AK^198^^^0^0^0^America/Metlakatla^-8.0^-8.0^-8.0^2010-01-30^Y^Y^CGA^AK^NAMER^Y
 CGB^SBCY^Y^6300617^Cuiaba Aeroporto^Cuiaba Aeroporto^CGB,SBCY^-15.652931^-56.116719^S^AIRP^BR^^^^^^0^188^181^America/Cuiaba^-3.0^-4.0^-4.0^2007-01-03^Y^Y^CGB^MT^SAMER^Y
 CGC^ZZZZ^N^0^CAPE GLOUCESTER/PG^CAPE GLOUCESTER/PG^^-5.45^148.4^S^AIRP^PG^^^^^^^^^PG^^^^-1^Y^N^CGC^^AUSTL^CA
-CGD^ZGCD^Y^7730285^Changde Airport^Changde Airport^CGD,ZGCD^29.03^111.7^S^AIRP^CN^^11^^^^0^0^39^Asia/Shanghai^8.0^8.0^8.0^2011-03-16^Y^Y^CGD^^ASIA^Y
+CGD^ZGCD^Y^7730285^Changde Airport^Changde Airport^CGD,ZGCD^28.9189^111.64^S^AIRP^CN^^11^^^^0^0^39^Asia/Shanghai^8.0^8.0^8.0^2011-03-16^Y^Y^CGD^^ASIA^Y
 CGE^KCGE^Y^4350190^Cambridge-Dorchester Airport^Cambridge-Dorchester Airport^CGE,KCGE^38.55^-76.03^S^AIRP^US^^MD^019^^^0^5^3^America/New_York^-5.0^-4.0^-5.0^2011-12-11^Y^N^CGE^MD^NAMER^N
 CGF^KCGF^Y^5150569^Cleveland Police Department 6th District Heliport^Cleveland Police Department 6th District Heliport^CGF,KCGF^41.565125^-81.486356^S^AIRH^US^^OH^035^^^0^201^201^America/New_York^-5.0^-4.0^-5.0^2011-03-10^Y^N^CLE^OH^NAMER^N
 CGG^ZZZZ^N^0^CASIGURAN/PH^CASIGURAN/PH^^14.58^121^S^AIRP^PH^^^^^^^^^PH^^^^-1^Y^N^CGG^^PACIF^CA
@@ -10411,7 +10411,7 @@ YBZ^ZZZZ^N^0^TORONTO/ON/CA:UNION RAILWAY ST^TORONTO/ON/CA:UNION RAILWAY ST^^43.6
 YCA^ZZZZ^N^0^COURTENAY/BC/CA^COURTENAY/BC/CA^^49.68^-125^S^AIRP^CA^^^^^^^^^CA031^^^^-1^Y^Y^YCA^BC^NAMER^CA
 YCB^CYCB^Y^6296165^Cambridge Bay Airport^Cambridge Bay Airport^Aeropuerto de Cambridge Bay,Bandar Udara Cambridge Bay,CYCB,Cambridge Bay Airport,Cambridge Bay, N. W. T.,Cambridge Bayn lentoasema,YCB^69.12^-105.1^S^AIRP^CA^^^^^^0^27^-9999^America/Cambridge_Bay^-7.0^-6.0^-7.0^2011-03-28^Y^Y^YCB^NU^NAMER^Y
 YCC^CYCC^Y^7668116^Cornwall Regional Airport^Cornwall Regional Airport^CYCC,YCC^45.1^-74.57^S^AIRP^CA^^10^16^^^0^0^50^America/Toronto^-5.0^-4.0^-5.0^2011-02-17^Y^Y^YCC^ON^NAMER^Y
-YCD^CYCD^Y^6296166^Nanaimo Airport^Nanaimo Airport^Aeropuerto de Nanaimo,CYCD,YCD^49.17^-123.9^S^AIRP^CA^^^^^^0^28^25^America/Vancouver^-8.0^-7.0^-8.0^2007-01-03^Y^Y^YCD^BC^NAMER^Y
+YCD^CYCD^Y^6296166^Nanaimo Airport^Nanaimo Airport^Aeropuerto de Nanaimo,CYCD,YCD^49.05233^-123.87017^S^AIRP^CA^^^^^^0^28^25^America/Vancouver^-8.0^-7.0^-8.0^2007-01-03^Y^Y^YCD^BC^NAMER^Y
 YCE^CYCE^Y^7730024^James T. Field Memorial Aerodrome^James T. Field Memorial Aerodrome^CYCE,YCE^45.78^-76.13^S^AIRP^CA^^08^^^^0^0^247^America/Toronto^-5.0^-4.0^-5.0^2011-03-16^Y^N^YCE^ON^NAMER^N
 YCF^ZZZZ^Y^7910393^Cortes Island Airport^Cortes Island Airport^Hansen Airfield,YCF^50.07^-124.9^S^AIRP^CA^^^^^^0^50^49^America/Vancouver^-8.0^-7.0^-8.0^2011-07-24^Y^Y^YCF^BC^NAMER^Y
 YCG^CYCG^Y^6296167^Castlegar Airport^Castlegar Airport^CYCG,YCG^49.3^-117.6^S^AIRP^CA^^^^^^0^494^492^America/Vancouver^-8.0^-7.0^-8.0^2007-01-03^Y^Y^YCG^BC^NAMER^Y
