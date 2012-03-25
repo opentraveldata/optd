@@ -107,14 +107,20 @@ then
 fi
 
 ##
+# Remove the header
+GEO_ORI_WO_HDR_FILE=${GEO_ORI_FILE}.wohdr
+sed -e "s/^iata_code\(.\+\)//g" ${GEO_ORI_FILE} > ${GEO_ORI_WO_HDR_FILE}
+sed -i -e "/^$/d" ${GEO_ORI_WO_HDR_FILE}
+
+##
 # Aggregate both the file of best known coordinates together with the
 # ORI-maintained file.
 GEO_ALL_BEST=${GEO_NEW_BEST_KNOWN_FILE}.tmp.all.best
 GEO_ALL_ORI=${GEO_NEW_BEST_KNOWN_FILE}.tmp.all.ori
 GEO_FULL_ORI=${GEO_NEW_BEST_KNOWN_FILE}.tmp.full
 GEO_FULL_TMP=${GEO_NEW_BEST_KNOWN_FILE}.tmp
-join -t'^' -a 1 ${GEO_BEST_KNOWN_FILE} ${GEO_ORI_FILE} > ${GEO_ALL_BEST}
-join -t'^' -a 2 ${GEO_BEST_KNOWN_FILE} ${GEO_ORI_FILE} > ${GEO_ALL_ORI}
+join -t'^' -a 1 ${GEO_BEST_KNOWN_FILE} ${GEO_ORI_WO_HDR_FILE} > ${GEO_ALL_BEST}
+join -t'^' -a 2 ${GEO_BEST_KNOWN_FILE} ${GEO_ORI_WO_HDR_FILE} > ${GEO_ALL_ORI}
 cat ${GEO_ALL_BEST} ${GEO_ALL_ORI} > ${GEO_FULL_ORI}
 sed -i -e "/^$/d" ${GEO_FULL_ORI}
 sort -t'^' -k1,1 ${GEO_FULL_ORI} | uniq -w 3 > ${GEO_FULL_TMP}
@@ -146,6 +152,6 @@ echo
 # Cleaning
 echo
 echo "In order to clean the temporary files, simply do:"
-echo "\rm -f ${GEO_ORI_FILE} ${GEO_BEST_KNOWN_FILE} ${GEO_NEW_BEST_KNOWN_FILE}"
+echo "\rm -f ${GEO_ORI_FILE} ${GEO_ORI_WO_HDR_FILE} ${GEO_BEST_KNOWN_FILE} ${GEO_NEW_BEST_KNOWN_FILE}"
 echo
 
