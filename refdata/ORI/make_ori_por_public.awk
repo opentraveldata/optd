@@ -52,7 +52,7 @@ BEGIN {
 		printf ("^" $45 "^" $47 "^" $49)
 
 		# ^ Location type
-		printf ("^" $55)
+		printf ("^" $56)
 
 		# ----
 		# From ORI-POR ($1 - $16)
@@ -82,19 +82,22 @@ BEGIN {
 		####
 		#
 		# ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
-		printf ("^ZZZZ^N^0^" $4 "^" $4)
+		printf ("^ZZZZ^N^0^" $20 "^" $20)
 
 		# ^ Alternate names ^ Latitude ^ Longitude
 		printf ("^^" $12 "^" $13)
 
 		#  ^ Feat. class ^ Feat. code
-		if ($6 == "Y") {
+		if ($23 == "Y") {
 			# The POR is an airport
 			printf ("^S^AIRP")
-		} else if ($16 == "C") {
+		} else if ($33 == "CA") {
+			# The POR is an airport and a city, but RFD wrongly set it
+			printf ("^S^AIRP")
+		} else if ($33 == "C") {
 			# The POR is a city
 			printf ("^P^PPLC")
-		} else if ($16 == "O") {
+		} else if ($33 == "O") {
 			# The POR is an off-line point, which could be a bus/railway station
 			printf ("^X^XXXX")
 		} else {
@@ -105,7 +108,7 @@ BEGIN {
 		}
 
 		# ^ Country code ^ Alt. country codes
-		printf ("^" $8 "^")
+		printf ("^" $25 "^")
 
 		# ^ Admin1 ^ Admin2 ^ Admin3 ^ Admin4
 		printf ("^^^^")
@@ -114,19 +117,19 @@ BEGIN {
 		printf ("^^^")
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		printf ("^" $11 "^^^")
+		printf ("^" $28 "^^^")
 
 		# ^ Modification date
 		printf ("^" today_date)
 
 		# ^ Is airport ^ Is commercial
-		printf ("^" $6 "^" $15)
+		printf ("^" $23 "^" $32)
 
 		# ^ City code ^ State code ^ Region code
-		printf ("^" $5 "^" $7 "^" $9)
+		printf ("^" $22 "^" $24 "^" $26)
 
 		# ^ Location type
-		printf ("^" $16)
+		printf ("^" $33)
 
 		# ----
 		# From ORI-POR ($1 - $16)
@@ -195,7 +198,7 @@ BEGIN {
 		}
 
 		# ^ City code ^ State code ^ Region code
-		printf ("^" $5 "^" $7 "^" $9)
+		printf ("^" $1 "^" $27 "^ZZZZZ")
 
 		#  ^ Location type
 		if ($26 == "AIRP") {
