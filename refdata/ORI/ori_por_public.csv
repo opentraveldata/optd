@@ -1898,9 +1898,9 @@ DGR^NZDA^Y^7668384^Dargaville Aerodrome^Dargaville Aerodrome^DGR,NZDA^-35.93^173
 DGT^RPVD^Y^6300493^Dumaguete^Dumaguete^DGT,RPVD^9.333714^123.300472^S^AIRP^PH^^^^^^0^4^8^Asia/Manila^8.0^8.0^8.0^2007-01-03^Y^Y^DGT^^PACIF^CA
 DGU^DFOD^Y^6296410^Dedougou^Dedougou^DFOD,DGU^12.47^-3.483^S^AIRP^BF^^^^^^0^300^300^Africa/Ouagadougou^0.0^0.0^0.0^2006-10-29^Y^N^DGU^^AFRIC^CA
 DGW^KDGW^Y^5821792^Converse County Airport^Converse County Airport^DGW,KDGW^42.75^-105.4^S^AIRP^US^^WY^009^^^0^1499^1497^America/Denver^-7.0^-6.0^-7.0^2006-10-29^Y^N^DGW^WY^NAMER^CA
-DGX^EGDX^Y^6296584^St Athan Royal Air Force Base^St Athan Royal Air Force Base^DGX,EGDX^51.4048100^-3.4357500^S^AIRB^GB^^WLS^Z3^^^0^49^47^Europe/London^0.0^1.0^0.0^2010-05-25^Y^N^DGX^WLS^ZZZZZ^A
+DGX^EGDX^Y^6296584^St Athan Royal Air Force Base^St Athan Royal Air Force Base^DGX,EGDX^51.40481^-3.43575^S^AIRB^GB^^WLS^Z3^^^0^49^47^Europe/London^0.0^1.0^0.0^2010-05-25^Y^N^DGX^WLS^ZZZZZ^A
 DHA^OEDR^Y^392652^Dhahran International^Dhahran International^DHA,OEDR^26.265417^50.152027^S^AIRP^SA^^00^^^^0^25^20^Asia/Riyadh^3.0^3.0^3.0^2007-01-03^Y^Y^DHA^^MEAST^CH
-DHB^ZZZZ^Y^7910455^Deer Harbor^Deer Harbor^DHB^48.6202200^-123.0035300^S^AIRP^US^^WA^000^^^0^0^0^America/Los_Angeles^-8.0^-7.0^-8.0^2011-07-26^Y^Y^DHB^WA^NAMER^CA
+DHB^ZZZZ^Y^7910455^Deer Harbor^Deer Harbor^DHB^48.62022^-123.00353^S^AIRP^US^^WA^000^^^0^0^0^America/Los_Angeles^-8.0^-7.0^-8.0^2011-07-26^Y^Y^DHB^WA^NAMER^CA
 DHD^YDRH^Y^7730972^Durham Downs Airport^Durham Downs Airport^DHD,YDRH^-27.07^141.9^S^AIRP^AU^^04^31750^^^0^0^95^Australia/Brisbane^10.0^10.0^10.0^2011-06-04^Y^N^DHD^QL^AUSTL^CA
 DHF^ZZZZ^N^0^ABU DHABI/AE:AL DHAFRA AB^ABU DHABI/AE:AL DHAFRA AB^^24.248249^54.547722^S^AIRP^AE^^^^^^^^^AE^^^^-1^Y^N^AUH^^MEAST^A
 DHI^VNDH^Y^7668618^Dhangarhi Airport^Dhangarhi Airport^DHI,VNDH^28.25^80.67^S^AIRP^NP^^FR^14^^^0^0^188^Asia/Kathmandu^5.8^5.8^5.8^2011-03-10^Y^Y^DHI^^ASIA^CA
@@ -1908,7 +1908,7 @@ DHL^ZZZZ^N^0^DHALA/YE^DHALA/YE^^13.73^44.72^S^AIRP^YE^^^^^^^^^YE^^^^-1^Y^N^DHL^^
 DHM^VIGG^Y^6453418^Gaggal^Gaggal^DHM,VIGG^17.38^78.47^S^AIRP^IN^^11^^^^0^770^760^Asia/Kolkata^5.5^5.5^5.5^2007-03-30^Y^Y^DHM^^ASIA^CA
 DHN^KDHN^Y^4059103^Dothan Regional Airport^Dothan Regional Airport^DHN,KDHN^31.321339^-85.449628^S^AIRP^US^^AL^045^^^0^113^117^America/Chicago^-6.0^-5.0^-6.0^2011-12-11^Y^Y^DHN^AL^NAMER^CA
 DHR^EHKD^Y^6296687^De Kooy^De Kooy^DHR,EHKD^52.923353^4.780625^S^AIRP^NL^^07^0400^^^0^0^255^Europe/Amsterdam^1.0^2.0^1.0^2011-06-04^Y^N^DHR^^EUROP^CA
-DHT^KDHT^Y^5519866^Dalhart Municipal Airport^Dalhart Municipal Airport^DHT,KDHT^36.07^102.5^S^AIRP^US^^TX^205^^^0^1215^1220^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^N^DHT^TX^NAMER^CA
+DHT^KDHT^Y^5519866^Dalhart Municipal Airport^Dalhart Municipal Airport^DHT,KDHT^36.02226^-102.5477^S^AIRP^US^^TX^205^^^0^1215^1220^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^N^DHT^TX^NAMER^CA
 DIB^VEMN^Y^6301077^Dibrugarh Airport^Dibrugarh Airport^DIB,Dibrugarh / Mohanbari,Dibrugarh Airport,VEMN^27.48^94.9^S^AIRP^IN^^^^^^0^110^112^Asia/Kolkata^5.5^5.5^5.5^2011-03-28^Y^Y^DIB^^ASIA^CA
 DIC^ZZZZ^N^0^UNKNOWN19^UNKNOWN19^^-8.55^125.6^S^AIRP^ZZ^^^^^^^^^Europe/Greenwich^^^^-1^Y^Y^ZZZ^^UNKOWN^CA
 DIE^FMNA^Y^1075634^Andrakaka^Andrakaka^DIE,FMNA^-12.3494^49.291747^S^AIRP^MG^^01^^^^0^113^108^Indian/Antananarivo^3.0^3.0^3.0^2007-01-03^Y^Y^DIE^^AFRIC^CA
@@ -1935,16 +1935,16 @@ DJJ^WAJJ^Y^6301186^Sentani Airport^Sentani Airport^DJJ,Jayapura / Sentani,Sentan
 DJM^FCBD^Y^6296956^Djambala^Djambala^DJM,FCBD^-2.533^14.75^S^AIRP^CG^^^^^^0^791^787^Africa/Brazzaville^1.0^1.0^1.0^2006-10-29^Y^N^DJM^^AFRIC^CA
 DJN^ZZZZ^Y^5860525^Delta Junction Airport^Delta Junction Airport^DJN^64.03^-145.7^S^AIRP^US^^AK^240^^^0^349^350^America/Anchorage^-9.0^-8.0^-9.0^2011-12-12^Y^N^DJN^AK^NAMER^CA
 DJO^DIDL^Y^6296437^Daloa Airport^Daloa Airport^DIDL,DJO,Daloa,Daloa Airport^6.792808^-6.473189^S^AIRP^CI^^^^^^0^250^259^Africa/Abidjan^0.0^0.0^0.0^2011-03-28^Y^N^DJO^^AFRIC^CA
-DJR^YDAJ^Y^7730974^Dajarra Airport^Dajarra Airport^DJR,YDAJ^-21.7083000^139.5330000^S^AIRP^AU^^04^32450^^^0^0^331^Australia/Brisbane^10.0^10.0^10.0^2011-06-04^Y^Z^DJR^04^ZZZZZ^A
+DJR^YDAJ^Y^7730974^Dajarra Airport^Dajarra Airport^DJR,YDAJ^-21.7083^139.533^S^AIRP^AU^^04^32450^^^0^0^331^Australia/Brisbane^10.0^10.0^10.0^2011-06-04^Y^Z^DJR^04^ZZZZZ^A
 DJU^BIDV^Y^7730426^Djúpivogur Airport^Djupivogur Airport^BIDV,DJU^64.67^-14.17^S^AIRP^IS^^^^^^0^0^6^Atlantic/Reykjavik^0.0^0.0^0.0^2011-03-17^Y^N^DJU^^EUROP^CA
 DKA^ZZZZ^N^0^KATSINA/NG^KATSINA/NG^^13.0003^7.68333^S^AIRP^NG^^^^^^^^^NG^^^^-1^Y^Y^DKA^^AFRIC^CA
-DKB^KDKB^Y^4889561^DeKalb Taylor Municipal Airport^DeKalb Taylor Municipal Airport^DKB,KDKB^41.9297500^-88.7134200^S^AIRP^US^^IL^037^^^0^278^277^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^Z^DKB^IL^ZZZZZ^A
+DKB^KDKB^Y^4889561^DeKalb Taylor Municipal Airport^DeKalb Taylor Municipal Airport^DKB,KDKB^41.92975^-88.71342^S^AIRP^US^^IL^037^^^0^278^277^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^Z^DKB^IL^ZZZZZ^A
 DKI^YDKI^Y^6354932^Dunk Island Airport^Dunk Island Airport^DKI,Dunk Island,Dunk Island Airport,YDKI^-17.93^146.2^S^AIRP^AU^^04^32260^^^0^0^9^Australia/Lindeman^10.0^10.0^10.0^2011-06-04^Y^N^DKI^QL^AUSTL^CA
 DKK^KDKK^Y^5112360^Chautauqua County-Dunkirk Airport^Chautauqua County-Dunkirk Airport^DKK,KDKK^42.48^-79.33^S^AIRP^US^^NY^013^^^0^205^206^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^N^DKK^NY^NAMER^CA
 DKR^GOOY^Y^2595702^Léopold Sédar Senghor International Airport^Leopold Sedar Senghor International Airport^Aeroport International Leopold Sedar Senghor,Aeroport de Dakar-Yof,Aéroport International Léopold Sédar Senghor,Aéroport de Dakar-Yof,DKR,GOOY,Leopold Sedar Senghor International Airport,Léopold Sédar Senghor International Airport^14.739708^-17.490225^S^AIRP^SN^SN^01^^^^0^25^19^Africa/Dakar^0.0^0.0^0.0^2011-03-28^Y^Y^DKR^^AFRIC^CA
 DKS^UODD^Y^7668527^Dikson Airport^Dikson Airport^DKS,UODD^73.52^80.37^S^AIRP^RU^^74^^^^0^0^-9999^Asia/Krasnoyarsk^8.0^8.0^8.0^2011-02-17^Y^N^DKS^^EURAS^CA
 DKV^YDVR^Y^7730975^Docker River Airport^Docker River Airport^DKV,YDVR^-24.87^129.1^S^AIRP^AU^^03^72330^^^0^0^592^Australia/Darwin^9.5^9.5^9.5^2011-06-04^Y^N^DKV^NT^AUSTL^CA
-DKX^KDKX^Y^4634954^Knoxville Downtown Island Airport^Knoxville Downtown Island Airport^DKX,KDKX^35.9625800^-83.8749000^S^AIRP^US^^TN^093^^^0^253^252^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^Z^DKX^TN^ZZZZZ^A
+DKX^KDKX^Y^4634954^Knoxville Downtown Island Airport^Knoxville Downtown Island Airport^DKX,KDKX^35.96258^-83.8749^S^AIRP^US^^TN^093^^^0^253^252^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^Z^DKX^TN^ZZZZZ^A
 DLA^FKKD^Y^6296998^Douala Obs.^Douala Obs.^DLA,FKKD^4.006081^9.719481^S^AIRP^CM^^^^^^0^10^1^Africa/Douala^1.0^1.0^1.0^2007-01-03^Y^Y^DLA^^AFRIC^CA
 DLB^ZZZZ^N^0^DALBERTIS/PG^DALBERTIS/PG^^-8.45^118.8^S^AIRP^PG^^^^^^^^^PG^^^^-1^Y^N^DLB^^AUSTL^CA
 DLC^ZYTL^Y^6301401^Dalian^Dalian^DLC,ZYTL^38.965667^121.5386^S^AIRP^CN^^^^^^0^32^32^Asia/Shanghai^8.0^8.0^8.0^2007-01-03^Y^Y^DLC^^ASIA^CA
