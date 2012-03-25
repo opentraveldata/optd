@@ -2085,17 +2085,17 @@ DUD^NZDN^Y^6212232^Dunedin Airport^Dunedin Airport^DUD,NZDN^-45.928055^170.19833
 DUE^FNDU^Y^7668247^Dundo Airport^Dundo Airport^DUE,FNDU^-7.4^20.82^S^AIRP^AO^^17^^^^0^0^751^Africa/Luanda^1.0^1.0^1.0^2011-02-17^Y^N^DUE^^AFRIC^N
 DUF^ZZZZ^N^0^DUKE/NC/US:PINE ISLAND AIRPORT^DUKE/NC/US:PINE ISLAND AIRPORT^^36.25^-75.78^S^AIRP^US^^^^^^^^^US105^^^^-1^Y^N^DUF^NC^NAMER^CA
 DUG^KDUG^Y^5284923^Bisbee-Douglas International Airport^Bisbee-Douglas International Airport^DUG,KDUG^31.47^-109.6^S^AIRP^US^^AZ^003^^^0^1256^1257^America/Phoenix^-7.0^-7.0^-7.0^2006-10-29^Y^N^DUG^AZ^NAMER^N
-DUH^KDUH^Y^5012339^Toledo Suburban Airport^Toledo Suburban Airport^DUH,KDUH^41.7358800^-83.6532700^S^AIRP^US^^MI^115^^^0^204^203^America/Detroit^-5.0^-4.0^-5.0^2006-10-29^Y^Z^ZZZ^^ZZZZZ^A
+DUH^KDUH^Y^5012339^Toledo Suburban Airport^Toledo Suburban Airport^DUH,KDUH^41.73588^-83.65327^S^AIRP^US^^MI^115^^^0^204^203^America/Detroit^-5.0^-4.0^-5.0^2006-10-29^Y^Z^ZZZ^^ZZZZZ^A
 DUI^ZZZZ^N^0^DUISBURG/DE:HBF RAILWAY STATIO^DUISBURG/DE:HBF RAILWAY STATIO^^51.47^6.75^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^DUI^^EUROP^CR
 DUJ^KDUJ^Y^5187437^Du Bois-Jefferson County Airport^Du Bois-Jefferson County Airport^DUJ,KDUJ^41.178267^-78.898697^S^AIRP^US^^PA^065^^^0^550^547^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^Y^DUJ^PA^NAMER^Y
 DUK^ZZZZ^N^0^DUKUDUK/ZA^DUKUDUK/ZA^^-28.37^32.23^S^AIRP^ZA^^^^^^^^^ZA^^^^-1^Y^N^DUK^^AFRIC^CA
 DUM^WIBD^Y^7668672^Pinang Kampai Airport^Pinang Kampai Airport^DUM,WIBD^1.609194^101.433558^S^AIRP^ID^^37^^^^0^0^15^Asia/Jakarta^7.0^7.0^7.0^2011-02-17^Y^N^DUM^^SEASI^N
 DUN^ZZZZ^N^0^DUNDAS/GL^DUNDAS/GL^^76.57^-68.8^S^AIRP^GL^^^^^^^^^GL055^^^^-1^Y^N^DUN^^EUROP^CA
 DUQ^ZZZZ^N^0^DUNCAN QUAM/BC/CA^DUNCAN QUAM/BC/CA^^48.78^-123.7^S^AIRP^CA^^^^^^^^^CA031^^^^-1^Y^Y^DUQ^BC^NAMER^CA
-DUR^FALE^Y^984894^King Shaka International Airport^King Shaka International Airport^DUR,FALE,KSIA,King Shaka Airport,King Shaka International Airport,La Mercy Airport^-29.6166700^31.1166700^S^AIRP^ZA^^02^^^^0^0^94^Africa/Johannesburg^2.0^2.0^2.0^2010-06-04^Y^Y^DUR^^AFRIC^Y
+DUR^FALE^Y^984894^King Shaka International Airport^King Shaka International Airport^DUR,FALE,KSIA,King Shaka Airport,King Shaka International Airport,La Mercy Airport^-29.61667^31.11667^S^AIRP^ZA^^02^^^^0^0^94^Africa/Johannesburg^2.0^2.0^2.0^2010-06-04^Y^Y^DUR^^AFRIC^Y
 DUS^EDDL^Y^3206096^Düsseldorf International Airport^Duesseldorf International Airport^DUS,Duesseldorf,Duesseldorf International Airport,Dusseldorf International Airport,Düsseldorf,Düsseldorf International Airport,EDDL,Flughafen Duesseldorf International,Flughafen Düsseldorf International,airport Dusseldorf^51.289453^6.766775^S^AIRP^DE^^07^^^^0^44^39^Europe/Berlin^1.0^2.0^1.0^2011-03-28^Y^Y^DUS^^EUROP^Y
 DUT^PADU^Y^5877197^Unalaska Airport^Unalaska Airport^DUT,PADU^53.900139^-166.5435^S^AIRP^US^^AK^016^^^0^23^18^America/Nome^-9.0^-8.0^-9.0^2011-12-12^Y^Y^DUT^AK^NAMER^Y
-DUX^KDUX^Y^5526590^Moore County Airport^Moore County Airport^DUX,KDUX^35.8578200^-102.0135100^S^AIRP^US^^TX^341^^^0^1128^1129^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^Z^ZZZ^^ZZZZZ^A
+DUX^KDUX^Y^5526590^Moore County Airport^Moore County Airport^DUX,KDUX^35.85782^-102.01351^S^AIRP^US^^TX^341^^^0^1128^1129^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^Z^ZZZ^^ZZZZZ^A
 DVA^ZZZZ^N^0^UNKNOWN2097/ZZ^UNKNOWN2097/ZZ^^45.88^22.92^S^AIRP^ZZ^^^^^^^^^ZZ^^^^-1^Y^N^ZZZ^^ZZZZZ^CA
 DVK^ZZZZ^N^0^DIAVIK/NT/CA:DIAVIK^DIAVIK/NT/CA:DIAVIK^^64.51^-110.3^S^AIRP^CA^^^^^^^^^CA029^^^^-1^Y^N^DVK^NT^NAMER^CA
 DVL^KDVL^Y^5058871^Devils Lake Municipal Airport^Devils Lake Municipal Airport^DVL,KDVL^48.12^-98.9^S^AIRP^US^^ND^071^^^0^440^436^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^Y^DVL^ND^NAMER^Y
@@ -2108,24 +2108,24 @@ DVX^ZZZZ^N^0^UNKNOWN2105/ZZ^UNKNOWN2105/ZZ^^39.13^-75.47^S^AIRP^ZZ^^^^^^^^^ZZ^^^
 DWA^FWDW^Y^7730083^Dwangwa Airport^Dwangwa Airport^DWA,FWDW^-13^34.13^S^AIRP^MW^^C^^^^0^0^491^Africa/Blantyre^2.0^2.0^2.0^2011-03-16^Y^N^DWA^^AFRIC^N
 DWB^ZZZZ^N^0^SOALALA/MG^SOALALA/MG^^-16.1^45.37^S^AIRP^MG^^^^^^^^^MG^^^^-1^Y^Y^DWB^^AFRIC^CA
 DWC^ZZZZ^N^0^DUBAI/AE:AL MAKTOUM INTL^DUBAI/AE:AL MAKTOUM INTL^^24.9181^55.1753^S^AIRP^AE^^^^^^^^^AE^^^^-1^Y^N^DXB^^MEAST^A
-DWD^OEDW^Y^6300013^Dawadmi^Dawadmi^DWD,Dawadmi Airport,OEDW^24.48^44.37^S^AIRP^SA^^10^^^^0^990^928^Asia/Riyadh^3.0^3.0^3.0^2011-07-24^Y^Y^DWD^^MEAST^Y
+DWD^OEDW^Y^6300013^Dawadmi^Dawadmi^DWD,Dawadmi Airport,OEDW^24.44568^44.12912^S^AIRP^SA^^10^^^^0^990^928^Asia/Riyadh^3.0^3.0^3.0^2011-07-24^Y^Y^DWD^^MEAST^Y
 DWF^ZZZZ^N^0^DAYTON/OH/US:WRIGHT AFB^DAYTON/OH/US:WRIGHT AFB^^39.59^-84.22^S^AIRP^US^^^^^^^^^US105^^^^-1^Y^N^DAY^OH^NAMER^A
 DWH^KDWH^Y^4685320^David Wayne Hooks Memorial Airport^David Wayne Hooks Memorial Airport^DWH,KDWH^30.06^-95.55^S^AIRP^US^^TX^201^^^0^46^45^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^N^HOU^TX^NAMER^N
 DWN^ZZZZ^N^0^OKLAHOMA CITY/OK/US:DOWNTOWN^OKLAHOMA CITY/OK/US:DOWNTOWN^^35.4^-97.62^S^AIRP^US^^^^^^^^^US107^^^^-1^Y^N^OKC^OK^NAMER^A
-DWR^ZZZZ^Y^8181796^Camp Dwyer^Camp Dwyer^DWR^31.0914200^64.0669900^S^AIRB^AF^^10^^^^0^0^732^Asia/Kabul^4.5^4.5^4.5^2012-02-02^Y^N^DWR^^MEAST^N
+DWR^ZZZZ^Y^8181796^Camp Dwyer^Camp Dwyer^DWR^31.09142^64.06699^S^AIRB^AF^^10^^^^0^0^732^Asia/Kabul^4.5^4.5^4.5^2012-02-02^Y^N^DWR^^MEAST^N
 DWS^ZZZZ^N^0^ORLANDO/FL/US:DISNEY WORLD^ORLANDO/FL/US:DISNEY WORLD^^28.53^-81.35^S^AIRP^US^^^^^^^^^US105^^^^-1^Y^N^ORL^FL^NAMER^A
 DXA^ZZZZ^N^0^LES DEUX ALPES/FR^LES DEUX ALPES/FR^^44.98^6.15^S^AIRP^FR^^^^^^^^^FR052^^^^-1^Y^N^DXA^^EUROP^O
 DXB^OMDB^Y^6300096^Dubai International Airport^Dubai International Airport^Aerodrom Dubai,Aeroport Internacional de Dubai,Aeroport international de Dubai,Aeroporto Internacional de Dubai,Aeroporto internazionale di Dubai,Aeroportul International Dubai,Aeroportul Internațional Dubai,Aeropuerto Internacional de Dubai,Aeropuerto Internacional de Dubái,Aéroport international de Dubaï,Bandar Udara Internasional Dubai,DXB,Dubai Uluslararasi Havalimani,Dubai Uluslararası Havalimanı,Dubai internasjonale lufthavn,Dubain kansainvaelinen lentoasema,Dubain kansainvälinen lentoasema,Dubaj,Dubaja Internacia Flughaveno,Dubaji nemzetkoezi repueloter,Dubaji nemzetközi repülőtér,Flughafen Dubai,OMDB,Port lotniczy Dubaj,San bay quoc te Dubai,Sân bay quốc tế Dubai,Zracna luka Dubai,Zračna luka Dubai,di bai guo ji ji chang,dobai guo ji kong gang,duba'i antararastriya vimanatala,dubai gugjegonghang,mtar dby aldwly,tha xakasyan nana cha ti dubi,tupay pannattu vanurti nilaiyam,Аеродром Дубаи,Дубай,נמל התעופה הבינלאומי דובאי,فرودگاه بین‌المللی دبی,مطار دبي الدولي,दुबई आंतरराष्ट्रीय विमानतळ,துபாய் பன்னாட்டு வானூர்தி நிலையம்,ท่าอากาศยานนานาชาติดูไบ,ドバイ国際空港,迪拜国际机场,두바이 국제공항^25.252778^55.364444^S^AIRP^AE^^^^^^0^18^2^Asia/Dubai^4.0^4.0^4.0^2009-09-15^Y^Y^DXB^^MEAST^Y
 DXD^ZZZZ^N^0^DIXIE/QL/AU^DIXIE/QL/AU^^-15.17^143.7^S^AIRP^AU^^^^^^^^^AU131^^^^-1^Y^N^DXD^QL^AUSTL^CA
 DXR^KDXR^Y^4832375^Danbury Municipal Airport^Danbury Municipal Airport^DXR,KDXR^41.38^-73.45^S^AIRP^US^^CT^001^^^0^138^137^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^N^DXR^CT^NAMER^N
-DXX^KDXX^Y^5036247^Madison-Lac Qui Parle County Airport^Madison-Lac Qui Parle County Airport^DXX,KDXX^44.9860700^-96.1778200^S^AIRP^US^^MN^073^^^0^326^324^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^Z^ZZZ^^ZZZZZ^A
+DXX^KDXX^Y^5036247^Madison-Lac Qui Parle County Airport^Madison-Lac Qui Parle County Airport^DXX,KDXX^44.98607^-96.17782^S^AIRP^US^^MN^073^^^0^326^324^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^Z^ZZZ^^ZZZZZ^A
 DYA^YDYS^Y^7730253^Dysart Airport^Dysart Airport^DYA,YDYS^-22.622222^148.363889^S^AIRP^AU^^04^33980^^^0^0^211^Australia/Brisbane^10.0^10.0^10.0^2011-06-04^Y^N^DYA^QL^AUSTL^N
 DYG^ZGDY^Y^7730994^Dayong Airport^Dayong Airport^DYG,ZGDY^29.13^110.5^S^AIRP^CN^^11^^^^0^0^211^Asia/Shanghai^8.0^8.0^8.0^2011-03-17^Y^Y^DYG^^ASIA^Y
 DYL^KDYL^Y^5187250^Doylestown Airport^Doylestown Airport^DYL,KDYL^40.32^-75.13^S^AIRP^US^^PA^017^^^0^114^112^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^N^DYL^PA^NAMER^N
 DYM^ZZZZ^Y^7730995^Diamantina Lakes Airport^Diamantina Lakes Airport^DYM^-23.87^141.3^S^AIRP^AU^^04^32750^^^0^0^106^Australia/Brisbane^10.0^10.0^10.0^2011-06-04^Y^N^DYM^QL^AUSTL^N
 DYR^UHMA^Y^6300936^Anadyr^Anadyr^DYR,UHMA^64.73495^177.741483^S^AIRP^RU^^^^^^0^59^44^Asia/Anadyr^12.0^12.0^12.0^2007-01-03^Y^Y^DYR^^EURAS^Y
 DYS^KDYS^Y^4687483^Dyess Air Force Base^Dyess Air Force Base^DYS,KDYS^32.420756^-99.8546^S^AIRB^US^^TX^441^^^0^543^544^America/Chicago^-6.0^-5.0^-6.0^2009-11-14^Y^N^ABI^TX^NAMER^N
-DYT^KDYT^Y^5047642^Sky Harbor Airport^Sky Harbor Airport^DYT,KDYT^46.7216100^-92.0435200^S^AIRP^US^^MN^137^^^0^186^182^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^Z^ZZZ^^ZZZZZ^A
+DYT^KDYT^Y^5047642^Sky Harbor Airport^Sky Harbor Airport^DYT,KDYT^46.72161^-92.04352^S^AIRP^US^^MN^137^^^0^186^182^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^Z^ZZZ^^ZZZZZ^A
 DYU^UTDD^Y^6301006^Dushanbe Airport^Dushanbe Airport^DYU,Dushanbe,Dushanbe Airport,UTDD^38.543333^68.825^S^AIRP^TJ^^^^^^0^784^788^Asia/Dushanbe^5.0^5.0^5.0^2011-03-28^Y^Y^DYU^^EURAS^Y
 DYW^ZZZZ^N^0^DALY WATERS/NT/AU^DALY WATERS/NT/AU^^-16.27^133.4^S^AIRP^AU^^^^^^^^^AU010^^^^-1^Y^N^DYW^NT^AUSTL^CA
 DZA^FMCZ^Y^6297033^Dzaoudzi / Pamanzi Mayotte^Dzaoudzi / Pamanzi Mayotte^DZA,FMCZ^-12.804722^45.281113^S^AIRP^YT^^^^^^0^7^9^Indian/Mayotte^3.0^3.0^3.0^2012-01-11^Y^Y^DZA^^IOCEA^Y
@@ -2133,7 +2133,7 @@ DZI^ZZZZ^N^0^CODAZZI/CO^CODAZZI/CO^^9.6^-73.45^S^AIRP^CO^^^^^^^^^CO132^^^^-1^Y^N
 DZN^UAKD^Y^6457344^Dzezkazgan^Dzezkazgan^DZN,UAKD^47.708333^67.733333^S^AIRP^KZ^^^^^^0^381^377^Asia/Almaty^6.0^6.0^6.0^2007-04-05^Y^Y^DZN^^EURAS^Y
 DZO^SUDU^Y^6300829^Durazno^Durazno^DZO,SUDU^-33.358867^-56.499172^S^AIRP^UY^^^^^^0^92^91^America/Montevideo^-2.0^-3.0^-3.0^2007-01-03^Y^N^DZO^^SAMER^N
 DZU^ZZZZ^N^0^DAZU/CN^DAZU/CN^^29.7^105.8^S^AIRP^CN^^^^^^^^^CN035^^^^-1^Y^N^DZU^^ASIA^CA
-E30^ZZZZ^Y^4676788^Bruce Field Airport^Bruce Field Airport^E30^31.6792500^-99.9779000^S^AIRP^US^^TX^399^^^0^529^527^America/Chicago^-6.0^-5.0^-6.0^2011-12-11^Y^Z^ZZZ^^ZZZZZ^A
+E30^ZZZZ^Y^4676788^Bruce Field Airport^Bruce Field Airport^E30^31.67925^-99.9779^S^AIRP^US^^TX^399^^^0^529^527^America/Chicago^-6.0^-5.0^-6.0^2011-12-11^Y^Z^ZZZ^^ZZZZZ^A
 EAA^PAEG^Y^5861127^Eagle Airport^Eagle Airport^EAA,PAEG^64.77^-141.2^S^AIRP^US^^AK^240^^^0^272^290^America/Anchorage^-9.0^-8.0^-9.0^2006-10-29^Y^Y^EAA^AK^NAMER^Y
 EAB^OYAB^Y^7730758^Abbse Airport^Abbse Airport^EAB,OYAB^15.3^43.97^S^AIRP^YE^^16^2307^^^0^0^3152^Asia/Aden^3.0^3.0^3.0^2011-03-17^Y^N^EAB^^MEAST^N
 EAE^ZZZZ^N^0^EMAE/VU^EMAE/VU^^-17.07^168.4^S^AIRP^VU^^^^^^^^^VU115^^^^-1^Y^Y^EAE^^AUSTL^CA
