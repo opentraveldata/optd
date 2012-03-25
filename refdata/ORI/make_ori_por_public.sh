@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Create the initial version of the ORI-maintained list of POR, from:
-# - ori_por.csv
+# - best_coordinates_known_so_far.csv
 # - dump_from_geonames.csv
 # - dump_from_crb_city.csv
 #
@@ -10,7 +10,7 @@
 
 ##
 # Initial
-ORI_POR_FILE=ori_por.csv
+ORI_POR_FILE=best_coordinates_known_so_far.csv
 GEONAME_FILE=dump_from_geonames.csv
 RFD_FILE=dump_from_crb_city.csv
 
