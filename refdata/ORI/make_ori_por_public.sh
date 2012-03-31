@@ -65,6 +65,11 @@ echo "Reporting Step"
 echo "--------------"
 echo
 echo "wc -l ${ORI_POR_FILE} ${ORI_POR_WITH_GEO} ${ORI_POR_WITH_GEORFD}"
-echo
-echo "See also the '${ORI_ONLY_POR_NEW_FILE}' file: less ${ORI_ONLY_POR_NEW_FILE}"
+if [ -f ${ORI_ONLY_POR_NEW_FILE} ]
+then
+	NB_LINES_ORI_ONLY=`wc -l ${ORI_ONLY_POR_NEW_FILE}`
+	echo
+	echo "See also the '${ORI_ONLY_POR_NEW_FILE}' file, which contains ${NB_LINES_ORI_ONLY} lines:"
+	echo "less ${ORI_ONLY_POR_NEW_FILE}"
+fi
 echo
