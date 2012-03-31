@@ -72,7 +72,7 @@ SQL_FILE="create_ori_indexes.sql"
 echo "Creating the indexes for ORI-maintained data:"
 mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} < ${SQL_FILE}
 
-TABLES="por airport_popularity"
+TABLES="por por_non_iata airport_popularity airports_pageranked"
 
 # Count rows
 for table_name in ${TABLES}
