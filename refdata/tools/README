@@ -64,7 +64,32 @@ git add ../ORI/best_coordinates_known_so_far.csv
 # --------------------------------------------
 #
 # A new POR, still unknown from ORI, may have been specified within Geonames.
-# UPDATE ACTION TO BE SPECIFIED
+#
+# 1.3.1. Follow the instructions given by the
+#  ./update_airports_csv_after_getting_geonames_iata_dump.sh script. That is:
+cat ./best_coordinates_known_so_far.csv ./best_coordinates_known_so_far.csv.missing | sort -t'^' -k1,1 > ./best_coordinates_known_so_far.csv.tmp
+
+# Check that everything if fine:
+diff -c ./best_coordinates_known_so_far.csv.tmp ../ORI/best_coordinates_known_so_far.csv
+
+# Then:
+\mv -f ./best_coordinates_known_so_far.csv.tmp ../ORI/best_coordinates_known_so_far.csv
+\rm -f best_coordinates_known_so_far.csv.missing
+git add ../ORI/best_coordinates_known_so_far.csv
+
+# 1.3.2. Re-generate the ORI-maintained POR data file
+# To ease the process, the following can be performed from another terminal,
+# from the same directory (remember, we are in ../tools):
+cd ../ORI
+./make_ori_por_public.sh
+
+# Check that everything is fine:
+git diff ori_por_public.csv
+
+# Then:
+git add ori_por_public.csv
+
+# Re-do (go back to) 1.1.
 
 
 ##
@@ -103,6 +128,8 @@ diff -c best_coordinates_known_so_far.csv best_new_coordinates_known_so_far.csv
 # Then:
 \cp -f best_new_coordinates_known_so_far.csv ../ORI/best_coordinates_known_so_far.csv
 git add ../ORI/best_coordinates_known_so_far.csv
+
+# Re-do (go back to) 1.1.
 
 
 ##
