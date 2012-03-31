@@ -57,6 +57,9 @@ set character_set_client = utf8;
 -- -----------------
 --
 -- is_geonames       : Whether that POR is known by Geonames; varchar(1)
+-- is_iata           : Whether that POR is referenced by IATA; varchar(1)
+--                    See
+--                    http://www.iata.org/ps/publications/Pages/code-search.aspx
 -- is_airport        : Whether that POR is an airport; varchar(1)
 -- is commercial     : Whether or not that POR hosts commercial activities
 --                     varchar(1)
@@ -81,14 +84,13 @@ set character_set_client = utf8;
 -- EEURO             : Eastern Europe
 -- EURAS             : Euras
 -- EUROP / EU        : Europe (geonameId=6255148)
--- IOCEA             :
+-- IOCEA / OC        : Oceania (geonameId=6255151)
 -- MEAST             : Middle-East
 -- NAMER / NA        : North America (geonameId=6255149)
 -- NONE              : Non real POR
 -- PACIF             : Pacific
 -- SAMER / SA        : South America (geonameId=6255150)
 -- SEASI             : South East
---       / OC        : Oceania (geonameId=6255151)
 --       / AN        : Antarctica (geonameId=6255152)
 --
 -- Samples:
