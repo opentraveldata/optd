@@ -194,8 +194,43 @@ BEGIN {
 			printf ("^N^Z")
 		}
 
-		# ^ City code ^ State code ^ Region code
-		printf ("^" $1 "^" $14 "^ZZZZZ")
+		# ^ City code ^ State code
+		printf ("^" $1 "^" $14)
+
+		# ^ Region code
+		region_full = $21
+		region = gensub ("/[A-Za-z_]+", "", "g", region_full)
+		region_country = gensub ("[A-Za-z]+/", "", "1", region_full)
+		gsub ("/[A-Za-z_]+", "", region_country)
+		region_city = gensub ("[A-Za-z_]+/", "", "g", region_full)
+
+		if (region == "Europe") {
+			if (region_country == "Kiev") {
+				printf ("^EEURO")
+			} else {
+				printf ("^EUROP")
+			}
+		} else if (region == "Africa") {
+			printf ("^AFRICA")
+		} else if (region == "Asia") {
+			printf ("^ASIA")
+		} else if (region == "Atlantic") {
+			printf ("^ATLAN")
+		} else if (region == "Australia") {
+			printf ("^AUSTL")
+		} else if (region == "America") {
+			if (region_country == "Argentina") {
+				printf ("^SAMER")
+			} else {
+				printf ("^NAMER")
+			}
+		} else if (region == "Indian") {
+			printf ("^IOCEA")
+		} else if (region == "Pacific") {
+			printf ("^PACIF")
+		} else {
+			printf ("^ZZZZZ")
+		}
 
 		#  ^ Location type
 		if ($13 == "AIRP") {
