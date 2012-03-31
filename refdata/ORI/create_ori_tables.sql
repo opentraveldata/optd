@@ -13,7 +13,8 @@ set character_set_client = utf8;
 --
 -- Geonames-related part:
 -- ----------------------
--- iata_code         : IATA code; varchar(3)
+-- iata_code         : IATA code; varchar(3). See also:
+--                    http://www.iata.org/ps/publications/Pages/code-search.aspx
 -- icao_code         : ICAO code; varchar(4)
 -- geonameid         : Integer ID of record in geonames database
 -- name              : Name of geographical point
@@ -57,9 +58,6 @@ set character_set_client = utf8;
 -- -----------------
 --
 -- is_geonames       : Whether that POR is known by Geonames; varchar(1)
--- is_iata           : Whether that POR is referenced by IATA; varchar(1)
---                    See
---                    http://www.iata.org/ps/publications/Pages/code-search.aspx
 -- is_airport        : Whether that POR is an airport; varchar(1)
 -- is commercial     : Whether or not that POR hosts commercial activities
 --                     varchar(1)
@@ -131,6 +129,26 @@ create table por (
  state_code varchar(3) default NULL,
  region_code varchar(5) default NULL,
  location_type varchar(4) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+--
+-- Table structure for the non-IATA airports
+-- That table collects all the airports that have been reference as IATA
+-- airports once, but which are no longer referenced by IATA. A comment
+-- may specify the history related to that airport.
+--
+drop table if exists por_non_iata;
+create table por_non_iata (
+ iata_code varchar(3) default NULL,
+ name varchar(200) default NULL,
+ latitude decimal(10,7) default NULL,
+ longitude decimal(10,7) default NULL,
+ country_code varchar(2) default NULL,
+ state_code varchar(3) default NULL,
+ region_code varchar(5) default NULL,
+ moddate date default NULL,
+ comment varchar(2000) default NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
