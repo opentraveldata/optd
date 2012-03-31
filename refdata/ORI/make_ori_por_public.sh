@@ -13,9 +13,11 @@
 ORI_POR_FILE=best_coordinates_known_so_far.csv
 GEONAME_FILE=dump_from_geonames.csv
 RFD_FILE=dump_from_crb_city.csv
+ORI_ONLY_POR_FILE=ori_only_por.csv
 
 # Target
 ORI_POR_PUBLIC_FILE=ori_por_public.csv
+ORI_ONLY_POR_NEW_FILE=${ORI_ONLY_POR_FILE}.new
 
 # Temporary
 ORI_POR_WITH_GEO=${ORI_POR_FILE}.withgeo
@@ -63,4 +65,6 @@ echo "Reporting Step"
 echo "--------------"
 echo
 echo "wc -l ${ORI_POR_FILE} ${ORI_POR_WITH_GEO} ${ORI_POR_WITH_GEORFD}"
+echo
+echo "See also the '${ORI_ONLY_POR_NEW_FILE}' file: less ${ORI_ONLY_POR_NEW_FILE}"
 echo
