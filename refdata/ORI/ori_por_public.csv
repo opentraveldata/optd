@@ -6714,6 +6714,7 @@ PUL^ZZZZ^N^0^POULSBO/WA/US^POULSBO/WA/US^^47.73^-122.7^S^AIRP^US^^^^^^^^^US110^^
 PUM^ZZZZ^Y^6966079^Lapangan Terbang Perintis Pomalaa^Lapangan Terbang Perintis Pomalaa^Lapangan Terbang Perintis Pomalaa,PUM^-3.667^119.8^S^AIRP^ID^^22^^^^0^0^18^Asia/Makassar^8.0^8.0^8.0^2012-01-20^Y^Y^PUM^^SEASI^CA
 PUN^FZOP^Y^7730565^Punia Airport^Punia Airport^FZOP,PUN^-1.367^26.33^S^AIRP^CD^^07^^^^0^0^533^Africa/Lubumbashi^2.0^2.0^2.0^2011-03-17^Y^N^PUN^^AFRIC^CA
 PUO^ZZZZ^N^0^PRUDHOE BAY/AK/US^PRUDHOE BAY/AK/US^^70.33^-148.4^S^AIRP^US^^^^^^^^^US111^^^^-1^Y^N^PUO^AK^NAMER^CA
+PUP^DFCP^Y^6296406^Pô Airport^Po Airport^DFCP,PUP^11.17854^-1.14498^S^AIRP^BF^^x31^^^^0^320^306^Africa/Ouagadougou^0.0^0.0^0.0^2012-03-26^Y^Z^PUP^x31^AFRICA^A
 PUQ^SCCI^Y^6300693^Punta Arenas^Punta Arenas^PUQ,SCCI^-53.002642^-70.854586^S^AIRP^CL^^^^^^0^42^38^America/Santiago^-3.0^-4.0^-4.0^2007-01-03^Y^Y^PUQ^^SAMER^CA
 PUR^SLPR^Y^7731417^Puerto Rico Airport^Puerto Rico Airport^PUR,SLPR^-11.12^-67.5^S^AIRP^BO^^06^^^^0^0^177^America/La_Paz^-4.0^-4.0^-4.0^2011-03-18^Y^N^PUR^^SAMER^CA
 PUS^RKPK^Y^6300424^Pusan / Kimhae International Airport^Pusan / Kimhae International Airport^PUS,RKPK^35.179528^128.938222^S^AIRP^KR^^^^^^0^1^2^Asia/Seoul^9.0^9.0^9.0^2007-01-03^Y^Y^PUS^^ASIA^CA
@@ -8533,7 +8534,7 @@ TCZ^ZUTC^Y^7910191^Tengchong Airport^Tengchong Airport^TCZ,ZUTC^24.9393300^98.48
 TDA^ZZZZ^N^0^TRINIDAD/CO^TRINIDAD/CO^^5.267^-71.63^S^AIRP^CO^^^^^^^^^CO132^^^^-1^Y^N^TDA^^SAMER^CA
 TDB^ZZZZ^N^0^TETABEDI/PG^TETABEDI/PG^^-9.2^148.1^S^AIRP^PG^^^^^^^^^PG^^^^-1^Y^N^TDB^^AUSTL^CA
 TDD^SLTR^Y^6300791^Trinidad^Trinidad^SLTR,TDD^-14.818739^-64.918019^S^AIRP^BO^^^^^^0^155^157^America/La_Paz^-4.0^-4.0^-4.0^2007-01-03^Y^Y^TDD^^SAMER^CA
-TDF^KTDF^Y^4498912^Whitfield Farms Airport^Whitfield Farms Airport^KTDF,TDF^36.2834700^-79.0789000^S^AIRP^US^^NC^145^^^0^196^197^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^Z^TDF^NC^NAMER^A
+TDF^KTDF^Y^4498912^Whitfield Farms Airport^Whitfield Farms Airport^KTDF,TDF^36.28347^-79.0789^S^AIRP^US^^NC^145^^^0^196^197^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^Z^TDF^NC^NAMER^A
 TDG^ZZZZ^N^0^TANDAG/PH^TANDAG/PH^^9.072111^126.171444^S^AIRP^PH^^^^^^^^^PH^^^^-1^Y^N^TDG^^PACIF^CA
 TDJ^HDTJ^Y^7668295^Tadjoura Airport^Tadjoura Airport^HDTJ,Luchthaven Tadjoura,Port lotniczy Tadzura,Port lotniczy Tadżura,TDJ^11.8^42.9^S^AIRP^DJ^^05^^^^0^0^28^Africa/Djibouti^3.0^3.0^3.0^2011-02-17^Y^N^TDJ^^AFRIC^CA
 TDK^UAAT^Y^7730182^Taldykorgan Airport^Taldykorgan Airport^TDK,UAAT^45.15^78.43^S^AIRP^KZ^^01^^^^0^0^588^Asia/Almaty^6.0^6.0^6.0^2011-03-16^Y^N^TDK^^EURAS^CA
@@ -8542,11 +8543,12 @@ TDN^ZZZZ^N^0^THEDA STATION/WA/AU^THEDA STATION/WA/AU^^-14.75^126.5^S^AIRP^AU^^^^
 TDO^KTDO^Y^5813686^Toledo-Winlock Ed Carlson Memorial Field^Toledo-Winlock Ed Carlson Memorial Field^KTDO,TDO^39.83^-4^S^AIRP^US^^WA^041^^^0^110^110^America/Los_Angeles^-8.0^-7.0^-8.0^2006-10-29^Y^N^TDO^WA^NAMER^CA
 TDP^ZZZZ^N^0^TROMPETEROS/PE^TROMPETEROS/PE^^-3.8075^-75.0478^P^PPLC^PE^^^^^^^^^PE155^^^^-1^N^N^TDP^^SAMER^C
 TDR^YTDR^Y^7731537^Theodore Airport^Theodore Airport^TDR,YTDR^-24.98^150.1^S^AIRP^AU^^04^30370^^^0^0^171^Australia/Brisbane^10.0^10.0^10.0^2011-06-04^Y^N^TDR^QL^AUSTL^CA
+TDS^ZZZZ^Y^8224680^Sasereme Airport^Sasereme Airport^TDS^-7.62281^142.86896^S^AIRP^PG^^06^^^^0^0^49^Pacific/Port_Moresby^10.0^10.0^10.0^2012-03-26^Y^Z^TDS^06^PACIF^A
 TDT^ZZZZ^Y^7731538^Tanda Tula Airport^Tanda Tula Airport^TDT^-24.53^31.3^S^AIRP^ZA^^^^^^0^0^476^Africa/Johannesburg^2.0^2.0^2.0^2011-03-18^Y^N^TDT^^AFRIC^CA
 TDV^ZZZZ^N^0^TANANDAVA/MG:SAMANGOKY^TANANDAVA/MG:SAMANGOKY^^-21.7^43.73^S^AIRP^MG^^^^^^^^^MG^^^^-1^Y^N^TDV^^AFRIC^CA
 TDW^KTDW^Y^5532475^Tradewind Airport^Tradewind Airport^KTDW,TDW^35.17^-101.8^S^AIRP^US^^TX^381^^^0^1109^1118^America/Chicago^-6.0^-5.0^-6.0^2011-12-11^Y^N^AMA^TX^NAMER^A
 TDX^VTBO^Y^7910219^Trat Airport^Trat Airport^TDX,VTBO^12.27^102.3^S^AIRP^TH^^^^^^0^32^28^Asia/Bangkok^7.0^7.0^7.0^2011-07-20^Y^Y^TDX^^SEASI^CA
-TDZ^KTDZ^Y^5162734^Metcalf Field^Metcalf Field^KTDZ,Metcalf Field,Metcalf Field Airport,TDZ^41.5645900^-83.4768000^S^AIRP^US^^OH^173^^^0^189^187^America/New_York^-5.0^-4.0^-5.0^2011-03-28^Y^Z^TDZ^OH^NAMER^A
+TDZ^KTDZ^Y^5162734^Metcalf Field^Metcalf Field^KTDZ,Metcalf Field,Metcalf Field Airport,TDZ^41.56459^-83.4768^S^AIRP^US^^OH^173^^^0^189^187^America/New_York^-5.0^-4.0^-5.0^2011-03-28^Y^Z^TDZ^OH^NAMER^A
 TEA^MHTE^Y^6299821^Tela Airport^Tela Airport^MHTE,TEA,Tela,Tela Airport^15.775864^-87.475847^S^AIRP^HN^^^^^^0^2^7^America/Tegucigalpa^-6.0^-6.0^-6.0^2011-03-28^Y^N^TEA^^CAMER^CA
 TEB^KTEB^Y^5105334^Teterboro Airport^Teterboro Airport^Aeropuerto de Teterboro,Flughafen Teterboro,KTEB,TEB,tetaboro kong gang,テターボロ空港^40.850103^-74.060837^S^AIRP^US^^NJ^003^^^0^2^6^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^Y^TEB^NJ^NAMER^CA
 TEC^SBTL^Y^7668444^Telêmaco Borba Airport^Telemaco Borba Airport^Aeroporto de Telemaco Borba,Aeroporto de Telêmaco Borba,SBTL,TEC^-24.317775^-50.651592^S^AIRP^BR^^18^^^^0^0^784^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-02-17^Y^N^TEC^PR^SAMER^CA
@@ -10782,7 +10784,7 @@ YZU^CYZU^Y^6301498^Whitecourt Airport^Whitecourt Airport^Bandar Udara Whitecourt
 YZV^CYZV^Y^6296347^Sept-Îles Airport^Sept-Iles Airport^Aeroport de Sept-Iles,Aeropuerto de Sept-Iles,Aeropuerto de Sept-Îles,Aéroport de Sept-Îles,CYZV,Sept-Iles Airport,Sept-Iles, Que.,Sept-Îles Airport,YZV^50.223333^-66.265556^S^AIRP^CA^^^^^^0^54^51^America/Montreal^-5.0^-4.0^-5.0^2011-03-28^Y^Y^YZV^QC^NAMER^CA
 YZW^CYZW^Y^6301499^Teslin Airport^Teslin Airport^CYZW,Teslin Airport,Teslin, Y. T.,YZW^60.172779^-132.742778^S^AIRP^CA^^^^^^0^705^683^America/Whitehorse^-8.0^-7.0^-8.0^2011-03-28^Y^N^YZW^YT^NAMER^CA
 YZX^CYZX^Y^6296348^Greenwood, N. S.^Greenwood, N. S.^CYZX,YZX^44.984444^-64.916944^S^AIRP^CA^^^^^^0^28^30^America/Halifax^-4.0^-3.0^-4.0^2007-01-03^Y^N^YZX^NS^NAMER^CA
-YZY^ZZZZ^Y^8224672^Zhangye Ghanzhou Airport^Zhangye Ghanzhou Airport^YZY^55.3044400^-123.1322200^S^AIRP^CN^^15^^^^0^0^1579^Asia/Chongqing^8.0^8.0^8.0^2012-03-26^Y^Z^YZY^15^ASIA^A
+YZY^ZZZZ^Y^8224672^Zhangye Ghanzhou Airport^Zhangye Ghanzhou Airport^YZY^38.80311^100.67528^S^AIRP^CN^^15^^^^0^0^1579^Asia/Chongqing^8.0^8.0^8.0^2012-03-26^Y^Z^YZY^15^ASIA^A
 YZZ^ZZZZ^Y^7910243^Trail^Trail^YZZ^49.06^-117.6^S^AIRP^CA^^02^^^^0^0^436^America/Vancouver^-8.0^-7.0^-8.0^2011-07-20^Y^Y^YZZ^BC^NAMER^CA
 ZAA^ZZZZ^N^0^ALICE ARM/BC/CA^ALICE ARM/BC/CA^^55.48^-129.5^S^AIRP^CA^^^^^^^^^CA031^^^^-1^Y^N^ZAA^BC^NAMER^CA
 ZAB^ZZZZ^N^0^BOU KADIR/DZ:BOU KADIR^BOU KADIR/DZ:BOU KADIR^^0^0^X^XXXX^DZ^^^^^^^^^DZ^^^^-1^N^N^ZAB^^AFRIC^O
