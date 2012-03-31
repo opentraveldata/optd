@@ -14,6 +14,11 @@
 -- because some airports/heliports do not have IATA and/or ICAO code at all.
 -- For those cases, the corresponding field will be NULL in the output (stdout).
 --
+-- Note: if the following clause is added, the query will take much much longer
+-- and require much more RAM (e.g., 30GB):
+-- or g1.fcode = 'PPL'
+-- However, many more entries will appear (for instance, NYC).
+--
 
 select iata_codes.alternateName as iata, icao_codes.alternateName as icao,
 	   g.geonameid, g.name, g.asciiname, g.latitude, g.longitude,
