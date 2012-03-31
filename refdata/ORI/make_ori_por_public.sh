@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Create the initial version of the ORI-maintained list of POR, from:
+# Create the public version of the ORI-maintained list of POR, from:
 # - best_coordinates_known_so_far.csv
 # - dump_from_geonames.csv
 # - dump_from_crb_city.csv
@@ -13,7 +13,7 @@
 ORI_POR_FILE=best_coordinates_known_so_far.csv
 GEONAME_FILE=dump_from_geonames.csv
 RFD_FILE=dump_from_crb_city.csv
-ORI_ONLY_POR_FILE=ori_only_por.csv
+ORI_ONLY_POR_FILE=ori_por_non_iata.csv
 
 # Target
 ORI_POR_PUBLIC_FILE=ori_por_public.csv
