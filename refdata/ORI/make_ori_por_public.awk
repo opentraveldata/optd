@@ -17,16 +17,13 @@ BEGIN {
 
 # M A I N
 {
-	# IATA code
-	printf ($1)
-
 	if (NF == 43) {
 		####
 		## Both in Geonames and in RFD
 		####
 		#
 		# ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
-		printf ("^" $4 "^Y^" $5 "^" $6 "^" $7)
+		printf ($1 "^" $4 "^Y^" $5 "^" $6 "^" $7)
 
 		# ^ Alternate names ^ Latitude ^ Longitude ^ Feat. class ^ Feat. code
 		printf ("^" $26 "^" $2 "^" $3 "^" $12 "^" $13)
@@ -55,6 +52,9 @@ BEGIN {
 		# ^ Location type
 		printf ("^" $43)
 
+		# End of line
+		printf ("\n")
+
 		# ----
 		# From ORI-POR ($1 - $3)
 		# (1) NCE ^ (2) 43.658411 ^ (3) 7.215872
@@ -80,8 +80,8 @@ BEGIN {
 		## Not in Geonames
 		####
 		#
-		# ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
-		printf ("^ZZZZ^N^0^" $7 "^" $7)
+		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
+		printf ($1 "^ZZZZ^N^0^" $7 "^" $7)
 
 		# ^ Alternate names ^ Latitude ^ Longitude
 		printf ("^^" $2 "^" $3)
@@ -130,6 +130,9 @@ BEGIN {
 		# ^ Location type
 		printf ("^" $20)
 
+		# End of line
+		printf ("\n")
+
 		# ----
 		# From ORI-POR ($1 - $3)
 		# (1) XCG ^ (2) 43.6667 ^ (3) 7.15 ^
@@ -155,8 +158,8 @@ BEGIN {
 		## Not in RFD
 		####
 		#
-		# ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
-		printf ("^" $4 "^Y^" $5 "^" $6 "^" $7)
+		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
+		printf ($1 "^" $4 "^Y^" $5 "^" $6 "^" $7)
 
 		# ^ Alternate names ^ Latitude ^ Longitude ^ Feat. class ^ Feat. code
 		printf ("^" $26 "^" $2 "^" $3 "^" $12 "^" $13)
@@ -209,6 +212,9 @@ BEGIN {
 			printf ("^Z")
 		}
 
+		# End of line
+		printf ("\n")
+
 		# ----
 		# From ORI-POR ($1 - $3)
 		# (1) SQX ^ (2) -26.7816 ^ (3) -53.5035 ^
@@ -226,38 +232,38 @@ BEGIN {
 		## Neither in Geonames nor in RFD
 		####
 		#
-		# ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
-		printf ("^ZZZZ^N^0^" "UNKNOWN" unknown_idx  "^" "UNKNOWN" unknown_idx)
+		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
+		printf ($1 "^ZZZZ^N^0^" "UNKNOWN" unknown_idx  "^" "UNKNOWN" unknown_idx) > "ori_only_por.csv.new"
 
 		# ^ Alternate names ^ Latitude ^ Longitude
-		printf ("^^" $2 "^" $3)
+		printf ("^^" $2 "^" $3) > "ori_only_por.csv.new"
 
 		#  ^ Feat. class ^ Feat. code
-		printf ("^S^AIRP")
+		printf ("^S^AIRP") > "ori_only_por.csv.new"
 
 		# ^ Country code ^ Alt. country codes
-		printf ("^" "ZZ" "^")
+		printf ("^" "ZZ" "^") > "ori_only_por.csv.new"
 
 		# ^ Admin1 ^ Admin2 ^ Admin3 ^ Admin4
-		printf ("^^^^")
+		printf ("^^^^") > "ori_only_por.csv.new"
 
 		# ^ Population ^ Elevation ^ gtopo30
-		printf ("^^^")
+		printf ("^^^") > "ori_only_por.csv.new"
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		printf ("^" "Europe/Greenwich" "^^^")
+		printf ("^" "Europe/Greenwich" "^^^") > "ori_only_por.csv.new"
 
 		# ^ Modification date
-		printf ("^" today_date)
+		printf ("^" today_date) > "ori_only_por.csv.new"
 
 		# ^ Is airport ^ Is commercial
-		printf ("^" "Y" "^" "Y")
+		printf ("^" "Y" "^" "Y") > "ori_only_por.csv.new"
 
 		# ^ City code ^ State code ^ Region code
-		printf ("^" "ZZZ" "^" "^" "UNKOWN")
+		printf ("^" "ZZZ" "^" "^" "UNKOWN") > "ori_only_por.csv.new"
 
 		#  ^ Location type
-		printf ("^" "CA")
+		printf ("^" "CA" "\n") > "ori_only_por.csv.new"
 
 		# ----
 		# From ORI-POR ($1 - $3)
@@ -274,6 +280,4 @@ BEGIN {
 		printf ("!!!! Error for row #" FNR ", having " NF " fields: " $0 "\n") > "/dev/stderr"
 	}
 
-	#
-	printf ("\n")
 }
