@@ -121,11 +121,11 @@ loadData
 
 # Create the tables
 SQL_FILE="create_table_airport_popularity.sql"
-createTable
+#createTable
 
 # Load the data into the tables
 SQL_LOADER_FILE="fill_table_airport_popularity.sql"
-loadData
+#loadData
 
 # Trim the spaces from the state_code field of the ref_place_details table
 TABLE=ref_place_details
@@ -141,4 +141,5 @@ countRows
 
 # Count the rows from the airport_popularity table
 TABLE=airport_popularity
-countRows
+#countRows
+
