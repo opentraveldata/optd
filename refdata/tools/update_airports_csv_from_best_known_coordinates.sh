@@ -17,7 +17,7 @@ displayORIDetails() {
 	then
 		echo "mkdir -p ${TMP_DIR}"
 	fi
-	echo "\cp -f ../ORI/ori_por.csv ${TMP_DIR}ori_airports.csv"
+	echo "\cp -f ../ORI/ori_por_public.csv ${TMP_DIR}ori_airports.csv"
 	echo "\cp -f ../ORI/best_coordinates_known_so_far.csv ${TMP_DIR}"
 	echo "ls -l ${TMP_DIR}"
 	echo

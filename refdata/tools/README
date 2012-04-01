@@ -22,7 +22,7 @@
 # However, as of now (March 2012), its format (Geonames-based) does not
 # correspond to the ORI-maintained data file format (ORI-enriched).
 # Both files can be compared, though:
-# diff -c new_airports.csv ../ORI/ori_por.csv
+# diff -c new_airports.csv ../ORI/ori_por_public.csv
 
 # But, more importantly, a data file, summing up all the differences,
 # is generated, namely 'por_main_diff.csv'. Those differences correspond to
@@ -97,8 +97,7 @@ git add ori_por_public.csv
 # ----------------------------------------------------------------------
 #
 # The ORI-maintained list of POR needs to be updated
-\cp -f ../ORI/ori_por.csv ori_airports.csv    # The file to be updated
-#\cp -f ../ORI/ori_por_public.csv ori_airports.csv    # The file to be updated
+\cp -f ../ORI/ori_por_public.csv ori_airports.csv    # The file to be updated
 \cp -f ../ORI/best_coordinates_known_so_far.csv .
 ./update_airports_csv_from_best_known_coordinates.sh
 
@@ -106,10 +105,8 @@ git add ori_por_public.csv
 diff -c ori_airports.csv ori_new_airports.csv
 
 # Then:
-\cp -f ori_new_airports.csv ../ORI/ori_por.csv
-#\cp -f ori_new_airports.csv ../ORI/ori_por_public.csv
-git add ../ORI/ori_por.csv
-#git add ../ORI/ori_por_public.csv
+\cp -f ori_new_airports.csv ../ORI/ori_por_public.csv
+git add ../ORI/ori_por_public.csv
 
 
 ##
@@ -117,8 +114,7 @@ git add ../ORI/ori_por.csv
 # ------------------------------------------------------------------------
 #
 # The file of best known coordinates has to be updated:
-\cp -f ../ORI/ori_por.csv ori_airports.csv
-#\cp -f ../ORI/ori_por_public.csv ori_airports.csv
+\cp -f ../ORI/ori_por_public.csv ori_airports.csv
 \cp -f ../ORI/best_coordinates_known_so_far.csv .    # The file to be updated
 ./update_best_known_coordinates_from_airports_csv.sh
 

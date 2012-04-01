@@ -23,7 +23,7 @@ fi
 
 ##
 # Parsing of command-line options
-APT_DTLS_FILE=../ORI/ori_por.csv
+APT_DTLS_FILE=../ORI/ori_por_public.csv
 OND_FILE_OPTION="NO"
 IS_OND_FILE_STD_INPUT="NO"
 for opt_elem in $@
@@ -65,7 +65,7 @@ do
   fi
 done
 #
-AIRPORT_DETAILS_FILE="${APT_DTLS_FILE}"
+AIRPORT_DETAILS_FILE=${APT_DTLS_FILE}
 if [ "${OND_FILE_OPTION}" = "NO" ]
 then
     OND_FILE=/dev/stdin
