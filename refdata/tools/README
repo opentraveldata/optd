@@ -142,3 +142,27 @@ midori http://en.wikipedia.org
 # c. in Bing Maps:
 midori http://maps.bing.com
 
+##
+# 5.1. Generation of the OpenTrep-related POR data files
+# ------------------------------------------------------
+#
+./update_por_alternate_names.sh
+# In a terminal with OpenTrep:
+export OPTD_TOOL_DIR=~/geo/optdgit/refdata/tools
+cd ${TREP_DIR}
+\cp -f ${OPTD_TOOL_DIR}/trep_place_details.csv ${OPTD_TOOL_DIR}/trep_place_names.csv db/data
+git add db/data/trep_place_details.csv db/data/trep_place_names.csv
+
+# As a reminder, the following then allows to run OpenTrep
+# rm -rf build && mkdir build
+cd build
+export INSTALL_BASEDIR=~/dev/deliveries
+export LIBSUFFIX_4_CMAKE="-DLIB_SUFFIX=64"
+cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_BASEDIR}/opentrep-99.99.99 -DCMAKE_BUILD_TYPE:STRING=Debug -DINSTALL_DOC:BOOL=OFF ${LIBSUFFIX_4_CMAKE} ..
+make && make install
+# ${INSTALL_BASEDIR}/opentrep-99.99.99/create_trep_tables.sh
+${INSTALL_BASEDIR}/opentrep-99.99.99/load_trep_data.sh
+mkdir -p /tmp/opentrep/traveldb
+./opentrep/opentrep-indexer
+./opentrep/opentrep-indexer -q cdg sfo
+
