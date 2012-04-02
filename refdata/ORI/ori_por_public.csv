@@ -5309,7 +5309,7 @@ MOV^YMRB^Y^7730266^Moranbah Airport^Moranbah Airport^MOV,YMRB^-22.057778^148.077
 MOW^ZZZZ^Y^524901^Moscow^Moscow^MOW,Maeskaew,Maeskuy,Maskav,Maskava,Maskva,Mat-xco-va,Matxcova,Matxcơva,Mosca,Moscfa,Moscha,Mosco,Moscou,Moscova,Moscovo,Moscow,Moscu,Moscua,Moscòu,Moscó,Moscù,Moscú,Mosk"va,Moska,Moskau,Mosko,Moskou,Moskov,Moskova,Moskowa,Mosku,Moskuas,Moskva,Moskvo,Moskwa,Moszkva,Muskav,Musko,Mát-xcơ-va,Mäskäw,Mòskwa,masko,maskw,mo si ke,moseukeuba,mosko,mosukuwa,mskw,mwskva,mwskw,mwsqbh,mx s ko,Μόσχα,Мæскуы,Маскав,Масква,Москва,Москова,Москъва,Мускав,Муско,Մոսկվա,מאָסקװע,מאסקווע,מוסקבה,ماسکو,مسکو,موسكو,موسكۋا,ܡܘܣܟܘ,मास्को,मॉस्को,মস্কো,மாஸ்கோ,มอสโก,མོ་སི་ཁོ,მოსკოვი,ሞስኮ,モスクワ,莫斯科,모스크바^55.75^37.7^P^PPLC^RU^^48^^^^10381222^0^144^Europe/Moscow^4.0^4.0^4.0^2012-01-17^N^N^MOW^^EURAS^C
 MOX^ZZZZ^N^0^MORRIS/MN/US:MUNICIPAL^MORRIS/MN/US:MUNICIPAL^^41.37^-88.43^S^AIRP^US^^^^^^^^^US107^^^^-1^Y^N^MOX^MN^NAMER^CA
 MOY^ZZZZ^N^0^MONTERREY/CO^MONTERREY/CO^^4.917^-72.85^S^AIRP^CO^^^^^^^^^CO132^^^^-1^Y^N^MOY^^SAMER^CA
-MOZ^ZZZZ^Y^6354944^Temae^Temae^MOZ^-17.489972^-149.761869^S^AIRP^^^^^^^0^3^7^Pacific/Tahiti^-10.0^-10.0^-10.0^2007-02-22^Y^Y^MOZ^^PACIF^CA
+MOZ^ZZZZ^Y^6354944^Temae^Temae^MOZ^-17.489972^-149.761869^S^AIRP^PF^^^^^^0^3^7^Pacific/Tahiti^-10.0^-10.0^-10.0^2007-02-22^Y^Y^MOZ^^PACIF^CA
 MPA^FYKM^Y^877034^Katima Mulilo Airport^Katima Mulilo Airport^FYKM,Katima Mulilo,Katima Mulilo Airport,M'pacha Aerodrome,MPA,Mpacha,M’pacha Aerodrome^-17.634428^24.176658^S^AIRP^NA^^28^^^^0^0^955^Africa/Windhoek^2.0^1.0^1.0^2011-03-28^Y^Y^MPA^^AFRIC^CA
 MPB^ZZZZ^Y^4177559^Watson Island International Seaplane Base^Watson Island International Seaplane Base^MPB^25.77^-80.17^S^AIRP^US^^FL^086^^^0^0^10^America/New_York^-5.0^-4.0^-5.0^2012-01-12^Y^N^MIA^FL^NAMER^A
 MPC^WIPU^Y^7731287^Muko Muko Airport^Muko Muko Airport^MPC,WIPU^-2.55^101.1^S^AIRP^ID^^03^^^^0^0^7^Asia/Jakarta^7.0^7.0^7.0^2011-03-17^Y^N^MPC^^SEASI^CA
@@ -6292,7 +6292,7 @@ PAY^WBKP^Y^7731382^Pamol Airport^Pamol Airport^PAY,WBKP^6^117.4^S^AIRP^MY^^16^^^
 PAZ^MMPA^Y^6299863^Poza Rica / Palizada^Poza Rica / Palizada^MMPA,PAZ^20.602671^-97.460839^S^AIRP^MX^^^^^^0^151^150^America/Mexico_City^-6.0^-5.0^-6.0^2007-01-03^Y^Y^PAZ^^NAMER^CA
 PBA^ZZZZ^N^0^BARROW/AK/US:POINT BARROW^BARROW/AK/US:POINT BARROW^^71.33^-156.6^S^AIRP^US^^^^^^^^^US111^^^^-1^Y^N^BRW^AK^NAMER^A
 PBB^ZZZZ^N^0^PARANAIBA/MS/BR^PARANAIBA/MS/BR^^-2.893747^-41.731961^S^AIRP^BR^^^^^^^^^BR017^^^^-1^Y^N^PBB^MS^SAMER^CA
-PBC^MMPB^Y^6299864^Puebla International Airport^Puebla International Airport^MMPB,PBC,http://en.wikipedia.org/wiki/Hermanos_Serd%C3%A1n_International_Airport^19.158144^-98.371447^S^AIRP^MX^^21^^^^0^2243^2242^America/Mexico_City^-6.0^-5.0^-6.0^2012-02-20^Y^Y^PBC^^NAMER^CA
+PBC^MMPB^Y^6299864^Puebla International Airport^Puebla International Airport^MMPB,PBC^19.158144^-98.371447^S^AIRP^MX^^21^^^^0^2243^2242^America/Mexico_City^-6.0^-5.0^-6.0^2012-02-20^Y^Y^PBC^^NAMER^CA
 PBD^VAPR^Y^7668578^Porbandar Airport^Porbandar Airport^PBD,VAPR^21.648675^69.657219^S^AIRP^IN^^09^^^^0^0^7^Asia/Kolkata^5.5^5.5^5.5^2011-02-17^Y^Y^PBD^^ASIA^CA
 PBE^SKPR^Y^7731383^Puerto Berrio Airport^Puerto Berrio Airport^PBE,SKPR^6.483^-74.48^S^AIRP^CO^^02^^^^0^0^109^America/Bogota^-5.0^-5.0^-5.0^2011-03-18^Y^N^PBE^^SAMER^CA
 PBF^KPBF^Y^4113199^Grider Field^Grider Field^KPBF,PBF^34.18^-91.93^S^AIRP^US^^AR^069^^^0^61^62^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^N^PBF^AR^NAMER^CA
@@ -8634,7 +8634,7 @@ TID^DAOB^Y^6296377^Tiaret^Tiaret^DAOB,TID^35.341136^1.463147^S^AIRP^DZ^^^^^^0^98
 TIE^HATP^Y^7730595^Tippi Airport^Tippi Airport^HATP,TIE^7.333^35.58^S^AIRP^ET^^41^^^^0^0^884^Africa/Addis_Ababa^3.0^3.0^3.0^2011-03-17^Y^N^TIE^^AFRIC^CA
 TIF^OETF^Y^6300029^Taif^Taif^OETF,TIF^21.483418^40.544334^S^AIRP^SA^^^^^^0^1477^1461^Asia/Riyadh^3.0^3.0^3.0^2007-01-03^Y^Y^TIF^^MEAST^CA
 TIG^ZZZZ^N^0^TINGWON/PG^TINGWON/PG^^-2.6^149.8^S^AIRP^PG^^^^^^^^^PG^^^^-1^Y^N^TIG^^AUSTL^CA
-TIH^ZZZZ^Y^6354927^Tikehau Atoll^Tikehau Atoll^TIH^-15.119617^-148.230697^S^AIRP^^^^^^^0^0^4^Pacific/Tahiti^-10.0^-10.0^-10.0^2007-02-21^Y^Y^TIH^^PACIF^CA
+TIH^ZZZZ^Y^6354927^Tikehau Atoll^Tikehau Atoll^TIH^-15.119617^-148.230697^S^AIRP^PF^^^^^^0^0^4^Pacific/Tahiti^-10.0^-10.0^-10.0^2007-02-21^Y^Y^TIH^^PACIF^CA
 TII^ZZZZ^N^0^TARIN KOT/AF:TEREEN^TARIN KOT/AF:TEREEN^^32.87^65.63^S^AIRP^AF^^^^^^^^^AF^^^^-1^Y^Y^TII^^MEAST^CA
 TIJ^MMTJ^Y^6299875^Tijuana International Airport^Tijuana International Airport^MMTJ,TIJ^32.541064^-116.970158^S^AIRP^MX^^^^^^0^149^145^America/Tijuana^-8.0^-7.0^-8.0^2007-01-03^Y^Y^TIJ^^NAMER^CA
 TIK^KTIK^Y^4553114^Tinker Air Force Base^Tinker Air Force Base^KTIK,TIK^35.414739^-97.386633^S^AIRP^US^^OK^109^^^0^376^381^America/Chicago^-6.0^-5.0^-6.0^2011-12-11^Y^N^OKC^OK^NAMER^A
