@@ -2409,7 +2409,7 @@ FBA^ZZZZ^N^0^FONTE BOA/AM/BR^FONTE BOA/AM/BR^^-2.53361^-66.0672^S^AIRP^BR^^^^^^^
 FBD^OAFZ^Y^6300000^Faizabad^Faizabad^FBD,OAFZ^37.08^70.5^S^AIRP^AF^^^^^^0^1200^1167^Asia/Kabul^4.5^4.5^4.5^2006-10-28^Y^N^FBD^^MEAST^CA
 FBE^SSFB^Y^7731020^Francisco Beltrão Airport^Francisco Beltrao Airport^FBE,SSFB^-26.08^-53.07^S^AIRP^BR^^18^^^^0^0^644^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-17^Y^Y^FBE^PR^SAMER^CA
 FBG^KFBG^Y^4454240^Beard Airport^Beard Airport^FBG,KFBG^35.131828^-78.936694^S^AIRP^US^^NC^051^^^0^56^65^America/New_York^-5.0^-4.0^-5.0^2010-02-16^Y^N^FBG^NC^NAMER^CA
-FBK^PAFB^Y^5877545^Ladd Army Airfield^Ladd Army Airfield^FBK,PAFB^46.222644^2.363964^S^AIRP^US^^AK^090^^^0^136^134^America/Anchorage^-9.0^-8.0^-9.0^2011-12-12^Y^N^FAI^AK^NAMER^A
+FBK^PAFB^Y^5877545^Ladd Army Airfield^Ladd Army Airfield^FBK,PAFB^64.83179^-147.61601^S^AIRP^US^^AK^090^^^0^136^134^America/Anchorage^-9.0^-8.0^-9.0^2011-12-12^Y^N^FAI^AK^NAMER^A
 FBL^KFBL^Y^5026298^Faribault Municipal Airport^Faribault Municipal Airport^FBL,KFBL^44.33^-93.32^S^AIRP^US^^MN^131^^^0^319^317^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^N^FBL^MN^NAMER^CA
 FBM^FZQA^Y^6297154^Lubumbashi-Luano^Lubumbashi-Luano^FBM,FZQA^-11.591333^27.530889^S^AIRP^CD^^^^^^0^1309^1297^Africa/Lubumbashi^2.0^2.0^2.0^2007-01-03^Y^Y^FBM^^AFRIC^CA
 FBR^ZZZZ^N^0^FORT BRIDGER/WY/US^FORT BRIDGER/WY/US^^41.32^-110.4^S^AIRP^US^^^^^^^^^US108^^^^-1^Y^N^FBR^WY^NAMER^CA
@@ -8522,7 +8522,7 @@ TDJ^HDTJ^Y^7668295^Tadjoura Airport^Tadjoura Airport^HDTJ,Luchthaven Tadjoura,Po
 TDK^UAAT^Y^7730182^Taldykorgan Airport^Taldykorgan Airport^TDK,UAAT^45.15^78.43^S^AIRP^KZ^^01^^^^0^0^588^Asia/Almaty^6.0^6.0^6.0^2011-03-16^Y^N^TDK^^EURAS^CA
 TDL^SAZT^Y^6300591^Tandil Aerodrome^Tandil Aerodrome^SAZT,TDL^-37.237392^-59.227922^S^AIRP^AR^^^^^^0^174^179^America/Argentina/Buenos_Aires^-3.0^-3.0^-3.0^2007-01-03^Y^N^TDL^BA^SAMER^CA
 TDN^ZZZZ^N^0^THEDA STATION/WA/AU^THEDA STATION/WA/AU^^-14.75^126.5^S^AIRP^AU^^^^^^^^^AU011^^^^-1^Y^N^TDN^WA^AUSTL^CA
-TDO^KTDO^Y^5813686^Toledo-Winlock Ed Carlson Memorial Field^Toledo-Winlock Ed Carlson Memorial Field^KTDO,TDO^39.83^-4^S^AIRP^US^^WA^041^^^0^110^110^America/Los_Angeles^-8.0^-7.0^-8.0^2006-10-29^Y^N^TDO^WA^NAMER^CA
+TDO^KTDO^Y^5813686^Toledo-Winlock Ed Carlson Memorial Field^Toledo-Winlock Ed Carlson Memorial Field^KTDO,TDO^46.47733^-122.80706^S^AIRP^US^^WA^041^^^0^110^110^America/Los_Angeles^-8.0^-7.0^-8.0^2006-10-29^Y^N^TDO^WA^NAMER^CA
 TDP^ZZZZ^N^0^TROMPETEROS/PE^TROMPETEROS/PE^^-3.8075^-75.0478^P^PPLC^PE^^^^^^^^^PE155^^^^-1^N^N^TDP^^SAMER^C
 TDR^YTDR^Y^7731537^Theodore Airport^Theodore Airport^TDR,YTDR^-24.98^150.1^S^AIRP^AU^^04^30370^^^0^0^171^Australia/Brisbane^10.0^10.0^10.0^2011-06-04^Y^N^TDR^QL^AUSTL^CA
 TDS^ZZZZ^Y^8224680^Sasereme Airport^Sasereme Airport^TDS^-7.62281^142.86896^S^AIRP^PG^^06^^^^0^0^49^Pacific/Port_Moresby^10.0^10.0^10.0^2012-03-26^Y^Z^TDS^06^PACIF^A
