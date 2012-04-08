@@ -165,7 +165,7 @@ fi
 ##
 # For each airport/city code, join the two geographical coordinate sets.
 COMP_FILE_COORD_TMP=${COMP_FILE_COORD}.tmp2
-join -t'^' -a 1 -e NULL ${GEO_FILE_1} ${GEO_FILE_2} > ${COMP_FILE_COORD_TMP}
+join -t'^' -a 1 -e NULL ${GEO_FILE_2} ${GEO_FILE_1} > ${COMP_FILE_COORD_TMP}
 
 ##
 # For each airport/city code, join the airport popularity.
