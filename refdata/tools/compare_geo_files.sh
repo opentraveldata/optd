@@ -193,10 +193,10 @@ POR_MAIN_DIFF_TMP=${POR_MAIN_DIFF}.tmp
 awk -F'^' -v comp_min_dist=${COMP_MIN_DIST} '{if ($2 >= comp_min_dist) {printf($1 "^" $2 "^" $3 "^" $4 "\n")}}' ${COMP_FILE_DIST} > ${POR_MAIN_DIFF_TMP}
 
 ##
-# Sort the differences, weighted by the popularity of the airport (equal to 1
-# when not specified), from the greatest to the least.
+# Sort the differences, weighted by the PageRank/popularity of the airport
+# (equal to 1 when not specified), from the greatest to the least.
 sort -t'^' -k4nr -k2nr -k1 ${POR_MAIN_DIFF_TMP} > ${POR_MAIN_DIFF}
-echo "dep_city^distance^nb_of_pax^dist_weighted_by_pop" | cat - ${POR_MAIN_DIFF} > ${POR_MAIN_DIFF_TMP}
+echo "dep_city^distance^page_rank^dist_weighted_by_page_rank" | cat - ${POR_MAIN_DIFF} > ${POR_MAIN_DIFF_TMP}
 \mv -f ${POR_MAIN_DIFF_TMP} ${POR_MAIN_DIFF}
 
 ##
