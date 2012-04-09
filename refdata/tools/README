@@ -142,6 +142,7 @@ midori http://en.wikipedia.org
 # c. in Bing Maps:
 midori http://maps.bing.com
 
+
 ##
 # 5.1. Generation of the OpenTrep-related POR data files
 # ------------------------------------------------------
@@ -166,3 +167,32 @@ mkdir -p /tmp/opentrep/traveldb
 ./opentrep/opentrep-indexer
 ./opentrep/opentrep-indexer -q cdg sfo
 
+
+##
+# 6. Generation of the list of POR, specified in IATA,
+#    but missing from Geonames
+# -----------------------------------------------------------------------
+#
+# 6.1. Do like in 1.1:
+\cp -f ../ORI/best_coordinates_known_so_far.csv .
+\cp -f ../ORI/ref_airport_pageranked.csv .
+./update_airports_csv_after_getting_geonames_iata_dump.sh
+
+# 6.2. Then, check that all the POR are in IATA
+cut -d'^' -f1 dump_from_geonames.csv.missing > my.tmp
+\mv -f my.tmp dump_from_geonames.csv.missing
+
+# All the entries produced by the following commands are not in IATA
+join -t'^' -a 2 dump_from_crb_city.csv dump_from_geonames.csv.missing \
+ | awk -F'^' '{if (NF != 18) {printf ($0 "\n")}}'
+# If any (non-IATA entries), remove them from the dump_from_geonames.csv.missing
+# file:
+vi dump_from_geonames.csv.missing
+
+# 6.3. Generate the file for Geonames
+echo "code^ticketing_name^detailed_name^teleticketing_name^extended_name^city_name^rel_city_code^is_airport^state_code^rel_country_code^rel_region_code^rel_continent_code^rel_time_zone_grp^latitude^longitude^numeric_code^is_commercial^location_type" > por_in_iata_but_missing_from_geonames.csv
+join -t'^' -a 2 dump_from_crb_city.csv dump_from_geonames.csv.missing >> por_in_iata_but_missing_from_geonames.csv
+wc -l por_in_iata_but_missing_from_geonames.csv
+
+# 6.4. Send the por_in_iata_but_missing_from_geonames.csv file to Geonames
+gzip por_in_iata_but_missing_from_geonames.csv
