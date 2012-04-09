@@ -64,11 +64,17 @@ BEGIN {
 		# Distance, in km
 		printf ("^%5.0f", distance/1000)
 
+		# PageRank
+		printf ("^%7.2f", popularity)
+
 		# Popularity, in number of passengers
-		printf ("^%9.0f", popularity)
+		# printf ("^%9.0f", popularity)
+
+		# Distance x PageRank
+		printf ("^%8.0f", popularity*distance/1000)
 
 		# Distance x popularity
-		printf ("^%8.0f", popularity*distance/1000000)
+		# printf ("^%8.0f", popularity*distance/1000000)
 
 		# End-of-line
 		printf ("\n")
