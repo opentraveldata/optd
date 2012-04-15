@@ -32,6 +32,7 @@ ALTER TABLE `airports_pageranked` ADD PRIMARY KEY (`code`);
 --
 ALTER TABLE `alternate_name` ADD PRIMARY KEY (`alternatenameId`);
 ALTER TABLE `alternate_name` ADD INDEX (`geonameid`);
+ALTER TABLE `alternate_name` ADD INDEX (`isoLanguage`);
 
 
 --
@@ -67,6 +68,7 @@ ALTER TABLE `feature_codes` ADD INDEX (`class`);
 
 ALTER TABLE `geoname` ADD PRIMARY KEY (`geonameid`);
 ALTER TABLE `geoname` ADD INDEX (`fcode`);
+ALTER TABLE `geoname` ADD INDEX (`timezone`);
 
 
 --
