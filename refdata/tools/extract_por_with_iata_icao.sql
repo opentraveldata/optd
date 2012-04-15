@@ -1,8 +1,8 @@
 
 --
 -- Extract information from the Geonames tables (in particular, geoname and
--- alternate_name), for all the points of reference (POR, i.e., mainly
--- airports/airbases/heliports and cities).
+-- alternate_name), for all the transport-related points of reference (POR,
+-- i.e., mainly airports, airbases, airfields, heliports).
 --
 -- Two intermediary tables are generated, namely iata_codes and icao_codes,
 -- which contain the geoname ID, code type (IATA, resp. ICAO) and
@@ -14,11 +14,14 @@
 -- because some airports/heliports do not have IATA and/or ICAO code at all.
 -- For those cases, the corresponding field will be NULL in the output (stdout).
 --
--- Note: if the following clause is added, the query will take much much longer
--- and require much more RAM (e.g., 30GB):
--- or g1.fcode = 'PPL'
--- However, many more entries will appear (for instance, NYC).
+-- Note: the cities (g1.fcode like 'PPL%') are extracted in another SQL script.
 --
+-- Feature code:
+-- AIRB: Air base; AIRF: Air field; AIRH: Heliport; AIRP: Airport; 
+-- AIRQ: Abandoned air field; AIRS: Seaplane landing field
+-- RSTN: Railway station
+--
+
 
 select iata_codes.alternateName as iata, icao_codes.alternateName as icao,
 	   g.geonameid, g.name, g.asciiname, g.latitude, g.longitude,
@@ -30,33 +33,27 @@ select iata_codes.alternateName as iata, icao_codes.alternateName as icao,
 from time_zones as tz, geoname as g
 
 left join (
-select g1.geonameid, a1.isoLanguage, a1.alternateName
-from geoname as g1 
-left join alternate_name as a1 on g1.geonameid = a1.geonameid
-where (g1.fcode = 'AIRP' or g1.fcode = 'AIRH' or g1.fcode = 'AIRB'
-	  or g1.fcode = 'RSTN'
-	  or g1.fcode = 'PPLA' or g1.fcode = 'PPLA2' or g1.fcode = 'PPLA3'
-	  or g1.fcode = 'PPLA4' or g1.fcode = 'PPLC' or g1.fcode = 'PPLG')
-  and a1.isoLanguage = 'iata'
-order by g1.geonameid
+  select g1.geonameid, a1.isoLanguage, a1.alternateName
+  from geoname as g1 
+  left join alternate_name as a1 on g1.geonameid = a1.geonameid
+  where (g1.fcode = 'AIRB' or g1.fcode = 'AIRF' or g1.fcode = 'AIRH'
+  		or g1.fcode = 'AIRP' or g1.fcode = 'AIRS' or g1.fcode = 'RSTN')
+  		and a1.isoLanguage = 'iata'
+  order by g1.geonameid
 ) as iata_codes on iata_codes.geonameid = g.geonameid
 
 left join (
-select g2.geonameid, a2.isoLanguage, a2.alternateName 
-from geoname as g2 
-left join alternate_name as a2 on g2.geonameid = a2.geonameid
-where (g2.fcode = 'AIRP' or g2.fcode = 'AIRH' or g2.fcode = 'AIRB'
-	  or g2.fcode = 'RSTN'
-	  or g2.fcode = 'PPLA' or g2.fcode = 'PPLA2' or g2.fcode = 'PPLA3'
-	  or g2.fcode = 'PPLA4' or g2.fcode = 'PPLC' or g2.fcode = 'PPLG')
-  and a2.isoLanguage = 'icao'
-order by g2.geonameid
+  select g2.geonameid, a2.isoLanguage, a2.alternateName 
+  from geoname as g2 
+  left join alternate_name as a2 on g2.geonameid = a2.geonameid
+  where (g2.fcode = 'AIRB' or g2.fcode = 'AIRF' or g2.fcode = 'AIRH'
+  		or g2.fcode = 'AIRP' or g2.fcode = 'AIRS' or g2.fcode = 'RSTN')
+  		and a2.isoLanguage = 'icao'
+  order by g2.geonameid
 ) as icao_codes on icao_codes.geonameid = g.geonameid
 
-where (g.fcode = 'AIRP' or g.fcode = 'AIRH' or g.fcode = 'AIRB'
-	  or g.fcode = 'RSTN'
-	  or g.fcode = 'PPLA' or g.fcode = 'PPLA2' or g.fcode = 'PPLA3'
-	  or g.fcode = 'PPLA4' or g.fcode = 'PPLC' or g.fcode = 'PPLG')
+where (g.fcode = 'AIRB' or g.fcode = 'AIRF' or g.fcode = 'AIRH'
+	  or g.fcode = 'AIRP' or g.fcode = 'AIRS' or g.fcode = 'RSTN')
 	  and g.timezone = tz.timeZoneId
 
 order by iata_codes.alternateName, icao_codes.alternateName, g.fcode

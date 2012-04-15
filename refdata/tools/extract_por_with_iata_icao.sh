@@ -47,16 +47,22 @@ SNAPSHOT_DATE_HUMAN=`date`
 ##
 # Extract airport/city information from the Geonames tables (in particular,
 # 'geoname' and 'alternate_name')
-SQL_FILE_FILENAME=extract_por_with_iata_icao.sql
-SQL_FILE=${EXEC_PATH}${SQL_FILE_FILENAME}
+SQL_POR_FILENAME=extract_por_with_iata_icao.sql
+SQL_CTY_FILENAME=extract_por_cities_with_iata.sql
+SQL_POR_FILE=${EXEC_PATH}${SQL_POR_FILENAME}
+SQL_CTY_FILE=${EXEC_PATH}${SQL_CTY_FILENAME}
 # Generated files
-DUMP_FILE_FILENAME=por_all_iata_${SNAPSHOT_DATE}.csv
+DUMP_FILE_IATA_TVL_FILENAME=por_all_iata_tvl_${SNAPSHOT_DATE}.csv
+DUMP_FILE_IATA_CTY_FILENAME=por_all_iata_cty_${SNAPSHOT_DATE}.csv
+DUMP_FILE_IATA_ALL_FILENAME=por_all_iata_${SNAPSHOT_DATE}.csv
 DUMP_FILE_ICAO_ONLY_FILENAME=por_all_icao_only_${SNAPSHOT_DATE}.csv
 DUMP_FILE_NO_CODE_FILENAME=por_all_nocode_${SNAPSHOT_DATE}.csv
 DUMP_FILE_NO_ICAO_FILENAME=por_all_noicao_${SNAPSHOT_DATE}.csv
 DUMP_FILE_DUP_FILENAME=por_all_dup_iata_${SNAPSHOT_DATE}.csv
 #
-DUMP_FILE=${TMP_DIR}${DUMP_FILE_FILENAME}
+DUMP_FILE_IATA_TVL=${TMP_DIR}${DUMP_FILE_IATA_TVL_FILENAME}
+DUMP_FILE_IATA_CTY=${TMP_DIR}${DUMP_FILE_IATA_CTY_FILENAME}
+DUMP_FILE_IATA_ALL=${TMP_DIR}${DUMP_FILE_IATA_ALL_FILENAME}
 DUMP_FILE_ICAO_ONLY=${TMP_DIR}${DUMP_FILE_ICAO_ONLY_FILENAME}
 DUMP_FILE_NO_CODE=${TMP_DIR}${DUMP_FILE_NO_CODE_FILENAME}
 DUMP_FILE_NO_ICAO=${TMP_DIR}${DUMP_FILE_NO_ICAO_FILENAME}
@@ -73,7 +79,8 @@ then
 	echo "  - Database name: '${DB_NAME}'"
 	echo "  - Snapshot date: '${SNAPSHOT_DATE}' (${SNAPSHOT_DATE_HUMAN})"
 	echo "  - Generated (CSV-formatted) data files:"
-	echo "      + '${DUMP_FILE}'"
+	echo "      + '${DUMP_FILE_IATA_TVL}'"
+	echo "      + '${DUMP_FILE_IATA_CTY}'"
 	echo "      + '${DUMP_FILE_ICAO_ONLY}'"
 	echo "      + '${DUMP_FILE_NO_CODE}'"
 	echo "      + '${DUMP_FILE_NO_ICAO}'"
@@ -96,60 +103,77 @@ then
 fi
 
 ##
-#
+# 0. MySQL dump
+# 0.1. Travel-related POR
 echo
-echo "Exporting points of reference (POR, i.e., airports, cities) data from the tables of Geonames into '${DUMP_FILE}'."
+echo "Exporting points of reference (POR, i.e., airports, railway stations) data from the tables of Geonames into '${DUMP_FILE_IATA_TVL}'."
 echo "That operation may take several minutes..."
-mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} > ${DUMP_FILE} < ${SQL_FILE}
+time mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} > ${DUMP_FILE_IATA_TVL} < ${SQL_POR_FILE}
+echo "... Done"
+echo
+# 0.2. Cities
+echo "Exporting populated place (city) data from the tables of Geonames into '${DUMP_FILE_IATA_TVL}'."
+echo "That operation may take several minutes..."
+time mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} > ${DUMP_FILE_IATA_CTY} < ${SQL_CTY_FILE}
 echo "... Done"
 echo
 
 ##
 # Remove the first line (header). Note: that step should now be performed by
 # the caller.
-#sed -i -e "s/^code\(.\+\)//g" ${DUMP_FILE}
-#sed -i -e "/^$/d" ${DUMP_FILE}
+#sed -i -e "s/^code\(.\+\)//g" ${DUMP_FILE_IATA_TVL}
+#sed -i -e "/^$/d" ${DUMP_FILE_IATA_TVL}
 
 # Replace the tab characters by the '^' separator
-sed -i -e 's/\t/\^/g' ${DUMP_FILE}
+sed -i -e 's/\t/\^/g' ${DUMP_FILE_IATA_TVL}
+sed -i -e 's/\t/\^/g' ${DUMP_FILE_IATA_CTY}
 
-# 1.1. Extract the rows having no IATA and no ICAO code defined
-grep "^NULL\^NULL\^\(.\+\)" ${DUMP_FILE} > ${DUMP_FILE_NO_CODE}
+# 1.1. Extract the rows having no IATA and no ICAO code defined.
+#      By construction, cities have a IATA code specified.
+grep "^NULL\^NULL\^\(.\+\)" ${DUMP_FILE_IATA_TVL} > ${DUMP_FILE_NO_CODE}
 
 # 1.2. Remove the rows having no IATA and no ICAO code defined
-sed -i -e "s/^NULL\^NULL\^\(.\+\)//g" ${DUMP_FILE}
-sed -i -e "/^$/d" ${DUMP_FILE}
+#      By construction, cities have a IATA code specified.
+sed -i -e "s/^NULL\^NULL\^\(.\+\)//g" ${DUMP_FILE_IATA_TVL}
+sed -i -e "/^$/d" ${DUMP_FILE_IATA_TVL}
 
 # 2.1. Extract the rows having only a ICAO code defined
-grep "^NULL\^\(.\+\)" ${DUMP_FILE} > ${DUMP_FILE_ICAO_ONLY}
+#      By construction, cities have no ICAO code specified.
+grep "^NULL\^\(.\+\)" ${DUMP_FILE_IATA_TVL} > ${DUMP_FILE_ICAO_ONLY}
 
 # 2.2. Remove the rows having only a ICAO code defined
-sed -i -e "s/^NULL\^\(.\+\)//g" ${DUMP_FILE}
-sed -i -e "/^$/d" ${DUMP_FILE}
+#      By construction, cities have no ICAO code specified.
+sed -i -e "s/^NULL\^\(.\+\)//g" ${DUMP_FILE_IATA_TVL}
+sed -i -e "/^$/d" ${DUMP_FILE_IATA_TVL}
 
 ##
 # We are now left with only the points of interest containing a non-NULL IATA
 # code.
 
-# 3.1. Extract the header into a temporary file
-DUMP_FILE_HEADER=${DUMP_FILE}.tmp.hdr
-grep "^iata\(.\+\)" ${DUMP_FILE} > ${DUMP_FILE_HEADER}
+# 3.1. Extract the headers into temporary files
+# 3.1.1. For travel-related POR
+DUMP_FILE_TVL_HDR=${DUMP_FILE_IATA_TVL}.tmp.tvlhdr
+grep "^iata\(.\+\)" ${DUMP_FILE_IATA_TVL} > ${DUMP_FILE_TVL_HDR}
+# 3.1.2. For cities
+DUMP_FILE_CTY_HDR=${DUMP_FILE_IATA_CTY}.tmp.ctyhdr
+grep "^iata\(.\+\)" ${DUMP_FILE_IATA_CTY} > ${DUMP_FILE_CTY_HDR}
+sed -i -e "s/NULL/icao/g" ${DUMP_FILE_CTY_HDR}
 
-# 3.2. Remove the header
-sed -i -e "s/^iata\(.\+\)//g" ${DUMP_FILE}
-sed -i -e "/^$/d" ${DUMP_FILE}
+# 3.2. Remove the headers
+# 3.2.1. For travel-related POR
+sed -i -e "s/^iata\(.\+\)//g" ${DUMP_FILE_IATA_TVL}
+sed -i -e "/^$/d" ${DUMP_FILE_IATA_TVL}
+# 3.2.2. For cities
+sed -i -e "s/^iata\(.\+\)//g" ${DUMP_FILE_IATA_CTY}
+sed -i -e "/^$/d" ${DUMP_FILE_IATA_CTY}
 
+# 4. Handle ICAO codes for the travel-related POR only. As the cities have no
+#    ICAO code, they are not handled here.
 # 4.1. Extract the entries having no ICAO code.
-grep "^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)" ${DUMP_FILE} > ${DUMP_FILE_NO_ICAO}
+grep "^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)" ${DUMP_FILE_IATA_TVL} > ${DUMP_FILE_NO_ICAO}
 
-# 4.2. Remove the entries having no ICAO code.
-#      Note that there is no ICAO code for a city. Hence, city entries are also
-#      filtered out.
-#      Note also that, when the same IATA code is used for a city and one of its
-#      airports (e.g, AMS, LAX, SFO), two entries with the same IATA code
-#      should appear. But, as the city entries are removed in this step, that
-#      case of IATA duplicity is avoided/removed.
-sed -i -e "s/^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)//g" ${DUMP_FILE}
+# 4.2. Remove the travel-related POR entries having no ICAO code.
+sed -i -e "s/^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)//g" ${DUMP_FILE_IATA_TVL}
 
 # 4.3. Spot the (potential) remaining entries having duplicated IATA codes.
 #      Here, only the airport entries having duplicated IATA codes are spotted.
@@ -164,15 +188,15 @@ sed -i -e "s/^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)//g" ${DUMP_FILE}
 #      entries.
 #
 # 4.3.1. Create the file with no duplicated IATA code.
-DUMP_UNIQ_FILE=${DUMP_FILE}.tmp.uniq
-DUMP_FILE_TMP=${DUMP_FILE}.tmp
-sort -t '^' -k1,1 -k2,2 ${DUMP_FILE} > ${DUMP_FILE_TMP}
-\mv -f ${DUMP_FILE_TMP} ${DUMP_FILE}
-uniq -w 3 ${DUMP_FILE} > ${DUMP_UNIQ_FILE}
+DUMP_UNIQ_FILE=${DUMP_FILE_IATA_TVL}.tmp.uniq
+DUMP_FILE_TMP=${DUMP_FILE_IATA_TVL}.tmp
+sort -t '^' -k1,1 -k2,2 ${DUMP_FILE_IATA_TVL} > ${DUMP_FILE_TMP}
+\mv -f ${DUMP_FILE_TMP} ${DUMP_FILE_IATA_TVL}
+uniq -w 3 ${DUMP_FILE_IATA_TVL} > ${DUMP_UNIQ_FILE}
 
 # 4.3.2. Create the file with only the duplicated IATA code entries, if any.
 DUMP_FILE_DUP_CHECK=${DUMP_FILE_DUP}.tmp.check
-comm -23 ${DUMP_FILE} ${DUMP_UNIQ_FILE} > ${DUMP_FILE_DUP_CHECK}
+comm -23 ${DUMP_FILE_IATA_TVL} ${DUMP_UNIQ_FILE} > ${DUMP_FILE_DUP_CHECK}
 sed -i -e "/^$/d" ${DUMP_FILE_DUP_CHECK}
 
 if [ -s ${DUMP_FILE_DUP_CHECK} ]
@@ -182,7 +206,7 @@ then
 	echo "!!!!!! WARNING !!!!!!!!"
 	echo "Geonames has got ${POR_DUP_IATA_NB} duplicated IATA codes (in addition to those of cities of course). To see them, just do:"
 	echo "less ${DUMP_FILE_DUP_CHECK}"
-	echo "Note: they result of the comparison between '${DUMP_FILE}' (all POR) and"
+	echo "Note: they result of the comparison between '${DUMP_FILE_IATA_TVL}' (all POR) and"
 	echo "'${DUMP_UNIQ_FILE}' (duplicated POR have been removed)."
 	echo "!!!!!! WARNING !!!!!!!!"
 	echo
@@ -190,19 +214,25 @@ else
 	\rm -f ${DUMP_FILE_DUP_CHECK}
 fi
 
-# 4.4. Re-add the header
-cat ${DUMP_FILE_HEADER} ${DUMP_UNIQ_FILE} > ${DUMP_FILE}
-sed -i -e "/^$/d" ${DUMP_FILE}
+# 4.4. Merge the data files for both POR types (travel-related and cities)
+cat ${DUMP_UNIQ_FILE} ${DUMP_FILE_IATA_CTY} > ${DUMP_FILE_IATA_ALL}
+sort -t'^' -k1,1 -k2,2 ${DUMP_FILE_IATA_ALL} > ${DUMP_FILE_TMP}
+\mv -f ${DUMP_FILE_TMP} ${DUMP_FILE_IATA_ALL}
+
+# 4.5. Re-add the header
+cat ${DUMP_FILE_TVL_HDR} ${DUMP_FILE_IATA_ALL} > ${DUMP_FILE_TMP}
+sed -e "/^$/d" ${DUMP_FILE_TMP} > ${DUMP_FILE_IATA_ALL}
 
 ##
 # Clean
 if [ "${TMP_DIR}" != "/tmp/por/" ]
 then
-	\rm -f ${DUMP_FILE_HEADER} ${DUMP_UNIQ_FILE}
+	\rm -f ${DUMP_FILE_TVL_HDR} ${DUMP_FILE_TMP} ${DUMP_FILE_CTY_HDR}
+	\rm -f ${DUMP_UNIQ_FILE} ${DUMP_FILE_IATA_CTY_TMP}
 fi
 
 
 # Replace the NULL fields by empty fields
-#sed -i -e 's/NULL//g' ${DUMP_FILE}
+#sed -i -e 's/NULL//g' ${DUMP_FILE_IATA_TVL}
 #sed -i -e 's/NULL//g' ${DUMP_FILE_NO_CODE}
 
