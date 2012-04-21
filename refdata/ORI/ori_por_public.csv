@@ -1526,7 +1526,6 @@ CPF^WARC^Y^7730935^Cepu Airport^Cepu Airport^CPF,WARC^-7.183^111.5^S^AIRP^ID^^07
 CPG^ZZZZ^N^0^CARMEN DE PATAGONES/BA/AR^CARMEN DE PATAGONES/BA/AR^^-40.8^-62.98^S^AIRP^AR^^^^^^^^^AR003^^^^-1^Y^N^CPG^BA^SAMER^CA
 CPH^EKCH^Y^2619034^Kastrup^Kastrup^CPH,EKCH,airport Copenhagen (Kastrup)^55.617917^12.655972^S^AIRP^DK^^17^185^^^0^5^3^Europe/Copenhagen^1.0^2.0^1.0^2011-12-20^Y^Y^CPH^^EUROP^CA
 CPI^ZZZZ^N^0^CAPE ORFORD/PG^CAPE ORFORD/PG^^-5.433^152.1^S^AIRP^PG^^^^^^^^^PG^^^^-1^Y^N^CPI^^AUSTL^CA
-CPK^KCPK^Y^4752209^Chesapeake Municipal Airport^Chesapeake Municipal Airport^CPK,KCPK^36.6640400^-76.3218900^S^AIRP^US^^VA^550^^^0^5^7^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^Z^CPK^VA^NAMER^A
 CPL^SKHA^Y^7730936^Chaparral Airport^Chaparral Airport^CPL,SKHA^3.7^-75.75^S^AIRP^CO^^28^^^^0^0^814^America/Bogota^-5.0^-5.0^-5.0^2011-03-17^Y^N^CPL^^SAMER^CA
 CPM^KCPM^Y^5339068^Compton/Woodley Airport^Compton/Woodley Airport^CPM,KCPM^33.9^-118.2^S^AIRP^US^^CA^037^^^0^28^35^America/Los_Angeles^-8.0^-7.0^-8.0^2011-12-12^Y^N^CPM^CA^NAMER^CA
 CPN^ZZZZ^N^0^CAPE RODNEY/PG^CAPE RODNEY/PG^^-10.18^148.4^S^AIRP^PG^^^^^^^^^PG^^^^-1^Y^N^CPN^^AUSTL^CA
@@ -1539,7 +1538,6 @@ CPU^SNCU^Y^7730938^Cururupu Airport^Cururupu Airport^CPU,SNCU^-1.8^-44.87^S^AIRP
 CPV^SBKG^Y^6300636^Campina Grande^Campina Grande^CPV,SBKG^-7.269917^-35.896364^S^AIRP^BR^^^^^^0^501^499^America/Recife^-3.0^-3.0^-3.0^2007-01-03^Y^Y^CPV^PB^SAMER^CA
 CPX^TJCP^Y^4562496^Benjamin Rivera Noriega Airport^Benjamin Rivera Noriega Airport^Benjamin Rivera Noriega Airport,CPX,TJCP^18.32^-65.3^S^AIRP^PR^^049^^^^0^3^7^America/Puerto_Rico^-4.0^-4.0^-4.0^2011-12-12^Y^N^CPX^^CARIB^CA
 CQA^SWEK^Y^7730939^Canarana Airport^Canarana Airport^CQA,SWEK^-13.57^-52.27^S^AIRP^BR^^14^^^^0^0^397^America/Cuiaba^-3.0^-4.0^-4.0^2011-03-17^Y^N^CQA^MT^SAMER^CA
-CQB^KCQB^Y^4532856^Chandler Municipal Airport^Chandler Municipal Airport^CQB,KCQB^35.7236800^-96.8203000^S^AIRP^US^^OK^081^^^0^298^298^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^Z^CQB^OK^NAMER^A
 CQD^OIFS^Y^7520711^Forūdgāh-e Shahr-e Kord^Forudgah-e Shahr-e Kord^CQD,Forudgah-e Shahr-e Kord,Forūdgāh-e Shahr-e Kord,OIFS,Shahrekord Airport,frwdgah shhr krd,فرودگاه شهر کرد^32.3^50.84^S^AIRP^IR^^03^^^^0^0^2045^Asia/Tehran^3.5^4.5^3.5^2012-01-21^Y^Y^CQD^^MEAST^CA
 CQF^LFAC^Y^6694425^Calais-Dunkerque^Calais-Dunkerque^CQF,LFAC^50.962097^1.954764^S^AIRP^FR^^B4^62^626^62548^0^0^4^Europe/Paris^1.0^2.0^1.0^2012-02-27^Y^N^CQF^^EUROP^CA
 CQM^LERL^Y^6452899^Aeropuerto Central Ciudad Real^Aeropuerto Central Ciudad Real^Aeropuerto Central Ciudad Real,Aeropuerto de Ciudad Real,CQM,Don Quijote,LERL^38.8585600^-3.9760200^S^AIRP^ES^^54^CR^13022^^0^0^628^Europe/Madrid^1.0^2.0^1.0^2009-02-25^Y^N^CQM^^EUROP^CA
