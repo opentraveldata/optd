@@ -196,7 +196,8 @@ create table airport_popularity (
 
 
 --
--- Table structure for tableairports_pageranked
+-- Structure for the table storing airport importance (PageRank-ed thanks to
+-- shcedule)
 --
 
 drop table if exists airports_pageranked;
