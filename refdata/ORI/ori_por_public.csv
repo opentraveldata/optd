@@ -565,7 +565,6 @@ BBA^SCBA^Y^6300690^Balmaceda Airport^Balmaceda Airport^BBA,Balmaceda,Balmaceda A
 BBB^KBBB^Y^5017898^Benson Municipal Airport^Benson Municipal Airport^BBB,KBBB^45.32^-95.6^S^AIRP^US^^MN^151^^^0^316^314^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^N^BBB^MN^NAMER^CA
 BBC^ZZZZ^N^0^BAY CITY/TX/US^BAY CITY/TX/US^^28.98^-95.97^S^AIRP^US^^^^^^^^^US107^^^^-1^Y^N^BBC^TX^NAMER^CA
 BBD^KBBD^Y^4684668^Brady Curtis Field^Brady Curtis Field^BBD,KBBD^31.13^-99.33^S^AIRP^US^^TX^307^^^0^553^553^America/Chicago^-6.0^-5.0^-6.0^2010-07-31^Y^N^BBD^TX^NAMER^CA
-BBE^YBBE^Y^7730847^Big Bell Airport^Big Bell Airport^BBE,YBBE^-27.42^117.7^S^AIRP^AU^^08^52380^^^0^0^429^Australia/Perth^8.0^8.0^8.0^2011-06-04^Y^Z^BBE^08^AUSTL^A
 BBF^ZZZZ^N^0^BURLINGTON/MA/US^BURLINGTON/MA/US^^42.5^-71.18^S^AIRP^US^^^^^^^^^US105^^^^-1^Y^N^BBF^MA^NAMER^CA
 BBG^NGTU^Y^6299956^Butaritari Airport^Butaritari Airport^BBG,NGTU^3.083^172.8^S^AIRP^KI^^01^BT^^^0^0^8^Pacific/Tarawa^12.0^12.0^12.0^2010-08-20^Y^N^BBG^^AUSTL^CA
 BBH^EDBH^Y^3209284^Barth^Barth^BBH,Barth,EDBH^54.33754^12.699705^S^AIRF^DE^^12^^^^0^0^1^Europe/Berlin^1.0^2.0^1.0^2012-01-19^Y^N^BBH^^EUROP^CA
@@ -812,7 +811,6 @@ BKR^FTTK^Y^2434986^Bokoro^Bokoro^BKR,FTTK^12.83^17.25^S^AIRP^TD^^18^^^^0^0^299^A
 BKS^WIPL^Y^6301246^Bengkulu / Padangkemiling^Bengkulu / Padangkemiling^BKS,WIPL^-3.8637^102.339036^S^AIRP^ID^^^^^^0^15^21^Asia/Jakarta^7.0^7.0^7.0^2007-01-03^Y^Y^BKS^^SEASI^CA
 BKT^KBKT^Y^4744156^Allen C Perkinson Municipal Airport^Allen C Perkinson Municipal Airport^BKT,KBKT^37.07^-77.96^S^AIRP^US^^VA^135^^^0^133^130^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^N^BKT^VA^NAMER^CA
 BKU^FMSV^Y^1066311^Betioky^Betioky^BKU,FMSV^-23.73^44.38^S^AIRF^MG^^06^^^^0^0^268^Indian/Antananarivo^3.0^3.0^3.0^1993-12-08^Y^N^BKU^^AFRIC^CA
-BKV^KBKV^Y^4158451^Hernando County Airport^Hernando County Airport^BKV,KBKV^28.4736100^-82.4551000^S^AIRP^US^^FL^053^^^0^20^24^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^Z^BKV^FL^NAMER^A
 BKW^KBKW^Y^4819314^Raleigh County Memorial Airport^Raleigh County Memorial Airport^BKW,KBKW^37.787328^-81.124164^S^AIRP^US^^WV^081^^^0^757^754^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^Y^BKW^WV^NAMER^CA
 BKX^KBKX^Y^5226540^Brookings Municipal Airport^Brookings Municipal Airport^BKX,KBKX^44.3^-96.82^S^AIRP^US^^SD^011^^^0^493^489^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^N^BKX^SD^NAMER^CA
 BKY^FZMA^Y^7668273^Bukavu Kavumu Airport^Bukavu Kavumu Airport^BKY,FZMA^-2.308978^28.808803^S^AIRP^CD^^07^^^^0^0^1712^Africa/Lubumbashi^2.0^2.0^2.0^2011-02-17^Y^N^BKY^^AFRIC^CA
@@ -935,7 +933,6 @@ BPL^ZZZZ^N^0^BOLE/CN:ALASHANKOU^BOLE/CN:ALASHANKOU^^44.895^82.2006^S^AIRP^CN^^^^
 BPM^OAIX^Y^1454052^Bagram Airfield^Bagram Airfield^Aerodrom Bagram,BPM,Bagram Airfield,OAIX,mydan hwayy bgram,میدانٔ هوائیٔ بگرام^17.45^78.38^S^AIRF^AF^^40^^^^0^0^1481^Asia/Kabul^4.5^4.5^4.5^2012-01-19^Y^Y^HYD^^ASIA^A
 BPN^WALL^Y^7668668^Sepinggan International Airport^Sepinggan International Airport^BPN,WALL^-1.267^116.9^S^AIRP^ID^^14^^^^0^0^7^Asia/Makassar^8.0^8.0^8.0^2011-02-17^Y^Y^BPN^^SEASI^CA
 BPO^ZZZZ^N^0^BOAO/CN:RAILWAY STATION^BOAO/CN:RAILWAY STATION^^NULL^NULL^S^AIRP^CN^^^^^^^^^CN035^^^^-1^Y^N^BPO^^ASIA^CR
-BPP^KBPP^Y^5688131^Bowman Municipal Airport^Bowman Municipal Airport^BPP,KBPP^46.18751^-103.4288^S^AIRP^US^^ND^011^^^0^901^897^America/Denver^-7.0^-6.0^-7.0^2006-10-29^Y^Z^BPP^ND^NAMER^A
 BPR^RPVW^Y^7668426^Borongan Airport^Borongan Airport^BPR,RPVW^11.6743^125.479^S^AIRP^PH^^^^^^0^0^4^Asia/Manila^8.0^8.0^8.0^2011-02-17^Y^Z^BPR^^ASIA^A
 BPS^SBPS^Y^6300659^Porto Seguro^Porto Seguro^BPS,SBPS^-16.438639^-39.080917^S^AIRP^BR^^^^^^0^51^46^America/Bahia^-2.0^-3.0^-3.0^2007-01-03^Y^Y^BPS^BA^SAMER^CA
 BPT^KBPT^Y^4700822^Jefferson County Airport^Jefferson County Airport^BPT,KBPT^29.950833^-94.020694^S^AIRP^US^^TX^245^^^0^3^4^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^Y^BPT^TX^NAMER^CA
@@ -1094,7 +1091,7 @@ BWI^KBWI^Y^4347822^Baltimore-Washington International Airport^Baltimore-Washingt
 BWJ^ZZZZ^N^0^BAWAN/PG^BAWAN/PG^^-6.4^146.9^S^AIRP^PG^^^^^^^^^PG^^^^-1^Y^N^BWJ^^AUSTL^CA
 BWK^LDSB^Y^6299320^Brac^Brac^BWK,LDSB^43.28^16.68^S^AIRP^HR^^^^^^0^541^525^Europe/Zagreb^1.0^2.0^1.0^2006-10-28^Y^Y^BWK^^EEURO^CA
 BWL^ZZZZ^Y^4535485^Earl Henry Airport^Earl Henry Airport^BWL^36.8^-97.28^S^AIRP^US^^OK^071^^^0^320^325^America/Chicago^-6.0^-5.0^-6.0^2011-12-11^Y^N^BWL^OK^NAMER^CA
-BWM^ZZZZ^N^0^BOWMAN/ND/US^BOWMAN/ND/US^^46.13^-103.6^S^AIRP^US^^^^^^^^^US108^^^^-1^Y^N^BWM^ND^NAMER^CA
+BWM^KBPP^Y^5688131^Bowman Municipal Airport^Bowman Municipal Airport^BPP,BWM,KBPP^46.18751^-103.4288^S^AIRP^US^^ND^011^^^0^901^897^America/Denver^-7.0^-6.0^-7.0^2006-10-29^Y^N^BWM^ND^NAMER^CA
 BWN^WBSB^Y^1820821^Brunei^Brunei^BWN,WBSB^4.9442^114.928353^S^AIRP^BN^^00^^^^0^22^12^Asia/Brunei^8.0^8.0^8.0^2007-01-03^Y^Y^BWN^^SEASI^CA
 BWO^UWSB^Y^7668565^Balakovo Airport^Balakovo Airport^BWO,UWSB^51.87^47.75^S^AIRP^RU^^67^^^^0^0^24^Europe/Volgograd^4.0^4.0^4.0^2011-02-17^Y^N^BWO^^EURAS^CA
 BWP^ZZZZ^N^0^BEWANI/PG^BEWANI/PG^^-3.083^141.1^S^AIRP^PG^^^^^^^^^PG^^^^-1^Y^N^BWP^^AUSTL^CA
@@ -2077,7 +2074,6 @@ DZI^ZZZZ^N^0^CODAZZI/CO^CODAZZI/CO^^9.6^-73.45^S^AIRP^CO^^^^^^^^^CO132^^^^-1^Y^N
 DZN^UAKD^Y^6457344^Dzezkazgan^Dzezkazgan^DZN,UAKD^47.708333^67.733333^S^AIRP^KZ^^^^^^0^381^377^Asia/Almaty^6.0^6.0^6.0^2007-04-05^Y^Y^DZN^^EURAS^CA
 DZO^SUDU^Y^6300829^Durazno^Durazno^DZO,SUDU^-33.358867^-56.499172^S^AIRP^UY^^^^^^0^92^91^America/Montevideo^-2.0^-3.0^-3.0^2007-01-03^Y^N^DZO^^SAMER^CA
 DZU^ZZZZ^N^0^DAZU/CN^DAZU/CN^^29.7^105.8^S^AIRP^CN^^^^^^^^^CN035^^^^-1^Y^N^DZU^^ASIA^CA
-E30^ZZZZ^Y^4676788^Bruce Field Airport^Bruce Field Airport^E30^31.67925^-99.9779^S^AIRF^US^^TX^399^^^0^529^527^America/Chicago^-6.0^-5.0^-6.0^2012-04-09^N^Z^E30^TX^NAMER^Z
 EAA^PAEG^Y^5861127^Eagle Airport^Eagle Airport^EAA,PAEG^64.77^-141.2^S^AIRP^US^^AK^240^^^0^272^290^America/Anchorage^-9.0^-8.0^-9.0^2006-10-29^Y^Y^EAA^AK^NAMER^CA
 EAB^OYAB^Y^7730758^Abbse Airport^Abbse Airport^EAB,OYAB^15.3^43.97^S^AIRP^YE^^16^2307^^^0^0^3152^Asia/Aden^3.0^3.0^3.0^2011-03-17^Y^N^EAB^^MEAST^CA
 EAE^ZZZZ^Y^6621049^Airfield Emae^Airfield Emae^EAE^-17.07^168.4^S^AIRF^VU^^14^^^^0^0^7^Pacific/Efate^11.0^11.0^11.0^2011-04-10^Y^Y^EAE^^AUSTL^CA
@@ -4893,7 +4889,6 @@ LZO^ZULZ^Y^7731254^Luzhou Airport^Luzhou Airport^LZO,ZULZ^28.88^105.4^S^AIRP^CN^
 LZR^YLZI^Y^6354938^Lizard Island Airport^Lizard Island Airport^LZR,Lizard Island,Lizard Island Airport,YLZI^-14.666667^145.45^S^AIRP^AU^^04^32500^^^0^21^21^Australia/Lindeman^10.0^10.0^10.0^2011-06-04^Y^N^LZR^QL^AUSTL^CA
 LZU^KLZU^Y^6298597^Lawrenceville, Gwinnett County-Briscoe Field Airport^Lawrenceville, Gwinnett County-Briscoe Field Airport^KLZU,LZU^33.9781^-83.9625^S^AIRF^US^^GA^^^^0^323^315^America/New_York^-5.0^-4.0^-5.0^2011-07-20^Y^N^LZU^GA^NAMER^CA
 LZY^ZUNZ^Y^7730303^Nyingchi Airport^Nyingchi Airport^LZY,ZUNZ^29.62^94.39^S^AIRP^CN^^14^^^^0^0^2950^Asia/Urumqi^8.0^8.0^8.0^2011-03-16^Y^Y^LZY^^ASIA^CA
-M18^ZZZZ^Y^4115195^Hope Municipal Airport^Hope Municipal Airport^M18^33.7226300^-93.6518500^S^AIRP^US^^AR^057^^^0^108^111^America/Chicago^-6.0^-5.0^-6.0^2011-12-11^Y^Z^M18^AR^NAMER^A
 MAA^VOMM^Y^6301127^Chennai International Airport^Chennai International Airport^Chennai International Airport,MAA,Madras / Minambakkam,VOMM^12.994414^80.180517^S^AIRP^IN^^25^^^^0^15^11^Asia/Kolkata^5.5^5.5^5.5^2011-03-19^Y^Y^MAA^^ASIA^CA
 MAB^SBMA^Y^6300640^Maraba^Maraba^MAB,SBMA^-5.368589^-49.138025^S^AIRP^BR^^^^^^0^108^115^America/Araguaina^-3.0^-3.0^-3.0^2007-01-03^Y^Y^MAB^PA^SAMER^CA
 MAC^KMAC^Y^4200100^Macon Downtown Airport^Macon Downtown Airport^KMAC,MAC^32.82^-83.56^S^AIRP^US^^GA^021^^^0^136^137^America/New_York^-5.0^-4.0^-5.0^2011-03-10^Y^N^MCN^GA^NAMER^A
