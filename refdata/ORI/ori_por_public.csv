@@ -1335,7 +1335,6 @@ CGZ^KCGZ^Y^5288645^Casa Grande Municipal Airport^Casa Grande Municipal Airport^C
 CHA^KCHA^Y^4638375^Lovell Field^Lovell Field^CHA,KCHA^35.035278^-85.203808^S^AIRP^US^^TN^065^^^0^204^202^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^Y^CHA^TN^NAMER^CA
 CHB^OPCL^Y^6641617^Chilās^Chilas^CHB,Chilas,Chilās,OPCL^35.42^74.08^S^AIRF^PK^^07^^^^0^1151^1145^Asia/Karachi^5.0^5.0^5.0^2012-01-20^Y^N^CHB^^ASIA^CA
 CHC^NZCH^Y^6220393^Christchurch International Airport^Christchurch International Airport^CHC,NZCH^-43.489358^172.532225^S^AIRP^NZ^^E9^060^^^0^37^33^Pacific/Auckland^13.0^12.0^12.0^2011-08-01^Y^Y^CHC^^AUSTL^CA
-CHD^KCHD^Y^5289292^Chandler Municipal Airport^Chandler Municipal Airport^CHD,KCHD^33.32^-111.9^S^AIRP^US^^AZ^013^^^0^377^371^America/Phoenix^-7.0^-7.0^-7.0^2006-10-29^Y^Z^CHD^AZ^NAMER^A
 CHE^EECL^Y^8181666^Tallinn Linnahall Heliport^Tallinn Linnahall Heliport^CHE,EECL,Tallinn City Hall Heliport^59.44789^24.75333^S^AIRH^EE^^01^0784^^^0^5^6^Europe/Tallinn^2.0^3.0^2.0^2012-02-26^Y^Y^TLL^^EEURO^H
 CHF^RKPE^Y^7730760^Jinhae Airport^Jinhae Airport^CHF,RKPE^35.13^128.7^S^AIRP^KR^^20^^^^0^0^4^Asia/Seoul^9.0^9.0^9.0^2011-03-17^Y^N^CHF^^ASIA^CA
 CHG^ZYCY^Y^7730306^Chaoyang Airport^Chaoyang Airport^CHG,ZYCY^41.6^120.4^S^AIRP^CN^^19^^^^0^0^169^Asia/Shanghai^8.0^8.0^8.0^2011-03-16^Y^Y^CHG^^ASIA^CA
@@ -1344,7 +1343,7 @@ CHI^ZZZZ^Y^4887398^Chicago^Chicago^CHI,Chicago,Chicagu,Chikago,Cikaga,Cikago,Cik
 CHJ^FVCH^Y^6297105^Chipinge^Chipinge^CHJ,FVCH^-20.2^32.63^S^AIRP^ZW^^^^^^0^1131^1077^Africa/Harare^2.0^2.0^2.0^2006-10-29^Y^N^CHJ^^AFRIC^CA
 CHK^KCHK^Y^4533031^Chickasha Municipal Airport^Chickasha Municipal Airport^CHK,KCHK^35.03^-97.97^S^AIRP^US^^OK^051^^^0^347^348^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^N^CHK^OK^NAMER^CA
 CHL^KLLJ^Y^5588525^Challis Airport^Challis Airport^CHL,KLLJ,LLJ^44.5^-114.2^S^AIRP^US^^ID^037^^^0^1536^1535^America/Boise^-7.0^-6.0^-7.0^2006-10-29^Y^N^CHL^ID^NAMER^CA
-CHM^SPEO^Y^3698306^Chimbote^Chimbote^CHM,SPEO^-9.149614^-78.52385^S^AIRP^PE^^02^^^^0^0^20^America/Lima^-5.0^-5.0^-5.0^2011-03-17^Y^N^CHM^^SAMER^CA
+CHM^SPEO^Y^3698306^Chimbote^Chimbote^CHM,SPEO^-9.15032^-78.52366^S^AIRP^PE^^02^^^^0^0^20^America/Lima^-5.0^-5.0^-5.0^2011-03-17^Y^N^CHM^^SAMER^CA
 CHN^RKJU^Y^7668417^Jeon Ju Airport^Jeon Ju Airport^CHN,RKJU^36.7166^127.499119^S^AIRP^KR^^03^^^^0^0^32^Asia/Seoul^9.0^9.0^9.0^2011-02-17^Y^N^CHN^^ASIA^CA
 CHO^KCHO^Y^4752044^Charlottesville-Albemarle Airport^Charlottesville-Albemarle Airport^CHO,KCHO^38.138639^-78.452861^S^AIRP^US^^VA^003^^^0^192^189^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^Y^CHO^VA^NAMER^CA
 CHP^ZZZZ^Y^5859418^Circle Hot Springs Airport^Circle Hot Springs Airport^CHP^65.47^-144.6^S^AIRP^US^^AK^290^^^0^262^268^America/Anchorage^-9.0^-8.0^-9.0^2011-12-12^Y^N^CHP^AK^NAMER^CA
@@ -1392,7 +1391,6 @@ CJJ^RKTU^Y^6300454^Chongju Ab^Chongju Ab^CJJ,RKTU^36.72^127.5^S^AIRP^KR^^^^^^0^5
 CJL^ZZZZ^Y^1451756^Chitral Airfield^Chitral Airfield^CJL,Chitral Airfield^35.886592^71.800578^S^AIRF^PK^^03^^^^0^0^1485^Asia/Karachi^5.0^5.0^5.0^2012-01-19^Y^Y^CJL^^ASIA^CA
 CJM^VTSE^Y^7730222^Chumphon Airport^Chumphon Airport^CJM,VTSE^10.7112^99.361706^S^AIRP^TH^^58^^^^0^0^8^Asia/Bangkok^7.0^7.0^7.0^2011-03-16^Y^N^CJM^^SEASI^CA
 CJN^ZZZZ^N^0^EL CAJON/CA/US^EL CAJON/CA/US^^32.8^-117^S^AIRP^US^^^^^^^^^US110^^^^-1^Y^N^CJN^CA^NAMER^CA
-CJR^KCJR^Y^4754973^Culpeper County Airport^Culpeper County Airport^CJR,KCJR^38.5265100^-77.8586100^S^AIRP^US^^VA^047^^^0^92^91^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^Z^CJR^VA^NAMER^A
 CJS^MMCS^Y^7669055^Abraham González International Airport^Abraham Gonzalez International Airport^CJS,MMCS^31.636133^-106.428667^S^AIRP^MX^^06^^^^0^0^1170^America/Ojinaga^-7.0^-6.0^-7.0^2011-02-20^Y^Y^CJS^^NAMER^CA
 CJT^MMCO^Y^7730663^Comitan Airport^Comitan Airport^CJT,MMCO^16.17^-92.05^S^AIRP^MX^^05^^^^0^0^1570^America/Mexico_City^-6.0^-5.0^-6.0^2011-03-17^Y^N^CJT^^NAMER^CA
 CJU^RKPC^Y^6194228^Cheju-gukchegonghang^Cheju-gukchegonghang^CJU,Jeju Gukje Gonghang,Jeju International Airport,RKPC,jejugugjegonghang,ji zhou guo ji kong gang,濟州國際空港,제주국제공항^33.511306^126.493028^S^AIRP^KR^^01^^^^0^35^23^Asia/Seoul^9.0^9.0^9.0^2011-07-15^Y^Y^CJU^^ASIA^CA
@@ -1401,7 +1399,6 @@ CKB^KCKB^Y^4798621^North Central West Virginia Airport^North Central West Virgin
 CKC^UKKE^Y^6300959^Cherkasy^Cherkasy^CKC,UKKE^49.42^32^S^AIRP^UA^^^^^^0^114^107^Europe/Kiev^2.0^3.0^2.0^2006-10-28^Y^N^CKC^^EURAS^CA
 CKD^ZZZZ^Y^5860123^Crooked Creek Airport^Crooked Creek Airport^CKD^61.87^-158.1^S^AIRP^US^^AK^050^^^0^55^42^America/Anchorage^-9.0^-8.0^-9.0^2011-12-12^Y^Y^CKD^AK^NAMER^CA
 CKE^ZZZZ^N^0^CLEAR LAKE/CA/US^CLEAR LAKE/CA/US^^39.03^-122.8^S^AIRP^US^^^^^^^^^US110^^^^-1^Y^N^CKE^CA^NAMER^CA
-CKF^KCKF^Y^4190070^Crisp County-Cordele Airport^Crisp County-Cordele Airport^CKF,KCKF^31.9854500^-83.7739900^S^AIRP^US^^GA^081^^^0^95^95^America/New_York^-5.0^-4.0^-5.0^2011-03-10^Y^Z^CKF^GA^NAMER^A
 CKG^ZUCK^Y^6301390^Chongqing^Chongqing^CKG,ZUCK^29.719217^106.641678^S^AIRP^CN^^^^^^0^416^416^Asia/Chongqing^8.0^8.0^8.0^2007-01-03^Y^Y^CKG^^ASIA^CA
 CKH^UESO^Y^7668497^Chokurdakh Airport^Chokurdakh Airport^CKH,UESO^70.63^147.9^S^AIRP^RU^^63^^^^0^0^32^Asia/Magadan^12.0^12.0^12.0^2011-02-17^Y^Y^CKH^^EURAS^CA
 CKI^YCKI^Y^2078941^Croker Island^Croker Island^CKI,Croker Island,YCKI^-11.08^132.5^S^AIRF^AU^^03^74660^^^0^16^13^Australia/Darwin^9.5^9.5^9.5^2012-01-19^Y^N^CKI^NT^AUSTL^CA
@@ -1410,7 +1407,6 @@ CKL^UUMU^Y^8030055^Chkalovsky Airport^Chkalovsky Airport^CKL,UUMU^66.25^33.75^S^
 CKM^KCKM^Y^4426751^Fletcher Field Airport^Fletcher Field Airport^CKM,KCKM^34.2^-90.57^S^AIRF^US^^MS^027^^^0^51^52^America/Chicago^-6.0^-5.0^-6.0^2012-04-09^Y^N^CKM^MS^NAMER^CA
 CKN^KCKN^Y^5023468^Crookston Municipal Airport-Kirkwood Field^Crookston Municipal Airport-Kirkwood Field^CKN,KCKN^47.85^-96.62^S^AIRP^US^^MN^119^^^0^273^271^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^N^CKN^MN^NAMER^CA
 CKO^SSCP^Y^7730921^Cornélio Procópio Airport^Cornelio Procopio Airport^CKO,SSCP^-23.15^-50.6^S^AIRP^BR^^18^^^^0^0^556^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-17^Y^N^CKO^PR^SAMER^CA
-CKP^KCKP^Y^4851257^Cherokee Municipal Airport^Cherokee Municipal Airport^CKP,KCKP^42.7308200^-95.5555600^S^AIRP^US^^IA^035^^^0^370^367^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^Z^CKP^IA^NAMER^A
 CKR^ZZZZ^N^0^CRANE ISLAND/WA/US^CRANE ISLAND/WA/US^^48.6^-123^S^AIRP^US^^^^^^^^^US110^^^^-1^Y^N^CKR^WA^NAMER^CA
 CKS^SBCJ^Y^6300612^Carajas / Maraba^Carajas / Maraba^CKS,SBCJ^-6.117806^-50.003472^S^AIRP^BR^^^^^^0^621^634^America/Araguaina^-3.0^-3.0^-3.0^2011-07-26^Y^Y^CKS^PA^SAMER^CA
 CKT^OIMC^Y^6300063^Sarakhs^Sarakhs^CKT,OIMC^36.501178^61.064903^S^AIRP^IR^^^^^^0^288^288^Asia/Tehran^3.5^4.5^3.5^2006-10-28^Y^N^CKT^^MEAST^CA
