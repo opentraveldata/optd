@@ -1,6 +1,5 @@
 --
 -- ORI-generated list of airport popularity data
--- See http://mediawiki.orinet.nce.amadeus.net/index.php/Airport_ORI
 --
 
 LOAD DATA LOCAL INFILE 'ref_airport_popularity.csv'

@@ -59,3 +59,10 @@ ALTER TABLE por ADD INDEX (`moddate`);
 
 ALTER TABLE airport_popularity ADD PRIMARY KEY (`airport_code`);
 
+--
+-- Index structure for table airport importance
+--
+-- iata_code, page_rank
+
+ALTER TABLE airport_pageranked ADD PRIMARY KEY (`iata_code`);
+
