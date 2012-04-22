@@ -99,17 +99,11 @@ sort -t'^' -k 1,1 ${ORI_POR_TMP} > ${SORTED_ORI_POR}
 \rm -f ${ORI_POR_TMP}
 
 ##
-# Only three columns/fields are kept in that version of the file:
-# the airport/city IATA code and the geographical coordinates (latitude,
-# longitude).
-cut -d'^' -f 1,8,9 ${SORTED_ORI_POR} > ${SORTED_CUT_ORI_POR}
-
-##
 # Preparation step
 echo
 echo "Preparation step"
 echo "----------------"
-echo "The '${SORTED_ORI_POR}' and '${SORTED_CUT_ORI_POR}' files have been derived from '${ORI_POR}'."
+echo "The '${SORTED_ORI_POR}' file has been derived from '${ORI_POR}'."
 echo
 
 ##
