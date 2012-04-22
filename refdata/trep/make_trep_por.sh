@@ -122,4 +122,12 @@ echo "See the '${TREP_DETAILS_FILE}' and '${TREP_NAMES_FILE}' files:"
 echo "wc -l ${TREP_DETAILS_FILE} ${TREP_NAMES_FILE}"
 echo "head -5 ${TREP_DETAILS_FILE} ${TREP_NAMES_FILE}"
 echo
+echo "To clean the files, just do:"
+if [ "${TMP_DIR}" = "./" ]
+then
+	echo "\rm -f ${TREP_DETAILS_FILE} ${TREP_NAMES_FILE}"
+else
+	echo "\rm -rf ${TMP_DIR}"
+fi
+echo
 
