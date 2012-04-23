@@ -47,7 +47,7 @@ echo "Type $userinput_adminname's password followed by [Enter]"
 read -s userinput_pw
 
 #
-SQL_STATEMENT="drop database ${DB_NAME}; create database if not exists ${DB_NAME} default character set utf8 collate utf8_unicode_ci"
+SQL_STATEMENT="drop database if exists ${DB_NAME}; create database ${DB_NAME} default character set utf8 collate utf8_unicode_ci"
 
 #
 echo "The database '${DB_NAME}' will be created:"

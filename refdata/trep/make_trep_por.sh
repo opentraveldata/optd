@@ -35,7 +35,6 @@ fi
 # Input
 ORI_POR_FILENAME=ori_por_public.csv
 SORTED_ORI_POR=sorted_${ORI_POR_FILENAME}
-SORTED_CUT_ORI_POR=cut_sorted_${ORI_POR_FILENAME}
 
 ##
 # Targets
@@ -68,14 +67,12 @@ then
 	ORI_POR="$1"
 	ORI_POR_FILENAME=`basename ${ORI_POR}`
 	SORTED_ORI_POR=sorted_${ORI_POR_FILENAME}
-	SORTED_CUT_ORI_POR=cut_sorted_${ORI_POR_FILENAME}
 	if [ "${ORI_POR}" = "${ORI_POR_FILENAME}" ]
 	then
 		ORI_POR="${TMP_DIR}${ORI_POR}"
 	fi
 fi
 SORTED_ORI_POR=${TMP_DIR}${SORTED_ORI_POR}
-SORTED_CUT_ORI_POR=${TMP_DIR}${SORTED_CUT_ORI_POR}
 
 if [ ! -f "${ORI_POR}" ]
 then
@@ -99,27 +96,21 @@ sort -t'^' -k 1,1 ${ORI_POR_TMP} > ${SORTED_ORI_POR}
 \rm -f ${ORI_POR_TMP}
 
 ##
-# Only three columns/fields are kept in that version of the file:
-# the airport/city IATA code and the geographical coordinates (latitude,
-# longitude).
-cut -d'^' -f 1,8,9 ${SORTED_ORI_POR} > ${SORTED_CUT_ORI_POR}
-
-##
 # Preparation step
 echo
 echo "Preparation step"
 echo "----------------"
-echo "The '${SORTED_ORI_POR}' and '${SORTED_CUT_ORI_POR}' files have been derived from '${ORI_POR}'."
+echo "The '${SORTED_ORI_POR}' file has been derived from '${ORI_POR}'."
 echo
 
 ##
 # Generate the file with the names related to the ORI places (POR)
-UPDATER_SCRIPT_DETAILS=${EXEC_PATH}update_por_details.awk
+UPDATER_SCRIPT_DETAILS=${EXEC_PATH}make_trep_por_details.awk
 awk -F'^' -f ${UPDATER_SCRIPT_DETAILS} ${SORTED_ORI_POR} > ${TREP_DETAILS_FILE}
 
 ##
 # Generate the file with the names related to the ORI places (POR)
-UPDATER_SCRIPT_NAMES=${EXEC_PATH}update_por_alternate_names.awk
+UPDATER_SCRIPT_NAMES=${EXEC_PATH}make_trep_por_alternate_names.awk
 awk -F'^' -f ${UPDATER_SCRIPT_NAMES} ${SORTED_ORI_POR} > ${TREP_NAMES_FILE}
 
 ##
@@ -128,6 +119,15 @@ echo
 echo "Reporting"
 echo "---------"
 echo "See the '${TREP_DETAILS_FILE}' and '${TREP_NAMES_FILE}' files:"
-echo "less ${TREP_DETAILS_FILE} ${TREP_NAMES_FILE}"
+echo "wc -l ${TREP_DETAILS_FILE} ${TREP_NAMES_FILE}"
+echo "head -5 ${TREP_DETAILS_FILE} ${TREP_NAMES_FILE}"
+echo
+echo "To clean the files, just do:"
+if [ "${TMP_DIR}" = "./" ]
+then
+	echo "\rm -f ${TREP_DETAILS_FILE} ${TREP_NAMES_FILE}"
+else
+	echo "\rm -rf ${TMP_DIR}"
+fi
 echo
 

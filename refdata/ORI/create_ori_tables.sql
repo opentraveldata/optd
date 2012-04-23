@@ -134,9 +134,16 @@ create table por (
 
 --
 -- Table structure for the non-IATA airports
--- That table collects all the airports that have been reference as IATA
+-- That table collects all the airports that have been referenced as IATA
 -- airports once, but which are no longer referenced by IATA. A comment
 -- may specify the history related to that airport.
+--
+-- Note: That table/data file will directly be maintained within Geonames,
+-- thanks to the 'historical' flag of the Geonames alternate_name table.
+-- (As of April 2012, Marc Wick intended to add that flag within the Geonames
+-- data dumps. It is not the case yet)
+-- For now, the ori_por_non_iata.csv data file tries to keep such history.
+-- That file is not very consistent, though.
 --
 drop table if exists por_non_iata;
 create table por_non_iata (
@@ -196,12 +203,12 @@ create table airport_popularity (
 
 
 --
--- Table structure for tableairports_pageranked
+-- Structure for the table storing airport importance (PageRank-ed thanks to
+-- shcedule)
 --
 
-drop table if exists airports_pageranked;
-create table airports_pageranked (
- localid int(6) NOT NULL,
+drop table if exists airport_pageranked;
+create table airport_pageranked (
  iata_code char(3) NOT NULL,
  page_rank decimal(15,12) NOT NULL
 ) engine=InnoDB default charset=utf8;

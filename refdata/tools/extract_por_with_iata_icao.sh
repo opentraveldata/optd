@@ -174,8 +174,24 @@ grep "^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)" ${DUMP_FILE_IATA_TVL} > ${DU
 
 # 4.2. Remove the travel-related POR entries having no ICAO code.
 sed -i -e "s/^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)//g" ${DUMP_FILE_IATA_TVL}
+sed -i -e "/^$/d" ${DUMP_FILE_IATA_TVL}
 
-# 4.3. Spot the (potential) remaining entries having duplicated IATA codes.
+# 4.3. Aggregate the language (e.g., 'en') alternate names on a single line.
+#      The alternate names of the same POR, specified as having the same IATA
+#      and ICAO codes, as well as the same Geonames ID.
+ALT_NAME_AGGREGATOR=${EXEC_PATH}alt_name_aggregator.awk
+# 4.3.1. For the travel-related POR
+AGG_DUMP_FILE_TMP=${DUMP_FILE_IATA_TVL}.tmp.agg
+awk -F'^' -f ${ALT_NAME_AGGREGATOR} ${DUMP_FILE_IATA_TVL} > ${AGG_DUMP_FILE_TMP}
+\cp -f ${AGG_DUMP_FILE_TMP} ${DUMP_FILE_IATA_TVL}
+# 4.3.2. For the cities
+awk -F'^' -f ${ALT_NAME_AGGREGATOR} ${DUMP_FILE_IATA_CTY} > ${AGG_DUMP_FILE_TMP}
+\cp -f ${AGG_DUMP_FILE_TMP} ${DUMP_FILE_IATA_CTY}
+# 4.3.3. For the travel-related POR having no ICAO code
+awk -F'^' -f ${ALT_NAME_AGGREGATOR} ${DUMP_FILE_NO_ICAO} > ${AGG_DUMP_FILE_TMP}
+\cp -f ${AGG_DUMP_FILE_TMP} ${DUMP_FILE_NO_ICAO}
+
+# 4.4. Spot the (potential) remaining entries having duplicated IATA codes.
 #      Here, only the airport entries having duplicated IATA codes are spotted.
 #      That case may typically appear when someone, in Geonames, has mistakenly
 #      set the IATA code (say ACQ; that airport is Waseca Municpal Airport and
@@ -187,14 +203,14 @@ sed -i -e "s/^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)//g" ${DUMP_FILE_IATA_T
 #      compared with the de-duplicated file: the differences are the duplicated
 #      entries.
 #
-# 4.3.1. Create the file with no duplicated IATA code.
+# 4.4.1. Create the file with no duplicated IATA code.
 DUMP_UNIQ_FILE=${DUMP_FILE_IATA_TVL}.tmp.uniq
 DUMP_FILE_TMP=${DUMP_FILE_IATA_TVL}.tmp
-sort -t '^' -k1,1 -k2,2 ${DUMP_FILE_IATA_TVL} > ${DUMP_FILE_TMP}
+sort -t '^' -k1,2 ${DUMP_FILE_IATA_TVL} > ${DUMP_FILE_TMP}
 \mv -f ${DUMP_FILE_TMP} ${DUMP_FILE_IATA_TVL}
 uniq -w 3 ${DUMP_FILE_IATA_TVL} > ${DUMP_UNIQ_FILE}
 
-# 4.3.2. Create the file with only the duplicated IATA code entries, if any.
+# 4.4.2. Create the file with only the duplicated IATA code entries, if any.
 DUMP_FILE_DUP_CHECK=${DUMP_FILE_DUP}.tmp.check
 comm -23 ${DUMP_FILE_IATA_TVL} ${DUMP_UNIQ_FILE} > ${DUMP_FILE_DUP_CHECK}
 sed -i -e "/^$/d" ${DUMP_FILE_DUP_CHECK}
@@ -214,12 +230,12 @@ else
 	\rm -f ${DUMP_FILE_DUP_CHECK}
 fi
 
-# 4.4. Merge the data files for both POR types (travel-related and cities)
+# 4.5. Merge the data files for both POR types (travel-related and cities)
 cat ${DUMP_UNIQ_FILE} ${DUMP_FILE_IATA_CTY} > ${DUMP_FILE_IATA_ALL}
-sort -t'^' -k1,1 -k2,2 ${DUMP_FILE_IATA_ALL} > ${DUMP_FILE_TMP}
+sort -t'^' -k1,2 ${DUMP_FILE_IATA_ALL} > ${DUMP_FILE_TMP}
 \mv -f ${DUMP_FILE_TMP} ${DUMP_FILE_IATA_ALL}
 
-# 4.5. Re-add the header
+# 4.6. Re-add the header
 cat ${DUMP_FILE_TVL_HDR} ${DUMP_FILE_IATA_ALL} > ${DUMP_FILE_TMP}
 sed -e "/^$/d" ${DUMP_FILE_TMP} > ${DUMP_FILE_IATA_ALL}
 

@@ -10,14 +10,18 @@ BEGIN {
 	printf ("^population^elevation^gtopo30")
 	printf ("^timezone^gmt_offset^dst_offset^raw_offset^moddate")
 	printf ("^is_airport^is_commercial")
-	printf ("^city_code^state_code^region_code^location_type\n")
+	printf ("^city_code^state_code^region_code^location_type")
+	printf ("^alternate_name1^alternate_name2^alternate_name3^alternate_name4")
+	printf ("^alternate_name5^alternate_name6^alternate_name7^alternate_name8")
+	printf ("^alternate_name9^alternate_name10")
+	printf ("\n")
 	today_date = mktime ("YYYY-MM-DD")
 	unknown_idx = 1
 }
 
 # M A I N
 {
-	if (NF == 43) {
+	if (NF >= 43) {
 		####
 		## Both in Geonames and in RFD
 		####
@@ -51,6 +55,13 @@ BEGIN {
 
 		# ^ Location type
 		printf ("^" $43)
+
+		# Print the extra alternate names
+		if (NF >= 44) {
+			for (fld = 44; fld <= NF; fld++) {
+				printf ("^%s", $fld)
+			}
+		}
 
 		# End of line
 		printf ("\n")
@@ -153,7 +164,7 @@ BEGIN {
 		# (14) ITC1 ^ (15) BR015 ^ (16) -22.8667 ^ (17) -43.2667 ^ (18)  ^
 		# (19) N ^ (20) CA
 
-	} else if (NF == 26) {
+	} else if (NF >= 26 && NF < 43) {
 		####
 		## Not in RFD
 		####
@@ -245,6 +256,13 @@ BEGIN {
 			printf ("^C")
 		} else {
 			printf ("^Z")
+		}
+
+		# Print the extra alternate names
+		if (NF >= 27) {
+			for (fld = 27; fld <= NF; fld++) {
+				printf ("^%s", $fld)
+			}
 		}
 
 		# End of line

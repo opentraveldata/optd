@@ -147,11 +147,10 @@ midori http://maps.bing.com
 # 5.1. Generation of the OpenTrep-related POR data files
 # ------------------------------------------------------
 #
-./update_por_alternate_names.sh
+../trep/make_trep_por.sh
 # In a terminal with OpenTrep:
-export OPTD_TOOL_DIR=~/geo/optdgit/refdata/tools
 cd ${TREP_DIR}
-\cp -f ${OPTD_TOOL_DIR}/trep_place_details.csv ${OPTD_TOOL_DIR}/trep_place_names.csv db/data
+\cp -f /tmp/por/trep_place_details.csv /tmp/por/trep_place_names.csv db/data
 git add db/data/trep_place_details.csv db/data/trep_place_names.csv
 
 # As a reminder, the following then allows to run OpenTrep

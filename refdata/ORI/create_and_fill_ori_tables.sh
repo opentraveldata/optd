@@ -61,9 +61,15 @@ echo "Load data into the MySQL table for the POR (points of reference, i.e., air
 mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} < ${SQL_FILE}
 
 ##
-# Load the airport popularity
+# Load the airport importance (PageRank-ed thanks to schedule)
 SQL_FILE="fill_table_ori_airport_popularity.sql"
 echo "Load data into the MySQL table for the airport popularity:"
+mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} < ${SQL_FILE}
+
+##
+# Load the airport importance
+SQL_FILE="fill_table_ori_airport_pageranked.sql"
+echo "Load data into the MySQL table for the airport importance:"
 mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} < ${SQL_FILE}
 
 ##
@@ -72,7 +78,7 @@ SQL_FILE="create_ori_indexes.sql"
 echo "Creating the indexes for ORI-maintained data:"
 mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} < ${SQL_FILE}
 
-TABLES="por por_non_iata airport_popularity airports_pageranked"
+TABLES="por por_non_iata airport_popularity airport_pageranked"
 
 # Count rows
 for table_name in ${TABLES}
