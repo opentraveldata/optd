@@ -28,7 +28,16 @@ BEGIN {
 	if ($5 != $6) {
 		# alt_name = $5
 		alt_name = tolower ($5)
-		printf ("^" alt_name)
+		printf ("^%s", alt_name)
+	}
+
+	# When there are alternate names, print them
+	if (NF >= 32) {
+		#
+		for (fld = 32; fld <= NF; fld++) {
+			alt_name = tolower ($fld)
+			printf ("^%s", alt_name)
+		}
 	}
 
 	# End of line
