@@ -29,12 +29,12 @@ select iata_codes.alternateName as iata, icao_codes.alternateName as icao,
 	   g.admin1, g.admin2, g.admin3, g.admin4,
 	   g.population, g.elevation, g.gtopo30,
 	   g.timezone, tz.GMT_offset, tz.DST_offset, tz.raw_offset,
-	   g.moddate, g.alternatenames
+	   g.moddate, g.alternatenames, en_alt_names.alternateName as en_altname
 from time_zones as tz, geoname as g
 
 left join (
   select g1.geonameid, a1.isoLanguage, a1.alternateName
-  from geoname as g1 
+  from geoname as g1
   left join alternate_name as a1 on g1.geonameid = a1.geonameid
   where (g1.fcode = 'AIRB' or g1.fcode = 'AIRF' or g1.fcode = 'AIRH'
   		or g1.fcode = 'AIRP' or g1.fcode = 'AIRS' or g1.fcode = 'RSTN')
@@ -44,13 +44,23 @@ left join (
 
 left join (
   select g2.geonameid, a2.isoLanguage, a2.alternateName 
-  from geoname as g2 
+  from geoname as g2
   left join alternate_name as a2 on g2.geonameid = a2.geonameid
   where (g2.fcode = 'AIRB' or g2.fcode = 'AIRF' or g2.fcode = 'AIRH'
   		or g2.fcode = 'AIRP' or g2.fcode = 'AIRS' or g2.fcode = 'RSTN')
   		and a2.isoLanguage = 'icao'
   order by g2.geonameid
 ) as icao_codes on icao_codes.geonameid = g.geonameid
+
+left join (
+  select g3.geonameid, a3.isoLanguage, a3.alternateName
+  from geoname as g3
+  left join alternate_name as a3 on g3.geonameid = a3.geonameid
+  where (g3.fcode = 'AIRB' or g3.fcode = 'AIRF' or g3.fcode = 'AIRH'
+  		or g3.fcode = 'AIRP' or g3.fcode = 'AIRS' or g3.fcode = 'RSTN')
+  		and a3.isoLanguage = 'en'
+  order by g3.geonameid
+) as en_alt_names on en_alt_names.geonameid = g.geonameid
 
 where (g.fcode = 'AIRB' or g.fcode = 'AIRF' or g.fcode = 'AIRH'
 	  or g.fcode = 'AIRP' or g.fcode = 'AIRS' or g.fcode = 'RSTN')
