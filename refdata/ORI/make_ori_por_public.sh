@@ -22,7 +22,9 @@ ORI_ONLY_POR_NEW_FILE=${ORI_ONLY_POR_FILE}.new
 # Temporary
 ORI_POR_WITH_GEO=${ORI_POR_FILE}.withgeo
 ORI_POR_WITH_GEORFD=${ORI_POR_FILE}.withgeorfd
+ORI_POR_WITH_GEORFDALT=${ORI_POR_FILE}.withgeorfdalt
 GEONAME_SORTED_FILE=sorted_${GEONAME_FILE}
+GEONAME_CUT_SORTED_FILE=cut_sorted_${GEONAME_FILE}
 RFD_SORTED_FILE=sorted_${RFD_FILE}
 
 ##
@@ -48,14 +50,22 @@ then
 fi
 
 ##
+# Save the extra alternate names (from field #25 onwards)
+GEONAME_FILE_TMP=${GEONAME_FILE}.alt
+cut -d'^' -f1,25- ${GEONAME_SORTED_FILE} > ${GEONAME_FILE_TMP}
+# Remove the extra alternate names (see above)
+cut -d'^' -f1-24 ${GEONAME_SORTED_FILE} > ${GEONAME_CUT_SORTED_FILE}
+
+##
 # Aggregate all the data sources into a single file
-join -t'^' -a 1 ${ORI_POR_FILE} ${GEONAME_SORTED_FILE} > ${ORI_POR_WITH_GEO}
+join -t'^' -a 1 ${ORI_POR_FILE} ${GEONAME_CUT_SORTED_FILE} > ${ORI_POR_WITH_GEO}
 join -t'^' -a 1 ${ORI_POR_WITH_GEO} ${RFD_SORTED_FILE} > ${ORI_POR_WITH_GEORFD}
+join -t'^' -a 1 ${ORI_POR_WITH_GEORFD} ${GEONAME_FILE_TMP} > ${ORI_POR_WITH_GEORFDALT}
 
 ##
 # Suppress the redundancies. See ${REDUCER} for more details and samples.
 REDUCER=make_ori_por_public.awk
-awk -F'^' -f ${REDUCER} ${ORI_POR_WITH_GEORFD} > ${ORI_POR_PUBLIC_FILE}
+awk -F'^' -f ${REDUCER} ${ORI_POR_WITH_GEORFDALT} > ${ORI_POR_PUBLIC_FILE}
 
 ##
 # Reporting
@@ -64,7 +74,7 @@ echo
 echo "Reporting Step"
 echo "--------------"
 echo
-echo "wc -l ${ORI_POR_FILE} ${ORI_POR_WITH_GEO} ${ORI_POR_WITH_GEORFD}"
+echo "wc -l ${ORI_POR_FILE} ${ORI_POR_WITH_GEO} ${ORI_POR_WITH_GEORFD} ${ORI_POR_WITH_GEORFDALT}"
 if [ -f ${ORI_ONLY_POR_NEW_FILE} ]
 then
 	NB_LINES_ORI_ONLY=`wc -l ${ORI_ONLY_POR_NEW_FILE}`
