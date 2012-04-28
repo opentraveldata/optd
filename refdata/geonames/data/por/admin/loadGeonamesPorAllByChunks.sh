@@ -55,7 +55,7 @@ SQL_QUERY="set foreign_key_checks=0; set sql_log_bin=0; set unique_checks=0; LOA
 # With another Shell:
 while [ -e ${MY_FIFO} ]
 do
-  time mysql -u ${DB_USER} --password=${DB_PASSWD} ${DB_NAME} -e "${SQL_QUERY};"
+  time mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} -e "${SQL_QUERY};"
 	sleep 1;
 done
 
