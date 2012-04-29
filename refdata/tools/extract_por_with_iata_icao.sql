@@ -59,7 +59,7 @@ left join (
   where (g3.fcode = 'AIRB' or g3.fcode = 'AIRF' or g3.fcode = 'AIRH'
   		or g3.fcode = 'AIRP' or g3.fcode = 'AIRS' or g3.fcode = 'RSTN')
   		and a3.isoLanguage = 'en'
-  order by g3.geonameid
+  order by g3.geonameid, a3.alternateName
 ) as en_alt_names on en_alt_names.geonameid = g.geonameid
 
 where (g.fcode = 'AIRB' or g.fcode = 'AIRF' or g.fcode = 'AIRH'
