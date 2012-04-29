@@ -5,9 +5,18 @@
 #
 
 displayGeonamesDetails() {
-	echo
-	echo "The data dump from Geonames can be obtained from this project (OpenTravelData:"
-	echo "http://github.com/opentraveldata/optd). For instance:"
+	if [ -z "${OPTDDIR}" ]
+	then
+		export OPTDDIR=~/dev/geo/optdgit/refdata
+	fi
+	if [ -z "${MYCURDIR}" ]
+	then
+		export MYCURDIR=`pwd`
+	fi
+	echo "The data dump from Geonames can be obtained from the OpenTravelData project"
+	echo "(http://github.com/opentraveldata/optd). For instance:"
+	echo "MYCURDIR=`pwd`"
+	echo "OPTDDIR=${OPTDDIR}"
 	echo "mkdir -p ~/dev/geo"
 	echo "cd ~/dev/geo"
 	echo "git clone git://github.com/opentraveldata/optd.git optdgit"
@@ -20,15 +29,19 @@ displayGeonamesDetails() {
 	echo "./loadGeonamesPorAllByChunks.sh # follow the instructions"
 	echo "./loadGeonamesPorAltByChunks.sh # follow the instructions"
 	echo "./create_geo_index.sh           # it may take several minutes"
-	echo "cd ../../../../tools            # it should be ~/dev/geo/optdgit/refdata/tools"
-	echo "./extract_por_with_iata_icao.sh # it may take several minutes"
-	echo "It produces a por_all_iata_YYYYMMDD.csv file,"
-	echo "which has to be copied as ${TMP_DIR}dump_from_geonames.csv:"
 	if [ "${TMP_DIR}" = "/tmp/por/" ]
 	then
 		echo "mkdir -p ${TMP_DIR}"
 	fi
-	echo "~/dev/geo/optdgit/refdata/tools/preprepare_geonames_dump_file.sh YYYYMMDD"
+	echo "cd ${MYCURDIR}"
+	echo "${OPTDDIR}/tools/extract_por_with_iata_icao.sh # it may take several minutes"
+	echo "It produces both a por_all_iata_YYYYMMDD.csv and a por_all_noicao_YYYYMMDD.csv files,"
+	echo "which have to be aggregated into the dump_from_geonames.csv file."
+	echo "${OPTDDIR}/tools/preprepare_geonames_dump_file.sh"
+	echo "\cp -f ${OPTDDIR}/ORI/best_coordinates_known_so_far.csv ${TMP_DIR}"
+	echo "\cp -f ${OPTDDIR}/ORI/ref_airport_popularity.csv ${TMP_DIR}"
+	echo "\cp -f ${OPTDDIR}/ORI/ori_por_public.csv ${TMP_DIR}ori_airports.csv"
+	echo "${OPTDDIR}/tools/update_airports_csv_after_getting_geonames_iata_dump.sh"
 	echo "ls -l ${TMP_DIR}"
 	echo
 }
@@ -124,7 +137,7 @@ sed -i -e "s/^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)/\1\^ZZZZ\^\2/g" ${DUMP
 ##
 # 3.2. Sort the Geonames dump file according to the IATA and ICAO codes
 DUMP_FILE_TMP=${DUMP_FILE}.tmp
-sort -t'^' -k1,1 -k2,2 ${DUMP_FILE} > ${DUMP_FILE_TMP}
+sort -t'^' -k1,1 -k2,2 -k11,11 ${DUMP_FILE} > ${DUMP_FILE_TMP}
 \mv -f ${DUMP_FILE_TMP} ${DUMP_FILE}
 
 ##

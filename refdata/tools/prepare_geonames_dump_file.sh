@@ -138,7 +138,7 @@ sed -i -e "/^$/d" ${DUMP_FROM_GEONAMES_TMP}
 ##
 # The geonames dump file is sorted according to the code (as is the file of
 # best coordinates), just to be sure.
-sort -t'^' -k 1,1 ${DUMP_FROM_GEONAMES_TMP} > ${SORTED_DUMP_FROM_GEONAMES}
+sort -t'^' -k1,1 -k11,11 ${DUMP_FROM_GEONAMES_TMP} > ${SORTED_DUMP_FROM_GEONAMES}
 \rm -f ${DUMP_FROM_GEONAMES_TMP}
 
 ##
