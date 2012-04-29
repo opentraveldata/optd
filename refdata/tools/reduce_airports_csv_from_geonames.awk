@@ -16,7 +16,7 @@ BEGIN {
 
 ## M A I N
 {
-	if (NF == 27) {
+	if (NF >= 27) {
 		#
 		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
 		printf ($1 "^" $5 "^Y^" $6 "^" $7 "^" $8)
@@ -72,6 +72,13 @@ BEGIN {
 			printf ("^Z")
 		}
 
+		# Print the extra alternate names
+		if (NF >= 28) {
+			for (fld = 28; fld <= NF; fld++) {
+				printf ("^%s", $fld)
+			}
+		}
+
 		#
 		printf ("\n")
 
@@ -79,15 +86,17 @@ BEGIN {
 		# From best known coordinates ($1 - $3)
 		# (1) SQX ^ (2) -26.7816 ^ (3) -53.5035 ^
 		#
-		# From Geonames ($4 - $27)
+		# From Geonames ($4 - $27+)
 		# (4) SQX ^ (5) SSOE ^ (6) 7731508 ^ (7) São Miguel do Oeste Airport ^
 		# (8) Sao Miguel do Oeste Airport ^ (9) -26.7816 ^ (10) -53.5035 ^
 		# (11) BR ^ (12)  ^ (13) S ^ (14) AIRP ^
 		# (15) 26 ^ (16)  ^ (17)  ^ (18)  ^
 		# (19) 0 ^ (20) 0 ^ (21) 655 ^ (22) America/Sao_Paulo ^
 		# (23) -2.0 ^ (24) -3.0 ^ (25) -3.0 ^ (26) 2011-03-18 ^ (27) SQX,SSOE
+		# [optional] ^ (28+) Alternate name N
 
 	} else {
 		printf ("!!!! Error for row #" FNR ", having " NF " fields: " $0 "\n") > "/dev/stderr"
 	}
 }
+
