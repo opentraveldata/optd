@@ -58,10 +58,9 @@ DROP TABLE IF EXISTS `airports_pageranked`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 CREATE TABLE `airports_pageranked` (
-  `id` int(6) NOT NULL,
   `code` char(3) NOT NULL,
   `rank` decimal(15,12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 SET character_set_client = @saved_cs_client;
 
 

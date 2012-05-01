@@ -38,11 +38,12 @@ set foreign_key_checks=0;
 -- isPreferredName, isShortName);
 -- commit;
 
-LOAD DATA LOCAL INFILE '../../por/data/airports_pageranked_2010_06.txt'
+LOAD DATA LOCAL INFILE '../../../../ORI/ref_airport_pageranked.csv'
 INTO TABLE airports_pageranked
-	 FIELDS TERMINATED BY '\ ' OPTIONALLY ENCLOSED BY '"' 
-	 IGNORE 1 LINES (id, code, rank);
+	FIELDS TERMINATED BY '\ ' OPTIONALLY ENCLOSED BY '"' 
+	(code, rank);
 commit;
+-- IGNORE 1 LINES
  
 --
 -- Administrative Subdivision #1
