@@ -40,9 +40,7 @@ BEGIN {
 		printf ("^" $26)
 
 		# ^ Is airport ^ Is commercial
-		if ($14 == "AIRP") {
-			printf ("^Y^Z")
-		} else if ($14 == "AIRH") {
+		if ($14 == "AIRP" || $14 == "AIRH" || $14 == "AIRF" || $14 == "AIRS") {
 			printf ("^Y^Z")
 		} else if ($14 == "AIRB") {
 			printf ("^Y^N")

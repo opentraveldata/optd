@@ -134,12 +134,20 @@ DUMP_FROM_GEONAMES_TMP=${DUMP_FROM_GEONAMES}.tmp
 sed -e "s/^iata\(.\+\)//g" ${DUMP_FROM_GEONAMES} > ${DUMP_FROM_GEONAMES_TMP}
 sed -i -e "/^$/d" ${DUMP_FROM_GEONAMES_TMP}
 
-
 ##
-# The geonames dump file is sorted according to the code (as is the file of
-# best coordinates), just to be sure.
-sort -t'^' -k1,1 -k11,11 ${DUMP_FROM_GEONAMES_TMP} > ${SORTED_DUMP_FROM_GEONAMES}
-\rm -f ${DUMP_FROM_GEONAMES_TMP}
+# Eliminate the city POR (points of reference) when those duplicate the
+# IATA code of the corresponding airport (e.g., SFO, LAX). Note that some
+# cities do not duplicate the IATA of their related airports (e.g., PAR, CHI,
+# LON).
+# a. Replace the 'NULL' fields by 'ZZZZZ', so as to place them at the end
+sed -i -e "s/^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)/\1\^ZZZZZ\^\2/g" ${DUMP_FROM_GEONAMES_TMP}
+# b. Sort the file by the (IATA, ICAO) code pair
+sort -t '^' -k1,1 -k2,2 -k11,11 ${DUMP_FROM_GEONAMES_TMP} > ${SORTED_DUMP_FROM_GEONAMES}
+# c. Remove the rows duplicating the IATA code
+uniq -w 3 ${SORTED_DUMP_FROM_GEONAMES} > ${DUMP_FROM_GEONAMES_TMP}
+\mv -f ${DUMP_FROM_GEONAMES_TMP} ${SORTED_DUMP_FROM_GEONAMES}
+# d. Replace back the (remaining) 'ZZZZZ' fields by 'NULL'
+sed -i -e "s/^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^ZZZZZ\^\(.\+\)/\1\^NULL\^\2/g" ${SORTED_DUMP_FROM_GEONAMES}
 
 ##
 # Only three columns/fields are kept in that version of the file:
