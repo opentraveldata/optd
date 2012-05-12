@@ -39,6 +39,7 @@ left join (
   where (g1.fcode = 'AIRB' or g1.fcode = 'AIRF' or g1.fcode = 'AIRH'
   		or g1.fcode = 'AIRP' or g1.fcode = 'AIRS' or g1.fcode = 'RSTN')
   		and a1.isoLanguage = 'iata'
+		and a1.isHistoric = 0
   order by g1.geonameid
 ) as iata_codes on iata_codes.geonameid = g.geonameid
 
@@ -49,6 +50,7 @@ left join (
   where (g2.fcode = 'AIRB' or g2.fcode = 'AIRF' or g2.fcode = 'AIRH'
   		or g2.fcode = 'AIRP' or g2.fcode = 'AIRS' or g2.fcode = 'RSTN')
   		and a2.isoLanguage = 'icao'
+		and a2.isHistoric = 0
   order by g2.geonameid
 ) as icao_codes on icao_codes.geonameid = g.geonameid
 
@@ -59,6 +61,7 @@ left join (
   where (g3.fcode = 'AIRB' or g3.fcode = 'AIRF' or g3.fcode = 'AIRH'
   		or g3.fcode = 'AIRP' or g3.fcode = 'AIRS' or g3.fcode = 'RSTN')
   		and a3.isoLanguage = 'en'
+		and a3.isHistoric = 0
   order by g3.geonameid, a3.alternateName
 ) as en_alt_names on en_alt_names.geonameid = g.geonameid
 

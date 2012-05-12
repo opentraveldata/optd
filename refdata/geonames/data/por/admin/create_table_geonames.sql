@@ -77,7 +77,9 @@ CREATE TABLE `alternate_name` (
   `isoLanguage` varchar(7) default NULL,
   `alternateName` varchar(200) default NULL,
   `isPreferredName` tinyint(1) default NULL,
-  `isShortName` tinyint(1) default NULL
+  `isShortName` tinyint(1) default NULL,
+  `isColloquial` tinyint(1) default NULL,
+  `isHistoric` tinyint(1) default NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
