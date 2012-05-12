@@ -112,7 +112,7 @@ time mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${D
 echo "... Done"
 echo
 # 0.2. Cities
-echo "Exporting populated place (city) data from the tables of Geonames into '${DUMP_FILE_IATA_TVL}'."
+echo "Exporting populated place (city) data from the tables of Geonames into '${DUMP_FILE_IATA_CTY}'."
 echo "That operation may take several minutes..."
 time mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} > ${DUMP_FILE_IATA_CTY} < ${SQL_CTY_FILE}
 echo "... Done"
