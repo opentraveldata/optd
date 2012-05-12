@@ -6839,7 +6839,7 @@ QEA^ZZZZ^Y^3165803^Teramo^Teramo^Interamnium,QEA,Teramo,Téramo,teramo,Тера�
 QEB^ZZZZ^N^0^MAEBASHI/JP:OFF-^MAEBASHI/JP:OFF-^^0^0^X^XXXX^JP^^^^^^^^^JP^^^^-1^N^N^QEB^^ASIA^O
 QEC^ZZZZ^N^0^EL MERJ/LY:EL MERJ^EL MERJ/LY:EL MERJ^^0^0^X^XXXX^LY^^^^^^^^^LY122^^^^-1^N^N^QEC^^AFRIC^O
 QED^ZZZZ^N^0^MEDEA/DZ:OFF-^MEDEA/DZ:OFF-^^0^0^X^XXXX^DZ^^^^^^^^^DZ^^^^-1^N^N^QED^^AFRIC^O
-QEE^ZZZZ^Y^6806225^Ebeye^Ebeye^QEE^0^0^P^PPL^MH^^150^^^^0^0^8^Pacific/Kwajalein^12.0^12.0^12.0^2010-07-08^N^N^QEE^^PACIF^O
+QEE^ZZZZ^Y^6806225^Ebeye^Ebeye^QEE^8.77889^167.73806^P^PPL^MH^^150^^^^0^0^8^Pacific/Kwajalein^12.0^12.0^12.0^2010-07-08^N^N^QEE^^PACIF^O
 QEF^EDFE^Y^3272939^Egelsbach^Egelsbach^EDFE,Egelsbach,Frankfurt Egelsbach Airport,QEF^49.32^8.433^S^AIRF^DE^^05^^^^0^0^112^Europe/Berlin^1.0^2.0^1.0^2012-01-19^Y^N^QEF^^EUROP^CA^Frankfurt Egelsbach Airport
 QEG^ZZZZ^N^0^RIBEIRA GRANDE/PT^RIBEIRA GRANDE/PT^^37.57^-25.53^S^AIRP^PT^^^^^^^^^PT158^^^^-1^Y^N^QEG^^EUROP^CA
 QEH^ZZZZ^Y^2498183^El Hadjar^El Hadjar^Duzerville,El Hadjar,QEH^0^0^P^PPL^DZ^^37^^^^46656^0^13^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QEH^^AFRIC^O
@@ -7347,7 +7347,7 @@ QYJ^ZZZZ^N^0^GERMAN RAILWAYS ZONE J/DE:OFF-^GERMAN RAILWAYS ZONE J/DE:OFF-^^49^8
 QYK^ZZZZ^Y^1842485^Goyang^Goyang^Gojang,Goyang,Kojan,Kojangas,Koyang,Koyang-ni,Koyo,Kōyō,QYK,gao yang shi,goyang,goyangsi,gwyang,Коян,קויאנג,گویانگ,高陽市,고양,고양시^-1.75^41.48^P^PPL^KR^^13^^^^1073069^0^19^Asia/Seoul^9.0^9.0^9.0^2010-08-17^Y^N^QYK^^ASIA^O
 QYL^ZZZZ^Y^2759887^Almelo^Almelo^Almelo,Almeloo,QYL,Алмело^52.35^6.667^P^PPL^NL^^15^0141^^^72725^0^15^Europe/Amsterdam^1.0^2.0^1.0^2010-01-29^Y^N^QYL^^EUROP^CR
 QYM^ZZZZ^Y^2759821^Amersfoort^Amersfoort^Amersfoort,Amersfort,Amersforto,QYM,Амерсфорт^52.15^5.383^P^PPL^NL^^09^0307^^^139914^0^8^Europe/Amsterdam^1.0^2.0^1.0^2010-01-29^Y^N^QYM^^EUROP^CR
-QYN^ZZZZ^Y^2172880^Byron Bay^Byron Bay^Byron Bay,QYN^0^0^P^PPL^AU^^02^11350^^^6764^0^1^Australia/Sydney^11.0^10.0^10.0^2012-02-28^N^N^QYN^NS^AUSTL^O
+QYN^ZZZZ^Y^2172880^Byron Bay^Byron Bay^Byron Bay,QYN^-28.64201^153.61194^P^PPL^AU^^02^11350^^^6764^0^1^Australia/Sydney^11.0^10.0^10.0^2012-02-28^N^N^QYN^NS^AUSTL^O
 QYO^ZZZZ^N^0^OLSZTYN/PL:OLSZTYN^OLSZTYN/PL:OLSZTYN^^53.8^20.48^S^AIRP^PL^^^^^^^^^PL089^^^^-1^Y^N^QYO^^EEURO^O
 QYP^ZZZZ^Y^2759706^Apeldoorn^Apeldoorn^Apeldoorn,Apeldoorne,Apeldorn,QYP,aperudorun,Апелдорн,アペルドールン^52.22^5.95^P^PPL^NL^^03^0200^^^136670^12^18^Europe/Amsterdam^1.0^2.0^1.0^2012-02-06^Y^N^QYP^^EUROP^CR
 QYQ^ZZZZ^Y^2612130^Sulsted^Sulsted^QYQ,Sulsted^57.17^9.983^P^PPL^DK^^19^851^^^0^0^14^Europe/Copenhagen^1.0^2.0^1.0^2012-01-17^Y^N^QYQ^^EUROP^CB
@@ -7865,10 +7865,10 @@ SFA^DTTX^Y^6296475^Sfax El-Maou^Sfax El-Maou^DTTX,SFA^34.717953^10.690972^S^AIRP
 SFB^KSFB^Y^6299061^Orlando Sanford International Airport^Orlando Sanford International Airport^Flughafen Orlando Sanford,KSFB,Orlando / Sanford Airport,Orlando Sanford International Airport,SFB^28.777639^-81.237489^S^AIRP^US^^FL^^^^0^16^17^America/New_York^-5.0^-4.0^-5.0^2011-03-28^Y^Y^ORL^FL^NAMER^A
 SFC^TFFC^Y^3578440^Saint-François^Saint-Francois^SFC,TFFC^16.25^-61.28^S^AIRF^GP^^GP^971^^^0^0^-9999^America/Guadeloupe^-4.0^-4.0^-4.0^2008-07-09^Y^N^SFC^^CARIB^CA
 SFD^SVSR^Y^6300872^San Fernando De Apure^San Fernando De Apure^SFD,SVSR^7.883317^-67.444025^S^AIRP^VE^^^^^^0^46^50^America/Caracas^-4.5^-4.5^-4.5^2007-04-04^Y^N^SFD^^SAMER^CA
-SFE^RPUS^Y^1690063^San Fernando^San Fernando^RPUS,SFE,San Fernando^30.930222^-114.808639^S^AIRF^PH^^01^36^^^0^0^30^Asia/Manila^8.0^8.0^8.0^2012-01-17^Y^N^SFE^^PACIF^CA
+SFE^RPUS^Y^1690063^San Fernando^San Fernando^RPUS,SFE,San Fernando^16.594^120.3033^S^AIRF^PH^^01^36^^^0^0^30^Asia/Manila^8.0^8.0^8.0^2012-01-17^Y^N^SFE^^PACIF^CA
 SFF^KSFF^Y^5794246^Felts Field^Felts Field^KSFF,SFF^47.682819^-117.322558^S^AIRP^US^^WA^063^^^0^595^593^America/Los_Angeles^-8.0^-7.0^-8.0^2006-10-29^Y^N^GEG^WA^NAMER^A
 SFG^TFFG^Y^3578420^L'Espérance Airport^L'Esperance Airport^Grand Case,SFG,TFFG^18.099914^-63.047197^S^AIRF^MF^^00^^^^0^0^0^America/Guadeloupe^-4.0^-4.0^-4.0^2011-03-16^Y^Y^SFG^^CARIB^CA
-SFH^MMSF^Y^7668349^San Felipe International Airport^San Felipe International Airport^Aeropuerto Internacional de San Felipe,Bandar Udara Internasional San Felipe,MMSF,SFH^31.17^-114.8^S^AIRP^MX^^02^^^^0^0^28^America/Tijuana^-8.0^-7.0^-8.0^2011-02-17^Y^N^SFH^^NAMER^CA
+SFH^MMSF^Y^7668349^San Felipe International Airport^San Felipe International Airport^Aeropuerto Internacional de San Felipe,Bandar Udara Internasional San Felipe,MMSF,SFH^30.9302^-114.809^S^AIRP^MX^^02^^^^0^0^28^America/Tijuana^-8.0^-7.0^-8.0^2011-02-17^Y^N^SFH^^NAMER^CA
 SFI^GMMS^Y^6297213^Safi^Safi^GMMS,SFI^32.33^-9.283^S^AIRP^MA^^^^^^0^52^53^Africa/Casablanca^0.0^1.0^0.0^2006-10-29^Y^Z^SFI^^AFRICA^A
 SFJ^BGSF^Y^6295704^Sdr Stroemfjord^Sdr Stroemfjord^BGSF,SFJ^67.016969^-50.689325^S^AIRP^GL^^^^^^0^50^296^America/Godthab^-3.0^-2.0^-3.0^2007-01-03^Y^Y^SFJ^^EUROP^CA
 SFK^ZZZZ^Y^3387204^Soure^Soure^SFK^-0.6667^-48.5^P^PPL^BR^^16^^^^18212^0^17^America/Santarem^-3.0^-3.0^-3.0^2006-12-13^Y^N^SFK^PA^SAMER^CA
