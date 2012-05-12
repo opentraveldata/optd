@@ -40,6 +40,15 @@ then
 fi
 
 ##
+# Extract the header into a temporary file
+RFD_FILE_HEADER=${RFD_FILE}.tmp.hdr
+grep "^code\(.\+\)" ${RFD_FILE} > ${RFD_FILE_HEADER}
+
+# Remove the header
+sed -i -e "s/^code\(.\+\)//g" ${RFD_FILE}
+sed -i -e "/^$/d" ${RFD_FILE}
+
+##
 # Extract only the IATA code from the file
 cut -d'^' -f1 ${GEO_FILE_1_MISSING} > ${GEO_FILE_1_TMP}
 \mv -f ${GEO_FILE_1_TMP} ${GEO_FILE_1_MISSING}
@@ -55,7 +64,8 @@ NB_NON_RFD_ROWS=`wc -l ${CUT_GEO_COMB_FILE} | cut -d' ' -f1`
 if [ ${NB_NON_RFD_ROWS} -gt 0 ]
 then
 	echo
-	echo "${NB_NON_RFD_ROWS} POR are not in RFD, but present in the ${GEO_FILE_1_MISSING} file."
+	echo "${NB_NON_RFD_ROWS} POR are not in RFD, but present in the ${GEO_FILE_1_MISSING} file. To see them:"
+	echo "less ${CUT_GEO_COMB_FILE}"
 	echo "Remove those entries from the ${GEO_FILE_1_MISSING} file:"
 	echo "vi ${GEO_FILE_1_MISSING}"
 	echo
@@ -77,8 +87,7 @@ sort -t'^' -nrk19,19 ${GEO_FILE_2_PR} > ${GEO_FILE_1_TMP}
 
 ##
 # Re-add the headers
-echo "${HDR_1}" > ${GEO_FILE_2}.hdr
-cat ${GEO_FILE_2}.hdr ${GEO_FILE_2} > ${GEO_FILE_1_TMP}
+cat ${RFD_FILE_HEADER} ${GEO_FILE_2} > ${GEO_FILE_1_TMP}
 \mv -f ${GEO_FILE_1_TMP} ${GEO_FILE_2}
 \rm -f ${GEO_FILE_2}.hdr
 
