@@ -50,7 +50,7 @@ DB_PASSWD="$2"
 DB_NAME="geo_geonames"
 
 #
-SQL_QUERY="set foreign_key_checks=0; set sql_log_bin=0; set unique_checks=0; LOAD DATA LOCAL INFILE '${MY_FIFO}' INTO TABLE alternate_name CHARACTER SET UTF8 (alternatenameid, geonameid, isoLanguage, alternateName, isPreferredName, isShortName)"
+SQL_QUERY="set foreign_key_checks=0; set sql_log_bin=0; set unique_checks=0; LOAD DATA LOCAL INFILE '${MY_FIFO}' INTO TABLE alternate_name CHARACTER SET UTF8 (alternatenameid, geonameid, isoLanguage, alternateName, isPreferredName, isShortName, isColloquial, isHistoric)"
 
 # With another Shell:
 while [ -e ${MY_FIFO} ]

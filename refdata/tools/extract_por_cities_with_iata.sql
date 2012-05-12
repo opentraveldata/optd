@@ -17,6 +17,7 @@ from time_zones as tz, geoname as g
 left join alternate_name as a on g.geonameid = a.geonameid
 where g.fcode like 'PPL%'
 	  and a.isoLanguage = 'iata'
+	  and a.isHistoric = 0
 	  and g.timezone = tz.timeZoneId
 order by a.alternateName, g.fcode
 ;
