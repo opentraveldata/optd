@@ -83,6 +83,7 @@ ALTER TABLE `iso_language_codes` ADD PRIMARY KEY (`iso_639_3`);
 --
 
 ALTER TABLE `time_zones` ADD PRIMARY KEY (`timeZoneId`);
+ALTER TABLE `time_zones` ADD INDEX (`country`);
 
 
 --
@@ -98,3 +99,4 @@ ALTER TABLE `hierarchy` ADD INDEX (`parentId`, `childId`);
 --
 
 ALTER TABLE `zip_codes` ADD INDEX (`iso_alpha2`, `postal_code`);
+

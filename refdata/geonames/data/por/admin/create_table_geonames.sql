@@ -230,6 +230,7 @@ DROP TABLE IF EXISTS `time_zones`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 CREATE TABLE `time_zones` (
+  `country` varchar(2) default NULL,
   `timeZoneId` varchar(200) default NULL,
   `GMT_offset` decimal(3,1) default NULL,
   `DST_offset` decimal(3,1) default NULL,

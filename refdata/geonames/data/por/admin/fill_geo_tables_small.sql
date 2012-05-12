@@ -89,7 +89,7 @@ commit;
  
 LOAD DATA LOCAL INFILE '../../por/data/timeZones.txt'
 INTO TABLE time_zones IGNORE 1 LINES
-	 (timeZoneId, GMT_offset, DST_offset, raw_offset);
+	 (country, timeZoneId, GMT_offset, DST_offset, raw_offset);
 commit;
 
 
