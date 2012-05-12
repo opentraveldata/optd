@@ -13,6 +13,7 @@ displayGeonamesDetails() {
 	then
 		export MYCURDIR=`pwd`
 	fi
+	echo
 	echo "The data dump from Geonames can be obtained from the OpenTravelData project"
 	echo "(http://github.com/opentraveldata/optd). For instance:"
 	echo "MYCURDIR=`pwd`"
@@ -47,6 +48,13 @@ displayGeonamesDetails() {
 }
 
 ##
+# Snapshot date
+SNAPSHOT_DATE=`date "+%Y%m%d"`
+SNAPSHOT_DATE_HUMAN=`date`
+DUMP_IATA_FILENAME=por_all_iata_${SNAPSHOT_DATE}.csv
+DUMP_NOICAO_FILENAME=por_all_noicao_${SNAPSHOT_DATE}.csv
+
+##
 # Temporary path
 TMP_DIR="/tmp/por"
 
@@ -56,28 +64,24 @@ EXEC_PATH=`dirname $0`
 CURRENT_DIR=`pwd`
 if [ ${CURRENT_DIR} -ef ${EXEC_PATH} ]
 then
-	EXEC_PATH="."
-	TMP_DIR="."
+	EXEC_PATH="./"
+	TMP_DIR="./"
+else
+	EXEC_PATH="${EXEC_PATH}/"
+	TMP_DIR="${TMP_DIR}/"
 fi
-EXEC_PATH="${EXEC_PATH}/"
-TMP_DIR="${TMP_DIR}/"
-
+#
 if [ ! -d ${TMP_DIR} -o ! -w ${TMP_DIR} ]
 then
 	\mkdir -p ${TMP_DIR}
 fi
+
 
 ##
 #
 DUMP_FILE_FILENAME=dump_from_geonames.csv
 #
 DUMP_FILE=${TMP_DIR}${DUMP_FILE_FILENAME}
-
-# Snapshot date
-SNAPSHOT_DATE=`date "+%Y%m%d"`
-SNAPSHOT_DATE_HUMAN=`date`
-DUMP_IATA_FILE=${TMP_DIR}por_all_iata_${SNAPSHOT_DATE}.csv
-DUMP_NOICAO_FILE=${TMP_DIR}por_all_noicao_${SNAPSHOT_DATE}.csv
 
 #
 if [ "$1" = "-h" -o "$1" = "--help" ];
@@ -103,9 +107,20 @@ fi
 if [ "$1" != "" ];
 then
 	SNAPSHOT_DATE="$1"
-	DUMP_IATA_FILE=${TMP_DIR}por_all_iata_${SNAPSHOT_DATE}.csv
-	DUMP_NOICAO_FILE=${TMP_DIR}por_all_noicao_${SNAPSHOT_DATE}.csv
+	DUMP_IATA_FILENAME=por_all_iata_${SNAPSHOT_DATE}.csv
+	DUMP_NOICAO_FILENAME=por_all_noicao_${SNAPSHOT_DATE}.csv
 fi
+
+# If the Geonames dump file is in the current directory, then the current
+# directory is certainly intended to be the temporary directory.
+if [ -f ${DUMP_IATA_FILENAME} ]
+then
+	TMP_DIR="./"
+fi
+
+#
+DUMP_IATA_FILE=${TMP_DIR}${DUMP_IATA_FILENAME}
+DUMP_NOICAO_FILE=${TMP_DIR}${DUMP_NOICAO_FILENAME}
 
 if [ ! -f ${DUMP_IATA_FILE} -o ! -f ${DUMP_NOICAO_FILE} ]
 then
@@ -134,18 +149,12 @@ sed -i -e "/^$/d" ${DUMP_FILE}
 # 3.1. Replace the 'NULL' fields by 'ZZZZ', so as to place them at the end
 sed -i -e "s/^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)/\1\^ZZZZ\^\2/g" ${DUMP_FILE}
 
-##
-# 3.2. Sort the Geonames dump file according to the IATA and ICAO codes
+# 3.2. Sort the Geonames dump file according to the (IATA, ICAO) code pair
 DUMP_FILE_TMP=${DUMP_FILE}.tmp
 sort -t'^' -k1,1 -k2,2 -k11,11 ${DUMP_FILE} > ${DUMP_FILE_TMP}
 \mv -f ${DUMP_FILE_TMP} ${DUMP_FILE}
 
-##
-# 4.1. Suppress the entries having a duplicated IATA code
-uniq -w 3 ${DUMP_FILE} > ${DUMP_FILE_TMP}
-\mv -f ${DUMP_FILE_TMP} ${DUMP_FILE}
-
-# 5.1. Re-add the header
+# 4.1. Re-add the header
 cat ${DUMP_FILE_HEADER} ${DUMP_FILE} > ${DUMP_FILE_TMP}
 sed -i -e "/^$/d" ${DUMP_FILE_TMP}
 \mv -f ${DUMP_FILE_TMP} ${DUMP_FILE}

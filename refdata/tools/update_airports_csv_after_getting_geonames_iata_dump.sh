@@ -199,7 +199,7 @@ join -t'^' -a 1 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} > ${JOINED_COORD_
 
 ##
 # Sanity check: calculate the minimal number of fields on the resulting file
-MIN_FIELD_NB=$(awk -F'^' 'BEGIN{n=10};{if (NF<n) {n=NF}}END{print n}' ${JOINED_COORD_1} | uniq | sort | uniq)
+MIN_FIELD_NB=`awk -F'^' 'BEGIN{n=10} {if (NF<n) {n=NF}} END{print n}' ${JOINED_COORD_1} | uniq | sort | uniq`
 
 if [ "${MIN_FIELD_NB}" != "5" -a "${MIN_FIELD_NB}" != "3" ];
 then

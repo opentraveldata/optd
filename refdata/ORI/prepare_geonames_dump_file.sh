@@ -41,7 +41,7 @@ displayGeonamesDetails() {
 	echo "${OPTDDIR}/tools/preprepare_geonames_dump_file.sh"
 	echo "\cp -f ${OPTDDIR}/ORI/best_coordinates_known_so_far.csv ${TMP_DIR}"
 	echo "\cp -f ${OPTDDIR}/ORI/ref_airport_popularity.csv ${TMP_DIR}"
-	echo "\cp -f ${OPTDDIR}/ORI/ori_por.csv ${TMP_DIR}ori_airports.csv"
+	echo "\cp -f ${OPTDDIR}/ORI/ori_por_public.csv ${TMP_DIR}ori_airports.csv"
 	echo "${OPTDDIR}/tools/update_airports_csv_after_getting_geonames_iata_dump.sh"
 	echo "ls -l ${TMP_DIR}"
 	echo
@@ -134,17 +134,25 @@ DUMP_FROM_GEONAMES_TMP=${DUMP_FROM_GEONAMES}.tmp
 sed -e "s/^iata\(.\+\)//g" ${DUMP_FROM_GEONAMES} > ${DUMP_FROM_GEONAMES_TMP}
 sed -i -e "/^$/d" ${DUMP_FROM_GEONAMES_TMP}
 
+##
+# Eliminate the city POR (points of reference) when those duplicate the
+# IATA code of the corresponding airport (e.g., SFO, LAX). Note that some
+# cities do not duplicate the IATA of their related airports (e.g., PAR, CHI,
+# LON).
+# a. Replace the 'NULL' fields by 'ZZZZZ', so as to place them at the end
+sed -i -e "s/^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)/\1\^ZZZZZ\^\2/g" ${DUMP_FROM_GEONAMES_TMP}
+# b. Sort the file by the (IATA, ICAO) code pair
+sort -t '^' -k1,1 -k2,2 -k11,11 ${DUMP_FROM_GEONAMES_TMP} > ${SORTED_DUMP_FROM_GEONAMES}
+# c. Remove the rows duplicating the IATA code
+uniq -w 3 ${SORTED_DUMP_FROM_GEONAMES} > ${DUMP_FROM_GEONAMES_TMP}
+\mv -f ${DUMP_FROM_GEONAMES_TMP} ${SORTED_DUMP_FROM_GEONAMES}
+# d. Replace back the (remaining) 'ZZZZZ' fields by 'NULL'
+sed -i -e "s/^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^ZZZZZ\^\(.\+\)/\1\^NULL\^\2/g" ${SORTED_DUMP_FROM_GEONAMES}
 
 ##
-# The geonames dump file is sorted according to the code (as is the file of
-# best coordinates), just to be sure.
-sort -t'^' -k 1,1 ${DUMP_FROM_GEONAMES_TMP} > ${SORTED_DUMP_FROM_GEONAMES}
-\rm -f ${DUMP_FROM_GEONAMES_TMP}
-
-##
-# Only three columns/fields are kept in that version of the file:
-# the airport/city IATA code and the geographical coordinates (latitude,
-# longitude).
+# Only four columns/fields are kept in that version of the file:
+# the airport/city (IATA, ICAO) code pair and the geographical coordinates
+# (latitude, longitude).
 cut -d'^' -f 1,6,7 ${SORTED_DUMP_FROM_GEONAMES} > ${SORTED_CUT_DUMP_FROM_GEONAMES}
 
 ##
