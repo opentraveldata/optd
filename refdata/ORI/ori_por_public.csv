@@ -6737,16 +6737,16 @@ PZU^HSPN^Y^6297346^Port Sudan International^Port Sudan International^HSPN,PZU^19
 PZY^LZPP^Y^6301801^Piestany^Piestany^LZPP,PZY^48.625247^17.828444^S^AIRF^SK^^^^^^0^163^162^Europe/Bratislava^1.0^2.0^1.0^2011-03-20^Y^N^PZY^^EEURO^CA
 QAC^SSQT^Y^7731422^Castro Airport^Castro Airport^QAC,SSQT^-24.8075000^-49.9603000^S^AIRP^BR^^18^^^^0^0^1000^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-18^N^N^QAC^PR^SAMER^O
 QAD^ZZZZ^Y^3170147^Pordenone^Pordenone^Pordenon,Pordenone,Portus Naonis,QAD,porudenone,Порденоне,ポルデノーネ^45.9639^12.6575^P^PPLA2^IT^^06^PN^093033^^49122^0^31^Europe/Rome^1.0^2.0^1.0^2011-02-23^Y^N^QAD^^EUROP^O
-QAE^ZZZZ^Y^2506385^Arzew^Arzew^Arzeu,Arzew,QAE^0^0^P^PPL^DZ^^09^^^^0^0^10^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QAE^^AFRIC^O
+QAE^ZZZZ^Y^2506385^Arzew^Arzew^Arzeu,Arzew,QAE^35.8477300^-0.3146800^P^PPL^DZ^^09^^^^0^0^10^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QAE^^AFRIC^O
 QAF^ZZZZ^N^0^OFFLINE POINT/FR^OFFLINE POINT/FR^^48.82^2.283^S^AIRP^FR^^^^^^^^^FR052^^^^-1^Y^N^QAF^^EUROP^CA
-QAG^ZZZZ^Y^2496042^Ghazaouet^Ghazaouet^Ghazaouet,Ghazouet,Ghazout,Nemours,Nemours-d'Algerie,Nemours-d’Algérie,QAG^0^0^P^PPL^DZ^^15^^^^0^0^9^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QAG^^AFRIC^O
+QAG^ZZZZ^Y^2496042^Ghazaouet^Ghazaouet^Ghazaouet,Ghazouet,Ghazout,Nemours,Nemours-d'Algerie,Nemours-d’Algérie,QAG^35.1022500^-1.8568000^P^PPL^DZ^^15^^^^0^0^9^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QAG^^AFRIC^O
 QAH^ZZZZ^N^0^ALCANTARA/RJ/BR:OFF-^ALCANTARA/RJ/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QAH^RJ^SAMER^O
 QAI^ZZZZ^Y^3038426^Aime^Aime^Cime-Belle,Les Antiquites,Les Antiquités,QAI^45.55^6.65^P^PPL^FR^^B9^73^731^73006^3507^0^678^Europe/Paris^1.0^2.0^1.0^2011-11-02^Y^N^QAI^^EUROP^O
 QAJ^ZZZZ^N^0^AJMAN CITY/AE:OFF-^AJMAN CITY/AE:OFF-^^0^0^X^XXXX^AE^^^^^^^^^AE^^^^-1^N^N^QAJ^^MEAST^O
 QAK^SBBQ^Y^6300604^Barbacena^Barbacena^QAK,SBBQ^-21.267167^-43.761056^S^AIRP^BR^^^^^^0^1114^1112^America/Sao_Paulo^-2.0^-3.0^-3.0^2007-01-03^N^N^QAK^MG^SAMER^O
 QAL^ZZZZ^Y^3183299^Alessandria^Alessandria^Alesandrija,Alessandria,Alessandrija,Alexandria,Alexandrie,Lissandria,QAL,aressandoria,aressandoria xian,Алесандрия,Алессандрия,Алессандрія,アレッサンドリア,アレッサンドリア県^44.9^8.61667^P^PPLA2^IT^^12^AL^006003^^85438^0^101^Europe/Rome^1.0^2.0^1.0^2011-02-23^Y^N^QAL^^EUROP^O
 QAM^LFAY^Y^6694530^Amiens-Glisy^Amiens-Glisy^LFAY,QAM^49.9^2.295^S^AIRP^FR^^B6^80^802^80379^0^0^57^Europe/Paris^1.0^2.0^1.0^2012-02-27^Y^N^QAM^^EUROP^O
-QAN^ZZZZ^Y^2486284^Nedroma^Nedroma^Nedroma,QAN^0^0^P^PPL^DZ^^15^^^^36995^0^355^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QAN^^AFRIC^O
+QAN^ZZZZ^Y^2486284^Nedroma^Nedroma^Nedroma,QAN^35.0136100^-1.7479900^P^PPL^DZ^^15^^^^36995^0^355^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QAN^^AFRIC^O
 QAO^ZZZZ^Y^2525764^Agrigento^Agrigento^Agridzentas,Agridzhento,Agridžentas,Agrigent,Agrigente,Agrigento,Agrigentum,Agrixento - Agrigento,Girgenti,QAO,agurijento,Агридженто,אגריג'נטו,アグリジェント^37.3167^13.5667^P^PPLA2^IT^^15^AG^084001^^54619^0^227^Europe/Rome^1.0^2.0^1.0^2011-02-23^Y^N^QAO^^EUROP^O
 QAP^ZZZZ^N^0^APAPA/NG:OFF-^APAPA/NG:OFF-^^0^0^X^XXXX^NG^^^^^^^^^NG^^^^-1^N^N^QAP^^AFRIC^O
 QAQ^ZZZZ^N^0^L'AQUILA/IT:L'AQUILA^L'AQUILA/IT:L'AQUILA^^42.379886^13.309231^S^AIRP^IT^^^^^^^^^IT067^^^^-1^Y^N^QAQ^^EUROP^O
@@ -6756,18 +6756,18 @@ QAU^ZZZZ^N^0^BEBEDOURO/SP/BR:OFF-^BEBEDOURO/SP/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR
 QAV^ZZZZ^N^0^BENJAMIN CONSTANT/AM/BR:OFF-^BENJAMIN CONSTANT/AM/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR018^^^^-1^N^N^QAV^AM^SAMER^O
 QAW^ZZZZ^N^0^ANNISTON/AL/US:FT MCCLELLAN BU^ANNISTON/AL/US:FT MCCLELLAN BU^^33.59^-85.86^S^AIRP^US^^^^^^^^^US107^^^^-1^Y^N^ANB^AL^NAMER^B
 QAX^ZZZZ^N^0^ABA/NG:OFF-^ABA/NG:OFF-^^0^0^X^XXXX^NG^^^^^^^^^NG^^^^-1^N^N^QAX^^AFRIC^O
-QAY^ZZZZ^Y^686578^Alba Iulia^Alba Iulia^Alba Iulia,Alba Julija,Balgrad,Bălgrad,Gyulafehervar,Gyulafehérvár,Karlsburg,QAY,Weissenburg,Weisskirchen,Weißenburg,Weißkirchen,Алба Юлия^0^0^P^PPLA^RO^^01^^^^66085^0^219^Europe/Bucharest^2.0^3.0^2.0^2012-01-18^N^N^QAY^^EEURO^O
-QAZ^ZZZZ^Y^3080866^Zakopane^Zakopane^QAZ,Zakopane,zakopane,Закопане,זאקופנה,ザコパネ^0^0^P^PPL^PL^^77^1217^121701^^27580^0^819^Europe/Warsaw^1.0^2.0^1.0^2010-09-12^N^N^QAZ^^EEURO^O
+QAY^ZZZZ^Y^686578^Alba Iulia^Alba Iulia^Alba Iulia,Alba Julija,Balgrad,Bălgrad,Gyulafehervar,Gyulafehérvár,Karlsburg,QAY,Weissenburg,Weisskirchen,Weißenburg,Weißkirchen,Алба Юлия^46.0666700^23.5833300^P^PPLA^RO^^01^^^^66085^0^219^Europe/Bucharest^2.0^3.0^2.0^2012-01-18^N^N^QAY^^EEURO^O
+QAZ^ZZZZ^Y^3080866^Zakopane^Zakopane^QAZ,Zakopane,zakopane,Закопане,זאקופנה,ザコパネ^49.2989900^19.9488500^P^PPL^PL^^77^1217^121701^^27580^0^819^Europe/Warsaw^1.0^2.0^1.0^2010-09-12^N^N^QAZ^^EEURO^O
 QBA^ZZZZ^Y^3203106^Budva^Budva^Budua,Budva,Butua,QBA,budovu~a,Будва,ブドヴァ^42.28^18.83^P^PPL^ME^^05^^^^4684^0^7^Europe/Podgorica^1.0^2.0^1.0^2012-01-19^Y^N^QBA^^EUROP^O
 QBC^CYBD^Y^6296158^Bella Coola Airport^Bella Coola Airport^CYBD,QBC^52.38^-126.8^S^AIRP^CA^^^^^^0^35^34^America/Vancouver^-8.0^-7.0^-8.0^2007-01-03^Y^Y^QBC^BC^NAMER^CA
 QBD^ZZZZ^N^0^BARRA DO PIRAI/RJ/BR:OFF-^BARRA DO PIRAI/RJ/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QBD^RJ^SAMER^O
-QBE^ZZZZ^Y^2176401^Bega^Bega^Bega,QBE,Бега^0^0^P^PPL^AU^^02^10550^^^4537^0^80^Australia/Sydney^11.0^10.0^10.0^2012-02-28^N^N^QBE^NS^AUSTL^O
+QBE^ZZZZ^Y^2176401^Bega^Bega^Bega,QBE,Бега^-36.67392^149.84178^P^PPL^AU^^02^10550^^^4537^0^80^Australia/Sydney^11.0^10.0^10.0^2012-02-28^N^N^QBE^NS^AUSTL^O
 QBF^ZZZZ^N^0^VAIL EAGLE/CO/US:VAIL BUS STAT^VAIL EAGLE/CO/US:VAIL BUS STAT^^39.63^-106.9^S^AIRP^US^^^^^^^^^US108^^^^-1^Y^N^EGE^CO^NAMER^B
 QBG^ZZZZ^N^0^PANCEVO/RS:PANCEVO^PANCEVO/RS:PANCEVO^^0^0^X^XXXX^RS^^^^^^^^^RS189^^^^-1^N^N^QBG^^EUROP^O
 QBH^ZZZZ^Y^2998975^Levallois-Perret^Levallois-Perret^Levallois,Levallois-Perret,QBH^48.9^2.28333^P^PPL^FR^^A8^92^922^92044^62178^0^38^Europe/Paris^1.0^2.0^1.0^2012-01-18^Y^N^QBH^^EUROP^O
-QBI^ZZZZ^Y^792578^Bitola^Bitola^Bitol,Bitola,Bitolj,Bitolja,Bitolya,Manastir,Manastiri,Manastır,Monasteri,Monasterium,Monasteron,Monastir,QBI,bitora,bytwla,Μοναστήρι,Битола,Битоля,Битољ,بیتولا,ビトラ^0^0^P^PPLA^MK^^06^^^^86528^0^607^Europe/Skopje^1.0^2.0^1.0^2012-01-19^N^N^QBI^^EUROP^O
-QBJ^ZZZZ^Y^2503701^Bordj Bou Arreridj^Bordj Bou Arreridj^Bordj Bou Arerridj,Bordj Bou Arreridj,Bordj-Bou-Arreridj,Borj Bu Arrerij,Burdz Bu Urajridz,Burdż Bu Urajridż,QBJ^0^0^P^PPLA^DZ^^39^^^^0^0^906^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QBJ^^AFRIC^O
-QBK^ZZZZ^Y^3470044^Betim^Betim^Betim,QBK^0^0^P^PPL^BR^^15^^^^384000^0^834^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QBK^MG^SAMER^O
+QBI^ZZZZ^Y^792578^Bitola^Bitola^Bitol,Bitola,Bitolj,Bitolja,Bitolya,Manastir,Manastiri,Manastır,Monasteri,Monasterium,Monasteron,Monastir,QBI,bitora,bytwla,Μοναστήρι,Битола,Битоля,Битољ,بیتولا,ビトラ^41.0311100^21.3402800^P^PPLA^MK^^06^^^^86528^0^607^Europe/Skopje^1.0^2.0^1.0^2012-01-19^N^N^QBI^^EUROP^O
+QBJ^ZZZZ^Y^2503701^Bordj Bou Arreridj^Bordj Bou Arreridj^Bordj Bou Arerridj,Bordj Bou Arreridj,Bordj-Bou-Arreridj,Borj Bu Arrerij,Burdz Bu Urajridz,Burdż Bu Urajridż,QBJ^36.0732200^4.7610800^P^PPLA^DZ^^39^^^^0^0^906^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QBJ^^AFRIC^O
+QBK^ZZZZ^Y^3470044^Betim^Betim^Betim,QBK^-19.9677800^-44.1983300^P^PPL^BR^^15^^^^384000^0^834^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QBK^MG^SAMER^O
 QBL^ZZZZ^N^0^BANI WALID/LY:OFF-^BANI WALID/LY:OFF-^^0^0^X^XXXX^LY^^^^^^^^^LY122^^^^-1^N^N^QBL^^AFRIC^O
 QBM^ZZZZ^N^0^BOURG ST MAURICE/FR:BOURG ST M^BOURG ST MAURICE/FR:BOURG ST M^^45.6167^6.76667^S^AIRP^FR^^^^^^^^^FR052^^^^-1^Y^N^QBM^^EUROP^O
 QBN^ZZZZ^N^0^BARRA MANSA/RJ/BR:OFF-^BARRA MANSA/RJ/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QBN^RJ^SAMER^O
@@ -6776,20 +6776,20 @@ QBP^ZZZZ^N^0^AIN BEIDA/DZ:OFF-^AIN BEIDA/DZ:OFF-^^0^0^X^XXXX^DZ^^^^^^^^^DZ^^^^-1
 QBQ^LFSA^Y^6299465^Besançon-Thise^Besancon-Thise^LFSA,QBQ^47.2053100^6.0804200^S^AIRP^FR^^A6^25^^^0^307^381^Europe/Paris^1.0^2.0^1.0^2008-07-09^Y^N^QBQ^^EUROP^O
 QBR^ZZZZ^N^0^BANDAR KHOMEINI/IR:OFF-^BANDAR KHOMEINI/IR:OFF-^^0^0^X^XXXX^IR^^^^^^^^^IR120^^^^-1^N^N^QBR^^MEAST^O
 QBS^ZZZZ^Y^3181554^Brescia^Brescia^Brescia,Bresha,Breshija,Bresia,Bressia,Brixia,Bréscia,QBS,bryshya,bu lei xi ya,bureshia,Бреша,Брешия,بريشيا,ブレシア,布雷西亚^45.54^10.222^P^PPLA2^IT^^09^BS^017029^^187567^0^132^Europe/Rome^1.0^2.0^1.0^2011-02-23^Y^N^QBS^^EUROP^O
-QBT^ZZZZ^Y^2503998^Bettioua^Bettioua^Bethioua,Bethioua ed Douamis,Bettioua,QBT,Saint-Leu,Saint-Leu-d' Algerie,Saint-Leu-d’ Algérie,Sainte Leu^0^0^P^PPL^DZ^^09^^^^0^0^45^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QBT^^AFRIC^O
+QBT^ZZZZ^Y^2503998^Bettioua^Bettioua^Bethioua,Bethioua ed Douamis,Bettioua,QBT,Saint-Leu,Saint-Leu-d' Algerie,Saint-Leu-d’ Algérie,Sainte Leu^35.8005800^-0.2651000^P^PPL^DZ^^09^^^^0^0^45^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QBT^^AFRIC^O
 QBU^ZZZZ^N^0^BAUCHI/NG:OFF-^BAUCHI/NG:OFF-^^0^0^X^XXXX^NG^^^^^^^^^NG^^^^-1^N^N^QBU^^AFRIC^O
 QBV^ZZZZ^Y^3182179^Benevento^Benevento^Benevent,Benevento,Beneventum,Beneviento,Benewent,Bénévent,QBV,benevu~ento,Беневенто,ბენევენტო,ベネヴェント^41.1333^14.75^P^PPLA2^IT^^04^BN^062008^^61791^0^164^Europe/Rome^1.0^2.0^1.0^2011-02-23^Y^N^QBV^^EUROP^O
-QBW^ZZZZ^Y^2176639^Batemans Bay^Batemans Bay^Bateman,Batemans,Batemans Bay,QBW^0^0^P^PPL^AU^^02^12750^^^10557^0^-9999^Australia/Sydney^11.0^10.0^10.0^2012-02-28^N^N^QBW^NS^AUSTL^O
+QBW^ZZZZ^Y^2176639^Batemans Bay^Batemans Bay^Bateman,Batemans,Batemans Bay,QBW^-35.70658^150.17542^P^PPL^AU^^02^12750^^^10557^0^-9999^Australia/Sydney^11.0^10.0^10.0^2012-02-28^N^N^QBW^NS^AUSTL^O
 QBX^SNOB^Y^3387297^Sobral^Sobral^QBX,SNOB,Sobral^-3.66667^-40.3333^S^AIRF^BR^^06^^^^0^0^59^America/Fortaleza^-3.0^-3.0^-3.0^2012-01-19^N^N^QBX^CE^SAMER^O
 QBY^ZZZZ^N^0^BISTRITA/NASA/NA/RO:BISTRITA/N^BISTRITA/NASA/NA/RO:BISTRITA/N^^0^0^X^XXXX^RO^^^^^^^^^RO094^^^^-1^N^N^QBY^^EEURO^O
 QBZ^ZZZZ^N^0^BOUIRA/DZ:OFF-^BOUIRA/DZ:OFF-^^0^0^X^XXXX^DZ^^^^^^^^^DZ^^^^-1^N^N^QBZ^^AFRIC^O
 QCA^ZZZZ^N^0^MAKKAH/SA:BUS STATION^MAKKAH/SA:BUS STATION^^21.5^39.2^S^AIRP^SA^^^^^^^^^SA^^^^-1^Y^N^QCA^^MEAST^CB
 QCB^ZZZZ^N^0^CHIBA CITY/JP:OFF-^CHIBA CITY/JP:OFF-^^0^0^X^XXXX^JP^^^^^^^^^JP^^^^-1^N^N^QCB^^ASIA^O
 QCC^ZZZZ^N^0^CAMACARI/BA/BR:CAMACARI^CAMACARI/BA/BR:CAMACARI^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QCC^BA^SAMER^O
-QCD^ZZZZ^Y^3467791^Campo Bom^Campo Bom^QCD^0^0^P^PPL^BR^^23^^^^0^0^20^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QCD^RS^SAMER^O
+QCD^ZZZZ^Y^3467791^Campo Bom^Campo Bom^QCD^-29.6788900^-51.0533300^P^PPL^BR^^23^^^^0^0^20^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QCD^RS^SAMER^O
 QCE^ZZZZ^Y^5417975^Copper Mountain^Copper Mountain^QCE^39.6^-106.1^P^PPL^US^^CO^117^^^385^2955^2958^America/Denver^-7.0^-6.0^-7.0^2011-05-14^Y^N^QCE^CO^NAMER^CB
-QCF^ZZZZ^Y^3469989^Birigui^Birigui^Biriguy,QCF^0^0^P^PPL^BR^^27^^^^102277^0^409^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QCF^SP^SAMER^O
-QCG^ZZZZ^Y^3466698^Cataguases^Cataguases^Cataguases,Cataguazes,Kataguazis,QCG,Катагуазис^0^0^P^PPL^BR^^15^^^^62618^0^180^America/Sao_Paulo^-2.0^-3.0^-3.0^2010-01-29^N^N^QCG^MG^SAMER^O
+QCF^ZZZZ^Y^3469989^Birigui^Birigui^Biriguy,QCF^-21.2886100^-50.3400000^P^PPL^BR^^27^^^^102277^0^409^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QCF^SP^SAMER^O
+QCG^ZZZZ^Y^3466698^Cataguases^Cataguases^Cataguases,Cataguazes,Kataguazis,QCG,Катагуазис^-21.3891700^-42.6966700^P^PPL^BR^^15^^^^62618^0^180^America/Sao_Paulo^-2.0^-3.0^-3.0^2010-01-29^N^N^QCG^MG^SAMER^O
 QCH^SNCX^Y^7731423^Colatina Airport^Colatina Airport^QCH,SNCX^-19.4870000^-40.5794000^S^AIRP^BR^^08^^^^0^0^150^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-18^N^N^QCH^ES^SAMER^O
 QCI^ZZZZ^Y^2514741^Los Cristianos^Los Cristianos^Los Cristianos,Puerto Cristianos,QCI^28.07^-16.58^P^PPL^ES^^53^TF^38006^^23^0^89^Atlantic/Canary^0.0^1.0^0.0^2012-01-19^Y^N^QCI^^EUROP^O
 QCJ^SDBK^Y^7731424^Botucatu Airport^Botucatu Airport^QCJ,SDBK^-22.9395000^-48.4680000^S^AIRP^BR^^27^^^^0^0^887^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-18^N^N^QCJ^SP^SAMER^O
@@ -6798,13 +6798,13 @@ QCL^ZZZZ^Y^2525448^Caltanissetta^Caltanissetta^Caltanisetta,Caltanissetta,Kal'ta
 QCM^ZZZZ^Y^3178229^Como^Como^Com,Come,Como,Còm,Côme,Komo,Novum Comum,QCM,ke mo,komo,Комо,コモ,科莫^45.7833^9.08333^P^PPLA2^IT^^09^CO^013075^^78680^0^211^Europe/Rome^1.0^2.0^1.0^2011-02-23^Y^N^QCM^^EUROP^O
 QCN^SSCN^Y^7731425^Canela Airport^Canela Airport^QCN,SSCN^-29.3702000^-50.8320000^S^AIRP^BR^^23^^^^0^0^825^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-18^N^N^QCN^RS^SAMER^O
 QCO^MUCO^Y^3563851^Colon^Colon^Colon,MUCO,QCO^22.7^-80.9167^S^AIRF^CU^^03^^^^0^0^43^America/Havana^-5.0^-4.0^-5.0^2012-01-18^N^N^QCO^^CARIB^O
-QCP^ZZZZ^Y^3401283^Currais Novos^Currais Novos^Curraes Novos,QCP^0^0^P^PPL^BR^^22^^^^35560^0^361^America/Fortaleza^-3.0^-3.0^-3.0^2006-12-13^N^N^QCP^RN^SAMER^O
-QCQ^ZZZZ^Y^3467081^Caraguatatuba^Caraguatatuba^Caragua,Karaguatatuba,QCQ,Карагуататуба^0^0^P^PPLA2^BR^^27^3510500^^^90843^0^2^America/Sao_Paulo^-2.0^-3.0^-3.0^2012-03-10^N^N^QCQ^SP^SAMER^O
+QCP^ZZZZ^Y^3401283^Currais Novos^Currais Novos^Curraes Novos,QCP^-6.2608300^-36.5177800^P^PPL^BR^^22^^^^35560^0^361^America/Fortaleza^-3.0^-3.0^-3.0^2006-12-13^N^N^QCP^RN^SAMER^O
+QCQ^ZZZZ^Y^3467081^Caraguatatuba^Caraguatatuba^Caragua,Karaguatatuba,QCQ,Карагуататуба^-23.6202800^-45.4130600^P^PPLA2^BR^^27^3510500^^^90843^0^2^America/Sao_Paulo^-2.0^-3.0^-3.0^2012-03-10^N^N^QCQ^SP^SAMER^O
 QCR^SSKU^Y^7731426^Curitibanos Airport^Curitibanos Airport^QCR,SSKU^-27.2825000^-50.6114000^S^AIRP^BR^^26^^^^0^0^959^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-18^N^N^QCR^SC^SAMER^O
 QCS^ZZZZ^Y^2524907^Cosenza^Cosenza^Cosenza,Cusenza,Kozenca,QCS,kozentsu~a,Козенца,コゼンツァ^39.3^16.25^P^PPLA2^IT^^03^CS^078045^^72998^0^235^Europe/Rome^1.0^2.0^1.0^2011-02-23^Y^N^QCS^^EUROP^O
-QCT^ZZZZ^Y^2348411^Bacita^Bacita^Bacita,Basita,QCT^0^0^P^PPL^NG^NG^00^^^^0^0^84^Africa/Lagos^1.0^1.0^1.0^2012-01-18^N^N^QCT^^AFRIC^O
+QCT^ZZZZ^Y^2348411^Bacita^Bacita^Bacita,Basita,QCT^9.0833300^4.9500000^P^PPL^NG^NG^00^^^^0^0^84^Africa/Lagos^1.0^1.0^1.0^2012-01-18^N^N^QCT^^AFRIC^O
 QCU^ZZZZ^Y^3424720^Akunnaaq^Akunnaaq^Akumak,Akunaq,Akunnaaq,Akúnâq,QCU^68.75^-52.33^P^PPL^GL^^05^^^^107^0^-9999^America/Godthab^-3.0^-2.0^-3.0^2012-01-18^Y^N^QCU^^EUROP^CH
-QCV^ZZZZ^Y^3461786^Guarulhos^Guarulhos^GRU,Guarulhos,QCV^0^0^P^PPL^BR^^27^^^^1169577^0^774^America/Sao_Paulo^-2.0^-3.0^-3.0^2010-08-30^N^N^QCV^SP^SAMER^O
+QCV^ZZZZ^Y^3461786^Guarulhos^Guarulhos^GRU,Guarulhos,QCV^-23.4627800^-46.5333300^P^PPL^BR^^27^^^^1169577^0^774^America/Sao_Paulo^-2.0^-3.0^-3.0^2010-08-30^N^N^QCV^SP^SAMER^O
 QCW^ZZZZ^N^0^WILTON/CT/US:WILTON^WILTON/CT/US:WILTON^^40.78^-73.83^S^AIRP^US^^^^^^^^^US105^^^^-1^Y^N^QCW^CT^NAMER^O
 QCX^ZZZZ^N^0^SAO CAETANO DO SUL/SP/BR:OFF-^SAO CAETANO DO SUL/SP/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QCX^SP^SAMER^O
 QCY^EGXC^Y^6296664^Coningsby Royal Air Force Base^Coningsby Royal Air Force Base^EGXC,QCY^53.093014^-0.166014^S^AIRB^GB^^ENG^H7^32UC^^0^7^12^Europe/London^0.0^1.0^0.0^2010-05-24^Y^N^QCY^^EUROP^CA
@@ -6831,8 +6831,8 @@ QDS^ZZZZ^N^0^ITAJUBA/MG/BR:OFF-^ITAJUBA/MG/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^
 QDT^ZZZZ^N^0^SEDRATA/DZ:OFF-^SEDRATA/DZ:OFF-^^0^0^X^XXXX^DZ^^^^^^^^^DZ^^^^-1^N^N^QDT^^AFRIC^O
 QDU^ZZZZ^N^0^DUESSELDORF/DE:HBF RAILWAY STA^DUESSELDORF/DE:HBF RAILWAY STA^^51.32^6.833^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^Y^DUS^^EUROP^R
 QDV^ZZZZ^N^0^JUNDIAI/SP/BR:OFF-^JUNDIAI/SP/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QDV^SP^SAMER^O
-QDW^ZZZZ^Y^3464739^Diadema^Diadema^Diadema,QDW,Диадема^0^0^P^PPL^BR^^27^^^^390633^0^784^America/Sao_Paulo^-2.0^-3.0^-3.0^2010-01-29^N^N^QDW^SP^SAMER^O
-QDX^ZZZZ^Y^358048^Damietta^Damietta^Damiata,Damietta,Damiette,Dimyat,Dimyāṭ,Dum'jat,Dumiat,Dumqat,Dumyat,Dumyâṭ,Dumyāţ,QDX,dmyat,Думьят,دمياط^0^0^P^PPLA^EG^^20^^^^76839^0^16^Africa/Cairo^2.0^2.0^2.0^2012-01-19^N^N^QDX^^AFRIC^O
+QDW^ZZZZ^Y^3464739^Diadema^Diadema^Diadema,QDW,Диадема^-23.6861100^-46.6227800^P^PPL^BR^^27^^^^390633^0^784^America/Sao_Paulo^-2.0^-3.0^-3.0^2010-01-29^N^N^QDW^SP^SAMER^O
+QDX^ZZZZ^Y^358048^Damietta^Damietta^Damiata,Damietta,Damiette,Dimyat,Dimyāṭ,Dum'jat,Dumiat,Dumqat,Dumyat,Dumyâṭ,Dumyāţ,QDX,dmyat,Думьят,دمياط^31.4164800^31.8133200^P^PPLA^EG^^20^^^^76839^0^16^Africa/Cairo^2.0^2.0^2.0^2012-01-19^N^N^QDX^^AFRIC^O
 QDY^ZZZZ^N^0^ANDONG/KR:OFF-^ANDONG/KR:OFF-^^0^0^X^XXXX^KR^^^^^^^^^KR^^^^-1^N^N^QDY^^ASIA^O
 QDZ^ZZZZ^N^0^SAIDA/DZ:OFF-^SAIDA/DZ:OFF-^^0^0^X^XXXX^DZ^^^^^^^^^DZ^^^^-1^N^N^QDZ^^AFRIC^O
 QEA^ZZZZ^Y^3165803^Teramo^Teramo^Interamnium,QEA,Teramo,Téramo,teramo,Терамо,テーラモ^42.65^13.7^P^PPLA2^IT^^01^TE^067041^^51023^0^280^Europe/Rome^1.0^2.0^1.0^2011-02-23^Y^N^QEA^^EUROP^O
@@ -6842,24 +6842,24 @@ QED^ZZZZ^N^0^MEDEA/DZ:OFF-^MEDEA/DZ:OFF-^^0^0^X^XXXX^DZ^^^^^^^^^DZ^^^^-1^N^N^QED
 QEE^ZZZZ^Y^6806225^Ebeye^Ebeye^QEE^8.77889^167.73806^P^PPL^MH^^150^^^^0^0^8^Pacific/Kwajalein^12.0^12.0^12.0^2010-07-08^N^N^QEE^^PACIF^O
 QEF^EDFE^Y^3272939^Egelsbach^Egelsbach^EDFE,Egelsbach,Frankfurt Egelsbach Airport,QEF^49.32^8.433^S^AIRF^DE^^05^^^^0^0^112^Europe/Berlin^1.0^2.0^1.0^2012-01-19^Y^N^QEF^^EUROP^CA^Frankfurt Egelsbach Airport
 QEG^ZZZZ^N^0^RIBEIRA GRANDE/PT^RIBEIRA GRANDE/PT^^37.57^-25.53^S^AIRP^PT^^^^^^^^^PT158^^^^-1^Y^N^QEG^^EUROP^CA
-QEH^ZZZZ^Y^2498183^El Hadjar^El Hadjar^Duzerville,El Hadjar,QEH^0^0^P^PPL^DZ^^37^^^^46656^0^13^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QEH^^AFRIC^O
-QEI^ZZZZ^Y^2939797^Crailsheim^Crailsheim^Krajl'skhajm,QEI,Stadt Crailsheim,Крайльсхайм^0^0^P^PPL^DE^^01^^^^32262^0^409^Europe/Berlin^1.0^2.0^1.0^2010-01-29^N^N^QEI^^EUROP^O
+QEH^ZZZZ^Y^2498183^El Hadjar^El Hadjar^Duzerville,El Hadjar,QEH^36.8037700^7.7368400^P^PPL^DZ^^37^^^^46656^0^13^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QEH^^AFRIC^O
+QEI^ZZZZ^Y^2939797^Crailsheim^Crailsheim^Krajl'skhajm,QEI,Stadt Crailsheim,Крайльсхайм^49.1344400^10.0719300^P^PPL^DE^^01^^^^32262^0^409^Europe/Berlin^1.0^2.0^1.0^2010-01-29^N^N^QEI^^EUROP^O
 QEJ^ZZZZ^N^0^ELGARHBOLLI/LY:OFF-^ELGARHBOLLI/LY:OFF-^^0^0^X^XXXX^LY^^^^^^^^^LY122^^^^-1^N^N^QEJ^^AFRIC^O
 QEK^ZZZZ^N^0^EL MAHALLA EL KUBRA/EG:EL MAHA^EL MAHALLA EL KUBRA/EG:EL MAHA^^0^0^X^XXXX^EG^^^^^^^^^EG044^^^^-1^N^N^QEK^^AFRIC^O
 QEL^ZZZZ^N^0^WELLINGTON/NS/AU:WELLINGTON^WELLINGTON/NS/AU:WELLINGTON^^0^0^X^XXXX^AU^^^^^^^^^AU007^^^^-1^N^N^QEL^NS^AUSTL^O
 QEM^ZZZZ^N^0^EL MANZALA/EG^EL MANZALA/EG^^0^0^X^XXXX^EG^^^^^^^^^EG044^^^^-1^N^N^QEM^^AFRIC^O
 QEO^ZZZZ^N^0^BIELSKO BIALA/PL:BIELSKO BIALA^BIELSKO BIALA/PL:BIELSKO BIALA^^49.82^19.057^X^XXXX^PL^^^^^^^^^PL089^^^^-1^N^N^QEO^^EEURO^O
-QEP^ZZZZ^Y^757033^Tarnobrzeg^Tarnobrzeg^QEP,Tarnobrzeg,Tarnobzega,Tarnobzhege,Tarnobžega,Тарнобжеге^0^0^P^PPLA2^PL^^80^1864^186401^^50459^0^162^Europe/Warsaw^1.0^2.0^1.0^2010-10-16^N^N^QEP^^EEURO^O
+QEP^ZZZZ^Y^757033^Tarnobrzeg^Tarnobrzeg^QEP,Tarnobrzeg,Tarnobzega,Tarnobzhege,Tarnobžega,Тарнобжеге^50.5730400^21.6793700^P^PPLA2^PL^^80^1864^186401^^50459^0^162^Europe/Warsaw^1.0^2.0^1.0^2010-10-16^N^N^QEP^^EEURO^O
 QEQ^ZZZZ^N^0^EMBRACH RORBAS/CH:RAIL ST^EMBRACH RORBAS/CH:RAIL ST^^47.5^8.6^S^AIRP^CH^^^^^^^^^CH032^^^^-1^Y^N^QEQ^^EUROP^CR
 QER^ZZZZ^N^0^SHIHR/YE^SHIHR/YE^^0^0^X^XXXX^YE^^^^^^^^^YE^^^^-1^N^N^QER^^MEAST^O
 QET^ZZZZ^N^0^TAEDOK/KR:TAEDOK^TAEDOK/KR:TAEDOK^^39.92^125.5^S^AIRP^KR^^^^^^^^^KR^^^^-1^Y^N^QET^^ASIA^O
 QEU^ZZZZ^N^0^PARNAMIRIM/RN/BR:PARNAMIRIM^PARNAMIRIM/RN/BR:PARNAMIRIM^^0^0^X^XXXX^BR^^^^^^^^^BR016^^^^-1^N^N^QEU^RN^SAMER^O
 QEV^ZZZZ^Y^3023141^Courbevoie^Courbevoie^QEV^48.9^2.26667^P^PPL^FR^^A8^92^922^92026^85158^0^49^Europe/Paris^1.0^2.0^1.0^2011-12-08^Y^N^QEV^^EUROP^O
 QEW^ZZZZ^Y^2644668^Leicester^Leicester^Caerlyr,Caerlŷr,Leicester,Leiscester,Lester,QEW,laystr,lstr,lystr,resuta,Лестер,לסטר,لايستر,ليستر,レスター^52.63^-1.083^P^PPLA2^GB^^ENG^H4^31UC^^339239^0^65^Europe/London^0.0^1.0^0.0^2011-03-03^N^N^QEW^^EUROP^O
-QEX^ZZZZ^Y^2930509^Emmerich^Emmerich^Ehmmerikh,Emmerich,QEX,Stadt Emmerich,Эммерих^0^0^P^PPL^DE^^07^^^^29289^0^18^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^QEX^^EUROP^O
+QEX^ZZZZ^Y^2930509^Emmerich^Emmerich^Ehmmerikh,Emmerich,QEX,Stadt Emmerich,Эммерих^51.8333300^6.2500000^P^PPL^DE^^07^^^^29289^0^18^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^QEX^^EUROP^O
 QEY^ZZZZ^Y^3423823^Qeqertarsuatsiaat^Qeqertarsuatsiaat^Fiskenaes,Fiskenasset,Fiskengesset,Fiskenæsset,Fiskernas,Fiskernæs,Kekertarsuatsiak,QEY,Qeqertarssuatsiait,Qeqertarsuatsiaat^63.08^-50.67^P^PPL^GL^^07^^^^261^0^1^America/Godthab^-3.0^-2.0^-3.0^2011-02-16^Y^N^QEY^^EUROP^CA
 QEZ^ZZZZ^Y^3170342^Pomezia^Pomezia^Pomezia,QEZ,pometsu~ia,ポメーツィア^41.6667^12.5^P^PPLA3^IT^^07^RM^058079^^43960^0^99^Europe/Rome^1.0^2.0^1.0^2012-02-15^Y^N^QEZ^^EUROP^O
-QFA^ZZZZ^Y^2760134^Aalsmeer^Aalsmeer^Aalsmeer,Alsmer,QFA,a er si mei er,Алсмер,阿尔斯梅尔^0^0^P^PPL^NL^^07^0358^^^22991^0^252^Europe/Amsterdam^1.0^2.0^1.0^2010-01-29^N^N^QFA^^EUROP^O
+QFA^ZZZZ^Y^2760134^Aalsmeer^Aalsmeer^Aalsmeer,Alsmer,QFA,a er si mei er,Алсмер,阿尔斯梅尔^52.2591700^4.7597200^P^PPL^NL^^07^0358^^^22991^0^252^Europe/Amsterdam^1.0^2.0^1.0^2010-01-29^N^N^QFA^^EUROP^O
 QFB^ZZZZ^N^0^FREIBURG/DE:HBF RAILWAY STATIO^FREIBURG/DE:HBF RAILWAY STATIO^^48.022653^7.832583^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^QFB^^EUROP^CR
 QFC^ZZZZ^N^0^CRETEIL/FR:CRETEIL^CRETEIL/FR:CRETEIL^^48.78^2.467^X^XXXX^FR^^^^^^^^^FR052^^^^-1^N^N^QFC^^EUROP^O
 QFD^DAAK^Y^7730063^Boufarik Airport^Boufarik Airport^DAAK,QFD^36.5458000^2.8761100^S^AIRP^DZ^^20^^^^0^0^93^Africa/Algiers^1.0^1.0^1.0^2011-03-16^N^N^QFD^^AFRIC^O
@@ -6870,7 +6870,7 @@ QFH^ZZZZ^Y^2621927^Frederikshavn^Frederikshavn^Fladstrand,Frederikskhavn,QFH,Ф�
 QFI^ZZZZ^Y^3423337^Iginniarfik^Iginniarfik^Iginiarfik,Iginniarfik,Igíniarfik,QFI^68.17^-53.25^P^PPL^GL^^05^^^^103^0^-9999^America/Godthab^-3.0^-2.0^-3.0^2012-01-18^Y^N^QFI^^EUROP^CH
 QFJ^ZZZZ^N^0^ALLUITSUP/GL:ALLUITSUP^ALLUITSUP/GL:ALLUITSUP^^60.5^-45.58^S^AIRP^GL^^^^^^^^^GL055^^^^-1^Y^N^QFJ^^EUROP^CA
 QFK^ZZZZ^Y^3139914^Selje^Selje^QFK^62.05^5.367^P^PPLA2^NO^^15^1441^^^694^0^160^Europe/Oslo^1.0^2.0^1.0^2010-12-07^Y^N^QFK^^EUROP^CA
-QFL^ZZZZ^Y^2925080^Freilassing^Freilassing^Freilassing,QFL^0^0^P^PPL^DE^^02^^^^15909^0^417^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^QFL^^EUROP^O
+QFL^ZZZZ^Y^2925080^Freilassing^Freilassing^Freilassing,QFL^47.8500000^12.9833300^P^PPL^DE^^02^^^^15909^0^417^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^QFL^^EUROP^O
 QFM^ZZZZ^N^0^MEET GHAMR/EG:MEET GHAMR^MEET GHAMR/EG:MEET GHAMR^^30.7^31.27^S^AIRP^EG^^^^^^^^^EG044^^^^-1^Y^N^QFM^^AFRIC^O
 QFN^ZZZZ^N^0^NARSAQ KUJA/GL:NARSAQ KUJALLEQ^NARSAQ KUJA/GL:NARSAQ KUJALLEQ^^60.02^-44.52^S^AIRP^GL^^^^^^^^^GL055^^^^-1^Y^N^QFN^^EUROP^CA
 QFO^EGSU^Y^7668211^Duxford Airport^Duxford Airport^EGSU,QFO^52.090833^0.131944^S^AIRP^GB^^ENG^C3^12UG^^0^0^33^Europe/London^0.0^1.0^0.0^2011-02-17^N^N^QFO^^EUROP^O
@@ -6889,12 +6889,12 @@ QGA^SSGY^Y^7731430^Guaíra Airport^Guaira Airport^QGA,SSGY^-24.0811000^-54.19170
 QGB^SDYM^Y^7731431^Limeira Airport^Limeira Airport^QGB,SDYM^-22.6038900^-47.4119400^S^AIRP^BR^^27^^^^0^0^653^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-18^N^N^QGB^SP^SAMER^O
 QGC^SDLP^Y^7731432^Lençóis Paulista Airport^Lencois Paulista Airport^QGC,SDLP^-22.5784000^-48.7746000^S^AIRP^BR^^27^^^^0^0^620^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-18^N^N^QGC^SP^SAMER^O
 QGD^ZZZZ^N^0^MONTE ALEGRE/PR/BR:OFF-^MONTE ALEGRE/PR/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QGD^PR^SAMER^O
-QGE^ZZZZ^Y^2495662^Guelma^Guelma^Guelma,QGE,qalmt,قالمة^0^0^P^PPLA^DZ^^23^^^^123590^0^305^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QGE^^AFRIC^O
+QGE^ZZZZ^Y^2495662^Guelma^Guelma^Guelma,QGE,qalmt,قالمة^36.4621400^7.4260800^P^PPLA^DZ^^23^^^^123590^0^305^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QGE^^AFRIC^O
 QGF^SSNG^Y^7731433^Montenegro Airport^Montenegro Airport^QGF,SSNG^-29.7194000^-51.4894000^S^AIRP^BR^^23^^^^0^0^18^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-18^N^N^QGF^RS^SAMER^O
 QGG^ZZZZ^N^0^AGEDABIA/LY:OFF-^AGEDABIA/LY:OFF-^^0^0^X^XXXX^LY^^^^^^^^^LY122^^^^-1^N^N^QGG^^AFRIC^O
 QGH^ZZZZ^N^0^GHERIAN/LY:OFF-^GHERIAN/LY:OFF-^^0^0^X^XXXX^LY^^^^^^^^^LY122^^^^-1^N^N^QGH^^AFRIC^O
 QGI^ZZZZ^N^0^ILHA DO GOVERNADOR/RJ/BR:OFF-^ILHA DO GOVERNADOR/RJ/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QGI^RJ^SAMER^O
-QGJ^ZZZZ^Y^3456166^Nova Friburgo^Nova Friburgo^Nova Friburgo,QGJ^0^0^P^PPLA2^BR^^21^3303401^^^153361^0^858^America/Sao_Paulo^-2.0^-3.0^-3.0^2012-03-10^N^N^QGJ^RJ^SAMER^O
+QGJ^ZZZZ^Y^3456166^Nova Friburgo^Nova Friburgo^Nova Friburgo,QGJ^-22.2819400^-42.5311100^P^PPLA2^BR^^21^3303401^^^153361^0^858^America/Sao_Paulo^-2.0^-3.0^-3.0^2012-03-10^N^N^QGJ^RJ^SAMER^O
 QGK^ZZZZ^N^0^PALMARES/PE/BR:PALMARES^PALMARES/PE/BR:PALMARES^^0^0^X^XXXX^BR^^^^^^^^^BR016^^^^-1^N^N^QGK^PE^SAMER^O
 QGL^ZZZZ^Y^8260517^Hauptbahnhof St. Gallen^Hauptbahnhof St. Gallen^QGL^47.43^9.376^S^RSTN^CH^^SG^1721^3203^^0^0^740^Europe/Zurich^1.0^2.0^1.0^2012-04-22^Y^N^QGL^^EUROP^CR
 QGM^ZZZZ^N^0^CHELGHOUM EL AAID/DZ:CHELGHOUM^CHELGHOUM EL AAID/DZ:CHELGHOUM^^0^0^X^XXXX^DZ^^^^^^^^^DZ^^^^-1^N^N^QGM^^AFRIC^O
@@ -6904,7 +6904,7 @@ QGP^SNGN^Y^7731434^Garanhuns Airport^Garanhuns Airport^QGP,SNGN^-8.8342800^-36.4
 QGQ^ZZZZ^Y^3424408^Attu^Attu^Agto,Attu,QGQ^68^-53.58^P^PPL^GL^^05^^^^281^0^1^America/Godthab^-3.0^-2.0^-3.0^2011-02-16^Y^N^QGQ^^EUROP^CH
 QGR^ZZZZ^N^0^KANGERLUK/GL:KANGERLUK^KANGERLUK/GL:KANGERLUK^^69.5^-53.92^S^AIRP^GL^^^^^^^^^GL055^^^^-1^Y^N^QGR^^EUROP^O
 QGS^SDUO^Y^7731435^Alagoinhas Airport^Alagoinhas Airport^QGS,SDUO^-12.1751000^-38.3802000^S^AIRP^BR^^05^^^^0^0^159^America/Bahia^-2.0^-3.0^-3.0^2011-03-18^N^N^QGS^BA^SAMER^O
-QGT^ZZZZ^Y^1856584^Moriguchi^Moriguchi^Moriguchi,QGT,shou kou shi,守口市^0^0^P^PPL^JP^^32^^^^148350^0^3^Asia/Tokyo^9.0^9.0^9.0^2012-01-19^N^N^QGT^^ASIA^O
+QGT^ZZZZ^Y^1856584^Moriguchi^Moriguchi^Moriguchi,QGT,shou kou shi,守口市^34.7333300^135.5666700^P^PPL^JP^^32^^^^148350^0^3^Asia/Tokyo^9.0^9.0^9.0^2012-01-19^N^N^QGT^^ASIA^O
 QGU^ZZZZ^N^0^GIFU/JP:OFF-^GIFU/JP:OFF-^^35.394078^136.869667^X^XXXX^JP^^^^^^^^^JP^^^^-1^N^N^QGU^^ASIA^O
 QGV^ZZZZ^N^0^FRANKFURT/DE:NEU ISENBURG RAIL^FRANKFURT/DE:NEU ISENBURG RAIL^^50.03^8.567^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^FRA^^EUROP^R
 QGX^ZZZZ^N^0^GIRGA/EG^GIRGA/EG^^0^0^X^XXXX^EG^^^^^^^^^EG044^^^^-1^N^N^QGX^^AFRIC^O
@@ -6917,43 +6917,43 @@ QHD^ZZZZ^N^0^HBF RAILWAY STATION/DE:HBF RAI^HBF RAILWAY STATION/DE:HBF RAI^^49.4
 QHE^ZZZZ^N^0^SAO BEN/SC/BR:SAO BENTO DO SUL^SAO BEN/SC/BR:SAO BENTO DO SUL^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QHE^SC^SAMER^O
 QHF^ZZZZ^N^0^SAO SEBASTIAO DO/RS/BR:OFF-^SAO SEBASTIAO DO/RS/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QHF^RS^SAMER^O
 QHG^ZZZZ^N^0^SETE LAGOAS/MG/BR:OFF-^SETE LAGOAS/MG/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QHG^MG^SAMER^O
-QHH^ZZZZ^Y^2498614^El Arrouch^El Arrouch^El Arrouch,QHH^0^0^P^PPL^DZ^^31^^^^0^0^132^Africa/Algiers^1.0^1.0^1.0^2012-05-06^N^N^QHH^^AFRIC^O
+QHH^ZZZZ^Y^2498614^El Arrouch^El Arrouch^El Arrouch,QHH^36.6530600^6.8363900^P^PPL^DZ^^31^^^^0^0^132^Africa/Algiers^1.0^1.0^1.0^2012-05-06^N^N^QHH^^AFRIC^O
 QHI^ZZZZ^N^0^CHONBURI/TH:OFF-^CHONBURI/TH:OFF-^^0^0^X^XXXX^TH^^^^^^^^^TH^^^^-1^N^N^QHI^^SEASI^O
 QHJ^ZZZZ^N^0^HJORRING/DK:BUS STATION^HJORRING/DK:BUS STATION^^57.47^9.983^S^AIRP^DK^^^^^^^^^DK041^^^^-1^Y^N^QHJ^^EUROP^CB
 QHK^ZZZZ^N^0^SHAHRKORD/IR:OFF-^SHAHRKORD/IR:OFF-^^32.297222^50.842222^X^XXXX^IR^^^^^^^^^IR120^^^^-1^N^N^QHK^^MEAST^O
 QHL^ZZZZ^N^0^CASTANHAL/PA/BR:OFF-^CASTANHAL/PA/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR016^^^^-1^N^N^QHL^PA^SAMER^O
 QHM^ZZZZ^N^0^HAMA/SY:OFF-^HAMA/SY:OFF-^^0^0^X^XXXX^SY^^^^^^^^^SY098^^^^-1^N^N^QHM^^MEAST^O
 QHN^SWTY^Y^7731437^Taguatinga Airport^Taguatinga Airport^QHN,SWTY^-12.4338900^-46.4005500^S^AIRP^BR^^31^^^^0^0^580^America/Araguaina^-3.0^-3.0^-3.0^2011-03-18^N^N^QHN^GO^SAMER^O
-QHO^ZZZZ^Y^4904277^Oak Brook^Oak Brook^QHO^0^0^P^PPL^US^^IL^043^^^7883^202^204^America/Chicago^-6.0^-5.0^-6.0^2011-05-14^N^N^QHO^IL^NAMER^O
+QHO^ZZZZ^Y^4904277^Oak Brook^Oak Brook^QHO^41.8328100^-87.9289500^P^PPL^US^^IL^043^^^7883^202^204^America/Chicago^-6.0^-5.0^-6.0^2011-05-14^N^N^QHO^IL^NAMER^O
 QHP^SBTA^Y^7730161^Base de Aviação de Taubaté Airport^Base de Aviacao de Taubate Airport^QHP,SBTA^-23.040133^-45.516011^S^AIRP^BR^^27^^^^0^0^579^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-16^N^N^QHP^SP^SAMER^O
-QHQ^ZZZZ^Y^2940204^Cham^Cham^Cham,Cham Regen,QHQ^0^0^P^PPL^DE^^02^^^^17314^0^422^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^QHQ^^EUROP^O
+QHQ^ZZZZ^Y^2940204^Cham^Cham^Cham,Cham Regen,QHQ^49.2255600^12.6636100^P^PPL^DE^^02^^^^17314^0^422^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^QHQ^^EUROP^O
 QHR^HAHM^Y^6297271^Harar Meda^Harar Meda^HAHM,QHR^8.7333300^39.0000000^S^AIRP^ET^^^^^^0^1876^1885^Africa/Addis_Ababa^3.0^3.0^3.0^2006-10-28^N^N^QHR^^AFRIC^O
-QHS^ZZZZ^Y^169577^Homs^Homs^Choms,Emesa,Hims,Homs,Houmousse,Hums,Khoms,QHS,hms,hwms,mdynt hms,Χομς,Хомс,חומס,حمص,مدينة حمص,Ḩimş,Ἔμεσα^0^0^P^PPLA^SY^^11^^^^775404^0^513^Asia/Damascus^2.0^3.0^2.0^2012-03-27^N^N^QHS^^MEAST^O
+QHS^ZZZZ^Y^169577^Homs^Homs^Choms,Emesa,Hims,Homs,Houmousse,Hums,Khoms,QHS,hms,hwms,mdynt hms,Χομς,Хомс,חומס,حمص,مدينة حمص,Ḩimş,Ἔμεσα^34.7268200^36.7233900^P^PPLA^SY^^11^^^^775404^0^513^Asia/Damascus^2.0^3.0^2.0^2012-03-27^N^N^QHS^^MEAST^O
 QHT^ZZZZ^N^0^TEREZOPOLIS/RJ/BR:OFF-^TEREZOPOLIS/RJ/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QHT^RJ^SAMER^O
 QHU^ZZZZ^N^0^HUSUM/DE:SCHWESING^HUSUM/DE:SCHWESING^^54.5^9.133^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^QHU^^EUROP^CA
 QHV^SSNH^Y^7731438^Novo Hamburgo Airport^Novo Hamburgo Airport^QHV,SSNH^-29.81^-51.217^S^AIRP^BR^^23^^^^0^0^16^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-18^N^N^QHV^RS^SAMER^O
 QHW^ZZZZ^N^0^BROOKLYN/NJ/US:BROOKLYN^BROOKLYN/NJ/US:BROOKLYN^^0^0^X^XXXX^US^^^^^^^^^US105^^^^-1^N^N^QHW^NJ^NAMER^O
 QHX^ZZZZ^N^0^QIONGHAI/CN:RAILWAY STATION^QIONGHAI/CN:RAILWAY STATION^^NULL^NULL^S^AIRP^CN^^^^^^^^^CN035^^^^-1^Y^N^QHX^^ASIA^CR
 QHY^ZZZZ^N^0^HACHIOJI CITY/JP:OFF-^HACHIOJI CITY/JP:OFF-^^0^0^X^XXXX^JP^^^^^^^^^JP^^^^-1^N^N^QHY^^ASIA^O
-QHZ^ZZZZ^Y^2753801^Hoofddorp^Hoofddorp^Haarlemmermeer,Hoofddorp,QHZ^0^0^P^PPL^NL^^07^0394^^^132734^0^254^Europe/Amsterdam^1.0^2.0^1.0^2010-03-18^N^N^QHZ^^EUROP^O
+QHZ^ZZZZ^Y^2753801^Hoofddorp^Hoofddorp^Haarlemmermeer,Hoofddorp,QHZ^52.3025000^4.6888900^P^PPL^NL^^07^0394^^^132734^0^254^Europe/Amsterdam^1.0^2.0^1.0^2010-03-18^N^N^QHZ^^EUROP^O
 QIA^ZZZZ^N^0^ITAUNA/MG/BR:OFF-^ITAUNA/MG/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QIA^MG^SAMER^O
 QIB^ZZZZ^N^0^IBIRUBA/RS/BR:OFF-^IBIRUBA/RS/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QIB^RS^SAMER^O
 QIC^ZZZZ^Y^2523083^Siracusa^Siracusa^QIC,Sarausa,Siracusa,Sirakuza,Sirakuze,Syracusae,Syracuse,Syrakus,Syrakusa,Syrakuzy,shirakusa,silakusa,syraqwst,syrqwzh,xi la ku sa,Сиракуза,סירקוזה,سيراقوسة,シラクサ,锡拉库萨,시라쿠사^37.0667^15.3^P^PPLA2^IT^^15^SR^089017^^123657^0^65^Europe/Rome^1.0^2.0^1.0^2011-02-23^Y^N^QIC^^EUROP^O
 QID^SNVI^Y^7731439^Mélio Viana Airport^Melio Viana Airport^QID,SNVI^-21.7906000^-45.2692000^S^AIRP^BR^^15^^^^0^0^975^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-18^N^N^QID^MG^SAMER^O
 QIE^ZZZZ^Y^3012647^Istres^Istres^Istra,Istre,Istres,QIE,isutoru,Истра,イストル^43.522736^4.923844^P^PPLA3^FR^^B8^13^134^13047^44373^0^24^Europe/Paris^1.0^2.0^1.0^2011-11-02^N^N^QIE^^EUROP^O
-QIF^ZZZZ^Y^2646004^Isleworth^Isleworth^QIF^0^0^P^PPL^GB^^ENG^GLA^G1^^0^0^21^Europe/London^0.0^1.0^0.0^2011-02-08^N^N^QIF^^EUROP^O
+QIF^ZZZZ^Y^2646004^Isleworth^Isleworth^QIF^51.4751800^-0.3424600^P^PPL^GB^^ENG^GLA^G1^^0^0^21^Europe/London^0.0^1.0^0.0^2011-02-08^N^N^QIF^^EUROP^O
 QIG^SNIG^Y^3398333^Iguatu^Iguatu^Iguatu,QIG,SNIG^-6.33333^-39.2833^S^AIRF^BR^^06^^^^0^0^214^America/Fortaleza^-3.0^-3.0^-3.0^2012-01-19^N^N^QIG^CE^SAMER^O
 QIH^ZZZZ^N^0^TRES RIOS/RJ/BR:OFF-^TRES RIOS/RJ/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QIH^RJ^SAMER^O
 QII^ZZZZ^N^0^LINDAU/DE:HBF RAILWAY STATION^LINDAU/DE:HBF RAILWAY STATION^^47.55^9.68333^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^QII^^EUROP^CR
 QIJ^ZZZZ^N^0^GIJON/ES:OFF-^GIJON/ES:OFF-^^43.54^-5.662^X^XXXX^ES^^^^^^^^^ES045^^^^-1^N^N^QIJ^^EUROP^O
 QIK^ZZZZ^N^0^IKOYI/NG:OFF-^IKOYI/NG:OFF-^^0^0^X^XXXX^NG^^^^^^^^^NG^^^^-1^N^N^QIK^^AFRIC^O
-QIL^ZZZZ^Y^2479609^Sig^Sig^QIL,Saint-Denis-du-Sig,Sig^0^0^P^PPL^DZ^^26^^^^58877^0^62^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QIL^^AFRIC^O
+QIL^ZZZZ^Y^2479609^Sig^Sig^QIL,Saint-Denis-du-Sig,Sig^35.5283200^-0.1936900^P^PPL^DZ^^26^^^^58877^0^62^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QIL^^AFRIC^O
 QIM^ZZZZ^N^0^AIN M LILA/DZ:AIN M LILA^AIN M LILA/DZ:AIN M LILA^^0^0^X^XXXX^DZ^^^^^^^^^DZ^^^^-1^N^N^QIM^^AFRIC^O
 QIN^ZZZZ^N^0^MERSIN/TR:MERSIN^MERSIN/TR:MERSIN^^0^0^X^XXXX^TR^^^^^^^^^TR101^^^^-1^N^N^QIN^^EURAS^O
 QIO^ZZZZ^N^0^AIN TEMOUCHENT/DZ:OFF-^AIN TEMOUCHENT/DZ:OFF-^^0^0^X^XXXX^DZ^^^^^^^^^DZ^^^^-1^N^N^QIO^^AFRIC^O
 QIP^ZZZZ^N^0^SIMBACH/DE:OFF-^SIMBACH/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^QIP^^EUROP^O
 QIQ^SDRK^Y^7731440^Rio Claro Airport^Rio Claro Airport^QIQ,SDRK^-22.4311000^-47.5642000^S^AIRP^BR^^27^^^^0^0^608^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-18^N^N^QIQ^SP^SAMER^O
-QIR^ZZZZ^Y^248946^Irbid^Irbid^Arbela,Arbēla,Irbid,QIR,arbd,Ирбид,אירביד,إربد^0^0^P^PPLA^JO^^18^^^^307480^0^570^Asia/Amman^2.0^3.0^2.0^2012-01-14^N^N^QIR^^MEAST^O
+QIR^ZZZZ^Y^248946^Irbid^Irbid^Arbela,Arbēla,Irbid,QIR,arbd,Ирбид,אירביד,إربد^32.5555600^35.8500000^P^PPLA^JO^^18^^^^307480^0^570^Asia/Amman^2.0^3.0^2.0^2012-01-14^N^N^QIR^^MEAST^O
 QIS^ZZZZ^N^0^MITO/JP:OFF-^MITO/JP:OFF-^^0^0^X^XXXX^JP^^^^^^^^^JP^^^^-1^N^N^QIS^^ASIA^O
 QIT^SNIP^Y^7731441^Itapetinga Airport^Itapetinga Airport^QIT,SNIP^-15.2445000^-40.2772000^S^AIRP^BR^^05^^^^0^0^267^America/Bahia^-2.0^-3.0^-3.0^2011-03-18^N^N^QIT^BA^SAMER^O
 QIU^ZZZZ^N^0^CIUDADELA/ES:OFF-^CIUDADELA/ES:OFF-^^0^0^X^XXXX^ES^^^^^^^^^ES045^^^^-1^N^N^QIU^^EUROP^O
@@ -6967,12 +6967,12 @@ QJB^ZZZZ^N^0^JUBAIL/SA:OFF-^JUBAIL/SA:OFF-^^27.039028^49.405083^X^XXXX^SA^^^^^^^
 QJC^ZZZZ^N^0^THIMBU/BT:OFF-^THIMBU/BT:OFF-^^0^0^X^XXXX^BT^^^^^^^^^BT^^^^-1^N^N^QJC^^ASIA^O
 QJD^YJIN^Y^7731442^Jindabyne Airport^Jindabyne Airport^QJD,YJIN^-36.37^148.6^S^AIRP^AU^^02^17050^^^0^0^1026^Australia/Sydney^11.0^10.0^10.0^2011-06-04^Y^N^QJD^NS^AUSTL^O
 QJE^ZZZZ^N^0^KITSISSUARSU/GL:KITSISSUARSUIT^KITSISSUARSU/GL:KITSISSUARSUIT^^68.83^-53.17^S^AIRP^GL^^^^^^^^^GL055^^^^-1^Y^N^QJE^^EUROP^CH
-QJF^ZZZZ^Y^3424424^Atammik^Atammik^Atammik,Atangmik,QJF^0^0^P^PPL^GL^^06^^^^250^0^-9999^America/Godthab^-3.0^-2.0^-3.0^2012-01-18^Y^N^QJF^^EUROP^O
+QJF^ZZZZ^Y^3424424^Atammik^Atammik^Atammik,Atangmik,QJF^64.8000000^-52.2166700^P^PPL^GL^^06^^^^250^0^-9999^America/Godthab^-3.0^-2.0^-3.0^2012-01-18^Y^N^QJF^^EUROP^O
 QJG^ZZZZ^N^0^ITILLEQ/GL:ITILLEQ^ITILLEQ/GL:ITILLEQ^^66.58^-53.42^S^AIRP^GL^^^^^^^^^GL055^^^^-1^Y^N^QJG^^EUROP^O
 QJH^ZZZZ^Y^3420739^Qassimiut^Qassimiut^Kagsimiut,QJH,Qagssimiut,Qassimiut^60.58^-47.25^P^PPL^GL^^04^^^^49^0^-9999^America/Godthab^-3.0^-2.0^-3.0^2012-01-18^Y^N^QJH^^EUROP^CA
 QJI^ZZZZ^Y^3423313^Ikamiut^Ikamiut^Ikamiut,QJI^68.83^-52^P^PPL^GL^^05^^^^92^0^-9999^America/Godthab^-3.0^-2.0^-3.0^2012-01-18^Y^N^QJI^^EUROP^CH
 QJJ^ZZZZ^N^0^DALTON/GA/US:FLIGHTLINK BUS ST^DALTON/GA/US:FLIGHTLINK BUS ST^^34.72^-84.87^S^AIRP^US^^^^^^^^^US105^^^^-1^Y^N^DNN^GA^NAMER^B
-QJK^ZZZZ^Y^2351470^Ajaokuta^Ajaokuta^Ajaokuta,QJK^0^0^P^PPL^NG^^41^^^^15144^0^52^Africa/Lagos^1.0^1.0^1.0^2011-10-30^N^N^QJK^^AFRIC^O
+QJK^ZZZZ^Y^2351470^Ajaokuta^Ajaokuta^Ajaokuta,QJK^7.5622900^6.6549700^P^PPL^NG^^41^^^^15144^0^52^Africa/Lagos^1.0^1.0^1.0^2011-10-30^N^N^QJK^^AFRIC^O
 QJL^ZZZZ^N^0^KJOLLEFJORD/NO^KJOLLEFJORD/NO^^70.93^27.45^S^AIRP^NO^^^^^^^^^NO083^^^^-1^Y^N^QJL^^EUROP^O
 QJM^ZZZZ^N^0^BRUSQUE/SC/BR:OFF-PT^BRUSQUE/SC/BR:OFF-PT^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QJM^SC^SAMER^O
 QJN^ZZZZ^N^0^JOUNIE/LB:JOUNIE^JOUNIE/LB:JOUNIE^^0^0^X^XXXX^LB^^^^^^^^^LB072^^^^-1^N^N^QJN^^MEAST^O
@@ -6981,7 +6981,7 @@ QJP^ZZZZ^N^0^BUCHEON/KR:BUCHEON^BUCHEON/KR:BUCHEON^^0^0^X^XXXX^KR^^^^^^^^^KR^^^^
 QJQ^ZZZZ^N^0^JALL ED DIB/LB:JALL ED DIB^JALL ED DIB/LB:JALL ED DIB^^0^0^X^XXXX^LB^^^^^^^^^LB072^^^^-1^N^N^QJQ^^MEAST^O
 QJR^ZZZZ^N^0^LA JUNQUERA/ES:OFF-^LA JUNQUERA/ES:OFF-^^0^0^X^XXXX^ES^^^^^^^^^ES045^^^^-1^N^N^QJR^^EUROP^O
 QJS^ZZZZ^N^0^SAEBY/DK:SAEBY BUS^SAEBY/DK:SAEBY BUS^^57.33^10.53^S^AIRP^DK^^^^^^^^^DK041^^^^-1^Y^N^QJS^^EUROP^CB
-QJT^ZZZZ^Y^3421750^Napasoq^Napasoq^Napasok,Napasoq,Napassok,Napassoq,QJT^0^0^P^PPL^GL^^06^^^^99^0^1^America/Godthab^-3.0^-2.0^-3.0^2012-01-18^Y^N^QJT^^EUROP^O
+QJT^ZZZZ^Y^3421750^Napasoq^Napasoq^Napasok,Napasoq,Napassok,Napassoq,QJT^65.0500000^-52.4000000^P^PPL^GL^^06^^^^99^0^1^America/Godthab^-3.0^-2.0^-3.0^2012-01-18^Y^N^QJT^^EUROP^O
 QJU^ZZZZ^N^0^JULLUNDUR/IN:OFF-^JULLUNDUR/IN:OFF-^^31.33^75.577^X^XXXX^IN^^^^^^^^^IN^^^^-1^N^N^QJU^^ASIA^O
 QJV^ZZZZ^Y^2613939^Skagen^Skagen^QJV,Skagen,Скаген^57.72^10.58^P^PPL^DK^^19^813^^^9747^0^3^Europe/Copenhagen^1.0^2.0^1.0^2011-12-20^Y^N^QJV^^EUROP^CB
 QJW^ZZZZ^Y^2618814^Kjellerup^Kjellerup^Kellerup,Kjellerup,QJW^56.48^9.726^P^PPL^DK^^18^740^^^4514^0^63^Europe/Copenhagen^1.0^2.0^1.0^2012-01-17^Y^N^QJW^^EUROP^CB
@@ -6996,15 +6996,15 @@ QKE^FLKW^Y^6297013^Kabwe^Kabwe^FLKW,QKE^-14.4500000^28.4666700^S^AIRP^ZM^^^^^^0^
 QKF^ZZZZ^Y^2884509^Krefeld^Krefeld^Crefeld,Krefel'd,Krefeld,Krefeld-Uerdingen,Krefeldas,Krefelde,Krieevel,Krēfelde,Krėfeldas,QKF,ke lei fei er de,keulepelteu,krfld,kryfld,kureferuto,Крефелд,Крефельд,كريفلد,کرفلد,クレフェルト,クレーフェルト,克雷费尔德,크레펠트^51.38^6.583^P^PPL^DE^^07^^^^237984^0^44^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^QKF^^EUROP^O
 QKG^ZZZZ^N^0^CHALKIDA/GR:CHALKIDA^CHALKIDA/GR:CHALKIDA^^37.75^21.75^S^AIRP^GR^^^^^^^^^GR058^^^^-1^Y^N^QKG^^EUROP^O
 QKH^ZZZZ^N^0^KHARIAN/PK:OFF-^KHARIAN/PK:OFF-^^0^0^X^XXXX^PK^^^^^^^^^PK163^^^^-1^N^N^QKH^^ASIA^O
-QKI^ZZZZ^Y^769250^Kielce^Kielce^Kel'ce,Kel'tsy,Kelce,Kielce,QKI,kyerutsu~e,Келце,Кельце,キェルツェ^0^0^P^PPLA^PL^^84^^^^208598^0^267^Europe/Warsaw^1.0^2.0^1.0^2010-07-15^N^N^QKI^^EEURO^O
-QKJ^ZZZZ^Y^2491889^Khenchela^Khenchela^Khenchela,Krenchela,QKJ^0^0^P^PPLA^DZ^^47^^^^0^0^1128^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QKJ^^AFRIC^O
+QKI^ZZZZ^Y^769250^Kielce^Kielce^Kel'ce,Kel'tsy,Kelce,Kielce,QKI,kyerutsu~e,Келце,Кельце,キェルツェ^50.8703300^20.6275200^P^PPLA^PL^^84^^^^208598^0^267^Europe/Warsaw^1.0^2.0^1.0^2010-07-15^N^N^QKI^^EEURO^O
+QKJ^ZZZZ^Y^2491889^Khenchela^Khenchela^Khenchela,Krenchela,QKJ^35.4358300^7.1433300^P^PPLA^DZ^^47^^^^0^0^1128^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QKJ^^AFRIC^O
 QKK^ZZZZ^Y^779350^Karasjok^Karasjok^Karasjohka,Karasjok,Kárášjohka,QKK,Карасйок^69.45^25.5^P^PPLA2^NO^^05^2021^^^1908^0^145^Europe/Oslo^1.0^2.0^1.0^2010-12-07^Y^N^QKK^^EUROP^O
 QKL^ZZZZ^N^0^COLOGNE/BONN/DE:COLOGNE HBF RA^COLOGNE/BONN/DE:COLOGNE HBF RA^^50.93^6.95^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^Y^CGN^^EUROP^R
 QKM^ZZZZ^N^0^GUMI/KR:GUMI^GUMI/KR:GUMI^^0^0^X^XXXX^KR^^^^^^^^^KR^^^^-1^N^N^QKM^^ASIA^O
 QKN^DTTK^Y^6296471^Kairouan^Kairouan^DTTK,QKN^35.6666700^10.1000000^S^AIRP^TN^^^^^^0^60^64^Africa/Tunis^1.0^1.0^1.0^2006-10-28^N^N^QKN^^AFRIC^O
 QKO^ZZZZ^N^0^KHOMS/LY:OFF-^KHOMS/LY:OFF-^^32.65^14.266^X^XXXX^LY^^^^^^^^^LY122^^^^-1^N^N^QKO^^AFRIC^O
 QKP^ZZZZ^N^0^KRUGER NATIONAL P/ZA:OFF-^KRUGER NATIONAL P/ZA:OFF-^^0^0^X^XXXX^ZA^^^^^^^^^ZA^^^^-1^N^N^QKP^^AFRIC^O
-QKQ^ZZZZ^Y^2956018^Anklam^Anklam^Anklam,QKQ,Анклам^0^0^P^PPL^DE^^12^^^^14694^0^8^Europe/Berlin^1.0^2.0^1.0^2010-01-29^N^N^QKQ^^EUROP^O
+QKQ^ZZZZ^Y^2956018^Anklam^Anklam^Anklam,QKQ,Анклам^53.8563700^13.6896500^P^PPL^DE^^12^^^^14694^0^8^Europe/Berlin^1.0^2.0^1.0^2010-01-29^N^N^QKQ^^EUROP^O
 QKR^ZZZZ^Y^3381304^Kourou^Kourou^Kourou,QKR^5.15^-52.467^S^AIRF^GF^^GF^973^9731^^0^0^12^America/Cayenne^-3.0^-3.0^-3.0^2012-01-18^N^N^QKR^^SAMER^O
 QKS^ZZZZ^N^0^KEYSTONE/CO/US:BUS STATION^KEYSTONE/CO/US:BUS STATION^^39.83^-106^S^AIRP^US^^^^^^^^^US108^^^^-1^Y^N^QKS^CO^NAMER^CB
 QKT^ZZZZ^Y^3422700^Kangaamiut^Kangaamiut^Gammel Sukkertoppen,Kangaamiut,Kangamiut,Kanganiut,Kangâmiut,Old Sukkertoppen,QKT^65.92^-53^P^PPL^GL^^06^^^^396^0^-9999^America/Godthab^-3.0^-2.0^-3.0^2011-02-16^Y^N^QKT^^EUROP^CA
@@ -7012,11 +7012,11 @@ QKU^ZZZZ^N^0^COLOGNE/BONN/DE:MESSE DEUTZ RA^COLOGNE/BONN/DE:MESSE DEUTZ RA^^50.9
 QKV^ZZZZ^N^0^SAKAI/JP^SAKAI/JP^^34.8^135.5^S^AIRP^JP^^^^^^^^^JP^^^^-1^Y^N^QKV^^ASIA^CA
 QKW^ZZZZ^N^0^KANAZAWA/JP:OFF-^KANAZAWA/JP:OFF-^^0^0^X^XXXX^JP^^^^^^^^^JP^^^^-1^N^N^QKW^^ASIA^O
 QKX^ZZZZ^Y^779330^Kautokeino^Kautokeino^Guovdagaeidno,Guovdagaeino,Guovdageaidnu,Guovdagæidno,Guovdagæino,Kautokeini,Kautokeino,QKX^63.98^23.7^P^PPLA2^NO^^05^2011^^^2000^0^319^Europe/Oslo^1.0^2.0^1.0^2011-08-31^Y^N^QKX^^EUROP^O
-QKY^ZZZZ^Y^1926019^Wakayama^Wakayama^QKY,Wakayama^0^0^P^PPL^JP^^05^^^^0^0^-9999^Asia/Tokyo^9.0^9.0^9.0^2012-05-06^N^N^QKY^^ASIA^O
-QKZ^ZZZZ^Y^2885679^Konstanz^Konstanz^Constanca,Constance,Constanta,Constanza,Constança,Constanţa,Costanza,Konstanc,Konstancja,Konstanz,Kostnice,QKZ,kang si tan ci,konsutantsu,qwnstnz,Констанц,קונסטנץ,コンスタンツ,康斯坦茨^0^0^P^PPL^DE^^01^^^^81275^0^402^Europe/Berlin^1.0^2.0^1.0^2010-02-01^N^N^QKZ^^EUROP^O
+QKY^ZZZZ^Y^1926019^Wakayama^Wakayama^QKY,Wakayama^34.2166700^133.1833300^P^PPL^JP^^05^^^^0^0^-9999^Asia/Tokyo^9.0^9.0^9.0^2012-05-06^N^N^QKY^^ASIA^O
+QKZ^ZZZZ^Y^2885679^Konstanz^Konstanz^Constanca,Constance,Constanta,Constanza,Constança,Constanţa,Costanza,Konstanc,Konstancja,Konstanz,Kostnice,QKZ,kang si tan ci,konsutantsu,qwnstnz,Констанц,קונסטנץ,コンスタンツ,康斯坦茨^47.6603300^9.1758200^P^PPL^DE^^01^^^^81275^0^402^Europe/Berlin^1.0^2.0^1.0^2010-02-01^N^N^QKZ^^EUROP^O
 QLA^EGHL^Y^7668208^Lasham Airport^Lasham Airport^EGHL,QLA^51.187167^-1.0335^S^AIRP^GB^^ENG^F2^24UC^^0^0^179^Europe/London^0.0^1.0^0.0^2011-02-17^N^N^QLA^^EUROP^O
 QLB^ZZZZ^N^0^LAJEADO/RS/BR:OFF-^LAJEADO/RS/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QLB^RS^SAMER^O
-QLC^ZZZZ^Y^3099230^Gliwice^Gliwice^Gleiwitz,Glivice,Gliwice,Gliwice-Sosnowiec,Gļivice,QLC,gurivu~itsu~e,Гливице,グリヴィツェ^0^0^P^PPLA3^PL^^83^2466^246601^^198835^200^219^Europe/Warsaw^1.0^2.0^1.0^2011-07-31^N^N^QLC^^EEURO^O
+QLC^ZZZZ^Y^3099230^Gliwice^Gliwice^Gleiwitz,Glivice,Gliwice,Gliwice-Sosnowiec,Gļivice,QLC,gurivu~itsu~e,Гливице,グリヴィツェ^50.2976100^18.6765800^P^PPLA3^PL^^83^2466^246601^^198835^200^219^Europe/Warsaw^1.0^2.0^1.0^2011-07-31^N^N^QLC^^EEURO^O
 QLD^DAAB^Y^7668171^Blida Airport^Blida Airport^DAAB,QLD^36.503613^2.814167^S^AIRP^DZ^^20^^^^0^0^161^Africa/Algiers^1.0^1.0^1.0^2011-02-17^N^N^QLD^^AFRIC^O
 QLE^ZZZZ^Y^2160413^Leeton^Leeton^Leeton,Liton,QLE,Литон^-34.55^146.4^P^PPL^AU^^02^14750^^^7299^0^152^Australia/Sydney^11.0^10.0^10.0^2012-02-28^Y^N^QLE^NS^AUSTL^CB
 QLF^EFLA^Y^7730472^Lahti Vesivehmaa Airport^Lahti Vesivehmaa Airport^EFLA,QLF^60.98^25.661^S^AIRP^FI^^13^07^016^^0^0^152^Europe/Helsinki^2.0^3.0^2.0^2012-04-14^N^N^QLF^^EUROP^O
@@ -7024,18 +7024,18 @@ QLG^ZZZZ^Y^2881485^Landshut^Landshut^Gorad Landskhut,Landishuta,Landsgut,Landshu
 QLH^ZZZZ^Y^2891742^Kelsterbach^Kelsterbach^Kelsterbach,QLH^50.06^8.53^P^PPL^DE^^05^^^^13836^0^111^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^QLH^^EUROP^O
 QLI^ZZZZ^Y^146384^Limassol^Limassol^Lemesos,Lemessus,Leymosun,Limasol,Limassol,QLI,lymswl,rimasoru,Λεμεσός,Лимасол,Лімасол,לימסול,リマソール^34.59^32.989^P^PPLA^CY^^05^^^^154000^0^14^Asia/Nicosia^2.0^3.0^2.0^2012-02-05^Y^N^QLI^^EUROP^O
 QLJ^ZZZZ^N^0^LUCERNE/CH:LUCERNE RAIL^LUCERNE/CH:LUCERNE RAIL^^47.05^8.283^S^AIRP^CH^^^^^^^^^CH032^^^^-1^Y^N^QLJ^^EUROP^CR
-QLK^ZZZZ^Y^2497988^El Kala^El Kala^Ehl'-Kaly,El Kala,La Calle,Port de la Calle,QLK,Эль-Калы^0^0^P^PPL^DZ^^44^^^^35449^0^21^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QLK^^AFRIC^O
+QLK^ZZZZ^Y^2497988^El Kala^El Kala^Ehl'-Kaly,El Kala,La Calle,Port de la Calle,QLK,Эль-Калы^36.8955600^8.4433300^P^PPL^DZ^^44^^^^35449^0^21^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QLK^^AFRIC^O
 QLL^ZZZZ^N^0^SAO LEOPOLD/RS/BR:SAO LEOPOLDO^SAO LEOPOLD/RS/BR:SAO LEOPOLDO^^-29.75^-51.18^S^AIRP^BR^^^^^^^^^BR015^^^^-1^Y^N^QLL^RS^SAMER^O
 QLM^ZZZZ^N^0^LA MUNOZA/ES:OFF-^LA MUNOZA/ES:OFF-^^0^0^X^XXXX^ES^^^^^^^^^ES045^^^^-1^N^N^QLM^^EUROP^O
 QLN^ZZZZ^Y^3166034^Sulmona^Sulmona^QLN,Salmona,Sulmo,Sulmona,Сулмона^42.05^13.9167^P^PPLA3^IT^^01^AQ^066098^^25304^0^401^Europe/Rome^1.0^2.0^1.0^2012-02-15^Y^N^QLN^^EUROP^O
 QLO^ZZZZ^N^0^LOS ANGELES/CA/US:FERRY PORT^LOS ANGELES/CA/US:FERRY PORT^^33.9167^-118.383^S^AIRP^US^^^^^^^^^US110^^^^-1^Y^N^LAX^CA^NAMER^P
 QLP^ZZZZ^Y^3175081^La Spezia^La Spezia^La Specija,La Spezia,QLP,Specija,Spedia,Speza,Spezia,Ла Специја,Специя,ラ・スペツィア^44.1167^9.83333^P^PPLA2^IT^^08^SP^011015^^91391^0^3^Europe/Rome^1.0^2.0^1.0^2011-02-23^Y^N^QLP^^EUROP^O
 QLQ^ZZZZ^N^0^LLEIDA/ES:LLEIDA RAILWAY ST^LLEIDA/ES:LLEIDA RAILWAY ST^^41.62^0.6333^S^AIRP^ES^^^^^^^^^ES045^^^^-1^Y^Y^ILD^^EUROP^R
-QLR^ZZZZ^Y^2267095^Leiria^Leiria^Leiria,Lejrija,QLR,Vieira de Leiria,lyyryh,Λεϊρία,Лейрия,לייריה^0^0^P^PPLA^PT^^13^1009^100912^^45112^0^33^Europe/Lisbon^0.0^1.0^0.0^2011-08-28^N^N^QLR^^EUROP^O
+QLR^ZZZZ^Y^2267095^Leiria^Leiria^Leiria,Lejrija,QLR,Vieira de Leiria,lyyryh,Λεϊρία,Лейрия,לייריה^39.7436200^-8.8070500^P^PPLA^PT^^13^1009^100912^^45112^0^33^Europe/Lisbon^0.0^1.0^0.0^2011-08-28^N^N^QLR^^EUROP^O
 QLS^LSGL^Y^6299715^Lausanne^Lausanne^LSGL,QLS^46.53^6.65^S^AIRP^CH^^VD^2225^5586^^0^616^606^Europe/Zurich^1.0^2.0^1.0^2011-03-19^Y^N^QLS^^EUROP^CR
 QLT^LIRL^Y^6299625^Latina Airport^Latina Airport^Aeroporto di Latina,LIRL,Latina,Latina Airport,QLT^41.542436^12.909019^S^AIRP^IT^^07^LT^059011^^0^28^21^Europe/Rome^1.0^2.0^1.0^2011-03-28^Y^N^QLT^^EUROP^O
 QLU^ZZZZ^Y^765876^Lublin^Lublin^Liublinas,Ljublin,Lublin,Lublina,Lublino,Lyublin,QLU,lublini,lwblyn,ruburin,Ļubļina,Лублин,Люблин,Люблін,לובלין,ლუბლინი,ルブリン^51.24^22.572^P^PPLA^PL^^75^^^^360044^0^183^Europe/Warsaw^1.0^2.0^1.0^2012-01-19^N^N^QLU^^EEURO^O
-QLV^ZZZZ^Y^3430310^Olivos^Olivos^Olivos,QLV^0^0^P^PPL^AR^^01^3427504^^^0^0^23^America/Argentina/Buenos_Aires^-3.0^-3.0^-3.0^2012-01-18^N^N^QLV^BA^SAMER^O
+QLV^ZZZZ^Y^3430310^Olivos^Olivos^Olivos,QLV^-34.5074700^-58.4870200^P^PPL^AR^^01^3427504^^^0^0^23^America/Argentina/Buenos_Aires^-3.0^-3.0^-3.0^2012-01-18^N^N^QLV^BA^SAMER^O
 QLW^ZZZZ^N^0^LAVRAS/MG/BR:OFF-^LAVRAS/MG/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QLW^MG^SAMER^O
 QLX^ZZZZ^Y^2772827^Lauterach^Lauterach^QLX^47.38^15.1^P^PPLA3^AT^^08^802^80224^^9212^0^412^Europe/Vienna^1.0^2.0^1.0^2011-07-31^Y^N^QLX^^EUROP^O
 QLY^LIRE^Y^6299618^Pratica Di Mare^Pratica Di Mare^LIRE,QLY^41.6545200^12.4451800^S^AIRP^IT^^07^RM^058079^^0^12^9^Europe/Rome^1.0^2.0^1.0^2011-02-25^N^N^QLY^^EUROP^O
@@ -7046,12 +7046,12 @@ QMC^ZZZZ^N^0^MAIRIPORA/SP/BR:OFF-^MAIRIPORA/SP/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR
 QMD^ZZZZ^N^0^MADABA/JO:OFF-^MADABA/JO:OFF-^^0^0^X^XXXX^JO^^^^^^^^^JO068^^^^-1^N^N^QMD^^MEAST^O
 QME^ZZZZ^Y^2524170^Messina^Messina^Mesina,Messana,Messina,Messine,Mesyna,Missina,QME,messhina,mo xi na,msynh,mysyna,Месина,Мессина,מסינה,ميسينا,メッシーナ,墨西拿^38.1833^15.5667^P^PPLA2^IT^^15^ME^083048^^252026^0^66^Europe/Rome^1.0^2.0^1.0^2011-02-23^Y^N^QME^^EUROP^O
 QMF^SSMF^Y^7731443^Mafra Airport^Mafra Airport^QMF,SSMF^-26.1589000^-49.8322000^S^AIRP^BR^^26^^^^0^0^816^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-18^N^N^QMF^SC^SAMER^O
-QMG^ZZZZ^Y^2490584^Maghnia^Maghnia^Lalla Maghnia,Maghnia,Marnia,QMG^0^0^P^PPL^DZ^^15^^^^0^0^395^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QMG^^AFRIC^O
-QMH^ZZZZ^Y^2484620^Oum el Bouaghi^Oum el Bouaghi^Canrobert,Oum el Bouaghi,Oum-el-Bouachi,QMH^0^0^P^PPLA^DZ^^29^^^^100821^0^925^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QMH^^AFRIC^O
+QMG^ZZZZ^Y^2490584^Maghnia^Maghnia^Lalla Maghnia,Maghnia,Marnia,QMG^34.8496900^-1.7275300^P^PPL^DZ^^15^^^^0^0^395^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QMG^^AFRIC^O
+QMH^ZZZZ^Y^2484620^Oum el Bouaghi^Oum el Bouaghi^Canrobert,Oum el Bouaghi,Oum-el-Bouachi,QMH^35.8754100^7.1135300^P^PPLA^DZ^^29^^^^100821^0^925^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QMH^^AFRIC^O
 QMI^ZZZZ^N^0^MOGI DAS CRUZES/SP/BR:OFF-^MOGI DAS CRUZES/SP/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QMI^SP^SAMER^O
 QMJ^ZZZZ^N^0^MASJED SOLEIMAN/IR:MASJED SOLE^MASJED SOLEIMAN/IR:MASJED SOLE^^32.002372^49.270364^X^XXXX^IR^^^^^^^^^IR120^^^^-1^N^N^QMJ^^MEAST^O
 QMK^ZZZZ^Y^3421608^Niaqornaarsuk^Niaqornaarsuk^Niakornarsuk,Niaqornaarsuk,Niaqornarssuk,Niaqornârssuk,QMK^68.25^-52.83^P^PPL^GL^^05^^^^336^0^-9999^America/Godthab^-3.0^-2.0^-3.0^2011-02-16^Y^N^QMK^^EUROP^CH
-QML^ZZZZ^Y^1170298^Mirpur^Mirpur^Bibiwari,Bībīwāri,Mirpur,Mirpur Bibiwari,Mīrpur Bībīwāri,QML^0^0^P^PPL^PK^^02^^^^0^0^65^Asia/Karachi^5.0^5.0^5.0^2012-01-17^N^N^QML^^ASIA^O
+QML^ZZZZ^Y^1170298^Mirpur^Mirpur^Bibiwari,Bībīwāri,Mirpur,Mirpur Bibiwari,Mīrpur Bībīwāri,QML^28.5287400^67.7336500^P^PPL^PK^^02^^^^0^0^65^Asia/Karachi^5.0^5.0^5.0^2012-01-17^N^N^QML^^ASIA^O
 QMM^LILQ^Y^7730632^Massa Cinquale Airport^Massa Cinquale Airport^LILQ,QMM^42.77^10.23^S^AIRP^IT^^16^MS^045010^^0^0^4^Europe/Rome^1.0^2.0^1.0^2011-03-17^Y^N^QMM^^EUROP^O
 QMN^ZZZZ^Y^934985^Mbabane^Mbabane^Mbabane,Mbabano,Mbabanė,Mpampane,QMN,eumbabane,mbbnh,mo ba ben,mubabane,Μπαμπάνε,Мбабане,מבבנה,ምባባኔ,ムババーネ,墨巴本,음바바네^-26.32^31.14^P^PPLC^SZ^^01^^^^76218^0^1209^Africa/Mbabane^2.0^2.0^2.0^2012-01-18^N^N^QMN^^AFRIC^O
 QMO^ZZZZ^N^0^MONS/BE:RAILWAY STATION^MONS/BE:RAILWAY STATION^^0.8411^0.06611^S^AIRP^BE^^^^^^^^^BE012^^^^-1^Y^N^QMO^^EUROP^CR
@@ -7061,20 +7061,20 @@ QMR^ZZZZ^Y^2524245^Marsala^Marsala^Marsala,QMR,marusara,Марсала,マルサ
 QMS^ZZZZ^N^0^MASAN/KR:OFF-^MASAN/KR:OFF-^^0^0^X^XXXX^KR^^^^^^^^^KR^^^^-1^N^N^QMS^^ASIA^O
 QMU^ZZZZ^N^0^MOUTIERS/FR:MOUTIERS^MOUTIERS/FR:MOUTIERS^^45.4833^6.53333^S^AIRP^FR^^^^^^^^^FR052^^^^-1^Y^N^QMU^^EUROP^O
 QMV^ZZZZ^N^0^MONTVALE/NJ/US^MONTVALE/NJ/US^^38.4^-113^S^AIRP^US^^^^^^^^^US105^^^^-1^Y^N^QMV^NJ^NAMER^CA
-QMW^ZZZZ^Y^2487293^Mohammadia^Mohammadia^Mohammadia,Perregaux,Perrégaux,QMW^0^0^P^PPL^DZ^DZ^26^^^^0^0^43^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QMW^^AFRIC^O
+QMW^ZZZZ^Y^2487293^Mohammadia^Mohammadia^Mohammadia,Perregaux,Perrégaux,QMW^35.5886100^0.0686100^P^PPL^DZ^DZ^26^^^^0^0^43^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QMW^^AFRIC^O
 QMX^ZZZZ^N^0^FICTITIOUS POINT/ZZ^FICTITIOUS POINT/ZZ^^41.78^-88.15^S^AIRP^ZZ^^^^^^^^^ZZ207^^^^-1^Y^Y^QMX^^NONE^CA
 QMY^ZZZZ^N^0^FICTITIOUS POINT/ZZ^FICTITIOUS POINT/ZZ^^42.35^-88.05^S^AIRP^ZZ^^^^^^^^^ZZ209^^^^-1^Y^Y^QMY^^NONE^CA
 QMZ^ZZZZ^N^0^MAINZ/DE:HBF RAILWAY STATION^MAINZ/DE:HBF RAILWAY STATION^^50^8.267^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^QMZ^^EUROP^CR
 QNB^ZZZZ^N^0^ANAND/IN:OFF-^ANAND/IN:OFF-^^0^0^X^XXXX^IN^^^^^^^^^IN^^^^-1^N^N^QNB^^ASIA^O
 QNC^ZZZZ^N^0^NEUCHATEL/CH:NEUCHATEL^NEUCHATEL/CH:NEUCHATEL^^47^6.96667^S^AIRP^CH^^^^^^^^^CH032^^^^-1^Y^N^QNC^^EUROP^CR
 QND^LYNS^Y^7668337^Cenej Airport^Cenej Airport^LYNS,QND^45.25^19.98^S^AIRP^RS^^^^^^0^0^76^Europe/Belgrade^1.0^2.0^1.0^2011-02-17^Y^N^QND^^EUROP^O
-QNE^ZZZZ^Y^3451124^Rio Negrinho^Rio Negrinho^QNE^0^0^P^PPL^BR^^26^^^^41914^0^793^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QNE^SC^SAMER^O
+QNE^ZZZZ^Y^3451124^Rio Negrinho^Rio Negrinho^QNE^-26.2544400^-49.5183300^P^PPL^BR^^26^^^^41914^0^793^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QNE^SC^SAMER^O
 QNF^ZZZZ^N^0^FARIDABAD/IN:OFF-^FARIDABAD/IN:OFF-^^0^0^X^XXXX^IN^^^^^^^^^IN^^^^-1^N^N^QNF^^ASIA^O
 QNG^ZZZZ^N^0^NAGANO/JP:OFF-^NAGANO/JP:OFF-^^0^0^X^XXXX^JP^^^^^^^^^JP^^^^-1^N^N^QNG^^ASIA^O
 QNH^ZZZZ^N^0^CANOINHAS/SC/BR:OFF-^CANOINHAS/SC/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QNH^SC^SAMER^O
-QNI^ZZZZ^Y^2326016^Onitsha^Onitsha^Onicha,Onitsha,QNI^0^0^P^PPL^NG^^25^^^^561066^0^59^Africa/Lagos^1.0^1.0^1.0^2012-01-18^N^N^QNI^^AFRIC^O
+QNI^ZZZZ^Y^2326016^Onitsha^Onitsha^Onicha,Onitsha,QNI^6.1454300^6.7884500^P^PPL^NG^^25^^^^561066^0^59^Africa/Lagos^1.0^1.0^1.0^2012-01-18^N^N^QNI^^AFRIC^O
 QNJ^LFLI^Y^6694616^Annemasse^Annemasse^LFLI,QNJ^46.191972^6.268386^S^AIRP^FR^^B9^74^743^74298^0^0^487^Europe/Paris^1.0^2.0^1.0^2012-02-27^Y^N^QNJ^^EUROP^O
-QNK^ZZZZ^Y^2328684^Nsukka^Nsukka^Nsukka,QNK,Нсукка^0^0^P^PPL^NG^^47^^^^111017^0^441^Africa/Lagos^1.0^1.0^1.0^2012-01-18^N^N^QNK^^AFRIC^O
+QNK^ZZZZ^Y^2328684^Nsukka^Nsukka^Nsukka,QNK,Нсукка^6.8561000^7.3927000^P^PPL^NG^^47^^^^111017^0^441^Africa/Lagos^1.0^1.0^1.0^2012-01-18^N^N^QNK^^AFRIC^O
 QNL^ZZZZ^Y^2990611^Neuilly-sur-Seine^Neuilly-sur-Seine^N'oj sjur Sen,Neuilly,Neuilly-sur-Seine,QNL,nyuiishurusenu,sai na he pan na yi,Ньой сюр Сен,ニュイイシュールセーヌ,塞纳河畔纳伊^48.8833^2.26667^P^PPL^FR^^A8^92^922^92051^61300^0^45^Europe/Paris^1.0^2.0^1.0^2012-01-18^Y^N^QNL^^EUROP^O
 QNM^EBNM^Y^7668191^Suarlée Airport^Suarlee Airport^EBNM,QNM^0.8411^0.08111^S^AIRP^BE^^WAL^WNA^^^0^0^176^Europe/Brussels^1.0^2.0^1.0^2011-02-17^Y^N^QNM^^EUROP^CR
 QNN^ZZZZ^N^0^MARINA/NG:OFF-^MARINA/NG:OFF-^^0^0^X^XXXX^NG^^^^^^^^^NG^^^^-1^N^N^QNN^^AFRIC^O
@@ -7091,7 +7091,7 @@ QNY^ZZZZ^N^0^NEW YORK/NY/US:MARINE AIR^NEW YORK/NY/US:MARINE AIR^^40.68^-74.17^S
 QNZ^ZZZZ^N^0^NARA CITY/JP:OFF-^NARA CITY/JP:OFF-^^0^0^X^XXXX^JP^^^^^^^^^JP^^^^-1^N^N^QNZ^^ASIA^O
 QOA^SDKK^Y^7731445^Mococa Airport^Mococa Airport^QOA,SDKK^-21.4878000^-47.0344000^S^AIRP^BR^^27^^^^0^0^640^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-18^N^N^QOA^SP^SAMER^O
 QOB^EDQF^Y^3207010^Ansbach-Petersdorf^Ansbach-Petersdorf^Ansbach-Petersdorf,EDQF,QOB^49.28^10.57^S^AIRF^DE^^02^^^^0^0^423^Europe/Berlin^1.0^2.0^1.0^2012-01-19^Y^N^QOB^^EUROP^CR
-QOC^ZZZZ^Y^3455775^Osasco^Osasco^Osasku,QOC,Осаску^0^0^P^PPL^BR^^27^^^^677856^0^750^America/Sao_Paulo^-2.0^-3.0^-3.0^2010-01-29^N^N^QOC^SP^SAMER^O
+QOC^ZZZZ^Y^3455775^Osasco^Osasco^Osasku,QOC,Осаску^-23.5325000^-46.7916700^P^PPL^BR^^27^^^^677856^0^750^America/Sao_Paulo^-2.0^-3.0^-3.0^2010-01-29^N^N^QOC^SP^SAMER^O
 QOD^ZZZZ^N^0^OSVALDO CRUZ/SP/BR:OFF-^OSVALDO CRUZ/SP/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QOD^SP^SAMER^O
 QOF^ZZZZ^N^0^KIEV/UA:DARNISTA BUS^KIEV/UA:DARNISTA BUS^^50.4^30.47^S^AIRP^UA^^^^^^^^^UA127^^^^-1^Y^N^IEV^^EURAS^B
 QOG^ZZZZ^N^0^HOMBURG/DE:OFF-^HOMBURG/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^QOG^^EUROP^O
@@ -7099,20 +7099,20 @@ QOH^ZZZZ^N^0^KIEV/UA:HOTEL RUS^KIEV/UA:HOTEL RUS^^50.4^30.47^S^AIRP^UA^^^^^^^^^U
 QOI^ZZZZ^N^0^COTIA/SP/BR:OFF-^COTIA/SP/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QOI^SP^SAMER^O
 QOJ^SSSB^Y^7731446^São Borja Airport^Sao Borja Airport^QOJ,SSSB^-28.6549000^-56.0346000^S^AIRP^BR^^23^^^^0^0^84^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-18^N^N^QOJ^RS^SAMER^O
 QOK^ZZZZ^N^0^OKSFJORD/NO^OKSFJORD/NO^^70.23^22.37^S^AIRP^NO^^^^^^^^^NO083^^^^-1^Y^N^QOK^^EUROP^O
-QOL^ZZZZ^Y^2501162^Collo^Collo^Collo,QOL^0^0^P^PPL^DZ^^31^^^^0^0^12^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QOL^^AFRIC^O
+QOL^ZZZZ^Y^2501162^Collo^Collo^Collo,QOL^37.0071700^6.5609900^P^PPL^DZ^^31^^^^0^0^12^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QOL^^AFRIC^O
 QOM^ZZZZ^N^0^OMIYA/JP:OFF-^OMIYA/JP:OFF-^^0^0^X^XXXX^JP^^^^^^^^^JP^^^^-1^N^N^QOM^^ASIA^O
-QON^ZZZZ^Y^2803073^Arlon^Arlon^Aarle,Aarlen,Arel,Arlon,QON,aruron,Årlon,Αρλόν,Арлон,アルロン^0^0^P^PPL^BE^^WAL^WLX^81^81001^26179^0^421^Europe/Brussels^1.0^2.0^1.0^2008-06-16^N^N^QON^^EUROP^O
+QON^ZZZZ^Y^2803073^Arlon^Arlon^Aarle,Aarlen,Arel,Arlon,QON,aruron,Årlon,Αρλόν,Арлон,アルロン^49.6833300^5.8166700^P^PPL^BE^^WAL^WLX^81^81001^26179^0^421^Europe/Brussels^1.0^2.0^1.0^2008-06-16^N^N^QON^^EUROP^O
 QOO^ZZZZ^N^0^OTSU CITY/JP:OFF-^OTSU CITY/JP:OFF-^^0^0^X^XXXX^JP^^^^^^^^^JP^^^^-1^N^N^QOO^^ASIA^O
 QOP^ZZZZ^Y^3178496^Codroipo^Codroipo^Codroip,Codroipo,QOP^45.96^12.9792^P^PPLA3^IT^^06^UD^030027^^14421^0^39^Europe/Rome^1.0^2.0^1.0^2012-02-15^Y^N^QOP^^EUROP^O
 QOQ^ZZZZ^N^0^SAARLOQ/GL:SAARLOQ^SAARLOQ/GL:SAARLOQ^^60.58^-46^S^AIRP^GL^^^^^^^^^GL055^^^^-1^Y^N^QOQ^^EUROP^CA
 QOR^ZZZZ^N^0^ORDU/TR:ORDU^ORDU/TR:ORDU^^0^0^X^XXXX^TR^^^^^^^^^TR101^^^^-1^N^N^QOR^^EURAS^O
-QOT^ZZZZ^Y^2128574^Otaru^Otaru^Otaru,QOT,otalu si,xiao zun shi,Отару,小樽市,오타루 시^0^0^P^PPL^JP^^12^^^^143792^0^30^Asia/Tokyo^9.0^9.0^9.0^2012-01-19^N^N^QOT^^ASIA^O
-QOU^ZZZZ^Y^2485582^Oued Rhiou^Oued Rhiou^Inkermann,Oued Rhiou,Oued Riou,QOU^0^0^P^PPL^DZ^^51^^^^59864^0^97^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QOU^^AFRIC^O
+QOT^ZZZZ^Y^2128574^Otaru^Otaru^Otaru,QOT,otalu si,xiao zun shi,Отару,小樽市,오타루 시^43.1894400^141.0022200^P^PPL^JP^^12^^^^143792^0^30^Asia/Tokyo^9.0^9.0^9.0^2012-01-19^N^N^QOT^^ASIA^O
+QOU^ZZZZ^Y^2485582^Oued Rhiou^Oued Rhiou^Inkermann,Oued Rhiou,Oued Riou,QOU^35.9612400^0.9189600^P^PPL^DZ^^51^^^^59864^0^97^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QOU^^AFRIC^O
 QOV^ZZZZ^N^0^COMUNA PROVIDENCI/CL:OFF-^COMUNA PROVIDENCI/CL:OFF-^^0^0^X^XXXX^CL^^^^^^^^^CL033^^^^-1^N^N^QOV^^SAMER^O
 QOW^DNIM^Y^7730065^Sam Mbakwe International Airport^Sam Mbakwe International Airport^DNIM,QOW^5.406^7.201^S^AIRP^NG^^28^^^^0^0^114^Africa/Lagos^1.0^1.0^1.0^2011-03-16^Y^Y^QOW^^AFRIC^CA
 QOX^ZZZZ^N^0^MEMMINGEN/DE:OFF-PT^MEMMINGEN/DE:OFF-PT^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^QOX^^EUROP^O
 QOY^ZZZZ^N^0^LOMZA/PL:LOMZA^LOMZA/PL:LOMZA^^53.18^22.08^S^AIRP^PL^^^^^^^^^PL089^^^^-1^Y^N^QOY^^EEURO^O
-QOZ^ZZZZ^Y^2485551^Oued Zenati^Oued Zenati^Oued Zenati,QOZ^0^0^P^PPL^DZ^^23^^^^0^0^620^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QOZ^^AFRIC^O
+QOZ^ZZZZ^Y^2485551^Oued Zenati^Oued Zenati^Oued Zenati,QOZ^36.3161100^7.1636400^P^PPL^DZ^^23^^^^0^0^620^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QOZ^^AFRIC^O
 QPA^ZZZZ^Y^3171728^Padova^Padova^Padoa,Padoue,Padova,Padovo,Padua,Paduja,Padwa,Patavium,Pàdua,Pádua,QPA,badwfa,pa duo wa,padoba,padovu~a,Падова,Падуа,Падуя,פאדובה,بادوفا,პადუა,パドヴァ,帕多瓦,파도바^45.395767^11.847903^P^PPLA2^IT^^20^PD^028060^^204870^0^16^Europe/Rome^1.0^2.0^1.0^2012-01-05^Y^Y^QPA^^EUROP^CR
 QPB^ZZZZ^Y^3180991^Campobasso^Campobasso^Campobass,Campobasso,Campubbassu,Campus Bassus,Kampobasso,QPB,kanpobasso,Кампобассо,カンポバッソ^41.5667^14.65^P^PPLA^IT^^11^CB^070006^^50762^0^685^Europe/Rome^1.0^2.0^1.0^2007-02-17^Y^N^QPB^^EUROP^O
 QPC^ZZZZ^N^0^PLOCK/PL:PLOCK^PLOCK/PL:PLOCK^^0^0^X^XXXX^PL^^^^^^^^^PL089^^^^-1^N^N^QPC^^EEURO^O
@@ -7129,7 +7129,7 @@ QPM^ZZZZ^N^0^OPOLE/PL:OPOLE^OPOLE/PL:OPOLE^^0^0^X^XXXX^PL^^^^^^^^^PL089^^^^-1^N^
 QPN^ZZZZ^N^0^PIATRA NEAMT/RO:PIATRA NEAMT^PIATRA NEAMT/RO:PIATRA NEAMT^^0^0^X^XXXX^RO^^^^^^^^^RO094^^^^-1^N^N^QPN^^EEURO^O
 QPO^ZZZZ^Y^3170027^Potenza^Potenza^Oppido Lucano,Potentia,Potenza,Putenza,QPO,potentsu~a,ポテンツァ^40.6333^15.8^P^PPLA^IT^^02^PZ^076063^^69060^0^726^Europe/Rome^1.0^2.0^1.0^2007-02-17^Y^N^QPO^^EUROP^O
 QPP^ZZZZ^N^0^BERLIN/DE:HBF RAILWAY STATION^BERLIN/DE:HBF RAILWAY STATION^^52.57^13.3^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^BER^^EUROP^R
-QPQ^ZZZZ^Y^3429971^Pinamar^Pinamar^Balneario Pinamar,Pinamar,QPQ^0^0^P^PPLA2^AR^^01^^^^0^0^15^America/Argentina/Buenos_Aires^-3.0^-3.0^-3.0^2011-11-19^N^N^QPQ^BA^SAMER^O
+QPQ^ZZZZ^Y^3429971^Pinamar^Pinamar^Balneario Pinamar,Pinamar,QPQ^-37.1079400^-56.8614000^P^PPLA2^AR^^01^^^^0^0^15^America/Argentina/Buenos_Aires^-3.0^-3.0^-3.0^2011-11-19^N^N^QPQ^BA^SAMER^O
 QPR^ZZZZ^N^0^PRATO/IT:PRATO^PRATO/IT:PRATO^^43.8833^11.1^S^AIRP^IT^^^^^^^^^IT067^^^^-1^Y^N^QPR^^EUROP^O
 QPS^SBYS^Y^6300688^Pirassununga^Pirassununga^QPS,SBYS^-21.984561^-47.334764^S^AIRP^BR^^^^^^0^599^609^America/Sao_Paulo^-2.0^-3.0^-3.0^2007-01-03^N^N^QPS^SP^SAMER^O
 QPU^ZZZZ^N^0^PORTO UNIAO/SC/BR:OFF-^PORTO UNIAO/SC/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QPU^SC^SAMER^O
@@ -7164,31 +7164,31 @@ QQX^ZZZZ^Y^2656173^Bath^Bath^Aquae Sulis,Ba,Badanceaster,Bat,Bata,Bath,Baðancea
 QQY^ZZZZ^Y^2633352^York^York^Aebura,Eboracum,Efrog,Everoui,Jork,Jorvik,Jórvík,QQY,York,yoku,yue ke,ywrq,Évèroui,Йорк,יורק,ヨーク,約克^53.97^-1.083^P^PPLA2^GB^^ENG^Q5^^^144202^0^17^Europe/London^0.0^1.0^0.0^2012-03-30^Y^N^QQY^^EUROP^CR
 QQZ^ZZZZ^N^0^BRITRA/GB:BRITRAIL RAIL ZONE Z^BRITRA/GB:BRITRAIL RAIL ZONE Z^^0^0^X^XXXX^GB^^^^^^^^^GB053^^^^-1^N^N^QQZ^^EUROP^O
 QRA^FAGM^Y^963244^Rand Airport^Rand Airport^FAGM,QRA,Rand,Rand Airport^-26.242506^28.151169^S^AIRP^ZA^^06^^^^0^0^1670^Africa/Johannesburg^2.0^2.0^2.0^2012-01-18^Y^N^JNB^^AFRIC^A
-QRB^ZZZZ^Y^2849802^Ravensburg^Ravensburg^QRB,Ravensburg,Равенсбург^0^0^P^PPL^DE^^01^^^^48825^0^457^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^QRB^^EUROP^O
+QRB^ZZZZ^Y^2849802^Ravensburg^Ravensburg^QRB,Ravensburg,Равенсбург^47.7833300^9.6166700^P^PPL^DE^^01^^^^48825^0^457^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^QRB^^EUROP^O
 QRC^SCRG^Y^7730167^De La Independencia Airport^De La Independencia Airport^QRC,SCRG^-34.173694^-70.775694^S^AIRP^CL^^08^61^06101^^0^0^489^America/Santiago^-3.0^-4.0^-4.0^2012-05-03^N^N^QRC^^SAMER^O
 QRD^ZZZZ^N^0^ANDRADAS/MG/BR:OFF-^ANDRADAS/MG/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QRD^MG^SAMER^O
 QRE^SSKZ^Y^7731447^Carazinho Airport^Carazinho Airport^QRE,SSKZ^-28.3225000^-52.8162000^S^AIRP^BR^^23^^^^0^0^582^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-18^N^N^QRE^RS^SAMER^O
 QRF^ZZZZ^Y^3863883^Bragado^Bragado^Bragado,QRF^-35.15^-60.4833^S^AIRF^AR^^01^^^^0^0^60^America/Argentina/Buenos_Aires^-3.0^-3.0^-3.0^2012-01-18^N^N^QRF^BA^SAMER^O
 QRG^ZZZZ^Y^2523650^Ragusa^Ragusa^QRG,Ragusa,Raguse,Raguza,Rausa,raguza,rgwzh,Рагуза,רגוזה,ラグーザ^36.9167^14.7333^P^PPLA2^IT^^15^RG^088009^^68956^0^591^Europe/Rome^1.0^2.0^1.0^2011-02-23^Y^N^QRG^^EUROP^O
 QRH^ZZZZ^N^0^ROTTERDAM/NL:CENTRAAL RAILWAY^ROTTERDAM/NL:CENTRAAL RAILWAY^^51.92^4.467^S^AIRP^NL^^^^^^^^^NL082^^^^-1^Y^N^RTM^^EUROP^R
-QRI^ZZZZ^Y^740483^Rize^Rize^Bechirias,Corum,Provinsi Rize,QRI,RIZE,Rhizus,Rize,Rizeh,Rizenska provincie,Rizenská provincie,rize,Çorum,РИЗЕ,რიზე^0^0^P^PPLA^TR^^53^^^^92772^0^63^Europe/Istanbul^2.0^3.0^2.0^2012-01-18^N^N^QRI^^EURAS^O
-QRJ^ZZZZ^Y^3466954^Cariacica^Cariacica^QRJ^0^0^P^PPL^BR^^08^^^^0^0^72^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QRJ^ES^SAMER^O
-QRK^ZZZZ^Y^3471683^Arcos^Arcos^Arkos,QRK,Аркос^0^0^P^PPL^BR^^15^^^^33355^0^737^America/Sao_Paulo^-2.0^-3.0^-3.0^2010-01-29^N^N^QRK^MG^SAMER^O
-QRL^ZZZZ^Y^2514169^Marbella^Marbella^Marbel'ja,Marbela,Marbella,QRL,marbya,marbyla,Марбелья,Марбеља,ماربيا,ماربيلا^0^0^P^PPLA3^ES^^51^MA^29069^^134623^0^57^Europe/Madrid^1.0^2.0^1.0^2012-03-04^N^N^QRL^^EUROP^O
+QRI^ZZZZ^Y^740483^Rize^Rize^Bechirias,Corum,Provinsi Rize,QRI,RIZE,Rhizus,Rize,Rizeh,Rizenska provincie,Rizenská provincie,rize,Çorum,РИЗЕ,რიზე^41.0208300^40.5219400^P^PPLA^TR^^53^^^^92772^0^63^Europe/Istanbul^2.0^3.0^2.0^2012-01-18^N^N^QRI^^EURAS^O
+QRJ^ZZZZ^Y^3466954^Cariacica^Cariacica^QRJ^-20.2638900^-40.4200000^P^PPL^BR^^08^^^^0^0^72^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QRJ^ES^SAMER^O
+QRK^ZZZZ^Y^3471683^Arcos^Arcos^Arkos,QRK,Аркос^-20.2819400^-45.5394400^P^PPL^BR^^15^^^^33355^0^737^America/Sao_Paulo^-2.0^-3.0^-3.0^2010-01-29^N^N^QRK^MG^SAMER^O
+QRL^ZZZZ^Y^2514169^Marbella^Marbella^Marbel'ja,Marbela,Marbella,QRL,marbya,marbyla,Марбелья,Марбеља,ماربيا,ماربيلا^36.5154300^-4.8858300^P^PPLA3^ES^^51^MA^29069^^134623^0^57^Europe/Madrid^1.0^2.0^1.0^2012-03-04^N^N^QRL^^EUROP^O
 QRM^YNRM^Y^7668750^Narromine Airport^Narromine Airport^Lapangan Terbang Narromine,QRM,YNRM^-32.214722^148.225^S^AIRP^AU^^02^15850^^^0^0^237^Australia/Sydney^11.0^10.0^10.0^2011-06-04^N^N^QRM^NS^AUSTL^O
-QRN^ZZZZ^Y^2129101^Muroran^Muroran^Muroran,QRN,shi lan,Муроран,室蘭^0^0^P^PPL^JP^^12^^^^96197^0^8^Asia/Tokyo^9.0^9.0^9.0^2012-01-19^N^N^QRN^^ASIA^O
+QRN^ZZZZ^Y^2129101^Muroran^Muroran^Muroran,QRN,shi lan,Муроран,室蘭^42.3172200^140.9880600^P^PPL^JP^^12^^^^96197^0^8^Asia/Tokyo^9.0^9.0^9.0^2012-01-19^N^N^QRN^^ASIA^O
 QRO^MMQT^Y^6299869^Queretaro, Qro.^Queretaro, Qro.^MMQT,QRO^20.617289^-100.185658^S^AIRP^MX^^^^^^0^1919^1911^America/Mexico_City^-6.0^-5.0^-6.0^2007-01-03^Y^Y^QRO^^NAMER^CA
 QRP^ZZZZ^N^0^GRAMADO/RS/BR:OFF-^GRAMADO/RS/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QRP^RS^SAMER^O
-QRQ^ZZZZ^Y^304782^Marmaris^Marmaris^Mararis,Marmarice,Marmaris,Physcus,QRQ,marmaris,marmarys,Мармарис,מרמאריס,مارماريس^0^0^P^PPL^TR^^48^^^^33731^0^8^Europe/Istanbul^2.0^3.0^2.0^2012-01-18^N^N^QRQ^^EURAS^O
+QRQ^ZZZZ^Y^304782^Marmaris^Marmaris^Mararis,Marmarice,Marmaris,Physcus,QRQ,marmaris,marmarys,Мармарис,מרמאריס,مارماريس^36.8550000^28.2741700^P^PPL^TR^^48^^^^33731^0^8^Europe/Istanbul^2.0^3.0^2.0^2012-01-18^N^N^QRQ^^EURAS^O
 QRR^YWRN^Y^7730280^Warren Airport^Warren Airport^QRR,YWRN^-31.7333000^147.8029900^S^AIRP^AU^^02^17950^^^0^0^200^Australia/Sydney^11.0^10.0^10.0^2011-06-04^N^N^QRR^NS^AUSTL^O
 QRS^ZZZZ^N^0^RESITA/RO:BUS STATION^RESITA/RO:BUS STATION^^0^0^X^XXXX^RO^^^^^^^^^RO094^^^^-1^N^N^QRS^^EEURO^O
 QRT^ZZZZ^Y^3169412^Rieti^Rieti^QRT,Rieti,rieti,Риети,リエーティ^42.4^12.85^P^PPLA2^IT^^07^RI^057059^^43785^0^390^Europe/Rome^1.0^2.0^1.0^2011-02-23^Y^N^QRT^^EUROP^O
 QRU^ZZZZ^N^0^RIO DO SUL/SC/BR:OFF-^RIO DO SUL/SC/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QRU^SC^SAMER^O
 QRV^LFQD^Y^6694647^Arras-Roclincourt^Arras-Roclincourt^LFQD,QRV^50.3250000^2.8040000^S^AIRP^FR^^B4^62^621^62714^0^0^100^Europe/Paris^1.0^2.0^1.0^2012-02-27^Y^N^QRV^^EUROP^O
 QRW^DNSU^Y^7668189^Warri Airport^Warri Airport^DNSU,QRW^6.583^3.333^S^AIRP^NG^^36^^^^0^0^8^Africa/Lagos^1.0^1.0^1.0^2011-02-17^Y^Y^QRW^^AFRIC^CA
-QRX^ZZZZ^Y^2155750^Narooma^Narooma^Narooma,Naruma,Noorooma,QRX,Нарума^0^0^P^PPL^AU^^02^12750^^^2499^0^1^Australia/Sydney^11.0^10.0^10.0^2012-02-28^N^N^QRX^NS^AUSTL^O
+QRX^ZZZZ^Y^2155750^Narooma^Narooma^Narooma,Naruma,Noorooma,QRX,Нарума^-36.22101^150.13062^P^PPL^AU^^02^12750^^^2499^0^1^Australia/Sydney^11.0^10.0^10.0^2012-02-28^N^N^QRX^NS^AUSTL^O
 QRY^ZZZZ^N^0^IKERASAARSUK/GL:IKERASAARSUK^IKERASAARSUK/GL:IKERASAARSUK^^70.47^-51.5^S^AIRP^GL^^^^^^^^^GL055^^^^-1^Y^N^QRY^^EUROP^CH
-QRZ^SBRS^Y^6300666^Resende^Resende^QRZ,SBRS^0^0^S^AIRP^BR^^21^^^^0^440^376^America/Sao_Paulo^-2.0^-3.0^-3.0^2012-04-13^N^N^QRZ^RJ^SAMER^O
+QRZ^SBRS^Y^6300666^Resende^Resende^QRZ,SBRS^-22.4782600^-44.4790900^S^AIRP^BR^^21^^^^0^440^376^America/Sao_Paulo^-2.0^-3.0^-3.0^2012-04-13^N^N^QRZ^RJ^SAMER^O
 QSA^LELL^Y^6299342^Sabadell^Sabadell^LELL,QSA^41.5167^2.1^S^AIRF^ES^^56^B^08205^^0^250^135^Europe/Madrid^1.0^2.0^1.0^2011-03-20^N^N^QSA^^EUROP^O
 QSB^ZZZZ^N^0^SAO BERNARDO DO C/SP/BR:OFF-^SAO BERNARDO DO C/SP/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QSB^SP^SAMER^O
 QSC^SBSA^Y^6300667^Sao Carlos^Sao Carlos^QSC,SBSA^-22.0166700^-47.8833300^S^AIRP^BR^^^^^^0^856^859^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-10-29^Y^N^QSC^SP^SAMER^CA
@@ -7199,17 +7199,17 @@ QSG^ZZZZ^N^0^SONDERBORG/DK:RAILWAY STATION^SONDERBORG/DK:RAILWAY STATION^^33.149
 QSH^ZZZZ^N^0^SEEHEIM/DE:OFF-^SEEHEIM/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^QSH^^EUROP^O
 QSI^HTMS^Y^6297362^Moshi^Moshi^HTMS,QSI^-3.3500000^37.3333300^S^AIRP^TZ^^^^^^0^854^854^Africa/Dar_es_Salaam^3.0^3.0^3.0^2006-10-29^N^N^QSI^^AFRIC^O
 QSJ^ZZZZ^N^0^SAO JOAO DEL REI/MG/BR:OFF-^SAO JOAO DEL REI/MG/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QSJ^MG^SAMER^O
-QSK^ZZZZ^Y^2479215^Souk Ahras^Souk Ahras^QSK,Souk Ahras,Soukaras,Suk Aras^0^0^P^PPLA^DZ^^52^^^^0^0^697^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QSK^^AFRIC^O
-QSL^ZZZZ^Y^2322733^Suru-Lere^Suru-Lere^QSL,Sufu-Lere,Suru-Lere^0^0^P^PPL^NG^^05^^^^0^0^11^Africa/Lagos^1.0^1.0^1.0^2012-01-18^N^N^QSL^^AFRIC^O
-QSM^ZZZZ^Y^2818067^Uetersen^Uetersen^Gorad Jutehrzen,Itersen,Iterzen,Iterzene,Joterzen,Juterzen,Owetersen,QSM,U'tersen,UEterzen,Uetersen,Utarsan,Utersen,Yterzenas,u'etersen,uetersen,utarsena,uterasena,witeojen,yu te sen,yutarjhana,yutersen,yuteruzen,yuttarcen,ywtrsn,Ütersen,Üterzen,Јотерзен,Горад Ютэрзен,Итерзен,Уетерсен,Утăрсан,Уьтерсен,Ютерзен,Ѷтєрꙁєнъ,Ուետերսեն,אוטרסן,איטערזען,ئوته‌رزهن,یوترسن,ܐܝܛܙܢ,ऊएतेर्सेन्,यूटर्झन,উটার্সেন,উটেরসেন,ઊએતેર્સેન્,ଊଏତେର୍ସେନ୍,யூட்டர்சென்,ఊఎతెర్సెన్,ಯುಟೆರ್ಸೆನ್,อือแทร์เซิน,ཨུ་ཏེར་སེན,უეტერზენი,ኢውተዘን,ᐃᐊᐃᑖᓯᓐ/iaitaatsin,ユーテルゼン,于特森,위터젠,^0^0^P^PPL^DE^^10^^^^17921^0^3^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^QSM^^EUROP^O
+QSK^ZZZZ^Y^2479215^Souk Ahras^Souk Ahras^QSK,Souk Ahras,Soukaras,Suk Aras^36.2863900^7.9511100^P^PPLA^DZ^^52^^^^0^0^697^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^QSK^^AFRIC^O
+QSL^ZZZZ^Y^2322733^Suru-Lere^Suru-Lere^QSL,Sufu-Lere,Suru-Lere^6.5143600^3.3583600^P^PPL^NG^^05^^^^0^0^11^Africa/Lagos^1.0^1.0^1.0^2012-01-18^N^N^QSL^^AFRIC^O
+QSM^ZZZZ^Y^2818067^Uetersen^Uetersen^Gorad Jutehrzen,Itersen,Iterzen,Iterzene,Joterzen,Juterzen,Owetersen,QSM,U'tersen,UEterzen,Uetersen,Utarsan,Utersen,Yterzenas,u'etersen,uetersen,utarsena,uterasena,witeojen,yu te sen,yutarjhana,yutersen,yuteruzen,yuttarcen,ywtrsn,Ütersen,Üterzen,Јотерзен,Горад Ютэрзен,Итерзен,Уетерсен,Утăрсан,Уьтерсен,Ютерзен,Ѷтєрꙁєнъ,Ուետերսեն,אוטרסן,איטערזען,ئوته‌رزهن,یوترسن,ܐܝܛܙܢ,ऊएतेर्सेन्,यूटर्झन,উটার্সেন,উটেরসেন,ઊએતેર્સેન્,ଊଏତେର୍ସେନ୍,யூட்டர்சென்,ఊఎతెర్సెన్,ಯುಟೆರ್ಸೆನ್,อือแทร์เซิน,ཨུ་ཏེར་སེན,უეტერზენი,ኢውተዘን,ᐃᐊᐃᑖᓯᓐ/iaitaatsin,ユーテルゼン,于特森,위터젠,^53.6833300^9.6666700^P^PPL^DE^^10^^^^17921^0^3^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^QSM^^EUROP^O
 QSN^MUNB^Y^7730116^San Nicolas De Bari Airport^San Nicolas De Bari Airport^MUNB,QSN^22.7561000^-81.9209000^S^AIRP^CU^^11^^^^0^0^19^America/Havana^-5.0^-4.0^-5.0^2011-03-16^N^N^QSN^^CARIB^O
 QSO^ZZZZ^Y^2464915^Sousse^Sousse^Hadrumetum,QSO,Sousa,Souse,Soussa,Sousse,Susa,Susah,Suss,Sūsah,qyrnh,susu,swst,xi lan ni,Сусс,קירנה,سوسة,スース,昔兰尼^35.82^10.638^P^PPLA^TN^^23^^^^164123^0^24^Africa/Tunis^1.0^1.0^1.0^2012-01-18^N^N^QSO^^AFRIC^O
-QSQ^ZZZZ^Y^268064^Sidon^Sidon^QSQ,Saida,Sayda,Saïda,Sidon,Sidon",Sidona,Sidonas,Sidone,Sidón,Sydon,Sídon,saida,syda,zydwn,Şaydā,Σιδώνα,Сидон,Сидонъ,צידון,صيدا,サイダ^0^0^P^PPLA^LB^^06^^^^163554^0^12^Asia/Beirut^2.0^3.0^2.0^2012-02-02^N^N^QSQ^^MEAST^O
+QSQ^ZZZZ^Y^268064^Sidon^Sidon^QSQ,Saida,Sayda,Saïda,Sidon,Sidon",Sidona,Sidonas,Sidone,Sidón,Sydon,Sídon,saida,syda,zydwn,Şaydā,Σιδώνα,Сидон,Сидонъ,צידון,صيدا,サイダ^33.5630600^35.3688900^P^PPLA^LB^^06^^^^163554^0^12^Asia/Beirut^2.0^3.0^2.0^2012-02-02^N^N^QSQ^^MEAST^O
 QSR^LIRI^Y^6299622^Pontecagnano Air Force Base^Pontecagnano Air Force Base^LIRI,QSR^40.6204^14.911294^S^AIRP^IT^^04^SA^065099^^0^37^31^Europe/Rome^1.0^2.0^1.0^2011-02-25^Y^N^QSR^^EUROP^CA
 QSS^ZZZZ^Y^3167096^Sassari^Sassari^QSS,Sassari,Sasser,Sàsser,Tatari,Tathari,Tattari,Tàthari,sasary,sassari,Сассари,ساساري,サッサリ^40.7272^8.56028^P^PPLA2^IT^^14^SS^090064^^120729^0^211^Europe/Rome^1.0^2.0^1.0^2012-04-28^Y^N^QSS^^EUROP^O
 QST^ZZZZ^N^0^IZMIT/TR:IZMIT^IZMIT/TR:IZMIT^^40.735028^30.083336^X^XXXX^TR^^^^^^^^^TR101^^^^-1^N^N^QST^^EURAS^O
 QSU^ZZZZ^N^0^MANSOURA/EG:OFF-^MANSOURA/EG:OFF-^^30.97^31.433^X^XXXX^EG^^^^^^^^^EG044^^^^-1^N^N^QSU^^AFRIC^O
-QSV^ZZZZ^Y^666395^Sovata^Sovata^QSV,Sovata,Szovata,Szovàta^0^0^P^PPL^RO^^00^^^^11465^0^454^Europe/Bucharest^2.0^3.0^2.0^2012-01-18^N^N^QSV^^EEURO^O
+QSV^ZZZZ^Y^666395^Sovata^Sovata^QSV,Sovata,Szovata,Szovàta^46.5833300^25.0666700^P^PPL^RO^^00^^^^11465^0^454^Europe/Bucharest^2.0^3.0^2.0^2012-01-18^N^N^QSV^^EEURO^O
 QSW^ZZZZ^N^0^AS SUWAYDA/SY^AS SUWAYDA/SY^^0^0^X^XXXX^SY^^^^^^^^^SY098^^^^-1^N^N^QSW^^MEAST^O
 QSX^SYNA^Y^7731448^New Amsterdam Airport^New Amsterdam Airport^QSX,SYNA^6.24^-57.52^S^AIRP^GY^^13^^^^0^0^5^America/Guyana^-4.0^-4.0^-4.0^2011-03-18^N^N^QSX^^SAMER^O
 QSY^ZZZZ^N^0^RUEDESHEIM/DE:OFF-^RUEDESHEIM/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^QSY^^EUROP^O
@@ -7218,26 +7218,26 @@ QTC^ZZZZ^Y^3179866^Caserta^Caserta^Caserta,Caserte,Kazerta,QTC,kazeruta,Казе
 QTD^ZZZZ^N^0^TIMBAUBA/PE/BR:TIMBAUBA^TIMBAUBA/PE/BR:TIMBAUBA^^0^0^X^XXXX^BR^^^^^^^^^BR016^^^^-1^N^N^QTD^PE^SAMER^O
 QTE^ZZZZ^N^0^SAO GO/RN/BR:SAO GONCALO AMARA^SAO GO/RN/BR:SAO GONCALO AMARA^^0^0^X^XXXX^BR^^^^^^^^^BR016^^^^-1^N^N^QTE^RN^SAMER^O
 QTF^ZZZZ^N^0^QATIF/SA:OFF-^QATIF/SA:OFF-^^0^0^X^XXXX^SA^^^^^^^^^SA^^^^-1^N^N^QTF^^MEAST^O
-QTG^ZZZZ^Y^3445922^Tupi Paulista^Tupi Paulista^Gracianopolis,Gracianópolis,QTG,Tupi^0^0^P^PPL^BR^^27^^^^10877^0^383^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QTG^SP^SAMER^O
+QTG^ZZZZ^Y^3445922^Tupi Paulista^Tupi Paulista^Gracianopolis,Gracianópolis,QTG,Tupi^-21.3811100^-51.5705600^P^PPL^BR^^27^^^^10877^0^383^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QTG^SP^SAMER^O
 QTH^ZZZZ^N^0^THREDBO/NS/AU:BUS STATION^THREDBO/NS/AU:BUS STATION^^-36.5^148.3^S^AIRP^AU^^^^^^^^^AU007^^^^-1^Y^N^QTH^NS^AUSTL^CB
 QTI^ZZZZ^Y^2522960^Termini Imerese^Termini Imerese^QTI,Termini,Termini Imerese,Thermae Himerarae,Tèrmini^37.9833^13.7^P^PPLA3^IT^^15^PA^082070^^26958^0^69^Europe/Rome^1.0^2.0^1.0^2012-02-15^Y^N^QTI^^EUROP^O
 QTJ^LFOR^Y^6299436^Chartres-Champhol^Chartres-Champhol^LFOR,QTJ^48.4569400^1.5201700^S^AIRP^FR^^A3^28^281^28085^0^155^151^Europe/Paris^1.0^2.0^1.0^2012-02-27^Y^N^QTJ^^EUROP^O
 QTK^ZZZZ^N^0^ROTHENBURG/DE:OFF-^ROTHENBURG/DE:OFF-^^51.363167^14.95^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^QTK^^EUROP^O
-QTL^ZZZZ^Y^3466988^Caratinga^Caratinga^QTL^0^0^P^PPL^BR^^15^^^^60066^0^586^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QTL^MG^SAMER^O
-QTM^ZZZZ^Y^2127733^Tomakomai^Tomakomai^QTM,Tomakomai,Tomakomaj,shan xiao mu,Томакомай,苫小牧^0^0^P^PPL^JP^^12^^^^174806^0^7^Asia/Tokyo^9.0^9.0^9.0^2012-01-19^N^N^QTM^^ASIA^O
+QTL^ZZZZ^Y^3466988^Caratinga^Caratinga^QTL^-19.7897200^-42.1391700^P^PPL^BR^^15^^^^60066^0^586^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QTL^MG^SAMER^O
+QTM^ZZZZ^Y^2127733^Tomakomai^Tomakomai^QTM,Tomakomai,Tomakomaj,shan xiao mu,Томакомай,苫小牧^42.6369400^141.6033300^P^PPL^JP^^12^^^^174806^0^7^Asia/Tokyo^9.0^9.0^9.0^2012-01-19^N^N^QTM^^ASIA^O
 QTN^ZZZZ^N^0^SAN ANTONIO/CL:OFF-^SAN ANTONIO/CL:OFF-^^0^0^X^XXXX^CL^^^^^^^^^CL033^^^^-1^N^N^QTN^^SAMER^O
 QTO^ZZZZ^N^0^SKITUBE/NS/AU^SKITUBE/NS/AU^^-36.47^148.5^S^AIRP^AU^^^^^^^^^AU007^^^^-1^Y^N^QTO^NS^AUSTL^O
 QTP^ZZZZ^N^0^TANA/NO:TANA^TANA/NO:TANA^^70.47^28.3^S^AIRP^NO^^^^^^^^^NO083^^^^-1^Y^N^QTP^^EUROP^O
 QTR^ZZZZ^N^0^TARTUS/SY^TARTUS/SY^^34.94^36.042^X^XXXX^SY^^^^^^^^^SY098^^^^-1^N^N^QTR^^MEAST^O
 QTS^ZZZZ^N^0^ENGLEWOOD/CO/US:OFF-^ENGLEWOOD/CO/US:OFF-^^0^0^X^XXXX^US^^^^^^^^^US108^^^^-1^N^N^QTS^CO^NAMER^O
 QTT^ZZZZ^N^0^TANTA/EG:OFF-^TANTA/EG:OFF-^^30.79^31.001^X^XXXX^EG^^^^^^^^^EG044^^^^-1^N^N^QTT^^AFRIC^O
-QTU^ZZZZ^Y^3460535^Itu^Itu^Itu,QTU^0^0^P^PPL^BR^^27^^^^137586^0^594^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QTU^SP^SAMER^O
+QTU^ZZZZ^Y^3460535^Itu^Itu^Itu,QTU^-23.2641700^-47.2991700^P^PPL^BR^^27^^^^137586^0^594^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QTU^SP^SAMER^O
 QTV^ZZZZ^N^0^FICTITIOUS POINT/ZZ:FICTITIOUS^FICTITIOUS POINT/ZZ:FICTITIOUS^^46^6.167^S^AIRP^ZZ^^^^^^^^^ZZ205^^^^-1^Y^Y^QTV^^NONE^CA
-QTW^ZZZZ^Y^1835235^Daejeon^Daejeon^Daejeon,Daejon,Daiden,QTW,Taejon,Taejŏn,Taiden,Tehdzhon,Tetyan,Thai-tyen,Thāi-tyen,Tētyan,da tian guang yu shi,daejeon,daejeongwang-yeogsi,Тэджон,大田广域市,大田広域市,대전,대전광역시^0^0^P^PPLA^KR^^19^^^^1475221^0^71^Asia/Seoul^9.0^9.0^9.0^2012-02-28^N^N^QTW^^ASIA^O
+QTW^ZZZZ^Y^1835235^Daejeon^Daejeon^Daejeon,Daejon,Daiden,QTW,Taejon,Taejŏn,Taiden,Tehdzhon,Tetyan,Thai-tyen,Thāi-tyen,Tētyan,da tian guang yu shi,daejeon,daejeongwang-yeogsi,Тэджон,大田广域市,大田広域市,대전,대전광역시^36.3213900^127.4197200^P^PPLA^KR^^19^^^^1475221^0^71^Asia/Seoul^9.0^9.0^9.0^2012-02-28^N^N^QTW^^ASIA^O
 QTX^ZZZZ^N^0^ARBATAX/IT:ARBATAX^ARBATAX/IT:ARBATAX^^39.9344^9.70556^S^AIRP^IT^^^^^^^^^IT067^^^^-1^Y^N^QTX^^EUROP^O
 QTY^ZZZZ^N^0^TSU/JP:OFF-^TSU/JP:OFF-^^0^0^X^XXXX^JP^^^^^^^^^JP^^^^-1^N^N^QTY^^ASIA^O
-QTZ^ZZZZ^Y^3530517^Coatzacoalcos^Coatzacoalcos^Coatzacoalcos,Koacakoalkos,Puerto Mexico,QTZ,Коацакоалкос^0^0^P^PPL^MX^^30^^^^230717^0^21^America/Mexico_City^-6.0^-5.0^-6.0^2012-01-18^N^N^QTZ^^NAMER^O
-QUA^ZZZZ^Y^2851594^Puttgarden^Puttgarden^Puttgarden,QUA^0^0^P^PPL^DE^^10^^^^0^0^0^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^QUA^^EUROP^O
+QTZ^ZZZZ^Y^3530517^Coatzacoalcos^Coatzacoalcos^Coatzacoalcos,Koacakoalkos,Puerto Mexico,QTZ,Коацакоалкос^18.1500000^-94.4166700^P^PPL^MX^^30^^^^230717^0^21^America/Mexico_City^-6.0^-5.0^-6.0^2012-01-18^N^N^QTZ^^NAMER^O
+QUA^ZZZZ^Y^2851594^Puttgarden^Puttgarden^Puttgarden,QUA^54.5000000^11.2166700^P^PPL^DE^^10^^^^0^0^0^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^QUA^^EUROP^O
 QUB^ZZZZ^Y^7731449^Ubari Airport^Ubari Airport^QUB^26.6^12.77^S^AIRP^LY^^52^^^^0^0^468^Africa/Tripoli^2.0^2.0^2.0^2011-03-18^Y^Y^QUB^^AFRIC^CA
 QUC^ZZZZ^N^0^PUERTO LA CRUZ/VE:PUERTO LA CR^PUERTO LA CRUZ/VE:PUERTO LA CR^^0^0^X^XXXX^VE^^^^^^^^^VE194^^^^-1^N^N^QUC^^SAMER^O
 QUD^ZZZZ^N^0^DAMANHUN/EG:DAMANHUN^DAMANHUN/EG:DAMANHUN^^30.47^31.05^S^AIRP^EG^^^^^^^^^EG044^^^^-1^Y^N^QUD^^AFRIC^O
@@ -7245,12 +7245,12 @@ QUE^ZZZZ^Y^3420388^Qullissat^Qullissat^Kutdligssat,Kutdlisat,QUE,Qubdligssat,Qul
 QUF^ZZZZ^Y^588409^Tallinn^Tallinn^Castrum Danorum,Kallinn,Kolyvan,QUF,Raeaeveli,Reval,Revel',Rääveli,Talin,Talin - Tallinn,Talinas,Talino,Tallin,Tallina,Tallinn,Tallinna,Talín - Tallinn,Tàllin,ta lin,tallin,talyn,tarin,thallin n,Ταλίν,Ταλιν,Ταλλίν,Талин,Таллин,Таллін,Талін,Տալլին,טאלין,تالين,ทาลลินน์,ტალინი,ታሊን,タリン,塔林,탈린^50.47^24.8^P^PPLC^EE^^01^0784^^^394024^0^12^Europe/Tallinn^2.0^3.0^2.0^2012-04-23^N^N^QUF^01^EUROP^C
 QUG^EGHR^Y^7730473^Chichester/Goodwood Airport^Chichester/Goodwood Airport^EGHR,QUG^50.83^-0.8^S^AIRP^GB^^ENG^P6^45UD^45UD062^0^0^30^Europe/London^0.0^1.0^0.0^2011-03-17^Y^N^QUG^^EUROP^CA
 QUH^ZZZZ^N^0^SHIBIN EL KOM/EG:SHIBIN EL KOM^SHIBIN EL KOM/EG:SHIBIN EL KOM^^30.93^31^S^AIRP^EG^^^^^^^^^EG044^^^^-1^Y^N^QUH^^AFRIC^O
-QUI^ZZZZ^Y^3894689^Chuquicamata^Chuquicamata^Chuquicamata,QUI^0^0^P^PPL^CL^^03^22^02201^^0^0^2740^America/Santiago^-3.0^-4.0^-4.0^2012-05-03^N^N^QUI^^SAMER^O
+QUI^ZZZZ^Y^3894689^Chuquicamata^Chuquicamata^Chuquicamata,QUI^-22.3166700^-68.9333300^P^PPL^CL^^03^22^02201^^0^0^2740^America/Santiago^-3.0^-4.0^-4.0^2012-05-03^N^N^QUI^^SAMER^O
 QUJ^ZZZZ^N^0^UIJEONGBU/KR:UIJEONGBU^UIJEONGBU/KR:UIJEONGBU^^37.73^127^S^AIRP^KR^^^^^^^^^KR^^^^-1^Y^N^QUJ^^ASIA^O
 QUK^ZZZZ^N^0^FICTITIOUS POINT/ZZ:FICTITIOUS^FICTITIOUS POINT/ZZ:FICTITIOUS^^51^-2.167^S^AIRP^ZZ^^^^^^^^^ZZ205^^^^-1^Y^Y^QUK^^NONE^CA
 QUL^ZZZZ^N^0^ULM/DE:HBF RAILWAY STATION^ULM/DE:HBF RAILWAY STATION^^48.4^10^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^QUL^^EUROP^CR
-QUM^ZZZZ^Y^119208^Qom^Qom^Ghom,Kum,QUM,Qom,Qum,ghum,komu,qm,Кум,Қум,غُم,قم,コム^0^0^P^PPLA^IR^^39^^^^900000^0^935^Asia/Tehran^3.5^4.5^3.5^2012-01-16^N^N^QUM^^MEAST^O
-QUN^ZZZZ^Y^1845136^Chuncheon^Chuncheon^Ch'unch'on,Chhun-chhen,Chkhunchkhon,Chuncheon,Ch’unch’ŏn,QUN,Shunsen,Shusen,Syunsen,Tsch-hun-tsch-hon,Tsch-hun-tsch-hŏn,chun chuan shi,chuncheonsi,Чхунчхон,春川市,춘천시^0^0^P^PPLA^KR^^06^^^^209746^0^92^Asia/Seoul^9.0^9.0^9.0^2012-02-28^N^N^QUN^^ASIA^O
+QUM^ZZZZ^Y^119208^Qom^Qom^Ghom,Kum,QUM,Qom,Qum,ghum,komu,qm,Кум,Қум,غُم,قم,コム^34.6401000^50.8764000^P^PPLA^IR^^39^^^^900000^0^935^Asia/Tehran^3.5^4.5^3.5^2012-01-16^N^N^QUM^^MEAST^O
+QUN^ZZZZ^Y^1845136^Chuncheon^Chuncheon^Ch'unch'on,Chhun-chhen,Chkhunchkhon,Chuncheon,Ch’unch’ŏn,QUN,Shunsen,Shusen,Syunsen,Tsch-hun-tsch-hon,Tsch-hun-tsch-hŏn,chun chuan shi,chuncheonsi,Чхунчхон,春川市,춘천시^37.8747200^127.7341700^P^PPLA^KR^^06^^^^209746^0^92^Asia/Seoul^9.0^9.0^9.0^2012-02-28^N^N^QUN^^ASIA^O
 QUO^ZZZZ^Y^2319480^Uyo^Uyo^QUO,Uyo^-6.58333^3.33333^P^PPLA^NG^^21^^^^0^0^72^Africa/Lagos^1.0^1.0^1.0^2012-01-18^Y^Y^QUO^^AFRIC^CA
 QUP^BGSQ^Y^7730420^Saqqaq Heliport^Saqqaq Heliport^BGSQ,QUP^70.05^-52^S^AIRH^GL^^03^^^^0^0^18^America/Godthab^-3.0^-2.0^-3.0^2011-03-17^Y^N^QUP^^EUROP^CH
 QUQ^ZZZZ^N^0^CACERES/ES:CACERES^CACERES/ES:CACERES^^0^0^X^XXXX^ES^^^^^^^^^ES045^^^^-1^N^N^QUQ^^EUROP^O
@@ -7279,7 +7279,7 @@ QVM^ZZZZ^N^0^HAMEENLINNA/FI:HAMEENLINNA^HAMEENLINNA/FI:HAMEENLINNA^^61^24.42^S^A
 QVN^ZZZZ^Y^3182650^Avellino^Avellino^Abellinum,Avellino,QVN,avu~errino,Авеллино,アヴェッリーノ^40.9^14.7833^P^PPLA2^IT^^04^AV^064008^^52703^0^357^Europe/Rome^1.0^2.0^1.0^2011-02-23^Y^N^QVN^^EUROP^O
 QVO^ZZZZ^N^0^HAVOYSUND/NO^HAVOYSUND/NO^^71.05^24.67^S^AIRP^NO^^^^^^^^^NO083^^^^-1^Y^N^QVO^^EUROP^O
 QVP^SDRR^Y^7668447^Avaré-Arandu Airport^Avare-Arandu Airport^Aeroporto de Avare-Arandu,Aeroporto de Avaré-Arandu,QVP,SDRR^-23.0925000^-48.9874000^S^AIRP^BR^^27^^^^0^0^800^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-02-17^N^N^QVP^SP^SAMER^O
-QVQ^ZZZZ^Y^2817599^Verden^Verden^QVQ,Verden,feruden,Верден,フェルデン^0^0^P^PPL^DE^^06^^^^26924^0^24^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^QVQ^^EUROP^O
+QVQ^ZZZZ^Y^2817599^Verden^Verden^QVQ,Verden,feruden,Верден,フェルデン^52.9166700^9.2333300^P^PPL^DE^^06^^^^26924^0^24^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^QVQ^^EUROP^O
 QVR^ZZZZ^N^0^VOLTA REDONDA/RJ/BR:OFF-^VOLTA REDONDA/RJ/BR:OFF-^^0^0^X^XXXX^BR^^^^^^^^^BR015^^^^-1^N^N^QVR^RJ^SAMER^O
 QVS^ZZZZ^Y^634651^Tervakoski^Tervakoski^QVS,Tervakoski,Тервакоски^60.82^24.62^P^PPL^FI^^13^05^165^^4753^0^98^Europe/Helsinki^2.0^3.0^2.0^2012-01-18^Y^N^QVS^^EUROP^O
 QVT^ZZZZ^N^0^RIIHIMAKI/FI:RIIHIMAKI^RIIHIMAKI/FI:RIIHIMAKI^^60.75^24.75^S^AIRP^FI^^^^^^^^^FI047^^^^-1^Y^N^QVT^^EUROP^O
@@ -7289,28 +7289,28 @@ QVW^ZZZZ^N^0^KOTKA/FI:KOTKA^KOTKA/FI:KOTKA^^60.43^26.92^S^AIRP^FI^^^^^^^^^FI047^
 QVX^ZZZZ^N^0^GHAZAOUET/DZ:OFF-^GHAZAOUET/DZ:OFF-^^0^0^X^XXXX^DZ^^^^^^^^^DZ^^^^-1^N^N^QVX^^AFRIC^O
 QVY^ZZZZ^N^0^KOUVOLA/FI:BUS STATION^KOUVOLA/FI:BUS STATION^^60.896394^26.938353^S^AIRP^FI^^^^^^^^^FI047^^^^-1^Y^N^QVY^^EUROP^CB
 QVZ^ZZZZ^N^0^HAMINA/FI:HAMINA^HAMINA/FI:HAMINA^^60.55^27.25^S^AIRP^FI^^^^^^^^^FI047^^^^-1^Y^N^QVZ^^EUROP^O
-QWA^ZZZZ^Y^6094578^Oshawa^Oshawa^QWA^0^0^P^PPL^CA^^08^^^^247989^0^105^America/Toronto^-5.0^-4.0^-5.0^2006-01-22^N^N^QWA^ON^NAMER^O
+QWA^ZZZZ^Y^6094578^Oshawa^Oshawa^QWA^43.9001200^-78.8495700^P^PPL^CA^^08^^^^247989^0^105^America/Toronto^-5.0^-4.0^-5.0^2006-01-22^N^N^QWA^ON^NAMER^O
 QWB^ZZZZ^N^0^BERLIN/DE:OSTBAHNHOF RAILWAY S^BERLIN/DE:OSTBAHNHOF RAILWAY S^^52.57^13.3^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^BER^^EUROP^R
 QWC^ZZZZ^N^0^BERLIN/DE:ZOO RAILWAY STATION^BERLIN/DE:ZOO RAILWAY STATION^^52.57^13.3^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^BER^^EUROP^R
-QWD^ZZZZ^Y^2870482^Mittenwald^Mittenwald^QWD^0^0^P^PPL^DE^^02^^^^7996^0^915^Europe/Berlin^1.0^2.0^1.0^2009-06-16^N^N^QWD^^EUROP^O
+QWD^ZZZZ^Y^2870482^Mittenwald^Mittenwald^QWD^47.4422000^11.2618700^P^PPL^DE^^02^^^^7996^0^915^Europe/Berlin^1.0^2.0^1.0^2009-06-16^N^N^QWD^^EUROP^O
 QWF^ZZZZ^N^0^FORT COLLINS LOVELAND/CO/US:FO^FORT COLLINS LOVELAND/CO/US:FO^^40.58^-105.1^S^AIRP^US^^^^^^^^^US108^^^^-1^Y^N^FNL^CO^NAMER^B
 QWG^ZZZZ^Y^4499115^Wilgrove Air Park^Wilgrove Air Park^QWG^35.21^-80.67^S^AIRP^US^^NC^119^^^0^243^243^America/New_York^-5.0^-4.0^-5.0^2011-12-11^Y^N^CLT^NC^NAMER^A
 QWH^ZZZZ^N^0^FORT COLLINS LOVELAND/CO/US:LO^FORT COLLINS LOVELAND/CO/US:LO^^40.4^-105.1^S^AIRP^US^^^^^^^^^US108^^^^-1^Y^N^FNL^CO^NAMER^B
 QWI^ZZZZ^N^0^SCHLESWIG/DE:OFF-^SCHLESWIG/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^QWI^^EUROP^O
-QWJ^ZZZZ^Y^3472343^Americana^Americana^Amerikana,QWJ,Vila Americana,Villa Americana,Американа^0^0^P^PPL^BR^^27^^^^196022^0^563^America/Sao_Paulo^-2.0^-3.0^-3.0^2010-01-29^N^N^QWJ^SP^SAMER^O
+QWJ^ZZZZ^Y^3472343^Americana^Americana^Amerikana,QWJ,Vila Americana,Villa Americana,Американа^-22.7391700^-47.3313900^P^PPL^BR^^27^^^^196022^0^563^America/Sao_Paulo^-2.0^-3.0^-3.0^2010-01-29^N^N^QWJ^SP^SAMER^O
 QWK^ZZZZ^N^0^WLOCLAWEK/PL:WLOCLAWEK^WLOCLAWEK/PL:WLOCLAWEK^^0^0^X^XXXX^PL^^^^^^^^^PL089^^^^-1^N^N^QWK^^EEURO^O
 QWL^ZZZZ^N^0^CRACKENBACK/NS/AU:BUS STATION^CRACKENBACK/NS/AU:BUS STATION^^-36.47^148.5^S^AIRP^AU^^^^^^^^^AU007^^^^-1^Y^N^QWL^NS^AUSTL^CB
 QWM^ZZZZ^N^0^LONGMONT/CO/US:BUS STATION^LONGMONT/CO/US:BUS STATION^^40.18^-105.1^S^AIRP^US^^^^^^^^^US108^^^^-1^Y^N^QWM^CO^NAMER^CB
-QWN^ZZZZ^Y^3471368^Astorga^Astorga^QWN^0^0^P^PPL^BR^^18^^^^20128^0^688^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QWN^PR^SAMER^O
+QWN^ZZZZ^Y^3471368^Astorga^Astorga^QWN^-23.2325000^-51.6655600^P^PPL^BR^^18^^^^20128^0^688^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QWN^PR^SAMER^O
 QWO^ZZZZ^Y^2620046^Holstebro^Holstebro^Holstebro,Khol'stebro,QWO,Хольстебро^56.37^-8.633^P^PPLA2^DK^^18^661^^^32072^0^16^Europe/Copenhagen^1.0^2.0^1.0^2011-03-01^Y^N^QWO^^EUROP^CB
 QWP^ZZZZ^N^0^WINTER PARK/CO/US:BUS STATION^WINTER PARK/CO/US:BUS STATION^^39.9^-105.8^S^AIRP^US^^^^^^^^^US108^^^^-1^Y^N^QWP^CO^NAMER^CA
 QWQ^ZZZZ^Y^2612204^Struer^Struer^QWQ,Struehr,Struer,Струэр^56.48^8.6^P^PPLA2^DK^^18^671^^^11317^0^12^Europe/Copenhagen^1.0^2.0^1.0^2011-03-01^Y^N^QWQ^^EUROP^CB
 QWR^ZZZZ^N^0^DONAUWOERTH/DE:OFF-^DONAUWOERTH/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^QWR^^EUROP^O
 QWS^ZZZZ^N^0^NOWY TARG/PL:NOWY TARG^NOWY TARG/PL:NOWY TARG^^49.47^20^S^AIRP^PL^^^^^^^^^PL089^^^^-1^Y^N^QWS^^EEURO^O
-QWT^ZZZZ^Y^2510693^Talavera de la Reina^Talavera de la Reina^Aebura,Ebora,QWT,Talavera de la Reina,Talavera del Tajo^0^0^P^PPLA3^ES^^54^TO^45165^^88856^0^380^Europe/Madrid^1.0^2.0^1.0^2012-03-29^N^N^QWT^^EUROP^O
+QWT^ZZZZ^Y^2510693^Talavera de la Reina^Talavera de la Reina^Aebura,Ebora,QWT,Talavera de la Reina,Talavera del Tajo^39.9634800^-4.8307600^P^PPLA3^ES^^54^TO^45165^^88856^0^380^Europe/Madrid^1.0^2.0^1.0^2012-03-29^N^N^QWT^^EUROP^O
 QWU^ZZZZ^N^0^WUERZBURG/DE:HBF RAILWAY STATI^WUERZBURG/DE:HBF RAILWAY STATI^^49.8^9.933^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^QWU^^EUROP^CR
 QWV^ZZZZ^Y^3188402^Valjevo^Valjevo^QWV,Valevo,Valjevas,Valjevo,Валево,Ваљево^44.27^19.93^P^PPLA2^RS^^SE^9^70360^^61035^0^180^Europe/Belgrade^1.0^2.0^1.0^2012-04-15^Y^N^QWV^^EUROP^O
-QWW^ZZZZ^Y^2513324^Navalmoral de la Mata^Navalmoral de la Mata^Navalmoral,Navalmoral de la Mata,Navalmoral de la Mota,QWW^0^0^P^PPLA3^ES^^57^CC^10131^^17228^0^295^Europe/Madrid^1.0^2.0^1.0^2012-03-04^N^N^QWW^^EUROP^O
+QWW^ZZZZ^Y^2513324^Navalmoral de la Mata^Navalmoral de la Mata^Navalmoral,Navalmoral de la Mata,Navalmoral de la Mota,QWW^39.8915800^-5.5406400^P^PPLA3^ES^^57^CC^10131^^17228^0^295^Europe/Madrid^1.0^2.0^1.0^2012-03-04^N^N^QWW^^EUROP^O
 QWX^ZZZZ^N^0^MERIDA/ES:MERIDA^MERIDA/ES:MERIDA^^0^0^X^XXXX^ES^^^^^^^^^ES045^^^^-1^N^N^QWX^^EUROP^O
 QWY^ZZZZ^N^0^CORVALLIS/OR/US:ALBANY BUS^CORVALLIS/OR/US:ALBANY BUS^^44.5^-123.3^S^AIRP^US^^^^^^^^^US110^^^^-1^Y^N^CVO^OR^NAMER^B
 QWZ^ZZZZ^Y^2759040^Best^Best^Best,QWZ^51.5^5.4^P^PPL^NL^^06^0753^^^29074^0^17^Europe/Amsterdam^1.0^2.0^1.0^2007-06-03^Y^N^EIN^^EUROP^B
@@ -7326,11 +7326,11 @@ QXK^ZZZZ^N^0^ST GENIS/FR:BUS STATION^ST GENIS/FR:BUS STATION^^44.38^5.75^S^AIRP^
 QXL^ZZZZ^N^0^FICTITIOUS POINT/ZZ:FICTITIOUS^FICTITIOUS POINT/ZZ:FICTITIOUS^^57^-2^S^AIRP^ZZ^^^^^^^^^ZZ205^^^^-1^Y^Y^QXL^^NONE^CA
 QXM^ZZZZ^N^0^FICTITIOUS POINT/ZZ:FICTITIOUS^FICTITIOUS POINT/ZZ:FICTITIOUS^^57.17^-2.2^S^AIRP^ZZ^^^^^^^^^ZZ205^^^^-1^Y^Y^QXM^^NONE^CA
 QXO^ZZZZ^N^0^TOKYO/JP:TOKYO^TOKYO/JP:TOKYO^^0^0^X^XXXX^JP^^^^^^^^^JP^^^^-1^N^N^QXO^^ASIA^O
-QXP^ZZZZ^Y^785387^Struga^Struga^QXP,Struga,Ustrugha,astrwga,Струга,استروگا^0^0^P^PPLA^MK^^E6^^^^37387^0^696^Europe/Skopje^1.0^2.0^1.0^2012-04-06^N^N^QXP^^EUROP^O
+QXP^ZZZZ^Y^785387^Struga^Struga^QXP,Struga,Ustrugha,astrwga,Струга,استروگا^41.1780600^20.6761100^P^PPLA^MK^^E6^^^^37387^0^696^Europe/Skopje^1.0^2.0^1.0^2012-04-06^N^N^QXP^^EUROP^O
 QXQ^ZZZZ^Y^758445^Stalowa Wola^Stalowa Wola^QXQ,Stalova Vola,Stalowa Wola^53.18^22.08^P^PPLA2^PL^^80^1818^181801^^66495^0^162^Europe/Warsaw^1.0^2.0^1.0^2010-10-14^Y^Y^QXQ^^EEURO^O
 QXR^ZZZZ^Y^760772^Radom/Sadkow^Radom/Sadkow^QXR,Radom/Sadkow^51.4000000^21.2166700^S^AIRP^PL^^78^^^^0^0^171^Europe/Warsaw^1.0^2.0^1.0^2012-02-02^N^N^QXR^^EEURO^O
 QXV^ZZZZ^Y^2612045^Svendborg^Svendborg^QXV,Svenborg,Svendborg,Svennborge,Свеннборге^55.07^10.63^P^PPLA2^DK^^21^479^^^27553^0^14^Europe/Copenhagen^1.0^2.0^1.0^2011-03-01^Y^N^QXV^^EUROP^CR
-QXW^ZZZZ^Y^3472603^Alfenas^Alfenas^Alfenas,QXW^0^0^P^PPL^BR^^15^^^^71406^0^887^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QXW^MT^SAMER^O
+QXW^ZZZZ^Y^3472603^Alfenas^Alfenas^Alfenas,QXW^-21.4291700^-45.9472200^P^PPL^BR^^15^^^^71406^0^887^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^N^N^QXW^MT^SAMER^O
 QXX^ZZZZ^N^0^FICTITIOUS POINT/IL/US^FICTITIOUS POINT/IL/US^^41.7833^-87.75^S^AIRP^US^^^^^^^^^US107^^^^-1^Y^Y^QXX^IL^NAMER^CA
 QXY^ZZZZ^N^0^FICTITIOUS POINT/IL/US^FICTITIOUS POINT/IL/US^^41.7833^-87.75^S^AIRP^US^^^^^^^^^US107^^^^-1^Y^N^QXY^IL^NAMER^CA
 QXZ^ZZZZ^N^0^WOERGL/AT:BUS STATION^WOERGL/AT:BUS STATION^^47.48^12.07^S^AIRP^AT^^^^^^^^^AT005^^^^-1^Y^N^QXZ^^EUROP^CB
@@ -9519,7 +9519,7 @@ WRZ^VCCW^Y^7668582^Weerawila International Airport^Weerawila International Airpo
 WSA^ZZZZ^Y^2083705^Wasua^Wasua^WSA,Wasua^-8.283^142.9^P^PPL^PG^^06^^^^0^0^21^Pacific/Port_Moresby^10.0^10.0^10.0^2012-05-05^Y^N^WSA^^AUSTL^CA
 WSB^ZZZZ^N^0^STEAMBOAT BAY/AK/US:SPB^STEAMBOAT BAY/AK/US:SPB^^55.53^-133.6^S^AIRP^US^^^^^^^^^US111^^^^-1^Y^N^WSB^AK^NAMER^CA
 WSD^ZZZZ^N^0^WHITE SANDS/NM/US:CONDRON AAF^WHITE SANDS/NM/US:CONDRON AAF^^32.34^-106.4^S^AIRP^US^^^^^^^^^US108^^^^-1^Y^N^WSD^NM^NAMER^CA
-WSE^ZZZZ^Y^3651459^Santa Cecilia^Santa Cecilia^Cecilia,Santa Cecilia,Santa Cecilla,WSE^0^0^P^PPL^EC^EC^22^^^^0^0^316^America/Guayaquil^-5.0^-5.0^-5.0^2012-01-18^N^N^WSE^^SAMER^O
+WSE^ZZZZ^Y^3651459^Santa Cecilia^Santa Cecilia^Cecilia,Santa Cecilia,Santa Cecilla,WSE^0.0850000^-76.9925000^P^PPL^EC^EC^22^^^^0^0^316^America/Guayaquil^-5.0^-5.0^-5.0^2012-01-18^N^N^WSE^^SAMER^O
 WSF^ZZZZ^N^0^SARICHEF/AK/US^SARICHEF/AK/US^^65.02^-147.7^S^AIRP^US^^^^^^^^^US111^^^^-1^Y^N^WSF^AK^NAMER^CA
 WSG^KAFJ^Y^5218077^Washington County Airport^Washington County Airport^AFJ,KAFJ,WSG^40.13618^-80.29201^S^AIRP^US^^PA^125^^^0^358^355^America/New_York^-5.0^-4.0^-5.0^2012-04-21^Y^N^WSG^PA^NAMER^CA
 WSH^KHWV^Y^5110293^Brookhaven Airport^Brookhaven Airport^KHWV,WSH^40.78^-72.92^S^AIRP^US^^NY^103^^^0^21^24^America/New_York^-5.0^-4.0^-5.0^2011-12-11^Y^N^WSH^NY^NAMER^CA
@@ -9686,7 +9686,7 @@ XEE^ZZZZ^N^0^LAC EDOUARD/QC/CA:RAILWAY STAT^LAC EDOUARD/QC/CA:RAILWAY STAT^^47.6
 XEF^ZZZZ^N^0^WINNIPEG/MB/CA:RAILWAY STATION^WINNIPEG/MB/CA:RAILWAY STATION^^49.9^-97.23^S^AIRP^CA^^^^^^^^^CA027^^^^-1^Y^Y^YWG^MB^NAMER^R
 XEG^ZZZZ^N^0^KINGSTON/ON/CA:RAILWAY STATION^KINGSTON/ON/CA:RAILWAY STATION^^44.23^-76.58^S^AIRP^CA^^^^^^^^^CA025^^^^-1^Y^Y^YGK^ON^NAMER^R
 XEH^ZZZZ^N^0^LADYSMITH/BC/CA:RAILWAY STATIO^LADYSMITH/BC/CA:RAILWAY STATIO^^48.95^-123.8^S^AIRP^CA^^^^^^^^^CA031^^^^-1^Y^Y^XEH^BC^NAMER^CR
-XEI^ZZZZ^Y^2110683^Tsukuba^Tsukuba^Tsukuba,XEI^0^0^P^PPL^JP^^14^^^^175589^0^33^Asia/Tokyo^9.0^9.0^9.0^2012-01-19^N^N^XEI^^ASIA^O
+XEI^ZZZZ^Y^2110683^Tsukuba^Tsukuba^Tsukuba,XEI^36.2000000^140.1000000^P^PPL^JP^^14^^^^175589^0^33^Asia/Tokyo^9.0^9.0^9.0^2012-01-19^N^N^XEI^^ASIA^O
 XEJ^ZZZZ^Y^6049388^Langford^Langford^XEJ^48.92^-77.17^P^PPL^CA^^02^^^^22459^0^80^America/Vancouver^-8.0^-7.0^-8.0^2010-09-22^Y^N^XEJ^BC^NAMER^CR
 XEK^ZZZZ^N^0^MELVILLE/SK/CA:RAILWAY STATION^MELVILLE/SK/CA:RAILWAY STATION^^50.95^-102.8^S^AIRP^CA^^^^^^^^^CA028^^^^-1^Y^Y^XEK^SK^NAMER^CR
 XEL^ZZZZ^Y^6943833^New Carlisle^New Carlisle^XEL^48^-65.37^P^PPL^CA^^10^11^^^0^0^29^America/Montreal^-5.0^-4.0^-5.0^2010-10-02^Y^Y^XEL^QC^NAMER^CR
@@ -9849,7 +9849,7 @@ XKP^ZZZZ^Y^3142657^Porsgrunn^Porsgrunn^Porsgrund,Porsgrunn,Pushgrjon,XKP,Пор�
 XKQ^ZZZZ^Y^3140084^Sarpsborg^Sarpsborg^Sarpsborg,XKQ,Сарпсборг^59.29^11.12^P^PPLA2^NO^^13^0105^^^52159^0^54^Europe/Oslo^1.0^2.0^1.0^2010-12-07^Y^N^XKQ^^EUROP^CR
 XKR^ZZZZ^N^0^KRISTIANSAND/NO:RAILWAY STATIO^KRISTIANSAND/NO:RAILWAY STATIO^^58.2^8.1^S^AIRP^NO^^^^^^^^^NO083^^^^-1^Y^N^KRS^^EUROP^R
 XKS^CYAQ^Y^7668110^Kasabonika Airport^Kasabonika Airport^CYAQ,XKS^53.53^-88.75^S^AIRP^CA^^08^^^^0^0^196^America/Winnipeg^-6.0^-5.0^-6.0^2011-02-17^Y^Y^XKS^ON^NAMER^CA
-XKT^ZZZZ^Y^1819638^Kennedy Town^Kennedy Town^Kennedy Town,XKT^0^0^P^PPLX^HK^^00^^^^0^0^-9999^Asia/Hong_Kong^8.0^8.0^8.0^2012-02-02^N^N^XKT^^SEASI^O
+XKT^ZZZZ^Y^1819638^Kennedy Town^Kennedy Town^Kennedy Town,XKT^22.2833300^114.1166700^P^PPLX^HK^^00^^^^0^0^-9999^Asia/Hong_Kong^8.0^8.0^8.0^2012-02-02^N^N^XKT^^SEASI^O
 XKU^ZZZZ^N^0^KUSADASI/TR:KUSADASI^KUSADASI/TR:KUSADASI^^0^0^X^XXXX^TR^^^^^^^^^TR101^^^^-1^N^N^XKU^^EURAS^O
 XKV^ZZZZ^Y^6137063^Sackville^Sackville^XKV^45.9^-64.38^P^PPL^CA^^04^^^^5411^0^13^America/Moncton^-4.0^-3.0^-4.0^2010-06-08^Y^Y^XKV^NB^NAMER^CR
 XKW^ZZZZ^N^0^TONSBERG/NO:RAILWAY STATION^TONSBERG/NO:RAILWAY STATION^^59.27^10.41^S^AIRP^NO^^^^^^^^^NO083^^^^-1^Y^N^XKW^^EUROP^CR
@@ -9976,7 +9976,7 @@ XPY^ZZZZ^N^0^PYHA/FI:BUS STATION^PYHA/FI:BUS STATION^^61.02^27.15^S^AIRP^FI^^^^^
 XPZ^ZZZZ^N^0^ST TROPEZ/FR:ST TROPEZ HARBOUR^ST TROPEZ/FR:ST TROPEZ HARBOUR^^43.2^6.483^S^AIRP^FR^^^^^^^^^FR052^^^^-1^Y^N^LTT^^EUROP^H
 XQA^ZZZZ^N^0^SEVILLA/ES:SANTA JUSTA RAILWAY^SEVILLA/ES:SANTA JUSTA RAILWAY^^37.3942^-5.97417^S^AIRP^ES^^^^^^^^^ES045^^^^-1^Y^Y^SVQ^^EUROP^R
 XQB^ZZZZ^Y^2656192^Basingstoke^Basingstoke^Basingstoke,XQB^51.88^0.2333^P^PPL^GB^^ENG^F2^24UB^^96348^0^96^Europe/London^0.0^1.0^0.0^2011-03-03^Y^N^XQB^^EUROP^CR
-XQC^ZZZZ^Y^98112^Balad^Balad^Balad,Balada,Belad,Beled,XQC,bld,Балада,بلد^0^0^P^PPL^IQ^^18^^^^42088^0^53^Asia/Baghdad^3.0^3.0^3.0^2012-02-28^N^N^XQC^^MEAST^O
+XQC^ZZZZ^Y^98112^Balad^Balad^Balad,Balada,Belad,Beled,XQC,bld,Балада,بلد^34.0148500^44.1457400^P^PPL^IQ^^18^^^^42088^0^53^Asia/Baghdad^3.0^3.0^3.0^2012-02-28^N^N^XQC^^MEAST^O
 XQD^ZZZZ^Y^2656046^Bedford^Bedford^Bedford,XQD,Бедфорд^51.88^0.2333^P^PPLA2^GB^^ENG^Z5^^^86658^0^30^Europe/London^0.0^1.0^0.0^2010-10-22^Y^N^XQD^^EUROP^CR
 XQE^ZZZZ^N^0^LONDON/GB:EBBSFLEET INTL RAIL^LONDON/GB:EBBSFLEET INTL RAIL^^51.44^0.3225^S^AIRP^GB^^^^^^^^^GB053^^^^-1^Y^Y^LON^^EUROP^R
 XQG^ZZZZ^N^0^BERWICK UPON TWEED/GB:RAILWAY^BERWICK UPON TWEED/GB:RAILWAY^^55.95^-3.35^S^AIRP^GB^^^^^^^^^GB053^^^^-1^Y^N^XQG^^EUROP^CR
@@ -10053,7 +10053,7 @@ XTJ^ZZZZ^Y^2510409^Toledo^Toledo^Tolede,Toledo,Toletum,Tolède,XTJ,tlytlt,toredo
 XTK^ZZZZ^Y^2636021^Thirsk^Thirsk^XTK^51.88^0.2333^P^PPL^GB^^ENG^J7^36UC^^9302^0^37^Europe/London^0.0^1.0^0.0^2010-05-24^Y^N^XTK^^EUROP^CR
 XTL^CYBQ^Y^7668114^Tadoule Lake Airport^Tadoule Lake Airport^Aeropuerto de Tadoule Lake,CYBQ,Lapangan Terbang Tadoule Lake,XTL^58.6^-98.33^S^AIRP^CA^^03^^^^0^0^272^America/Winnipeg^-6.0^-5.0^-6.0^2011-02-17^Y^N^XTL^MB^NAMER^CA
 XTM^ZZZZ^N^0^RAMADI/IQ:OFF-LINE POINT^RAMADI/IQ:OFF-LINE POINT^^0^0^X^XXXX^IQ^^^^^^^^^IQ066^^^^-1^N^N^XTM^^MEAST^O
-XTN^ZZZZ^Y^2972284^Tourcoing^Tourcoing^Toerkonje,Tourcoing,Turcundium,XTN,to~urukowan,トゥールコワン^0^0^P^PPL^FR^^B4^59^595^59599^91574^0^49^Europe/Paris^1.0^2.0^1.0^2012-01-18^N^N^XTN^^EUROP^O
+XTN^ZZZZ^Y^2972284^Tourcoing^Tourcoing^Toerkonje,Tourcoing,Turcundium,XTN,to~urukowan,トゥールコワン^50.7239100^3.1611700^P^PPL^FR^^B4^59^595^59599^91574^0^49^Europe/Paris^1.0^2.0^1.0^2012-01-18^N^N^XTN^^EUROP^O
 XTO^YTAM^Y^7731640^Taroom Airport^Taroom Airport^XTO,YTAM^-25.67^149.8^S^AIRP^AU^^04^30370^^^0^0^231^Australia/Brisbane^10.0^10.0^10.0^2011-06-04^Y^N^XTO^QL^AUSTL^CA
 XTP^ZZZZ^N^0^TAMPERE/FI:TAMPERE^TAMPERE/FI:TAMPERE^^61.49^23.77^S^AIRP^FI^^^^^^^^^FI047^^^^-1^Y^N^TMP^^EUROP^B
 XTR^YTAA^Y^7731641^Tara Airport^Tara Airport^XTR,YTAA^-27.28^150.5^S^AIRP^AU^^04^37310^^^0^0^362^Australia/Brisbane^10.0^10.0^10.0^2011-06-04^Y^N^XTR^QL^AUSTL^CA
@@ -10738,7 +10738,7 @@ ZAA^ZZZZ^Y^5883655^Alice Arm^Alice Arm^ZAA^55.48^-129.5^P^PPLL^CA^^02^^^^0^0^26^
 ZAB^ZZZZ^N^0^BOU KADIR/DZ:BOU KADIR^BOU KADIR/DZ:BOU KADIR^^0^0^X^XXXX^DZ^^^^^^^^^DZ^^^^-1^N^N^ZAB^^AFRIC^O
 ZAC^CZAC^Y^7668151^York Landing Airport^York Landing Airport^Aeropuerto de York Landing,CZAC,ZAC^56.08^-96.08^S^AIRP^CA^^03^^^^0^0^186^America/Winnipeg^-6.0^-5.0^-6.0^2011-02-17^Y^N^ZAC^MB^NAMER^CA
 ZAD^LDZD^Y^3220360^Zadar^Zadar^LDZD,ZAD^44.108269^15.346697^S^AIRP^HR^^19^^^^0^88^76^Europe/Zagreb^1.0^2.0^1.0^2007-01-03^Y^Y^ZAD^^EEURO^CA
-ZAE^ZZZZ^Y^2498392^El Eulma^El Eulma^El Eulma,Saint-Arnaud,ZAE^0^0^P^PPL^DZ^^12^^^^128351^0^959^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZAE^^AFRIC^O
+ZAE^ZZZZ^Y^2498392^El Eulma^El Eulma^El Eulma,Saint-Arnaud,ZAE^36.1528100^5.6901600^P^PPL^DZ^^12^^^^128351^0^959^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZAE^^AFRIC^O
 ZAF^ZZZZ^N^0^ARLES/FR:RAILWAY STATION^ARLES/FR:RAILWAY STATION^^43.68^4.633^S^AIRP^FR^^^^^^^^^FR052^^^^-1^Y^N^ZAF^^EUROP^CR
 ZAG^LDZA^Y^3215877^Zagreb Airport^Zagreb Airport^LDZA,ZAG,Zagreb,Zagreb Airport^45.742931^16.068778^S^AIRF^HR^^20^^^^0^107^103^Europe/Zagreb^1.0^2.0^1.0^2011-03-28^Y^Y^ZAG^^EEURO^CA
 ZAH^OIZH^Y^1336272^Zahedan International Airport^Zahedan International Airport^OIZH,ZAH^29.475686^60.906189^S^AIRP^IR^^04^^^^0^1391^1369^Asia/Tehran^3.5^4.5^3.5^2007-01-03^Y^Y^ZAH^^MEAST^CA
@@ -10790,28 +10790,28 @@ ZCA^ZZZZ^N^0^TAISHAN/CN:HARBOUR^TAISHAN/CN:HARBOUR^^51.483333^7.899333^S^AIRP^CN
 ZCB^ZZZZ^Y^2955272^Aschaffenburg^Aschaffenburg^Asafenburga,Aschaffenbourg,Aschaffenburg,Ashaffenburg,Auscheffenburg,Ašafenburga,ZCB,ashaffenburuku,Ашаффенбург,アシャッフェンブルク^49.97^9.15^P^PPL^DE^^02^096^09661^^68551^0^135^Europe/Berlin^1.0^2.0^1.0^2012-02-28^Y^N^ZCB^^EUROP^CR
 ZCC^ZZZZ^N^0^KARLSRUHE/BADEN BADEN/DE:BADEN^KARLSRUHE/BADEN BADEN/DE:BADEN^^48.77^8.25^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^ZCC^^EUROP^CR
 ZCD^ETEJ^Y^3207012^Bamberg^Bamberg^Bamberg-Breitenau Airfield,ETEJ,Flugplatz Bamberg-Breitenau,ZCD^49.9198^10.9128^S^AIRF^DE^^02^094^^^0^0^246^Europe/Berlin^1.0^2.0^1.0^2011-04-10^N^N^ZCD^^EUROP^O^Bamberg-Breitenau Airfield
-ZCE^ZZZZ^Y^2950881^Berchtesgaden^Berchtesgaden^Berchtesgaden,Berchtolsgaden,Berchtsgan,Berchtsgån,ZCE,beruhitesugaden,ベルヒテスガーデン^0^0^P^PPL^DE^^02^^^^7655^0^605^Europe/Berlin^1.0^2.0^1.0^2007-02-17^N^N^ZCE^^EUROP^O
+ZCE^ZZZZ^Y^2950881^Berchtesgaden^Berchtesgaden^Berchtesgaden,Berchtolsgaden,Berchtsgan,Berchtsgån,ZCE,beruhitesugaden,ベルヒテスガーデン^47.6333300^13.0000000^P^PPL^DE^^02^^^^7655^0^605^Europe/Berlin^1.0^2.0^1.0^2007-02-17^N^N^ZCE^^EUROP^O
 ZCF^ZZZZ^N^0^BERGHEIM/DE:OFF-^BERGHEIM/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZCF^^EUROP^O
-ZCG^ZZZZ^Y^2950349^Bergisch Gladbach^Bergisch Gladbach^Bergisch Gladbach,Bergish Gladbakh,Jlaebbisch,Jläbbisch,ZCG,Бергиш Гладбах^0^0^P^PPL^DE^^07^^^^106184^0^94^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCG^^EUROP^O
-ZCH^ZZZZ^Y^2950344^Bergkamen^Bergkamen^Bergkamen,ZCH^0^0^P^PPL^DE^^07^^^^52329^0^67^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCH^^EUROP^O
-ZCI^ZZZZ^Y^2947421^Bocholt^Bocholt^Bocholt,Bokelt,Bokholt,Bōkholt,ZCI^0^0^P^PPL^DE^^07^^^^73943^0^23^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCI^^EUROP^O
-ZCJ^ZZZZ^Y^2945756^Bottrop^Bottrop^Botrop,Bottrop,ZCJ,botoroppu,Ботроп,ボトロップ^0^0^P^PPL^DE^^07^^^^119909^0^80^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCJ^^EUROP^O
+ZCG^ZZZZ^Y^2950349^Bergisch Gladbach^Bergisch Gladbach^Bergisch Gladbach,Bergish Gladbakh,Jlaebbisch,Jläbbisch,ZCG,Бергиш Гладбах^50.9833300^7.1333300^P^PPL^DE^^07^^^^106184^0^94^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCG^^EUROP^O
+ZCH^ZZZZ^Y^2950344^Bergkamen^Bergkamen^Bergkamen,ZCH^51.6333300^7.6333300^P^PPL^DE^^07^^^^52329^0^67^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCH^^EUROP^O
+ZCI^ZZZZ^Y^2947421^Bocholt^Bocholt^Bocholt,Bokelt,Bokholt,Bōkholt,ZCI^51.8333300^6.6000000^P^PPL^DE^^07^^^^73943^0^23^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCI^^EUROP^O
+ZCJ^ZZZZ^Y^2945756^Bottrop^Bottrop^Botrop,Bottrop,ZCJ,botoroppu,Ботроп,ボトロップ^51.5166700^6.9166700^P^PPL^DE^^07^^^^119909^0^80^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCJ^^EUROP^O
 ZCK^ZZZZ^N^0^BRUEHL/DE:OFF-^BRUEHL/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZCK^^EUROP^O
 ZCL^MMZC^Y^6299883^Zacatecas Airport^Zacatecas Airport^MMZC,ZCL^22.897112^-102.68689^S^AIRP^MX^^^^^^0^2176^2171^America/Monterrey^-6.0^-5.0^-6.0^2007-01-03^Y^Y^ZCL^^NAMER^CA
-ZCM^ZZZZ^Y^2940231^Castrop-Rauxel^Castrop-Rauxel^Castrop-Rauxel,Stadt Castrop-Rauxel,ZCM^0^0^P^PPL^DE^^07^^^^77924^0^114^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCM^^EUROP^O
+ZCM^ZZZZ^Y^2940231^Castrop-Rauxel^Castrop-Rauxel^Castrop-Rauxel,Stadt Castrop-Rauxel,ZCM^51.5500000^7.3166700^P^PPL^DE^^07^^^^77924^0^114^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCM^^EUROP^O
 ZCN^ETHC^Y^3208633^Celle^Celle^ETHC,ZCN^52.5912^10.022133^S^AIRP^DE^^06^^^^0^0^35^Europe/Berlin^1.0^2.0^1.0^2012-01-22^N^N^ZCN^^EUROP^O
 ZCO^SCTC^Y^6300707^Temuco^Temuco^SCTC,ZCO^-38.766819^-72.637097^S^AIRP^CL^^04^91^09112^^0^92^100^America/Santiago^-3.0^-4.0^-4.0^2012-05-03^Y^Y^ZCO^^SAMER^CA
 ZCP^ZZZZ^N^0^FOSHAN/CN:FERRY PORT^FOSHAN/CN:FERRY PORT^^23.05^113.1^S^AIRP^CN^^^^^^^^^CN035^^^^-1^Y^N^FUO^^ASIA^B
 ZCQ^SCIC^Y^6300701^Curico^Curico^SCIC,ZCQ^-46.55^-71.7^S^AIRP^CL^^11^73^07301^^0^228^217^America/Santiago^-3.0^-4.0^-4.0^2012-05-03^N^N^ZCQ^^SAMER^O
-ZCR^ZZZZ^Y^2939623^Dachau^Dachau^Dachau,Dakhau,KZ Dachau,ZCR,Дахау,דכאו^0^0^P^PPL^DE^^02^^^^39740^0^502^Europe/Berlin^1.0^2.0^1.0^2011-10-17^N^N^ZCR^^EUROP^O
+ZCR^ZZZZ^Y^2939623^Dachau^Dachau^Dachau,Dakhau,KZ Dachau,ZCR,Дахау,דכאו^48.2600000^11.4340200^P^PPL^DE^^02^^^^39740^0^502^Europe/Berlin^1.0^2.0^1.0^2011-10-17^N^N^ZCR^^EUROP^O
 ZCS^ZZZZ^Y^2938913^Darmstadt^Darmstadt^Darmshhat,Darmshtadi,Darmshtadt,Darmshtat,Darmstadium,Darmstadt,Darmstat,Darmstatas,Darmstate,Darmundestadt,Darmştat,Darmštatas,Darmštate,Gorad Darmshtat,Ntarmstat,ZCS,da mu shi ta te,daleumsyutateu,darmastata,darmshtat,darumushutatto,drmstdt,Ντάρμστατ,Горад Дармштат,Дармштадт,Дармштат,Дармщат,דרמשטדט,دارمشتات,ڈریمسٹڈ,डार्मश्टाट,ダルムシュタット,达姆施塔特,다름슈타트^49.88^8.65^P^PPLA2^DE^^05^064^^^140385^0^145^Europe/Berlin^1.0^2.0^1.0^2010-11-21^N^N^ZCS^^EUROP^O
-ZCT^ZZZZ^Y^2938323^Delmenhorst^Delmenhorst^Del'menkhorst,Delmenhorst,Demost,ZCT,derumenhorusuto,Дельменхорст,デルメンホルスト^0^0^P^PPL^DE^^06^00^03401^^75893^0^12^Europe/Berlin^1.0^2.0^1.0^2012-05-10^N^N^ZCT^^EUROP^O
+ZCT^ZZZZ^Y^2938323^Delmenhorst^Delmenhorst^Del'menkhorst,Delmenhorst,Demost,ZCT,derumenhorusuto,Дельменхорст,デルメンホルスト^53.0500000^8.6166700^P^PPL^DE^^06^00^03401^^75893^0^12^Europe/Berlin^1.0^2.0^1.0^2012-05-10^N^N^ZCT^^EUROP^O
 ZCU^ZZZZ^N^0^SHE KOU/CN:SHE KOU FERRY^SHE KOU/CN:SHE KOU FERRY^^22.48^113.9^S^AIRP^CN^^^^^^^^^CN035^^^^-1^Y^N^ZCU^^ASIA^CB
-ZCV^ZZZZ^Y^2936871^Dinslaken^Dinslaken^Dinslaken,Dinslakena,Ntinslaken,ZCV,Ντίνσλακεν,Динслакена^0^0^P^PPL^DE^^07^^^^70573^0^30^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCV^^EUROP^O
-ZCW^ZZZZ^Y^2935825^Dormagen^Dormagen^Dormagen,ZCW,Дормаген^0^0^P^PPL^DE^^07^^^^63582^0^44^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCW^^EUROP^O
-ZCX^ZZZZ^Y^2935530^Dorsten^Dorsten^Dorsten,ZCX,Дорстен^0^0^P^PPL^DE^^07^^^^79981^0^31^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCX^^EUROP^O
+ZCV^ZZZZ^Y^2936871^Dinslaken^Dinslaken^Dinslaken,Dinslakena,Ntinslaken,ZCV,Ντίνσλακεν,Динслакена^51.5666700^6.7333300^P^PPL^DE^^07^^^^70573^0^30^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCV^^EUROP^O
+ZCW^ZZZZ^Y^2935825^Dormagen^Dormagen^Dormagen,ZCW,Дормаген^51.1000000^6.8333300^P^PPL^DE^^07^^^^63582^0^44^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCW^^EUROP^O
+ZCX^ZZZZ^Y^2935530^Dorsten^Dorsten^Dorsten,ZCX,Дорстен^51.6666700^6.9666700^P^PPL^DE^^07^^^^79981^0^31^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCX^^EUROP^O
 ZCY^ZZZZ^N^0^DUEREN/DE:OFF-^DUEREN/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZCY^^EUROP^O
-ZCZ^ZZZZ^Y^2929567^Erlangen^Erlangen^Ehrlangen,Erlan'nken,Erlanga,Erlangen,Erlangenas,Gorad Ehrlangen,ZCZ,ai er lan gen,ai er lang gen,arlangn,arlnjn,arlynjn,earangen,eleullang-gen,Έρλανγκεν,Горад Эрланген,Ерланген,Эрланген,ארלנגן,ارلانگن,ارلنجن,ارلینجن,エアランゲン,埃尔朗根,埃爾蘭根,에를랑겐^0^0^P^PPL^DE^^02^^^^102675^0^284^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCZ^^EUROP^O
+ZCZ^ZZZZ^Y^2929567^Erlangen^Erlangen^Ehrlangen,Erlan'nken,Erlanga,Erlangen,Erlangenas,Gorad Ehrlangen,ZCZ,ai er lan gen,ai er lang gen,arlangn,arlnjn,arlynjn,earangen,eleullang-gen,Έρλανγκεν,Горад Эрланген,Ерланген,Эрланген,ארלנגן,ارلانگن,ارلنجن,ارلینجن,エアランゲン,埃尔朗根,埃爾蘭根,에를랑겐^49.5897200^11.0038900^P^PPL^DE^^02^^^^102675^0^284^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZCZ^^EUROP^O
 ZDA^ZZZZ^Y^2661881^Aarau^Aarau^Aarau,Aaray,Aravia,ZDA,a lao,alau,arau,aravia,Аарау,アーラウ,阿劳,아라우^47.3833^8.05^P^PPLA^CH^^AG^1901^4001^^15501^0^389^Europe/Zurich^1.0^2.0^1.0^2010-04-05^Y^N^ZDA^^EUROP^CR
 ZDB^ZZZZ^N^0^ADELBODEN/CH:BUS STATION^ADELBODEN/CH:BUS STATION^^46.5^7.567^S^AIRP^CH^^^^^^^^^CH032^^^^-1^Y^N^ZDB^^EUROP^CB
 ZDC^ZZZZ^Y^2661834^Aigle^Aigle^Aigle,ZDC^46.3167^6.96667^P^PPL^CH^^VD^2221^5401^^7723^0^408^Europe/Zurich^1.0^2.0^1.0^2012-01-17^Y^N^ZDC^^EUROP^CR
@@ -10838,13 +10838,13 @@ ZDW^ZZZZ^N^0^DELEMONT/CH:DELEMONT^DELEMONT/CH:DELEMONT^^47.3667^7.33333^S^AIRP^C
 ZDX^ZZZZ^Y^2661015^Dietikon^Dietikon^ZDX^47.4167^8.75^P^PPLX^CH^^ZH^111^243^^20893^0^397^Europe/Zurich^1.0^2.0^1.0^2006-10-05^Y^N^ZDX^^EUROP^CR
 ZDZ^ZZZZ^Y^2660925^Einsiedeln^Einsiedeln^Einsiedeln,ZDZ^47.1167^8.75^P^PPLA2^CH^^SZ^501^1301^^13148^882^997^Europe/Zurich^1.0^2.0^1.0^2011-12-28^Y^N^ZDZ^^EUROP^CR
 ZEA^ZZZZ^N^0^ESCHWEILER/DE:OFF-^ESCHWEILER/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZEA^^EUROP^O
-ZEB^ZZZZ^Y^2928751^Esslingen^Esslingen^Ehslingen,Eslinga,Eslingen,Esslingen,Esslingen am Neckar,Eszlingen,Eszlingen am Neckar,ZEB,Еслинген,Эслинген^0^0^P^PPL^DE^^01^^^^92390^0^241^Europe/Berlin^1.0^2.0^1.0^2008-12-20^N^N^ZEB^^EUROP^O
+ZEB^ZZZZ^Y^2928751^Esslingen^Esslingen^Ehslingen,Eslinga,Eslingen,Esslingen,Esslingen am Neckar,Eszlingen,Eszlingen am Neckar,ZEB,Еслинген,Эслинген^48.7396100^9.3047300^P^PPL^DE^^01^^^^92390^0^241^Europe/Berlin^1.0^2.0^1.0^2008-12-20^N^N^ZEB^^EUROP^O
 ZEC^FASC^Y^7730325^Secunda Airport^Secunda Airport^FASC,ZEC^-26.53^29.17^S^AIRP^ZA^^^^^^0^0^1605^Africa/Johannesburg^2.0^2.0^2.0^2011-03-16^Y^N^ZEC^^AFRIC^CA
-ZED^ZZZZ^Y^2928396^Euskirchen^Euskirchen^Euskirchen,ZED^0^0^P^PPL^DE^^07^^^^54889^0^164^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZED^^EUROP^O
+ZED^ZZZZ^Y^2928396^Euskirchen^Euskirchen^Euskirchen,ZED^50.6666700^6.7833300^P^PPL^DE^^07^^^^54889^0^164^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZED^^EUROP^O
 ZEE^CZEE^Y^7730044^Kelsey Airport^Kelsey Airport^CZEE,ZEE^50.53^9.683^S^AIRP^CA^^03^^^^0^0^185^America/Winnipeg^-6.0^-5.0^-6.0^2011-03-16^Y^N^ZEE^^EUROP^CR
 ZEF^ZZZZ^N^0^NANHAI/CN:FERRY PORT^NANHAI/CN:FERRY PORT^^23.03^113.2^S^AIRP^CN^^^^^^^^^CN035^^^^-1^Y^N^ZEF^^ASIA^CB
 ZEG^ZZZZ^Y^7731651^Senggo Airport^Senggo Airport^ZEG^-5.983^139.4^S^AIRP^ID^^36^^^^0^0^33^Asia/Jayapura^9.0^9.0^9.0^2011-03-18^Y^N^ZEG^^SEASI^CA
-ZEH^ZZZZ^Y^2922586^Garbsen^Garbsen^Garbsen,ZEH^0^0^P^PPL^DE^^06^^^^63355^0^51^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZEH^^EUROP^O
+ZEH^ZZZZ^Y^2922586^Garbsen^Garbsen^Garbsen,ZEH^52.4166700^9.6000000^P^PPL^DE^^06^^^^63355^0^51^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZEH^^EUROP^O
 ZEI^ZZZZ^Y^2922530^Garmisch-Partenkirchen^Garmisch-Partenkirchen^Garmisch-Partenkirchen,Garmish-Partenkirkhen,Markt Garmisch-Partenkirchen,ZEI,garumisshu=parutenkiruhyen,Гармиш-Партенкирхен,ガルミッシュ＝パルテンキルヒェン^47.48^11.08^P^PPL^DE^^02^091^^^26022^0^705^Europe/Berlin^1.0^2.0^1.0^2010-11-15^Y^N^ZEI^^EUROP^CR
 ZEJ^ZZZZ^Y^2921466^Gelsenkirchen^Gelsenkirchen^Chaesekerken,Chäsekerken,Gel'zenkirkhen,Gelsenkirchen,Gelsenkirhene,Gelzenkirchenas,Gelzenkirkhen,Gelzenkirxen,Nkelzen'kirchen,ZEJ,gai er sen ji xing,geljenkileuhen,geruzenkiruhyen,ghylznkyrshn,glznqyrsn,kel sen kheiyr sen,Γκελζενκίρχεν,Гелзенкирхен,Гельзенкирхен,גלזנקירשן,غيلزنكيرشن,گلزن‌کیرشن,เกลเซนเคียร์เซน,ゲルゼンキルヒェン,盖尔森基兴,겔젠키르헨^51.52^7.117^P^PPL^DE^^07^^^^270028^0^39^Europe/Berlin^1.0^2.0^1.0^2012-01-18^Y^N^ZEJ^^EUROP^CR
 ZEK^ZZZZ^N^0^GLADBECK/DE:OFF-^GLADBECK/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZEK^^EUROP^O
@@ -10856,18 +10856,18 @@ ZEP^ZZZZ^N^0^LONDON/GB:VICTORIA RAILWAY STN^LONDON/GB:VICTORIA RAILWAY STN^^51.4
 ZEQ^ZZZZ^Y^2651286^Dewsbury^Dewsbury^D'jusberi,Dewsbury,Drewsbury,ZEQ,Дьюсбери^53.7^-1.617^P^PPL^GB^^ENG^00^^^56640^0^44^Europe/London^0.0^1.0^0.0^2010-08-03^Y^N^ZEQ^^EUROP^CB
 ZER^VEZO^Y^7668598^Zero Airport^Zero Airport^VEZO,ZER^27.57^93.83^S^AIRP^IN^^30^^^^0^0^1566^Asia/Kolkata^5.5^5.5^5.5^2011-02-17^Y^N^ZER^^ASIA^CA
 ZES^ZZZZ^N^0^GOEPPINGEN/DE:OFF-^GOEPPINGEN/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZES^^EUROP^O
-ZET^ZZZZ^Y^2918840^Goslar^Goslar^Goslar,Goslaria,ZET,ge si la er,gwslr,Гослар,גוסלר,戈斯拉尔^0^0^P^PPL^DE^^06^^^^43560^0^270^Europe/Berlin^1.0^2.0^1.0^2010-03-29^N^N^ZET^^EUROP^O
+ZET^ZZZZ^Y^2918840^Goslar^Goslar^Goslar,Goslaria,ZET,ge si la er,gwslr,Гослар,גוסלר,戈斯拉尔^51.9042500^10.4276600^P^PPL^DE^^06^^^^43560^0^270^Europe/Berlin^1.0^2.0^1.0^2010-03-29^N^N^ZET^^EUROP^O
 ZEU^ZZZZ^N^0^GOETTINGEN/DE:RAILWAY STATION^GOETTINGEN/DE:RAILWAY STATION^^51.54^9.928^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^ZEU^^EUROP^CR
-ZEV^ZZZZ^Y^2917540^Grevenbroich^Grevenbroich^Grevenbroich,ZEV^0^0^P^PPL^DE^^07^051^05162^^64779^0^52^Europe/Berlin^1.0^2.0^1.0^2010-11-15^N^N^ZEV^^EUROP^O
-ZEW^ZZZZ^Y^2913761^Gummersbach^Gummersbach^Gummersbach,ZEW^0^0^P^PPL^DE^^07^^^^53131^0^296^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZEW^^EUROP^O
+ZEV^ZZZZ^Y^2917540^Grevenbroich^Grevenbroich^Grevenbroich,ZEV^51.0910200^6.5827000^P^PPL^DE^^07^051^05162^^64779^0^52^Europe/Berlin^1.0^2.0^1.0^2010-11-15^N^N^ZEV^^EUROP^O
+ZEW^ZZZZ^Y^2913761^Gummersbach^Gummersbach^Gummersbach,ZEW^51.0333300^7.5500000^P^PPL^DE^^07^^^^53131^0^296^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZEW^^EUROP^O
 ZEX^ZZZZ^N^0^GUETERSLOH/DE:HBF RAILWAY STAT^GUETERSLOH/DE:HBF RAILWAY STAT^^51.9^8.383^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^GUT^^EUROP^R
 ZEY^ZZZZ^N^0^HAGEN/DE:HBF RAILWAY STATION^HAGEN/DE:HBF RAILWAY STATION^^51.37^7.45^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^ZEY^^EUROP^CR
-ZEZ^ZZZZ^Y^2911271^Hameln^Hameln^Hamelen,Hamelin,Hameln,Hamelín,ZEZ,hamerun,ハーメルン^0^0^P^PPL^DE^^06^^^^58666^0^74^Europe/Berlin^1.0^2.0^1.0^2011-03-20^N^N^ZEZ^^EUROP^O
+ZEZ^ZZZZ^Y^2911271^Hameln^Hameln^Hamelen,Hamelin,Hameln,Hamelín,ZEZ,hamerun,ハーメルン^52.1039700^9.3562300^P^PPL^DE^^06^^^^58666^0^74^Europe/Berlin^1.0^2.0^1.0^2011-03-20^N^N^ZEZ^^EUROP^O
 ZFA^CZFA^Y^6301501^Faro Airport^Faro Airport^CZFA,ZFA^62.2075^-133.375833^S^AIRP^CA^^^^^^0^716^839^America/Whitehorse^-8.0^-7.0^-8.0^2007-01-03^Y^N^ZFA^YT^NAMER^CA
 ZFB^ZZZZ^N^0^OLD FORT BAY/QC/CA^OLD FORT BAY/QC/CA^^51.58^-57.92^S^AIRP^CA^^^^^^^^^CA024^^^^-1^Y^N^ZFB^QC^NAMER^CA
 ZFC^ZZZZ^N^0^LEEDS/GB:BRADFORD BUS STATION^LEEDS/GB:BRADFORD BUS STATION^^53.8^-1.75^S^AIRP^GB^^^^^^^^^GB053^^^^-1^Y^N^BRF^^EUROP^B
 ZFD^CZFD^Y^7668154^Fond-Du-Lac Airport^Fond-Du-Lac Airport^CZFD,ZFD^59.32^-107.2^S^AIRP^CA^^11^^^^0^0^241^America/Regina^-6.0^-6.0^-6.0^2011-02-17^Y^N^ZFD^SK^NAMER^CA
-ZFE^ZZZZ^Y^4348353^Beltsville^Beltsville^ZFE^0^0^P^PPL^US^^MD^033^^^16772^41^43^America/New_York^-5.0^-4.0^-5.0^2011-05-14^N^N^ZFE^MD^NAMER^O
+ZFE^ZZZZ^Y^4348353^Beltsville^Beltsville^ZFE^39.0348300^-76.9074700^P^PPL^US^^MD^033^^^16772^41^43^America/New_York^-5.0^-4.0^-5.0^2011-05-14^N^N^ZFE^MD^NAMER^O
 ZFG^CZFG^Y^7730045^Pukatawagan Airport^Pukatawagan Airport^CZFG,ZFG^53.4^-1.39^S^AIRP^CA^^03^^^^0^0^288^America/Winnipeg^-6.0^-5.0^-6.0^2011-03-16^Y^N^SZD^^EUROP^B
 ZFH^ZZZZ^N^0^MILTON KEYNES/GB:BUS STATION^MILTON KEYNES/GB:BUS STATION^^52.05^-0.7^S^AIRP^GB^^^^^^^^^GB053^^^^-1^Y^N^KYN^^EUROP^B
 ZFI^ZZZZ^Y^2653225^Chesterfield^Chesterfield^Chesterfield,ZFI^53.2^-1.417^P^PPL^GB^^ENG^D3^17UD^^70679^0^89^Europe/London^0.0^1.0^0.0^2012-01-17^Y^N^ZFI^^EUROP^CB
@@ -10897,17 +10897,17 @@ ZGG^ZZZZ^N^0^GLASGOW/GB:CENTRAL RAILWAY STN^GLASGOW/GB:CENTRAL RAILWAY STN^^55.8
 ZGH^ZZZZ^N^0^COPENHAGEN/DK:H RAIL STN^COPENHAGEN/DK:H RAIL STN^^55.62^12.65^S^AIRP^DK^^^^^^^^^DK041^^^^-1^Y^Y^CPH^^EUROP^R
 ZGI^CZGI^Y^7668156^Gods River Airport^Gods River Airport^Aeropuerto de God's River,CZGI,ZGI^54.68^-94.17^S^AIRP^CA^^03^^^^0^0^184^America/Winnipeg^-6.0^-5.0^-6.0^2011-02-17^Y^N^ZGI^MB^NAMER^CA
 ZGJ^ZZZZ^N^0^OOSTENDE BRUGGE/BE:BRUGGE RAIL^OOSTENDE BRUGGE/BE:BRUGGE RAIL^^0.8536^0.05389^S^AIRP^BE^^^^^^^^^BE012^^^^-1^Y^N^OST^^EUROP^R
-ZGK^ZZZZ^Y^2792482^Leuven^Leuven^L'oven,Leouben,Leuve,Leuven,Ljoven,Loewen,Louvain,Lovaina,Lovan,Lovanio,Lovanium,Lovaň,Loveno,Luven,Löwen,ZGK,lu wen,revu~en,ruvu~en,Λέουβεν,Лувен,Льовен,Лёвен,ルーヴェン,レーヴェン,鲁汶^0^0^P^PPL^BE^^VLG^VBR^24^24062^92892^0^28^Europe/Brussels^1.0^2.0^1.0^2008-07-11^N^N^ZGK^^EUROP^O
+ZGK^ZZZZ^Y^2792482^Leuven^Leuven^L'oven,Leouben,Leuve,Leuven,Ljoven,Loewen,Louvain,Lovaina,Lovan,Lovanio,Lovanium,Lovaň,Loveno,Luven,Löwen,ZGK,lu wen,revu~en,ruvu~en,Λέουβεν,Лувен,Льовен,Лёвен,ルーヴェン,レーヴェン,鲁汶^50.8795900^4.7009300^P^PPL^BE^^VLG^VBR^24^24062^92892^0^28^Europe/Brussels^1.0^2.0^1.0^2008-07-11^N^N^ZGK^^EUROP^O
 ZGL^YSGW^Y^7731652^South Galway Airport^South Galway Airport^YSGW,ZGL^-25.68^142.1^S^AIRP^AU^^04^30450^^^0^0^111^Australia/Brisbane^10.0^10.0^10.0^2011-06-04^Y^N^ZGL^QL^AUSTL^CA
 ZGM^FLNA^Y^901124^Ngoma^Ngoma^FLNA,Ngoma,ZGM^-15.97^25.95^S^AIRF^ZM^^07^^^^0^0^1014^Africa/Lusaka^2.0^2.0^2.0^2012-01-17^Y^N^ZGM^^AFRIC^CA
 ZGN^ZZZZ^N^0^ZHONGSHAN/CN:FERRY PORT^ZHONGSHAN/CN:FERRY PORT^^22.53^113.4^S^AIRP^CN^^^^^^^^^CN035^^^^-1^Y^Y^ZGN^^ASIA^CB
 ZGO^ZZZZ^N^0^GOTHA/DE:RAILWAY STATION^GOTHA/DE:RAILWAY STATION^^50.95^10.72^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^ZGO^^EUROP^CR
 ZGP^ZZZZ^Y^7730319^Zugapa Airport^Zugapa Airport^ZGP^-3.7395600^137.0320000^S^AIRP^ID^^36^^^^0^0^2233^Asia/Jayapura^9.0^9.0^9.0^2011-03-16^N^N^ZGP^^EUROP^O
-ZGQ^ZZZZ^Y^2785341^Tournai^Tournai^Doornik,Doornyk,Tournai,Tournay,Turne,ZGQ,to~urune,twrnh,Турне,טורנה,トゥルネー^0^0^P^PPL^BE^^WAL^WHT^57^57081^67721^0^24^Europe/Brussels^1.0^2.0^1.0^2012-01-18^N^N^ZGQ^^EUROP^O
+ZGQ^ZZZZ^Y^2785341^Tournai^Tournai^Doornik,Doornyk,Tournai,Tournay,Turne,ZGQ,to~urune,twrnh,Турне,טורנה,トゥルネー^50.6071500^3.3893200^P^PPL^BE^^WAL^WHT^57^57081^67721^0^24^Europe/Brussels^1.0^2.0^1.0^2012-01-18^N^N^ZGQ^^EUROP^O
 ZGR^CZGR^Y^7668157^Little Grand Rapids Airport^Little Grand Rapids Airport^CZGR,Lapangan Terbang Little Grand Rapids,Little Grand Rapidsin lentoasema,ZGR^52.07^-95.47^S^AIRP^CA^^03^^^^0^0^300^America/Winnipeg^-6.0^-5.0^-6.0^2011-02-17^Y^N^ZGR^MB^NAMER^CA
 ZGS^ZZZZ^Y^7910209^La Romaine Airport^La Romaine Airport^Aeroport La Romaine,Aéroport La Romaine,Gethsemani Airport,ZGS^50.33^-60.67^S^AIRP^CA^^10^09^^^0^0^20^America/Blanc-Sablon^-4.0^-4.0^-4.0^2011-07-20^Y^Y^ZGS^QC^NAMER^CA^Gethsemani Airport
 ZGU^NVSQ^Y^7668376^Gaua Island Airport^Gaua Island Airport^NVSQ,ZGU^-15.42^167.7^S^AIRP^VU^^^^^^0^0^28^Pacific/Efate^11.0^11.0^11.0^2011-02-17^Y^Y^ZGU^^AUSTL^CA
-ZGV^ZZZZ^Y^2783941^Wavre^Wavre^Babr,Vavr,Wave,Waver,Wavre,Wåve,ZGV,Βάβρ,Вавр^0^0^P^PPL^BE^^WAL^WBR^25^25112^32112^0^72^Europe/Brussels^1.0^2.0^1.0^2011-01-26^N^N^ZGV^^EUROP^O
+ZGV^ZZZZ^Y^2783941^Wavre^Wavre^Babr,Vavr,Wave,Waver,Wavre,Wåve,ZGV,Βάβρ,Вавр^50.7171700^4.6013800^P^PPL^BE^^WAL^WBR^25^25112^32112^0^72^Europe/Brussels^1.0^2.0^1.0^2011-01-26^N^N^ZGV^^EUROP^O
 ZGW^ZZZZ^Y^2917788^Greifswald^Greifswald^Grajfsval'd,Greifswald,Griefswald,Griepswohld,ZGW,guraifusuvu~aruto,Грайфсвальд,グライフスヴァルト^54.1^13.4^P^PPL^DE^^12^^^^52731^0^0^Europe/Berlin^1.0^2.0^1.0^2012-01-18^Y^N^ZGW^^EUROP^CR
 ZGX^ZZZZ^Y^2610319^Viborg^Viborg^Viborg,Wibergis,ZGX,Виборг^55.62^12.65^P^PPLA^DK^^18^791^^^34831^0^50^Europe/Copenhagen^1.0^2.0^1.0^2010-01-29^Y^N^ZGX^^EUROP^CR
 ZGY^ZZZZ^N^0^KUCHING/MY:KUCHING PORT^KUCHING/MY:KUCHING PORT^^1.55^110.3^S^AIRP^MY^^^^^^^^^MY^^^^-1^Y^N^KCH^^SEASI^P
@@ -11025,7 +11025,7 @@ ZLI^ZZZZ^Y^2657970^Winterthur^Winterthur^Eulachstadt,Gorad Vintehrtur,Vintertur,
 ZLJ^ZZZZ^Y^2657941^Yverdon-les-Bains^Yverdon-les-Bains^Aebura,Eburodunum,Iverdon-le-Ben,Yverden,Yverdon,ZLJ,Ивердон-ле-Бен^46.7833^6.65^P^PPL^CH^^VD^2224^5938^^23702^0^438^Europe/Zurich^1.0^2.0^1.0^2012-03-30^Y^N^ZLJ^^EUROP^CR
 ZLK^ZZZZ^N^0^ST PETERSBURG/RU:MOSCOVSKY RAI^ST PETERSBURG/RU:MOSCOVSKY RAI^^59.95^30.05^S^AIRP^RU^^^^^^^^^RU130^^^^-1^Y^N^LED^^EURAS^R
 ZLL^ZZZZ^Y^2657915^Zofingen^Zofingen^ZLL^47.2833^7.93333^P^PPLA2^CH^^AG^1910^4289^^11451^0^441^Europe/Zurich^1.0^2.0^1.0^2011-03-01^Y^N^ZLL^^EUROP^CR
-ZLM^ZZZZ^Y^2657908^Zug^Zug^Cug,Tugium,ZLM,Zoug,Zug,Zugo,Цуг^0^0^P^PPLA^CH^^ZG^900^1711^^23435^0^424^Europe/Zurich^1.0^2.0^1.0^2012-01-17^N^N^ZLM^^EUROP^O
+ZLM^ZZZZ^Y^2657908^Zug^Zug^Cug,Tugium,ZLM,Zoug,Zug,Zugo,Цуг^47.1724200^8.5174400^P^PPLA^CH^^ZG^900^1711^^23435^0^424^Europe/Zurich^1.0^2.0^1.0^2012-01-17^N^N^ZLM^^EUROP^O
 ZLN^ZZZZ^Y^6621585^Le Mans^Le Mans^LM,ZLN^48^1.25^S^RSTN^FR^^B5^72^723^72181^0^0^52^Europe/Paris^1.0^2.0^1.0^2012-02-27^Y^Y^LME^^EUROP^R
 ZLO^MMZO^Y^6299885^Manzanillo International^Manzanillo International^MMZO,ZLO^19.144778^-104.558631^S^AIRP^MX^^^^^^0^9^12^America/Mexico_City^-6.0^-5.0^-6.0^2007-01-03^Y^Y^ZLO^^NAMER^CA
 ZLP^ZZZZ^Y^6324510^Zürich Bahnhof^Zuerich Bahnhof^Hauptbahnhof Zuerich,Hauptbahnhof Zürich,ZLP,Zuerich HB,Zurich Main Station,Zürich HB^46.92^7.5^S^RSTN^CH^^ZH^112^261^^0^0^411^Europe/Zurich^1.0^2.0^1.0^2012-04-22^Y^Y^ZRH^^EUROP^R^Zurich Main Station
@@ -11071,18 +11071,18 @@ ZND^DRZR^Y^6296462^Zinder Airport^Zinder Airport^Aeroport de Zinder,DRZR,Port lo
 ZNE^YNWN^Y^7668751^Newman Airport^Newman Airport^YNWN,ZNE^-23.417778^119.802778^S^AIRP^AU^^08^53220^^^0^0^526^Australia/Perth^8.0^8.0^8.0^2011-06-04^Y^Y^ZNE^WA^AUSTL^CA
 ZNF^ZZZZ^N^0^HANAU/DE:OFF-^HANAU/DE:OFF-^^50.169189^8.961586^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZNF^^EUROP^O
 ZNG^CZNG^Y^7730046^Poplar River Airport^Poplar River Airport^CZNG,ZNG^53^-97.13^S^AIRP^CA^^03^^^^0^0^224^America/Winnipeg^-6.0^-5.0^-6.0^2011-03-16^Y^N^ZNG^MB^NAMER^CA
-ZNH^ZZZZ^Y^2905210^Hettlingen^Hettlingen^Hettlingen,ZNH^0^0^P^PPL^DE^^02^^^^0^0^445^Europe/Berlin^1.0^2.0^1.0^2012-05-05^N^N^ZNH^^EUROP^O
-ZNI^ZZZZ^Y^2907852^Heidenheim^Heidenheim^Heidenheim,ZNI^0^0^P^PPL^DE^^02^^^^2589^0^593^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZNI^^EUROP^O
+ZNH^ZZZZ^Y^2905210^Hettlingen^Hettlingen^Hettlingen,ZNH^48.5333300^10.6666700^P^PPL^DE^^02^^^^0^0^445^Europe/Berlin^1.0^2.0^1.0^2012-05-05^N^N^ZNH^^EUROP^O
+ZNI^ZZZZ^Y^2907852^Heidenheim^Heidenheim^Heidenheim,ZNI^49.0166700^10.7500000^P^PPL^DE^^02^^^^2589^0^593^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZNI^^EUROP^O
 ZNJ^ZZZZ^N^0^HEILBRONN/DE:OFF-^HEILBRONN/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZNJ^^EUROP^O
-ZNK^ZZZZ^Y^2906121^Herford^Herford^Herford,Hiarwede,Kherford,ZNK,hei er fu de,heruforuto,hrfwrd,Херфорд,هرفورد,ヘルフォルト,黑爾福德^0^0^P^PPL^DE^^07^^^^64879^0^83^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZNK^^EUROP^O
+ZNK^ZZZZ^Y^2906121^Herford^Herford^Herford,Hiarwede,Kherford,ZNK,hei er fu de,heruforuto,hrfwrd,Херфорд,هرفورد,ヘルフォルト,黑爾福德^52.1333300^8.6833300^P^PPL^DE^^07^^^^64879^0^83^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZNK^^EUROP^O
 ZNL^ZZZZ^N^0^HERNE/DE:OFF-^HERNE/DE:OFF-^^49.494167^-117.300556^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZNL^^EUROP^O
 ZNM^ZZZZ^N^0^HERTEN/DE:OFF-^HERTEN/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZNM^^EUROP^O
-ZNN^ZZZZ^Y^2904795^Hilden^Hilden^Hilden,ZNN^0^0^P^PPL^DE^^07^051^^^56565^0^55^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZNN^^EUROP^O
+ZNN^ZZZZ^Y^2904795^Hilden^Hilden^Hilden,ZNN^51.1666700^6.9333300^P^PPL^DE^^07^051^^^56565^0^55^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZNN^^EUROP^O
 ZNO^ZZZZ^Y^2904789^Hildesheim^Hildesheim^Hildesheim,Hilmessen,Khil'deskhajm,ZNO,Хильдесхайм^52.179833^9.945667^P^PPL^DE^^06^^^^103052^93^92^Europe/Berlin^1.0^2.0^1.0^2011-03-09^N^N^ZNO^^EUROP^O
 ZNP^ZZZZ^N^0^HUERTH/DE:OFF-^HUERTH/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZNP^^EUROP^O
 ZNQ^ZZZZ^N^0^INGOLSTADT/DE:HBF RAILWAY STAT^INGOLSTADT/DE:HBF RAILWAY STAT^^48.715667^11.534^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^IGS^^EUROP^R
-ZNR^ZZZZ^Y^2895669^Iserlohn^Iserlohn^Iserlaun,Iserlohn,Izerlon,ZNR,Изерлон^0^0^P^PPL^DE^^07^^^^97910^0^327^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZNR^^EUROP^O
-ZNS^ZZZZ^Y^2891620^Kempten^Kempten^ZNS^0^0^P^PPLX^DE^^08^00^^^0^0^88^Europe/Berlin^1.0^2.0^1.0^2010-11-22^N^N^ZNS^^EUROP^O
+ZNR^ZZZZ^Y^2895669^Iserlohn^Iserlohn^Iserlaun,Iserlohn,Izerlon,ZNR,Изерлон^51.3666700^7.7000000^P^PPL^DE^^07^^^^97910^0^327^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZNR^^EUROP^O
+ZNS^ZZZZ^Y^2891620^Kempten^Kempten^ZNS^49.9672900^7.9370200^P^PPLX^DE^^08^00^^^0^0^88^Europe/Berlin^1.0^2.0^1.0^2010-11-22^N^N^ZNS^^EUROP^O
 ZNT^ZZZZ^N^0^KERPEN/DE:OFF-^KERPEN/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZNT^^EUROP^O
 ZNU^ZZZZ^Y^8260873^Namu^Namu^ZNU^51.85^-127.9^S^AIRP^CA^^02^^^^0^0^-9999^America/Vancouver^-8.0^-7.0^-8.0^2012-04-29^Y^N^ZNU^BC^NAMER^CA
 ZNV^ZZZZ^N^0^KOBLENZ/DE:BUS STATION^KOBLENZ/DE:BUS STATION^^50.3255^7.528667^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^ZNV^^EUROP^CB
@@ -11090,30 +11090,30 @@ ZNW^ZZZZ^Y^2877650^Limburg^Limburg^ZNW^50.38^8.05^P^PPL^DE^^02^091^^^0^0^485^Eur
 ZNX^ZZZZ^N^0^LAGENFELD/DE:OFF-^LAGENFELD/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZNX^^EUROP^O
 ZNY^ZZZZ^N^0^LANGENHAGEN/DE:OFF-^LANGENHAGEN/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZNY^^EUROP^O
 ZNZ^HTZA^Y^6297372^Zanzibar / Kisauni^Zanzibar / Kisauni^HTZA,ZNZ^-6.222025^39.224886^S^AIRP^TZ^^^^^^0^16^16^Africa/Dar_es_Salaam^3.0^3.0^3.0^2007-01-03^Y^Y^ZNZ^^AFRIC^CA
-ZOA^ZZZZ^Y^2878234^Leverkusen^Leverkusen^Laevverkuuse,Leberkouzen,Leverkusen,Leverkuzen,Lävverkuuse,ZOA,lyfrkwzn,rebakuzen,Λεβερκούζεν,Леверкузен,ليفركوزن,レバークーゼン^0^0^P^PPL^DE^^07^^^^162738^0^48^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZOA^^EUROP^O
+ZOA^ZZZZ^Y^2878234^Leverkusen^Leverkusen^Laevverkuuse,Leberkouzen,Leverkusen,Leverkuzen,Lävverkuuse,ZOA,lyfrkwzn,rebakuzen,Λεβερκούζεν,Леверкузен,ليفركوزن,レバークーゼン^51.0333300^7.0000000^P^PPL^DE^^07^^^^162738^0^48^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZOA^^EUROP^O
 ZOB^ZZZZ^N^0^PADERBORN/LIPPSTADT/DE^PADERBORN/LIPPSTADT/DE^^50.3833^8.05^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^ZOB^^EUROP^O
 ZOC^ZZZZ^N^0^LUEDENSCHEID/DE:OFF-^LUEDENSCHEID/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZOC^^EUROP^O
 ZOD^ZZZZ^N^0^LUDWIGSBURG/DE:OFF-^LUDWIGSBURG/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZOD^^EUROP^O
-ZOE^ZZZZ^Y^2875377^Ludwigshafen^Ludwigshafen^Ludwigschafen,Ludwigshafen,ZOE^0^0^P^PPLX^DE^DE^01^^^^0^0^465^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZOE^^EUROP^O
+ZOE^ZZZZ^Y^2875377^Ludwigshafen^Ludwigshafen^Ludwigschafen,Ludwigshafen,ZOE^47.8166700^9.0666700^P^PPLX^DE^DE^01^^^^0^0^465^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZOE^^EUROP^O
 ZOF^ZZZZ^Y^8260880^Ocean Falls^Ocean Falls^ZOF^52.28^-127.8^S^AIRP^CA^^^^^^0^0^69^America/Vancouver^-8.0^-7.0^-8.0^2012-04-29^Y^N^ZOF^BC^NAMER^CA
 ZOG^ZZZZ^N^0^LUENEBURG/DE:RAILWAY STATION^LUENEBURG/DE:RAILWAY STATION^^50.03^8.567^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^ZOG^^EUROP^CR
 ZOH^ZZZZ^N^0^LUENEN/DE:OFF-^LUENEN/DE:OFF-^^-40.206039^175.387808^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZOH^^EUROP^O
 ZOI^ZZZZ^N^0^MARBURG AN DER LAHN/DE:OFF-^MARBURG AN DER LAHN/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZOI^^EUROP^O
 ZOJ^ZZZZ^N^0^MARL/DE:OFF-^MARL/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZOJ^^EUROP^O
-ZOK^ZZZZ^Y^2872504^Meerbusch^Meerbusch^Meerbusch,ZOK^0^0^P^PPL^DE^^07^^^^54826^0^33^Europe/Berlin^1.0^2.0^1.0^2012-02-02^N^N^ZOK^^EUROP^O
+ZOK^ZZZZ^Y^2872504^Meerbusch^Meerbusch^Meerbusch,ZOK^51.2833300^6.6666700^P^PPL^DE^^07^^^^54826^0^33^Europe/Berlin^1.0^2.0^1.0^2012-02-02^N^N^ZOK^^EUROP^O
 ZOL^ZZZZ^N^0^MENDEN/DE:OFF-^MENDEN/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZOL^^EUROP^O
 ZOM^ZZZZ^N^0^MINDEN/DE:RAILWAY STATION^MINDEN/DE:RAILWAY STATION^^52.28^6.883^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^ZOM^^EUROP^CR
-ZON^ZZZZ^Y^2870221^Moers^Moers^Mers,Meurs,Moers,Mors,Mörs,ZON,Мерс^0^0^P^PPL^DE^^07^^^^107816^0^27^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZON^^EUROP^O
+ZON^ZZZZ^Y^2870221^Moers^Moers^Mers,Meurs,Moers,Mors,Mörs,ZON,Мерс^51.4500000^6.6500000^P^PPL^DE^^07^^^^107816^0^27^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZON^^EUROP^O
 ZOO^ZZZZ^N^0^MUELHEIM AN DER RUHR/DE:HBF RA^MUELHEIM AN DER RUHR/DE:HBF RA^^51.43^6.883^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^ZOO^^EUROP^CR
 ZOP^ZZZZ^N^0^NEUNKIRCHEN/DE:OFF-^NEUNKIRCHEN/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZOP^^EUROP^O
 ZOQ^ZZZZ^N^0^NEUSS/DE:OFF-^NEUSS/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZOQ^^EUROP^O
 ZOR^ZZZZ^N^0^NEUSTADT WEINSTRASSE/DE:OFF-^NEUSTADT WEINSTRASSE/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZOR^^EUROP^O
 ZOS^SCJO^Y^7730165^Cañal Bajo Carlos - Hott Siebert Airport^Canal Bajo Carlos - Hott Siebert Airport^SCJO,ZOS^-40.611208^-73.061042^S^AIRP^CL^^14^103^10301^^0^0^60^America/Santiago^-3.0^-4.0^-4.0^2012-05-03^Y^Y^ZOS^^SAMER^CA
-ZOT^ZZZZ^Y^2863941^Neu-Ulm^Neu-Ulm^Neu-Ulm,Noj-Ul'm,Nuevo Ulm,Subdistrikto Neu-Ulm,ZOT,xin wu er mu,Ной-Ульм,新乌尔姆^0^0^P^PPL^DE^^02^^^^51389^0^474^Europe/Berlin^1.0^2.0^1.0^2010-01-29^N^N^ZOT^^EUROP^O
-ZOU^ZZZZ^Y^2863840^Neuwied^Neuwied^Neuweid,Neuwied,Nojvid,ZOU,Нойвид^0^0^P^PPL^DE^^08^^^^66805^0^65^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZOU^^EUROP^O
-ZOV^ZZZZ^Y^2862026^Norderstedt^Norderstedt^Nordershtedt,Norderstedt,Norderstedt Stadt,ZOV,Нордерштедт^0^0^P^PPLX^DE^^10^^^^71439^0^32^Europe/Berlin^1.0^2.0^1.0^2010-10-30^N^N^ZOV^^EUROP^O
+ZOT^ZZZZ^Y^2863941^Neu-Ulm^Neu-Ulm^Neu-Ulm,Noj-Ul'm,Nuevo Ulm,Subdistrikto Neu-Ulm,ZOT,xin wu er mu,Ной-Ульм,新乌尔姆^48.3927900^10.0111200^P^PPL^DE^^02^^^^51389^0^474^Europe/Berlin^1.0^2.0^1.0^2010-01-29^N^N^ZOT^^EUROP^O
+ZOU^ZZZZ^Y^2863840^Neuwied^Neuwied^Neuweid,Neuwied,Nojvid,ZOU,Нойвид^50.4333300^7.4666700^P^PPL^DE^^08^^^^66805^0^65^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZOU^^EUROP^O
+ZOV^ZZZZ^Y^2862026^Norderstedt^Norderstedt^Nordershtedt,Norderstedt,Norderstedt Stadt,ZOV,Нордерштедт^53.7000000^10.0166700^P^PPLX^DE^^10^^^^71439^0^32^Europe/Berlin^1.0^2.0^1.0^2010-10-30^N^N^ZOV^^EUROP^O
 ZOW^ZZZZ^N^0^NORDHORN/DE:OFF-^NORDHORN/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZOW^^EUROP^O
-ZOX^ZZZZ^Y^2861422^Oberammergau^Oberammergau^ZOX^0^0^P^PPLA4^DE^^02^091^09180^09180125^5344^0^840^Europe/Berlin^1.0^2.0^1.0^2011-04-25^N^N^ZOX^^EUROP^O
+ZOX^ZZZZ^Y^2861422^Oberammergau^Oberammergau^ZOX^47.5981200^11.0669200^P^PPLA4^DE^^02^091^09180^09180125^5344^0^840^Europe/Berlin^1.0^2.0^1.0^2011-04-25^N^N^ZOX^^EUROP^O
 ZOY^ZZZZ^N^0^OBERHAUSEN/DE:HBF RAILWAY STAT^OBERHAUSEN/DE:HBF RAILWAY STAT^^51.47^6.867^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^ZOY^^EUROP^CR
 ZOZ^ZZZZ^N^0^OFFENBACH/DE:OFF-^OFFENBACH/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZOZ^^EUROP^O
 ZPA^ZZZZ^Y^2857798^Offenburg^Offenburg^Offenbourg,Offenburg,ZPA,Оффенбург^48.47^7.933^P^PPL^DE^^01^^^^59238^0^149^Europe/Berlin^1.0^2.0^1.0^2012-01-18^Y^N^ZPA^^EUROP^CR
@@ -11122,44 +11122,44 @@ ZPC^SCPC^Y^7668446^Pucón Airport^Pucon Airport^Aeropuerto de Pucon,Aeropuerto d
 ZPD^ZZZZ^N^0^OLDENBURG/DE:RAILWAY STATION^OLDENBURG/DE:RAILWAY STATION^^53.15^8.2^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^ZPD^^EUROP^CR
 ZPE^ZZZZ^N^0^MUENSTER/OSNABRUECK/DE:OSNABRU^MUENSTER/OSNABRUECK/DE:OSNABRU^^49.02^0.1342^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^FMO^^EUROP^R
 ZPF^ZZZZ^Y^2855328^Passau^Passau^Batavia Bavariae,Pasawa,Pasov,Passaou,Passau,Passavia,ZPF,passau,Πάσσαου,Пассау,パッサウ^48.57^13.43^P^PPL^DE^^02^092^09262^^50560^0^339^Europe/Berlin^1.0^2.0^1.0^2010-11-15^Y^N^ZPF^^EUROP^CR
-ZPG^ZZZZ^Y^2855047^Peine^Peine^Paane,Peine,ZPG^0^0^P^PPL^DE^^06^00^03157^03157006^49953^0^71^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZPG^^EUROP^O
+ZPG^ZZZZ^Y^2855047^Peine^Peine^Paane,Peine,ZPG^52.3166700^10.2333300^P^PPL^DE^^06^00^03157^03157006^49953^0^71^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZPG^^EUROP^O
 ZPH^KZPH^Y^4178944^Zephyrhills Municipal Airport^Zephyrhills Municipal Airport^KZPH,ZPH^28.23^-82.17^S^AIRP^US^^FL^101^^^0^25^26^America/New_York^-5.0^-4.0^-5.0^2011-12-11^Y^N^ZPH^FL^NAMER^CA
-ZPI^ZZZZ^Y^2853574^Pirmasens^Pirmasens^Pirmasens,Pirmazens,ZPI,pirumazensu,Пирмазенс,ピルマゼンス^0^0^P^PPL^DE^^08^^^^43582^0^400^Europe/Berlin^1.0^2.0^1.0^2010-01-29^N^N^ZPI^^EUROP^O
-ZPJ^ZZZZ^Y^2850174^Ratingen^Ratingen^Ratingen,ZPJ,Ратинген^0^0^P^PPL^DE^^07^051^^^91606^0^64^Europe/Berlin^1.0^2.0^1.0^2010-11-15^N^N^ZPJ^^EUROP^O
+ZPI^ZZZZ^Y^2853574^Pirmasens^Pirmasens^Pirmasens,Pirmazens,ZPI,pirumazensu,Пирмазенс,ピルマゼンス^49.2014500^7.6052900^P^PPL^DE^^08^^^^43582^0^400^Europe/Berlin^1.0^2.0^1.0^2010-01-29^N^N^ZPI^^EUROP^O
+ZPJ^ZZZZ^Y^2850174^Ratingen^Ratingen^Ratingen,ZPJ,Ратинген^51.2972400^6.8492900^P^PPL^DE^^07^051^^^91606^0^64^Europe/Berlin^1.0^2.0^1.0^2010-11-15^N^N^ZPJ^^EUROP^O
 ZPK^ZZZZ^N^0^RAVENSBURG/DE:OFF-^RAVENSBURG/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZPK^^EUROP^O
 ZPL^ZZZZ^N^0^RECKLINGHAUSEN/DE:HBF RAILWAY^RECKLINGHAUSEN/DE:HBF RAILWAY^^51.6^7.183^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^ZPL^^EUROP^CR
 ZPM^ZZZZ^Y^2849483^Regensburg^Regensburg^Ratisbon,Ratisbona,Ratisbonne,Ratyzbona,Regensburg,Regensburgo,Regenzburg,Rengschburg,Rezno,ZPM,regensuburuku,rgnsbwrg,Řezno,Регензбург,Регенсбург,Реґенсбурґ,רגנסבורג,レーゲンスブルク^49.02^0.2019^P^PPLA2^DE^^02^093^^^129151^0^348^Europe/Berlin^1.0^2.0^1.0^2010-11-15^Y^N^ZPM^^EUROP^CR
-ZPN^ZZZZ^Y^2848273^Remscheid^Remscheid^Remscheid,Remshajd,ZPN,remushaito,Ремшайд,レムシャイト^0^0^P^PPL^DE^^07^^^^117118^0^283^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZPN^^EUROP^O
+ZPN^ZZZZ^Y^2848273^Remscheid^Remscheid^Remscheid,Remshajd,ZPN,remushaito,Ремшайд,レムシャイト^51.1833300^7.2000000^P^PPL^DE^^07^^^^117118^0^283^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZPN^^EUROP^O
 ZPO^ZZZZ^Y^8260884^Pine House^Pine House^ZPO^55.52^-106.6^S^AIRP^CA^^11^^^^0^0^397^America/Regina^-6.0^-6.0^-6.0^2012-04-29^Y^N^ZPO^SK^NAMER^CA
-ZPP^ZZZZ^Y^2847736^Reutlingen^Reutlingen^Reutlingen,Rojtlingen,ZPP,roitoringen,rwytlyngn,Ройтлинген,Ројтлинген,רויטלינגן,ロイトリンゲン^0^0^P^PPL^DE^^01^^^^112627^0^374^Europe/Berlin^1.0^2.0^1.0^2010-01-29^N^N^ZPP^^EUROP^O
+ZPP^ZZZZ^Y^2847736^Reutlingen^Reutlingen^Reutlingen,Rojtlingen,ZPP,roitoringen,rwytlyngn,Ройтлинген,Ројтлинген,רויטלינגן,ロイトリンゲン^48.4914400^9.2042700^P^PPL^DE^^01^^^^112627^0^374^Europe/Berlin^1.0^2.0^1.0^2010-01-29^N^N^ZPP^^EUROP^O
 ZPQ^ETHE^Y^6296837^Rheine-Bentlage^Rheine-Bentlage^ETHE,ZPQ^52.2911700^7.3870000^S^AIRP^DE^^^^^^0^39^39^Europe/Berlin^1.0^2.0^1.0^2007-01-03^N^N^ZPQ^^EUROP^O
 ZPR^ZZZZ^N^0^ROSENHEIM/DE:OFF-^ROSENHEIM/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZPR^^EUROP^O
 ZPS^ZZZZ^N^0^RUESSELSHEIM/DE:OFF-^RUESSELSHEIM/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZPS^^EUROP^O
-ZPT^ZZZZ^Y^2842632^Saarlouis^Saarlouis^Saarlouis,Saarluise,Sarrelouis,ZPT,zaarlui,Саарлуисе,ზაარლუი^0^0^P^PPL^DE^^09^^^^38333^0^181^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZPT^^EUROP^O
-ZPU^ZZZZ^Y^2842150^Salzgitter^Salzgitter^Salzgitter,ZPU,salzghytr,سالزغيتر^0^0^P^PPL^DE^^06^^^^0^0^95^Europe/Berlin^1.0^2.0^1.0^2010-08-30^N^N^ZPU^^EUROP^O
+ZPT^ZZZZ^Y^2842632^Saarlouis^Saarlouis^Saarlouis,Saarluise,Sarrelouis,ZPT,zaarlui,Саарлуисе,ზაარლუი^49.3166700^6.7500000^P^PPL^DE^^09^^^^38333^0^181^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZPT^^EUROP^O
+ZPU^ZZZZ^Y^2842150^Salzgitter^Salzgitter^Salzgitter,ZPU,salzghytr,سالزغيتر^52.1525600^10.3314400^P^PPL^DE^^06^^^^0^0^95^Europe/Berlin^1.0^2.0^1.0^2010-08-30^N^N^ZPU^^EUROP^O
 ZPV^ZZZZ^N^0^SCHWAEBISCH GMUEN/DE:OFF-^SCHWAEBISCH GMUEN/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZPV^^EUROP^O
 ZPW^ZZZZ^Y^2834498^Schweinfurt^Schweinfurt^Kuspinian,Schweinfurt,ZPW,Куспиниан^50.05^10.231^P^PPL^DE^^02^^^^54012^250^221^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZPW^^EUROP^O
-ZPX^ZZZZ^Y^2834265^Schwerte^Schwerte^Schwerte,ZPX^0^0^P^PPL^DE^^07^^^^50399^0^135^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZPX^^EUROP^O
+ZPX^ZZZZ^Y^2834265^Schwerte^Schwerte^Schwerte,ZPX^51.4500000^7.5666700^P^PPL^DE^^07^^^^50399^0^135^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZPX^^EUROP^O
 ZPY^ZZZZ^Y^2832521^Siegburg^Siegburg^Siebursh,Siegburg,ZPY,jikuburuku,zigburg,zygbwrg,Зигбург,זיגבורג,ジークブルク^50.8^7.2^P^PPL^DE^^07^053^05382^^39135^0^60^Europe/Berlin^1.0^2.0^1.0^2012-01-18^Y^N^ZPY^^EUROP^CR
-ZPZ^ZZZZ^Y^2831948^Sindelfingen^Sindelfingen^Sindelfingen,ZPZ,Zindel'fingen,Зиндельфинген^0^0^P^PPL^DE^^01^^^^61311^0^468^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZPZ^^EUROP^O
+ZPZ^ZZZZ^Y^2831948^Sindelfingen^Sindelfingen^Sindelfingen,ZPZ,Zindel'fingen,Зиндельфинген^48.7000000^9.0166700^P^PPL^DE^^01^^^^61311^0^468^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZPZ^^EUROP^O
 ZQA^ZZZZ^N^0^SINGEN/DE:OFF-^SINGEN/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZQA^^EUROP^O
 ZQB^ZZZZ^N^0^ROUND TRIP FLIGHTS/AK/US^ROUND TRIP FLIGHTS/AK/US^^0^0^X^XXXX^US^^^^^^^^^US112^^^^-1^N^N^ZQB^AK^NAMER^O
 ZQC^ZZZZ^Y^2830582^Speyer^Speyer^Espira,Gorad Shpaer,Schbaya,Shpajer,Shpejer,Speyer,Spira,Spire,Spyr,ZQC,ashpyr,shi pai er,shupaia,spe yex r,spyyr,syupaieo,Špýr,Горад Шпаер,Шпайер,Шпайєр,Шпейер,Шпејер,שפייר,اشپیر,สเปเยอร์,ስፓየር,シュパイアー,施派尔,슈파이어^49.302776^8.451195^P^PPL^DE^^08^^^^50343^0^102^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZQC^^EUROP^O
 ZQD^ZZZZ^N^0^STADE/DE:OFF-^STADE/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZQD^^EUROP^O
 ZQE^ZZZZ^N^0^STOLBERG/DE:OFF-^STOLBERG/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZQE^^EUROP^O
 ZQF^ZZZZ^Y^2821164^Trier^Trier^Augusta Treverorum,Treier,Treveris,Treves,Treviri,Treviro,Trewir,Trier,Trir,Trèveris,Trèves,Tréier,Tréveris,ZQF,te li er,teulieo,toria,Трир,トリーア,特里尔,트리어^49.8635^6.788167^P^PPLA4^DE^^08^00^07211^07211000^100129^0^141^Europe/Berlin^1.0^2.0^1.0^2011-04-25^Y^N^ZQF^^EUROP^CR
-ZQG^ZZZZ^Y^2821029^Troisdorf^Troisdorf^Troisdorf,Trojsdorf,ZQG,Тройсдорф^0^0^P^PPL^DE^^07^^^^74749^0^62^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZQG^^EUROP^O
+ZQG^ZZZZ^Y^2821029^Troisdorf^Troisdorf^Troisdorf,Trojsdorf,ZQG,Тройсдорф^50.8166700^7.1666700^P^PPL^DE^^07^^^^74749^0^62^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZQG^^EUROP^O
 ZQH^ZZZZ^N^0^TUEBINGEN/DE:OFF-^TUEBINGEN/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZQH^^EUROP^O
-ZQI^ZZZZ^Y^2820087^Unna^Unna^Unna,ZQI,Унна^0^0^P^PPL^DE^^07^^^^66734^0^117^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZQI^^EUROP^O
-ZQJ^ZZZZ^Y^2817724^Velbert^Velbert^Velbert,ZQJ^0^0^P^PPL^DE^^07^^^^87669^0^264^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZQJ^^EUROP^O
-ZQK^ZZZZ^Y^2817311^Viersen^Viersen^Viersen,ZQK^0^0^P^PPL^DE^^07^^^^76153^0^62^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZQK^^EUROP^O
+ZQI^ZZZZ^Y^2820087^Unna^Unna^Unna,ZQI,Унна^51.5333300^7.6833300^P^PPL^DE^^07^^^^66734^0^117^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZQI^^EUROP^O
+ZQJ^ZZZZ^Y^2817724^Velbert^Velbert^Velbert,ZQJ^51.3333300^7.0500000^P^PPL^DE^^07^^^^87669^0^264^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZQJ^^EUROP^O
+ZQK^ZZZZ^Y^2817311^Viersen^Viersen^Viersen,ZQK^51.2500000^6.3833300^P^PPL^DE^^07^^^^76153^0^62^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZQK^^EUROP^O
 ZQL^ZZZZ^Y^2817220^Villingen-Schwenningen^Villingen-Schwenningen^Villingen-Schwenningen,Villingen-Shvenningen,ZQL,Виллинген-Швеннинген^47.973331^8.522223^P^PPL^DE^^01^^^^81770^0^710^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZQL^^EUROP^O
 ZQM^ZZZZ^N^0^VOELKLINGEN/DE:OFF-^VOELKLINGEN/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZQM^^EUROP^O
 ZQN^NZQN^Y^6206225^Queenstown Airport^Queenstown Airport^NZQN,ZQN^-45.021111^168.739167^S^AIRP^NZ^^F7^070^^^0^0^357^Pacific/Auckland^13.0^12.0^12.0^2011-08-01^Y^Y^ZQN^^AUSTL^CA
 ZQO^ZZZZ^N^0^WAIBLINGEN/DE:OFF-^WAIBLINGEN/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZQO^^EUROP^O
 ZQP^ZZZZ^N^0^WESEL/DE:OFF-^WESEL/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZQP^^EUROP^O
-ZQQ^ZZZZ^Y^2809889^Wetzlar^Wetzlar^Betslar,Gorad Veclar,Veclar,Veclara,Veclaras,Veclaro,Veclāra,Vetclar,Vetzlar,Weslar,Weslår,Wetzlar,Wetzlaria,ZQQ,becheulla-eo,fytslar,vu~ettsura,wei ci la er,wtslar,wzlr,Βέτσλαρ,Ветцлар,Вецлар,Горад Вецлар,וצלר,فيتسلار,وتسلار,ヴェッツラー,韦茨拉尔,베츨라어^0^0^P^PPL^DE^^05^^^^52656^0^168^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZQQ^^EUROP^O
-ZQR^ZZZZ^Y^2807363^Witten^Witten^Vitten,Witten,ZQR,vu~itten,Виттен,ヴィッテン^0^0^P^PPL^DE^^07^^^^101247^0^94^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZQR^^EUROP^O
+ZQQ^ZZZZ^Y^2809889^Wetzlar^Wetzlar^Betslar,Gorad Veclar,Veclar,Veclara,Veclaras,Veclaro,Veclāra,Vetclar,Vetzlar,Weslar,Weslår,Wetzlar,Wetzlaria,ZQQ,becheulla-eo,fytslar,vu~ettsura,wei ci la er,wtslar,wzlr,Βέτσλαρ,Ветцлар,Вецлар,Горад Вецлар,וצלר,فيتسلار,وتسلار,ヴェッツラー,韦茨拉尔,베츨라어^50.5500000^8.5000000^P^PPL^DE^^05^^^^52656^0^168^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZQQ^^EUROP^O
+ZQR^ZZZZ^Y^2807363^Witten^Witten^Vitten,Witten,ZQR,vu~itten,Виттен,ヴィッテン^51.4333300^7.3333300^P^PPL^DE^^07^^^^101247^0^94^Europe/Berlin^1.0^2.0^1.0^2012-01-18^N^N^ZQR^^EUROP^O
 ZQS^ZZZZ^N^0^QUEEN CHARLOTTE IS/BC/CA^QUEEN CHARLOTTE IS/BC/CA^^53^-132^S^AIRP^CA^^^^^^^^^CA031^^^^-1^Y^N^ZQS^BC^NAMER^CA
 ZQT^ZZZZ^N^0^WOLFENBUETTEL/DE:OFF-^WOLFENBUETTEL/DE:OFF-^^0^0^X^XXXX^DE^^^^^^^^^DE040^^^^-1^N^N^ZQT^^EUROP^O
 ZQU^ZZZZ^N^0^BRAUNSCHWEIG/WOLFSBURG/DE:WOLF^BRAUNSCHWEIG/WOLFSBURG/DE:WOLF^^52.42^10.77^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^ZQU^^EUROP^CR
@@ -11369,24 +11369,24 @@ ZYW^ZZZZ^N^0^SANDVIKA/NO:RAILWAY STATION^SANDVIKA/NO:RAILWAY STATION^^59.89^10.8
 ZYX^ZZZZ^N^0^SHENZHEN/CN:YANTIAN FERRY PORT^SHENZHEN/CN:YANTIAN FERRY PORT^^22.6^114.267^S^AIRP^CN^^^^^^^^^CN035^^^^-1^Y^N^SZX^^ASIA^P
 ZYY^ZZZZ^N^0^MARNARDAL/NO:RAILWAY STATION^MARNARDAL/NO:RAILWAY STATION^^58.36^7.857^S^AIRP^NO^^^^^^^^^NO083^^^^-1^Y^N^ZYY^^EUROP^CR
 ZYZ^ZZZZ^N^0^ANTWERP/BE:BERCHEM RAILWAY STN^ANTWERP/BE:BERCHEM RAILWAY STN^^51.18^4.467^S^AIRP^BE^^^^^^^^^BE012^^^^-1^Y^Y^ANR^^EUROP^R
-ZZA^ZZZZ^Y^2506043^Azazga^Azazga^Agagza,Agazza,Azazga,ZZA^0^0^P^PPL^DZ^^14^^^^40623^0^435^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZA^^AFRIC^O
-ZZB^ZZZZ^Y^2505629^Barika^Barika^Barika,ZZB,Барика^0^0^P^PPL^DZ^^03^^^^98846^0^476^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZB^^AFRIC^O
-ZZC^ZZZZ^Y^2501440^Cherchell^Cherchell^Cherche,Cherchel,Cherchell,Cherchez,Sersell,Shershel,Shershell,ZZC^0^0^P^PPL^DZ^^55^^^^0^0^38^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZC^^AFRIC^O
-ZZD^ZZZZ^Y^2499104^Draa el Mizan^Draa el Mizan^Dra el Mizan,Dra el Mizane,Dra-ehl'-Mizan,Draa el Mizan,ZZD,Дра-эль-Мизан^0^0^P^PPL^DZ^^21^^^^41263^0^410^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZD^^AFRIC^O
+ZZA^ZZZZ^Y^2506043^Azazga^Azazga^Agagza,Agazza,Azazga,ZZA^36.7447200^4.3722200^P^PPL^DZ^^14^^^^40623^0^435^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZA^^AFRIC^O
+ZZB^ZZZZ^Y^2505629^Barika^Barika^Barika,ZZB,Барика^35.3890100^5.3658400^P^PPL^DZ^^03^^^^98846^0^476^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZB^^AFRIC^O
+ZZC^ZZZZ^Y^2501440^Cherchell^Cherchell^Cherche,Cherchel,Cherchell,Cherchez,Sersell,Shershel,Shershell,ZZC^36.6050000^2.1908300^P^PPL^DZ^^55^^^^0^0^38^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZC^^AFRIC^O
+ZZD^ZZZZ^Y^2499104^Draa el Mizan^Draa el Mizan^Dra el Mizan,Dra el Mizane,Dra-ehl'-Mizan,Draa el Mizan,ZZD,Дра-эль-Мизан^36.5362800^3.8334000^P^PPL^DZ^^21^^^^41263^0^410^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZD^^AFRIC^O
 ZZF^ZZZZ^Y^8260374^Mystery Flight Airport^Mystery Flight Airport^ZZF^-37.28^142.9^S^AIRP^AU^^07^20260^^^0^0^313^Australia/Melbourne^11.0^10.0^10.0^2012-04-21^Y^Y^ZZF^VI^AUSTL^O
 ZZG^ZZZZ^N^0^FICTITIOUS POINT/DE:GE^FICTITIOUS POINT/DE:GE^^50.03^8.567^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^Y^ZZG^^EUROP^CA
 ZZI^ZZZZ^N^0^ELITE MYSTERY NIGHT/VI/AU:OFF-^ELITE MYSTERY NIGHT/VI/AU:OFF-^^-38.28^142.5^X^XXXX^AU^^^^^^^^^AU007^^^^-1^N^N^ZZI^VI^AUSTL^O
 ZZJ^ZZZZ^N^0^MYSTERY NIGHT/VI/AU:OFF-^MYSTERY NIGHT/VI/AU:OFF-^^-38.03^144.5^X^XXXX^AU^^^^^^^^^AU007^^^^-1^N^N^ZZJ^VI^AUSTL^O
-ZZK^ZZZZ^Y^2491911^Khemis Miliana^Khemis Miliana^Affreville,El Khemis,El Khemis Miliana,Khemis Miliana,ZZK^0^0^P^PPL^DZ^^35^^^^75865^0^299^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZK^^AFRIC^O
+ZZK^ZZZZ^Y^2491911^Khemis Miliana^Khemis Miliana^Affreville,El Khemis,El Khemis Miliana,Khemis Miliana,ZZK^36.2610400^2.2201500^P^PPL^DZ^^35^^^^75865^0^299^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZK^^AFRIC^O
 ZZL^ZZZZ^N^0^L ARBAA NAIT IRATHEN/DZ:L ARBA^L ARBAA NAIT IRATHEN/DZ:L ARBA^^0^0^X^XXXX^DZ^^^^^^^^^DZ^^^^-1^N^N^ZZL^^AFRIC^O
 ZZM^ZZZZ^N^0^BORDJ MENAIEL/DZ:OFF-^BORDJ MENAIEL/DZ:OFF-^^0^0^X^XXXX^DZ^^^^^^^^^DZ^^^^-1^N^N^ZZM^^AFRIC^O
 ZZN^ZZZZ^N^0^OSLO/NO:NATIONALTHEATRET RAIL^OSLO/NO:NATIONALTHEATRET RAIL^^59.91^10.74^S^AIRP^NO^^^^^^^^^NO083^^^^-1^Y^N^OSL^^EUROP^R
 ZZO^ZZZZ^Y^8260765^Zonalnoe^Zonalnoe^ZZO^50.67^142.8^S^AIRP^RU^^64^^^^0^0^362^Asia/Sakhalin^11.0^11.0^11.0^2012-04-29^Y^N^ZZO^^EURAS^CA
 ZZP^ZZZZ^N^0^POZAREVAC/RS:POZAREVAC^POZAREVAC/RS:POZAREVAC^^44.82^20.3^S^AIRP^RS^^^^^^^^^RS189^^^^-1^Y^N^ZZP^^EUROP^O
 ZZQ^ZZZZ^N^0^CHEUNG SHA WAN/HK:OFF-^CHEUNG SHA WAN/HK:OFF-^^0^0^X^XXXX^HK^^^^^^^^^HK^^^^-1^N^N^ZZQ^^SEASI^O
-ZZR^ZZZZ^Y^2491776^Kherrata^Kherrata^Kerrata,Kerrato,Kherrata,ZZR^0^0^P^PPL^DZ^^18^^^^0^0^495^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZR^^AFRIC^O
+ZZR^ZZZZ^Y^2491776^Kherrata^Kherrata^Kerrata,Kerrato,Kherrata,ZZR^36.4934900^5.2780200^P^PPL^DZ^^18^^^^0^0^495^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZR^^AFRIC^O
 ZZS^ZZZZ^N^0^M SILA/DZ:OFF-^M SILA/DZ:OFF-^^0^0^X^XXXX^DZ^^^^^^^^^DZ^^^^-1^N^N^ZZS^^AFRIC^O
-ZZT^ZZZZ^Y^2478554^Taher^Taher^Taher,ZZT^0^0^P^PPL^DZ^^24^^^^0^0^65^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZT^^AFRIC^O
+ZZT^ZZZZ^Y^2478554^Taher^Taher^Taher,ZZT^36.7630400^5.8978800^P^PPL^DZ^^24^^^^0^0^65^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZT^^AFRIC^O
 ZZU^FWUU^Y^6297127^Mzuzu Airport^Mzuzu Airport^FWUU,Mzuzu,Mzuzu Airport,ZZU^-11.45^34.02^S^AIRP^MW^^^^^^0^1254^1254^Africa/Blantyre^2.0^2.0^2.0^2011-03-28^Y^N^ZZU^^AFRIC^CA
 ZZV^KZZV^Y^4528929^Zanesville Municipal Airport^Zanesville Municipal Airport^KZZV,ZZV^39.95^-81.88^S^AIRP^US^^OH^119^^^0^270^270^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^N^ZZV^OH^NAMER^CA
 ZZW^ZZZZ^N^0^DAY TRIP MYSTERY/NS/AU^DAY TRIP MYSTERY/NS/AU^^0.0002778^0.0002778^S^AIRP^AU^^^^^^^^^AU011^^^^-1^Y^N^ZZW^NS^AUSTL^CA
