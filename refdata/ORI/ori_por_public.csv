@@ -1266,7 +1266,7 @@ CDW^KCDW^Y^5097708^Essex County Airport^Essex County Airport^CDW,KCDW^40.87^-74.
 CDY^RPMU^Y^7730761^Cagayan de Sulu Airport^Cagayan de Sulu Airport^CDY,RPMU^7.017^118.5^S^AIRP^PH^^^^^^0^0^32^Asia/Manila^8.0^8.0^8.0^2011-03-17^Y^N^CDY^^PACIF^CA
 CDZ^ZZZZ^Y^2520600^Cadiz^Cadiz^CDZ,Cadice,Cadis,Cadix,Cadiz,Cai,Càdice,Cádice,Cádis,Cádiz,Gadeira,Gades,Gadir,Gaðes,Iungadir,Kadis,Kadisas,Kadiz,Kadizo,Kadyks,Kantith,La tacita de plata,jia de si,kadi s,kadiseu,kadisu,kads,kadydh,kadys,qads,qdys,Κάντιθ,Кадиз,Кадис,Кадіс,קדיס,قادس,كاديذ,کادس,کادیس,กาดิซ,კადისი,ካዲዝ,カディス,加的斯,카디스^36.53^-6.3^P^PPLA2^ES^^51^CA^11012^^126766^0^21^Europe/Madrid^1.0^2.0^1.0^2012-04-29^Y^Y^CDZ^^EUROP^CR
 CEA^ZZZZ^Y^7730910^Centro Administrativo Municipal Heliport^Centro Administrativo Municipal Heliport^CEA^37.65^-97.25^S^AIRH^CO^^29^^^^0^0^1008^America/Bogota^-5.0^-5.0^-5.0^2011-03-17^Y^N^ICT^KS^NAMER^A
-CEB^RPVM^Y^6452620^Mactan-Cebu International^Mactan-Cebu International^CEB,RPVM^7.165242^124.209619^S^AIRP^PH^^00^D4^^^0^9^10^Asia/Manila^8.0^8.0^8.0^2010-08-14^Y^Y^CEB^^PACIF^CA
+CEB^RPVM^Y^6452620^Mactan-Cebu International^Mactan-Cebu International^CEB,RPVM^10.3085^123.98028^S^AIRP^PH^^00^D4^^^0^9^10^Asia/Manila^8.0^8.0^8.0^2010-08-14^Y^Y^CEB^^PACIF^CA
 CEC^KCEC^Y^5565800^Jack Mc Namara Field Airport^Jack Mc Namara Field Airport^CEC,KCEC^41.780158^-124.236533^S^AIRF^US^^CA^015^^^0^17^18^America/Los_Angeles^-8.0^-7.0^-8.0^2012-04-09^Y^Y^CEC^CA^NAMER^CA
 CED^YPCD^Y^6301325^Ceduna Airport^Ceduna Airport^CED,YPCD^-32.13^133.7^S^AIRP^AU^^05^41010^^^0^23^19^Australia/Adelaide^10.5^9.5^9.5^2011-06-04^Y^Y^CED^SA^AUSTL^CA
 CEE^ULBC^Y^7730189^Cherepovets Airport^Cherepovets Airport^CEE,ULBC^59.28^38.07^S^AIRP^RU^^85^^^^0^0^111^Europe/Moscow^4.0^4.0^4.0^2011-03-16^Y^Y^CEE^^EURAS^CA
@@ -2088,7 +2088,7 @@ EBR^ZZZZ^N^0^BATON ROUGE/LA/US:DOWNTOWN^BATON ROUGE/LA/US:DOWNTOWN^^30.53^-91.15
 EBS^KEBS^Y^4881106^Webster City Municipal Airport^Webster City Municipal Airport^EBS,KEBS^42.47^-93.8^S^AIRP^US^^IA^079^^^0^340^337^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^N^EBS^IA^NAMER^CA
 EBU^LFMH^Y^6299414^Saint-Etienne - Bouthéon^Saint-Etienne - Boutheon^EBU,LFMH^45.540554^4.296389^S^AIRP^FR^^B9^42^421^42005^0^403^397^Europe/Paris^1.0^2.0^1.0^2012-02-27^Y^Y^EBU^^EUROP^CA
 EBW^FKKW^Y^7668243^Ebolowa Airport^Ebolowa Airport^EBW,FKKW^2.85^11.18^S^AIRP^CM^^14^^^^0^0^616^Africa/Douala^1.0^1.0^1.0^2011-02-17^Y^N^EBW^^AFRIC^CA
-ECA^ZZZZ^Y^4991692^East Tawas^East Tawas^ECA^-50.280322^-72.053103^P^PPL^US^^MI^069^^^2808^178^181^America/Detroit^-5.0^-4.0^-5.0^2011-05-14^Y^N^ECA^MI^NAMER^CA
+ECA^ZZZZ^Y^4991692^East Tawas^East Tawas^ECA^44.2794600^-83.49025^P^PPL^US^^MI^069^^^2808^178^181^America/Detroit^-5.0^-4.0^-5.0^2011-05-14^Y^N^ECA^MI^NAMER^CA
 ECG^KECG^Y^4465092^Elizabeth City Municipal Airport^Elizabeth City Municipal Airport^ECG,KECG^36.260581^-76.174572^S^AIRP^US^^NC^139^^^0^2^5^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^N^ECG^NC^NAMER^CA
 ECH^YECH^Y^7668709^Echuca Airport^Echuca Airport^ECH,YECH^-36.157222^144.761944^S^AIRP^AU^^07^21370^^^0^0^101^Australia/Melbourne^11.0^10.0^10.0^2011-06-04^Y^N^ECH^VI^AUSTL^CA
 ECN^LCEN^Y^6299311^Ercan^Ercan^ECN,LCEN^35.15^33.5^S^AIRP^CY^^04^^^^0^91^119^Asia/Nicosia^2.0^3.0^2.0^2011-11-21^Y^Y^ECN^^EUROP^CA
@@ -3067,7 +3067,7 @@ HEI^ZZZZ^N^0^HEIDE/BUESUM/DE^HEIDE/BUESUM/DE^^54.15^8.9^S^AIRP^DE^^^^^^^^^DE040^
 HEK^ZYHE^Y^7730308^Heihe Airport^Heihe Airport^HEK,ZYHE^50.25^127.3^S^AIRP^CN^^08^^^^0^0^317^Asia/Harbin^8.0^8.0^8.0^2011-03-16^Y^Y^HEK^^ASIA^CA
 HEL^EFHK^Y^6301511^Helsinki-Vantaa^Helsinki-Vantaa^EFHK,Flughafen Helsinki,HEL^60.317222^24.963333^S^AIRP^FI^^13^01^092^^0^54^54^Europe/Helsinki^2.0^3.0^2.0^2011-12-31^Y^Y^HEL^^EUROP^CA
 HEM^EFHF^Y^6296539^Helsinki-Malmi^Helsinki-Malmi^EFHF,HEM^60.254558^25.042828^S^AIRP^FI^^13^01^091^^0^17^17^Europe/Helsinki^2.0^3.0^2.0^2011-12-31^Y^N^HEL^^EUROP^A
-HEN^EFHE^Y^8181797^Hernesaari Heliport^Hernesaari Heliport^AErtholmens heliport,EFHE,HEN,Hernesaaren helikopterikenttae,Hernesaaren helikopterikenttä,Ärtholmens heliport^51.58^-0.2333^S^AIRH^FI^^13^01^091^^0^5^-9999^Europe/Helsinki^2.0^3.0^2.0^2012-02-02^Y^Y^HEL^^EUROP^H
+HEN^EFHE^Y^8181797^Hernesaari Heliport^Hernesaari Heliport^AErtholmens heliport,EFHE,HEN,Hernesaaren helikopterikenttae,Hernesaaren helikopterikenttä,Ärtholmens heliport^60.14768^24.92437^S^AIRH^FI^^13^01^091^^0^5^-9999^Europe/Helsinki^2.0^3.0^2.0^2012-02-02^Y^Y^HEL^^EUROP^H
 HEO^ZZZZ^N^0^HAELOGO/PG^HAELOGO/PG^^-9.133^147.6^S^AIRP^PG^^^^^^^^^PG^^^^-1^Y^N^HEO^^AUSTL^CA
 HER^LGIR^Y^6299488^Heraklion Airport^Heraklion Airport^HER,Heraklion International Airport Nikos Kazantzakis,LGIR,Κρατικός Αερολιμένας Ηρακλείου »Νίκος Καζαντζάκης«^35.339719^25.180297^S^AIRP^GR^^ESYE43^45^9305^^0^35^22^Europe/Athens^2.0^3.0^2.0^2012-01-17^Y^Y^HER^^EUROP^CA^Heraklion International Airport Nikos Kazantzakis
 HES^ZZZZ^Y^5731070^Hermiston^Hermiston^HES^45.85^-119.3^P^PPL^US^^OR^059^^^16745^140^140^America/Los_Angeles^-8.0^-7.0^-8.0^2011-05-14^Y^N^HES^OR^NAMER^CA
@@ -3444,7 +3444,7 @@ ILG^KILG^Y^4142728^New Castle Airport^New Castle Airport^ILG,KILG^39.678722^-75.
 ILH^ZZZZ^Y^2896543^Illesheim^Illesheim^ILH^50.93^6.95^P^PPLA4^DE^^02^095^09575^09575133^824^0^332^Europe/Berlin^1.0^2.0^1.0^2011-04-25^Y^N^ILH^^EUROP^CA
 ILI^PAIL^Y^5864632^Iliamna Airport^Iliamna Airport^ILI,PAIL^59.754356^-154.910961^S^AIRP^US^^AK^164^^^0^46^52^America/Anchorage^-9.0^-8.0^-9.0^2011-12-12^Y^Y^ILI^AK^NAMER^CA
 ILK^FMMQ^Y^7730509^Atsinanana Airport^Atsinanana Airport^FMMQ,ILK^-19.75^48.82^S^AIRP^MG^^^^^^0^0^9^Indian/Antananarivo^3.0^3.0^3.0^2011-03-17^Y^N^ILK^^AFRIC^CA
-ILL^BGLL^Y^7730418^Illorsuit Heliport^Illorsuit Heliport^BGLL,ILL^45.12^-95.1^S^AIRH^GL^^03^^^^0^0^516^America/Godthab^-3.0^-2.0^-3.0^2011-03-17^Y^N^ILL^MN^NAMER^CA
+ILL^ZZZZ^Y^5052916^Willmar^Willmar^ILL^45.11485^-95.13126^P^PPLA2^US^^MN^067^^^19610^348^349^America/Chicago^-6.0^-5.0^-6.0^2011-05-14^Y^N^ILL^MN^NAMER^CA
 ILM^KILM^Y^6301617^Wilmington International Airport^Wilmington International Airport^Aeropuerto Internacional de Wilmington,ILM,KILM^34.270615^-77.902569^S^AIRP^US^^NC^^^^0^10^1^America/New_York^-5.0^-4.0^-5.0^2010-12-29^Y^Y^ILM^NC^NAMER^CA
 ILN^KILN^Y^4505054^Airborne Airpark^Airborne Airpark^ILN,KILN^39.42^-83.8^S^AIRP^US^^OH^027^^^0^321^319^America/New_York^-5.0^-4.0^-5.0^2011-03-10^Y^N^ILN^OH^NAMER^CA
 ILO^RPVI^Y^6300496^Iloilo^Iloilo^ILO,RPVI^10.713044^122.545297^S^AIRP^PH^^^^^^0^8^39^Asia/Manila^8.0^8.0^8.0^2012-01-25^Y^Y^ILO^^PACIF^CA
@@ -3924,7 +3924,7 @@ KCG^ZZZZ^Y^5859197^Chignik Fisheries Airport^Chignik Fisheries Airport^KCG^56.3^
 KCH^WBGG^Y^1734503^Kuching Airport^Kuching Airport^KCH,WBGG^1.484697^110.346933^S^AIRP^MY^^11^^^^0^27^27^Asia/Kuching^8.0^8.0^8.0^2007-01-03^Y^Y^KCH^^SEASI^CA
 KCI^ZZZZ^Y^7731161^Kon Airport^Kon Airport^KCI^-2.533^140.7^S^AIRP^TL^^^^^^0^0^12^Asia/Dili^9.0^9.0^9.0^2011-03-17^Y^N^KCI^^SEASI^CA
 KCJ^ZZZZ^Y^2093635^Komaio^Komaio^KCJ,Komaio^-7.267^143.6^P^PPL^PG^^02^^^^0^0^31^Pacific/Port_Moresby^10.0^10.0^10.0^2012-05-05^Y^N^KCJ^^AUSTL^CA
-KCK^ZZZZ^Y^2022083^Kirensk^Kirensk^KCK,KIRENSK,Kirensk,КИРЕНСК,Киренск^39.12^-94.65^P^PPL^RU^^20^^^^13308^0^254^Asia/Irkutsk^9.0^9.0^9.0^2012-01-17^Y^N^KCK^^EURAS^CA
+KCK^ZZZZ^Y^2022083^Kirensk^Kirensk^KCK,KIRENSK,Kirensk,КИРЕНСК,Киренск^57.77273^108.06461^P^PPL^RU^^20^^^^13308^0^254^Asia/Irkutsk^9.0^9.0^9.0^2012-01-17^Y^N^KCK^^EURAS^CA
 KCL^ZZZZ^Y^5859203^Chignik Lagoon Airport^Chignik Lagoon Airport^KCL^56.3^-158.5^S^AIRP^US^^AK^164^^^0^2^6^America/Anchorage^-9.0^-8.0^-9.0^2011-12-12^Y^Y^KCL^AK^NAMER^CA
 KCM^LTCN^Y^7591522^Kahramanmaraş Airport^Kahramanmaras Airport^KCM,Kahramanmaras Airport,Kahramanmaras Havaalani,Kahramanmaraş Airport,Kahramanmaraş Havaalanı,LTCN^37.538967^36.953411^S^AIRP^TR^^46^^^^0^0^504^Europe/Istanbul^2.0^3.0^2.0^2011-03-28^Y^Y^KCM^^EURAS^CA
 KCN^ZZZZ^Y^5859091^Chernofski^Chernofski^KCN^53.4^-167.6^P^PPL^US^^AK^016^^^0^0^-9999^America/Nome^-9.0^-8.0^-9.0^2010-01-30^Y^N^KCN^AK^NAMER^CA
@@ -5538,7 +5538,7 @@ MZS^ZZZZ^Y^7731320^Mostyn Airport^Mostyn Airport^MZS^3.8^103.3^S^AIRP^MY^^16^^^^
 MZT^MMMZ^Y^6299861^Mazatlan / G. Buelna^Mazatlan / G. Buelna^MMMZ,MZT^23.161356^-106.266072^S^AIRP^MX^^^^^^0^11^11^America/Mazatlan^-7.0^-6.0^-7.0^2007-01-03^Y^Y^MZT^^NAMER^CA
 MZU^VEMZ^Y^7668594^Muzaffarpur Airport^Muzaffarpur Airport^MZU,VEMZ^26.33^85.5^S^AIRP^IN^^34^^^^0^0^54^Asia/Kolkata^5.5^5.5^5.5^2011-02-17^Y^N^MZU^^ASIA^CA
 MZV^WBMU^Y^6354945^Mulu Airport^Mulu Airport^Lapangan Terbang Mulu,MZV,WBMU,mu lu ji chang,姆鲁机场^4.04655^114.80567^S^AIRP^MY^^11^^^^0^24^33^Asia/Kuching^8.0^8.0^8.0^2012-03-25^Y^Y^MZV^^SEASI^CA
-MZW^ZZZZ^Y^2489865^Mecheria^Mecheria^MZW,Mecheria,Mechria^26.224153^120.00275^P^PPL^DZ^^49^^^^0^0^1158^Africa/Algiers^1.0^1.0^1.0^2012-01-19^Y^Y^MZW^^AFRIC^CA
+MZW^ZZZZ^Y^2489865^Mecheria^Mecheria^MZW,Mecheria,Mechria^33.53585^-0.24235^P^PPL^DZ^^49^^^^0^0^1158^Africa/Algiers^1.0^1.0^1.0^2012-01-19^Y^Y^MZW^^AFRIC^CA
 MZX^ZZZZ^Y^331064^Mena^Mena^Isak Gilo,MZX,Masslo,Mena,Meslo,Sacchegillo^6.35^39.72^P^PPL^ET^^51^^^^0^0^1262^Africa/Addis_Ababa^3.0^3.0^3.0^2012-01-19^Y^N^MZX^^AFRIC^CA
 MZY^FAMO^Y^6296911^Mossel Bay Cape Saint Blaize^Mossel Bay Cape Saint Blaize^FAMO,MZY^-34.18^22.13^S^AIRP^ZA^^^^^^0^59^36^Africa/Johannesburg^2.0^2.0^2.0^2006-10-29^Y^N^MZY^^AFRIC^CA
 MZZ^KMZZ^Y^4923214^Marion Municipal Airport^Marion Municipal Airport^KMZZ,MZZ^40.48^-85.68^S^AIRP^US^^IN^053^^^0^261^258^America/Indiana/Indianapolis^-5.0^-4.0^-5.0^2011-12-11^Y^N^MZZ^IN^NAMER^CA
@@ -7344,7 +7344,7 @@ QYG^ZZZZ^N^0^RAILWAY GERMANY/DE:RAILWA^RAILWAY GERMANY/DE:RAILWA^^54^13^S^AIRP^D
 QYH^ZZZZ^N^0^HENGELO/NL:RAILWAY STATION^HENGELO/NL:RAILWAY STATION^^52.27^6.767^S^AIRP^NL^^^^^^^^^NL082^^^^-1^Y^N^QYH^^EUROP^CR
 QYI^ZZZZ^Y^2754064^Hilversum^Hilversum^Hilversum,Hilvertsheim,Khilversjum,QYI,Хилверсюм^52.23^5.167^P^PPL^NL^NL^07^0402^^^83640^0^7^Europe/Amsterdam^1.0^2.0^1.0^2008-06-03^Y^Y^QYI^^EUROP^CR
 QYJ^ZZZZ^N^0^GERMAN RAILWAYS ZONE J/DE:OFF-^GERMAN RAILWAYS ZONE J/DE:OFF-^^49^8^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^N^QYJ^^EUROP^O
-QYK^ZZZZ^Y^1842485^Goyang^Goyang^Gojang,Goyang,Kojan,Kojangas,Koyang,Koyang-ni,Koyo,Kōyō,QYK,gao yang shi,goyang,goyangsi,gwyang,Коян,קויאנג,گویانگ,高陽市,고양,고양시^-1.75^41.48^P^PPL^KR^^13^^^^1073069^0^19^Asia/Seoul^9.0^9.0^9.0^2010-08-17^Y^N^QYK^^ASIA^O
+QYK^ZZZZ^Y^1842485^Goyang^Goyang^Gojang,Goyang,Kojan,Kojangas,Koyang,Koyang-ni,Koyo,Kōyō,QYK,gao yang shi,goyang,goyangsi,gwyang,Коян,קויאנג,گویانگ,高陽市,고양,고양시^37.6563900^126.835^P^PPL^KR^^13^^^^1073069^0^19^Asia/Seoul^9.0^9.0^9.0^2010-08-17^Y^N^QYK^^ASIA^O
 QYL^ZZZZ^Y^2759887^Almelo^Almelo^Almelo,Almeloo,QYL,Алмело^52.35^6.667^P^PPL^NL^^15^0141^^^72725^0^15^Europe/Amsterdam^1.0^2.0^1.0^2010-01-29^Y^N^QYL^^EUROP^CR
 QYM^ZZZZ^Y^2759821^Amersfoort^Amersfoort^Amersfoort,Amersfort,Amersforto,QYM,Амерсфорт^52.15^5.383^P^PPL^NL^^09^0307^^^139914^0^8^Europe/Amsterdam^1.0^2.0^1.0^2010-01-29^Y^N^QYM^^EUROP^CR
 QYN^ZZZZ^Y^2172880^Byron Bay^Byron Bay^Byron Bay,QYN^-28.64201^153.61194^P^PPL^AU^^02^11350^^^6764^0^1^Australia/Sydney^11.0^10.0^10.0^2012-02-28^N^N^QYN^NS^AUSTL^O
@@ -7391,7 +7391,7 @@ RAB^AYTK^Y^7668087^Tokua Airport^Tokua Airport^AYTK,RAB^-4.335^152.4^S^AIRP^PG^^
 RAC^KRAC^Y^5281338^John H Batten Field^John H Batten Field^KRAC,RAC^42.75^-87.82^S^AIRF^US^^WI^101^^^0^201^203^America/Chicago^-6.0^-5.0^-6.0^2012-04-09^Y^N^RAC^WI^NAMER^CA
 RAD^ZZZZ^N^0^TORTOLA/VG:ROAD TOWN^TORTOLA/VG:ROAD TOWN^^18.49^-64.67^S^AIRP^VG^^^^^^^^^VG^^^^-1^Y^N^TOV^^CARIB^A
 RAE^OERR^Y^6300025^Arar^Arar^OERR,RAE^30.906589^41.138217^S^AIRP^SA^^^^^^0^552^554^Asia/Riyadh^3.0^3.0^3.0^2007-01-03^Y^Y^RAE^^MEAST^CA
-RAF^ZZZZ^Y^3839479^Rafaela^Rafaela^RAF,Rafaehla,Rafaela,Рафаэла^29.6^34.85^P^PPL^AR^^21^^^^88713^0^103^America/Argentina/Cordoba^-3.0^-3.0^-3.0^2012-01-18^Y^N^RAF^SF^SAMER^CA
+RAF^ZZZZ^Y^3839479^Rafaela^Rafaela^RAF,Rafaehla,Rafaela,Рафаэла^-31.28333^-61.5^P^PPL^AR^^21^^^^88713^0^103^America/Argentina/Cordoba^-3.0^-3.0^-3.0^2012-01-18^Y^N^RAF^SF^SAMER^CA
 RAG^NZRA^Y^7730731^Raglan Airfield^Raglan Airfield^NZRA,RAG^-37.8^174.9^S^AIRP^NZ^^G1^013^^^0^0^7^Pacific/Auckland^13.0^12.0^12.0^2011-08-01^Y^N^RAG^^AUSTL^CA
 RAH^OERF^Y^393877^Rafha^Rafha^OERF,RAH,Rafha^29.626419^43.490614^S^AIRP^SA^^00^^^^0^449^442^Asia/Riyadh^3.0^3.0^3.0^2007-01-03^Y^Y^RAH^^MEAST^CA
 RAI^GVNP^Y^6453410^Francisco Mendes^Francisco Mendes^GVNP,RAI^14.92^-23.5^S^AIRP^CV^^^^^^0^70^66^Atlantic/Cape_Verde^-1.0^-1.0^-1.0^2007-03-30^Y^Y^RAI^^AFRIC^CA
