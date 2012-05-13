@@ -55,6 +55,8 @@ midori http://maps.bing.com
 vi ../ORI/best_coordinates_known_so_far.csv
 git add ../ORI/best_coordinates_known_so_far.csv
 
+# For the bulk update, see also 7.
+
 # Proceed with the use case 2.1, since the ORI-maintained list of best known
 # coordinates has now better coordinates than the ORI-maintained list of POR.
 
@@ -188,4 +190,21 @@ mkdir -p /tmp/opentrep/traveldb
 # 6.3. Send the por_in_iata_but_missing_from_geonames.csv file to Geonames
 gzip por_in_iata_but_missing_from_geonames.csv
 gzip pageranked_por_in_iata_but_missing_from_geonames.csv
+
+##
+# 7. Bulk fix the best known coordinates, when those are equal to zero
+#    and they are known by Geonames.
+#
+#    That is the bulk version of 1.2.
+#
+./fix_best_known_coordinates.sh
+wc -l new_best_coordinates_known_so_far.csv ../ORI/best_coordinates_known_so_far.csv
+diff -c new_best_coordinates_known_so_far.csv ../ORI/best_coordinates_known_so_far.csv | less
+# In case everything seems correct, replace the ORI-maintained file:
+\mv -f new_best_coordinates_known_so_far.csv ../ORI/best_coordinates_known_so_far.csv
+git add ../ORI/best_coordinates_known_so_far.csv
+git diff --cached ../ORI/best_coordinates_known_so_far.csv
+
+# Go to 2.1., as the ORI-maintained file of best known coordinates
+# has been updated
 
