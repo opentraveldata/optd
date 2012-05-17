@@ -39,7 +39,7 @@ fi
 ##
 # Geo data files
 GEO_FILE_1_FILENAME=cut_sorted_dump_from_geonames.csv
-AIRPORT_POP_FILENAME=cut_sorted_ref_airport_popularity.csv
+AIRPORT_PG_FILENAME=cut_sorted_ref_airport_pageranked.csv
 # Comparison files
 COMP_FILE_COORD_FILENAME=por_comparison_coord.csv
 COMP_FILE_DIST_FILENAME=por_comparison_dist.csv
@@ -51,7 +51,7 @@ COMP_MIN_DIST=10
 # Geo data files
 GEO_FILE_1=${TMP_DIR}${GEO_FILE_1_FILENAME}
 GEO_FILE_2=${TMP_DIR}${GEO_FILE_2_FILENAME}
-AIRPORT_POP=${TMP_DIR}${AIRPORT_POP_FILENAME}
+AIRPORT_PG=${TMP_DIR}${AIRPORT_PG_FILENAME}
 # Comparison files
 COMP_FILE_COORD=${TMP_DIR}${COMP_FILE_COORD_FILENAME}
 COMP_FILE_DIST=${TMP_DIR}${COMP_FILE_DIST_FILENAME}
@@ -64,7 +64,7 @@ then
 	echo "Usage: $0 [<Geo data file 1> [<Geo data file 2>]]"
 	echo "  - Default name for the geo data file #1: '${GEO_FILE_1}'"
 	echo "  - Default name for the geo data file #2: '${GEO_FILE_2}'"
-	echo "  - Default name for the airport popularity: '${AIRPORT_POP}'"
+	echo "  - Default name for the airport PageRank/popularity: '${AIRPORT_PG}'"
 	echo "  - Default distance (in km) triggering a difference: '${COMP_MIN_DIST}'"
 	echo
 	exit -1
@@ -73,7 +73,7 @@ fi
 ##
 # Local helper scripts
 PREPARE_EXEC="bash ${EXEC_PATH}prepare_geonames_dump_file.sh"
-PREPARE_POP_EXEC="bash ${EXEC_PATH}prepare_popularity.sh"
+PREPARE_PG_EXEC="bash ${EXEC_PATH}prepare_pagerank.sh"
 
 ##
 # First data file with geographical coordinates
@@ -114,25 +114,25 @@ fi
 
 
 ##
-# Data file with airport popularity
+# Data file with airport PageRank/popularity
 if [ "$3" != "" ];
 then
-	AIRPORT_POP=$3
-	AIRPORT_POP_FILENAME=`basename ${AIRPORT_POP}`
-	if [ "${AIRPORT_POP}" = "${AIRPORT_POP_FILENAME}" ]
+	AIRPORT_PG=$3
+	AIRPORT_PG_FILENAME=`basename ${AIRPORT_PG}`
+	if [ "${AIRPORT_PG}" = "${AIRPORT_PG_FILENAME}" ]
 	then
-		AIRPORT_POP="${TMP_DIR}${AIRPORT_POP_FILENAME}"
+		AIRPORT_PG="${TMP_DIR}${AIRPORT_PG_FILENAME}"
 	fi
 fi
 
-if [ ! -f "${AIRPORT_POP}" ]
+if [ ! -f "${AIRPORT_PG}" ]
 then
 	echo
-	echo "The '${AIRPORT_POP}' file does not exist."
+	echo "The '${AIRPORT_PG}' file does not exist."
 	if [ "$3" = "" ];
 	then
-		${PREPARE_POP_EXEC} --popularity
-		echo "The default name of the airport popularity copy is '${AIRPORT_POP}'."
+		${PREPARE_PG_EXEC} --popularity
+		echo "The default name of the airport PageRank/popularity copy is '${AIRPORT_PG}'."
 		echo
 	fi
 	exit -1
@@ -168,8 +168,8 @@ COMP_FILE_COORD_TMP=${COMP_FILE_COORD}.tmp2
 join -t'^' -a 1 -e NULL ${GEO_FILE_2} ${GEO_FILE_1} > ${COMP_FILE_COORD_TMP}
 
 ##
-# For each airport/city code, join the airport popularity.
-join -t'^' -a 1 -e 0 ${COMP_FILE_COORD_TMP} ${AIRPORT_POP} > ${COMP_FILE_COORD}
+# For each airport/city code, join the airport PageRank/popularity.
+join -t'^' -a 1 ${COMP_FILE_COORD_TMP} ${AIRPORT_PG} > ${COMP_FILE_COORD}
 \rm -f ${COMP_FILE_COORD_TMP}
 
 ##
