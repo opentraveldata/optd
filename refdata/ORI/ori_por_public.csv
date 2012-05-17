@@ -891,7 +891,7 @@ BNU^SSBL^Y^7730875^Blumenau Airport^Blumenau Airport^BNU,SSBL^-26.93^-49.05^S^AI
 BNV^ZZZZ^Y^2099315^Boana^Boana^BNV,Boana^-6.417^146.8^P^PPL^PG^^14^^^^0^0^909^Pacific/Port_Moresby^10.0^10.0^10.0^2012-05-05^Y^N^BNV^^AUSTL^CA
 BNW^KBNW^Y^4849071^Boone Municipal Airport^Boone Municipal Airport^BNW,KBNW^42.07^-93.88^S^AIRP^US^^IA^015^^^0^347^345^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^N^BNW^IA^NAMER^CA
 BNX^LQBK^Y^6299693^Banja Luka^Banja Luka^BNX,LQBK^44.77^17.18^S^AIRP^BA^^^^^^0^121^114^Europe/Sarajevo^1.0^2.0^1.0^2007-01-03^Y^Y^BNX^^EUROP^CA
-BNY^ZZZZ^N^0^BELLONA/SB^BELLONA/SB^^-11.3^159.8^S^AIRP^SB^^^^^^^^^SB^^^^-1^Y^Y^BNY^^AUSTL^CA
+BNY^ZZZZ^N^0^BELLONA/SB^BELLONA/SB^^-11.30247^159.79887^S^AIRP^SB^^^^^^^^^SB^^^^-1^Y^Y^BNY^^AUSTL^CA
 BNZ^ZZZZ^Y^2099887^Banz^Banz^BNZ,Banz^-5.783^144.6^P^PPL^PG^^16^^^^0^0^1639^Pacific/Port_Moresby^10.0^10.0^10.0^2012-05-05^Y^N^BNZ^^AUSTL^CA
 BOA^FZAJ^Y^7730552^Boma Airport^Boma Airport^BOA,FZAJ^-5.817^13.07^S^AIRP^CD^^08^^^^0^0^7^Africa/Kinshasa^1.0^1.0^1.0^2011-03-17^Y^N^BOA^^AFRIC^CA
 BOB^NTTB^Y^6299965^Bora-Bora^Bora-Bora^BOB,NTTB^-16.444378^-151.751286^S^AIRP^PF^^^^^^0^3^6^Pacific/Tahiti^-10.0^-10.0^-10.0^2007-01-03^Y^Y^BOB^^PACIF^CA
@@ -3439,7 +3439,7 @@ ILA^WABL^Y^7731113^Illaga Airport^Illaga Airport^ILA,WABL^-3.833^137.6^S^AIRP^ID
 ILB^ZZZZ^N^0^ILHA SOLTEIRA/MS/BR^ILHA SOLTEIRA/MS/BR^^-20.33^-51.33^S^AIRP^BR^^^^^^^^^BR017^^^^-1^Y^N^ILB^MS^SAMER^CA
 ILD^ZZZZ^Y^3118514^Lleida^Lleida^ILD,Ilerda,Ilerdo,Lerida,Lheida,Lhèida,Ljeida,Lleida,Lérida,lyydh,rerida,ryeida,Љеида,Лерида,ליידה,リェイダ,レリダ^41.7281^0.53528^P^PPLA2^ES^^56^L^25120^^135919^155^183^Europe/Madrid^1.0^2.0^1.0^2011-07-02^Y^Y^ILD^^EUROP^CA
 ILE^KILE^Y^6298447^Skylark Field Airport^Skylark Field Airport^ILE,KILE^31.15^-97.72^S^AIRP^US^^TX^^^^0^259^249^America/Chicago^-6.0^-5.0^-6.0^2007-03-30^Y^N^ILE^TX^NAMER^CA
-ILF^ZZZZ^N^0^ILFORD/MB/CA^ILFORD/MB/CA^^56.07^-95.58^S^AIRP^CA^^^^^^^^^CA027^^^^-1^Y^Y^ILF^MB^NAMER^CA
+ILF^ZZZZ^N^0^ILFORD/MB/CA^ILFORD/MB/CA^^56.05148^-95.61401^S^AIRP^CA^^^^^^^^^CA027^^^^-1^Y^Y^ILF^MB^NAMER^CA
 ILG^KILG^Y^4142728^New Castle Airport^New Castle Airport^ILG,KILG^39.678722^-75.606528^S^AIRP^US^^DE^003^^^0^22^20^America/New_York^-5.0^-4.0^-5.0^2010-07-31^Y^N^ILG^DE^NAMER^CA
 ILH^ZZZZ^Y^2896543^Illesheim^Illesheim^ILH^50.93^6.95^P^PPLA4^DE^^02^095^09575^09575133^824^0^332^Europe/Berlin^1.0^2.0^1.0^2011-04-25^Y^N^ILH^^EUROP^CA
 ILI^PAIL^Y^5864632^Iliamna Airport^Iliamna Airport^ILI,PAIL^59.754356^-154.910961^S^AIRP^US^^AK^164^^^0^46^52^America/Anchorage^-9.0^-8.0^-9.0^2011-12-12^Y^Y^ILI^AK^NAMER^CA
@@ -3504,7 +3504,7 @@ IOR^EIIM^Y^7668217^Inishmore Aerodrome^Inishmore Aerodrome^EIIM,IOR^53.12^-9.75^
 IOS^SBIL^Y^6300633^Ilheus Aeroporto^Ilheus Aeroporto^IOS,SBIL^-14.815964^-39.033197^S^AIRP^BR^^^^^^0^4^3^America/Bahia^-2.0^-3.0^-3.0^2006-10-29^Y^Y^IOS^BA^SAMER^CA
 IOU^NWWO^Y^7730724^Edmond Cané Airport^Edmond Cane Airport^IOU,NWWO^-22.42^166.8^S^AIRP^NC^^^^^^0^0^0^Pacific/Noumea^11.0^11.0^11.0^2011-03-17^Y^N^IOU^^AUSTL^CA
 IOW^KIOW^Y^4862048^Iowa City Municipal Airport^Iowa City Municipal Airport^IOW,KIOW^41.67^-91.53^S^AIRP^US^^IA^103^^^0^198^198^America/Chicago^-6.0^-5.0^-6.0^2011-12-11^Y^N^IOW^IA^NAMER^CA
-IPA^ZZZZ^N^0^IPOTA/VU^IPOTA/VU^^-18.75^169.2^S^AIRP^VU^^^^^^^^^VU115^^^^-1^Y^Y^IPA^^AUSTL^CA
+IPA^ZZZZ^N^0^IPOTA/VU^IPOTA/VU^^-18.85675^169.28267^S^AIRP^VU^^^^^^^^^VU115^^^^-1^Y^Y^IPA^^AUSTL^CA
 IPC^SCIP^Y^4030749^Aeropuerto Mataveri^Aeropuerto Mataveri^IPC,SCIP^-27.164792^-109.421831^S^AIRP^CL^^01^^^^0^69^61^Pacific/Easter^-5.0^-6.0^-6.0^2007-01-03^Y^Y^IPC^^SAMER^CA
 IPE^ZZZZ^N^0^IPIL/PH^IPIL/PH^^7.783^122.6^S^AIRP^PH^^^^^^^^^PH^^^^-1^Y^N^IPE^^PACIF^CA
 IPG^SWII^Y^7731118^Ipiranga Airport^Ipiranga Airport^IPG,SWII^-3.333^-69.42^S^AIRP^BR^^04^^^^0^0^71^America/Manaus^-4.0^-4.0^-4.0^2011-03-17^Y^N^IPG^AM^SAMER^CA
@@ -5694,7 +5694,7 @@ NKB^ZZZZ^Y^7731334^Noonkanbah Airport^Noonkanbah Airport^NKB^-18.5^124.8^S^AIRP^
 NKC^GQNN^Y^6297240^Nouakchott^Nouakchott^GQNN,NKC^18.097856^-15.947956^S^AIRP^MR^^^^^^0^2^6^Africa/Nouakchott^0.0^0.0^0.0^2007-01-03^Y^Y^NKC^^AFRIC^CA
 NKD^ZZZZ^N^0^SINAK/ID^SINAK/ID^^-3.833^137.9^S^AIRP^ID^^^^^^^^^ID063^^^^-1^Y^N^NKD^^SEASI^CA
 NKG^ZSNJ^Y^6301384^Nanjing^Nanjing^NKG,ZSNJ^31.742042^118.862025^S^AIRP^CN^^^^^^0^14^14^Asia/Shanghai^8.0^8.0^8.0^2007-01-03^Y^Y^NKG^^ASIA^CA
-NKI^ZZZZ^N^0^NAUKITI/AK/US^NAUKITI/AK/US^^55.85^-133.2^S^AIRP^US^^^^^^^^^US111^^^^-1^Y^Y^NKI^AK^NAMER^CA
+NKI^ZZZZ^N^0^NAUKITI/AK/US^NAUKITI/AK/US^^55.36643^-133.21661^S^AIRP^US^^^^^^^^^US111^^^^-1^Y^Y^NKI^AK^NAMER^CA
 NKL^FZAR^Y^7730554^Nkolo Fuma Airport^Nkolo Fuma Airport^FZAR,NKL^-1.983^16.47^S^AIRP^CD^^08^^^^0^0^404^Africa/Kinshasa^1.0^1.0^1.0^2011-03-17^Y^N^NKL^^AFRIC^CA
 NKM^RJNN^Y^6301826^Nagoya Airport^Nagoya Airport^NKM,Nagoya Hikojo,Nagoya Hikōjō,RJNA,RJNN,ming gu wu fei xing chang,名古屋飛行場^35.25^136.9^S^AIRP^JP^^01^^^^0^14^7^Asia/Tokyo^9.0^9.0^9.0^2011-01-16^Y^Y^NGO^^ASIA^A
 NKN^ZZZZ^N^0^NANKINA/PG^NANKINA/PG^^-5.833^146.5^S^AIRP^PG^^^^^^^^^PG^^^^-1^Y^N^NKN^^AUSTL^CA
@@ -9461,7 +9461,7 @@ WMC^KWMC^Y^5710371^Winnemucca Municipal Airport^Winnemucca Municipal Airport^KWM
 WMD^FMSC^Y^7730513^Mandabe Airport^Mandabe Airport^FMSC,WMD^-21.03^44.95^S^AIRP^MG^^^^^^0^0^297^Indian/Antananarivo^3.0^3.0^3.0^2011-03-17^Y^N^WMD^^AFRIC^CA
 WME^YMNE^Y^7730265^Mount Keith Airport^Mount Keith Airport^WME,YMNE^-38.295278^142.446667^S^AIRP^AU^^08^59250^^^0^0^546^Australia/Perth^8.0^8.0^8.0^2011-06-04^Y^N^WME^WA^AUSTL^CA
 WMH^KBPK^Y^4100583^Ozark Regional Airport^Ozark Regional Airport^BPK,Baxter County Regional Airport,KBPK,WMH^36.37^-92.47^S^AIRP^US^^AR^005^^^0^279^281^America/Chicago^-6.0^-5.0^-6.0^2012-02-26^Y^N^WMH^AR^NAMER^CA
-WMI^ZZZZ^N^0^NOWY DWOR MAZOWIECKI/PL:MODLIN^NOWY DWOR MAZOWIECKI/PL:MODLIN^^52.4511^20.6517^S^AIRP^PL^^^^^^^^^PL089^^^^-1^Y^Y^WMI^^EEURO^CA
+WMI^ZZZZ^N^0^NOWY DWOR MAZOWIECKI/PL:MODLIN^NOWY DWOR MAZOWIECKI/PL:MODLIN^^52.45117^20.65271^S^AIRP^PL^^^^^^^^^PL089^^^^-1^Y^Y^WMI^^EEURO^CA
 WMK^ZZZZ^Y^5555701^Meyers Chuck Seaplane Base^Meyers Chuck Seaplane Base^WMK^55.73^-132.2^S^AIRP^US^^AK^275^^^0^6^-9999^America/Juneau^-9.0^-8.0^-9.0^2011-12-12^Y^Y^WMK^AK^NAMER^CA
 WML^FMMC^Y^1061832^Malaimbandy^Malaimbandy^FMMC,WML^-20.35^45.55^S^AIRF^MG^^06^^^^0^0^171^Indian/Antananarivo^3.0^3.0^3.0^1993-12-08^Y^N^WML^^AFRIC^CA
 WMN^FMNR^Y^7730077^Maroantsetra Airport^Maroantsetra Airport^FMNR,WMN^-15.436666^49.688332^S^AIRP^MG^^^^^^0^0^8^Indian/Antananarivo^3.0^3.0^3.0^2011-03-16^Y^Y^WMN^^AFRIC^CA
@@ -10368,7 +10368,7 @@ YHC^ZZZZ^Y^8260824^Hakai Pass^Hakai Pass^YHC^51.73^-128.1^S^AIRP^CA^^^^^^0^0^1^A
 YHD^CYHD^Y^6296200^Dryden Airport^Dryden Airport^CYHD,YHD^49.78^-92.83^S^AIRP^CA^^^^^^0^412^411^America/Winnipeg^-6.0^-5.0^-6.0^2007-01-03^Y^Y^YHD^ON^NAMER^CA
 YHE^CYHE^Y^6296201^Hope, B. C.^Hope, B. C.^CYHE,YHE^49.38^-121.4^S^AIRF^CA^^^^^^0^39^38^America/Vancouver^-8.0^-7.0^-8.0^2011-03-20^Y^N^YHE^BC^NAMER^CA
 YHF^CYHF^Y^7730035^Hearst René Fontaine Municipal Airport^Hearst Rene Fontaine Municipal Airport^CYHF,YHF^49.68^-83.67^S^AIRP^CA^^08^^^^0^0^249^America/Toronto^-5.0^-4.0^-5.0^2011-03-16^Y^N^YHF^ON^NAMER^CA
-YHG^ZZZZ^N^0^CHARLOTTETOWN/NL/CA^CHARLOTTETOWN/NL/CA^^52.77^-56.1^S^AIRP^CA^^^^^^^^^CA022^^^^-1^Y^Y^YHG^NL^NAMER^CA
+YHG^ZZZZ^N^0^CHARLOTTETOWN/NL/CA^CHARLOTTETOWN/NL/CA^^52.76489^-56.11731^S^AIRP^CA^^^^^^^^^CA022^^^^-1^Y^Y^YHG^NL^NAMER^CA
 YHH^ZZZZ^N^0^CAMPBELL RIVE/BC/CA:HARBOR SPB^CAMPBELL RIVE/BC/CA:HARBOR SPB^^50.02^-125.3^S^AIRP^CA^^^^^^^^^CA031^^^^-1^Y^Y^YBL^BC^NAMER^A
 YHI^CYHI^Y^6296203^Holman Island Airport^Holman Island Airport^CYHI,YHI^70.72^-117.7^S^AIRP^CA^^^^^^0^35^31^America/Yellowknife^-7.0^-6.0^-7.0^2007-01-03^Y^Y^YHI^NT^NAMER^CA
 YHK^CYHK^Y^6296204^Gjoa Haven Airport^Gjoa Haven Airport^Aeropuerto de Gjoa Haven,Bandar Udara Gjoa Haven,CYHK,Gjoa Havenin lentoasema,YHK^68.63^-95.95^S^AIRP^CA^^^^^^0^46^45^America/Cambridge_Bay^-7.0^-6.0^-7.0^2007-01-03^Y^Y^YHK^NU^NAMER^CA
@@ -10469,7 +10469,7 @@ YML^CYML^Y^6296232^Charlevoix Airport^Charlevoix Airport^CYML,YML^47.65^-70.17^S
 YMM^CYMM^Y^6301465^Fort McMurray Airport^Fort McMurray Airport^Aeropuerto de Fort McMurray,Bandar Udara Fort McMurray,CYMM,Fort McMurray Airport,Fort McMurrayn lentoasema,Fort Mcmurray, Alta.,Port lotniczy Fort McMurray,YMM,fotomakumare kong gang,フォートマクマレー空港^56.65^-111.2^S^AIRP^CA^^^^^^0^369^365^America/Edmonton^-7.0^-6.0^-7.0^2011-03-28^Y^Y^YMM^AB^NAMER^CA
 YMN^CYFT^Y^6296188^Makkovik Airport^Makkovik Airport^CYFT,YMN^55.08^-59.17^S^AIRP^CA^^^^^^0^71^60^America/Goose_Bay^-4.0^-3.0^-4.0^2011-02-16^Y^Y^YMN^NL^NAMER^CA
 YMO^CYMO^Y^6296233^Moosonee Airport^Moosonee Airport^Aeropuerto de Moosonee,CYMO,Moosonee Airport,Moosonee, Ont.,YMO^51.28^-80.63^S^AIRP^CA^^^^^^0^9^8^America/Toronto^-5.0^-4.0^-5.0^2011-03-28^Y^Y^YMO^ON^NAMER^CA
-YMP^ZZZZ^N^0^PORT MCNEIL/BC/CA^PORT MCNEIL/BC/CA^^50.58^-127.1^S^AIRP^CA^^^^^^^^^CA031^^^^-1^Y^Y^YMP^BC^NAMER^CA
+YMP^ZZZZ^N^0^PORT MCNEIL/BC/CA^PORT MCNEIL/BC/CA^^50.59179^-127.08856^S^AIRP^CA^^^^^^^^^CA031^^^^-1^Y^Y^YMP^BC^NAMER^CA
 YMQ^ZZZZ^Y^6077243^Montréal^Montreal^Lungsod ng Montreal,Lungsod ng Montréal,Monreal,Monreal',Monreala,Monrealis,Monreyal,Monreāla,Mons Regius,Mont-real,Montreal,Montreal - Montreal,Montreal - Montréal,Montreal City,Montreali,Montrealo,Montréal,YMQ,meng te li er,monreali,monteuliol,montorioru,mwntral,mwntryal,Μοντρεαλ,Μόντρεαλ,Монреал,Монреаль,Монтреал,מונטריאול,مونترآل,مونتریال,مونترېئال,მონრეალი,ᒧᕆᐊᓪ,モントリオール,蒙特利尔,몬트리올^45.47^-73.75^P^PPL^CA^^10^06^^^3268513^0^216^America/Montreal^-5.0^-4.0^-5.0^2010-09-13^N^N^YMQ^QC^NAMER^C
 YMR^ZZZZ^N^0^MERRY ISLAND/BC/CA^MERRY ISLAND/BC/CA^^54.32^-130.3^S^AIRP^CA^^^^^^^^^CA031^^^^-1^Y^N^YMR^BC^NAMER^CA
 YMS^SPMS^Y^6300813^Yurimaguas^Yurimaguas^SPMS,YMS^-5.9^-76.1^S^AIRP^PE^^^^^^0^178^142^America/Lima^-5.0^-5.0^-5.0^2007-01-03^Y^N^YMS^^SAMER^CA
