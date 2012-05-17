@@ -32,6 +32,10 @@ then
 fi
 
 ##
+# ORI path
+ORI_DIR=${EXEC_PATH}../ORI/
+
+##
 # Input
 ORI_POR_FILENAME=ori_por_public.csv
 SORTED_ORI_POR=sorted_${ORI_POR_FILENAME}
@@ -43,10 +47,11 @@ TREP_NAMES_FILENAME=trep_place_names.csv
 
 ##
 #
-ORI_POR=../ORI/${ORI_POR_FILENAME}
+ORI_POR=${ORI_DIR}${ORI_POR_FILENAME}
 TREP_DETAILS_FILE=${TMP_DIR}${TREP_DETAILS_FILENAME}
 TREP_NAMES_FILE=${TMP_DIR}${TREP_NAMES_FILENAME}
 
+##
 #
 if [ "$1" = "-h" -o "$1" = "--help" ];
 then
@@ -58,6 +63,13 @@ then
 	echo "  - Default name for the ORI-maintained POR public file: '${ORI_POR}'"
 	echo
 	exit -1
+fi
+
+#
+if [ "$1" = "--clean" ];
+then
+	\rm -f ${TREP_DETAILS_FILE} ${TREP_NAMES_FILE} ${SORTED_ORI_POR}
+	exit
 fi
 
 ##
