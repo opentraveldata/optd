@@ -9,11 +9,19 @@
 #
 
 ##
+#
+TOOLS_DIR=../tools/
+
+##
 # Initial
 ORI_POR_FILE=best_coordinates_known_so_far.csv
-GEONAME_FILE=dump_from_geonames.csv
-RFD_FILE=dump_from_crb_city.csv
 ORI_ONLY_POR_FILE=ori_por_non_iata.csv
+#
+GEONAME_FILENAME=dump_from_geonames.csv
+RFD_FILENAME=dump_from_crb_city.csv
+#
+GEONAME_FILE=${TOOLS_DIR}${GEONAME_FILENAME}
+RFD_FILE=${TOOLS_DIR}${RFD_FILENAME}
 
 # Target
 ORI_POR_PUBLIC_FILE=ori_por_public.csv
@@ -23,13 +31,31 @@ ORI_ONLY_POR_NEW_FILE=${ORI_ONLY_POR_FILE}.new
 ORI_POR_WITH_GEO=${ORI_POR_FILE}.withgeo
 ORI_POR_WITH_GEORFD=${ORI_POR_FILE}.withgeorfd
 ORI_POR_WITH_GEORFDALT=${ORI_POR_FILE}.withgeorfdalt
-GEONAME_SORTED_FILE=sorted_${GEONAME_FILE}
-GEONAME_CUT_SORTED_FILE=cut_sorted_${GEONAME_FILE}
-RFD_SORTED_FILE=sorted_${RFD_FILE}
+RFD_SORTED_FILE=sorted_${RFD_FILENAME}
+RFD_CUT_SORTED_FILE=cut_sorted_${RFD_FILENAME}
+#
+GEONAME_SORTED_FILENAME=sorted_${GEONAME_FILENAME}
+GEONAME_CUT_SORTED_FILENAME=cut_sorted_${GEONAME_FILENAME}
+#
+GEONAME_SORTED_FILE=${TOOLS_DIR}${GEONAME_SORTED_FILENAME}
+GEONAME_CUT_SORTED_FILE=${TOOLS_DIR}${GEONAME_CUT_SORTED_FILENAME}
+
+##
+#
+if [ "$1" = "--clean" ];
+then
+	\rm -f ${ORI_POR_WITH_GEO} ${ORI_ONLY_POR_NEW_FILE} \
+		${ORI_POR_WITH_GEORFD} ${ORI_POR_WITH_GEORFDALT} \
+		${GEONAME_SORTED_FILE} ${GEONAME_CUT_SORTED_FILE} \
+		${RFD_SORTED_FILE} ${RFD_CUT_SORTED_FILE}
+	exit
+fi
 
 ##
 # Preparation
+pushd ${TOOLS_DIR}
 bash prepare_geonames_dump_file.sh
+popd
 bash prepare_rfd_dump_file.sh
 
 ##

@@ -75,6 +75,21 @@ then
 	exit -1
 fi
 
+#
+if [ "$1" = "--clean" ];
+then
+	if [ "${TMP_DIR}" = "/tmp/por/" ]
+	then
+		\rm -rf ${TMP_DIR}
+	else
+		\rm -f ${GEO_FILE_1_MISSING} \
+			${GEO_FILE_1_SORTED} ${GEO_FILE_1_SORTED_CUT} \
+			${AIRPORT_PG_SORTED} ${AIRPORT_PG_SORTED_CUT} \
+			${GEO_COMBINED_FILE} ${POR_MAIN_DIFF}
+	fi
+	exit
+fi
+
 ##
 # Local helper scripts
 PREPARE_EXEC="bash ${EXEC_PATH}prepare_geonames_dump_file.sh"
