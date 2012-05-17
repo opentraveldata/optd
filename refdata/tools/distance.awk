@@ -34,8 +34,8 @@ function distance_func() {
 	latdif = lat1 - lat2
 	londif = lon1 - lon2
 	meanlat = (lat1 + lat2)/2
-	popularity = $6
-	if (popularity == "") popularity = 1
+	pagerank = $6
+	if (pagerank == "") pagerank = 0.001
 	
 	a = 6377276.345
 	b = 6356075.4131
@@ -55,26 +55,27 @@ BEGIN {
 
 	if (NF == 6 || NF == 5) {
 		# The POR is specified within both input data files (e.g., Geonames
-		# and the file of best known coordinates)
+		# and the file of best known coordinates).
+		# If the popularity/PageRank field is empty, it is set to 0.001.
 		distance_func()
 
 		# IATA code
 		printf ($1)
 
 		# Distance, in km
-		printf ("^%5.0f", distance/1000)
+		printf ("^%5.0f", distance/1000.0)
 
-		# PageRank
-		printf ("^%7.2f", popularity)
+		# PageRank (the maximum being 100%, i.e., 1.0, usually for ORD/Chicago)
+		printf ("^%21.20f", pagerank)
 
 		# Popularity, in number of passengers
-		# printf ("^%9.0f", popularity)
+		# printf ("^%9.0f", pagerank)
 
 		# Distance x PageRank
-		printf ("^%8.0f", popularity*distance/1000)
+		printf ("^%8.0f", pagerank*distance)
 
 		# Distance x popularity
-		# printf ("^%8.0f", popularity*distance/1000000)
+		# printf ("^%8.0f", popularity*distance/1000000.0)
 
 		# End-of-line
 		printf ("\n")
