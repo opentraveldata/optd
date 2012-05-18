@@ -1,7 +1,7 @@
 iata_code^icao_code^is_geonames^geonameid^name^asciiname^alternatenames^latitude^longitude^fclass^fcode^country_code^cc2^admin1^admin2^admin3^admin4^population^elevation^gtopo30^timezone^gmt_offset^dst_offset^raw_offset^moddate^is_airport^is_commercial^city_code^state_code^region_code^location_type^alternate_name1^alternate_name2^alternate_name3^alternate_name4^alternate_name5^alternate_name6^alternate_name7^alternate_name8^alternate_name9^alternate_name10
 AAA^NTGA^Y^6947726^Anaa Airport^Anaa Airport^AAA,Anaa,NTGA,Анаа^-17.352606^-145.509956^S^AIRP^PF^^^^^^0^0^8^Pacific/Tahiti^-10.0^-10.0^-10.0^2012-04-29^Y^Y^AAA^^PACIF^CA
 AAB^YARY^Y^7730796^Arrabury Airport^Arrabury Airport^AAB,YARY^-26.75^141^S^AIRP^AU^^04^30450^^^0^0^69^Australia/Brisbane^10.0^10.0^10.0^2012-05-12^Y^Y^AAB^QL^AUSTL^CA
-AAC^HEAR^Y^6297289^El Arish^El Arish^AAC,HEAR^31.073333^33.835833^S^AIRP^EG^^^^^^0^36^36^Africa/Cairo^2.0^2.0^2.0^2007-01-03^Y^N^AAC^^AFRIC^CA
+AAC^HEAR^Y^6297289^El Arish^El Arish^AAC,HEAR^31.073333^33.835833^S^AIRP^EG^^^^^^0^36^36^Africa/Cairo^2.0^2.0^2.0^2007-01-03^Y^Y^AAC^^AFRIC^CA
 AAE^DABB^Y^2570559^Annaba^Annaba^AAE,Annaba,DABB,Аннаба^36.822225^7.809167^S^AIRP^DZ^^37^^^^0^0^4^Africa/Algiers^1.0^1.0^1.0^2011-03-18^Y^Y^AAE^^AFRIC^CA
 AAF^KAAF^Y^4146153^Apalachicola Municipal Airport^Apalachicola Municipal Airport^AAF,KAAF^29.73^-85.03^S^AIRP^US^^FL^037^^^0^4^10^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^N^AAF^FL^NAMER^CA
 AAG^ZZZZ^Y^3471795^Arapoti^Arapoti^AAG,Cachoeirinha^-22.87^-43.27^P^PPL^BR^BR^18^^^^0^0^860^America/Sao_Paulo^-2.0^-3.0^-3.0^2006-12-13^Y^N^AAG^PR^SAMER^CA
@@ -313,7 +313,7 @@ AOB^ZZZZ^Y^2100742^Annanberg^Annanberg^AOB,Annanberg,Annanberg Mission,Annenberg
 AOC^EDAC^Y^6296505^Altenburg Nobitz^Altenburg Nobitz^AOC,EDAC^50.981817^12.506361^S^AIRP^DE^^^^^^0^195^192^Europe/Berlin^1.0^2.0^1.0^2007-01-03^Y^N^AOC^^EUROP^CA
 AOD^ZZZZ^N^0^ABOU DEIA/TD^ABOU DEIA/TD^^11.47^19.28^S^AIRP^TD^^^^^^^^^TD^^^^-1^Y^N^AOD^^AFRIC^CA
 AOE^LTBY^Y^7730326^Anadolu University Airport^Anadolu University Airport^AOE,LTBY^39.8^30.53^S^AIRP^TR^^26^^^^0^0^788^Europe/Istanbul^2.0^3.0^2.0^2011-03-16^Y^Y^ESK^^EURAS^A
-AOG^ZYAS^Y^7730825^Anshan Air Base^Anshan Air Base^AOG,ZYAS^41.17^123^S^AIRP^CN^^19^^^^0^0^13^Asia/Shanghai^8.0^8.0^8.0^2011-03-17^Y^Y^AOG^^ASIA^CA
+AOG^ZYAS^Y^7730825^Anshan Air Base^Anshan Air Base^AOG,ZYAS^41.17^123^S^AIRP^CN^^19^^^^0^0^13^Asia/Shanghai^8.0^8.0^8.0^2011-03-17^Y^N^AOG^^ASIA^CA
 AOH^KAOH^Y^5160784^Lima Allen County Airport^Lima Allen County Airport^AOH,KAOH^40.72^-84.1^S^AIRP^US^^OH^003^^^0^291^290^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^N^AOH^OH^NAMER^CA
 AOI^LIPY^Y^6299602^Ancona Airport^Ancona Airport^AOI,LIPY^43.616342^13.362319^S^AIRP^IT^^10^AN^042018^^0^14^5^Europe/Rome^1.0^2.0^1.0^2012-01-27^Y^Y^AOI^^EUROP^CA
 AOJ^RJSA^Y^6300388^Aomori Airport^Aomori Airport^AOJ,RJSA^40.734722^140.690833^S^AIRP^JP^^^^^^0^202^202^Asia/Tokyo^9.0^9.0^9.0^2007-01-03^Y^Y^AOJ^^ASIA^CA
@@ -2221,7 +2221,7 @@ ENB^YEEB^Y^7731004^Eneabba Airport^Eneabba Airport^ENB,YEEB^-30.08^115^S^AIRP^AU
 ENC^LFSN^Y^6299471^Nancy-Essey Airport^Nancy-Essey Airport^ENC,LFSN,Nancy-Essey,Nancy-Essey Airport^48.692069^6.230458^S^AIRP^FR^^B2^54^543^54526^0^228^213^Europe/Paris^1.0^2.0^1.0^2012-02-27^Y^N^ETZ^^EUROP^A
 END^KEND^Y^4554366^Vance Air Force Base^Vance Air Force Base^END,KEND^36.339167^-97.9165^S^AIRB^US^^OK^047^^^0^391^394^America/Chicago^-6.0^-5.0^-6.0^2009-11-14^Y^N^WDG^OK^NAMER^A
 ENE^WATE^Y^7338057^Lapangan Terbang Ipi^Lapangan Terbang Ipi^ENE,Ende Airport,H. Hasan Aroeboesman Airport,Isi Airport,Lapangan Terbang Ipi,WATE^-8.833^121.7^S^AIRP^ID^^18^^^^0^0^13^Asia/Makassar^8.0^8.0^8.0^2012-01-21^Y^Y^ENE^^SEASI^CA^H. Hasan Aroeboesman Airport^Ende Airport^Isi Airport
-ENF^EFET^Y^6296537^Enontekio^Enontekio^EFET,ENF^68.362586^23.424322^S^AIRP^FI^^06^19^047^^0^306^300^Europe/Helsinki^2.0^3.0^2.0^2011-12-31^Y^Y^ENF^^EUROP^CA
+ENF^EFET^Y^6296537^Enontekio^Enontekio^EFET,ENF^68.362586^23.424322^S^AIRP^FI^^06^19^047^^0^306^300^Europe/Helsinki^2.0^3.0^2.0^2011-12-31^Y^N^ENF^^EUROP^CA
 ENH^ZHES^Y^7731005^Enshi Airport^Enshi Airport^ENH,ZHES^30.3203^109.485^S^AIRP^CN^^12^^^^0^0^488^Asia/Shanghai^8.0^8.0^8.0^2011-03-17^Y^Y^ENH^^ASIA^CA
 ENI^ZZZZ^Y^7731006^El Nido Airport^El Nido Airport^ENI^10.33^123.8^S^AIRP^PH^^^^^^0^0^4^Asia/Manila^8.0^8.0^8.0^2011-03-17^Y^Y^ENI^^PACIF^CA
 ENJ^ZZZZ^Y^7731007^El Naranjo Airport^El Naranjo Airport^ENJ^14.1^-90.83^S^AIRP^GT^^12^^^^0^0^110^America/Guatemala^-6.0^-6.0^-6.0^2011-03-17^Y^N^ENJ^^CAMER^CA
@@ -2253,7 +2253,7 @@ EPN^ZZZZ^N^0^EPENA/CG^EPENA/CG^^1.367^17.48^S^AIRP^CG^^^^^^^^^CG^^^^-1^Y^N^EPN^^
 EPR^YESP^Y^7668711^Esperance Airport^Esperance Airport^EPR,YESP^-33.684444^121.822778^S^AIRP^AU^^08^53290^^^0^0^136^Australia/Perth^8.0^8.0^8.0^2011-06-04^Y^Y^EPR^WA^AUSTL^CA
 EPS^MDAB^Y^6943784^Arroyp Barril Internaional Airport^Arroyp Barril Internaional Airport^EPS,MDAB,Samana^19.23^-69.5^S^AIRP^DO^^20^^^^0^0^30^America/Santo_Domingo^-4.0^-4.0^-4.0^2010-02-03^Y^N^EPS^^CARIB^CA
 EPT^ZZZZ^N^0^ELIPTAMIN/PG^ELIPTAMIN/PG^^-5.033^141.7^S^AIRP^PG^^^^^^^^^PG^^^^-1^Y^N^EPT^^AUSTL^CA
-EPU^EEPU^Y^589581^Pärnu Airport^Paernu Airport^EEPU,EPU,Paernu,Paernu Airport,Pärnu,Pärnu Airport^58.47^24.5^S^AIRP^EE^^11^0730^^^0^14^13^Europe/Tallinn^2.0^3.0^2.0^2011-03-28^Y^N^EPU^^EEURO^CA
+EPU^EEPU^Y^589581^Pärnu Airport^Paernu Airport^EEPU,EPU,Paernu,Paernu Airport,Pärnu,Pärnu Airport^58.47^24.5^S^AIRP^EE^^11^0730^^^0^14^13^Europe/Tallinn^2.0^3.0^2.0^2011-03-28^Y^Y^EPU^^EEURO^CA
 EQS^SAVE^Y^6300564^Esquel Aerodrome^Esquel Aerodrome^EQS,SAVE^-42.90795^-71.139472^S^AIRP^AR^^^^^^0^798^793^America/Argentina/Catamarca^-3.0^-3.0^-3.0^2007-01-03^Y^Y^EQS^CB^SAMER^CA
 EQY^KEQY^Y^4479947^Monroe Airport^Monroe Airport^EQY,KEQY^35.0204300^-80.6186800^S^AIRP^US^^NC^179^^^0^209^204^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^Z^EQY^NC^NAMER^A
 ERA^HCMU^Y^7730605^Erigavo Airport^Erigavo Airport^ERA,HCMU^10.62^47.4^S^AIRP^SO^^12^^^^0^0^1804^Africa/Mogadishu^3.0^3.0^3.0^2011-03-17^Y^N^ERA^^AFRIC^CA
@@ -4417,7 +4417,7 @@ LBC^EDHL^Y^3209094^Lübeck-Blankensee^Luebeck-Blankensee^EDHL,LBC^53.805367^10.7
 LBD^UTDL^Y^7668542^Khudzhand Airport^Khudzhand Airport^LBD,UTDL^40.22^69.7^S^AIRP^TJ^^^^^^0^0^436^Asia/Dushanbe^5.0^5.0^5.0^2011-02-17^Y^Y^LBD^^EURAS^CA
 LBE^KLBE^Y^5197215^Arnold Palmer Regional Airport^Arnold Palmer Regional Airport^KLBE,LBE^40.275939^-79.404797^S^AIRP^US^^PA^129^^^0^350^350^America/New_York^-5.0^-4.0^-5.0^2011-03-14^Y^Y^LBE^PA^NAMER^CA
 LBF^KLBF^Y^5697957^North Platte Regional Airport Lee Bird Field^North Platte Regional Airport Lee Bird Field^KLBF,LBF^41.126211^-100.683656^S^AIRF^US^^NE^111^^^0^847^851^America/Chicago^-6.0^-5.0^-6.0^2012-04-09^Y^Y^LBF^NE^NAMER^CA
-LBG^LFPB^Y^2988502^Paris-Le Bourget^Paris-Le Bourget^Aeroport du Bourget,Aéroport du Bourget,LBG,LFPB,Le Bourget^48.969444^2.441389^S^AIRP^FR^FR^A8^95^952^95088^0^66^57^Europe/Paris^1.0^2.0^1.0^2012-02-27^Y^Y^PAR^^EUROP^A
+LBG^LFPB^Y^2988502^Paris-Le Bourget^Paris-Le Bourget^Aeroport du Bourget,Aéroport du Bourget,LBG,LFPB,Le Bourget^48.969444^2.441389^S^AIRP^FR^FR^A8^95^952^95088^0^66^57^Europe/Paris^1.0^2.0^1.0^2012-02-27^Y^N^PAR^^EUROP^A
 LBH^ZZZZ^N^0^SYDNEY/NS/AU:PALM BEACH SPB^SYDNEY/NS/AU:PALM BEACH SPB^^-33.97^151.3^S^AIRP^AU^^^^^^^^^AU007^^^^-1^Y^N^SYD^NS^AUSTL^A
 LBI^LFCI^Y^6299384^Albi-Le Sequestre^Albi-Le Sequestre^LBI,LFCI^43.913887^2.113056^S^AIRP^FR^^B3^81^811^81284^0^171^170^Europe/Paris^1.0^2.0^1.0^2012-02-27^Y^N^LBI^^EUROP^CA
 LBJ^WATO^Y^7567986^Lapangan Terbang Komodo^Lapangan Terbang Komodo^LBJ,Lapangan Terbang Komodo,WATO^-8.517^119.9^S^AIRF^ID^^18^^^^0^0^68^Asia/Makassar^8.0^8.0^8.0^2012-01-21^Y^Y^LBJ^^SEASI^CA
@@ -5455,7 +5455,7 @@ MWL^KMWL^Y^4711648^Mineral Wells Airport^Mineral Wells Airport^KMWL,MWL^32.78^-9
 MWM^ZZZZ^N^0^WINDOM/MN/US:MUNICIPAL^WINDOM/MN/US:MUNICIPAL^^43.92^-95.1^S^AIRP^US^^^^^^^^^US107^^^^-1^Y^N^MWM^MN^NAMER^CA
 MWN^HTMD^Y^7730622^Mwadui Airport^Mwadui Airport^HTMD,MWN^-3.55^33.6^S^AIRP^TZ^^15^^^^0^0^1195^Africa/Dar_es_Salaam^3.0^3.0^3.0^2011-03-17^Y^N^MWN^^AFRIC^CA
 MWO^KMWO^Y^4514569^Middletown Regional/Hook Field Airport^Middletown Regional/Hook Field Airport^KMWO,MWO^39.52^-84.42^S^AIRF^US^^OH^017^^^0^196^195^America/New_York^-5.0^-4.0^-5.0^2012-04-09^Y^N^MWO^OH^NAMER^CA
-MWP^ZZZZ^Y^7731308^Mountain Airport^Mountain Airport^MWP^28^85.33^S^AIRP^NP^^CR^01^^^0^0^2674^Asia/Kathmandu^5.8^5.8^5.8^2011-03-17^Y^Y^MWP^^ASIA^CA
+MWP^ZZZZ^Y^7731308^Mountain Airport^Mountain Airport^MWP^28^85.33^S^AIRP^NP^^CR^01^^^0^0^2674^Asia/Kathmandu^5.8^5.8^5.8^2011-03-17^Y^N^MWP^^ASIA^CA
 MWQ^VYMW^Y^7731309^Magway Airport^Magway Airport^MWQ,VYMW^20.17^94.93^S^AIRP^MM^^15^^^^0^0^88^Asia/Rangoon^6.5^6.5^6.5^2011-03-17^Y^N^MWQ^^SEASI^CA
 MWR^ZZZZ^N^0^MOTSWARI/ZA^MOTSWARI/ZA^^-30.42^-25.2^S^AIRP^ZA^^^^^^^^^ZA^^^^-1^Y^N^MWR^^AFRIC^CA
 MWS^ZZZZ^N^0^MOUNT WILSON/CA/US^MOUNT WILSON/CA/US^^33.17^-105.8^S^AIRP^US^^^^^^^^^US110^^^^-1^Y^N^MWS^CA^NAMER^CA
@@ -5732,7 +5732,7 @@ NMN^ZZZZ^Y^2089539^Nomane^Nomane^NMN,Nomane^-6.317^145.1^P^PPL^PG^^08^^^^0^0^190
 NMP^ZZZZ^N^0^NEW MOON/QL/AU^NEW MOON/QL/AU^^-20.17^144^S^AIRP^AU^^^^^^^^^AU131^^^^-1^Y^N^NMP^QL^AUSTL^CA
 NMR^YNAP^Y^7731338^Nappa Merrie Airport^Nappa Merrie Airport^NMR,YNAP^-27.63^141.1^S^AIRP^AU^^04^31750^^^0^0^61^Australia/Brisbane^10.0^10.0^10.0^2011-06-04^Y^N^NMR^QL^AUSTL^CA
 NMS^VYNS^Y^7730230^Namsang Airport^Namsang Airport^NMS,VYNS^20.890492^97.735922^S^AIRP^MM^^11^^^^0^0^973^Asia/Rangoon^6.5^6.5^6.5^2011-03-16^Y^N^NMS^^SEASI^CA
-NMT^VYNT^Y^7731339^Namtu Airport^Namtu Airport^NMT,VYNT^23.08^97.4^S^AIRP^MM^^11^^^^0^0^608^Asia/Rangoon^6.5^6.5^6.5^2011-03-18^Y^Y^NMT^^SEASI^CA
+NMT^VYNT^Y^7731339^Namtu Airport^Namtu Airport^NMT,VYNT^23.08^97.4^S^AIRP^MM^^11^^^^0^0^608^Asia/Rangoon^6.5^6.5^6.5^2011-03-18^Y^N^NMT^^SEASI^CA
 NMU^ZZZZ^N^0^NAMU/MH^NAMU/MH^^8^168.2^S^AIRP^MH^^^^^^^^^MH075^^^^-1^Y^N^NMU^^PACIF^CA
 NNA^GMMY^Y^2544572^KENITRA^KENITRA^GMMY,NNA^34.298864^-6.595878^S^AIRP^MA^^52^^^^0^4^6^Africa/Casablanca^0.0^1.0^0.0^2007-01-03^Y^N^NNA^^AFRIC^CA
 NNB^ZZZZ^N^0^SANTA ANA/SB^SANTA ANA/SB^^-10.83^162.5^S^AIRP^SB^^^^^^^^^SB^^^^-1^Y^Y^NNB^^AUSTL^CA
@@ -9219,7 +9219,7 @@ VIN^UKWW^Y^7731601^Vinnitsa Airport^Vinnitsa Airport^UKWW,VIN^49.23^28.48^S^AIRP
 VIQ^WPVQ^Y^7731602^Viqueque Airport^Viqueque Airport^VIQ,WPVQ^-8.883^126.4^S^AIRP^TL^^^^^^0^0^35^Asia/Dili^9.0^9.0^9.0^2011-03-18^Y^N^VIQ^^ASIA^CA
 VIR^FAVG^Y^943880^Virginia Aerodrome^Virginia Aerodrome^FAVG,VIR^-29.770606^31.058406^S^AIRP^ZA^^02^^^^0^6^11^Africa/Johannesburg^2.0^2.0^2.0^2007-01-03^Y^N^DUR^^AFRIC^A
 VIS^KVIS^Y^5406585^Visalia Municipal Airport^Visalia Municipal Airport^KVIS,VIS^36.32^-119.4^S^AIRP^US^^CA^107^^^0^89^91^America/Los_Angeles^-8.0^-7.0^-8.0^2006-10-29^Y^Y^VIS^CA^NAMER^CA
-VIT^LEVT^Y^6299359^Gasteizko aireportua / Aeropuerto de Vitoria^Vitoria Airport (VIT)^Aeropuerto de Foronda,Aeropuerto de Vitoria,Aeropuerto de Vitoria-Gasteiz,Foronda, Aeropuerto de,Gasteizko aireportua,LEVT,VIT,Vitoria-Gasteiz, Aeropuerto de^42.882836^-2.724469^S^AIRP^ES^^59^VI^01059^^0^512^505^Europe/Madrid^1.0^2.0^1.0^2012-04-13^Y^N^VIT^^EUROP^CA
+VIT^LEVT^Y^6299359^Gasteizko aireportua / Aeropuerto de Vitoria^Vitoria Airport (VIT)^Aeropuerto de Foronda,Aeropuerto de Vitoria,Aeropuerto de Vitoria-Gasteiz,Foronda, Aeropuerto de,Gasteizko aireportua,LEVT,VIT,Vitoria-Gasteiz, Aeropuerto de^42.882836^-2.724469^S^AIRP^ES^^59^VI^01059^^0^512^505^Europe/Madrid^1.0^2.0^1.0^2012-04-13^Y^Y^VIT^^EUROP^CA
 VIU^ZZZZ^Y^7731603^Viru Harbour Airstrip^Viru Harbour Airstrip^VIU^-8.5^157.7^S^AIRP^SB^^^^^^0^0^35^Pacific/Guadalcanal^11.0^11.0^11.0^2011-03-18^Y^N^VIU^^AUSTL^CA
 VIV^ZZZZ^Y^8260919^Vivigani^Vivigani^VIV^-9.3^150.3^S^AIRP^PG^^03^^^^0^0^50^Pacific/Port_Moresby^10.0^10.0^10.0^2012-04-29^Y^N^VIV^^AUSTL^CA
 VIX^SBVT^Y^6300685^Eurico de Aguiar Salles Airport^Eurico de Aguiar Salles Airport^Aeroporto Eurico de Aguiar Salles,Aeroporto de Goiabeiras,Aeroporto de Vitoria,Aeroporto de Vitória,Eurico de Aguiar Salles Airport,Goiabeiras Airport,SBVT,VIX,Vitoria Aeroporto^-20.258056^-40.286389^S^AIRP^BR^^^^^^0^3^254^America/Sao_Paulo^-2.0^-3.0^-3.0^2011-03-28^Y^Y^VIX^ES^SAMER^CA^Goiabeiras Airport
@@ -9815,18 +9815,18 @@ XJF^ZZZZ^N^0^BORLANGE/FALUN//SE:FALUN BUS S^BORLANGE/FALUN//SE:FALUN BUS S^^60.5
 XJG^ZZZZ^N^0^DARWIN/NT/AU:RAILWAY STATION^DARWIN/NT/AU:RAILWAY STATION^^-12.38^130.7^S^AIRP^AU^^^^^^^^^AU010^^^^-1^Y^N^DRW^NT^AUSTL^R
 XJH^ZZZZ^N^0^HONG KONG/HK:FERRY PORT^HONG KONG/HK:FERRY PORT^^-22.35^114.117^S^AIRP^HK^^^^^^^^^HK^^^^-1^Y^N^HKG^^SEASI^P
 XJI^ZZZZ^N^0^CIUDAD REAL/ES:RAILWAY STATION^CIUDAD REAL/ES:RAILWAY STATION^^38.9867^-3.91389^S^AIRP^ES^^^^^^^^^ES045^^^^-1^Y^N^CQM^^EUROP^R
-XJJ^ZZZZ^N^0^ALBACETE/ES:BUS STATION^ALBACETE/ES:BUS STATION^^38.9978^-1.84639^S^AIRP^ES^^^^^^^^^ES045^^^^-1^Y^N^ABC^^EUROP^B
+XJJ^ZZZZ^N^0^ALBACETE/ES:BUS STATION^ALBACETE/ES:BUS STATION^^38.9978^-1.84639^S^AIRP^ES^^^^^^^^^ES045^^^^-1^Y^Y^ABC^^EUROP^B
 XJK^ZZZZ^N^0^KLAIPEDA/PALANGA/LT:KLAIPEDA B^KLAIPEDA/PALANGA/LT:KLAIPEDA B^^55.7^21.13^S^AIRP^LT^^^^^^^^^LT125^^^^-1^Y^N^PLQ^^EEURO^B
 XJL^ZZZZ^Y^5987650^Joliette^Joliette^XJL^46.03^-73.45^P^PPL^CA^^10^14^^^34772^0^56^America/Montreal^-5.0^-4.0^-5.0^2006-01-22^Y^Y^XJL^QC^NAMER^CR
 XJM^OPMA^Y^7668399^Mangla Airport^Mangla Airport^OPMA,XJM^33.62^73.1^S^AIRP^PK^^04^^^^0^0^268^Asia/Karachi^5.0^5.0^5.0^2011-02-17^Y^N^XJM^^ASIA^O
-XJN^ZZZZ^N^0^VALLADOLID/ES:BUS STATION^VALLADOLID/ES:BUS STATION^^41.6411^-4.7325^S^AIRP^ES^^^^^^^^^ES045^^^^-1^Y^N^VLL^^EUROP^B
-XJO^ZZZZ^N^0^SORIA/ES:BUS STATION^SORIA/ES:BUS STATION^^41.7669^-2.47944^S^AIRP^ES^^^^^^^^^ES045^^^^-1^Y^N^XJO^^EUROP^CB
+XJN^ZZZZ^N^0^VALLADOLID/ES:BUS STATION^VALLADOLID/ES:BUS STATION^^41.6411^-4.7325^S^AIRP^ES^^^^^^^^^ES045^^^^-1^Y^Y^VLL^^EUROP^B
+XJO^ZZZZ^N^0^SORIA/ES:BUS STATION^SORIA/ES:BUS STATION^^41.7669^-2.47944^S^AIRP^ES^^^^^^^^^ES045^^^^-1^Y^Y^XJO^^EUROP^CB
 XJP^ZZZZ^N^0^PARDUBICE/CZ:MAIN RAILWAY STAT^PARDUBICE/CZ:MAIN RAILWAY STAT^^50.03^15.75^S^AIRP^CZ^^^^^^^^^CZ037^^^^-1^Y^N^PED^^EEURO^R
 XJQ^ZZZZ^Y^7910494^Jonquiere^Jonquiere^Jonquiere,Jonquière,XJQ^48.87^-71.27^S^RSTN^CA^^10^02^^^0^0^149^America/Montreal^-5.0^-4.0^-5.0^2011-07-27^Y^Y^XJQ^QC^NAMER^CR
-XJR^ZZZZ^N^0^LORCA/ES:BUS STATION^LORCA/ES:BUS STATION^^37.6711^-1.69667^S^AIRP^ES^^^^^^^^^ES045^^^^-1^Y^N^XJR^^EUROP^CB
+XJR^ZZZZ^N^0^LORCA/ES:BUS STATION^LORCA/ES:BUS STATION^^37.6711^-1.69667^S^AIRP^ES^^^^^^^^^ES045^^^^-1^Y^Y^XJR^^EUROP^CB
 XJS^ZZZZ^N^0^SALZBURG/AT:KITZBUEHEL RAIL^SALZBURG/AT:KITZBUEHEL RAIL^^47.79^13.08^S^AIRP^AT^^^^^^^^^AT005^^^^-1^Y^N^SZG^^EUROP^R
 XJT^ZZZZ^N^0^TOURS/FR:TOURS RAILWAY STATION^TOURS/FR:TOURS RAILWAY STATION^^47.43^0.7167^S^AIRP^FR^^^^^^^^^FR052^^^^-1^Y^N^TUF^^EUROP^R
-XJU^ZZZZ^N^0^BURGOS/ES:BUS STATION^BURGOS/ES:BUS STATION^^42.3378^-3.70111^S^AIRP^ES^^^^^^^^^ES045^^^^-1^Y^N^RGS^^EUROP^B
+XJU^ZZZZ^N^0^BURGOS/ES:BUS STATION^BURGOS/ES:BUS STATION^^42.3378^-3.70111^S^AIRP^ES^^^^^^^^^ES045^^^^-1^Y^Y^RGS^^EUROP^B
 XJV^ZZZZ^N^0^OSTRAVA/CZ:MAIN RAILWAY STATIO^OSTRAVA/CZ:MAIN RAILWAY STATIO^^49.85^18.27^S^AIRP^CZ^^^^^^^^^CZ037^^^^-1^Y^N^OSR^^EEURO^R
 XJY^ZZZZ^N^0^PARIS/FR:MASSY TGV RAIL STATIO^PARIS/FR:MASSY TGV RAIL STATIO^^48.7181^2.25^S^AIRP^FR^^^^^^^^^FR052^^^^-1^Y^Y^PAR^^EUROP^R
 XJZ^ZZZZ^N^0^ST JEAN DE LUZ/FR:ST JEAN DE L^ST JEAN DE LUZ/FR:ST JEAN DE L^^43.3833^-1.66667^S^AIRP^FR^^^^^^^^^FR052^^^^-1^Y^N^XJZ^^EUROP^O
@@ -10732,7 +10732,7 @@ YZU^CYZU^Y^6301498^Whitecourt Airport^Whitecourt Airport^Bandar Udara Whitecourt
 YZV^CYZV^Y^6296347^Sept-Îles Airport^Sept-Iles Airport^Aeroport de Sept-Iles,Aeropuerto de Sept-Iles,Aeropuerto de Sept-Îles,Aéroport de Sept-Îles,CYZV,Sept-Iles Airport,Sept-Iles, Que.,Sept-Îles Airport,YZV^50.223333^-66.265556^S^AIRP^CA^^^^^^0^54^51^America/Montreal^-5.0^-4.0^-5.0^2011-03-28^Y^Y^YZV^QC^NAMER^CA
 YZW^CYZW^Y^6301499^Teslin Airport^Teslin Airport^CYZW,Teslin Airport,Teslin, Y. T.,YZW^60.172779^-132.742778^S^AIRP^CA^^^^^^0^705^683^America/Whitehorse^-8.0^-7.0^-8.0^2011-03-28^Y^N^YZW^YT^NAMER^CA
 YZX^CYZX^Y^6296348^Greenwood, N. S.^Greenwood, N. S.^CYZX,YZX^44.984444^-64.916944^S^AIRP^CA^^^^^^0^28^30^America/Halifax^-4.0^-3.0^-4.0^2007-01-03^Y^N^YZX^NS^NAMER^CA
-YZY^ZZZZ^Y^8224672^Zhangye Ghanzhou Airport^Zhangye Ghanzhou Airport^YZY,zhang ye gan zhou ji chang,张掖甘州机场^38.80311^100.67528^S^AIRP^CN^^15^^^^0^0^1579^Asia/Chongqing^8.0^8.0^8.0^2012-03-31^Y^N^YZY^^ASIA^
+YZY^ZZZZ^Y^8224672^Zhangye Ghanzhou Airport^Zhangye Ghanzhou Airport^YZY,zhang ye gan zhou ji chang,张掖甘州机场^38.80311^100.67528^S^AIRP^CN^^15^^^^0^0^1579^Asia/Chongqing^8.0^8.0^8.0^2012-03-31^Y^Y^YZY^^ASIA^CA
 YZZ^ZZZZ^Y^7910243^Trail^Trail^YZZ^49.06^-117.6^S^AIRP^CA^^02^^^^0^0^436^America/Vancouver^-8.0^-7.0^-8.0^2011-07-20^Y^Y^YZZ^BC^NAMER^CA
 ZAA^ZZZZ^Y^5883655^Alice Arm^Alice Arm^ZAA^55.48^-129.5^P^PPLL^CA^^02^^^^0^0^26^America/Vancouver^-8.0^-7.0^-8.0^2006-01-18^Y^N^ZAA^BC^NAMER^CA
 ZAB^ZZZZ^N^0^BOU KADIR/DZ:BOU KADIR^BOU KADIR/DZ:BOU KADIR^^0^0^X^XXXX^DZ^^^^^^^^^DZ^^^^-1^N^N^ZAB^^AFRIC^O
@@ -11373,7 +11373,7 @@ ZZA^ZZZZ^Y^2506043^Azazga^Azazga^Agagza,Agazza,Azazga,ZZA^36.7447200^4.3722200^P
 ZZB^ZZZZ^Y^2505629^Barika^Barika^Barika,ZZB,Барика^35.3890100^5.3658400^P^PPL^DZ^^03^^^^98846^0^476^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZB^^AFRIC^O
 ZZC^ZZZZ^Y^2501440^Cherchell^Cherchell^Cherche,Cherchel,Cherchell,Cherchez,Sersell,Shershel,Shershell,ZZC^36.6050000^2.1908300^P^PPL^DZ^^55^^^^0^0^38^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZC^^AFRIC^O
 ZZD^ZZZZ^Y^2499104^Draa el Mizan^Draa el Mizan^Dra el Mizan,Dra el Mizane,Dra-ehl'-Mizan,Draa el Mizan,ZZD,Дра-эль-Мизан^36.5362800^3.8334000^P^PPL^DZ^^21^^^^41263^0^410^Africa/Algiers^1.0^1.0^1.0^2012-01-19^N^N^ZZD^^AFRIC^O
-ZZF^ZZZZ^Y^8260374^Mystery Flight Airport^Mystery Flight Airport^ZZF^-37.28^142.9^S^AIRP^AU^^07^20260^^^0^0^313^Australia/Melbourne^11.0^10.0^10.0^2012-04-21^Y^Y^ZZF^VI^AUSTL^O
+ZZF^ZZZZ^Y^8260374^Mystery Flight Airport^Mystery Flight Airport^ZZF^-37.28^142.9^S^AIRP^AU^^07^20260^^^0^0^313^Australia/Melbourne^11.0^10.0^10.0^2012-04-21^Y^N^ZZF^VI^AUSTL^O
 ZZG^ZZZZ^N^0^FICTITIOUS POINT/DE:GE^FICTITIOUS POINT/DE:GE^^50.03^8.567^S^AIRP^DE^^^^^^^^^DE040^^^^-1^Y^Y^ZZG^^EUROP^CA
 ZZI^ZZZZ^N^0^ELITE MYSTERY NIGHT/VI/AU:OFF-^ELITE MYSTERY NIGHT/VI/AU:OFF-^^-38.28^142.5^X^XXXX^AU^^^^^^^^^AU007^^^^-1^N^N^ZZI^VI^AUSTL^O
 ZZJ^ZZZZ^N^0^MYSTERY NIGHT/VI/AU:OFF-^MYSTERY NIGHT/VI/AU:OFF-^^-38.03^144.5^X^XXXX^AU^^^^^^^^^AU007^^^^-1^N^N^ZZJ^VI^AUSTL^O
