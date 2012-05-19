@@ -5587,7 +5587,7 @@ NCE^LFMN^Y^6299418^Nice - Côte d'Azur^Nice - Cote d'Azur^Aeroport de Nice Cote 
 NCG^MMCG^Y^3994617^Nuevo Casas Grandes^Nuevo Casas Grandes^MMCG,NCG,Nuevo Casas Grandes^30.52^-108^S^AIRF^MX^^06^^^^0^0^1462^America/Chihuahua^-7.0^-6.0^-7.0^2012-01-18^Y^N^NCG^^NAMER^CA
 NCH^HTNA^Y^6297366^Nachingwea^Nachingwea^HTNA,NCH^-10.37^38.8^S^AIRP^TZ^^^^^^0^463^436^Africa/Dar_es_Salaam^3.0^3.0^3.0^2006-10-29^Y^N^NCH^^AFRIC^CA
 NCI^SKNC^Y^7731329^Necocli Airport^Necocli Airport^NCI,SKNC^8.45^-76.78^S^AIRP^CO^^02^^^^0^0^42^America/Bogota^-5.0^-5.0^-5.0^2011-03-18^Y^N^NCI^^SAMER^CA
-NCJ^ZZZZ^Y^3834971^Sunchales^Sunchales^NCJ,Sunchales^-3.8075^-75.0478^P^PPL^AR^^21^^^^18757^0^98^America/Argentina/Cordoba^-3.0^-3.0^-3.0^2012-01-18^N^N^NCJ^SF^SAMER^C
+NCJ^ZZZZ^Y^3834971^Sunchales^Sunchales^NCJ,Sunchales^-30.94404^-61.56148^P^PPL^AR^^21^^^^18757^0^98^America/Argentina/Cordoba^-3.0^-3.0^-3.0^2012-01-18^N^N^NCJ^SF^SAMER^C
 NCL^EGNT^Y^6296611^Newcastle International Airport^Newcastle International Airport^EGNT,NCL^55.0375^-1.691667^S^AIRP^GB^^ENG^I7^^^0^81^74^Europe/London^0.0^1.0^0.0^2010-05-25^Y^Y^NCL^^EUROP^CA
 NCN^PFCB^Y^8114008^Chenega Bay Airport^Chenega Bay Airport^NCN,PFCB^60^-148^S^AIRP^US^^AK^261^^^0^0^243^America/Anchorage^-9.0^-8.0^-9.0^2011-12-13^Y^N^NCN^AK^NAMER^CA
 NCO^KOQU^Y^5224229^Quonset State Airport^Quonset State Airport^KOQU,NCO^41.6^-71.42^S^AIRP^US^^RI^009^^^0^10^247^America/New_York^-5.0^-4.0^-5.0^2011-03-10^Y^N^NCO^RI^NAMER^CA
@@ -8485,7 +8485,7 @@ TDK^UAAT^Y^7730182^Taldykorgan Airport^Taldykorgan Airport^TDK,UAAT^45.15^78.43^
 TDL^SAZT^Y^6300591^Tandil Aerodrome^Tandil Aerodrome^SAZT,TDL^-37.237392^-59.227922^S^AIRP^AR^^^^^^0^174^179^America/Argentina/Buenos_Aires^-3.0^-3.0^-3.0^2007-01-03^Y^N^TDL^BA^SAMER^CA
 TDN^ZZZZ^Y^8298884^Theda Station^Theda Station^TDN^-14.75^126.5^S^AIRP^AU^^08^59520^^^0^0^301^Australia/Perth^8.0^8.0^8.0^2012-05-18^Y^N^TDN^WA^AUSTL^CA
 TDO^KTDO^Y^5813686^South Lewis County Airport^South Lewis County Airport^Ed Carlson Memorial Field,KTDO,TDO,Toledo County Airport,Winlock County Airport^46.47733^-122.80706^S^AIRP^US^^WA^041^^^0^110^110^America/Los_Angeles^-8.0^-7.0^-8.0^2012-04-08^Y^N^TDO^WA^NAMER^CA^Winlock County Airport^Toledo County Airport^Ed Carlson Memorial Field
-TDP^ZZZZ^Y^8260913^Trompeteros^Trompeteros^TDP^-3.8075^-75.0478^S^AIRP^PE^^16^^^^0^0^138^America/Lima^-5.0^-5.0^-5.0^2012-04-29^N^N^TDP^^SAMER^C
+TDP^ZZZZ^Y^8260913^Trompeteros^Trompeteros^TDP^-3.80611^-75.04023^S^AIRP^PE^^16^^^^0^0^138^America/Lima^-5.0^-5.0^-5.0^2012-04-29^N^N^TDP^^SAMER^C
 TDR^YTDR^Y^7731537^Theodore Airport^Theodore Airport^TDR,YTDR^-24.98^150.1^S^AIRP^AU^^04^30370^^^0^0^171^Australia/Brisbane^10.0^10.0^10.0^2011-06-04^Y^N^TDR^QL^AUSTL^CA
 TDS^ZZZZ^Y^8224680^Sasereme Airport^Sasereme Airport^TDS^-7.62281^142.86896^S^AIRP^PG^^06^^^^0^0^49^Pacific/Port_Moresby^10.0^10.0^10.0^2012-03-26^Y^Z^TDS^06^PACIF^A
 TDT^ZZZZ^Y^7731538^Tanda Tula Airport^Tanda Tula Airport^TDT^-24.53^31.3^S^AIRP^ZA^^^^^^0^0^476^Africa/Johannesburg^2.0^2.0^2.0^2011-03-18^Y^N^TDT^^AFRIC^CA
