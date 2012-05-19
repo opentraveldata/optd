@@ -3178,7 +3178,7 @@ HNB^ZZZZ^Y^4259271^Huntingburg^Huntingburg^HNB^38.3^-86.95^P^PPL^US^^IN^037^^^60
 HNC^KHSE^Y^4455993^Billy Mitchell Airport^Billy Mitchell Airport^HNC,KHSE^35.22^-75.68^S^AIRP^US^^NC^055^^^0^3^4^America/New_York^-5.0^-4.0^-5.0^2011-12-11^Y^N^HNC^NC^NAMER^CA
 HND^RJTT^Y^6300412^Tokyo International Airport^Tokyo International Airport^HND,RJTT^35.552258^139.779694^S^AIRP^JP^^^^^^0^10^254^Asia/Tokyo^9.0^9.0^9.0^2007-01-03^Y^Y^TYO^^ASIA^A
 HNE^ZZZZ^N^0^TAHNETA PASS LODG/AK/US:TAHNET^TAHNETA PASS LODG/AK/US:TAHNET^^61.88^-147.3^S^AIRP^US^^^^^^^^^US111^^^^-1^Y^N^HNE^AK^NAMER^CA
-HNG^ZZZZ^Y^8298968^Hienghene^Hienghene^HNG^21.450453^-157.768^S^AIRP^NC^^^^^^0^0^121^Pacific/Noumea^11.0^11.0^11.0^2012-05-18^Y^N^HNG^^AUSTL^CA
+HNG^ZZZZ^Y^8298968^Hienghene^Hienghene^HNG^-16.57467^44.46442^S^AIRP^NC^^^^^^0^0^121^Pacific/Noumea^11.0^11.0^11.0^2012-05-18^Y^N^HNG^^AUSTL^CA
 HNH^PAOH^Y^5847139^Hoonah Airport^Hoonah Airport^HNH,PAOH^58.1^-135.4^S^AIRP^US^^AK^105^^^0^13^3^America/Juneau^-9.0^-8.0^-9.0^2011-12-12^Y^Y^HNH^AK^NAMER^CA
 HNI^ZZZZ^Y^8261008^Heiweni^Heiweni^HNI^-7.4^146.5^S^AIRP^PG^^14^^^^0^0^2018^Pacific/Port_Moresby^10.0^10.0^10.0^2012-04-29^Y^N^HNI^^AUSTL^CA
 HNL^PHNL^Y^5856213^Honolulu International Airport^Honolulu International Airport^Aerborzh Etrevroadel Honolulu,Aeroport international d'Honolulu,Aeroporto Internacional de Honolulu,Aeroporto Internazionale di Honolulu,Aeropuerto Internacional de Honolulu,Aéroport international d'Honolulu,Bandar Udara Internasional Honolulu,Gonolulu,HNL,Honolulun kansainvaelinen lentoasema,Honolulun kansainvälinen lentoasema,PHNL,Port lotniczy Honolulu,San bay quoc te Honolulu,Sân bay quốc tế Honolulu,frwdgah byn almly hwnwlwlw,honollullu gugjegonghang,honoruru guo ji kong gang,mtar hwnwlwlw aldwly,tan xiang shan guo ji ji chang,tha xakasyan nanachati honolulu,Гонолулу,فرودگاه بین الملی هونولولو,مطار هونولولو الدولى,ท่าอากาศยานนานาชาติโฮโนลูลู,ホノルル国際空港,檀香山國際機場,호놀룰루 국제공항^21.318681^-157.922428^S^AIRP^US^^HI^003^^^0^2^1^Pacific/Honolulu^-10.0^-10.0^-10.0^2011-07-30^Y^Y^HNL^HI^NAMER^CA
@@ -4472,7 +4472,7 @@ LDM^KLDM^Y^5001100^Mason County Airport^Mason County Airport^KLDM,LDM^43.95^-86.
 LDN^VNLD^Y^7668621^Lamidanda Airport^Lamidanda Airport^LDN,VNLD^27.3^86.75^S^AIRP^NP^^ER^13^^^0^0^1235^Asia/Kathmandu^5.8^5.8^5.8^2011-06-25^Y^Y^LDN^^ASIA^CA
 LDO^ZZZZ^N^0^LADOUANIE/SR^LADOUANIE/SR^^4.383^-55.42^S^AIRP^SR^^^^^^^^^SR^^^^-1^Y^N^LDO^^SAMER^CA
 LDR^ZZZZ^Y^8260994^Lawdar^Lawdar^LDR^13.88^45.87^S^AIRP^YE^^01^1204^^^0^0^979^Asia/Aden^3.0^3.0^3.0^2012-04-29^Y^N^LDR^^MEAST^CA
-LDS^ZZZZ^Y^8298672^Yichun^Yichun^LDS^42.35^-88.03^S^AIRP^CN^^08^^^^0^0^246^Asia/Harbin^8.0^8.0^8.0^2012-05-18^Y^Y^LDS^^ASIA^CA
+LDS^ZZZZ^Y^8298672^Yichun^Yichun^LDS^47.7514^129.018^S^AIRP^CN^^08^^^^0^0^246^Asia/Harbin^8.0^8.0^8.0^2012-05-18^Y^Y^LDS^^ASIA^CA
 LDU^WBKD^Y^7668671^Lahad Datu Airport^Lahad Datu Airport^LDU,WBKD^5.032247^118.324036^S^AIRP^MY^^16^^^^0^0^15^Asia/Kuching^8.0^8.0^8.0^2011-02-17^Y^Y^LDU^^SEASI^CA
 LDV^LFRJ^Y^6299455^Landivisiau^Landivisiau^LDV,LFRJ^48.530258^-4.151642^S^AIRB^FR^^A2^29^293^29264^0^106^106^Europe/Paris^1.0^2.0^1.0^2012-02-27^Y^N^LDV^^EUROP^CA
 LDW^ZZZZ^Y^8260847^Lansdowne Station^Lansdowne Station^LDW^-17.58^126.8^S^AIRP^AU^^08^53920^^^0^0^549^Australia/Perth^8.0^8.0^8.0^2012-04-29^Y^N^LDW^WA^AUSTL^CA
