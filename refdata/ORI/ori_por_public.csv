@@ -1840,7 +1840,7 @@ DHD^YDRH^Y^7730972^Durham Downs Airport^Durham Downs Airport^DHD,YDRH^-27.07^141
 DHF^ZZZZ^N^0^ABU DHABI/AE:AL DHAFRA AB^ABU DHABI/AE:AL DHAFRA AB^^24.248249^54.547722^S^AIRP^AE^^^^^^^^^AE^^^^-1^Y^N^AUH^^MEAST^A
 DHI^VNDH^Y^7668618^Dhangarhi Airport^Dhangarhi Airport^DHI,VNDH^28.25^80.67^S^AIRP^NP^^FR^14^^^0^0^188^Asia/Kathmandu^5.8^5.8^5.8^2011-03-10^Y^Y^DHI^^ASIA^CA
 DHL^ZZZZ^Y^8298720^Dhala^Dhala^DHL^13.73^44.72^S^AIRP^YE^^18^3006^^^0^0^1579^Asia/Aden^3.0^3.0^3.0^2012-05-18^Y^N^DHL^^MEAST^CA
-DHM^VIGG^Y^6453418^Gaggal^Gaggal^DHM,VIGG^17.38^78.47^S^AIRP^IN^^11^^^^0^770^760^Asia/Kolkata^5.5^5.5^5.5^2007-03-30^Y^Y^DHM^^ASIA^CA
+DHM^VIGG^Y^6453418^Gaggal^Gaggal^DHM,VIGG^32.1649^76.26293^S^AIRP^IN^^11^^^^0^770^760^Asia/Kolkata^5.5^5.5^5.5^2007-03-30^Y^Y^DHM^^ASIA^CA
 DHN^KDHN^Y^4059103^Dothan Regional Airport^Dothan Regional Airport^DHN,KDHN^31.321339^-85.449628^S^AIRP^US^^AL^045^^^0^113^117^America/Chicago^-6.0^-5.0^-6.0^2011-12-11^Y^Y^DHN^AL^NAMER^CA
 DHR^EHKD^Y^6296687^De Kooy^De Kooy^DHR,EHKD^52.923353^4.780625^S^AIRP^NL^^07^0400^^^0^0^255^Europe/Amsterdam^1.0^2.0^1.0^2011-06-04^Y^N^DHR^^EUROP^CA
 DHT^KDHT^Y^5519866^Dalhart Municipal Airport^Dalhart Municipal Airport^DHT,KDHT^36.02226^-102.5477^S^AIRP^US^^TX^205^^^0^1215^1220^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^N^DHT^TX^NAMER^CA
@@ -3178,7 +3178,7 @@ HNB^ZZZZ^Y^4259271^Huntingburg^Huntingburg^HNB^38.3^-86.95^P^PPL^US^^IN^037^^^60
 HNC^KHSE^Y^4455993^Billy Mitchell Airport^Billy Mitchell Airport^HNC,KHSE^35.22^-75.68^S^AIRP^US^^NC^055^^^0^3^4^America/New_York^-5.0^-4.0^-5.0^2011-12-11^Y^N^HNC^NC^NAMER^CA
 HND^RJTT^Y^6300412^Tokyo International Airport^Tokyo International Airport^HND,RJTT^35.552258^139.779694^S^AIRP^JP^^^^^^0^10^254^Asia/Tokyo^9.0^9.0^9.0^2007-01-03^Y^Y^TYO^^ASIA^A
 HNE^ZZZZ^N^0^TAHNETA PASS LODG/AK/US:TAHNET^TAHNETA PASS LODG/AK/US:TAHNET^^61.88^-147.3^S^AIRP^US^^^^^^^^^US111^^^^-1^Y^N^HNE^AK^NAMER^CA
-HNG^ZZZZ^Y^8298968^Hienghene^Hienghene^HNG^-16.57467^44.46442^S^AIRP^NC^^^^^^0^0^121^Pacific/Noumea^11.0^11.0^11.0^2012-05-18^Y^N^HNG^^AUSTL^CA
+HNG^ZZZZ^Y^8298968^Hienghene^Hienghene^HNG^-20.6833000^164.933^S^AIRP^NC^^^^^^0^0^121^Pacific/Noumea^11.0^11.0^11.0^2012-05-18^Y^N^HNG^^AUSTL^CA
 HNH^PAOH^Y^5847139^Hoonah Airport^Hoonah Airport^HNH,PAOH^58.1^-135.4^S^AIRP^US^^AK^105^^^0^13^3^America/Juneau^-9.0^-8.0^-9.0^2011-12-12^Y^Y^HNH^AK^NAMER^CA
 HNI^ZZZZ^Y^8261008^Heiweni^Heiweni^HNI^-7.4^146.5^S^AIRP^PG^^14^^^^0^0^2018^Pacific/Port_Moresby^10.0^10.0^10.0^2012-04-29^Y^N^HNI^^AUSTL^CA
 HNL^PHNL^Y^5856213^Honolulu International Airport^Honolulu International Airport^Aerborzh Etrevroadel Honolulu,Aeroport international d'Honolulu,Aeroporto Internacional de Honolulu,Aeroporto Internazionale di Honolulu,Aeropuerto Internacional de Honolulu,Aéroport international d'Honolulu,Bandar Udara Internasional Honolulu,Gonolulu,HNL,Honolulun kansainvaelinen lentoasema,Honolulun kansainvälinen lentoasema,PHNL,Port lotniczy Honolulu,San bay quoc te Honolulu,Sân bay quốc tế Honolulu,frwdgah byn almly hwnwlwlw,honollullu gugjegonghang,honoruru guo ji kong gang,mtar hwnwlwlw aldwly,tan xiang shan guo ji ji chang,tha xakasyan nanachati honolulu,Гонолулу,فرودگاه بین الملی هونولولو,مطار هونولولو الدولى,ท่าอากาศยานนานาชาติโฮโนลูลู,ホノルル国際空港,檀香山國際機場,호놀룰루 국제공항^21.318681^-157.922428^S^AIRP^US^^HI^003^^^0^2^1^Pacific/Honolulu^-10.0^-10.0^-10.0^2011-07-30^Y^Y^HNL^HI^NAMER^CA
@@ -10624,7 +10624,7 @@ YTM^CYFJ^Y^7730033^La Macaza / Mont-Tremblant International Inc Airport^La Macaz
 YTN^ZZZZ^Y^8260978^Riviere Au Tonner^Riviere Au Tonner^YTN^45.611944^-62.621111^S^AIRP^CA^^07^^^^0^0^92^America/Halifax^-4.0^-3.0^-4.0^2012-04-29^Y^N^YTN^QC^NAMER^CA
 YTO^ZZZZ^Y^6167865^Toronto^Toronto^Gorad Taronta,Torontas,Toronto,Toronto, Ontario,Torontu,Torontum,Torontó,YTO,duo lun duo,roranro,taranto,taronto,tearanrea,tho rxn to,tolonto,toramto,toranto,toronto,twrntw,twrwntw,Τορόντο,Горад Таронта,Торонто,טאראנטא,טורונטו,تورنتو,تورونتو,ٹورانٹو,ٹورنٹو,टोरण्टो,टोराँटो,টরোন্টো,ਟਾਰਾਂਟੋ,ரொறன்ரோ,టొరంటో,ടൊറാന്റോ,โทรอนโต,ტორონტო,トロント,多伦多,토론토^43.68^-79.63^P^PPLA^CA^^08^^^^4612191^0^175^America/Toronto^-5.0^-4.0^-5.0^2012-05-17^N^N^YTO^ON^NAMER^C
 YTP^ZZZZ^N^0^TOFINO/BC/CA:SEA PLANE BASE^TOFINO/BC/CA:SEA PLANE BASE^^49.15^-125.4^S^AIRP^CA^^^^^^^^^CA031^^^^-1^Y^N^YAZ^BC^NAMER^A
-YTQ^CYTQ^Y^6296288^Tasiujaq A^Tasiujaq A^CYTQ,YTQ^53.68^-69.93^S^AIRP^CA^^10^17^^^0^31^31^America/Montreal^-5.0^-4.0^-5.0^2011-07-20^Y^Y^YTQ^QC^NAMER^CA
+YTQ^CYTQ^Y^6296288^Tasiujaq A^Tasiujaq A^CYTQ,YTQ^58.66712^-69.95729^S^AIRP^CA^^10^17^^^0^31^31^America/Montreal^-5.0^-4.0^-5.0^2011-07-20^Y^Y^YTQ^QC^NAMER^CA
 YTR^CYTR^Y^6296289^Trenton, Ont.^Trenton, Ont.^CYTR,YTR^44.118889^-77.528056^S^AIRP^CA^^^^^^0^86^80^America/Toronto^-5.0^-4.0^-5.0^2007-01-03^Y^N^YTR^ON^NAMER^CA
 YTS^CYTS^Y^6296290^Timmins, Ont.^Timmins, Ont.^CYTS,YTS^48.569721^-81.376667^S^AIRP^CA^^^^^^0^294^294^America/Toronto^-5.0^-4.0^-5.0^2007-01-03^Y^Y^YTS^ON^NAMER^CA
 YTT^ZZZZ^Y^8260909^Tisdale^Tisdale^YTT^52.85^-104.1^S^AIRP^CA^^11^^^^0^0^460^America/Regina^-6.0^-6.0^-6.0^2012-04-29^Y^N^YTT^SK^NAMER^CA
