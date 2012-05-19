@@ -5463,7 +5463,7 @@ MWT^ZZZZ^Y^8298794^Moolawatana^Moolawatana^MWT^-29.92^139.7^S^AIRP^AU^^05^^^^0^0
 MWU^ZZZZ^Y^8260863^Mussau^Mussau^MWU^-1.5^149.7^S^AIRP^PG^^15^^^^0^0^140^Pacific/Port_Moresby^10.0^10.0^10.0^2012-04-29^Y^N^MWU^^AUSTL^CA
 MWV^ZZZZ^Y^8261060^Môndól Kiri Airport^Mondol Kiri Airport^MWV,Mondol Kiri Airport,Mondulkiri Airport,Mundulkiri Airport,Môndól Kiri Airport^12.45^107.2^S^AIRP^KH^^10^^^^0^0^712^Asia/Phnom_Penh^7.0^7.0^7.0^2012-04-30^Y^N^MWV^^SEASI^CA^Môndól Kiri Airport^Mundulkiri Airport^Mondulkiri Airport
 MWW^ZZZZ^Y^2790595^Mouscron^Mouscron^MWW,Moeskroen,Mouscron,Muskron,Muskrono,Мускрон^50.73^3.233^P^PPL^BE^^WAL^WHT^54^54007^52069^0^53^Europe/Brussels^1.0^2.0^1.0^2012-01-18^Y^N^MWW^^EUROP^O
-MWX^ZZZZ^Y^8299100^Muan^Muan^MWX^-16.58^-44.45^S^AIRP^KR^^16^^^^0^0^9^Asia/Seoul^9.0^9.0^9.0^2012-05-18^Y^Y^MWX^^ASIA^CA
+MWX^ZZZZ^Y^8299100^Muan^Muan^MWX^34.9914^126.383^S^AIRP^KR^^16^^^^0^0^9^Asia/Seoul^9.0^9.0^9.0^2012-05-18^Y^Y^MWX^^ASIA^CA
 MWY^ZZZZ^Y^7731310^Miranda Downs Airport^Miranda Downs Airport^MWY^-17.37^141.9^S^AIRP^AU^^04^32250^^^0^0^53^Australia/Brisbane^10.0^10.0^10.0^2011-06-04^Y^N^MWY^QL^AUSTL^CA
 MWZ^HTMW^Y^6297365^Mwanza Airport^Mwanza Airport^HTMW,MWZ,Mwanza,Mwanza Airport^-2.444486^32.932667^S^AIRP^TZ^^^^^^0^1146^1150^Africa/Dar_es_Salaam^3.0^3.0^3.0^2011-03-28^Y^Y^MWZ^^AFRIC^CA
 MXA^KMXA^Y^4120424^Manila Municipal Airport^Manila Municipal Airport^KMXA,MXA^40.98^-109.7^S^AIRP^US^^AR^093^^^0^74^74^America/Chicago^-6.0^-5.0^-6.0^2011-12-11^Y^N^MXA^AR^NAMER^CA
@@ -5698,7 +5698,7 @@ NKI^ZZZZ^Y^8298644^Naukiti Airport^Naukiti Airport^NKI,Naukati Bay Airport,Nauki
 NKL^FZAR^Y^7730554^Nkolo Fuma Airport^Nkolo Fuma Airport^FZAR,NKL^-1.983^16.47^S^AIRP^CD^^08^^^^0^0^404^Africa/Kinshasa^1.0^1.0^1.0^2011-03-17^Y^N^NKL^^AFRIC^CA
 NKM^RJNN^Y^6301826^Nagoya Airport^Nagoya Airport^NKM,Nagoya Hikojo,Nagoya Hikōjō,RJNA,RJNN,ming gu wu fei xing chang,名古屋飛行場^35.25^136.9^S^AIRP^JP^^01^^^^0^14^7^Asia/Tokyo^9.0^9.0^9.0^2011-01-16^Y^Y^NGO^^ASIA^A
 NKN^ZZZZ^Y^8299113^Nankina^Nankina^NKN^-5.833^146.5^S^AIRP^PG^^12^^^^0^0^1678^Pacific/Port_Moresby^10.0^10.0^10.0^2012-05-18^Y^N^NKN^^AUSTL^CA
-NKO^ZZZZ^N^0^ANKOKOAMBO/MG:ANKOKOAMBO^ANKOKOAMBO/MG:ANKOKOAMBO^^-18.78^47.47^S^AIRP^MG^^^^^^^^^MG^^^^-1^Y^N^NKO^^AFRIC^CA
+NKO^ZZZZ^N^0^ANKOKOAMBO/MG:ANKOKOAMBO^ANKOKOAMBO/MG:ANKOKOAMBO^^-16.57467^44.46442^S^AIRP^MG^^^^^^^^^MG^^^^-1^Y^N^NKO^^AFRIC^CA
 NKS^FKAN^Y^6296992^Nkongsamba^Nkongsamba^FKAN,NKS^4.95^9.933^S^AIRF^CM^^^^^^0^816^814^Africa/Douala^1.0^1.0^1.0^2011-03-20^Y^N^NKS^^AFRIC^CA
 NKT^KNKT^Y^6301669^Cherry Point, Marine Corps Air Station^Cherry Point, Marine Corps Air Station^KNKT,NKT^34.9008700^-76.8807300^S^AIRP^US^^NC^^^^0^8^8^America/New_York^-5.0^-4.0^-5.0^2007-01-03^Y^Z^NKT^NC^NAMER^A
 NKU^FXNK^Y^7730539^Nkaus Airport^Nkaus Airport^FXNK,NKU^-29.93^28.43^S^AIRP^LS^^15^^^^0^0^1646^Africa/Maseru^2.0^2.0^2.0^2011-03-17^Y^N^NKU^^AFRIC^CA
