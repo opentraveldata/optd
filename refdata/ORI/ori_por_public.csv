@@ -10300,7 +10300,7 @@ YDO^CYDO^Y^7730029^Dolbeau St Felicien Airport^Dolbeau St Felicien Airport^CYDO,
 YDP^CYDP^Y^6301452^Nain^Nain^CYDP,YDP^56.53^-61.67^S^AIRP^CA^^^^^^0^6^5^America/Goose_Bay^-4.0^-3.0^-4.0^2011-07-20^Y^Y^YDP^NL^NAMER^CA
 YDQ^CYDQ^Y^6296177^Dawson Creek Airport^Dawson Creek Airport^CYDQ,YDQ^55.73^-120.2^S^AIRP^CA^^^^^^0^654^652^America/Dawson_Creek^-7.0^-7.0^-7.0^2007-01-03^Y^Y^YDQ^BC^NAMER^CA
 YDR^ZZZZ^Y^8260963^Broadview^Broadview^YDR^50.33^-102.5^S^AIRP^CA^^11^^^^0^0^606^America/Regina^-6.0^-6.0^-6.0^2012-04-29^Y^N^YDR^SK^NAMER^CA
-YDS^ZZZZ^Y^7910277^Desolation Sound Airport^Desolation Sound Airport^YDS^47.75^-122.3^S^AIRP^CA^^02^^^^0^0^97^America/Vancouver^-8.0^-7.0^-8.0^2011-07-21^Y^Y^YDS^BC^NAMER^CA
+YDS^ZZZZ^Y^7910277^Desolation Sound Airport^Desolation Sound Airport^YDS^49.96818^-124.73421^S^AIRP^CA^^02^^^^0^0^97^America/Vancouver^-8.0^-7.0^-8.0^2011-07-21^Y^Y^YDS^BC^NAMER^CA
 YDT^CZBB^Y^7730043^Boundary Bay Airport^Boundary Bay Airport^CZBB,YDT^49.07^-123^S^AIRP^CA^^02^^^^0^0^2^America/Vancouver^-8.0^-7.0^-8.0^2012-03-26^Y^N^YVR^BC^NAMER^A
 YDU^ZZZZ^N^0^KASBA LAKE/NT/CA^KASBA LAKE/NT/CA^^17.42^-102.5^S^AIRP^CA^^^^^^^^^CA027^^^^-1^Y^N^YDU^NT^NAMER^CA
 YDV^ZZZZ^Y^8260959^Bloodvein^Bloodvein^YDV^53.75^-100.3^S^AIRP^CA^^03^^^^0^0^253^America/Winnipeg^-6.0^-5.0^-6.0^2012-04-29^Y^N^YDV^MB^NAMER^CA
@@ -10500,7 +10500,7 @@ YNS^ZZZZ^Y^5882482^Nemiscau Airport^Nemiscau Airport^Aeroport de Nemiscau,Aérop
 YNT^ZSYT^Y^6453415^Laishan^Laishan^YNT,ZSYT^37.55^121.3^S^AIRP^CN^^25^^^^0^18^17^Asia/Shanghai^8.0^8.0^8.0^2007-03-30^Y^Y^YNT^^ASIA^CA
 YNX^ZZZZ^Y^8260714^Snap Lake^Snap Lake^YNX^63.5936^-110.905^S^AIRP^CA^^13^^^^0^0^457^America/Yellowknife^-7.0^-6.0^-7.0^2012-04-29^Y^N^YNX^NT^NAMER^CA
 YNY^RKNY^Y^7668419^Yangyang International Airport^Yangyang International Airport^RKNY,YNY^38.38^128.7^S^AIRP^KR^^06^^^^0^0^76^Asia/Seoul^9.0^9.0^9.0^2011-02-17^Y^Y^YNY^^ASIA^CA
-YNZ^ZSYN^Y^7731646^Yancheng Airport^Yancheng Airport^YNZ,ZSYN^35.37^130.6^S^AIRP^CN^^04^^^^0^0^254^Asia/Shanghai^8.0^8.0^8.0^2011-07-25^Y^Y^YNZ^^ASIA^CA
+YNZ^ZSYN^Y^7731646^Yancheng Airport^Yancheng Airport^YNZ,ZSYN^33.43034^120.20082^S^AIRP^CN^^04^^^^0^0^254^Asia/Shanghai^8.0^8.0^8.0^2011-07-25^Y^Y^YNZ^^ASIA^CA
 YOA^CYOA^Y^6296242^Ekati, N. W. T.^Ekati, N. W. T.^CYOA,YOA^64.7^-110.6^S^AIRF^CA^^^^^^0^469^476^America/Yellowknife^-7.0^-6.0^-7.0^2011-03-20^Y^N^YOA^NT^NAMER^CA
 YOC^CYOC^Y^6296243^Old Crow Airport^Old Crow Airport^Aeropuerto de Old Crow,CYOC,YOC^67.57^-139.9^S^AIRP^CA^^^^^^0^251^271^America/Whitehorse^-8.0^-7.0^-8.0^2007-01-03^Y^Y^YOC^YT^NAMER^CA
 YOD^CYOD^Y^6296244^Cold Lake, Alta.^Cold Lake, Alta.^CYOD,YOD^54.45^-110.2^S^AIRP^CA^^^^^^0^541^536^America/Edmonton^-7.0^-6.0^-7.0^2007-01-03^Y^N^YOD^AB^NAMER^CA
@@ -10519,7 +10519,7 @@ YOW^CYOW^Y^6296246^Ottawa Int'L. Ont.^Ottawa Int'L. Ont.^CYOW,YOW^45.3225^-75.66
 YOY^CYOY^Y^6301466^Valcartier Airport^Valcartier Airport^CYOY,YOY^46.35^-72.55^S^AIRP^CA^^^^^^0^168^165^America/Montreal^-5.0^-4.0^-5.0^2011-04-01^Y^N^YOY^QC^NAMER^CA
 YPA^CYPA^Y^6296247^Prince Albert, Sask.^Prince Albert, Sask.^CYPA,YPA^53.214167^-105.672778^S^AIRP^CA^^^^^^0^428^424^America/Regina^-6.0^-6.0^-6.0^2007-01-03^Y^N^YPA^SK^NAMER^CA
 YPB^ZZZZ^Y^6111632^Port Alberni^Port Alberni^YPB^49.23^-124.8^P^PPL^CA^^02^^^^21282^0^22^America/Vancouver^-8.0^-7.0^-8.0^2008-04-11^Y^N^YPB^BC^NAMER^CA
-YPC^CYPC^Y^6296248^Paulatuk Airport^Paulatuk Airport^Aeropuerto de Paulatuk,CYPC,YPC^62.35^-124.1^S^AIRP^CA^^^^^^0^5^1^America/Yellowknife^-7.0^-6.0^-7.0^2007-01-03^Y^Y^YPC^NT^NAMER^CA
+YPC^CYPC^Y^6296248^Paulatuk Airport^Paulatuk Airport^Aeropuerto de Paulatuk,CYPC,YPC^69.36169^-124.07487^S^AIRP^CA^^^^^^0^5^1^America/Yellowknife^-7.0^-6.0^-7.0^2007-01-03^Y^Y^YPC^NT^NAMER^CA
 YPD^ZZZZ^Y^6098747^Parry Sound^Parry Sound^YPD^45.656667^-61.368056^P^PPL^CA^^08^^^^6469^0^211^America/Toronto^-5.0^-4.0^-5.0^2008-04-11^Y^N^YPD^ON^NAMER^CA
 YPE^CYPE^Y^6296250^Peace River, Alta.^Peace River, Alta.^CYPE,YPE^56.226944^-117.447222^S^AIRP^CA^^^^^^0^570^565^America/Edmonton^-7.0^-6.0^-7.0^2007-01-03^Y^N^YPE^AB^NAMER^CA
 YPF^ZZZZ^Y^5949512^Esquimalt^Esquimalt^YPF^48.43^-123.4^P^PPL^CA^^02^^^^0^0^14^America/Vancouver^-8.0^-7.0^-8.0^2006-01-18^Y^N^YPF^BC^NAMER^CA
