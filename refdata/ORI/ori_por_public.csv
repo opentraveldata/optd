@@ -1556,7 +1556,7 @@ CRG^KCRG^Y^4152236^Craig Municipal Airport^Craig Municipal Airport^CRG,KCRG^30.3
 CRH^ZZZZ^Y^8299227^Cherrabah^Cherrabah^CRH^-27.65^152^S^AIRP^AU^^04^36910^^^0^0^684^Australia/Brisbane^10.0^10.0^10.0^2012-05-18^Y^N^CRH^QL^AUSTL^CA
 CRI^ZZZZ^N^0^CROOKED ISLAND/BS^CROOKED ISLAND/BS^^22.745561^-74.182353^S^AIRP^BS^^^^^^^^^BS021^^^^-1^Y^Y^CRI^^CARIB^CA
 CRJ^ZZZZ^Y^7730944^Coorabie Airport^Coorabie Airport^CRJ^-31.9^132.3^S^AIRP^AU^^05^^^^0^0^7^Australia/Adelaide^10.5^9.5^9.5^2011-03-17^Y^N^CRJ^SA^AUSTL^CA
-CRK^RPLC^Y^6300472^Clarkfield Pampanga International Airport^Clarkfield Pampanga International Airport^CRK,RPLC^10^121^S^AIRP^PH^^^^^^0^147^137^Asia/Manila^8.0^8.0^8.0^2007-01-03^Y^Y^NCP^^PACIF^A
+CRK^RPLC^Y^6300472^Clarkfield Pampanga International Airport^Clarkfield Pampanga International Airport^CRK,RPLC^15.18599^120.56032^S^AIRP^PH^^^^^^0^147^137^Asia/Manila^8.0^8.0^8.0^2007-01-03^Y^Y^NCP^^PACIF^A
 CRL^EBCI^Y^6296489^Brussels South Charleroi Airport^Brussels South Charleroi Airport^Aeroport de Charleroi Bruxelles-Sud,Aeroporto di Bruxelles-Charleroi,Aeropuerto de Bruselas Sur,Aéroport de Charleroi Bruxelles-Sud,Brjussel'-Sharlerua,Brussels South Charleroi Airport,CRL,Charleroi / Gosselies,EBCI,Flughafen Bruessel-Charleroi,Flughafen Brüssel-Charleroi,Letisko Charleroi Brusel-Juh,Port lotniczy Bruksela-Charleroi,sha lei luo wa-bu lu sai er nan ji chang,Брюссель-Шарлеруа,沙勒罗瓦－布鲁塞尔南机场^50.459197^4.453817^S^AIRP^BE^^^^^^0^187^177^Europe/Brussels^1.0^2.0^1.0^2011-03-28^Y^Y^BRU^^EUROP^A^Brussels South Charleroi Airport
 CRM^RPVF^Y^1717932^Catarman Airfield^Catarman Airfield^CRM,Catarman,Catarman Airfield,RPVF^12.502417^124.635778^S^AIRP^PH^^08^67^^^0^0^3^Asia/Manila^8.0^8.0^8.0^2011-03-17^Y^Y^CRM^^PACIF^CA^Catarman Airfield
 CRO^KCRO^Y^5339518^Corcoran Airport^Corcoran Airport^CRO,KCRO^36.1^-119.6^S^AIRP^US^^CA^031^^^0^61^61^America/Los_Angeles^-8.0^-7.0^-8.0^2011-12-12^Y^N^CRO^CA^NAMER^CA
@@ -6471,7 +6471,7 @@ PMG^SBPP^Y^6300658^Ponta Pora Intl^Ponta Pora Intl^PMG,SBPP^-22.549639^-55.70261
 PMH^KPMH^Y^4513185^Greater Portsmouth Regional Airport^Greater Portsmouth Regional Airport^KPMH,PMH^38.83^-82.85^S^AIRP^US^^OH^145^^^0^201^199^America/New_York^-5.0^-4.0^-5.0^2011-03-10^Y^N^PMH^OH^NAMER^CA
 PMI^LEPA^Y^6299349^Palma de Mallorca / Son San Juan^Palma de Mallorca / Son San Juan^Aeropuerto de Palma,LEPA,PMI,Palma de Mallorca Airport^39.55^2.733^S^AIRP^ES^^07^PM^07040^^0^4^5^Europe/Madrid^1.0^2.0^1.0^2011-09-11^Y^Y^PMI^^EUROP^CA
 PMK^YPAM^Y^7668755^Palm Island Airport^Palm Island Airport^Lapangan Terbang Palm Island,PMK,YPAM^-18.08^146.7^S^AIRP^AU^^04^35790^^^0^0^13^Australia/Lindeman^10.0^10.0^10.0^2011-06-04^Y^N^PMK^QL^AUSTL^CA
-PML^PAAL^Y^8114010^Port Moller Airport^Port Moller Airport^PAAL,PML^59.011356^-161.819664^S^AIRP^US^^AK^013^^^0^0^5^America/Anchorage^-9.0^-8.0^-9.0^2011-12-13^Y^Y^PML^AK^NAMER^CA
+PML^PAAL^Y^8114010^Port Moller Airport^Port Moller Airport^PAAL,PML^56.00599^-160.55986^S^AIRP^US^^AK^013^^^0^0^5^America/Anchorage^-9.0^-8.0^-9.0^2011-12-13^Y^Y^PML^AK^NAMER^CA
 PMM^ZZZZ^Y^1607801^Phanom Sarakham^Phanom Sarakham^Amphoe Phanom Sarakham,Amphu Panom Sarakam,Ban Phanom Sarakham,Bhanom Saragam,PMM,Phanom Sarakham,phnmsarkham,พนมสารคาม^13.75^101.4^P^PPLA2^TH^^44^^^^16057^0^13^Asia/Bangkok^7.0^7.0^7.0^2012-01-16^Y^N^PMM^^SEASI^CA
 PMN^ZZZZ^Y^8299252^Pumani^Pumani^PMN^-9.817^149.5^S^AIRP^PG^^03^^^^0^0^581^Pacific/Port_Moresby^10.0^10.0^10.0^2012-05-18^Y^N^PMN^^AUSTL^CA
 PMO^LICJ^Y^6299556^Palermo / Punta Raisi^Palermo / Punta Raisi^Falcone-Borsellino Airport,LICJ,PMO,Palermo Airport^38.175958^13.091019^S^AIRP^IT^^15^PA^082031^^0^19^10^Europe/Rome^1.0^2.0^1.0^2011-02-25^Y^Y^PMO^^EUROP^CA^Palermo Airport^Falcone-Borsellino Airport
@@ -6640,7 +6640,7 @@ PTQ^SNMZ^Y^7731416^Porto de Moz Airport^Porto de Moz Airport^PTQ,SNMZ^-1.733^-52
 PTR^ZZZZ^Y^8299206^Pleasant Harbour^Pleasant Harbour^PTR^57.83^-153.3^S^AIRP^US^^AK^150^^^0^0^237^America/Anchorage^-9.0^-8.0^-9.0^2012-05-18^Y^N^PTR^AK^NAMER^CA
 PTS^KPTS^Y^4267753^Atkinson Municipal Airport^Atkinson Municipal Airport^KPTS,PTS^37.45^-94.73^S^AIRP^US^^KS^037^^^0^286^286^America/Chicago^-6.0^-5.0^-6.0^2011-12-11^Y^N^PTS^KS^NAMER^CA
 PTT^KPTT^Y^4277737^Pratt Municipal Airport^Pratt Municipal Airport^KPTT,PTT^37.7^-98.75^S^AIRP^US^^KS^151^^^0^594^594^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^N^PTT^KS^NAMER^CA
-PTU^PAPM^Y^5871731^Platinum Airport^Platinum Airport^PAPM,PTU^59.02^-161.8^S^AIRP^US^^AK^050^^^0^3^5^America/Nome^-9.0^-8.0^-9.0^2011-12-12^Y^Y^PTU^AK^NAMER^CA
+PTU^PAPM^Y^5871731^Platinum Airport^Platinum Airport^PAPM,PTU^59.01555^-161.82308^S^AIRP^US^^AK^050^^^0^3^5^America/Nome^-9.0^-8.0^-9.0^2011-12-12^Y^Y^PTU^AK^NAMER^CA
 PTV^KPTV^Y^5384424^Porterville Municipal Airport^Porterville Municipal Airport^KPTV,PTV^36.03^-119.1^S^AIRP^US^^CA^107^^^0^133^133^America/Los_Angeles^-8.0^-7.0^-8.0^2006-10-29^Y^N^PTV^CA^NAMER^CA
 PTW^KPTW^Y^5207075^Pottstown Limerick Airport^Pottstown Limerick Airport^KPTW,PTW^40.23^-75.65^S^AIRP^US^^PA^091^^^0^86^87^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^N^PTW^PA^NAMER^CA
 PTX^SKPI^Y^7730173^Pitalito Airport^Pitalito Airport^PTX,SKPI^1.857769^-76.085719^S^AIRP^CO^^16^^^^0^0^1282^America/Bogota^-5.0^-5.0^-5.0^2011-03-16^Y^N^PTX^^SAMER^CA
