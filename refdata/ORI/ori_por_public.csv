@@ -1420,7 +1420,7 @@ CLA^VGCM^Y^7730922^Comilla Airport^Comilla Airport^CLA,VGCM^23.43^91.18^S^AIRP^B
 CLC^ZZZZ^N^0^CLEARLAKE/TX/US:METROPORT^CLEARLAKE/TX/US:METROPORT^^29.55^-95.13^S^AIRP^US^^^^^^^^^US107^^^^-1^Y^N^CLC^TX^NAMER^CA
 CLD^KCRQ^Y^5371378^McClellan-Palomar Airport^McClellan-Palomar Airport^CLD,KCRQ^33.13^-117.3^S^AIRP^US^^CA^073^^^0^97^98^America/Los_Angeles^-8.0^-7.0^-8.0^2010-12-29^Y^Y^SAN^CA^NAMER^A
 CLE^KCLE^Y^5150584^Cleveland-Hopkins International Airport^Cleveland-Hopkins International Airport^CLE,KCLE^41.411689^-81.849794^S^AIRP^US^^OH^035^^^0^238^235^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^Y^CLE^OH^NAMER^CA
-CLF^ZZZZ^Y^2652525^Coltishall^Coltishall^CLF,Coltishall^64.2567900^-149.1870900^P^PPL^GB^^ENG^I9^33UC^^2209^0^16^Europe/London^0.0^1.0^0.0^2012-05-12^N^N^CLF^^EUROP^O
+CLF^ZZZZ^Y^2652525^Coltishall^Coltishall^CLF,Coltishall^52.72804^1.36653^P^PPL^GB^^ENG^I9^33UC^^2209^0^16^Europe/London^0.0^1.0^0.0^2012-05-12^N^N^CLF^^EUROP^O
 CLG^ZZZZ^Y^5338207^Coalinga Municipal Airport^Coalinga Municipal Airport^CLG^36.15^-120.4^S^AIRP^US^^CA^019^^^0^213^215^America/Los_Angeles^-8.0^-7.0^-8.0^2011-03-25^Y^N^CLG^CA^NAMER^CA
 CLH^YCAH^Y^7730923^Coolah Airport^Coolah Airport^CLH,YCAH^-31.83^149.7^S^AIRP^AU^^02^18020^^^0^0^505^Australia/Sydney^11.0^10.0^10.0^2011-06-04^Y^N^CLH^NS^AUSTL^CA
 CLI^ZZZZ^Y^7730924^Clinica Shaio Heliport^Clinica Shaio Heliport^CLI^44.62^-88.77^S^AIRH^CO^^34^^^^0^0^2549^America/Bogota^-5.0^-5.0^-5.0^2011-03-17^Y^N^CLI^WI^NAMER^CA
@@ -1754,7 +1754,7 @@ DAO^ZZZZ^N^0^DABO/PG^DABO/PG^^-8.417^147.8^P^PPLC^PG^^^^^^^^^PG^^^^-1^N^N^DAO^^A
 DAP^VNDL^Y^7730965^Darchula Airport^Darchula Airport^DAP,VNDL^29.67^80.5^S^AIRP^NP^^FR^09^^^0^0^687^Asia/Kathmandu^5.8^5.8^5.8^2011-03-17^Y^N^DAP^^ASIA^CA
 DAR^HTDA^Y^6297353^Julius Nyerere International Airport^Julius Nyerere International Airport^DAR,Dar Es Salaam Airport,HTDA,Julius Nyerere International Airport^-6.878111^39.202625^S^AIRP^TZ^^^^^^0^55^54^Africa/Dar_es_Salaam^3.0^3.0^3.0^2012-02-20^Y^Y^DAR^^AFRIC^CA
 DAS^ZZZZ^N^0^GREAT BEAR LAKE/NT/CA^GREAT BEAR LAKE/NT/CA^^42.18^-119.7^S^AIRP^CA^^^^^^^^^CA029^^^^-1^N^N^DAS^NT^NAMER^CA
-DAT^ZBDT^Y^7668788^Datong Airport^Datong Airport^DAT,Datong aireportua,ZBDT,da tong dong wang zhuang ji chang,大同东王庄机场^36.93^101.7^S^AIRP^CN^^24^^^^0^0^1049^Asia/Shanghai^8.0^8.0^8.0^2011-02-17^Y^Y^DAT^^ASIA^CA
+DAT^ZBDT^Y^7668788^Datong Airport^Datong Airport^DAT,Datong aireportua,ZBDT,da tong dong wang zhuang ji chang,大同东王庄机场^40.0603^113.482^S^AIRP^CN^^24^^^^0^0^1049^Asia/Shanghai^8.0^8.0^8.0^2011-02-17^Y^Y^DAT^^ASIA^CA
 DAU^AYDU^Y^7668077^Daru Airport^Daru Airport^AYDU,DAU^-9.083^143.2^S^AIRP^PG^^06^^^^0^0^9^Pacific/Port_Moresby^10.0^10.0^10.0^2011-02-17^Y^Y^DAU^^AUSTL^CA
 DAV^MPDA^Y^6299896^David^David^DAV,MPDA^8.391003^-82.434992^S^AIRP^PA^^^^^^0^27^15^America/Panama^-5.0^-5.0^-5.0^2007-01-03^Y^Y^DAV^^CAMER^CA
 DAW^KDAW^Y^5092710^Skyhaven Airport^Skyhaven Airport^DAW,KDAW^43.2839700^-70.9286700^S^AIRP^US^^NH^017^^^0^94^94^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^Z^DAW^NH^NAMER^A
@@ -4589,7 +4589,7 @@ LJU^LJLJ^Y^3215733^Ljubljana Jože Pučnik Airport^Ljubljana Joze Pucnik Airport
 LKA^WRKL^Y^6301269^Larantuka^Larantuka^LKA,WRKL^-8.35^123^S^AIRP^ID^^^^^^0^9^154^Asia/Makassar^8.0^8.0^8.0^2006-10-29^Y^N^LKA^^SEASI^CA
 LKB^NFNK^Y^6299947^Lakemba^Lakemba^LKB,NFNK^-18.19918^-178.81694^S^AIRP^FJ^^^^^^0^2^234^Pacific/Fiji^13.0^12.0^12.0^2012-02-26^Y^Y^LKB^^AUSTL^CA
 LKC^ZZZZ^Y^2568803^Lekana^Lekana^LKC,Lekana^-2.317^14.6^P^PPL^CG^^07^^^^0^0^467^Africa/Brazzaville^1.0^1.0^1.0^2012-05-06^Y^N^LKC^^AFRIC^CA
-LKD^ZZZZ^Y^8298958^Lakeland Downs^Lakeland Downs^LKD^26.760594^80.889339^S^AIRP^AU^^04^32070^^^0^0^-9999^Australia/Lindeman^10.0^10.0^10.0^2012-05-18^Y^N^LKD^QL^AUSTL^CA
+LKD^ZZZZ^Y^8298958^Lakeland Downs^Lakeland Downs^LKD^-15.84444^144.85027^S^AIRP^AU^^04^32070^^^0^0^-9999^Australia/Lindeman^10.0^10.0^10.0^2012-05-18^Y^N^LKD^QL^AUSTL^CA
 LKE^ZZZZ^Y^5800346^Lake Union Seaplane Base^Lake Union Seaplane Base^Kenmore Air Harbor Seaplane Base,LKE,Lake Union Seaplane Base,Seattle Lake Union Seaplane Base,W55^47.62799^-122.33933^S^AIRP^US^^WA^033^^^0^9^1^America/Los_Angeles^-8.0^-7.0^-8.0^2012-05-17^Y^Y^SEA^WA^NAMER^A^Lake Union Seaplane Base^Kenmore Air Harbor Seaplane Base^Seattle Lake Union Seaplane Base
 LKG^HKLK^Y^7730094^Lokichoggio Airport^Lokichoggio Airport^HKLK,LKG^4.233^34.35^S^AIRP^KE^^08^^^^0^0^640^Africa/Nairobi^3.0^3.0^3.0^2011-03-16^Y^Y^LKG^^AFRIC^CA
 LKH^WBGL^Y^7731226^Long Akah Airport^Long Akah Airport^LKH,WBGL^3.3^114.8^S^AIRP^MY^^11^^^^0^0^90^Asia/Kuching^8.0^8.0^8.0^2011-03-17^Y^Y^LKH^^SEASI^CA
@@ -4597,7 +4597,7 @@ LKI^ZZZZ^N^0^DULUTH/MN/US:LAKESIDE USAF^DULUTH/MN/US:LAKESIDE USAF^^46.84^-92.19
 LKK^ZZZZ^N^0^KULIK LAKE/AK/US^KULIK LAKE/AK/US^^58.97^-155.1^S^AIRP^US^^^^^^^^^US111^^^^-1^Y^N^LKK^AK^NAMER^CA
 LKL^ENNA^Y^6296754^Banak^Banak^ENNA,LKL^70.068814^24.973489^S^AIRP^NO^^05^2020^^^0^7^-9999^Europe/Oslo^1.0^2.0^1.0^2010-10-15^Y^Y^LKL^^EUROP^CA
 LKN^ENLK^Y^6296750^Leknes Airport^Leknes Airport^ENLK,LKN,Leknes,Leknes Airport^68.15425^13.61326^S^AIRP^NO^^09^1860^^^0^2^17^Europe/Oslo^1.0^2.0^1.0^2012-03-19^Y^Y^LKN^^EUROP^CA
-LKO^VILK^Y^6301873^Lucknow / Amausi^Lucknow / Amausi^LKO,VILK^26.77^80.88^S^AIRP^IN^^^^^^0^124^122^Asia/Kolkata^5.5^5.5^5.5^2007-01-03^Y^Y^LKO^^ASIA^CA
+LKO^VILK^Y^6301873^Lucknow / Amausi^Lucknow / Amausi^LKO,VILK^26.76059^80.88934^S^AIRP^IN^^^^^^0^124^122^Asia/Kolkata^5.5^5.5^5.5^2007-01-03^Y^Y^LKO^^ASIA^CA
 LKP^KLKP^Y^5123833^Lake Placid Airport^Lake Placid Airport^KLKP,LKP^44.3^-73.98^S^AIRP^US^^NY^031^^^0^530^533^America/New_York^-5.0^-4.0^-5.0^2011-12-11^Y^N^LKP^NY^NAMER^CA
 LKR^ZZZZ^Y^8260956^Las Khoreh^Las Khoreh^LKR^11.15^48.2^S^AIRP^SO^^12^^^^0^0^14^Africa/Mogadishu^3.0^3.0^3.0^2012-04-29^Y^N^LKR^^AFRIC^CA
 LKS^ZZZZ^N^0^LAKESIDE/TX/US^LAKESIDE/TX/US^^29.83^-95.68^S^AIRP^US^^^^^^^^^US107^^^^-1^Y^N^LKS^TX^NAMER^CA
@@ -5872,7 +5872,7 @@ NVY^ZZZZ^Y^7731354^Neyveli Airport^Neyveli Airport^NVY^11.6^79.43^S^AIRP^IN^^25^
 NWA^FMCI^Y^7668244^Mohéli Bandar Es Eslam Airport^Moheli Bandar Es Eslam Airport^FMCI,NWA^-12.298108^43.7664^S^AIRP^KM^^^^^^0^0^21^Indian/Comoro^3.0^3.0^3.0^2011-02-17^Y^N^NWA^^IOCEA^CH
 NWH^ZZZZ^Y^5090821^Parlin Field^Parlin Field^NWH,Parlin Field,Parlin Field Airport^43.33^-72.17^S^AIRP^US^^NH^019^^^0^234^245^America/New_York^-5.0^-4.0^-5.0^2011-03-28^Y^N^NWH^NH^NAMER^CA
 NWI^EGSH^Y^6296644^Norwich International Airport^Norwich International Airport^EGSH,NWI,Noridzh,Norwich internasjonale lufthavn,Port lotniczy Norwich,Норидж^52.675833^1.282778^S^AIRP^GB^^ENG^I9^33UG^^0^35^22^Europe/London^0.0^1.0^0.0^2010-05-24^Y^Y^NWI^^EUROP^CA
-NWP^ZZZZ^Y^7732472^Argentia^Argentia^NWP^-34^-64^P^PPL^CA^^^^^^0^0^8^America/St_Johns^-3.5^-2.5^-3.5^2011-03-29^Y^N^NWP^NL^NAMER^CA
+NWP^ZZZZ^Y^7732472^Argentia^Argentia^NWP^47.30688^-53.99034^P^PPL^CA^^^^^^0^0^8^America/St_Johns^-3.5^-2.5^-3.5^2011-03-29^Y^N^NWP^NL^NAMER^CA
 NWS^ZZZZ^N^0^NEW YORK/NY/US:WALL STREET SPB^NEW YORK/NY/US:WALL STREET SPB^^40.68^-74.17^S^AIRP^US^^^^^^^^^US105^^^^-1^Y^N^NYC^NY^NAMER^A
 NWT^ZZZZ^Y^8298827^Nowata^Nowata^NWT^-8.5^143.2^S^AIRP^PG^^^^^^0^0^-9999^Pacific/Port_Moresby^10.0^10.0^10.0^2012-05-18^Y^N^NWT^^AUSTL^CA
 NWU^ZZZZ^N^0^BERMUDA/BM:NAS^BERMUDA/BM:NAS^^32.37^-64.69^S^AIRP^BM^^^^^^^^^BM014^^^^-1^Y^N^BDA^^ATLAN^A
