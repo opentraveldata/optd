@@ -14,7 +14,8 @@
 -- because some airports/heliports do not have IATA and/or ICAO code at all.
 -- For those cases, the corresponding field will be NULL in the output (stdout).
 --
--- Note: the cities (g1.fcode like 'PPL%') are extracted in another SQL script.
+-- Note: the cities (g1.fcode like 'PPL%') and administrative divisions
+-- (g1.fcode like 'ADM%') are extracted in another SQL script.
 --
 -- Feature code:
 -- AIRB: Air base; AIRF: Air field; AIRH: Heliport; AIRP: Airport; 
