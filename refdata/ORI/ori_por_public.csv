@@ -740,7 +740,7 @@ BHY^ZGBH^Y^7730862^Beihai Airport^Beihai Airport^BHY,ZGBH^21.48^109.1^S^AIRP^CN^
 BHZ^ZZZZ^Y^3470127^Belo Horizonte^Belo Horizonte^B.H.,BH,BHZ,Bello Horizonte,Belo Horizonte,Belo Hte,Belo Khorizonte,Belu-Orizonte,Belu-Orizonti,Bhte,Cidade de Minas,bei luo ao li cang te,beroorizonchi,beroorizonte,blw hwryzwnty,Бело Хоризонте,Белу-Оризонте,Белу-Оризонти,בלו הוריזונטי,ベロオリゾンチ,ベロオリゾンテ,貝洛奥里藏特,贝洛奥里藏特^-19.75^-43.75^P^PPLA^BR^^15^^^^2373224^888^872^America/Sao_Paulo^-2.0^-3.0^-3.0^2010-05-13^N^N^BHZ^MG^SAMER^C
 BIA^LFKB^Y^6299392^Bastia-Poretta^Bastia-Poretta^BIA,LFKB^42.552664^9.483731^S^AIRP^FR^^A5^2B^2B2^2B148^0^7^3^Europe/Paris^1.0^2.0^1.0^2012-02-27^Y^Y^BIA^^EUROP^CA
 BIB^HCMB^Y^7730598^Baidoa Airport^Baidoa Airport^BIB,HCMB^3.067^43.8^S^AIRP^SO^^04^^^^0^0^460^Africa/Mogadishu^3.0^3.0^3.0^2011-03-17^Y^N^BIB^^AFRIC^CA
-BIC^ZZZZ^N^0^BIG CREEK/AK/US^BIG CREEK/AK/US^^57.67^-157.6^S^AIRP^US^^^^^^^^^US111^^^^-1^Y^Y^BIC^AK^NAMER^CA
+BIC^ZZZZ^N^0^BIG CREEK/AK/US^BIG CREEK/AK/US^^57.66648^-157.58223^S^AIRP^US^^^^^^^^^US111^^^^-1^Y^Y^BIC^AK^NAMER^CA
 BID^KBID^Y^5220981^Block Island State Airport^Block Island State Airport^BID,KBID^41.17^-71.58^S^AIRP^US^^RI^009^^^0^36^1^America/New_York^-5.0^-4.0^-5.0^2006-10-29^Y^Y^BID^RI^NAMER^CA
 BIE^KBIE^Y^5063659^Beatrice Municipal Airport^Beatrice Municipal Airport^BIE,KBIE^40.32^-96.75^S^AIRP^US^^NE^067^^^0^398^398^America/Chicago^-6.0^-5.0^-6.0^2006-10-29^Y^N^BIE^NE^NAMER^CA
 BIF^KBIF^Y^5517110^Biggs Army Air Field^Biggs Army Air Field^BIF,KBIF^31.849528^-106.380039^S^AIRP^US^^TX^141^^^0^1197^1189^America/Denver^-7.0^-6.0^-7.0^2006-10-29^Y^N^ELP^TX^NAMER^A
@@ -10343,7 +10343,7 @@ YGA^ZZZZ^Y^8260814^Gagnon^Gagnon^YGA^51.95^-68.13^S^AIRP^CA^^10^09^^^0^0^591^Ame
 YGB^CYGB^Y^7730034^Texada Gillies Bay Airport^Texada Gillies Bay Airport^CYGB,YGB^49.7^-124.5^S^AIRP^CA^^02^^^^0^0^100^America/Vancouver^-8.0^-7.0^-8.0^2011-03-16^Y^N^YGB^BC^NAMER^CA
 YGC^ZZZZ^Y^8260821^Grande Cache^Grande Cache^YGC^53.23^-119^S^AIRP^CA^^02^^^^0^0^2271^America/Vancouver^-8.0^-7.0^-8.0^2012-04-29^Y^N^YGC^AB^NAMER^CA
 YGD^CYGD^Y^6295825^Goderich Airport^Goderich Airport^CYGD,Goderich Airport,Goderich Municipal Airport,YGD^43.7623500^-81.7115000^S^AIRP^CA^^^^^^0^214^214^America/Toronto^-5.0^-4.0^-5.0^2011-03-16^Y^Z^YGD^^NAMER^A
-YGE^ZZZZ^N^0^GORGE HARBOR/BC/CA^GORGE HARBOR/BC/CA^^50.08^-125^S^AIRP^CA^^^^^^^^^CA031^^^^-1^Y^Y^YGE^BC^NAMER^CA
+YGE^ZZZZ^N^0^GORGE HARBOR/BC/CA^GORGE HARBOR/BC/CA^^50.08306^-124.95047^S^AIRP^CA^^^^^^^^^CA031^^^^-1^Y^Y^YGE^BC^NAMER^CA
 YGG^ZZZZ^Y^7910386^Ganges Water Aerodrome^Ganges Water Aerodrome^YGG^48.85^-123.5^S^AIRP^CA^^02^^^^0^0^16^America/Vancouver^-8.0^-7.0^-8.0^2011-07-24^Y^Y^YGG^BC^NAMER^CA
 YGH^CYGH^Y^6296190^Fort Good Hope Airport^Fort Good Hope Airport^Aeropuerto de Fort Good Hope,CYGH,YGH^66.27^-128.7^S^AIRP^CA^^^^^^0^81^30^America/Yellowknife^-7.0^-6.0^-7.0^2007-03-30^Y^Y^YGH^NT^NAMER^CA
 YGJ^RJOH^Y^6300376^Miho Ab^Miho Ab^RJOH,YGJ^35.45^133.3^S^AIRP^JP^^^^^^0^6^4^Asia/Tokyo^9.0^9.0^9.0^2007-01-03^Y^Y^YGJ^^ASIA^CA
