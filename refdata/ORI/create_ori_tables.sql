@@ -128,7 +128,28 @@ create table por (
  city_code varchar(3) default NULL,
  state_code varchar(3) default NULL,
  region_code varchar(5) default NULL,
- location_type varchar(4) default NULL
+ location_type varchar(4) default NULL,
+ wiki_link varchar(200) default NULL,
+ lang_alt1 varchar(7) default NULL,
+ alt_name1 varchar(200) default NULL,
+ lang_alt2 varchar(7) default NULL,
+ alt_name2 varchar(200) default NULL,
+ lang_alt3 varchar(7) default NULL,
+ alt_name3 varchar(200) default NULL,
+ lang_alt4 varchar(7) default NULL,
+ alt_name4 varchar(200) default NULL,
+ lang_alt5 varchar(7) default NULL,
+ alt_name5 varchar(200) default NULL,
+ lang_alt6 varchar(7) default NULL,
+ alt_name6 varchar(200) default NULL,
+ lang_alt7 varchar(7) default NULL,
+ alt_name7 varchar(200) default NULL,
+ lang_alt8 varchar(7) default NULL,
+ alt_name8 varchar(200) default NULL,
+ lang_alt9 varchar(7) default NULL,
+ alt_name9 varchar(200) default NULL,
+ lang_alt10 varchar(7) default NULL,
+ alt_name10 varchar(200) default NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
