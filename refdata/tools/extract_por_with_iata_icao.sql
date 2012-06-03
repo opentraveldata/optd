@@ -24,13 +24,16 @@
 --
 
 
-select iata_codes.alternateName as iata, icao_codes.alternateName as icao,
+select iata_codes.alternateName as iata_code,
+	   icao_codes.alternateName as icao_code,
 	   g.geonameid, g.name, g.asciiname, g.latitude, g.longitude,
 	   g.country, g.cc2, g.fclass, g.fcode,
 	   g.admin1, g.admin2, g.admin3, g.admin4,
 	   g.population, g.elevation, g.gtopo30,
 	   g.timezone, tz.GMT_offset, tz.DST_offset, tz.raw_offset,
-	   g.moddate, g.alternatenames, en_alt_names.alternateName as en_altname
+	   g.moddate, g.alternatenames,
+	   alt_names.isoLanguage as altname_iso,
+	   alt_names.alternateName as altname_text
 from time_zones as tz, geoname as g
 
 left join (
@@ -61,14 +64,15 @@ left join (
   left join alternate_name as a3 on g3.geonameid = a3.geonameid
   where (g3.fcode = 'AIRB' or g3.fcode = 'AIRF' or g3.fcode = 'AIRH'
   		or g3.fcode = 'AIRP' or g3.fcode = 'AIRS' or g3.fcode = 'RSTN')
-  		and a3.isoLanguage = 'en'
-		and a3.isHistoric = 0
-  order by g3.geonameid, a3.alternateName
-) as en_alt_names on en_alt_names.geonameid = g.geonameid
+  		and (a3.isoLanguage = 'en' or a3.isoLanguage = 'link'
+		  or a3.isoLanguage = 'ru' or a3.isoLanguage = 'zh'
+		  or a3.isoLanguage = '')
+  order by g3.geonameid, a3.isoLanguage, a3.alternateName
+) as alt_names on alt_names.geonameid = g.geonameid
 
 where (g.fcode = 'AIRB' or g.fcode = 'AIRF' or g.fcode = 'AIRH'
 	  or g.fcode = 'AIRP' or g.fcode = 'AIRS' or g.fcode = 'RSTN')
 	  and g.timezone = tz.timeZoneId
 
-order by iata_codes.alternateName, icao_codes.alternateName, g.fcode
+order by iata_code, icao_code, g.fcode
 ;
