@@ -24,20 +24,18 @@
 --
 
 
-select iata_codes.alternateName as iata_code,
-	   icao_codes.alternateName as icao_code,
+select iata_codes.alternateName as iata_code, icao_codes.alternateName as icao_code,
 	   g.geonameid, g.name, g.asciiname, g.latitude, g.longitude,
 	   g.country, g.cc2, g.fclass, g.fcode,
 	   g.admin1, g.admin2, g.admin3, g.admin4,
 	   g.population, g.elevation, g.gtopo30,
 	   g.timezone, tz.GMT_offset, tz.DST_offset, tz.raw_offset,
 	   g.moddate, g.alternatenames,
-	   alt_names.isoLanguage as altname_iso,
-	   alt_names.alternateName as altname_text
+	   alt_names.isoLanguage as altname_iso, alt_names.alternateName as altname_text
 from time_zones as tz, geoname as g
-   	 left join alternate_name as iata_codes on g.geonameid = iata_codes.geonameid
-	 left join alternate_name as icao_codes on g.geonameid = icao_codes.geonameid
-	 left join alternate_name as alt_names on g.geonameid = alt_names.geonameid
+	 left join alternate_name as iata_codes using (geonameid)
+	 left join alternate_name as icao_codes using (geonameid)
+	 left join alternate_name as alt_names using (geonameid)
 where (g.fcode = 'AIRB' or g.fcode = 'AIRF' or g.fcode = 'AIRH'
 	   or g.fcode = 'AIRP' or g.fcode = 'AIRS' or g.fcode = 'RSTN')
 	  and g.timezone = tz.timeZoneId
