@@ -3,11 +3,12 @@
 
 {
 	#
-	iata_code = tolower ($1)
-	page_rank = $2 * 100.0
+	por_code = tolower ($1)
+	por_type = tolower ($2)
+	page_rank = $3 * 100.0
 
 	#
-	printf (iata_code "^")
+	printf (por_code "^" por_type "^")
 	printf ("%12.10f", page_rank)
 	printf ("\n")
 }
