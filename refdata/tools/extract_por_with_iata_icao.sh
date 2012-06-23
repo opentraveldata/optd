@@ -121,7 +121,7 @@ echo
 ##
 # Remove the first line (header). Note: that step should now be performed by
 # the caller.
-#sed -i -e "s/^code\(.\+\)//g" ${DUMP_FILE_IATA_TVL}
+#sed -i -e "s/^iata_code\(.\+\)//g" ${DUMP_FILE_IATA_TVL}
 #sed -i -e "/^$/d" ${DUMP_FILE_IATA_TVL}
 
 # Replace the tab characters by the '^' separator
@@ -235,7 +235,10 @@ cat ${DUMP_UNIQ_FILE} ${DUMP_FILE_IATA_CTY} > ${DUMP_FILE_IATA_ALL}
 sort -t'^' -k1,2 ${DUMP_FILE_IATA_ALL} > ${DUMP_FILE_TMP}
 \mv -f ${DUMP_FILE_TMP} ${DUMP_FILE_IATA_ALL}
 
-# 4.6. Re-add the header
+# 4.6. Add the Wiki link in the header
+sed -i -e "s/alternatenames\^altname_iso/alternatenames\^wiki_link\^altname_iso/g" ${DUMP_FILE_TVL_HDR}
+
+# 4.7. Re-add the header
 cat ${DUMP_FILE_TVL_HDR} ${DUMP_FILE_IATA_ALL} > ${DUMP_FILE_TMP}
 sed -e "/^$/d" ${DUMP_FILE_TMP} > ${DUMP_FILE_IATA_ALL}
 
