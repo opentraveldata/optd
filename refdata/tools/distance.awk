@@ -1,16 +1,17 @@
 #
 # AWK script to calculate the distance between two geographical points.
-# The data file should 
+#
+# The input data files should be formatted as required below.
+#
+
+# More explicit name for the power function
 function pow (b, p) {
 	return b^p
 }
 
+# Calculate the azimuth, giving the relative direction, from the first POR (point
+# of reference) to the second one
 function azim_func() {
-	rad = 180 / M_PI
-	lat1 = $2 / rad
-	lat2 = $4 / rad
-	lon1 = $3 / rad
-	lon2 = $5 / rad
 	latdif = lat1 - lat2
 	londif = lon1 - lon2
 	meanlat = (lat1 + lat2)/2
@@ -25,17 +26,11 @@ function azim_func() {
 	return Az*rad
 }
 
+# Calculate the geographical (great circle) distance
 function distance_func() {
-	rad = 180 / M_PI
-	lat1 = $2 / rad
-	lat2 = $4 / rad
-	lon1 = $3 / rad
-	lon2 = $5 / rad
 	latdif = lat1 - lat2
 	londif = lon1 - lon2
 	meanlat = (lat1 + lat2)/2
-	pagerank = $6
-	if (pagerank == "") pagerank = 0.001
 	
 	a = 6377276.345
 	b = 6356075.4131
@@ -48,23 +43,44 @@ function distance_func() {
 #
 BEGIN {
 	M_PI = 4 * atan2(1,1)
+	rad = 180 / M_PI
 }
 
 # Main
 {
 
-	if (NF == 6 || NF == 5) {
+	if (NF == 8 || NF == 6) {
+		# IATA code and location type
+		iata_code = $1
+		location_type = $2
+
 		# The POR is specified within both input data files (e.g., Geonames
 		# and the file of best known coordinates).
-		# If the popularity/PageRank field is empty, it is set to 0.001.
+		lat1 = $3 / rad
+		lat2 = $5 / rad
+		lon1 = $4 / rad
+		lon2 = $6 / rad
+
+		# Default value
+		pagerank = ""
+
+		# Use the PageRank for that POR (point of reference) when it exists
+		if (NF == 8) {
+			pagerank = $8
+		}
+
+		# When the PageRank does not exist, it is set to 0.1%
+		if (pagerank == "") pagerank = 0.001
+
+		# Delegate the distance calculation
 		distance_func()
 
 		# IATA code
-		printf ($1)
+		printf ("%s", iata_code)
 
 		# Distance, in km
 		printf ("^%5.0f", distance/1000.0)
-
+		
 		# PageRank (the maximum being 100%, i.e., 1.0, usually for ORD/Chicago)
 		printf ("^%21.20f", pagerank)
 
@@ -78,10 +94,15 @@ BEGIN {
 		# printf ("^%8.0f", popularity*distance/1000000.0)
 
 		# End-of-line
-		printf ("\n")
+		printf ("%s", "\n")
+
+	} else if (NF == 4) {
+		# The POR (point of reference) is not known from Geonames. So, there is no
+		# difference to calculate: do nothing else here.
 
 	} else {
 		# Do nothing
-		# printf ("Missing point: " $0 "\n") > "/dev/stderr"
+		print ("!!!! For " FNR " record, there are " NF " fields, whereas 6 or 8 are expected: " $0) > "/dev/stderr"
 	}
+
 }

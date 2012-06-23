@@ -40,23 +40,22 @@ ORI_DIR=${EXEC_PATH}../ORI/
 ORI_POR_FILENAME=ori_por_public.csv
 SORTED_ORI_POR=sorted_${ORI_POR_FILENAME}
 ORI_POR_IMP_FILENAME=ref_airport_pageranked.csv
+#
+ORI_POR=${ORI_DIR}${ORI_POR_FILENAME}
+ORI_POR_IMP_FILE=${ORI_DIR}${ORI_POR_IMP_FILENAME}
 
 ##
 # Targets
 TREP_DETAILS_FILENAME=trep_place_details.csv
 TREP_NAMES_FILENAME=trep_place_names.csv
 TREP_IMP_FILENAME=trep_airport_pageranked.csv
-
-##
 #
-ORI_POR=${ORI_DIR}${ORI_POR_FILENAME}
-ORI_POR_IMP_FILE=${ORI_DIR}${ORI_POR_IMP_FILENAME}
 TREP_DETAILS_FILE=${TMP_DIR}${TREP_DETAILS_FILENAME}
 TREP_NAMES_FILE=${TMP_DIR}${TREP_NAMES_FILENAME}
 TREP_IMP_FILE=${TMP_DIR}${TREP_IMP_FILENAME}
 
 ##
-#
+# Usage
 if [ "$1" = "-h" -o "$1" = "--help" ];
 then
 	echo
@@ -69,7 +68,8 @@ then
 	exit -1
 fi
 
-#
+##
+# Cleaning
 if [ "$1" = "--clean" ];
 then
 	if [ "${TMP_DIR}" = "./" ]

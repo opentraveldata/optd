@@ -220,12 +220,12 @@ join -t'^' -a 1 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} > ${JOINED_COORD_
 # Sanity check: calculate the minimal number of fields on the resulting file
 MIN_FIELD_NB=`awk -F'^' 'BEGIN{n=10} {if (NF<n) {n=NF}} END{print n}' ${JOINED_COORD_1} | uniq | sort | uniq`
 
-if [ "${MIN_FIELD_NB}" != "5" -a "${MIN_FIELD_NB}" != "3" ];
+if [ "${MIN_FIELD_NB}" != "6" -a "${MIN_FIELD_NB}" != "4" ]
 then
 	echo
 	echo "Update step"
 	echo "-----------"
-	echo "Minimum number of fields in the new coordinate file should be 5. It is ${MIN_FIELD_NB}"
+	echo "Minimum number of fields in the new coordinate file should be 6. It is ${MIN_FIELD_NB}"
 	echo "Problem!"
 	echo "Check file ${JOINED_COORD_1}, which is a join of the coordinates from ${GEO_FILE_1_SORTED_CUT} and ${GEO_FILE_2}"
 	echo
@@ -240,15 +240,17 @@ fi
 JOINED_COORD_2=${GEO_COMBINED_FILE}.tmp.2
 join -t'^' -a 2 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} > ${JOINED_COORD_2}
 
+
 ##
 # Keep only the first three fields:
 #  * The code and both the coordinates of the geonames dump file when they
 #    exist.
 #  * The code and the best coordinates when no entry exists in the geonames
 #    dump file.
+EXTRACTOR=${EXEC_PATH}extract_coord.awk
 cut -d'^' -f 1-3 ${JOINED_COORD_1} > ${JOINED_COORD_1}.dup
 \mv -f ${JOINED_COORD_1}.dup ${JOINED_COORD_1}
-cut -d'^' -f 1-3 ${JOINED_COORD_2} > ${JOINED_COORD_2}.dup
+awk -F'^' -f ${EXTRACTOR} ${JOINED_COORD_2} > ${JOINED_COORD_2}.dup
 \mv -f ${JOINED_COORD_2}.dup ${JOINED_COORD_2}
 
 ##
@@ -317,6 +319,7 @@ fi
 # containing the greatest distances (in km), for each airport/city, between
 # both sets of coordinates (Geonames and best known ones).
 ${COMPARE_EXEC} ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} ${AIRPORT_PG_SORTED_CUT} ${COMP_MIN_DIST}
+
 
 ##
 # Clean

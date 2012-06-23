@@ -98,11 +98,10 @@ cd -
 # ----------------------------------------------------------------------
 #
 # The ORI-maintained list of POR needs to be updated
-\cp -f ../ORI/ori_por_public.csv ori_airports.csv    # The file to be updated
 ./update_airports_csv_from_best_known_coordinates.sh
 
 # Check that everything is fine:
-diff -c ori_airports.csv ori_new_airports.csv
+diff -c ../ORI/ori_por_public.csv ori_new_airports.csv
 
 # Then:
 \cp -f ori_new_airports.csv ../ORI/ori_por_public.csv
@@ -114,7 +113,6 @@ git add ../ORI/ori_por_public.csv
 # ------------------------------------------------------------------------
 #
 # The file of best known coordinates has to be updated:
-\cp -f ../ORI/ori_por_public.csv ori_airports.csv
 ./update_best_known_coordinates_from_airports_csv.sh
 
 # Check that everything is fine:
