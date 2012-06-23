@@ -23,50 +23,50 @@ BEGIN {
 
 # M A I N
 {
-	if (NF >= 44) {
+	if (NF >= 45) {
 		####
 		## Both in Geonames and in RFD
 		####
 		#
 		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
-		printf ($1 "^" $5 "^Y^" $6 "^" $7 "^" $8)
+		printf ("%s", $1 "^" $5 "^Y^" $6 "^" $7 "^" $8)
 
 		# ^ Alternate names ^ Latitude ^ Longitude ^ Feat. class ^ Feat. code
-		printf ("^" $27 "^" $3 "^" $4 "^" $13 "^" $14)
+		printf ("%s", "^" $27 "^" $3 "^" $4 "^" $13 "^" $14)
 
 		# ^ Country code ^ Alt. country codes
-		printf ("^" $11 "^" $12)
+		printf ("%s", "^" $11 "^" $12)
 
 		# ^ Admin1 ^ Admin2 ^ Admin3 ^ Admin4
-		printf ("^" $15 "^" $16 "^" $17 "^" $18)
+		printf ("%s", "^" $15 "^" $16 "^" $17 "^" $18)
 
 		# ^ Population ^ Elevation ^ gtopo30
-		printf ("^" $19 "^" $20 "^" $21)
+		printf ("%s", "^" $19 "^" $20 "^" $21)
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		printf ("^" $22 "^" $23 "^" $24 "^" $25)
+		printf ("%s", "^" $22 "^" $23 "^" $24 "^" $25)
 
 		# ^ Modification date
-		printf ("^" $26)
+		printf ("%s", "^" $26)
 
 		# ^ Is airport ^ Is commercial
-		printf ("^" $35 "^" $44)
+		printf ("%s", "^" $36 "^" $45)
 
 		# ^ City code ^ State code ^ Region code
-		printf ("^" $34 "^" $36 "^" $38)
+		printf ("%s", "^" $35 "^" $37 "^" $39)
 
-		# ^ Location type
-		printf ("^" $28)
+		# ^ Location type ^ Wiki link
+		printf ("%s", "^" $2 "^" $28)
 
 		# Print the extra alternate names
-		if (NF >= 45) {
-			for (fld = 45; fld <= NF; fld++) {
+		if (NF >= 46) {
+			for (fld = 46; fld <= NF; fld++) {
 				printf ("^%s", $fld)
 			}
 		}
 
 		# End of line
-		printf ("\n")
+		printf ("%s", "\n")
 
 		# ----
 		# From ORI-POR ($1 - $4)
@@ -80,13 +80,14 @@ BEGIN {
 		# (19) 0 ^ (20) 3 ^ (21) 7
 		# (22) Europe/Paris ^ (23) 1.0 ^ (24) 2.0 ^ (25) 1.0 ^
 		# (26) 2012-02-27 ^
-		# (27) Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Cote d'Azur International Airport,Côte d'Azur International Airport,Flughafen Nizza,LFMN,NCE,Niza Aeropuerto
+		# (27) Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Cote d'Azur International Airport,Côte d'Azur International Airport,Flughafen Nizza,LFMN,NCE,Niza Aeropuerto ^
+		# (28) http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport ^
 
 		# From RFD ($28 - $44)
-		# (28) CA ^ (29) NICE ^ (30) ^ (31) NICE ^ (32) NICE/FR:COTE D AZUR ^
-		# (33) NICE ^ (34) NCE ^ (35) Y ^ (36) ^ (37) FR ^ (38) EUROP ^
-		# (39) ITC2 ^ (40) FR052 ^
-		# (41) 43.6653 ^ (42) 7.215 ^ (43)  ^ (44) Y
+		# (29) CA ^ (30) NICE ^ (31) COTE D AZUR ^ (32) NICE ^ (33) NICE/FR:COTE D AZUR ^
+		# (34) NICE ^ (35) NCE ^ (36) Y ^ (37) ^ (38) FR ^ (39) EUROP ^
+		# (40) ITC2 ^ (41) FR052 ^
+		# (42) 43.6653 ^ (43) 7.215 ^ (44)  ^ (45) Y
 
 	} else if (NF == 21) {
 		####
@@ -94,67 +95,67 @@ BEGIN {
 		####
 		#
 		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
-		printf ($1 "^ZZZZ^N^0^" $9 "^" $9)
+		printf ("%s", $1 "^ZZZZ^N^0^" $9 "^" $9)
 
 		# ^ Alternate names ^ Latitude ^ Longitude
-		printf ("^^" $3 "^" $4)
+		printf ("%s", "^^" $3 "^" $4)
 
 		#  ^ Feat. class ^ Feat. code
 		if ($12 == "Y") {
 			# The POR is an airport
-			printf ("^S^AIRP")
+			printf ("%s", "^S^AIRP")
 		} else if ($5 == "CA") {
 			# The POR is an airport and a city, but RFD wrongly set it
-			printf ("^S^AIRP")
+			printf ("%s", "^S^AIRP")
 		} else if ($5 == "C") {
 			# The POR is a city
-			printf ("^P^PPLC")
+			printf ("%s", "^P^PPLC")
 		} else if ($5 == "O") {
 			# The POR is an off-line point, which could be a bus/railway station
-			printf ("^X^XXXX")
+			printf ("%s", "^X^XXXX")
 		} else {
 			# The location type can not be determined
-			printf ("^Z^ZZZZ")
-			printf ("!!!! Warning !!!! The location type can not be determined for the record #" FNR ":\n") > "/dev/stderr"
-			printf ($0 "\n") > "/dev/stderr"
+			printf ("%s", "^Z^ZZZZ")
+			print ("!!!! Warning !!!! The location type can not be determined for the record #" FNR ":") > "/dev/stderr"
+			print ($0) > "/dev/stderr"
 		}
 
 		# ^ Country code ^ Alt. country codes
-		printf ("^" $14 "^")
+		printf ("%s", "^" $14 "^")
 
 		# ^ Admin1 ^ Admin2 ^ Admin3 ^ Admin4
-		printf ("^^^^")
+		printf ("%s", "^^^^")
 
 		# ^ Population ^ Elevation ^ gtopo30
-		printf ("^^^")
+		printf ("%s", "^^^")
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		printf ("^" $17 "^^^")
+		printf ("%s", "^" $17 "^^^")
 
 		# ^ Modification date
-		printf ("^" today_date)
+		printf ("%s", "^" today_date)
 
 		# ^ Is airport ^ Is commercial
-		printf ("^" $12 "^" $21)
+		printf ("%s", "^" $12 "^" $21)
 
 		# ^ City code ^ State code ^ Region code
-		printf ("^" $11 "^" $13 "^" $15)
+		printf ("%s", "^" $11 "^" $13 "^" $15)
 
-		# ^ Location type
-		printf ("^" $5)
+		# ^ Location type ^ Wiki link (empty here)
+		printf ("%s", "^" $5 "^")
 
 		# End of line
-		printf ("\n")
+		printf ("%s", "\n")
 
 		# ----
 		# From ORI-POR ($1 - $4)
-		# (1) XCG ^ (2) O (3) 43.6667 ^ (4) 7.15 ^
+		# (1) XIT ^ (2) R (3) 51.42 ^ (4) 12.42 ^
 
 		# From RFD ($5 - $21)
-		# (5) O ^ (6) CAGNES SUR MER ^ (7) ^ (8) CAGNES SUR MER ^
-		# (9) CAGNES SUR MER/FR:CAGNES SUR M ^ (10) CAGNES SUR MER ^
-		# (11) XCG ^ (12) Y ^ (13)  ^ (14) FR ^ (15) EUROP ^ (16) ITC2 ^
-		# (17) FR052 ^ (18) 43.6667 ^ (19) 7.15 ^ (20)  ^ (21) N
+		# (5) R ^ (6) LEIPZIG RAIL ^ (7) LEIPZIG HBF RAIL STN ^ (8) LEIPZIG RAIL ^
+		# (9) LEIPZIG/HALLE/DE:LEIPZIG HBF R ^ (10) LEIPZIG/HALLE ^
+		# (11) LEJ ^ (12) Y ^ (13)  ^ (14) DE ^ (15) EUROP ^ (16) ITC2 ^
+		# (17) DE040 ^ (18) 51.3 ^ (19) 12.3333 ^ (20)  ^ (21) N
 
 		# ----
 		# From ORI-POR ($1 - $4)
@@ -165,49 +166,49 @@ BEGIN {
 		# (10) ARAPOTI ^ (11) AAG ^ (12) Y ^ (13) PR ^ (14) BR ^ (15) SAMER ^
 		# (16) ITC1 ^ (17) BR015 ^ (18) -22.8667 ^ (19) -43.2667 ^ (20)  ^ (21) N
 
-	} else if (NF >= 27 && NF < 44) {
+	} else if (NF >= 28 && NF < 45) {
 		####
 		## Not in RFD
 		####
 		#
 		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
-		printf ($1 "^" $5 "^Y^" $6 "^" $7 "^" $8)
+		printf ("%s", $1 "^" $5 "^Y^" $6 "^" $7 "^" $8)
 
 		# ^ Alternate names ^ Latitude ^ Longitude ^ Feat. class ^ Feat. code
-		printf ("^" $27 "^" $3 "^" $4 "^" $13 "^" $14)
+		printf ("%s", "^" $27 "^" $3 "^" $4 "^" $13 "^" $14)
 
 		# ^ Country code ^ Alt. country codes
-		printf ("^" $11 "^" $12)
+		printf ("%s", "^" $11 "^" $12)
 
 		# ^ Admin1 ^ Admin2 ^ Admin3 ^ Admin4
-		printf ("^" $15 "^" $16 "^" $17 "^" $18)
+		printf ("%s", "^" $15 "^" $16 "^" $17 "^" $18)
 
 		# ^ Population ^ Elevation ^ gtopo30
-		printf ("^" $19 "^" $20 "^" $21)
+		printf ("%s", "^" $19 "^" $20 "^" $21)
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		printf ("^" $22 "^" $23 "^" $24 "^" $25)
+		printf ("%s", "^" $22 "^" $23 "^" $24 "^" $25)
 
 		# ^ Modification date
-		printf ("^" $26)
+		printf ("%s", "^" $26)
 
 		# ^ Is airport ^ Is commercial
 		if ($14 == "AIRP") {
-			printf ("^Y^Z")
+			printf ("%s", "^Y^Z")
 		} else if ($14 == "AIRH") {
-			printf ("^Y^Z")
+			printf ("%s", "^Y^Z")
 		} else if ($14 == "AIRB") {
-			printf ("^Y^N")
+			printf ("%s", "^Y^N")
 		} else if ($14 == "RSTN") {
-			printf ("^N^Z")
+			printf ("%s", "^N^Z")
 		} else if (substr ($14, 1, 3) == "PPL") {
-			printf ("^N^N")
+			printf ("%s", "^N^N")
 		} else {
-			printf ("^N^Z")
+			printf ("%s", "^N^Z")
 		}
 
 		# ^ City code ^ State code
-		printf ("^" $1 "^" $15)
+		printf ("%s", "^" $1 "^" $15)
 
 		# ^ Region code
 		region_full = $22
@@ -218,56 +219,59 @@ BEGIN {
 
 		if (region == "Europe") {
 			if (region_country == "Kiev") {
-				printf ("^EEURO")
+				printf ("%s", "^EEURO")
 			} else {
-				printf ("^EUROP")
+				printf ("%s", "^EUROP")
 			}
 		} else if (region == "Africa") {
-			printf ("^AFRICA")
+			printf ("%s", "^AFRICA")
 		} else if (region == "Asia") {
-			printf ("^ASIA")
+			printf ("%s", "^ASIA")
 		} else if (region == "Atlantic") {
-			printf ("^ATLAN")
+			printf ("%s", "^ATLAN")
 		} else if (region == "Australia") {
-			printf ("^AUSTL")
+			printf ("%s", "^AUSTL")
 		} else if (region == "America") {
 			if (region_country == "Argentina") {
-				printf ("^SAMER")
+				printf ("%s", "^SAMER")
 			} else {
-				printf ("^NAMER")
+				printf ("%s", "^NAMER")
 			}
 		} else if (region == "Indian") {
-			printf ("^IOCEA")
+			printf ("%s", "^IOCEA")
 		} else if (region == "Pacific") {
-			printf ("^PACIF")
+			printf ("%s", "^PACIF")
 		} else {
-			printf ("^ZZZZZ")
+			printf ("%s", "^ZZZZZ")
 		}
 
 		#  ^ Location type
 		if ($14 == "AIRP") {
-			printf ("^A")
+			printf ("%s", "^CA")
 		} else if ($14 == "AIRH") {
-			printf ("^A")
+			printf ("%s", "^CH")
 		} else if ($14 == "AIRB") {
-			printf ("^A")
+			printf ("%s", "^CA")
 		} else if ($14 == "RSTN") {
-			printf ("^O")
+			printf ("%s", "^R")
 		} else if (substr ($14, 1, 3) == "PPL") {
-			printf ("^C")
+			printf ("%s", "^C")
 		} else {
-			printf ("^Z")
+			printf ("%s", "^Z")
 		}
 
+		# ^ Wiki link (potentially empty)
+		printf ("%s", "^" $28)
+
 		# Print the extra alternate names
-		if (NF >= 28) {
-			for (fld = 28; fld <= NF; fld++) {
+		if (NF >= 29) {
+			for (fld = 29; fld <= NF; fld++) {
 				printf ("^%s", $fld)
 			}
 		}
 
 		# End of line
-		printf ("\n")
+		printf ("%s", "\n")
 
 		# ----
 		# From ORI-POR ($1 - $4)
@@ -280,6 +284,7 @@ BEGIN {
 		# (15) 26 ^ (16)  ^ (17)  ^ (18)  ^
 		# (19) 0 ^ (20) 0 ^ (21) 655 ^ (22) America/Sao_Paulo ^
 		# (23) -2.0 ^ (24) -3.0 ^ (25) -3.0 ^ (26) 2011-03-18 ^ (27) SQX,SSOE
+		# (28)  ^
 
 	} else if (NF == 4) {
 		####
@@ -287,37 +292,37 @@ BEGIN {
 		####
 		#
 		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
-		printf ($1 "^ZZZZ^N^0^" "UNKNOWN" unknown_idx  "^" "UNKNOWN" unknown_idx) > "ori_only_por.csv.new"
+		printf ("%s", $1 "^ZZZZ^N^0^" "UNKNOWN" unknown_idx  "^" "UNKNOWN" unknown_idx) > "ori_only_por.csv.new"
 
 		# ^ Alternate names ^ Latitude ^ Longitude
-		printf ("^^" $3 "^" $4) > "ori_only_por.csv.new"
+		printf ("%s", "^^" $3 "^" $4) > "ori_only_por.csv.new"
 
 		#  ^ Feat. class ^ Feat. code
-		printf ("^S^AIRP") > "ori_only_por.csv.new"
+		printf ("%s", "^S^AIRP") > "ori_only_por.csv.new"
 
 		# ^ Country code ^ Alt. country codes
-		printf ("^" "ZZ" "^") > "ori_only_por.csv.new"
+		printf ("%s", "^" "ZZ" "^") > "ori_only_por.csv.new"
 
 		# ^ Admin1 ^ Admin2 ^ Admin3 ^ Admin4
-		printf ("^^^^") > "ori_only_por.csv.new"
+		printf ("%s", "^^^^") > "ori_only_por.csv.new"
 
 		# ^ Population ^ Elevation ^ gtopo30
-		printf ("^^^") > "ori_only_por.csv.new"
+		printf ("%s", "^^^") > "ori_only_por.csv.new"
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		printf ("^" "Europe/Greenwich" "^^^") > "ori_only_por.csv.new"
+		printf ("%s", "^" "Europe/Greenwich" "^^^") > "ori_only_por.csv.new"
 
 		# ^ Modification date
-		printf ("^" today_date) > "ori_only_por.csv.new"
+		printf ("%s", "^" today_date) > "ori_only_por.csv.new"
 
 		# ^ Is airport ^ Is commercial
-		printf ("^" "Y" "^" "Y") > "ori_only_por.csv.new"
+		printf ("%s", "^" "Y" "^" "Y") > "ori_only_por.csv.new"
 
 		# ^ City code ^ State code ^ Region code
-		printf ("^" "ZZZ" "^" "^" "UNKOWN") > "ori_only_por.csv.new"
+		printf ("%s", "^" "ZZZ" "^" "^" "UNKOWN") > "ori_only_por.csv.new"
 
-		#  ^ Location type
-		printf ("^" "CA" "\n") > "ori_only_por.csv.new"
+		#  ^ Location type ^ Wiki link (empty here)
+		printf ("%s", "^" "CA" "^" "\n") > "ori_only_por.csv.new"
 
 		# ----
 		# From ORI-POR ($1 - $4)
@@ -331,7 +336,7 @@ BEGIN {
 		unknown_idx++
 
 	} else {
-		printf ("!!!! Error for row #" FNR ", having " NF " fields: " $0 "\n") > "/dev/stderr"
+		print ("!!!! Error for row #" FNR ", having " NF " fields: " $0) > "/dev/stderr"
 	}
 
 }

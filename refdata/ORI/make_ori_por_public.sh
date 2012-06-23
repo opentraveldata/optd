@@ -76,11 +76,11 @@ then
 fi
 
 ##
-# Save the extra alternate names (from field #25 onwards)
+# Save the extra alternate names (from field #26 onwards)
 GEONAME_FILE_TMP=${GEONAME_FILE}.alt
-cut -d'^' -f1,25- ${GEONAME_SORTED_FILE} > ${GEONAME_FILE_TMP}
+cut -d'^' -f1,26- ${GEONAME_SORTED_FILE} > ${GEONAME_FILE_TMP}
 # Remove the extra alternate names (see the line above)
-cut -d'^' -f1-24 ${GEONAME_SORTED_FILE} > ${GEONAME_CUT_SORTED_FILE}
+cut -d'^' -f1-25 ${GEONAME_SORTED_FILE} > ${GEONAME_CUT_SORTED_FILE}
 
 ##
 # Aggregate all the data sources into a single file
