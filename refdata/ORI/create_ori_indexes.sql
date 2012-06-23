@@ -50,7 +50,7 @@ ALTER TABLE por ADD INDEX (`moddate`);
 
 
 --
--- Index structure for table airport popularity
+-- Index structure for the airport popularity table
 --
 -- region_code, country, city, airport, airport_code, atmsa, atmsb, atmsc, atmsd
 -- tatm, paxa, paxb, paxc, paxd, tpax, frta, frtb, tfrt, mail, tcgo
@@ -60,9 +60,9 @@ ALTER TABLE por ADD INDEX (`moddate`);
 ALTER TABLE airport_popularity ADD PRIMARY KEY (`airport_code`);
 
 --
--- Index structure for table airport importance
+-- Index structure for the airport importance table
 --
--- iata_code, page_rank
+-- iata_code, location_type, page_rank
 
-ALTER TABLE airport_pageranked ADD PRIMARY KEY (`iata_code`);
+ALTER TABLE airport_pageranked ADD PRIMARY KEY (`iata_code`, `location_type`);
 

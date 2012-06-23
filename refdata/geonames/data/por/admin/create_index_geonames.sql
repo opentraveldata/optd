@@ -22,9 +22,9 @@ ALTER TABLE `admin2_codes` ADD UNIQUE (`ccode`, `code1`, `code2`);
 
 
 --
--- Index structure for table `airports_pageranked`
+-- Index structure for table `airport_pageranked`
 --
-ALTER TABLE `airports_pageranked` ADD PRIMARY KEY (`code`);
+ALTER TABLE `airport_pageranked` ADD PRIMARY KEY (`iata_code`, `location_type`);
 
 
 --

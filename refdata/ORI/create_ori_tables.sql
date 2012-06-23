@@ -231,6 +231,7 @@ create table airport_popularity (
 drop table if exists airport_pageranked;
 create table airport_pageranked (
  iata_code char(3) NOT NULL,
+ location_type varchar(4) default NULL,
  page_rank decimal(15,12) NOT NULL
 ) engine=InnoDB default charset=utf8;
 
