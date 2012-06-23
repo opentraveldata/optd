@@ -7,5 +7,5 @@ REPLACE
 INTO TABLE airport_pageranked
 CHARACTER SET UTF8
 FIELDS TERMINATED BY '^'
- (iata_code, page_rank);
+ (iata_code, location_type, page_rank);
 

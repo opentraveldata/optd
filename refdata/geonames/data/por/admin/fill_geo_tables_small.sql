@@ -39,11 +39,14 @@ set foreign_key_checks=0;
 -- commit;
 
 LOAD DATA LOCAL INFILE '../../../../ORI/ref_airport_pageranked.csv'
-INTO TABLE airports_pageranked
-	FIELDS TERMINATED BY '\ ' OPTIONALLY ENCLOSED BY '"' 
-	(code, rank);
+REPLACE
+INTO TABLE airport_pageranked
+CHARACTER SET UTF8
+FIELDS TERMINATED BY '^'
+ (iata_code, location_type, page_rank);
 commit;
 -- IGNORE 1 LINES
+
  
 --
 -- Administrative Subdivision #1

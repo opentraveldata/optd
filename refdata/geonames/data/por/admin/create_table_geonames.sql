@@ -54,13 +54,14 @@ SET character_set_client = @saved_cs_client;
 -- Table structure for table `airports_pageranked`
 --
 
-DROP TABLE IF EXISTS `airports_pageranked`;
+DROP TABLE IF EXISTS `airport_pageranked`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
-CREATE TABLE `airports_pageranked` (
-  `code` char(3) NOT NULL,
-  `rank` decimal(15,12) NOT NULL
-) ENGINE=InnoDB;
+CREATE TABLE `airport_pageranked` (
+ iata_code char(3) NOT NULL,
+ location_type varchar(4) default NULL,
+ page_rank decimal(15,12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 
