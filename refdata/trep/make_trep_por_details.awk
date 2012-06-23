@@ -13,14 +13,14 @@ BEGIN {
 
 ## M A I N
 {
-	# IATA code
+	# (1) IATA code
 	iata_code = tolower ($1)
 	printf (iata_code)
 
 	# Xapian Document ID (0)
 	printf ("^0")
 
-	#
+	# ^ (2) ICAO code ^ (3) Is Geonames ^ (4) Geonames ID
 	for (i=2; i<5; i++) {
 		# detail = $i
 		detail = tolower ($i)
@@ -28,9 +28,9 @@ BEGIN {
 	}
 
 	# Do not dump the names (ascii name, UTF name, alternate names),
-	# which are the fields from $6 to $8
+	# which are the fields from $5 to $7 (included)
 
-	#
+	# ^ (8) Latitude ^ (9) Longitude ^ ... ^ (32) Wiki link
 	for (i=8; i<=32; i++) {
 		# detail = $i
 		detail = tolower ($i)

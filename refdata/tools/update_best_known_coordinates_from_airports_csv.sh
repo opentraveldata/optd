@@ -17,8 +17,6 @@ displayORIDetails() {
 	then
 		echo "mkdir -p ${TMP_DIR}"
 	fi
-	echo "\cp -f ../ORI/ori_por_public.csv ${TMP_DIR}ori_airports.csv"
-	echo "\cp -f ../ORI/best_coordinates_known_so_far.csv ${TMP_DIR}"
 	echo "ls -l ${TMP_DIR}"
 	echo
 }
@@ -51,12 +49,20 @@ ORI_DIR=${EXEC_PATH}../ORI/
 ##
 # Geo data files
 GEO_BEST_KNOWN_FILE_FILENAME=best_coordinates_known_so_far.csv
-GEO_ORI_FILE_FILENAME=ori_airports.csv
-GEO_NEW_BEST_KNOWN_FILE_FILENAME=best_new_coordinates_known_so_far.csv
+GEO_ORI_FILENAME=ori_por_public.csv
+GEO_NEW_BEST_KNOWN_FILENAME=best_new_coordinates_known_so_far.csv
 # Geo data files
 GEO_BEST_KNOWN_FILE=${ORI_DIR}${GEO_BEST_KNOWN_FILE_FILENAME}
-GEO_ORI_FILE=${TMP_DIR}${GEO_ORI_FILE_FILENAME}
-GEO_NEW_BEST_KNOWN_FILE=${TMP_DIR}${GEO_NEW_BEST_KNOWN_FILE_FILENAME}
+GEO_ORI_FILE=${ORI_DIR}${GEO_ORI_FILENAME}
+GEO_NEW_BEST_KNOWN_FILE=${TMP_DIR}${GEO_NEW_BEST_KNOWN_FILENAME}
+
+##
+# Temporary (generated) files
+GEO_ORI_WO_HDR_FILE=${TMP_DIR}${GEO_ORI_FILENAME}.wohdr
+GEO_ALL_BEST=${GEO_NEW_BEST_KNOWN_FILE}.tmp.all.best
+GEO_ALL_ORI=${GEO_NEW_BEST_KNOWN_FILE}.tmp.all.ori
+GEO_FULL_ORI=${GEO_NEW_BEST_KNOWN_FILE}.tmp.full
+GEO_FULL_TMP=${GEO_NEW_BEST_KNOWN_FILE}.tmp
 
 #
 if [ "$1" = "-h" -o "$1" = "--help" ];
@@ -67,6 +73,19 @@ then
 	echo "  - Default name for the file of best known geographical coordinates: '${GEO_BEST_KNOWN_FILE}'"
 	echo " The new candidate for the file of best known coordinates is: '${GEO_NEW_BEST_KNOWN_FILE}'"
 	echo
+	exit -1
+fi
+
+##
+# Cleaning
+if [ "$1" = "--clean" ]
+then
+	if [ "${TMP_DIR}" = "/tmp/por/" ]
+	then
+		\rm -rf ${TMP_DIR}
+	else
+		\rm -f ${GEO_ORI_WO_HDR_FILE} ${GEO_NEW_BEST_KNOWN_FILE}
+	fi
 	exit -1
 fi
 
@@ -112,17 +131,12 @@ fi
 
 ##
 # Remove the header
-GEO_ORI_WO_HDR_FILE=${GEO_ORI_FILE}.wohdr
 sed -e "s/^iata_code\(.\+\)//g" ${GEO_ORI_FILE} > ${GEO_ORI_WO_HDR_FILE}
 sed -i -e "/^$/d" ${GEO_ORI_WO_HDR_FILE}
 
 ##
 # Aggregate both the file of best known coordinates together with the
 # ORI-maintained file.
-GEO_ALL_BEST=${GEO_NEW_BEST_KNOWN_FILE}.tmp.all.best
-GEO_ALL_ORI=${GEO_NEW_BEST_KNOWN_FILE}.tmp.all.ori
-GEO_FULL_ORI=${GEO_NEW_BEST_KNOWN_FILE}.tmp.full
-GEO_FULL_TMP=${GEO_NEW_BEST_KNOWN_FILE}.tmp
 join -t'^' -a 1 ${GEO_BEST_KNOWN_FILE} ${GEO_ORI_WO_HDR_FILE} > ${GEO_ALL_BEST}
 join -t'^' -a 2 ${GEO_BEST_KNOWN_FILE} ${GEO_ORI_WO_HDR_FILE} > ${GEO_ALL_ORI}
 cat ${GEO_ALL_BEST} ${GEO_ALL_ORI} > ${GEO_FULL_ORI}
@@ -156,6 +170,6 @@ echo
 # Cleaning
 echo
 echo "In order to clean the temporary files, simply do:"
-echo "\rm -f ${GEO_ORI_FILE} ${GEO_ORI_WO_HDR_FILE} ${GEO_BEST_KNOWN_FILE} ${GEO_NEW_BEST_KNOWN_FILE}"
+echo "\rm -f ${GEO_ORI_WO_HDR_FILE} ${GEO_NEW_BEST_KNOWN_FILE}"
 echo
 

@@ -17,8 +17,6 @@ displayORIDetails() {
 	then
 		echo "mkdir -p ${TMP_DIR}"
 	fi
-	echo "\cp -f ../ORI/ori_por_public.csv ${TMP_DIR}ori_airports.csv"
-	echo "\cp -f ../ORI/best_coordinates_known_so_far.csv ${TMP_DIR}"
 	echo "ls -l ${TMP_DIR}"
 	echo
 }
@@ -51,12 +49,20 @@ ORI_DIR=${EXEC_PATH}../ORI/
 ##
 # Geo data files
 GEO_BEST_KNOWN_FILE_FILENAME=best_coordinates_known_so_far.csv
-GEO_ORI_FILE_FILENAME=ori_airports.csv
-GEO_ORI_NEW_FILE_FILENAME=ori_new_airports.csv
+GEO_ORI_FILENAME=ori_por_public.csv
+GEO_ORI_NEW_FILENAME=ori_new_airports.csv
 # Geo data files
 GEO_BEST_KNOWN_FILE=${ORI_DIR}${GEO_BEST_KNOWN_FILE_FILENAME}
-GEO_ORI_FILE=${TMP_DIR}${GEO_ORI_FILE_FILENAME}
-GEO_ORI_NEW_FILE=${TMP_DIR}${GEO_ORI_NEW_FILE_FILENAME}
+GEO_ORI_FILE=${ORI_DIR}${GEO_ORI_FILENAME}
+GEO_ORI_NEW_FILE=${TMP_DIR}${GEO_ORI_NEW_FILENAME}
+
+##
+# Temporary (generated) files
+GEO_ORI_WO_HDR_FILE=${TMP_DIR}${GEO_ORI_FILENAME}.wohead
+GEO_ALL_BEST=${GEO_ORI_NEW_FILE}.tmp.all.best
+GEO_ALL_ORI=${GEO_ORI_NEW_FILE}.tmp.all.ori
+GEO_FULL_ORI=${GEO_ORI_NEW_FILE}.tmp.full
+GEO_FULL_TMP=${GEO_ORI_NEW_FILE}.tmp
 
 #
 if [ "$1" = "-h" -o "$1" = "--help" ];
@@ -71,8 +77,22 @@ then
 fi
 
 ##
+# Cleaning
+if [ "$1" = "--clean" ]
+then
+	if [ "${TMP_DIR}" = "/tmp/por/" ]
+	then
+		\rm -rf ${TMP_DIR}
+	else
+		\rm -f ${GEO_ORI_WO_HDR_FILE} ${GEO_ORI_NEW_FILE}
+	fi
+	exit -1
+fi
+
+
+##
 # ORI-maintained file
-if [ "$1" != "" ];
+if [ "$1" != "" ]
 then
 	GEO_ORI_FILE=$1
 fi
@@ -81,7 +101,7 @@ if [ ! -f "${GEO_ORI_FILE}" ]
 then
 	echo
 	echo "The '${GEO_ORI_FILE}' file does not exist."
-	if [ "$1" = "" ];
+	if [ "$1" = "" ]
 	then
 		displayORIDetails
 		echo "The default name of the ORI-maintained file is '${GEO_ORI_FILE}'."
@@ -92,7 +112,7 @@ fi
 
 ##
 # File of best known coordinates
-if [ "$2" != "" ];
+if [ "$2" != "" ]
 then
 	GEO_BEST_KNOWN_FILE="$2"
 fi
@@ -101,7 +121,7 @@ if [ ! -f "${GEO_BEST_KNOWN_FILE}" ]
 then
 	echo
 	echo "The '${GEO_BEST_KNOWN_FILE}' file does not exist."
-	if [ "$2" = "" ];
+	if [ "$2" = "" ]
 	then
 		displayORIDetails
 		echo "The default name of the file of best known coordinates is '${GEO_BEST_KNOWN_FILE}'."
@@ -112,19 +132,14 @@ fi
 
 ##
 # Remove the header of the ORI-maintained file
-GEO_ORI_WO_HEADER_FILE=${GEO_ORI_FILE}.wohead
-sed -e "s/^iata_code\(.\+\)//g" ${GEO_ORI_FILE} > ${GEO_ORI_WO_HEADER_FILE}
-sed -i -e "/^$/d" ${GEO_ORI_WO_HEADER_FILE}
+sed -e "s/^iata_code\(.\+\)//g" ${GEO_ORI_FILE} > ${GEO_ORI_WO_HDR_FILE}
+sed -i -e "/^$/d" ${GEO_ORI_WO_HDR_FILE}
 
 ##
 # Aggregate both the file of best known coordinates together with the
 # ORI-maintained file.
-GEO_ALL_BEST=${GEO_ORI_NEW_FILE}.tmp.all.best
-GEO_ALL_ORI=${GEO_ORI_NEW_FILE}.tmp.all.ori
-GEO_FULL_ORI=${GEO_ORI_NEW_FILE}.tmp.full
-GEO_FULL_TMP=${GEO_ORI_NEW_FILE}.tmp
-join -t'^' -a 1 ${GEO_BEST_KNOWN_FILE} ${GEO_ORI_WO_HEADER_FILE} > ${GEO_ALL_BEST}
-join -t'^' -a 2 ${GEO_BEST_KNOWN_FILE} ${GEO_ORI_WO_HEADER_FILE} > ${GEO_ALL_ORI}
+join -t'^' -a 1 ${GEO_BEST_KNOWN_FILE} ${GEO_ORI_WO_HDR_FILE} > ${GEO_ALL_BEST}
+join -t'^' -a 2 ${GEO_BEST_KNOWN_FILE} ${GEO_ORI_WO_HDR_FILE} > ${GEO_ALL_ORI}
 cat ${GEO_ALL_BEST} ${GEO_ALL_ORI} > ${GEO_FULL_ORI}
 sed -i -e "/^$/d" ${GEO_FULL_ORI}
 sort -t'^' -k1,1 ${GEO_FULL_ORI} | uniq -w 3 > ${GEO_FULL_TMP}
@@ -137,6 +152,7 @@ sort -t'^' -k1,1 ${GEO_FULL_ORI} | uniq -w 3 > ${GEO_FULL_TMP}
 AWK_REDUCER=${EXEC_PATH}reduce_airports_csv_from_best_known_coordinates.awk
 awk -F'^' -v idx=1 -f ${AWK_REDUCER} ${GEO_FULL_ORI} > ${GEO_ORI_NEW_FILE}
 \rm -f ${GEO_ALL_BEST} ${GEO_ALL_ORI} ${GEO_FULL_ORI}
+
 
 ##
 # Reporting
@@ -155,7 +171,6 @@ echo
 # Cleaning
 echo
 echo "In order to clean the temporary files, simply do:"
-echo "\rm -f ${GEO_ORI_FILE} ${GEO_ORI_WO_HEADER_FILE} \\"
-echo " ${GEO_BEST_KNOWN_FILE} ${GEO_ORI_NEW_FILE}"
+echo "\rm -f ${GEO_ORI_WO_HDR_FILE} ${GEO_ORI_NEW_FILE}"
 echo
 

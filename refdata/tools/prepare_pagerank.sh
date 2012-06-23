@@ -34,7 +34,7 @@ displayPopularityDetails() {
 
 ##
 #
-AIRPORT_PG_FILENAME=ref_airport_pageranked.csv
+AIRPORT_PR_FILENAME=ref_airport_pageranked.csv
 
 ##
 # Temporary path
@@ -51,7 +51,7 @@ then
 fi
 # If the PageRanked airport file is in the current directory, then the current
 # directory is certainly intended to be the temporary directory.
-if [ -f ${AIRPORT_PG_FILENAME} ]
+if [ -f ${AIRPORT_PR_FILENAME} ]
 then
 	TMP_DIR="."
 fi
@@ -69,17 +69,17 @@ ORI_DIR=${EXEC_PATH}../ORI/
 
 ##
 #
-AIRPORT_PG_SORTED=sorted_${AIRPORT_PG_FILENAME}
-AIRPORT_PG_SORTED_CUT=cut_sorted_${AIRPORT_PG_FILENAME}
+AIRPORT_PR_SORTED=sorted_${AIRPORT_PR_FILENAME}
+AIRPORT_PR_SORTED_CUT=cut_sorted_${AIRPORT_PR_FILENAME}
 #
-AIRPORT_PG=${TMP_DIR}${AIRPORT_PG_FILENAME}
+AIRPORT_PR=${TMP_DIR}${AIRPORT_PR_FILENAME}
 
 #
 if [ "$1" = "-h" -o "$1" = "--help" ];
 then
 	echo
 	echo "Usage: $0 [<PageRanked airport data file>]"
-	echo "  - Default name for the PageRanked airport data file: '${AIRPORT_PG}'"
+	echo "  - Default name for the PageRanked airport data file: '${AIRPORT_PR}'"
 	echo
 	exit -1
 fi
@@ -94,21 +94,21 @@ fi
 # Data file
 if [ "$1" != "" ];
 then
-	AIRPORT_PG="$1"
-	AIRPORT_PG_FILENAME=`basename ${AIRPORT_PG}`
-	AIRPORT_PG_SORTED=sorted_${AIRPORT_PG_FILENAME}
-	AIRPORT_PG_SORTED_CUT=cut_sorted_${AIRPORT_PG_FILENAME}
-	if [ "${AIRPORT_PG}" = "${ORI_DIR}${AIRPORT_PG_FILENAME}" ]
+	AIRPORT_PR="$1"
+	AIRPORT_PR_FILENAME=`basename ${AIRPORT_PR}`
+	AIRPORT_PR_SORTED=sorted_${AIRPORT_PR_FILENAME}
+	AIRPORT_PR_SORTED_CUT=cut_sorted_${AIRPORT_PR_FILENAME}
+	if [ "${AIRPORT_PR}" = "${ORI_DIR}${AIRPORT_PR_FILENAME}" ]
 	then
-		AIRPORT_PG="${ORI_DIR}${AIRPORT_PG}"
+		AIRPORT_PR="${ORI_DIR}${AIRPORT_PR}"
 	fi
 fi
-AIRPORT_PG_SORTED=${TMP_DIR}${AIRPORT_PG_SORTED}
-AIRPORT_PG_SORTED_CUT=${TMP_DIR}${AIRPORT_PG_SORTED_CUT}
+AIRPORT_PR_SORTED=${TMP_DIR}${AIRPORT_PR_SORTED}
+AIRPORT_PR_SORTED_CUT=${TMP_DIR}${AIRPORT_PR_SORTED_CUT}
 
-if [ ! -f "${AIRPORT_PG}" ]
+if [ ! -f "${AIRPORT_PR}" ]
 then
-	echo "The '${AIRPORT_PG}' file does not exist."
+	echo "The '${AIRPORT_PR}' file does not exist."
 	if [ "$1" = "" ];
 	then
 		displayPopularityDetails
@@ -118,36 +118,37 @@ fi
 
 ##
 # First, remove the header (first line).
-AIRPORT_PG_TMP=${AIRPORT_PG}.tmp
-# As of now (April 2012), there is no header.
-\cp -f ${AIRPORT_PG} ${AIRPORT_PG_TMP}
-#sed -e "s/^region_code\(.\+\)//g" ${AIRPORT_PG} > ${AIRPORT_PG_TMP}
-#sed -i -e "/^$/d" ${AIRPORT_PG_TMP}
+AIRPORT_PR_TMP=${AIRPORT_PR}.tmp
+# As of now (June 2012), there is no header.
+\cp -f ${AIRPORT_PR} ${AIRPORT_PR_TMP}
+#sed -e "s/^region_code\(.\+\)//g" ${AIRPORT_PR} > ${AIRPORT_PR_TMP}
+#sed -i -e "/^$/d" ${AIRPORT_PR_TMP}
 
 
 ##
 # The PageRanked airport file should be sorted according to the code (as are
 # the Geonames data dump and the file of best coordinates).
-sort -t'^' -k 1,1 ${AIRPORT_PG_TMP} > ${AIRPORT_PG_SORTED}
-\rm -f ${AIRPORT_PG_TMP}
+sort -t'^' -k 1,1 ${AIRPORT_PR_TMP} > ${AIRPORT_PR_SORTED}
+\rm -f ${AIRPORT_PR_TMP}
 
 ##
-# Only two columns/fields are kept in that version of the file:
-# the airport/city IATA code and the PageRank.
-# Note: as of now (April 2012), the file has got no other field. So, that step
+# Only three columns/fields are kept in that version of the file:
+# the airport/city IATA code, the corresponding type (e.g., 'CA' for city and airport,
+# 'A' for airport only and 'C' for city only, 'O' for off-line point) and the PageRank.
+# Note: as of now (June 2012), the file has got no other field. So, that step
 # is useless.
-cut -d'^' -f 1,2 ${AIRPORT_PG_SORTED} > ${AIRPORT_PG_SORTED_CUT}
+cut -d'^' -f 1-3 ${AIRPORT_PR_SORTED} > ${AIRPORT_PR_SORTED_CUT}
 
 ##
 # Convert the IATA codes from lower to upper letters
-cat ${AIRPORT_PG_SORTED_CUT} | tr [:lower:] [:upper:] > ${AIRPORT_PG_TMP}
-\mv -f ${AIRPORT_PG_TMP} ${AIRPORT_PG_SORTED_CUT}
+cat ${AIRPORT_PR_SORTED_CUT} | tr [:lower:] [:upper:] > ${AIRPORT_PR_TMP}
+\mv -f ${AIRPORT_PR_TMP} ${AIRPORT_PR_SORTED_CUT}
 
 ##
 # Reporting
 echo
 echo "Preparation step"
 echo "----------------"
-echo "The '${AIRPORT_PG_SORTED}' and '${AIRPORT_PG_SORTED_CUT}' files have been derived from '${AIRPORT_PG}'."
+echo "The '${AIRPORT_PR_SORTED}' and '${AIRPORT_PR_SORTED_CUT}' files have been derived from '${AIRPORT_PR}'."
 echo
 
