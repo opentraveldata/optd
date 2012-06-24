@@ -662,7 +662,7 @@ BEU^YBIE^Y^7730242^Bedourie Airport^Bedourie Airport^BEU,YBIE^-24.346111^139.460
 BEV^LLBS^Y^6299657^Beer-Sheva^Beer-Sheva^BEV,LLBS^31.287003^34.722953^S^AIRP^IL^^^^^^0^199^194^Asia/Jerusalem^2.0^3.0^2.0^2007-01-03^Y^N^BEV^^MEAST^CA^http://en.wikipedia.org/wiki/Be%27er_Sheva_%28Teyman%29_Airport
 BEW^FQBR^Y^1098915^Beira^Beira^BEW,FQBR^-19.796419^34.907556^S^AIRP^MZ^^05^^^^0^0^9^Africa/Maputo^2.0^2.0^2.0^2011-03-18^Y^Y^BEW^^AFRIC^CA^http://en.wikipedia.org/wiki/Beira_Airport
 BEX^EGUB^Y^6296651^Benson^Benson^BEX,EGUB^51.616389^-1.095833^S^AIRP^GB^^ENG^K2^38UD^^0^68^56^Europe/London^0.0^1.0^0.0^2010-05-24^Y^N^BEX^^EUROP^CA^http://en.wikipedia.org/wiki/RAF_Benson
-BEY^OLBA^Y^276636^Beirut International Airport^Beirut International Airport^Aeroport de Beyrouth,Aéroport de Beyrouth,BEY,Beirut International,OLBA^33.820931^35.488389^S^AIRP^LB^LB^05^^^^0^26^4^Asia/Beirut^2.0^3.0^2.0^2009-12-07^Y^Y^BEY^^MEAST^CA^http://en.wikipedia.org/wiki/Beirut_Rafic_Hariri_International_Airport^^Aéroport de Beyrouth^en^Beirut International
+BEY^OLBA^Y^276636^Beirut International Airport^Beirut International Airport^Aeroport international de Beyrouth,Aéroport international de Beyrouth,BEY,Beirut International Airport,Beirut Rafic Hariri International Airport,OLBA,mtar byrwt rfyq alhryry aldwly,مطار بيروت رفيق الحريري الدولي^33.820931^35.488389^S^AIRP^LB^LB^05^^^^0^26^4^Asia/Beirut^2.0^3.0^2.0^2012-06-23^Y^Y^BEY^^MEAST^CA^http://en.wikipedia.org/wiki/Beirut_Rafic_Hariri_International_Airport^en^Beirut International Airport^en^Beirut Rafic Hariri International Airport
 BEZ^NGBR^Y^6299951^Beru Airport^Beru Airport^BEZ,NGBR^-1.333^176^S^AIRP^KI^^01^BE^^^0^0^5^Pacific/Tarawa^12.0^12.0^12.0^2010-08-20^Y^N^BEZ^^AUSTL^CA^http://en.wikipedia.org/wiki/Beru_Island_Airport
 BFA^ZZZZ^Y^7730857^Bahía Negra Airport^Bahia Negra Airport^BFA^-20.23^-58.17^S^AIRP^PY^^23^^^^0^0^86^America/Asuncion^-3.0^-4.0^-4.0^2011-03-17^Y^N^BFA^^SAMER^CA^
 BFB^ZZZZ^Y^8299094^Blue Fox Bay^Blue Fox Bay^BFB^58.18^-152.1^S^AIRP^US^^AK^150^^^0^0^77^America/Anchorage^-9.0^-8.0^-9.0^2012-05-18^Y^N^BFB^AK^NAMER^CA^
@@ -4313,7 +4313,7 @@ KUR^ZZZZ^Y^8299086^Kuran Wa Munjan^Kuran Wa Munjan^KUR^38.4^71.12^S^AIRP^AF^^01^
 KUS^BGKK^Y^6295701^Kulusuk Lufthavn^Kulusuk Lufthavn^BGKK,KUS^65.57^-37.12^S^AIRP^GL^^^^^^0^35^1^America/Godthab^-3.0^-2.0^-3.0^2006-10-29^Y^Y^KUS^^EUROP^CA^http://en.wikipedia.org/wiki/Kulusuk_Airport
 KUT^UGKO^Y^800541^Samtredia East^Samtredia East^KUT,Kopitnari Airport,Samtredia East,UGKO^42.25^42.7^S^AIRF^GE^^00^^^^0^40^46^Asia/Tbilisi^4.0^4.0^4.0^2012-01-19^Y^N^KUT^^EURAS^CA^http://en.wikipedia.org/wiki/Kopitnari_Airport^^Samtredia East^en^Kopitnari Airport
 KUU^VIBR^Y^7668601^Kullu Manali Airport^Kullu Manali Airport^KUU,VIBR^31.876706^77.154367^S^AIRP^IN^^11^^^^0^0^1082^Asia/Kolkata^5.5^5.5^5.5^2011-02-17^Y^Y^KUU^^ASIA^CA^http://en.wikipedia.org/wiki/Bhuntar_Airport
-KUV^RKJK^Y^6300416^Kunsan Ab^Kunsan Ab^KUV,RKJK^35.903756^126.615906^S^AIRP^KR^^^^^^0^8^5^Asia/Seoul^9.0^9.0^9.0^2007-01-03^Y^Y^KUV^^ASIA^CA^http://en.wikipedia.org/wiki/Gunsan_Airport
+KUV^RKJK^Y^6300416^Gunsan Airport^Gunsan Airport^Gunsan Airport,Gunsan Gonghang,KUV,Kunsan Konghang,RKJK,gunsangonghang,qun shan kong gang,群山空港,군산공항^35.903756^126.615906^S^AIRP^KR^^^^^^0^8^5^Asia/Seoul^9.0^9.0^9.0^2012-06-23^Y^Y^KUV^^ASIA^CA^http://en.wikipedia.org/wiki/Gunsan_Airport^zh^群山空港^en^Gunsan Airport^en^Gunsan Gonghang^en^Kunsan Konghang
 KUW^ZZZZ^Y^8260955^Kugururok River^Kugururok River^KUW^67.97^-162^S^AIRP^US^^AK^188^^^0^0^85^America/Anchorage^-9.0^-8.0^-9.0^2012-04-29^Y^N^KUW^AK^NAMER^CA^
 KUX^ZZZZ^N^0^KUYOL/PG^KUYOL/PG^^-5.367^141.6^P^PPLC^PG^^^^^^^^^PG^^^^-1^N^N^KUX^^AUSTL^C^
 KUY^ZZZZ^Y^7731198^Kamusi Airport^Kamusi Airport^KUY^-7.428^143.1^S^AIRP^PG^^06^^^^0^0^27^Pacific/Port_Moresby^10.0^10.0^10.0^2011-03-17^Y^N^KUY^^AUSTL^CA^http://en.wikipedia.org/wiki/Kamusi_Airport
@@ -5561,7 +5561,7 @@ NAP^LIRN^Y^6299627^Napoli / Capodichino^Napoli / Capodichino^LIRN,NAP^40.886033^
 NAQ^BGQQ^Y^7668096^Qaanaaq Airport^Qaanaaq Airport^BGQQ,NAQ^76.5^-69^S^AIRP^GL^^01^^^^0^0^71^America/Thule^-4.0^-3.0^-4.0^2011-02-17^Y^Y^NAQ^^EUROP^CA^http://en.wikipedia.org/wiki/Qaanaaq_Airport
 NAR^SKPN^Y^7731326^Puerto Nare Airport^Puerto Nare Airport^NAR,SKPN^6.2^-74.62^S^AIRP^CO^^02^^^^0^0^127^America/Bogota^-5.0^-5.0^-5.0^2011-03-18^Y^N^NAR^^SAMER^CA^
 NAS^MYNN^Y^3571821^Nassau International Airport^Nassau International Airport^MYNN,NAS,Nassau International^25.038958^-77.466231^S^AIRP^BS^BS^23^^^^0^4^6^America/Nassau^-5.0^-4.0^-5.0^2007-01-03^Y^Y^NAS^^CARIB^CA^http://en.wikipedia.org/wiki/Lynden_Pindling_International_Airport^^Nassau International
-NAT^SBNT^Y^3406959^Augusto Severo^Augusto Severo^NAT,SBNT^-5.911417^-35.247717^S^AIRP^BR^^22^^^^0^51^50^America/Recife^-3.0^-3.0^-3.0^2007-01-03^Y^Y^NAT^RN^SAMER^CA^http://en.wikipedia.org/wiki/Natal_Air_Force_Base
+NAT^SBNT^Y^3406959^Augusto Severo International Airport^Augusto Severo International Airport^Aeroporto Internacional Augusto Severo,Augusto Severo International Airport,NAT,Parnamirim Airport,SBNT^-5.911417^-35.247717^S^AIRP^BR^^22^^^^0^51^50^America/Recife^-3.0^-3.0^-3.0^2012-06-23^Y^Y^NAT^RN^SAMER^CA^http://en.wikipedia.org/wiki/Augusto_Severo_International_Airport^en^Augusto Severo International Airport^en^Parnamirim Airport
 NAU^NTGN^Y^7730697^Napuka Island Airport^Napuka Island Airport^NAU,NTGN^-14.17^-141.6^S^AIRP^PF^^^^^^0^0^3^Pacific/Tahiti^-10.0^-10.0^-10.0^2011-03-17^Y^Y^NAU^^PACIF^CA^http://en.wikipedia.org/wiki/Napuka_Airport
 NAV^LTAZ^Y^6299742^Nevsehir^Nevsehir^LTAZ,NAV^38.77^34.54^S^AIRP^TR^^^^^^0^944^942^Europe/Istanbul^2.0^3.0^2.0^2007-01-03^Y^Y^NAV^^EURAS^CA^http://en.wikipedia.org/wiki/Nev%C5%9Fehir_Kapadokya_Airport
 NAW^VTSC^Y^1595740^Tha Akatsayan Narathiwat^Tha Akatsayan Narathiwat^NAW,Narathiwat,Tha Akatsayan Narathiwat,VTSC,tha xakasyan nrathiwas,ท่าอากาศยานนราธิวาส^6.519922^101.7434^S^AIRF^TH^^31^^^^0^0^7^Asia/Bangkok^7.0^7.0^7.0^2012-01-16^Y^Y^NAW^^SEASI^CA^http://en.wikipedia.org/wiki/Narathiwat_Airport^^Narathiwat^^Tha Akatsayan Narathiwat
@@ -5976,7 +5976,7 @@ OGV^ZZZZ^Y^8299159^Ongava^Ongava^OGV^-19.32^15.9^S^AIRP^NA^^14^^^^0^0^1138^Afric
 OGX^DAUU^Y^6296396^Ouargla^Ouargla^DAUU,OGX^31.917223^5.412778^S^AIRP^DZ^^^^^^0^149^147^Africa/Algiers^1.0^1.0^1.0^2007-01-03^Y^Y^OGX^^AFRIC^CA^http://en.wikipedia.org/wiki/Ain_Beida_Airport
 OGZ^URMO^Y^7668529^Beslan Airport^Beslan Airport^OGZ,URMO^43.205114^44.606642^S^AIRP^RU^^68^^^^0^0^506^Europe/Moscow^4.0^4.0^4.0^2011-02-17^Y^Y^OGZ^^EURAS^CA^http://en.wikipedia.org/wiki/Beslan_Airport
 OHA^NZOH^Y^6224598^Ohakea Aerodrome^Ohakea Aerodrome^NZOH,OHA^-41.5^174.8^S^AIRP^NZ^^G2^^^^0^49^46^Pacific/Auckland^13.0^12.0^12.0^2007-01-03^Y^N^OHA^^AUSTL^CA^http://en.wikipedia.org/wiki/RNZAF_Base_Ohakea
-OHB^ZZZZ^Y^1058532^Moramanga^Moramanga^OHB^-18.9169^48.7186^P^PPL^MG^^04^^^^29212^0^902^Indian/Antananarivo^3.0^3.0^3.0^2006-01-17^Y^N^OHB^^AFRIC^CA^
+OHB^ZZZZ^Y^1058532^Moramanga^Moramanga^OHB^-18.9169^48.7186^P^PPL^MG^^7670851^^^^29212^0^909^Indian/Antananarivo^3.0^3.0^3.0^2012-06-22^Y^N^OHB^^AFRIC^CA^
 OHC^ZZZZ^N^0^NORTHEAST CAPE/AK/US:AFS^NORTHEAST CAPE/AK/US:AFS^^69.02^-163.9^S^AIRP^US^^^^^^^^^US111^^^^-1^Y^N^OHC^AK^NAMER^CA^
 OHD^LWOH^Y^6299777^Ohrid Airport^Ohrid Airport^LWOH,OHD^41.179956^20.742325^S^AIRP^MK^^^^^^0^705^699^Europe/Skopje^1.0^2.0^1.0^2011-01-25^Y^Y^OHD^^EUROP^CA^http://en.wikipedia.org/wiki/Ohrid_%22St._Paul_the_Apostle%22_Airport
 OHE^ZZZZ^Y^7910232^Gu-Lian Airport^Gu-Lian Airport^OHE^52.9146500^122.4276900^S^AIRP^CN^^08^^^^0^0^558^Asia/Shanghai^8.0^8.0^8.0^2011-07-20^Y^Y^OHE^^ASIA^CA^
@@ -7122,7 +7122,7 @@ QPG^WSAP^Y^1880250^Paya Lebar Airport^Paya Lebar Airport^Paya Lebar,Paya Lebar A
 QPH^FBPY^Y^7730495^Palapye Airport^Palapye Airport^FBPY,QPH^-22.5670000^27.1500000^S^AIRP^BW^^01^^^^0^0^925^Africa/Gaborone^2.0^2.0^2.0^2011-03-17^N^N^QPH^^AFRIC^O^
 QPI^ZZZZ^N^0^PALMIRA/CO:OFF-^PALMIRA/CO:OFF-^^25.42^-49.25^X^XXXX^CO^^^^^^^^^CO132^^^^-1^N^N^QPI^^SAMER^O^
 QPJ^ZZZZ^N^0^PECS/HU:PECS^PECS/HU:PECS^^46.07^18.25^S^AIRP^HU^^^^^^^^^HU060^^^^-1^Y^Y^QPJ^^EEURO^CB^
-QPK^ZZZZ^Y^2826082^Strausberg^Strausberg^QPK^42.17^-88.43^P^PPL^DE^^11^^^^26649^0^67^Europe/Berlin^1.0^2.0^1.0^2009-01-29^Y^N^QPK^^EUROP^CA^
+QPK^EDAY^Y^3208765^Strausberg Airfield^Strausberg Airfield^QPK^42.17^-88.43^P^PPL^DE^^11^^^^26649^0^67^Europe/Berlin^1.0^2.0^1.0^2009-01-29^Y^N^QPK^^EUROP^CA^
 QPL^ZZZZ^N^0^PLOIESTI/RO:BUS STATION^PLOIESTI/RO:BUS STATION^^44.94^26.03^S^AIRP^RO^^^^^^^^^RO094^^^^-1^Y^N^QPL^^EEURO^CB^
 QPM^ZZZZ^N^0^OPOLE/PL:OPOLE^OPOLE/PL:OPOLE^^0^0^X^XXXX^PL^^^^^^^^^PL089^^^^-1^N^N^QPM^^EEURO^O^
 QPN^ZZZZ^N^0^PIATRA NEAMT/RO:PIATRA NEAMT^PIATRA NEAMT/RO:PIATRA NEAMT^^0^0^X^XXXX^RO^^^^^^^^^RO094^^^^-1^N^N^QPN^^EEURO^O^
@@ -10522,7 +10522,7 @@ YPC^CYPC^Y^6296248^Paulatuk Airport^Paulatuk Airport^Aeropuerto de Paulatuk,CYPC
 YPD^ZZZZ^Y^6098747^Parry Sound^Parry Sound^YPD^45.656667^-61.368056^P^PPL^CA^^08^^^^6469^0^211^America/Toronto^-5.0^-4.0^-5.0^2008-04-11^Y^N^YPD^ON^NAMER^CA^
 YPE^CYPE^Y^6296250^Peace River, Alta.^Peace River, Alta.^CYPE,YPE^56.226944^-117.447222^S^AIRP^CA^^^^^^0^570^565^America/Edmonton^-7.0^-6.0^-7.0^2007-01-03^Y^N^YPE^AB^NAMER^CA^http://en.wikipedia.org/wiki/Peace_River_Airport
 YPF^ZZZZ^Y^5949512^Esquimalt^Esquimalt^YPF^48.43^-123.4^P^PPL^CA^^02^^^^0^0^14^America/Vancouver^-8.0^-7.0^-8.0^2006-01-18^Y^N^YPF^BC^NAMER^CA^
-YPG^CYPG^Y^6296251^Portage Southport A^Portage Southport A^CYPG,YPG^49.903056^-98.273889^S^AIRP^CA^^^^^^0^269^266^America/Winnipeg^-6.0^-5.0^-6.0^2007-01-03^Y^N^YPG^MB^NAMER^CA^http://en.wikipedia.org/wiki/Canadian_Forces_Base_Portage_la_Prairie
+YPG^CYPG^Y^6296251^Portage Southport A^Portage Southport A^CYPG,YPG^49.903056^-98.273889^S^AIRP^CA^^^^^^0^269^266^America/Winnipeg^-6.0^-5.0^-6.0^2007-01-03^Y^N^YPG^MB^NAMER^CA^http://en.wikipedia.org/wiki/Portage_la_Prairie%2FSouthport_Airport
 YPH^CYPH^Y^6301467^Inukjuak Airport^Inukjuak Airport^Aeropuerto de Inukjuak,CYPH,Inukjuak Airport,Inukjuak Airport Supplementary Aviation Weather Reporting Station,YPH^58.47^-78.12^S^AIRF^CA^^10^17^^^0^25^24^America/Montreal^-5.0^-4.0^-5.0^2011-07-20^Y^Y^YPH^QC^NAMER^CA^http://en.wikipedia.org/wiki/Inukjuak_Airport^^Inukjuak Airport^^Inukjuak Airport Supplementary Aviation Weather Reporting Station
 YPI^ZZZZ^Y^8299068^Port Simpson^Port Simpson^YPI^54.55^-130.4^S^AIRP^CA^^02^^^^0^0^181^America/Vancouver^-8.0^-7.0^-8.0^2012-05-18^Y^N^YPI^BC^NAMER^CA^
 YPJ^CYLA^Y^6296222^Aupaluk, Que.^Aupaluk, Que.^CYLA,YPJ^59.07^-69.55^S^AIRP^CA^^^^^^0^35^27^America/Montreal^-5.0^-4.0^-5.0^2011-07-20^Y^Y^YPJ^QC^NAMER^CA^http://en.wikipedia.org/wiki/Aupaluk_Airport
