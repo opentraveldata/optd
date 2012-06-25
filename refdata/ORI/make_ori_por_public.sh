@@ -84,9 +84,21 @@ cut -d'^' -f1-25 ${GEONAME_SORTED_FILE} > ${GEONAME_CUT_SORTED_FILE}
 
 ##
 # Aggregate all the data sources into a single file
-join -t'^' -a 1 ${ORI_POR_FILE} ${GEONAME_CUT_SORTED_FILE} > ${ORI_POR_WITH_GEO}
-join -t'^' -a 1 ${ORI_POR_WITH_GEO} ${RFD_SORTED_FILE} > ${ORI_POR_WITH_GEORFD}
-join -t'^' -a 1 ${ORI_POR_WITH_GEORFD} ${GEONAME_FILE_TMP} > ${ORI_POR_WITH_GEORFDALT}
+#
+# ${ORI_POR_FILE} (best_coordinates_known_so_far.csv) and
+# ${GEONAME_CUT_SORTED_FILE} (../tools/cut_sorted_dump_from_geonames.csv) are joined
+# on the IATA code alone:
+join -t'^' -a 1 -1 2 -2 1 ${ORI_POR_FILE} ${GEONAME_CUT_SORTED_FILE} > ${ORI_POR_WITH_GEO}
+
+# ${ORI_POR_WITH_GEO} (best_coordinates_known_so_far.csv.withgeo) and
+# ${GEONAME_CUT_SORTED_FILE} (sorted_dump_from_crb_city.csv) are joined on the
+# primary key (i.e., IATA code + location type):
+join -t'^' -a 1 -1 2 -2 1 ${ORI_POR_WITH_GEO} ${RFD_SORTED_FILE} > ${ORI_POR_WITH_GEORFD}
+
+# ${ORI_POR_WITH_GEORFD} (best_coordinates_known_so_far.csv.withgeorfd) and
+# ${GEONAME_FILE_TMP} (../tools/dump_from_geonames.csv.alt) are joined on the
+# IATA code alone:
+join -t'^' -a 1 -1 2 -2 1 ${ORI_POR_WITH_GEORFD} ${GEONAME_FILE_TMP} > ${ORI_POR_WITH_GEORFDALT}
 
 ##
 # Suppress the redundancies. See ${REDUCER} for more details and samples.

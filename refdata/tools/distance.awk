@@ -49,24 +49,24 @@ BEGIN {
 # Main
 {
 
-	if (NF == 8 || NF == 6) {
+	if (NF == 9 || NF == 7) {
 		# IATA code and location type
 		iata_code = $1
-		location_type = $2
+		location_type = substr($1, 5)
 
 		# The POR is specified within both input data files (e.g., Geonames
 		# and the file of best known coordinates).
 		lat1 = $3 / rad
-		lat2 = $5 / rad
+		lat2 = $6 / rad
 		lon1 = $4 / rad
-		lon2 = $6 / rad
+		lon2 = $7 / rad
 
 		# Default value
 		pagerank = ""
 
 		# Use the PageRank for that POR (point of reference) when it exists
-		if (NF == 8) {
-			pagerank = $8
+		if (NF == 9) {
+			pagerank = $9
 		}
 
 		# When the PageRank does not exist, it is set to 0.1%
@@ -76,10 +76,10 @@ BEGIN {
 		distance_func()
 
 		# IATA code
-		printf ("%s", iata_code)
+		printf ("%6s", iata_code)
 
 		# Distance, in km
-		printf ("^%5.0f", distance/1000.0)
+		printf ("^%6.0f", distance/1000.0)
 		
 		# PageRank (the maximum being 100%, i.e., 1.0, usually for ORD/Chicago)
 		printf ("^%21.20f", pagerank)
@@ -96,7 +96,7 @@ BEGIN {
 		# End-of-line
 		printf ("%s", "\n")
 
-	} else if (NF == 4) {
+	} else if (NF == 5) {
 		# The POR (point of reference) is not known from Geonames. So, there is no
 		# difference to calculate: do nothing else here.
 
