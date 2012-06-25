@@ -213,19 +213,18 @@ fi
 # have only three fields (the code and both coordinates of the geonames dump
 # file).
 JOINED_COORD_1=${GEO_COMBINED_FILE}.tmp.1
-join -t'^' -a 1 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} > ${JOINED_COORD_1}
-
+join -t'^' -a 1 -1 1 -2 2 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} > ${JOINED_COORD_1}
 
 ##
 # Sanity check: calculate the minimal number of fields on the resulting file
 MIN_FIELD_NB=`awk -F'^' 'BEGIN{n=10} {if (NF<n) {n=NF}} END{print n}' ${JOINED_COORD_1} | uniq | sort | uniq`
 
-if [ "${MIN_FIELD_NB}" != "6" -a "${MIN_FIELD_NB}" != "4" ]
+if [ "${MIN_FIELD_NB}" != "7" -a "${MIN_FIELD_NB}" != "5" ]
 then
 	echo
 	echo "Update step"
 	echo "-----------"
-	echo "Minimum number of fields in the new coordinate file should be 6. It is ${MIN_FIELD_NB}"
+	echo "Minimum number of fields in the new coordinate file should be 5 or 7. It is ${MIN_FIELD_NB}"
 	echo "Problem!"
 	echo "Check file ${JOINED_COORD_1}, which is a join of the coordinates from ${GEO_FILE_1_SORTED_CUT} and ${GEO_FILE_2}"
 	echo
@@ -238,8 +237,7 @@ fi
 # Note that, however, when they exist, the Geonames coordinates themselves
 # (not the point of reference) have the precedence over the "best known" ones.
 JOINED_COORD_2=${GEO_COMBINED_FILE}.tmp.2
-join -t'^' -a 2 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} > ${JOINED_COORD_2}
-
+join -t'^' -a 2 -1 1 -2 2 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} > ${JOINED_COORD_2}
 
 ##
 # Keep only the first three fields:
@@ -261,7 +259,7 @@ awk -F'^' -f ${EXTRACTOR} ${JOINED_COORD_2} > ${JOINED_COORD_2}.dup
 # Re-aggregate all the fields, so that the format of the generated file be
 # the same as the Geonames dump file.
 JOINED_COORD_FULL=${JOINED_COORD_1}.tmp.full
-paste -d'^' ${JOINED_COORD_1} ${GEO_FILE_1_SORTED} > ${JOINED_COORD_FULL}
+join -t'^' -a 1 -1 1 -2 1 ${JOINED_COORD_1} ${GEO_FILE_1_SORTED} > ${JOINED_COORD_FULL}
 
 ##
 # Filter and re-order a few fields, so that the format of the generated file be

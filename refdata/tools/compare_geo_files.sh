@@ -165,11 +165,11 @@ fi
 ##
 # For each airport/city code, join the two geographical coordinate sets.
 COMP_FILE_COORD_TMP=${COMP_FILE_COORD}.tmp2
-join -t'^' -a 1 -e NULL ${GEO_FILE_2} ${GEO_FILE_1} > ${COMP_FILE_COORD_TMP}
+join -t'^' -a 1 -1 2 -2 1 -e NULL ${GEO_FILE_2} ${GEO_FILE_1} > ${COMP_FILE_COORD_TMP}
 
 ##
 # For each airport/city code, join the airport PageRank/popularity.
-join -t'^' -a 1 ${COMP_FILE_COORD_TMP} ${AIRPORT_PG} > ${COMP_FILE_COORD}
+join -t'^' -a 1 -1 2 -2 1 ${COMP_FILE_COORD_TMP} ${AIRPORT_PG} > ${COMP_FILE_COORD}
 \rm -f ${COMP_FILE_COORD_TMP}
 
 ##
