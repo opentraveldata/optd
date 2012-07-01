@@ -48,13 +48,6 @@ displayGeonamesDetails() {
 }
 
 ##
-# Snapshot date
-SNAPSHOT_DATE=`date "+%Y%m%d"`
-SNAPSHOT_DATE_HUMAN=`date`
-DUMP_IATA_FILENAME=por_all_iata_${SNAPSHOT_DATE}.csv
-DUMP_NOICAO_FILENAME=por_all_noicao_${SNAPSHOT_DATE}.csv
-
-##
 # Temporary path
 TMP_DIR="/tmp/por"
 
@@ -76,22 +69,36 @@ then
 	\mkdir -p ${TMP_DIR}
 fi
 
+##
+# Snapshot date
+SNAPSHOT_DATE=`date "+%Y%m%d"`
+SNAPSHOT_DATE_HUMAN=`date`
 
 ##
-#
-DUMP_FILE_FILENAME=dump_from_geonames.csv
-#
-DUMP_FILE=${TMP_DIR}${DUMP_FILE_FILENAME}
+# ORI directory
+ORI_DIR=../ORI/
 
+##
+# Input files
+GEO_IATA_FILENAME=por_all_iata_${SNAPSHOT_DATE}.csv
+GEO_NOICAO_FILENAME=por_all_noicao_${SNAPSHOT_DATE}.csv
+
+##
+# Output (generated) files
+GEO_RAW_FILENAME=dump_from_geonames.csv
 #
+GEO_RAW_FILE=${TMP_DIR}${GEO_RAW_FILENAME}
+
+##
+# Parse command-line options
 if [ "$1" = "-h" -o "$1" = "--help" ];
 then
 	echo
 	echo "Usage: $0 [<Snapshot date>]"
 	echo "  - Snapshot date: '${SNAPSHOT_DATE}' (${SNAPSHOT_DATE_HUMAN})"
-	echo "    + ${DUMP_IATA_FILE} for the list of IATA codes"
-	echo "    + ${DUMP_NOICAO_FILE} for the list of IATA codes without ICAO codes"
-	echo "  - Default name for the (output) geo data dump file: '${DUMP_FILE}'"
+	echo "    + ${GEO_IATA_FILE} for the list of IATA codes"
+	echo "    + ${GEO_NOICAO_FILE} for the list of IATA codes without ICAO codes"
+	echo "  - Default name for the (output) geo data dump file: '${GEO_RAW_FILE}'"
 	echo
 	exit -1
 fi
@@ -107,24 +114,24 @@ fi
 if [ "$1" != "" ];
 then
 	SNAPSHOT_DATE="$1"
-	DUMP_IATA_FILENAME=por_all_iata_${SNAPSHOT_DATE}.csv
-	DUMP_NOICAO_FILENAME=por_all_noicao_${SNAPSHOT_DATE}.csv
+	GEO_IATA_FILENAME=por_all_iata_${SNAPSHOT_DATE}.csv
+	GEO_NOICAO_FILENAME=por_all_noicao_${SNAPSHOT_DATE}.csv
 fi
 
 # If the Geonames dump file is in the current directory, then the current
 # directory is certainly intended to be the temporary directory.
-if [ -f ${DUMP_IATA_FILENAME} ]
+if [ -f ${GEO_IATA_FILENAME} ]
 then
 	TMP_DIR="./"
 fi
 
 #
-DUMP_IATA_FILE=${TMP_DIR}${DUMP_IATA_FILENAME}
-DUMP_NOICAO_FILE=${TMP_DIR}${DUMP_NOICAO_FILENAME}
+GEO_IATA_FILE=${TMP_DIR}${GEO_IATA_FILENAME}
+GEO_NOICAO_FILE=${TMP_DIR}${GEO_NOICAO_FILENAME}
 
-if [ ! -f ${DUMP_IATA_FILE} -o ! -f ${DUMP_NOICAO_FILE} ]
+if [ ! -f ${GEO_IATA_FILE} -o ! -f ${GEO_NOICAO_FILE} ]
 then
-	echo "The '${DUMP_IATA_FILE}' and/or '${DUMP_NOICAO_FILE}' files do not exist."
+	echo "The '${GEO_IATA_FILE}' and/or '${GEO_NOICAO_FILE}' files do not exist."
 	if [ "$1" = "" ];
 	then
 		displayGeonamesDetails
@@ -134,37 +141,36 @@ fi
 
 ##
 # 1.1. Aggregate both dump files
-cat ${DUMP_IATA_FILE} ${DUMP_NOICAO_FILE} > ${DUMP_FILE}
+cat ${GEO_IATA_FILE} ${GEO_NOICAO_FILE} > ${GEO_RAW_FILE}
 
 ##
 # 2.1. Extract the header into a temporary file
-DUMP_FILE_HEADER=${DUMP_FILE}.tmp.hdr
-grep "^iata\(.\+\)" ${DUMP_FILE} > ${DUMP_FILE_HEADER}
+GEO_RAW_FILE_HEADER=${GEO_RAW_FILE}.tmp.hdr
+grep "^iata\(.\+\)" ${GEO_RAW_FILE} > ${GEO_RAW_FILE_HEADER}
 
 # 2.2. Remove the header
-sed -i -e "s/^iata\(.\+\)//g" ${DUMP_FILE}
-sed -i -e "/^$/d" ${DUMP_FILE}
+sed -i -e "s/^iata\(.\+\)//g" ${GEO_RAW_FILE}
+sed -i -e "/^$/d" ${GEO_RAW_FILE}
 
 ##
 # 3.1. Replace the 'NULL' fields by 'ZZZZ', so as to place them at the end
-sed -i -e "s/^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)/\1\^ZZZZ\^\2/g" ${DUMP_FILE}
+sed -i -e "s/^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)/\1\^ZZZZ\^\2/g" ${GEO_RAW_FILE}
 
 # 3.2. Sort the Geonames dump file according to the (IATA, ICAO) code pair
-DUMP_FILE_TMP=${DUMP_FILE}.tmp
-sort -t'^' -k1,1 -k2,2 -k11,11 ${DUMP_FILE} > ${DUMP_FILE_TMP}
-\mv -f ${DUMP_FILE_TMP} ${DUMP_FILE}
+GEO_RAW_FILE_TMP=${GEO_RAW_FILE}.tmp
+sort -t'^' -k1,1 -k2,2 -k11,11 ${GEO_RAW_FILE} > ${GEO_RAW_FILE_TMP}
+\mv -f ${GEO_RAW_FILE_TMP} ${GEO_RAW_FILE}
 
 # 4.1. Re-add the header
-cat ${DUMP_FILE_HEADER} ${DUMP_FILE} > ${DUMP_FILE_TMP}
-sed -i -e "/^$/d" ${DUMP_FILE_TMP}
-\mv -f ${DUMP_FILE_TMP} ${DUMP_FILE}
-
+cat ${GEO_RAW_FILE_HEADER} ${GEO_RAW_FILE} > ${GEO_RAW_FILE_TMP}
+sed -i -e "/^$/d" ${GEO_RAW_FILE_TMP}
+\mv -f ${GEO_RAW_FILE_TMP} ${GEO_RAW_FILE}
 
 ##
 # Reporting
 echo
 echo "Preparation step"
 echo "----------------"
-echo "The '${DUMP_FILE}' file has been created from the '${DUMP_IATA_FILE}' and '${DUMP_NOICAO_FILE}' files."
+echo "The '${GEO_RAW_FILE}' file has been created from the '${GEO_IATA_FILE}' and '${GEO_NOICAO_FILE}' files."
 echo
 

@@ -48,10 +48,6 @@ displayGeonamesDetails() {
 }
 
 ##
-#
-DUMP_FROM_GEONAMES_FILENAME=dump_from_geonames.csv
-
-##
 # Temporary path
 TMP_DIR="/tmp/por"
 
@@ -77,6 +73,25 @@ if [ ! -d ${TMP_DIR} -o ! -w ${TMP_DIR} ]
 then
 	\mkdir -p ${TMP_DIR}
 fi
+
+##
+# ORI directory
+ORI_DIR=../ORI/
+
+##
+# Input files
+DUMP_FROM_GEONAMES_FILENAME=dump_from_geonames.csv
+GEO_ORI_FILENAME=best_coordinates_known_so_far.csv
+#
+GEO_ORI_FILE=${EXEC_PATH}${ORI_DIR}${GEO_ORI_FILENAME}
+
+##
+# Output (generated) files
+GEO_RAW_FILENAME=dump_from_geonames.csv
+GEO_WCTY_FILENAME=dump_from_geonames_wcty.csv
+#
+GEO_RAW_FILE=${TMP_DIR}${GEO_RAW_FILENAME}
+GEO_WCTY_FILE=${TMP_DIR}${GEO_WCTY_FILENAME}
 
 ##
 #
@@ -127,6 +142,12 @@ then
 	exit -1
 fi
 
+
+##
+# Generate a second version of the file with the ORI primary key (integrating
+# the location type)
+ORI_PK_ADDER=${EXEC_PATH}geo_pk_creator.awk
+awk -F'^' -f ${ORI_PK_ADDER} ${GEO_ORI_FILE} ${GEO_RAW_FILE} > ${GEO_WCTY_FILE}
 
 ##
 # First, remove the header (first line)

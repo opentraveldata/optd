@@ -17,10 +17,11 @@
 -- Note: the cities (g1.fcode like 'PPL%') and administrative divisions
 -- (g1.fcode like 'ADM%') are extracted in another SQL script.
 --
--- Feature code:
+-- Feature code (see also http://www.geonames.org/export/codes.html):
 -- AIRB: Air base; AIRF: Air field; AIRH: Heliport; AIRP: Airport; 
 -- AIRQ: Abandoned air field; AIRS: Seaplane landing field
 -- RSTN: Railway station
+-- BUSTN: Bus station; BUSTP: Bus stop
 --
 
 
@@ -41,7 +42,8 @@ left join (
   from geoname as g1
   left join alternate_name as a1 on g1.geonameid = a1.geonameid
   where (g1.fcode = 'AIRB' or g1.fcode = 'AIRF' or g1.fcode = 'AIRH'
-  		or g1.fcode = 'AIRP' or g1.fcode = 'AIRS' or g1.fcode = 'RSTN')
+  		or g1.fcode = 'AIRP' or g1.fcode = 'AIRS' or g1.fcode = 'RSTN'
+		or g1.fcode = 'BUSTN' or g1.fcode = 'BUSTP')
   		and a1.isoLanguage = 'iata'
 		and a1.isHistoric = 0
   order by g1.geonameid
@@ -52,7 +54,8 @@ left join (
   from geoname as g2
   left join alternate_name as a2 on g2.geonameid = a2.geonameid
   where (g2.fcode = 'AIRB' or g2.fcode = 'AIRF' or g2.fcode = 'AIRH'
-  		or g2.fcode = 'AIRP' or g2.fcode = 'AIRS' or g2.fcode = 'RSTN')
+  		or g2.fcode = 'AIRP' or g2.fcode = 'AIRS' or g2.fcode = 'RSTN'
+		or g2.fcode = 'BUSTN' or g2.fcode = 'BUSTP')
   		and a2.isoLanguage = 'icao'
 		and a2.isHistoric = 0
   order by g2.geonameid
@@ -63,7 +66,8 @@ left join (
   from geoname as g3
   left join alternate_name as a3 on g3.geonameid = a3.geonameid
   where (g3.fcode = 'AIRB' or g3.fcode = 'AIRF' or g3.fcode = 'AIRH'
-  		or g3.fcode = 'AIRP' or g3.fcode = 'AIRS' or g3.fcode = 'RSTN')
+  		or g3.fcode = 'AIRP' or g3.fcode = 'AIRS' or g3.fcode = 'RSTN'
+		or g3.fcode = 'BUSTN' or g3.fcode = 'BUSTP')
   		and (a3.isoLanguage = 'en' or a3.isoLanguage = 'link'
 		  or a3.isoLanguage = 'ru' or a3.isoLanguage = 'zh'
 		  or a3.isoLanguage = '')
@@ -71,7 +75,8 @@ left join (
 ) as alt_names on alt_names.geonameid = g.geonameid
 
 where (g.fcode = 'AIRB' or g.fcode = 'AIRF' or g.fcode = 'AIRH'
-	  or g.fcode = 'AIRP' or g.fcode = 'AIRS' or g.fcode = 'RSTN')
+	  or g.fcode = 'AIRP' or g.fcode = 'AIRS' or g.fcode = 'RSTN'
+	  or g.fcode = 'BUSTN' or g.fcode = 'BUSTP')
 	  and g.timezone = tz.timeZoneId
 
 order by iata_code, icao_code, g.fcode
