@@ -38,12 +38,19 @@ set foreign_key_checks=0;
 -- isPreferredName, isShortName);
 -- commit;
 
+
+--
+-- PageRanked POR
+--
+-- Sample: LON-C^LON^0.995550996263
+--
 LOAD DATA LOCAL INFILE '../../../../ORI/ref_airport_pageranked.csv'
 REPLACE
 INTO TABLE airport_pageranked
 CHARACTER SET UTF8
 FIELDS TERMINATED BY '^'
- (iata_code, location_type, page_rank);
+ (@pk, iata_code, page_rank)
+ set location_type = SUBSTRING(@pk, 5);
 commit;
 -- IGNORE 1 LINES
 
