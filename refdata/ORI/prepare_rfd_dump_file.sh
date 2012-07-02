@@ -74,7 +74,7 @@ TOOLS_DIR=${EXEC_PATH}../tools/
 
 ##
 #
-DUMP_FROM_RFD_FILENAME=dump_from_crb_city.csv
+DUMP_FROM_RFD_FILENAME=wpk_dump_from_crb_city.csv
 SORTED_DUMP_FROM_RFD=sorted_${DUMP_FROM_RFD_FILENAME}
 SORTED_CUT_DUMP_FROM_RFD=cut_sorted_${DUMP_FROM_RFD_FILENAME}
 #
@@ -126,21 +126,21 @@ fi
 ##
 # First, remove the header (first line)
 DUMP_FROM_RFD_TMP=${DUMP_FROM_RFD}.tmp
-sed -e "s/^code\(.\+\)//g" ${DUMP_FROM_RFD} > ${DUMP_FROM_RFD_TMP}
+sed -e "s/^pk\(.\+\)//g" ${DUMP_FROM_RFD} > ${DUMP_FROM_RFD_TMP}
 sed -i -e "/^$/d" ${DUMP_FROM_RFD_TMP}
 
 
 ##
-# The RFD dump file is sorted according to the IATA code (as is the file of
+# The RFD dump file is sorted according to the primary key (as is the file of
 # best coordinates), just to be sure.
 sort -t'^' -k 1,1 ${DUMP_FROM_RFD_TMP} > ${SORTED_DUMP_FROM_RFD}
 \rm -f ${DUMP_FROM_RFD_TMP}
 
 ##
-# Only three columns/fields are kept in that version of the file:
-# the airport/city IATA code and the geographical coordinates (latitude,
-# longitude).
-cut -d'^' -f 1,14,15 ${SORTED_DUMP_FROM_RFD} > ${SORTED_CUT_DUMP_FROM_RFD}
+# Only 4 columns/fields are kept in that version of the file:
+# the primary key (IATA code - location type), airport/city IATA code and the
+# geographical coordinates (latitude, longitude).
+cut -d'^' -f 1,2,16,17 ${SORTED_DUMP_FROM_RFD} > ${SORTED_CUT_DUMP_FROM_RFD}
 
 ##
 # Reporting

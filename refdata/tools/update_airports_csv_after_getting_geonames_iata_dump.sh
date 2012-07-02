@@ -29,12 +29,17 @@ then
 fi
 
 ##
+# Log level
+LOG_LEVEL=3
+
+##
 # ORI path
 ORI_DIR=${EXEC_PATH}../ORI/
 
 ##
 # Geo data files
-GEO_FILE_1_FILENAME=dump_from_geonames.csv
+GEO_FILE_1_RAW_FILENAME=dump_from_geonames.csv
+GEO_FILE_1_FILENAME=wpk_${GEO_FILE_1_RAW_FILENAME}
 GEO_FILE_1_SORTED=sorted_${GEO_FILE_1_FILENAME}
 GEO_FILE_1_SORTED_CUT=cut_${GEO_FILE_1_SORTED}
 GEO_FILE_2_FILENAME=best_coordinates_known_so_far.csv
@@ -44,6 +49,7 @@ AIRPORT_PG_SORTED_CUT=cut_sorted_${AIRPORT_PG_FILENAME}
 AIRPORT_POP_FILENAME=ref_airport_popularity.csv
 AIRPORT_POP_SORTED=sorted_${AIRPORT_POP_FILENAME}
 AIRPORT_POP_SORTED_CUT=cut_sorted_${AIRPORT_POP_FILENAME}
+##
 # Comparison files
 POR_MAIN_DIFF_FILENAME=por_main_diff.csv
 # Combined data files of both the other sources
@@ -53,21 +59,26 @@ COMP_MIN_DIST=10
 
 ##
 # Geo data files
+GEO_FILE_1_RAW=${TMP_DIR}${GEO_FILE_1_RAW_FILENAME}
 GEO_FILE_1=${TMP_DIR}${GEO_FILE_1_FILENAME}
 GEO_FILE_2=${ORI_DIR}${GEO_FILE_2_FILENAME}
 AIRPORT_PG=${ORI_DIR}${AIRPORT_PG_FILENAME}
 AIRPORT_POP=${ORI_DIR}${AIRPORT_POP_FILENAME}
+##
 # Comparison files
 POR_MAIN_DIFF=${TMP_DIR}${POR_MAIN_DIFF_FILENAME}
 # Combined data files of both the other sources
 GEO_COMBINED_FILE=${TMP_DIR}${GEO_COMBINED_FILE_FILENAME}
+# Missing POR
+GEO_FILE_1_MISSING=${GEO_FILE_1}.missing
+GEO_FILE_2_MISSING=${GEO_FILE_2}.missing
 
 #
 if [ "$1" = "-h" -o "$1" = "--help" ];
 then
 	echo
 	echo "Usage: $0 [<Geo data file #1> [<Geo data file #2> [<PageRanked airport file>] [<minimum distance>]]]]"
-	echo "  - Default name for the geo data file #1: '${GEO_FILE_1}'"
+	echo "  - Default name for the geo data file #1: '${GEO_FILE_1_RAW}'"
 	echo "  - Default name for the geo data file #2: '${GEO_FILE_2}'"
 	echo "  - Default name for the PageRanked airport file: '${AIRPORT_PG}'"
 	echo "  - Default minimum distance (in km) triggering a difference: '${COMP_MIN_DIST}'"
@@ -82,8 +93,8 @@ then
 	then
 		\rm -rf ${TMP_DIR}
 	else
-		\rm -f ${GEO_FILE_1_MISSING} \
-			${GEO_FILE_1_SORTED} ${GEO_FILE_1_SORTED_CUT} \
+		\rm -f ${GEO_FILE_1_MISSING} ${GEO_FILE_2_MISSING} \
+			${GEO_FILE_1} ${GEO_FILE_1_SORTED} ${GEO_FILE_1_SORTED_CUT} \
 			${AIRPORT_PG_SORTED} ${AIRPORT_PG_SORTED_CUT} \
 			${GEO_COMBINED_FILE} ${POR_MAIN_DIFF}
 	fi
@@ -101,26 +112,28 @@ COMPARE_EXEC="bash ${EXEC_PATH}compare_geo_files.sh"
 # First data file with geographical coordinates
 if [ "$1" != "" ];
 then
-	GEO_FILE_1=$1
-	GEO_FILE_1_FILENAME=`basename ${GEO_FILE_1}`
+	GEO_FILE_1_RAW=$1
+	GEO_FILE_1_RAW_FILENAME=`basename ${GEO_FILE_1_RAW}`
+	GEO_FILE_1_FILENAME=wpk_${GEO_FILE_1_RAW_FILENAME}
 	GEO_FILE_1_SORTED=sorted_${GEO_FILE_1_FILENAME}
 	GEO_FILE_1_SORTED_CUT=cut_${GEO_FILE_1_SORTED}
-	if [ "${GEO_FILE_1}" = "${GEO_FILE_1_FILENAME}" ]
+	if [ "${GEO_FILE_1_RAW}" = "${GEO_FILE_1_RAW_FILENAME}" ]
 	then
-		GEO_FILE_1="${TMP_DIR}${GEO_FILE_1_FILENAME}"
+		GEO_FILE_1_RAW="${TMP_DIR}${GEO_FILE_1_RAW_FILENAME}"
 	fi
 fi
+GEO_FILE_1=${TMP_DIR}${GEO_FILE_1_FILENAME}
 GEO_FILE_1_SORTED=${TMP_DIR}${GEO_FILE_1_SORTED}
 GEO_FILE_1_SORTED_CUT=${TMP_DIR}${GEO_FILE_1_SORTED_CUT}
 
-if [ ! -f "${GEO_FILE_1}" ]
+if [ ! -f "${GEO_FILE_1_RAW}" ]
 then
 	echo
-	echo "The '${GEO_FILE_1}' file does not exist."
+	echo "The '${GEO_FILE_1_RAW}' file does not exist."
 	if [ "$1" = "" ];
 	then
 		${PREPARE_EXEC} --geonames
-		echo "The default name of the Geonames data dump copy is '${GEO_FILE_1}'."
+		echo "The default name of the Geonames data dump copy is '${GEO_FILE_1_RAW}'."
 		echo
 	fi
 	exit -1
@@ -128,9 +141,12 @@ fi
 
 ##
 # Prepare the Geonames dump file, exported from Geonames.
-# Basically, the coordinates are extracted, in order to keep a data file with
-# only three fields/columns: the airport/city code and the coordinates.
-${PREPARE_EXEC} ${GEO_FILE_1}
+# Basically, a primary key is added and the coordinates are extracted,
+# in order to keep a data file with only four fields/columns:
+#  * The primary key (IATA code - location type)
+#  * The airport/city code
+#  * The geographical coordinates.
+${PREPARE_EXEC} ${GEO_FILE_1_RAW} ${LOG_LEVEL}
 
 # Second data file with geographical coordinates
 if [ "$2" != "" ];
@@ -195,36 +211,44 @@ then
 fi
 
 ##
-# The two files contain only three fields (the code and both coordinates).
+# The two files contain only four fields (the primary key, the IATA code and
+# both coordinates).
+#
 # Note that the ${PREPARE_EXEC} (e.g., prepare_geonames_dump_file.sh) script
 # prepares such a file for Geonames (named ${GEO_FILE_1_SORTED_CUT}, e.g.,
-# cut_sorted_dump_from_geonames.csv) from the data dump (named ${GEO_FILE_1},
-# e.g., dump_from_geonames.csv).
+# cut_sorted_wpk_dump_from_geonames.csv) from the data dump (named ${GEO_FILE_1},
+# e.g., wpk_dump_from_geonames.csv).
+#
 # The 'join' command aggregates:
-#  * The three fields of the (stripped) geonames dump file. That is the file #1
+#  * The four fields of the (stripped) Geonames dump file. That is the file #1
 #    for the join command.
-#  * The two coordinates of the file of best coordinates (the IATA code being
-#    stripped by the join command). That is the file #2 for the join command.
-# The 'join' command takes all the rows from the file #1 (geonames dump file):
+#  * The IATA codes of both the POR and of its served city, as well as the two
+#    coordinates of the file of best coordinates (the primary key being stripped
+#    by the join command). That is the file #2 for the join command.
+#
+# The 'join' command takes all the rows from the file #1 (Geonames dump file);
 # when there is no corresponding entry in the file of best coordinates, only
-# the three (extracted) fields of the geonames dump file are kept.
-# Hence, some lines have five fields (the code and both coordinates of the
-# geonames dump file followed by the best coordinates), whereas a few others
-# have only three fields (the code and both coordinates of the geonames dump
-# file).
+# the four (extracted) fields of the Geonames dump file are kept.
+# Hence, lines may have:
+#  * 8 fields: the primary key, IATA code and both coordinates of the Geonames
+#    dump file, followed by the IATA codes of the POR and its served city,
+#    as well as the best coordinates.
+#  * 4 fields: the primary key, IATA code and both coordinates of the Geonames
+#    dump file.
+#
 JOINED_COORD_1=${GEO_COMBINED_FILE}.tmp.1
-join -t'^' -a 1 -1 1 -2 2 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} > ${JOINED_COORD_1}
+join -t'^' -a 1 -1 1 -2 1 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} > ${JOINED_COORD_1}
 
 ##
 # Sanity check: calculate the minimal number of fields on the resulting file
 MIN_FIELD_NB=`awk -F'^' 'BEGIN{n=10} {if (NF<n) {n=NF}} END{print n}' ${JOINED_COORD_1} | uniq | sort | uniq`
 
-if [ "${MIN_FIELD_NB}" != "7" -a "${MIN_FIELD_NB}" != "5" ]
+if [ "${MIN_FIELD_NB}" != "8" -a "${MIN_FIELD_NB}" != "4" ]
 then
 	echo
 	echo "Update step"
 	echo "-----------"
-	echo "Minimum number of fields in the new coordinate file should be 5 or 7. It is ${MIN_FIELD_NB}"
+	echo "Minimum number of fields in the new coordinate file should be 4 or 8. It is ${MIN_FIELD_NB}"
 	echo "Problem!"
 	echo "Check file ${JOINED_COORD_1}, which is a join of the coordinates from ${GEO_FILE_1_SORTED_CUT} and ${GEO_FILE_2}"
 	echo
@@ -236,19 +260,22 @@ fi
 # with the best known coordinates have the precedence over those of Geonames.
 # Note that, however, when they exist, the Geonames coordinates themselves
 # (not the point of reference) have the precedence over the "best known" ones.
+#
 JOINED_COORD_2=${GEO_COMBINED_FILE}.tmp.2
-join -t'^' -a 2 -1 1 -2 2 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} > ${JOINED_COORD_2}
+join -t'^' -a 2 -1 1 -2 1 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} > ${JOINED_COORD_2}
 
 ##
-# Keep only the first three fields:
-#  * The code and both the coordinates of the geonames dump file when they
-#    exist.
-#  * The code and the best coordinates when no entry exists in the geonames
-#    dump file.
-EXTRACTOR=${EXEC_PATH}extract_coord.awk
-cut -d'^' -f 1-3 ${JOINED_COORD_1} > ${JOINED_COORD_1}.dup
+# Keep only the first 4 fields:
+#  * The primary key, IATA code and both the coordinates of the Geonames dump file,
+#    when they exist.
+#  * The primary key, IATA code and the best coordinates, when no entry exists
+#    in the geonames dump file.
+#
+#EXTRACTOR=${EXEC_PATH}extract_coord.awk
+cut -d'^' -f 1-4 ${JOINED_COORD_1} > ${JOINED_COORD_1}.dup
 \mv -f ${JOINED_COORD_1}.dup ${JOINED_COORD_1}
-awk -F'^' -f ${EXTRACTOR} ${JOINED_COORD_2} > ${JOINED_COORD_2}.dup
+cut -d'^' -f 1-4 ${JOINED_COORD_2} > ${JOINED_COORD_2}.dup
+#awk -F'^' -f ${EXTRACTOR} ${JOINED_COORD_2} > ${JOINED_COORD_2}.dup
 \mv -f ${JOINED_COORD_2}.dup ${JOINED_COORD_2}
 
 ##
@@ -271,6 +298,14 @@ awk -F'^' -f ${REDUCER_AWK} ${JOINED_COORD_FULL} > ${GEO_COMBINED_FILE}
 
 ##
 # Do some reporting
+#
+# Reminder:
+#  * ${JOINED_COORD_1} (e.g., new_airports.csv.tmp.1) has got all the entries of
+#    the Geonames dump file (./wpk_dump_from_geonames.csv)
+#  * ${JOINED_COORD_2} (e.g., new_airports.csv.tmp.1) has got all the entries of
+#    the ORI-maintained list of best known geographical coordinates
+#    (best_coordinates_known_so_far.csv)
+#
 POR_NB_COMMON=`comm -12 ${JOINED_COORD_1} ${JOINED_COORD_2} | wc -l`
 POR_NB_FILE1=`comm -23 ${JOINED_COORD_1} ${JOINED_COORD_2} | wc -l`
 POR_NB_FILE2=`comm -13 ${JOINED_COORD_1} ${JOINED_COORD_2} | wc -l`
@@ -282,10 +317,8 @@ echo "'${GEO_FILE_1}' has got ${POR_NB_FILE1} POR, missing from '${GEO_FILE_2}'"
 echo "'${GEO_FILE_2}' has got ${POR_NB_FILE2} POR, missing from '${GEO_FILE_1}'"
 echo
 
-GEO_FILE_1_MISSING=""
 if [ ${POR_NB_FILE2} -gt 0 ]
 then
-	GEO_FILE_1_MISSING=${GEO_FILE_1}.missing
 	comm -13 ${JOINED_COORD_1} ${JOINED_COORD_2} > ${GEO_FILE_1_MISSING}
 	POR_MISSING_GEONAMES_NB=`wc -l ${GEO_FILE_1_MISSING} | cut -d' ' -f1`
 	echo
@@ -296,10 +329,8 @@ then
 	echo
 fi
 
-GEO_FILE_2_MISSING=""
 if [ ${POR_NB_FILE1} -gt 0 ]
 then
-	GEO_FILE_2_MISSING=${GEO_FILE_2}.missing
 	comm -23 ${JOINED_COORD_1} ${JOINED_COORD_2} > ${GEO_FILE_2_MISSING}
 	POR_MISSING_BEST_NB=`wc -l ${GEO_FILE_2_MISSING} | cut -d' ' -f1`
 	echo

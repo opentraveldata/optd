@@ -27,61 +27,62 @@ BEGIN {
 		# corresponding entry in the ORI-maintained data file.
 		print ("!!!! Please add an entry for row #" FNR ", having " NF " fields: " $0) > "/dev/stderr"
 
-	} else if (NF >= 35) {
+	} else if (NF >= 36) {
 		# The entry is a combination of both the best coordinates and of the
 		# ORI-maintained data file. The best coordinates have to be used,
 		# and located at the 3rd and 4th slots (which correspond to
 		# fields/columns #3 and #4 respectively).
 		#
 		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
-		printf ("%s", $1 "^" $5 "^" $6 "^" $7 "^" $8 "^" $9)
+		printf ("%s", $1 "^" $6 "^" $7 "^" $8 "^" $9 "^" $10)
 
 		# ^ Alternate names ^ Latitude ^ Longitude ^ Feat. class ^ Feat. code
-		printf ("%s", "^" $10 "^" $3 "^" $4 "^" $13 "^" $14)
+		printf ("%s", "^" $11 "^" $3 "^" $4 "^" $14 "^" $15)
 
 		# ^ Country code ^ Alt. country codes
-		printf ("%s", "^" $15 "^" $16)
+		printf ("%s", "^" $16 "^" $17)
 
 		# ^ Admin1 ^ Admin2 ^ Admin3 ^ Admin4
-		printf ("%s", "^" $17 "^" $18 "^" $19 "^" $20)
+		printf ("%s", "^" $18 "^" $19 "^" $20 "^" $21)
 
 		# ^ Population ^ Elevation ^ gtopo30
-		printf ("%s", "^" $21 "^" $22 "^" $23)
+		printf ("%s", "^" $22 "^" $23 "^" $24)
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		printf ("%s", "^" $24 "^" $25 "^" $26 "^" $27)
+		printf ("%s", "^" $25 "^" $26 "^" $27 "^" $28)
 
 		# ^ Modification date
-		printf ("%s", "^" $28)
+		printf ("%s", "^" $29)
 
 		# ^ Is airport ^ Is commercial
-		printf ("%s", "^" $29 "^" $30)
+		printf ("%s", "^" $30 "^" $31)
 
 		# ^ City code ^ State code ^ Region code ^ Location type
-		printf ("%s", "^" $31 "^" $32 "^" $33 "^" $34)
+		printf ("%s", "^" $32 "^" $33 "^" $34 "^" $35)
 
 		# ^ Wiki link
-		printf ("%s", "^" $35)
+		printf ("%s", "^" $36)
 
 		# Alternate names
-		for (idx = 36; idx <= NF; idx++) {
+		for (idx = 37; idx <= NF; idx++) {
 			printf ("%s", "^" $idx)
 		}
 
 		# ----
 		# From best known coordinates ($1 - $4)
-		# (1) SQX ^ (2) A  ^ (3) -26.7816 ^ (4) -53.5035 ^
+		# (1) SQX ^ (2) SQX-CA ^ (3) -26.7816 ^ (4) -53.5035 ^
 		#
-		# From ORI-POR ($4 - $33)
-		# (5) SSOE ^ (6) Y ^ (7) 7731508 ^
-		# (8) São Miguel do Oeste Airport ^ (9) Sao Miguel do Oeste Airport ^
-		# (10) SQX,SSOE (11) -26.7816 ^ (12) -53.5035 ^
-		# (13) S ^ (14) AIRP ^
-		# (15) BR ^ (16)  ^
-		# (17) 26 ^ (18)  ^ (19)  ^ (20)  ^
-		# (21) 0 ^ (22) 0 ^ (23) 655 ^ (24) America/Sao_Paulo ^
-		# (25) -2.0 ^ (26) -3.0 ^ (27) -3.0 ^ (28) 2011-03-18 ^
-		# (29) Y ^ (30) Z ^ (31) ZZZ ^ (32) ^ (33) ZZZZZ ^ (34) A ^ (35) 
+		# From ORI-POR ($5 - $36)
+		# (5) SQX ^ (6) SSOE ^ (7) Y ^ (8) 7731508 ^
+		# (9) São Miguel do Oeste Airport ^ (10) Sao Miguel do Oeste Airport ^
+		# (11) SQX,SSOE (12) -26.7816 ^ (13) -53.5035 ^
+		# (14) S ^ (15) AIRP ^
+		# (16) BR ^ (17)  ^
+		# (18) 26 ^ (19)  ^ (20)  ^ (21)  ^
+		# (22) 0 ^ (23) 0 ^ (24) 655 ^ (25) America/Sao_Paulo ^
+		# (26) -2.0 ^ (27) -3.0 ^ (28) -3.0 ^ (29) 2011-03-18 ^
+		# (30) N ^ (31) Z ^ (32) SQX ^ (33) 26 ^ (34) NAMER ^ (35) CA ^ (36) 
+		# [optional] ^ (37+) alternate names
 
 	} else if (NF == 34) {
 		# The entry is a combination of both the best coordinates and of the
@@ -125,17 +126,17 @@ BEGIN {
 
 		# ----
 		# From best known coordinates ($1 - $4)
-		# (1) ZYT ^ (2) R  ^ (3) 50.92 ^ (4) 5.783 ^
+		# (1) ZYT ^ (2) ZYT-R  ^ (3) 50.92 ^ (4) 5.783 ^
 		#
 		# From ORI-POR ($5 - $34)
-		# (5) ZZZZ ^ (6) N ^ (7) 0 ^ (8) MAASTRICHT/NL:RAILWAY STATION ^
-		# (9) MAASTRICHT/NL:RAILWAY STATION ^ (10)  ^
-		# (11) 50.92 ^ (12) 5.783 ^
-		# (13) S ^ (14) AIRP ^
-		# (15) NL ^ (16)  ^
-		# (17)  ^ (18)  ^ (19)  ^ (20)  ^
-		# (21)  ^ (22)  ^ (23)  ^ (24) NL082 ^ (25) ^ (26) ^ (27) ^
-		# (28) -1 ^ (29) Y ^ (30) N ^ (31) MST ^ (32) ^ (33) EUROP ^ (34) R
+		# (5) MST ^ (6) ZZZZ ^ (7) N ^ (8) 0 ^ (9) MAASTRICHT/NL:RAILWAY STATION ^
+		# (10) MAASTRICHT/NL:RAILWAY STATION ^ (11)  ^
+		# (12) 50.92 ^ (13) 5.783 ^
+		# (14) S ^ (15) AIRP ^
+		# (16) NL ^ (17)  ^
+		# (18)  ^ (19)  ^ (20)  ^ (21)  ^
+		# (22)  ^ (23)  ^ (24)  ^ (25) NL082 ^ (26) ^ (27) ^ (28) ^
+		# (29) -1 ^ (30) Y ^ (31) N ^ (32) MST ^ (33) ^ (34) EUROP ^ (35) R ^ (36) 
 
 	} else {
 		print ("!!!! Error for row #" FNR ", having " NF " fields: " $0) > "/dev/stderr"
