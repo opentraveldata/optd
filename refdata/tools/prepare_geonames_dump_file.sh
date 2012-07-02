@@ -48,6 +48,11 @@ displayGeonamesDetails() {
 }
 
 ##
+# Input file names
+GEO_RAW_FILENAME=dump_from_geonames.csv
+GEO_ORI_FILENAME=best_coordinates_known_so_far.csv
+
+##
 # Temporary path
 TMP_DIR="/tmp/por"
 
@@ -62,7 +67,7 @@ then
 fi
 # If the Geonames dump file is in the current directory, then the current
 # directory is certainly intended to be the temporary directory.
-if [ -f ${DUMP_FROM_GEONAMES_FILENAME} ]
+if [ -f ${GEO_RAW_FILENAME} ]
 then
 	TMP_DIR="."
 fi
@@ -75,42 +80,46 @@ then
 fi
 
 ##
+# Log level
+LOG_LEVEL=4
+
+##
 # ORI directory
 ORI_DIR=../ORI/
 
 ##
 # Input files
-DUMP_FROM_GEONAMES_FILENAME=dump_from_geonames.csv
-GEO_ORI_FILENAME=best_coordinates_known_so_far.csv
-#
+GEO_RAW_FILE=${TMP_DIR}${GEO_RAW_FILENAME}
 GEO_ORI_FILE=${EXEC_PATH}${ORI_DIR}${GEO_ORI_FILENAME}
 
 ##
 # Output (generated) files
 GEO_RAW_FILENAME=dump_from_geonames.csv
-GEO_WCTY_FILENAME=dump_from_geonames_wcty.csv
+GEO_WPK_FILENAME=wpk_${GEO_RAW_FILENAME}
+SORTED_GEO_WPK_FILENAME=sorted_${GEO_WPK_FILENAME}
+SORTED_CUT_GEO_WPK_FILENAME=cut_sorted_${GEO_WPK_FILENAME}
 #
-GEO_RAW_FILE=${TMP_DIR}${GEO_RAW_FILENAME}
-GEO_WCTY_FILE=${TMP_DIR}${GEO_WCTY_FILENAME}
-
-##
+GEO_WPK_FILE=${TMP_DIR}${GEO_WPK_FILENAME}
 #
-SORTED_DUMP_FROM_GEONAMES=sorted_${DUMP_FROM_GEONAMES_FILENAME}
-SORTED_CUT_DUMP_FROM_GEONAMES=cut_sorted_${DUMP_FROM_GEONAMES_FILENAME}
-#
-DUMP_FROM_GEONAMES=${TMP_DIR}${DUMP_FROM_GEONAMES_FILENAME}
 
 #
-if [ "$1" = "-h" -o "$1" = "--help" ];
+if [ "$1" = "-h" -o "$1" = "--help" ]
 then
 	echo
-	echo "Usage: $0 [<Geonames data dump file>]"
-	echo "  - Default name for the geo data dump file: '${DUMP_FROM_GEONAMES}'"
+	echo "Usage: $0 [<Geonames data dump file> [<log level>]]"
+	echo "  - Default name for the geo data dump file: '${GEO_RAW_FILE}'"
+	echo "  - Default log level: ${LOG_LEVEL}"
+	echo "    + 0: No log; 1: Critical; 2: Error; 3; Notification; 4: Debug; 5: Verbose"
+	echo "  - ORI-maintained list of POR (points of reference): '${GEO_ORI_FILE}'"
+	echo "  - Generated files:"
+	echo "    + '${GEO_WPK_FILE}'"
+	echo "    + '${TMP_DIR}${SORTED_GEO_WPK_FILENAME}'"
+	echo "    + '${TMP_DIR}${SORTED_CUT_GEO_WPK_FILENAME}'"
 	echo
 	exit -1
 fi
 #
-if [ "$1" = "-g" -o "$1" = "--geonames" ];
+if [ "$1" = "-g" -o "$1" = "--geonames" ]
 then
 	displayGeonamesDetails
 	exit -1
@@ -118,23 +127,25 @@ fi
 
 ##
 # Data dump file with geographical coordinates
-if [ "$1" != "" ];
+if [ "$1" != "" ]
 then
-	DUMP_FROM_GEONAMES="$1"
-	DUMP_FROM_GEONAMES_FILENAME=`basename ${DUMP_FROM_GEONAMES}`
-	SORTED_DUMP_FROM_GEONAMES=sorted_${DUMP_FROM_GEONAMES_FILENAME}
-	SORTED_CUT_DUMP_FROM_GEONAMES=cut_sorted_${DUMP_FROM_GEONAMES_FILENAME}
-	if [ "${DUMP_FROM_GEONAMES}" = "${DUMP_FROM_GEONAMES_FILENAME}" ]
+	GEO_RAW_FILE="$1"
+	GEO_RAW_FILENAME=`basename ${GEO_RAW_FILE}`
+	GEO_WPK_FILENAME=wpk_${GEO_RAW_FILENAME}
+	SORTED_GEO_WPK_FILENAME=sorted_${GEO_WPK_FILENAME}
+	SORTED_CUT_GEO_WPK_FILENAME=cut_sorted_${GEO_WPK_FILENAME}
+	if [ "${GEO_RAW_FILE}" = "${GEO_RAW_FILENAME}" ]
 	then
-		DUMP_FROM_GEONAMES="${TMP_DIR}${DUMP_FROM_GEONAMES}"
+		GEO_RAW_FILE="${TMP_DIR}${GEO_RAW_FILE}"
 	fi
 fi
-SORTED_DUMP_FROM_GEONAMES=${TMP_DIR}${SORTED_DUMP_FROM_GEONAMES}
-SORTED_CUT_DUMP_FROM_GEONAMES=${TMP_DIR}${SORTED_CUT_DUMP_FROM_GEONAMES}
+GEO_WPK_FILE=${TMP_DIR}${GEO_WPK_FILENAME}
+SORTED_GEO_WPK_FILE=${TMP_DIR}${SORTED_GEO_WPK_FILENAME}
+SORTED_CUT_GEO_WPK_FILE=${TMP_DIR}${SORTED_CUT_GEO_WPK_FILENAME}
 
-if [ ! -f "${DUMP_FROM_GEONAMES}" ]
+if [ ! -f "${GEO_RAW_FILE}" ]
 then
-	echo "The '${DUMP_FROM_GEONAMES}' file does not exist."
+	echo "The '${GEO_RAW_FILE}' file does not exist."
 	if [ "$1" = "" ];
 	then
 		displayGeonamesDetails
@@ -142,45 +153,73 @@ then
 	exit -1
 fi
 
+##
+# Log level
+if [ "$2" != "" ]
+then
+	LOG_LEVEL="$2"
+fi
 
 ##
 # Generate a second version of the file with the ORI primary key (integrating
 # the location type)
 ORI_PK_ADDER=${EXEC_PATH}geo_pk_creator.awk
-awk -F'^' -f ${ORI_PK_ADDER} ${GEO_ORI_FILE} ${GEO_RAW_FILE} > ${GEO_WCTY_FILE}
+awk -F'^' -v log_level=${LOG_LEVEL} -f ${ORI_PK_ADDER} ${GEO_ORI_FILE} ${GEO_RAW_FILE} > ${GEO_WPK_FILE}
 
 ##
-# First, remove the header (first line)
-DUMP_FROM_GEONAMES_TMP=${DUMP_FROM_GEONAMES}.tmp
-sed -e "s/^iata\(.\+\)//g" ${DUMP_FROM_GEONAMES} > ${DUMP_FROM_GEONAMES_TMP}
-sed -i -e "/^$/d" ${DUMP_FROM_GEONAMES_TMP}
+# Save the header
+GEO_WPK_FILE_HEADER=${GEO_WPK_FILE}.tmp.hdr
+grep "^pk\(.\+\)" ${GEO_WPK_FILE} > ${GEO_WPK_FILE_HEADER}
 
 ##
+# Remove the header (first line)
+GEO_WPK_FILE_TMP=${GEO_WPK_FILE}.tmp
+sed -i -e "s/^pk\(.\+\)//g" ${GEO_WPK_FILE}
+sed -i -e "/^$/d" ${GEO_WPK_FILE}
+
+##
+# Sort the file
+sort -t'^' -k1,1 ${GEO_WPK_FILE} > ${SORTED_GEO_WPK_FILE}
+\cp -f ${SORTED_GEO_WPK_FILE} ${GEO_WPK_FILE}
+
+##
+# Note: no longer needed, as the data files are now sorted thanks to the primary key.
+#       To be removed once proved to be stable.
+#
 # Eliminate the city POR (points of reference) when those duplicate the
 # IATA code of the corresponding airport (e.g., SFO, LAX). Note that some
 # cities do not duplicate the IATA of their related airports (e.g., PAR, CHI,
 # LON).
-# a. Replace the 'NULL' fields by 'ZZZZZ', so as to place them at the end
-sed -i -e "s/^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^NULL\^\(.\+\)/\1\^ZZZZZ\^\2/g" ${DUMP_FROM_GEONAMES_TMP}
-# b. Sort the file by the (IATA, ICAO) code pair
-sort -t '^' -k1,1 -k2,2 -k11,11 ${DUMP_FROM_GEONAMES_TMP} > ${SORTED_DUMP_FROM_GEONAMES}
-# c. Remove the rows duplicating the IATA code
-uniq -w 3 ${SORTED_DUMP_FROM_GEONAMES} > ${DUMP_FROM_GEONAMES_TMP}
-\mv -f ${DUMP_FROM_GEONAMES_TMP} ${SORTED_DUMP_FROM_GEONAMES}
-# d. Replace back the (remaining) 'ZZZZZ' fields by 'NULL'
-sed -i -e "s/^\([A-Z0-9][A-Z0-9][A-Z0-9]\)\^ZZZZZ\^\(.\+\)/\1\^NULL\^\2/g" ${SORTED_DUMP_FROM_GEONAMES}
+# a. Replace the 'NULL' fields by 'ZZZZ', so as to place them at the end
+#sed -i -e "s/^\([A-Z0-9]\{3\}-[A-Z]\{1,3\}\)\^\([A-Z0-9]\{3\}\)\^ZZZZ\^\(.\+\)/\1\^\2\^NULL\^\3/g" ${GEO_WPK_FILE_TMP}
+# b. Sort the file by the primary key
+#sort -t'^' -k1,1 ${GEO_WPK_FILE_TMP} > ${SORTED_GEO_WPK_FILE}
+#\rm -f ${GEO_WPK_FILE_TMP}
+# c. Remove the rows duplicating the primary key
+#uniq -w 3 ${SORTED_GEO_WPK_FILE} > ${GEO_WPK_FILE_TMP}
+#\mv -f ${GEO_WPK_FILE_TMP} ${SORTED_GEO_WPK_FILE}
+# d. Replace back the (remaining) 'ZZZZ' fields by 'NULL'
+#sed -i -e "s/^\([A-Z0-9]\{3\}-[A-Z]\{1,3\}\)\^\([A-Z0-9]\{3\}\)\^NULL\^\(.\+\)/\1\^\2\^ZZZZ\^\3/g" ${SORTED_GEO_WPK_FILE}
 
 ##
-# Only three columns/fields are kept in that version of the file:
-# the airport/city IATA code and the geographical coordinates (latitude,
-# longitude).
-cut -d'^' -f 1,6,7 ${SORTED_DUMP_FROM_GEONAMES} > ${SORTED_CUT_DUMP_FROM_GEONAMES}
+# Only four columns/fields are kept in that version of the file:
+#  * Primary key (IATA code - location type)
+#  * Airport/city IATA code
+#  * Geographical coordinates (latitude, longitude).
+cut -d'^' -f 1,2,7,8 ${SORTED_GEO_WPK_FILE} > ${SORTED_CUT_GEO_WPK_FILE}
+
+##
+# Re-add the header
+cat ${GEO_WPK_FILE_HEADER} ${GEO_WPK_FILE} > ${GEO_WPK_FILE_TMP}
+sed -i -e "/^$/d" ${GEO_WPK_FILE_TMP}
+\mv -f ${GEO_WPK_FILE_TMP} ${GEO_WPK_FILE}
+\rm -f ${GEO_WPK_FILE_HEADER}
 
 ##
 # Reporting
 echo
 echo "Preparation step"
 echo "----------------"
-echo "The '${SORTED_DUMP_FROM_GEONAMES}' and '${SORTED_CUT_DUMP_FROM_GEONAMES}' files have been derived from '${DUMP_FROM_GEONAMES}'."
+echo "The '${GEO_WPK_FILE}', '${SORTED_GEO_WPK_FILE}' and '${SORTED_CUT_GEO_WPK_FILE}' files have been derived from '${GEO_RAW_FILE}'."
 echo
 

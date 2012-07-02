@@ -1,7 +1,18 @@
 #
 # AWK script to calculate the distance between two geographical points.
 #
-# The input data files should be formatted as required below.
+# Sample input lines:
+#  * POR in both the list of best known coordinates and Geonames, with a PageRank:
+#    - (10) NCE-CA^NCE^43.658411^7.215872^NCE^NCE^43.66272^7.20787^NCE^0.158712712008
+#
+#  * POR in both the list of best known coordinates and Geonames, without a PageRank:
+#    -  (8) AAC-CA^AAC^31.073333^33.835833^AAC^AAC^31.07333^33.83583
+#
+#  * POR only in the list of best known coordinates, with a PageRank
+#    -  (7) AJL-CA^AJL^23.746603^92.802767^AJL^AJL^0.00872092995415
+#
+#  * POR only in the list of best known coordinates, without a PageRank
+#    -  (5) XIT-R^XIT^51.42^12.42^LEJ
 #
 
 # More explicit name for the power function
@@ -49,34 +60,58 @@ BEGIN {
 # Main
 {
 
-	if (NF == 9 || NF == 7) {
-		# IATA code and location type
-		iata_code = $1
-		location_type = substr($1, 5)
+#  * POR in both the list of best known coordinates and Geonames, with a PageRank:
+#    - (10) NCE-CA^NCE^43.658411^7.215872^NCE^NCE^43.66272^7.20787^NCE^0.158712712008
+#  * POR in both the list of best known coordinates and Geonames, without a PageRank:
+#    -  (8) AAC-CA^AAC^31.073333^33.835833^AAC^AAC^31.07333^33.83583
+#  * POR only in the list of best known coordinates, with a PageRank
+#    -  (7) AJL-CA^AJL^23.746603^92.802767^AJL^AJL^0.00872092995415
+#  * POR only in the list of best known coordinates, without a PageRank
+#    -  (5) XIT-R^XIT^51.42^12.42^LEJ
 
-		# The POR is specified within both input data files (e.g., Geonames
-		# and the file of best known coordinates).
+	# Primary key (IATA code - location type)
+	pk = $1
+	iata_code = substr ($1, 1, 3)
+	location_type = substr ($1, 5)
+	
+	# Default PageRank value (i.e., 0.1%)
+	pagerank = 0.001
+
+	# Best known geographical coordinates (fields #3 and #4)
+    if (NF >= 7) {
 		lat1 = $3 / rad
-		lat2 = $6 / rad
 		lon1 = $4 / rad
-		lon2 = $7 / rad
+	} else {
+		lat1 = 0
+		lon1 = 0
+	}
 
-		# Default value
-		pagerank = ""
+	# Geonames geographical coordinates, when existing (fields #7 and #8)
+	if (NF == 10 || NF == 8) {
+		lat2 = $7 / rad
+		lon2 = $8 / rad
+	} else {
+		lat2 = 0
+		lon2 = 0
+	}
 
-		# Use the PageRank for that POR (point of reference) when it exists
-		if (NF == 9) {
-			pagerank = $9
-		}
+	# The PageRank value, when existing, is the last field of the line (i.e.,
+	# field #10 when POR is in both input files, or field #7 when POR is only
+	# in the list of best known coordinates)
+    if (NF == 10 || NF == 7) {
+		pagerank = $NF
+	}
 
-		# When the PageRank does not exist, it is set to 0.1%
-		if (pagerank == "") pagerank = 0.001
-
+	# For now, calculate the distance only when the POR exists in both input files
+    if (NF == 10 || NF == 8) {
 		# Delegate the distance calculation
 		distance_func()
 
 		# IATA code
-		printf ("%6s", iata_code)
+		printf ("%s", iata_code "-")
+
+		# Location type
+		printf ("%2s", location_type)
 
 		# Distance, in km
 		printf ("^%6.0f", distance/1000.0)
@@ -96,13 +131,13 @@ BEGIN {
 		# End-of-line
 		printf ("%s", "\n")
 
-	} else if (NF == 5) {
+	} else if (NF == 7 || NF == 5) {
 		# The POR (point of reference) is not known from Geonames. So, there is no
 		# difference to calculate: do nothing else here.
 
 	} else {
 		# Do nothing
-		print ("!!!! For " FNR " record, there are " NF " fields, whereas 6 or 8 are expected: " $0) > "/dev/stderr"
+		print ("!!!! For " FNR " record, there are " NF " fields, whereas 5, 7, 8 or 10 are expected: " $0) > "/dev/stderr"
 	}
 
 }

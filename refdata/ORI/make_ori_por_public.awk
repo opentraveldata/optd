@@ -23,44 +23,50 @@ BEGIN {
 
 # M A I N
 {
-	if (NF >= 47) {
+
+	# When the 31st field is a IATA code, it means that the POR is in both Geonames
+	# and RFD.
+	is_31st_fld_iata = match ($31, "[A-Z]{3}")
+	is_31st_fld_lang = match ($31, "[a-z0-9]{2,3}")
+
+	if (NF >= 48 && is_31st_fld_iata == 1) {
 		####
 		## Both in Geonames and in RFD
 		####
 		#
 		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
-		printf ("%s", $1 "^" $6 "^Y^" $7 "^" $8 "^" $9)
+		printf ("%s", $2 "^" $7 "^Y^" $8 "^" $9 "^" $10)
 
 		# ^ Alternate names ^ Latitude ^ Longitude ^ Feat. class ^ Feat. code
-		printf ("%s", "^" $28 "^" $3 "^" $4 "^" $14 "^" $15)
+		printf ("%s", "^" $29 "^" $3 "^" $4 "^" $15 "^" $16)
 
 		# ^ Country code ^ Alt. country codes
-		printf ("%s", "^" $12 "^" $13)
+		printf ("%s", "^" $13 "^" $14)
 
 		# ^ Admin1 ^ Admin2 ^ Admin3 ^ Admin4
-		printf ("%s", "^" $16 "^" $17 "^" $18 "^" $19)
+		printf ("%s", "^" $17 "^" $18 "^" $19 "^" $20)
 
 		# ^ Population ^ Elevation ^ gtopo30
-		printf ("%s", "^" $20 "^" $21 "^" $22)
+		printf ("%s", "^" $21 "^" $22 "^" $23)
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		printf ("%s", "^" $23 "^" $24 "^" $25 "^" $26)
+		printf ("%s", "^" $24 "^" $25 "^" $26 "^" $27)
 
 		# ^ Modification date
-		printf ("%s", "^" $27)
+		printf ("%s", "^" $28)
 
 		# ^ Is airport ^ Is commercial
-		printf ("%s", "^" $38 "^" $47)
+		printf ("%s", "^" $39 "^" $48)
 
 		# ^ City code ^ State code ^ Region code
-		printf ("%s", "^" $37 "^" $39 "^" $41)
+		printf ("%s", "^" $38 "^" $40 "^" $42)
 
 		# ^ Location type ^ Wiki link
-		printf ("%s", "^" substr($2, 5) "^" $29)
+		printf ("%s", "^" substr($1, 5) "^" $30)
 
 		# Print the extra alternate names
-		if (NF >= 48) {
-			for (fld = 48; fld <= NF; fld++) {
+		if (NF >= 49) {
+			for (fld = 49; fld <= NF; fld++) {
 				printf ("^%s", $fld)
 			}
 		}
@@ -70,24 +76,26 @@ BEGIN {
 
 		# ----
 		# From ORI-POR ($1 - $5)
-		# (1) NCE ^ (2) NCE-CA ^ (3) 43.658411 ^ (4) 7.215872 ^ (5) NCE ^
+		# (1) NCE-CA ^ (2) NCE ^ (3) 43.658411 ^ (4) 7.215872 ^ (5) NCE ^
 
-		# From Geonames ($6 - $29)
-		# (6) LFMN ^ (7) 6299418 ^ (8) Nice - Côte d'Azur ^
-		# (9) Nice - Cote d'Azur ^ (10) 43.6608600 ^ (11) 7.2054000 ^
-		# (12) FR ^ (13)  ^ (14) S ^ (15) AIRP ^
-		# (16) B8 ^ (17) 06 ^ (18) 062 ^ (19) 06088 ^
-		# (20) 0 ^ (21) 3 ^ (22) 7
-		# (23) Europe/Paris ^ (24) 1.0 ^ (25) 2.0 ^ (26) 1.0 ^
-		# (27) 2012-02-27 ^
-		# (28) Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Cote d'Azur International Airport,Côte d'Azur International Airport,Flughafen Nizza,LFMN,NCE,Niza Aeropuerto ^
-		# (29) http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport ^
+		# From Geonames ($6 - $30)
+		# (6) NCE ^ (7) LFMN ^ (8) 6299418 ^ (9) Nice Côte d'Azur International Airport ^
+		# (10) Nice Cote d'Azur International Airport ^ (11) 43.66272 ^ (12) 7.20787 ^
+		# (13) FR ^ (14)  ^ (15) S ^ (16) AIRP ^
+		# (17) B8 ^ (18) 06 ^ (19) 062 ^ (20) 06088 ^
+		# (21) 0 ^ (22) 3 ^ (23) -9999
+		# (24) Europe/Paris ^ (25) 1.0 ^ (26) 2.0 ^ (27) 1.0 ^
+		# (28) 2012-06-30 ^
+		# (29) Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Flughafen Nizza,LFMN,NCE,Nice Airport,Nice Cote d'Azur International Airport,Nice Côte d'Azur International Airport,Niza Aeropuerto ^
+		# (30) http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport ^
 
-		# From RFD ($30 - $47)
-		# (30) NCE ^ (31) CA ^ (32) NICE ^ (33) COTE D AZUR ^ (34) NICE ^
-		# (35) NICE/FR:COTE D AZUR ^ (36) NICE ^ (37) NCE ^ (38) Y ^ (39) ^ (40) FR ^
-		# (41) EUROP ^ (42) ITC2 ^ (43) FR052 ^
-		# (44) 43.6653 ^ (45) 7.215 ^ (46)  ^ (47) Y
+		# From RFD ($31 - $48+)
+		# (31) NCE ^ (32) CA ^ (33) NICE ^ (34) COTE D AZUR ^ (35) NICE ^
+		# (36) NICE/FR:COTE D AZUR ^ (37) NICE ^ (38) NCE ^ (39) Y ^ (40)  ^ (41) FR ^
+		# (42) EUROP ^ (43) ITC2 ^ (44) FR052 ^
+		# (45) 43.6653 ^ (46) 7.215 ^ (47)  ^ (48) Y
+		# (49) ^ en (50) ^ Nice Airport
+		# (51) ^ en (52) ^ Nice Côte d'Azur International Airport
 
 	} else if (NF == 23) {
 		####
@@ -95,13 +103,13 @@ BEGIN {
 		####
 		#
 		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
-		printf ("%s", $1 "^ZZZZ^N^0^" $11 "^" $11)
+		printf ("%s", $2 "^ZZZZ^N^0^" $11 "^" $11)
 
 		# ^ Alternate names ^ Latitude ^ Longitude
 		printf ("%s", "^^" $3 "^" $4)
 
 		# Location type
-		location_type = substr($2, 5)
+		location_type = substr ($1, 5)
 
 		#  ^ Feat. class ^ Feat. code
 		if ($14 == "Y") {
@@ -145,14 +153,14 @@ BEGIN {
 		printf ("%s", "^" $13 "^" $15 "^" $17)
 
 		# ^ Location type ^ Wiki link (empty here)
-		printf ("%s", "^" substr($2, 5) "^")
+		printf ("%s", "^" location_type "^")
 
 		# End of line
 		printf ("%s", "\n")
 
 		# ----
 		# From ORI-POR ($1 - $5)
-		# (1) XIT ^ (2) XIT-R (3) 51.42 ^ (4) 12.42 ^ (5) LEJ ^
+		# (1) XIT-R ^ (2) XIT (3) 51.42 ^ (4) 12.42 ^ (5) LEJ ^
 
 		# From RFD ($6 - $23)
 		# (6) XIT ^ (7) R ^ (8) LEIPZIG RAIL ^ (9) LEIPZIG HBF RAIL STN ^
@@ -160,52 +168,48 @@ BEGIN {
 		# (13) LEJ ^ (14) Y ^ (15)  ^ (16) DE ^ (17) EUROP ^ (18) ITC2 ^
 		# (19) DE040 ^ (20) 51.3 ^ (21) 12.3333 ^ (22)  ^ (23) N
 
-	} else if (NF >= 29 && NF < 47) {
+	} else if (NF >= 30) {
 		####
 		## Not in RFD
 		####
 		#
 		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
-		printf ("%s", $1 "^" $6 "^Y^" $7 "^" $8 "^" $9)
+		printf ("%s", $2 "^" $7 "^Y^" $8 "^" $9 "^" $10)
 
 		# ^ Alternate names ^ Latitude ^ Longitude ^ Feat. class ^ Feat. code
-		printf ("%s", "^" $28 "^" $3 "^" $4 "^" $14 "^" $15)
+		printf ("%s", "^" $29 "^" $3 "^" $4 "^" $15 "^" $16)
 
 		# ^ Country code ^ Alt. country codes
-		printf ("%s", "^" $12 "^" $13)
+		printf ("%s", "^" $13 "^" $14)
 
 		# ^ Admin1 ^ Admin2 ^ Admin3 ^ Admin4
-		printf ("%s", "^" $16 "^" $17 "^" $18 "^" $19)
+		printf ("%s", "^" $17 "^" $18 "^" $19 "^" $20)
 
 		# ^ Population ^ Elevation ^ gtopo30
-		printf ("%s", "^" $20 "^" $21 "^" $22)
+		printf ("%s", "^" $21 "^" $22 "^" $23)
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		printf ("%s", "^" $23 "^" $24 "^" $25 "^" $26)
+		printf ("%s", "^" $24 "^" $25 "^" $26 "^" $27)
 
 		# ^ Modification date
-		printf ("%s", "^" $27)
+		printf ("%s", "^" $28)
+
+		# Location type
+		location_type = substr ($1, 5)
+		is_airport = match (location_type, "[A]")
 
 		# ^ Is airport ^ Is commercial
-		if ($14 == "AIRP") {
+		if (is_airport == 1) {
 			printf ("%s", "^Y^Z")
-		} else if ($14 == "AIRH") {
-			printf ("%s", "^Y^Z")
-		} else if ($14 == "AIRB") {
-			printf ("%s", "^Y^N")
-		} else if ($14 == "RSTN") {
-			printf ("%s", "^N^Z")
-		} else if (substr ($14, 1, 3) == "PPL") {
-			printf ("%s", "^N^N")
 		} else {
 			printf ("%s", "^N^Z")
 		}
 
 		# ^ City code ^ State code
-		printf ("%s", "^" $1 "^" $16)
+		printf ("%s", "^" $2 "^" $17)
 
 		# ^ Region code
-		region_full = $23
+		region_full = $24
 		region = gensub ("/[A-Za-z_]+", "", "g", region_full)
 		region_country = gensub ("[A-Za-z]+/", "", "1", region_full)
 		gsub ("/[A-Za-z_]+", "", region_country)
@@ -240,26 +244,14 @@ BEGIN {
 		}
 
 		#  ^ Location type
-		if ($15 == "AIRP") {
-			printf ("%s", "^CA")
-		} else if ($15 == "AIRH") {
-			printf ("%s", "^CH")
-		} else if ($15 == "AIRB") {
-			printf ("%s", "^CA")
-		} else if ($16 == "RSTN") {
-			printf ("%s", "^R")
-		} else if (substr ($15, 1, 3) == "PPL") {
-			printf ("%s", "^C")
-		} else {
-			printf ("%s", "^Z")
-		}
+		printf ("%s", "^" location_type)
 
 		# ^ Wiki link (potentially empty)
-		printf ("%s", "^" $29)
+		printf ("%s", "^" $30)
 
 		# Print the extra alternate names
-		if (NF >= 30) {
-			for (fld = 30; fld <= NF; fld++) {
+		if (NF >= 31) {
+			for (fld = 31; fld <= NF; fld++) {
 				printf ("^%s", $fld)
 			}
 		}
@@ -269,16 +261,17 @@ BEGIN {
 
 		# ----
 		# From ORI-POR ($1 - $5)
-		# (1) SQX ^ (2) SQX-CA ^ (3) -26.7816 ^ (4) -53.5035 ^ (5) SQX ^
+		# (1) SQX-CA ^ (2) SQX ^ (3) -26.7816 ^ (4) -53.5035 ^ (5) SQX ^
 
-		# From Geonames ($6 - $29)
-		# (6) SSOE ^ (7) 7731508 ^ (8) São Miguel do Oeste Airport ^
-		# (9) Sao Miguel do Oeste Airport ^ (10) -26.7816 ^ (11) -53.5035 ^
-		# (12) BR ^ (13)  ^ (14) S ^ (15) AIRP ^
-		# (16) 26 ^ (17)  ^ (18)  ^ (19)  ^
-		# (20) 0 ^ (21) 0 ^ (22) 655 ^ (23) America/Sao_Paulo ^
-		# (24) -2.0 ^ (25) -3.0 ^ (26) -3.0 ^ (27) 2011-03-18 ^ (28) SQX,SSOE
-		# (29)  ^
+		# From Geonames ($6 - $30+)
+		# (6) SQX ^ (7) SSOE ^ (8) 7731508 ^ (9) São Miguel do Oeste Airport ^
+		# (10) Sao Miguel do Oeste Airport ^ (11) -26.7816 ^ (12) -53.5035 ^
+		# (13) BR ^ (14)  ^ (15) S ^ (16) AIRP ^
+		# (17) 26 ^ (18)  ^ (19)  ^ (20)  ^
+		# (21) 0 ^ (22) 0 ^ (23) 655 ^ (24) America/Sao_Paulo ^
+		# (25) -2.0 ^ (26) -3.0 ^ (27) -3.0 ^ (28) 2011-03-18 ^ (29) SQX,SSOE ^
+		# (30) 
+		# [optional] ^ (31+)
 
 	} else if (NF == 5) {
 		####
@@ -320,11 +313,7 @@ BEGIN {
 
 		# ----
 		# From ORI-POR ($1 - $5)
-		# (1) AAD ^ (2) AAD-CA ^ (3) 18.05 ^ (4) 30.95 ^ (5) AAD
-
-		# -----
-		# From ORI-POR ($1 - $5)
-		# (1) ACO ^ (2) ACO-CA ^ (3) 46.15 ^ (4) 8.767 ^ (5) ACO
+		# (1) SFY-C ^ (2) SFY ^ (3) 42.17 ^ (4) -72.6 ^ (5) SFY
 
 		#
 		unknown_idx++

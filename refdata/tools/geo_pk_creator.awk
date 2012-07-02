@@ -57,12 +57,14 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, myCityLine, myTrave
 
 		if (myIataCode in combined_list) {
 			# Notification
-			#print ("!! Notification: the POR #" FNR " and #" FNR-1 ", with IATA code=" myIataCode ", are distinct in Geonames, but combined in the ORI-maintained list. You could split it in ORI. Both POR:\n" myLastLine "\n" myLine) > "/dev/stderr"
+			if (log_level >= 5) {
+				print ("!! Notification: the POR #" FNR " and #" FNR-1 ", with IATA code=" myIataCode ", are distinct in Geonames, but combined in the ORI-maintained list. You could split it in ORI. Both POR:\n" myLastLine "\n" myLine) > "/dev/stderr"
+			}
 
 			# The travel-related POR will inherit from the location type associated 
 			# (by ORI) to that POR. The city POR will be left untouched.
 			print (myLastPK "^" myTravelLine)
-			print (myIataCode "-C" "^" myCityLine)
+			#print (myIataCode "-C" "^" myCityLine)
 
 		} else {
 			# There are two POR, exactly like in the ORI-maintained list
@@ -86,7 +88,9 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, myCityLine, myTrave
 			print (myLastAltPK "^" myLastLine)
 
 			# Notification
-			print ("!! Notification: For the line #" FNR " and the '" myIataCode "' IATA code, the Geonames data had to be duplicated because the ORI-maintained list has got two entries (the location types being '" location_type_alt "' and '" location_type "') - Full line: " myLastLine) > "/dev/stderr"
+			if (log_level >= 4) {
+				print ("!! Notification: For the line #" FNR " and the '" myIataCode "' IATA code, the Geonames data had to be duplicated because the ORI-maintained list has got two entries (the location types being '" location_type_alt "' and '" location_type "') - Full line: " myLastLine) > "/dev/stderr"
+			}
 
 			# Sanity check: by construction, the location type is multi-character;
 			#               an alternative location type should therefore be specified
@@ -176,11 +180,6 @@ BEGIN {
 		is_last_port = match (last_location_type, "[P]")
 		is_last_offpoint = match (last_location_type, "[O]")
 		is_last_travel = is_last_airport + is_last_rail + is_last_bus + is_last_heliport + is_last_port + is_last_offpoint
-
-		# DEBUG
-		if (iata_code == "ARN") {
-			print ("[" last_location_type "][" location_type "] is_city=" is_last_city ", is_travel=" is_last_travel ", is_airport=" is_last_airport ": " $0) > "/dev/stderr"
-		}
 
 		if (is_last_city == 1) {
 			# The previously registered location type is a city
@@ -280,7 +279,7 @@ BEGIN {
 #  NCE^LFMN^6299418^Nice - Côte d'Azur^Nice - Cote d'Azur^43.6608600^7.2054000^FR^^S^AIRP^B8^06^062^06088^0^3^7^Europe/Paris^1.0^2.0^1.0^2012-02-27^Nice Airport,...^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport
 #  NCE^ZZZZ^2990440^Nice^Nice^43.7031300^7.2660800^FR^^P^PPLA2^B8^06^062^06088^338620^25^18^Europe/Paris^1.0^2.0^1.0^2011-11-02^Nice,...,Ница,尼斯^
 #
-/^([A-Z]{3})\^([A-Z]{4})\^([0-9]{1,10})\^/ {
+/^([A-Z]{3})\^([A-Z0-9]{4})\^([0-9]{1,10})\^/ {
 	#
 	nb_of_por++
 
