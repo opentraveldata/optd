@@ -199,7 +199,7 @@ BEGIN {
 		is_airport = match (location_type, "[A]")
 
 		# ^ Is airport ^ Is commercial
-		if (is_airport == 1) {
+		if (is_airport != 0) {
 			printf ("%s", "^Y^Z")
 		} else {
 			printf ("%s", "^N^Z")
