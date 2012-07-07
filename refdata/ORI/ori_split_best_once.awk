@@ -2,12 +2,17 @@
 # That AWK script has been run once (June 2012), and is not intended to be re-processed.
 # It is left here, just as a sample.
 #
+# The script aims at splitting single combined POR lines (e.g., with location types
+# such as 'CA' or 'AR') into the corresponding distinct POR lines (e.g., a line with
+# 'A' and the other with 'C' as location type). All the other fields remain identical
+# (untouched).
+#
 # Way it was used:
 # 
 # sed -e "s/^iata\(.\+\)//g" ori_por_public.csv > ori_por_public.csv.woh
 # sed -i -e "/^$/d" ori_por_public.csv.woh
 # join -t'^' -a 1 -1 2 -2 1 best_coordinates_known_so_far.csv ori_por_public.csv.woh > best_coordinates_known_so_far.csv.tmp
-# awk -F'^' -f create_best.awk ori_por_cty.csv best_coordinates_known_so_far.csv.tmp > best_coordinates_known_so_far.csv.new
+# awk -F'^' -f ori_split_best_once.awk ori_por_cty.csv best_coordinates_known_so_far.csv.tmp > best_coordinates_known_so_far.csv.new
 # diff -c best_coordinates_known_so_far.csv best_coordinates_known_so_far.csv.new | less
 # \mv -f best_coordinates_known_so_far.csv.new best_coordinates_known_so_far.csv
 # \rm -f best_coordinates_known_so_far.csv.tmp
