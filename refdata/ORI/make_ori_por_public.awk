@@ -279,37 +279,37 @@ BEGIN {
 		####
 		#
 		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
-		printf ("%s", $1 "^ZZZZ^N^0^" "UNKNOWN" unknown_idx  "^" "UNKNOWN" unknown_idx) > "ori_only_por.csv.new"
+		printf ("%s", $1 "^ZZZZ^N^0^" "UNKNOWN" unknown_idx  "^" "UNKNOWN" unknown_idx) > non_ori_por_file
 
 		# ^ Alternate names ^ Latitude ^ Longitude
-		printf ("%s", "^^" $3 "^" $4) > "ori_only_por.csv.new"
+		printf ("%s", "^^" $3 "^" $4) > non_ori_por_file
 
 		#  ^ Feat. class ^ Feat. code
-		printf ("%s", "^S^AIRP") > "ori_only_por.csv.new"
+		printf ("%s", "^S^AIRP") > non_ori_por_file
 
 		# ^ Country code ^ Alt. country codes
-		printf ("%s", "^" "ZZ" "^") > "ori_only_por.csv.new"
+		printf ("%s", "^" "ZZ" "^") > non_ori_por_file
 
 		# ^ Admin1 ^ Admin2 ^ Admin3 ^ Admin4
-		printf ("%s", "^^^^") > "ori_only_por.csv.new"
+		printf ("%s", "^^^^") > non_ori_por_file
 
 		# ^ Population ^ Elevation ^ gtopo30
-		printf ("%s", "^^^") > "ori_only_por.csv.new"
+		printf ("%s", "^^^") > non_ori_por_file
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		printf ("%s", "^" "Europe/Greenwich" "^^^") > "ori_only_por.csv.new"
+		printf ("%s", "^" "Europe/Greenwich" "^^^") > non_ori_por_file
 
 		# ^ Modification date
-		printf ("%s", "^" today_date) > "ori_only_por.csv.new"
+		printf ("%s", "^" today_date) > non_ori_por_file
 
 		# ^ Is airport ^ Is commercial
-		printf ("%s", "^" "Y" "^" "Y") > "ori_only_por.csv.new"
+		printf ("%s", "^" "Y" "^" "Y") > non_ori_por_file
 
 		# ^ City code ^ State code ^ Region code
-		printf ("%s", "^" "ZZZ" "^" "^" "UNKOWN") > "ori_only_por.csv.new"
+		printf ("%s", "^" "ZZZ" "^" "^" "UNKOWN") > non_ori_por_file
 
 		#  ^ Location type ^ Wiki link (empty here)
-		printf ("%s", "^" "CA" "^" "\n") > "ori_only_por.csv.new"
+		printf ("%s", "^" "CA" "^" "\n") > non_ori_por_file
 
 		# ----
 		# From ORI-POR ($1 - $5)
