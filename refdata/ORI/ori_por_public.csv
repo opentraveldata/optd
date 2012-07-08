@@ -611,7 +611,7 @@ BBC^KBYY^Y^4672665^Bay City Municipal Airport^Bay City Municipal Airport^BBC,BYY
 BBD^KBBD^Y^4684668^Brady Curtis Field^Brady Curtis Field^BBD,KBBD^31.13^-99.33^S^AIRP^US^^TX^307^^^0^553^553^America/Chicago^-6.0^-5.0^-6.0^2010-07-31^Y^N^BBD^TX^NAMER^CA^http://en.wikipedia.org/wiki/Curtis_Field
 BBF^ZZZZ^N^0^BURLINGTON/MA/US^BURLINGTON/MA/US^^42.5^-71.18^S^AIRP^US^^^^^^^^^US105^^^^-1^Y^N^BBF^MA^NAMER^CA^
 BBG^NGTU^Y^6299956^Butaritari Airport^Butaritari Airport^BBG,NGTU^3.083^172.8^S^AIRP^KI^^01^BT^^^0^0^8^Pacific/Tarawa^12.0^12.0^12.0^2010-08-20^Y^N^BBG^^AUSTL^CA^http://en.wikipedia.org/wiki/Butaritari_Atoll_Airport
-BBH^EDBH^Y^3209284^Barth^Barth^BBH,Barth,EDBH^54.33754^12.699705^S^AIRF^DE^^12^^^^0^0^1^Europe/Berlin^1.0^2.0^1.0^2012-01-19^Y^N^BBH^^EUROP^A^^^Barth
+BBH^EDBH^Y^3209284^Stralsund Barth Airport^Stralsund Barth Airport^BBH,EDBH,Flughafen Stralsund Barth,Stralsund Barth Airport^54.33754^12.699705^S^AIRP^DE^^12^^^^0^0^7^Europe/Berlin^1.0^2.0^1.0^2012-07-07^Y^N^BBH^^EUROP^A^http://en.wikipedia.org/wiki/Stralsund_Barth_Airport^en^Stralsund Barth Airport
 BBH^ZZZZ^Y^2826287^Stralsund^Stralsund^BBH,Shtral'zund,Stralsund,shi te la er song,shutoraruzunto,Штральзунд,シュトラルズント,施特拉尔松^54.33754^12.699705^P^PPL^DE^^12^^^^58976^0^4^Europe/Berlin^1.0^2.0^1.0^2009-01-26^N^N^BBH^^EUROP^C^
 BBI^VEBS^Y^6301068^Bhubaneswar^Bhubaneswar^BBI,VEBS^20.244364^85.817781^S^AIRP^IN^^^^^^0^42^43^Asia/Kolkata^5.5^5.5^5.5^2007-01-03^Y^Y^BBI^^ASIA^CA^http://en.wikipedia.org/wiki/Biju_Patnaik_Airport
 BBJ^EDRB^Y^3208843^Bitburg^Bitburg^BBJ,Bitburg,EDRB^51.193531^14.519747^S^AIRF^DE^^08^^^^0^0^350^Europe/Berlin^1.0^2.0^1.0^2012-01-19^N^N^BBJ^^EUROP^C^http://en.wikipedia.org/wiki/Bitburg_Airport^^Bitburg
@@ -7909,7 +7909,7 @@ RKY^ZZZZ^Y^8298680^Rokeby^Rokeby^RKY^-13.65^142.6^S^AIRP^AU^^04^32500^^^0^0^83^A
 RKZ^ZZZZ^Y^8260759^He-Ping^He-Ping^RKZ^29.3519^89.31^S^AIRP^CN^^14^^^^0^0^3801^Asia/Urumqi^8.0^8.0^8.0^2012-04-29^Y^Y^RKZ^^ASIA^CA^
 RLA^ZZZZ^Y^4406285^Rolla Downtown Airport^Rolla Downtown Airport^RLA^38.13^-91.78^S^AIRP^US^^MO^161^^^0^297^297^America/Chicago^-6.0^-5.0^-6.0^2011-12-11^Y^N^RLA^MO^NAMER^CA^
 RLD^KRLD^Y^5808277^Richland Airport^Richland Airport^KRLD,RLD^46.3^-119.3^S^AIRP^US^^WA^005^^^0^118^110^America/Los_Angeles^-8.0^-7.0^-8.0^2011-03-10^Y^N^RLD^WA^NAMER^CA^http://en.wikipedia.org/wiki/Richland_Airport_%28Washington%29
-RLG^ETNL^Y^3208726^Laage^Laage^ETNL,RLG^53.918167^12.278333^S^AIRP^DE^^12^^^^0^0^38^Europe/Berlin^1.0^2.0^1.0^2011-03-17^Y^Y^RLG^^EUROP^CA^http://en.wikipedia.org/wiki/Rostock-Laage_Airport
+RLG^ETNL^Y^3208726^Rostock Laage Airport^Rostock Laage Airport^ETNL,Flughafen Rostock-Laage,RLG,Rostock Laage Airport^53.918167^12.278333^S^AIRP^DE^^12^^^^0^0^38^Europe/Berlin^1.0^2.0^1.0^2012-07-07^Y^Y^RLG^^EUROP^CA^http://en.wikipedia.org/wiki/Rostock-Laage_Airport^en^Rostock Laage Airport
 RLI^ZZZZ^N^0^ANNISTON/AL/US:REILLY AHP^ANNISTON/AL/US:REILLY AHP^^33.63^-85.97^S^AIRP^US^^^^^^^^^US107^^^^-1^Y^N^ANB^AL^NAMER^H^
 RLK^ZZZZ^Y^8260717^Tianjitai^Tianjitai^RLK^40.9264^107.739^S^AIRP^CN^^20^^^^0^0^1035^Asia/Chongqing^8.0^8.0^8.0^2012-04-29^Y^Y^RLK^^ASIA^CA^
 RLO^SAOS^Y^7730767^Valle Del Conlara International Airport^Valle Del Conlara International Airport^RLO,SAOS^-32.35^-65.03^S^AIRP^AR^^19^^^^0^0^617^America/Argentina/San_Luis^-3.0^-3.0^-4.0^2011-03-17^Y^N^RLO^SL^SAMER^CA^
@@ -9935,7 +9935,7 @@ WNZ^ZSWZ^Y^7729999^Wenzhou Yongqiang Airport^Wenzhou Yongqiang Airport^WNZ,ZSWZ^
 WOA^ZZZZ^Y^8261053^Wonenara Airport^Wonenara Airport^WOA^-6.8^145.9^S^AIRP^PG^^09^^^^0^0^1569^Pacific/Port_Moresby^10.0^10.0^10.0^2012-04-30^Y^N^WOA^^AUSTL^CA^
 WOB^ZZZZ^N^0^SUTTONHEATH/GB:WOODBRIDGE^SUTTONHEATH/GB:WOODBRIDGE^^52.1^1.317^S^AIRP^GB^^^^^^^^^GB053^^^^-1^Y^N^WOB^^EUROP^CA^
 WOD^ZZZZ^Y^8299032^Wood River^Wood River^WOD^59.07^-157.4^S^AIRP^US^^AK^070^^^0^0^93^America/Anchorage^-9.0^-8.0^-9.0^2012-05-18^Y^N^WOD^AK^NAMER^CA^
-WOE^EHWO^Y^6296695^Woensdrecht^Woensdrecht^EHWO,Vliegbasis Woensdrecht,WOE^51.44909^4.34203^S^AIRP^NL^^06^0873^^^0^19^14^Europe/Amsterdam^1.0^2.0^1.0^2012-04-21^Y^N^WOE^^EUROP^CA^http://en.wikipedia.org/wiki/Woensdrecht_Air_Base
+WOE^EHWO^Y^6296695^Woensdrecht Airport^Woensdrecht Airport^EHWO,Vliegbasis Woensdrecht,WOE,Woensdrecht Airport^51.44909^4.34203^S^AIRP^NL^^06^0873^^^0^19^14^Europe/Amsterdam^1.0^2.0^1.0^2012-07-07^Y^N^WOE^^EUROP^CA^http://en.wikipedia.org/wiki/Woensdrecht_Air_Base^en^Woensdrecht Airport
 WOG^ZZZZ^Y^8260968^Woodgreen^Woodgreen^WOG^-22.5^134.3^S^AIRP^AU^^03^70620^^^0^0^568^Australia/Darwin^9.5^9.5^9.5^2012-04-29^Y^N^WOG^NT^AUSTL^CA^
 WOI^ZZZZ^Y^8299198^Wologissi^Wologissi^WOI^8.267^-9.75^S^AIRP^LR^^20^^^^0^0^531^Africa/Monrovia^0.0^0.0^0.0^2012-05-18^Y^N^WOI^^AFRIC^CA^
 WOK^ZZZZ^Y^7731623^Wonken Airport^Wonken Airport^WOK^5.25^-61.73^S^AIRP^VE^^06^^^^0^0^984^America/Caracas^-4.5^-4.5^-4.5^2011-03-18^Y^N^WOK^^SAMER^CA^
