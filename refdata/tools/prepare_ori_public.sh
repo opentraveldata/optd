@@ -55,7 +55,7 @@ EXEC_DIR_NAME=`basename ${EXEC_FULL_PATH}`
 if [ "${EXEC_DIR_NAME}" != "tools" ]
 then
 	echo
-	echo "Inconsistency error: this script ($0) should be located in the refdata/tools/ sub-directory of the OpenTravelData project Git clone, but apparently is not. EXEC_FULL_PATH=\"${EXEC_FULL_PATH}\""
+	echo "[$0:$LINENO] Inconsistency error: this script ($0) should be located in the refdata/tools/ sub-directory of the OpenTravelData project Git clone, but apparently is not. EXEC_FULL_PATH=\"${EXEC_FULL_PATH}\""
 	echo
 	exit -1
 fi
@@ -128,13 +128,16 @@ then
 	if [ ! -d $1 ]
 	then
 		echo
-		echo "The first parameter ('$1') should point to the refdata/ sub-directory of the OpenTravelData project Git clone. It is not accessible here."
+		echo "[$0:$LINENO] The first parameter ('$1') should point to the refdata/ sub-directory of the OpenTravelData project Git clone. It is not accessible here."
 		echo
 		exit -1
 	fi
-	OPTD_DIR="$1/"
+	OPTD_DIR_DIR=`dirname $1`
+	OPTD_DIR_BASE=`basename $1`
+	OPTD_DIR="${OPTD_DIR_DIR}/${OPTD_DIR_BASE}/"
 	ORI_DIR=${OPTD_DIR}ORI/
-	ORI_RAW_FILE=${ORI_DIR}${ORI_RAW_FILE}
+	OPTD_EXEC_PATH=${OPTD_DIR}tools/
+	ORI_RAW_FILE=${ORI_DIR}${ORI_RAW_FILENAME}
 fi
 ORI_WPK_FILE=${TMP_DIR}${ORI_WPK_FILENAME}
 SORTED_ORI_WPK_FILE=${TMP_DIR}${SORTED_ORI_WPK_FILENAME}
@@ -142,7 +145,7 @@ SORTED_CUT_ORI_WPK_FILE=${TMP_DIR}${SORTED_CUT_ORI_WPK_FILENAME}
 
 if [ ! -f "${ORI_RAW_FILE}" ]
 then
-	echo "The '${ORI_RAW_FILE}' file does not exist."
+	echo "[$0:$LINENO] The '${ORI_RAW_FILE}' file does not exist."
 	if [ "$1" = "" ]
 	then
 		displayOriDetails
