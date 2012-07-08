@@ -59,6 +59,11 @@ TMP_DIR="/tmp/por"
 ##
 # Path of the executable: set it to empty when this is the current directory.
 EXEC_PATH=`dirname $0`
+# Trick to get the actual full-path
+EXEC_FULL_PATH=`pushd ${EXEC_PATH}`
+EXEC_FULL_PATH=`echo ${EXEC_FULL_PATH} | cut -d' ' -f1`
+EXEC_FULL_PATH=`echo ${EXEC_FULL_PATH} | sed -e 's|~|'${HOME}'|'`
+#
 CURRENT_DIR=`pwd`
 if [ ${CURRENT_DIR} -ef ${EXEC_PATH} ]
 then
@@ -80,72 +85,112 @@ then
 fi
 
 ##
+# Sanity check: that (executable) script should be located in the tools/ sub-directory
+# of the OpenTravelData project Git clone
+EXEC_DIR_NAME=`basename ${EXEC_FULL_PATH}`
+if [ "${EXEC_DIR_NAME}" != "tools" ]
+then
+	echo
+	echo "[$0] Inconsistency error: this script ($0) should be located in the refdata/tools/ sub-directory of the OpenTravelData project Git clone, but apparently is not. EXEC_FULL_PATH=\"${EXEC_FULL_PATH}\""
+	echo
+	exit -1
+fi
+
+##
+# OpenTravelData directory
+OPTD_DIR=`dirname ${EXEC_FULL_PATH}`
+OPTD_DIR="${OPTD_DIR}/"
+
+##
+# ORI sub-directory
+ORI_DIR=${OPTD_DIR}ORI/
+TOOLS_DIR=${OPTD_DIR}tools/
+
+##
 # Log level
 LOG_LEVEL=4
 
 ##
-# ORI directory
-ORI_DIR=../ORI/
-
-##
 # Input files
-GEO_RAW_FILE=${TMP_DIR}${GEO_RAW_FILENAME}
-GEO_ORI_FILE=${EXEC_PATH}${ORI_DIR}${GEO_ORI_FILENAME}
+GEO_RAW_FILE=${TOOLS_DIR}${GEO_RAW_FILENAME}
+GEO_ORI_FILE=${ORI_DIR}${GEO_ORI_FILENAME}
 
 ##
 # Output (generated) files
-GEO_RAW_FILENAME=dump_from_geonames.csv
 GEO_WPK_FILENAME=wpk_${GEO_RAW_FILENAME}
 SORTED_GEO_WPK_FILENAME=sorted_${GEO_WPK_FILENAME}
 SORTED_CUT_GEO_WPK_FILENAME=cut_sorted_${GEO_WPK_FILENAME}
 #
 GEO_WPK_FILE=${TMP_DIR}${GEO_WPK_FILENAME}
+SORTED_GEO_WPK_FILE=${TMP_DIR}${SORTED_GEO_WPK_FILENAME}
+SORTED_CUT_GEO_WPK_FILE=${TMP_DIR}${SORTED_CUT_GEO_WPK_FILENAME}
 #
 
-#
+##
+# Cleaning
+if [ "$1" = "--clean" ]
+then
+	if [ "${TMP_DIR}" = "/tmp/por" ]
+	then
+		\rm -rf ${TMP_DIR}
+	else
+		\rm -f ${SORTED_GEO_WPK_FILE} ${SORTED_CUT_GEO_WPK_FILE}
+		#\rm -f ${GEO_WPK_FILE}
+	fi
+	exit
+fi
+
+##
+# Usage
 if [ "$1" = "-h" -o "$1" = "--help" ]
 then
 	echo
-	echo "Usage: $0 [<Geonames data dump file> [<log level>]]"
-	echo "  - Default name for the geo data dump file: '${GEO_RAW_FILE}'"
+	echo "Usage: $0 [<refdata directory of the OpenTravelData project Git clone> [<log level>]]"
+	echo "  - Default refdata directory for the OpenTravelData project Git clone: '${OPTD_DIR}'"
+	echo "  - Default path for the Geonames data dump file: '${GEO_RAW_FILE}'"
 	echo "  - Default log level: ${LOG_LEVEL}"
 	echo "    + 0: No log; 1: Critical; 2: Error; 3; Notification; 4: Debug; 5: Verbose"
 	echo "  - ORI-maintained list of POR (points of reference): '${GEO_ORI_FILE}'"
 	echo "  - Generated files:"
 	echo "    + '${GEO_WPK_FILE}'"
-	echo "    + '${TMP_DIR}${SORTED_GEO_WPK_FILENAME}'"
-	echo "    + '${TMP_DIR}${SORTED_CUT_GEO_WPK_FILENAME}'"
+	echo "    + '${SORTED_GEO_WPK_FILE}'"
+	echo "    + '${SORTED_CUT_GEO_WPK_FILE}'"
 	echo
-	exit -1
+	exit
 fi
 #
 if [ "$1" = "-g" -o "$1" = "--geonames" ]
 then
 	displayGeonamesDetails
-	exit -1
+	exit
 fi
 
 ##
-# Data dump file with geographical coordinates
+# The OpenTravelData refdata/ sub-directory contains, among other things,
+# the Geonames data dump.
 if [ "$1" != "" ]
 then
-	GEO_RAW_FILE="$1"
-	GEO_RAW_FILENAME=`basename ${GEO_RAW_FILE}`
-	GEO_WPK_FILENAME=wpk_${GEO_RAW_FILENAME}
-	SORTED_GEO_WPK_FILENAME=sorted_${GEO_WPK_FILENAME}
-	SORTED_CUT_GEO_WPK_FILENAME=cut_sorted_${GEO_WPK_FILENAME}
-	if [ "${GEO_RAW_FILE}" = "${GEO_RAW_FILENAME}" ]
+	if [ ! -d $1 ]
 	then
-		GEO_RAW_FILE="${TMP_DIR}${GEO_RAW_FILE}"
+		echo
+		echo "[$0] The first parameter ('$1') should point to the refdata/ sub-directory of the OpenTravelData project Git clone. It is not accessible here."
+		echo
+		exit -1
 	fi
+	OPTD_DIR_DIR=`dirname $1`
+	OPTD_DIR_BASE=`basename $1`
+	OPTD_DIR="${OPTD_DIR_DIR}/${OPTD_DIR_BASE}/"
+	ORI_DIR=${OPTD_DIR}ORI/
+	TOOLS_DIR=${OPTD_DIR}tools/
+	GEO_RAW_FILE=${TOOLS_DIR}${GEO_RAW_FILENAME}
+	GEO_ORI_FILE=${ORI_DIR}${GEO_ORI_FILENAME}
 fi
-GEO_WPK_FILE=${TMP_DIR}${GEO_WPK_FILENAME}
-SORTED_GEO_WPK_FILE=${TMP_DIR}${SORTED_GEO_WPK_FILENAME}
-SORTED_CUT_GEO_WPK_FILE=${TMP_DIR}${SORTED_CUT_GEO_WPK_FILENAME}
 
 if [ ! -f "${GEO_RAW_FILE}" ]
 then
-	echo "The '${GEO_RAW_FILE}' file does not exist."
+	echo
+	echo "[$0] The '${GEO_RAW_FILE}' file does not exist."
+	echo
 	if [ "$1" = "" ];
 	then
 		displayGeonamesDetails
@@ -163,7 +208,7 @@ fi
 ##
 # Generate a second version of the file with the ORI primary key (integrating
 # the location type)
-ORI_PK_ADDER=${EXEC_PATH}geo_pk_creator.awk
+ORI_PK_ADDER=${TOOLS_DIR}geo_pk_creator.awk
 awk -F'^' -v log_level=${LOG_LEVEL} -f ${ORI_PK_ADDER} ${GEO_ORI_FILE} ${GEO_RAW_FILE} > ${GEO_WPK_FILE}
 
 ##
