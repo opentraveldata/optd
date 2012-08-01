@@ -42,7 +42,7 @@ EXEC_DIR_NAME=`basename ${EXEC_FULL_PATH}`
 if [ "${EXEC_DIR_NAME}" != "ORI" ]
 then
 	echo
-	echo "[$0] Inconsistency error: this script ($0) should be located in the refdata/ORI/ sub-directory of the OpenTravelData project Git clone, but apparently is not. EXEC_FULL_PATH=\"${EXEC_FULL_PATH}\""
+	echo "[$0:$LINENO] Inconsistency error: this script ($0) should be located in the refdata/ORI/ sub-directory of the OpenTravelData project Git clone, but apparently is not. EXEC_FULL_PATH=\"${EXEC_FULL_PATH}\""
 	echo
 	exit -1
 fi
@@ -116,7 +116,7 @@ GEONAME_RAW_FILE_TMP=${GEONAME_RAW_FILE}.alt
 if [ ! -d ${TOOLS_DIR} ]
 then
 	echo
-	echo "[$0] The tools/ sub-directory ('${TOOLS_DIR}') does not exist or is not accessible."
+	echo "[$0:$LINENO] The tools/ sub-directory ('${TOOLS_DIR}') does not exist or is not accessible."
 	echo "Check that your Git clone of the OpenTravelData is complete."
 	echo
 	exit -1
@@ -124,7 +124,7 @@ fi
 if [ ! -f ${TOOLS_DIR}prepare_geonames_dump_file.sh ]
 then
 	echo
-	echo "[$0] The Geonames dump file preparation script ('${TOOLS_DIR}prepare_geonames_dump_file.sh') does not exist or is not accessible."
+	echo "[$0:$LINENO] The Geonames dump file preparation script ('${TOOLS_DIR}prepare_geonames_dump_file.sh') does not exist or is not accessible."
 	echo "Check that your Git clone of the OpenTravelData is complete."
 	echo
 	exit -1
@@ -132,7 +132,7 @@ fi
 if [ ! -f ${TOOLS_DIR}prepare_rfd_dump_file.sh ]
 then
 	echo
-	echo "[$0] The Geonames dump file preparation script ('${TOOLS_DIR}prepare_rfd_dump_file.sh') does not exist or is not accessible."
+	echo "[$0:$LINENO] The RFD file preparation script ('${TOOLS_DIR}prepare_rfd_dump_file.sh') does not exist or is not accessible."
 	echo "Check that your Git clone of the OpenTravelData is complete."
 	echo
 	exit -1
@@ -174,14 +174,14 @@ echo "Back to the ${BACK_DIR} directory"
 if [ ! -f ${GEONAME_SORTED_FILE} ]
 then
 	echo
-	echo "[$0] The '${GEONAME_SORTED_FILE}' file does not exist."
+	echo "[$0:$LINENO] The '${GEONAME_SORTED_FILE}' file does not exist."
 	echo
 	exit -1
 fi
 if [ ! -f ${RFD_SORTED_FILE} ]
 then
 	echo
-	echo "[$0] The '${RFD_SORTED_FILE}' file does not exist."
+	echo "[$0:$LINENO] The '${RFD_SORTED_FILE}' file does not exist."
 	echo
 	exit -1
 fi

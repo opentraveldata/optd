@@ -131,7 +131,7 @@ EXEC_DIR_NAME=`basename ${EXEC_FULL_PATH}`
 if [ "${EXEC_DIR_NAME}" != "tools" ]
 then
 	echo
-	echo "[$0] Inconsistency error: this script ($0) should be located in the refdata/tools/ sub-directory of the OpenTravelData project Git clone, but apparently is not. EXEC_FULL_PATH=\"${EXEC_FULL_PATH}\""
+	echo "[$0:$LINENO] Inconsistency error: this script ($0) should be located in the refdata/tools/ sub-directory of the OpenTravelData project Git clone, but apparently is not. EXEC_FULL_PATH=\"${EXEC_FULL_PATH}\""
 	echo
 	exit -1
 fi
@@ -219,7 +219,7 @@ then
 	if [ ! -d $1 ]
 	then
 		echo
-		echo "[$0] The first parameter ('$1') should point to the refdata/ sub-directory of the OpenTravelData project Git clone. It is not accessible here."
+		echo "[$0:$LINENO] The first parameter ('$1') should point to the refdata/ sub-directory of the OpenTravelData project Git clone. It is not accessible here."
 		echo
 		exit -1
 	fi
@@ -234,7 +234,7 @@ fi
 if [ ! -f "${GEO_ORI_FILE}" ]
 then
 	echo
-	echo "[$0] The '${GEO_ORI_FILE}' file does not exist."
+	echo "[$0:$LINENO] The '${GEO_ORI_FILE}' file does not exist."
 	echo
 	if [ "$1" = "" ]
 	then
@@ -264,7 +264,7 @@ SORTED_CUT_RFD_WPK_FILE=${TMP_DIR}${SORTED_CUT_RFD_WPK_FILENAME}
 if [ ! -f "${RFD_RAW_FILE}" ]
 then
 	echo
-	echo "[$0] The '${RFD_RAW_FILE}' file does not exist."
+	echo "[$0:$LINENO] The '${RFD_RAW_FILE}' file does not exist."
 	echo
 	if [ "$2" = "" ]
 	then
