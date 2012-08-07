@@ -8,8 +8,62 @@
 # alternate name details, and 'allCountries.txt' for the details of every
 # Geoname POR (Point Of Reference).
 
-# Data directory
-DATA_DIR=../data/
+##
+# Log level
+LOG_LEVEL=4
+
+##
+# Temporary path
+TMP_DIR="/tmp/por"
+
+##
+# Path of the executable: set it to empty when this is the current directory.
+EXEC_PATH=`dirname $0`
+# Trick to get the actual full-path
+EXEC_FULL_PATH=`pushd ${EXEC_PATH}`
+EXEC_FULL_PATH=`echo ${EXEC_FULL_PATH} | cut -d' ' -f1`
+EXEC_FULL_PATH=`echo ${EXEC_FULL_PATH} | sed -e 's|~|'${HOME}'|'`
+#
+CURRENT_DIR=`pwd`
+if [ ${CURRENT_DIR} -ef ${EXEC_PATH} ]
+then
+	EXEC_PATH="."
+	TMP_DIR="."
+fi
+# If the Geonames dump file is in the current directory, then the current
+# directory is certainly intended to be the temporary directory.
+if [ -f ${GEO_RAW_FILENAME} ]
+then
+	TMP_DIR="."
+fi
+EXEC_PATH="${EXEC_PATH}/"
+TMP_DIR="${TMP_DIR}/"
+
+if [ ! -d ${TMP_DIR} -o ! -w ${TMP_DIR} ]
+then
+	\mkdir -p ${TMP_DIR}
+fi
+
+##
+# Sanity check: that (executable) script should be located in the admin/
+# sub-directory of the OpenTravelData project Git clone
+EXEC_DIR_NAME=`basename ${EXEC_FULL_PATH}`
+if [ "${EXEC_DIR_NAME}" != "admin" ]
+then
+	echo
+	echo "[$0:$LINENO] Inconsistency error: this script ($0) should be located in the refdata/geonames/data/por/admin/ sub-directory of the OpenTravelData project Git clone, but apparently is not. EXEC_FULL_PATH=\"${EXEC_FULL_PATH}\""
+	echo
+	exit -1
+fi
+
+##
+# OpenTravelData Geonames-related directory
+GEO_POR_DIR=`dirname ${EXEC_FULL_PATH}`
+GEO_POR_DIR="${GEO_POR_DIR}/"
+
+##
+# Admin sub-directory
+DATA_DIR=${EXEC_PATH}../data/
 
 # Input data files
 GEO_POR_FILENAME=allCountries.txt
@@ -23,7 +77,29 @@ GEO_POR_CONC_FILENAME=allCountries_w_alt.txt
 GEO_POR_CONC_FILE=${DATA_DIR}${GEO_POR_CONC_FILENAME}
 
 # Reference details for the Nice airport (IATA code: NCE, Geoname ID: 6299418)
-NCE_POR_REF="6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Flughafen Nizza,LFMN,NCE,Nice Airport,Nice Cote d'Azur International Airport,Nice Côte d'Azur International Airport,Niza Aeropuerto^43.66272^7.20787^S^AIRP^FR^^B8^06^062^06088^0^3^-9999^Europe/Paris^2012-06-30^1886047^icao^LFMN^^^^^1888981^iata^NCE^^^^^1969714^de^Flughafen Nizza^^^^^1969715^en^Nice Côte d'Azur International Airport^^^^^2187822^es^Niza Aeropuerto^1^1^^^3032536^link^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^^^^^5713800^fr^Aéroport de Nice Côte d'Azur^^^^^7717894^en^Nice Airport^^1^^"
+NCE_POR_REF="6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Flughafen Nizza,LFMN,NCE,Nice Airport,Nice Cote d'Azur International Airport,Nice Côte d'Azur International Airport,Niza Aeropuerto^43.66272^7.20787^S^AIRP^FR^^B8^06^062^06088^0^3^-9999^Europe/Paris^2012-06-30^NCE^LFMN^^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de^Flughafen Nizza^^en^Nice Côte d'Azur International Airport^^es^Niza Aeropuerto^ps^fr^Aéroport de Nice Côte d'Azur^^en^Nice Airport^s"
+
+##
+# Usage
+if [ "$1" = "-h" -o "$1" = "--help" ]
+then
+	echo
+	echo "Usage: $0 [<log level>]"
+	echo "  - Default refdata Geonames-related directory for the OpenTravelData project Git clone: '${DATA_DIR}'"
+	echo "  - Default log level: ${LOG_LEVEL}"
+	echo "    + 0: No log; 1: Critical; 2: Error; 3; Notification; 4: Debug; 5: Verbose"
+	echo "  - Generated files:"
+	echo "    + '${GEO_POR_CONC_FILE}'"
+	echo
+	exit
+fi
+
+##
+# Log level
+if [ "$1" != "" ]
+then
+	LOG_LEVEL="$1"
+fi
 
 ##
 # Check that the line format has not been changed and/or for outliers.
@@ -56,7 +132,7 @@ NCE_POR_REF="6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur In
 AGGREGATOR=aggregateGeonamesPor.awk
 echo
 echo "Aggregating '${GEO_POR_ALT_FILE}' and '${GEO_POR_FILE}' input files..."
-time awk -F'\t' -f ${AGGREGATOR} ${GEO_POR_ALT_FILE} ${GEO_POR_FILE} > ${GEO_POR_CONC_FILE}
+time awk -F'\t' -v log_level=${LOG_LEVEL} -f ${AGGREGATOR} ${GEO_POR_ALT_FILE} ${GEO_POR_FILE} > ${GEO_POR_CONC_FILE}
 echo "... done"
 echo
 
