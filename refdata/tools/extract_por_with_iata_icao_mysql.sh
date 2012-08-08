@@ -1,11 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 #
-# That Bash script extracts data from the 'allCountries_w_alt.txt'
-# Geonames-derived data file and exports them into internal
-# standard-formatted data files.
-#
-# See ../geonames/data/por/admin/aggregateGeonamesPor.sh for more details on
-# the way to derive that file from Geonames original data files.
+# Two parameters are optional:
+# - the host server of the database
+# - the port of the database
 #
 
 ##
@@ -30,17 +27,30 @@ then
 fi
 
 ##
-# Geonames data store
-GEO_POR_DATA_DIR=${EXEC_PATH}../geonames/data/por/data/
+# Database parameters
+DB_HOST="localhost"
+DB_PORT="3306"
+
+# Database User
+DB_USER="geo"
+
+# Database Password
+DB_PASSWD="geo"
+
+# Database Name
+DB_NAME="geo_geonames"
 
 # Snapshot date
 SNAPSHOT_DATE=`date "+%Y%m%d"`
 SNAPSHOT_DATE_HUMAN=`date`
 
 ##
-# Extract airport/city information from the Geonames data file
-GEO_POR_FILENAME=allCountries_w_alt.txt
-GEO_POR_FILE=${GEO_POR_DATA_DIR}${GEO_POR_FILENAME}
+# Extract airport/city information from the Geonames tables (in particular,
+# 'geoname' and 'alternate_name')
+SQL_POR_FILENAME=extract_por_with_iata_icao_mysql.sql
+SQL_CTY_FILENAME=extract_por_cities_with_iata.sql
+SQL_POR_FILE=${EXEC_PATH}${SQL_POR_FILENAME}
+SQL_CTY_FILE=${EXEC_PATH}${SQL_CTY_FILENAME}
 # Generated files
 DUMP_FILE_IATA_TVL_FILENAME=por_all_iata_tvl_${SNAPSHOT_DATE}.csv
 DUMP_FILE_IATA_CTY_FILENAME=por_all_iata_cty_${SNAPSHOT_DATE}.csv
@@ -62,7 +72,11 @@ DUMP_FILE_DUP=${TMP_DIR}${DUMP_FILE_DUP_FILENAME}
 if [ "$1" = "-h" -o "$1" = "--help" ];
 then
 	echo
-	echo "Usage: $0"
+	echo "Usage: $0 [<Database Server Hostname> [<Database Server Port>]]"
+	echo "  - Default database server hostname: '${DB_HOST}'"
+	echo "  - Default database server port: '${DB_PORT}'"
+	echo "  - Database username: '${DB_USER}'"
+	echo "  - Database name: '${DB_NAME}'"
 	echo "  - Snapshot date: '${SNAPSHOT_DATE}' (${SNAPSHOT_DATE_HUMAN})"
 	echo "  - Generated (CSV-formatted) data files:"
 	echo "      + '${DUMP_FILE_IATA_TVL}'"
@@ -76,13 +90,31 @@ then
 fi
 
 ##
-# 0. Data extraction from the Geonames data file, for travel-related POR
-#    and cities.
+# Database Server Hostname
+if [ "$1" != "" ];
+then
+	DB_HOST="$1"
+fi
+
+# Database Server Port
+if [ "$2" != "" ];
+then
+	DB_PORT="$2"
+fi
+
+##
+# 0. MySQL dump
+# 0.1. Travel-related POR
 echo
-echo "Exporting points of reference (POR, i.e., airports, railway stations) and populated place (city) data from the tables of Geonames into '${DUMP_FILE_IATA_TVL}' and '${DUMP_FILE_IATA_CTY}' respectively."
+echo "Exporting points of reference (POR, i.e., airports, railway stations) data from the tables of Geonames into '${DUMP_FILE_IATA_TVL}'."
 echo "That operation may take several minutes..."
-IATA_EXTRACTOR=${EXEC_PATH}extract_por_with_iata_icao.awk
-time awk -F'^' -v iata_tvl_file=${DUMP_FILE_IATA_TVL} -v iata_cty_file=${DUMP_FILE_IATA_CTY} -f ${IATA_EXTRACTOR} ${GEO_POR_FILE}
+time mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} > ${DUMP_FILE_IATA_TVL} < ${SQL_POR_FILE}
+echo "... Done"
+echo
+# 0.2. Cities
+echo "Exporting populated place (city) data from the tables of Geonames into '${DUMP_FILE_IATA_CTY}'."
+echo "That operation may take several minutes..."
+time mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} > ${DUMP_FILE_IATA_CTY} < ${SQL_CTY_FILE}
 echo "... Done"
 echo
 
