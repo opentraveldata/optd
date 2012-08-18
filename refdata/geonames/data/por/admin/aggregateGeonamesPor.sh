@@ -66,9 +66,11 @@ GEO_POR_DIR="${GEO_POR_DIR}/"
 DATA_DIR=${EXEC_PATH}../data/
 
 # Input data files
+GEO_TZ_FILENAME=timeZones.txt
 GEO_POR_FILENAME=allCountries.txt
 GEO_POR_ALT_FILENAME=alternateNames.txt
 #
+GEO_TZ_FILE=${DATA_DIR}${GEO_TZ_FILENAME}
 GEO_POR_FILE=${DATA_DIR}${GEO_POR_FILENAME}
 GEO_POR_ALT_FILE=${DATA_DIR}${GEO_POR_ALT_FILENAME}
 
@@ -76,8 +78,8 @@ GEO_POR_ALT_FILE=${DATA_DIR}${GEO_POR_ALT_FILENAME}
 GEO_POR_CONC_FILENAME=allCountries_w_alt.txt
 GEO_POR_CONC_FILE=${DATA_DIR}${GEO_POR_CONC_FILENAME}
 
-# Reference details for the Nice airport (IATA code: NCE, Geoname ID: 6299418)
-NCE_POR_REF="6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Flughafen Nizza,LFMN,NCE,Nice Airport,Nice Cote d'Azur International Airport,Nice Côte d'Azur International Airport,Niza Aeropuerto^43.66272^7.20787^S^AIRP^FR^^B8^06^062^06088^0^3^-9999^Europe/Paris^2012-06-30^NCE^LFMN^^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de^Flughafen Nizza^^en^Nice Côte d'Azur International Airport^^es^Niza Aeropuerto^ps^fr^Aéroport de Nice Côte d'Azur^^en^Nice Airport^s"
+# Reference details for the Nice airport (IATA/ICAO codes: NCE/LFMN, Geoname ID: 6299418)
+NCE_POR_REF="NCE^LFMN^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^S^AIRP^B8^06^062^06088^0^3^-9999^Europe/Paris^^^^^Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Flughafen Nizza,LFMN,NCE,Nice Airport,Nice Cote d'Azur International Airport,Nice Côte d'Azur International Airport,Niza Aeropuerto^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de^Flughafen Nizza^^en^Nice Côte d'Azur International Airport^^es^Niza Aeropuerto^ps^fr^Aéroport de Nice Côte d'Azur^^en^Nice Airport^s"
 
 ##
 # Usage
@@ -110,21 +112,24 @@ fi
 # <CTRL-v TAB> sequence in the Shell command-line.
 #
 # Test 1 - Count the lines with the given regex
-# The following two commands:
+# The following three commands:
+# grep "^\([A-Z]\{2\}\)<TAB>.*<TAB>\([0-9.-]*\)<TAB>\([0-9.-]*\)<TAB>\([0-9.-]*\)$" ${GEO_TZ_FILE} | wc -l
 # grep "^\([0-9]\{1,9\}\)<TAB>.*<TAB>\([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\)$" ${GEO_POR_FILE} | wc -l
-# grep -nv "^\([0-9]\{1,9\}\)<TAB>\([0-9]\{1,9\}\)<TAB>\([a-z]\{0,5\}[_]\{0,1\}[0-9]\{0,4\}\)<TAB>" ${GEO_POR_ALT_FILE} | wc -l
+# grep "^\([0-9]\{1,9\}\)<TAB>\([0-9]\{1,9\}\)<TAB>\([a-z]\{0,5\}[_]\{0,1\}[0-9]\{0,4\}\)<TAB>" ${GEO_POR_ALT_FILE} | wc -l
 # should give the same result as:
-# wc -l ${GEO_POR_FILE} ${GEO_POR_ALT_FILE}
+# wc -l ${GEO_TZ_FILE} ${GEO_POR_FILE} ${GEO_POR_ALT_FILE}
 #
 # Test 2 - Output the lines not matching the regex
 # The following commands should yield empty results:
+# grep -nv "^\([A-Z]\{2\}\)<TAB>.*<TAB>\([0-9.-]*\)<TAB>\([0-9.-]*\)<TAB>\([0-9.-]*\)$" ${GEO_TZ_FILE}
 # grep -nv "^\([0-9]\{1,9\}\)<TAB>.*<TAB>\([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\)$" ${GEO_POR_FILE}
 # grep -nv "^\([0-9]\{1,9\}\)<TAB>\([0-9]\{1,9\}\)<TAB>\([a-z]\{0,5\}[_]\{0,1\}[0-9]\{0,4\}\)<TAB>" ${GEO_POR_ALT_FILE}
 #
-# Test 3 - Output the lines of the other file matching the regex
+# Test 3 - Output the lines of the other files matching the regex
 # The following commands should yield empty results:
-# grep -n "^\([0-9]\{1,9\}\)<TAB>.*<TAB>\([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\)$" ${GEO_POR_ALT_FILE}
-# grep -n "^\([0-9]\{1,9\}\)<TAB>\([0-9]\{1,9\}\)<TAB>\([a-z]\{0,5\}[_]\{0,1\}[0-9]\{0,4\}\)<TAB>" ${GEO_POR_FILE}
+# grep -n "^\([A-Z]\{2\}\)<TAB>.*<TAB>\([0-9.-]*\)<TAB>\([0-9.-]*\)<TAB>\([0-9.-]*\)$" ${GEO_POR_FILE} ${GEO_POR_ALT_FILE}
+# grep -n "^\([0-9]\{1,9\}\)<TAB>.*<TAB>\([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\)$" ${GEO_TZ_FILE} ${GEO_POR_ALT_FILE}
+# grep -n "^\([0-9]\{1,9\}\)<TAB>\([0-9]\{1,9\}\)<TAB>\([a-z]\{0,5\}[_]\{0,1\}[0-9]\{0,4\}\)<TAB>" ${GEO_TZ_FILE} ${GEO_POR_FILE}
 
 ##
 # Concatenate the alternate name details, and add them back to the line of
@@ -132,7 +137,7 @@ fi
 AGGREGATOR=aggregateGeonamesPor.awk
 echo
 echo "Aggregating '${GEO_POR_ALT_FILE}' and '${GEO_POR_FILE}' input files..."
-time awk -F'\t' -v log_level=${LOG_LEVEL} -f ${AGGREGATOR} ${GEO_POR_ALT_FILE} ${GEO_POR_FILE} > ${GEO_POR_CONC_FILE}
+time awk -F'\t' -v log_level=${LOG_LEVEL} -f ${AGGREGATOR} ${GEO_TZ_FILE} ${GEO_POR_ALT_FILE} ${GEO_POR_FILE} > ${GEO_POR_CONC_FILE}
 echo "... done"
 echo
 
@@ -153,14 +158,14 @@ time wc -l ${GEO_POR_ALT_FILE} ${GEO_POR_FILE} ${GEO_POR_CONC_FILE}
 echo
 
 # Check #3
-echo "Simple check #3: grep -n \"^6299418\" ${GEO_POR_CONC_FILE}"
-NCE_POR=`grep "^6299418" ${GEO_POR_CONC_FILE}`
+echo "Simple check #3: grep -n \"^NCE\^LFMN\" ${GEO_POR_CONC_FILE}"
+NCE_POR=`grep "^NCE\^LFMN" ${GEO_POR_CONC_FILE}`
 if [ "${NCE_POR}" = "${NCE_POR_REF}" ]
 then
 	echo "	Strings are equal"
 else
 	echo "	Strings are not equal. Someone may have added some alternate names?"
-	echo "	Compare (result of grep -n \"^6299418\" ${GEO_POR_CONC_FILE}):"
+	echo "	Compare (result of grep -n \"^NCE\^LFMN\" ${GEO_POR_CONC_FILE}):"
 	echo "	${NCE_POR}"
 	echo "	to (reference):"
 	echo "	${NCE_POR_REF}"
