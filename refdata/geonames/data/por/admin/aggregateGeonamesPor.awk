@@ -55,9 +55,22 @@
 ##
 #
 BEGIN {
+	#
 	tz_line = 0
 	por_line = 0
 	alt_line = 0
+
+	# Header
+	printf ("%s", "iata_code^icao_code^geonameid")
+	printf ("%s", "^name^asciiname^latitude^longitude")
+	printf ("%s", "^country^cc2^fclass^fcode^admin1^admin2^admin3^admin4")
+	printf ("%s", "^population^elevation^gtopo30")
+	printf ("%s", "^timezone^GMT_offset^DST_offset^raw_offset")
+	printf ("%s", "^moddate")
+	printf ("%s", "^alternatenames")
+	printf ("%s", "^wiki_link")
+	printf ("%s", "^altname_iso^altname_text")
+	printf ("%s", "\n")
 }
 
 ##
@@ -123,21 +136,27 @@ BEGIN {
 		if (is_historical != "h") {
 			alt_name_list_iata[geoname_id] = alt_name_content
 		} else {
-			alt_name_list_iata[geoname_id] = "_" alt_name_content
+			if (alt_name_list_iata[geoname_id] == "") {
+				alt_name_list_iata[geoname_id] = "_" alt_name_content
+			}
 		}
 
 	} else if (alt_name_type == "icao") {
 		if (is_historical != "h") {
 			alt_name_list_icao[geoname_id] = alt_name_content
 		} else {
-			alt_name_list_icao[geoname_id] = "_" alt_name_content
+			if (alt_name_list_icao[geoname_id] == "") {
+				alt_name_list_icao[geoname_id] = "_" alt_name_content
+			}
 		}
 
 	} else if (alt_name_type == "faac") {
 		if (is_historical != "h") {
 			alt_name_list_faac[geoname_id] = alt_name_content
 		} else {
-			alt_name_list_faac[geoname_id] = "_" alt_name_content
+			if (alt_name_list_faac[geoname_id] == "") {
+				alt_name_list_faac[geoname_id] = "_" alt_name_content
+			}
 		}
 
 	} else if (alt_name_type == "link") {
@@ -260,17 +279,12 @@ BEGIN {
 	# Modification date
 	mod_date = $19
 
-	# Retrieve the details coming from the time zone
+	# Retrieve the details coming from the time zone.
+	# Note that the time zone field may be missing on some (~2500) POR.
 	tz_ctry = tz_list_ctry[tz_id]
 	gmt_offset = tz_list_gmt[tz_id]
 	dst_offset = tz_list_dst[tz_id]
 	raw_offset = tz_list_raw[tz_id]
-
-	# Cleaning
-	delete tz_list_ctry[tz_id]
-	delete tz_list_gmt[tz_id]
-	delete tz_list_dst[tz_id]
-	delete tz_list_raw[tz_id]
 
 	# Retrieve the details coming from the alternate names
 	iata_code = alt_name_list_iata[geoname_id]
@@ -294,9 +308,13 @@ BEGIN {
 	out_line = out_line "^" fclass "^" fcode
 	out_line = out_line "^" adm_code1 "^" adm_code2 "^" adm_code3 "^" adm_code4
 	out_line = out_line "^" population "^" elevation "^" gtopo30
-	out_line = out_line "^" tz_id "^" gmt_offset "^" dst_offset "^" raw_offset "^" moddate
+	out_line = out_line "^" tz_id "^" gmt_offset "^" dst_offset "^" raw_offset
+	out_line = out_line "^" mod_date
 	out_line = out_line "^" alt_names_compact
-	out_line = out_line "^" link_code "^" alt_names
+	out_line = out_line "^" link_code
+	if (alt_names != "") {
+		out_line = out_line	"^" alt_names
+	}
 
 	# Print the output line
 	print (out_line)
@@ -311,5 +329,5 @@ BEGIN {
 #
 END {
 	# DEBUG
-	print ("Nb of TZ: " tz_line ", nb of POR: " por_line ", nb of alternate names: " alt_line)
+	# print ("Nb of TZ: " tz_line ", nb of POR: " por_line ", nb of alternate names: " alt_line)
 }
