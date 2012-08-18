@@ -170,16 +170,22 @@ fi
 # the Geonames data dump.
 if [ "$1" != "" ]
 then
-	if [ ! -d $1 ]
+	OPTD_DIR_DIR=`dirname $1`
+	OPTD_DIR_BASE=`basename $1`
+	if [ "${OPTD_DIR_DIR}" = "." ]
+	then
+		OPTD_DIR_DIR=""
+	else
+		OPTD_DIR_DIR=${OPTD_DIR_DIR}/
+	fi
+	OPTD_DIR="${OPTD_DIR_DIR}${OPTD_DIR_BASE}/"
+	if [ ! -d ${OPTD_DIR} ]
 	then
 		echo
 		echo "[$0:$LINENO] The first parameter ('$1') should point to the refdata/ sub-directory of the OpenTravelData project Git clone. It is not accessible here."
 		echo
 		exit -1
 	fi
-	OPTD_DIR_DIR=`dirname $1`
-	OPTD_DIR_BASE=`basename $1`
-	OPTD_DIR="${OPTD_DIR_DIR}/${OPTD_DIR_BASE}/"
 	ORI_DIR=${OPTD_DIR}ORI/
 	TOOLS_DIR=${OPTD_DIR}tools/
 	GEO_RAW_FILE=${TOOLS_DIR}${GEO_RAW_FILENAME}
