@@ -34,7 +34,8 @@ LOG_LEVEL=3
 
 ##
 # ORI path
-ORI_DIR=${EXEC_PATH}../ORI/
+OPTD_DIR_DIR=${EXEC_PATH}../
+ORI_DIR=${OPTD_DIR_DIR}ORI/
 
 ##
 # Geo data files
@@ -83,7 +84,7 @@ then
 	echo "  - Default name for the PageRanked airport file: '${AIRPORT_PG}'"
 	echo "  - Default minimum distance (in km) triggering a difference: '${COMP_MIN_DIST}'"
 	echo
-	exit -1
+	exit
 fi
 
 #
@@ -129,7 +130,7 @@ GEO_FILE_1_SORTED_CUT=${TMP_DIR}${GEO_FILE_1_SORTED_CUT}
 if [ ! -f "${GEO_FILE_1_RAW}" ]
 then
 	echo
-	echo "The '${GEO_FILE_1_RAW}' file does not exist."
+	echo "[$0:$LINENO] The '${GEO_FILE_1_RAW}' file does not exist."
 	if [ "$1" = "" ];
 	then
 		${PREPARE_EXEC} --geonames
@@ -146,7 +147,7 @@ fi
 #  * The primary key (IATA code - location type)
 #  * The airport/city code
 #  * The geographical coordinates.
-${PREPARE_EXEC} ${GEO_FILE_1_RAW} ${LOG_LEVEL}
+${PREPARE_EXEC} ${OPTD_DIR_DIR} ${LOG_LEVEL}
 
 # Second data file with geographical coordinates
 if [ "$2" != "" ];
@@ -157,7 +158,7 @@ fi
 if [ ! -f "${GEO_FILE_2}" ]
 then
 	echo
-	echo "The '${GEO_FILE_2}' file does not exist."
+	echo "[$0:$LINENO] The '${GEO_FILE_2}' file does not exist."
 	if [ "$2" = "" ];
 	then
 		echo
@@ -187,7 +188,7 @@ AIRPORT_PG_SORTED_CUT=${TMP_DIR}${AIRPORT_PG_SORTED_CUT}
 if [ ! -f "${AIRPORT_PG}" ]
 then
 	echo
-	echo "The '${AIRPORT_PG}' file does not exist."
+	echo "[$0:$LINENO] The '${AIRPORT_PG}' file does not exist."
 	if [ "$3" = "" ];
 	then
 		${PREPARE_PG_EXEC} --popularity
