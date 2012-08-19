@@ -266,6 +266,37 @@ CREATE TABLE `zip_codes` (
 SET character_set_client = @saved_cs_client;
 
 
+--
+-- Function to display decimal numbers without trailing zeros
+--
+
+
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+DELIMITER $$
+USE `geo_geonames`$$
+
+DROP FUNCTION IF EXISTS `FN_STRIP_TRAILING_ZER0`$$
+
+CREATE DEFINER=`geo`@`%` FUNCTION `FN_STRIP_TRAILING_ZER0`(tNumber DECIMAL(10,7)) RETURNS VARCHAR(20) CHARSET utf8
+
+BEGIN
+     DECLARE strBuff VARCHAR(20);
+     DECLARE cnt  NUMERIC(2);
+     DECLARE tString VARCHAR(20);
+     SELECT CAST(tNumber AS CHAR) INTO tString;
+     SELECT LOCATE('.',tString) INTO cnt;
+     IF cnt > 0 THEN
+         SELECT TRIM(TRAILING '.' FROM TRIM(TRAILING '0' FROM tString)) INTO strBuff;   
+     ELSE
+        SET strBuff = tString;
+     END IF;
+     RETURN strBuff;
+
+END$$
+DELIMITER ;
+SET character_set_client = @saved_cs_client;
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

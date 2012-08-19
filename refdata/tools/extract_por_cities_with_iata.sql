@@ -8,10 +8,12 @@
 --
 
 select a.alternateName as iata_code, 'NULL',
-	   g.geonameid, g.name, g.asciiname, g.latitude, g.longitude,
+	   g.geonameid, g.name, g.asciiname,
+	   FN_STRIP_TRAILING_ZER0 (g.latitude) as latitude,
+	   FN_STRIP_TRAILING_ZER0 (g.longitude) as longitude,
 	   g.country, g.cc2, g.fclass, g.fcode,
 	   g.admin1, g.admin2, g.admin3, g.admin4,
-	   g.population, g.elevation, g.gtopo30,
+	   g.population, IF (g.elevation=0, '', g.elevation) as elevation, g.gtopo30,
 	   g.timezone, tz.GMT_offset, tz.DST_offset, tz.raw_offset,
 	   g.moddate, g.alternatenames
 from time_zones as tz, geoname as g

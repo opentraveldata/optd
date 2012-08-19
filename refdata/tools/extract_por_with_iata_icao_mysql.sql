@@ -27,14 +27,17 @@
 
 select iata_codes.alternateName as iata_code,
 	   icao_codes.alternateName as icao_code,
-	   g.geonameid, g.name, g.asciiname, g.latitude, g.longitude,
+	   g.geonameid, g.name, g.asciiname,
+	   FN_STRIP_TRAILING_ZER0 (g.latitude) as latitude,
+	   FN_STRIP_TRAILING_ZER0 (g.longitude) as longitude,
 	   g.country, g.cc2, g.fclass, g.fcode,
 	   g.admin1, g.admin2, g.admin3, g.admin4,
-	   g.population, g.elevation, g.gtopo30,
+	   g.population, IF (g.elevation=0, '', g.elevation) as elevation, g.gtopo30,
 	   g.timezone, tz.GMT_offset, tz.DST_offset, tz.raw_offset,
 	   g.moddate, g.alternatenames,
 	   alt_names.isoLanguage as altname_iso,
-	   alt_names.alternateName as altname_text
+	   alt_names.alternateName as altname_text,
+	   alt_names.flags as altname_flags
 from time_zones as tz, geoname as g
 
 left join (
@@ -62,7 +65,7 @@ left join (
 ) as icao_codes on icao_codes.geonameid = g.geonameid
 
 left join (
-  select g3.geonameid, a3.isoLanguage, a3.alternateName
+  select g3.geonameid, a3.isoLanguage, a3.alternateName, '' as flags
   from geoname as g3
   left join alternate_name as a3 on g3.geonameid = a3.geonameid
   where (g3.fcode = 'AIRB' or g3.fcode = 'AIRF' or g3.fcode = 'AIRH'
