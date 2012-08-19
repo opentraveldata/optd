@@ -148,7 +148,9 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, myTravelLine, myCit
 
 			} else {
 				# Notification
-				print ("!! Notification: For the line #" FNR " and the '" myIataCode "' IATA code, the details of the second POR have to be invented. However, the second location type ('" location_type_alt "') is unknown (first location type: '" location_type "') - Full line: " myLastLine) > "/dev/stderr"
+				if (log_level >= 4) {
+					print ("!! Notification: For the line #" FNR " and the '" myIataCode "' IATA code, the details of the second POR have to be invented. However, the second location type ('" location_type_alt "') is unknown (first location type: '" location_type "') - Full line: " myLastLine) > "/dev/stderr"
+				}
 			}
 
 			# Notification
