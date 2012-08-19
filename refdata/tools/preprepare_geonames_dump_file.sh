@@ -188,6 +188,7 @@ sort -t'^' -k1,1 -k2,2 -k11,11 ${GEO_RAW_FILE} > ${GEO_RAW_FILE_TMP}
 cat ${GEO_RAW_FILE_HEADER} ${GEO_RAW_FILE} > ${GEO_RAW_FILE_TMP}
 sed -i -e "/^$/d" ${GEO_RAW_FILE_TMP}
 \mv -f ${GEO_RAW_FILE_TMP} ${GEO_RAW_FILE}
+\rm -f ${GEO_RAW_FILE_HEADER}
 
 ##
 # Reporting
