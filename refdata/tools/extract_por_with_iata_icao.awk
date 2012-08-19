@@ -59,7 +59,7 @@ BEGIN {
 	hdr_line = hdr_line "^country^cc2^fclass^fcode^admin1^admin2^admin3^admin4"
 	hdr_line = hdr_line "^population^elevation^gtopo30"
 	hdr_line = hdr_line "^timezone^GMT_offset^DST_offset^raw_offset^moddate^alternatenames"
-	hdr_line = hdr_line "^wiki_link^altname_iso^altname_text"
+	hdr_line = hdr_line "^wiki_link^altname_iso^altname_text^altname_flags"
 
 	print (hdr_line) > iata_tvl_file
 	print (hdr_line) > iata_cty_file
