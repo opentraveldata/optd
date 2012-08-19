@@ -61,6 +61,9 @@ BEGIN {
 		NF--
 	}
 
+	# TODO: The language-related entries have got three fields, whereas the Wiki link
+	#       and IATA/ICAO codes have got only two. The $(NF-1) and $(NF-2) should
+	#       therefore be tested to know the type. Then, the algorithm has to be adapted.
 	#
 	iso_language = $(NF-1)
 	alt_name = $NF
