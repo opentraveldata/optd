@@ -46,9 +46,19 @@ read userinput_adminname
 echo "Type $userinput_adminname's password followed by [Enter]"
 read -s userinput_pw
 
-#
+##
+# Create the geo_geonames database itself
 SQL_STATEMENT="drop database if exists ${DB_NAME}; create database ${DB_NAME} default character set utf8 collate utf8_unicode_ci"
-
-#
-echo "The database '${DB_NAME}' will be created:"
+echo
+echo "Creating the Geonames database ('${DB_NAME}')..."
 mysql -u ${userinput_adminname} --password=${userinput_pw} -P ${DB_PORT} -h ${DB_HOST} mysql -e "${SQL_STATEMENT}"
+echo "... Geonames database ('${DB_NAME}') created."
+echo
+
+##
+# Create the tables of the geo_geonames database
+SQL_FILE="create_table_geonames.sql"
+echo "Creating the tables for Geonames..."
+mysql -u ${userinput_adminname} --password=${userinput_pw} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} < ${SQL_FILE}
+echo "... Geonames tables created."
+echo
