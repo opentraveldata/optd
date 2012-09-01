@@ -36,11 +36,6 @@ DB_PASSWD="geo"
 # Database Name
 DB_NAME="geo_geonames"
 
-##
-# Create the tables
-SQL_FILE="create_table_geonames.sql"
-echo "Creating the tables for Geonames:"
-mysql -u ${DB_USER} --password=${DB_PASSWD} -P ${DB_PORT} -h ${DB_HOST} ${DB_NAME} < ${SQL_FILE}
 
 ##
 # Alter a few input data files
