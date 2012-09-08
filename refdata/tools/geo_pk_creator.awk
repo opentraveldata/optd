@@ -17,10 +17,12 @@
 #  * 'B' for bus station
 #  * 'O' for off-line point (usually a small city/village or a railway station)
 #
-# A few examples of Geonames feature codes (http://www.geonames.org/export/codes.html):
+# A few examples of Geonames feature codes
+# (see http://www.geonames.org/export/codes.html):
 #  * PPLx:  Populated place (city)
 #  * ADMx:  Administrative division (which may be a city in some cases)
-#  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing field
+#  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
+#           field
 #  * AIRQ:  Abandoned air field
 #  * AIRH:  Heliport
 #  * PRT:   Maritime port
@@ -46,6 +48,7 @@ function displayLists() {
 }
 
 function overrideDetails(myPK, myFullLine, myFeatClass, myFeatCode) {
+	# Sample input line:
 	# AAN^OMAL^6300095^Al Ain International Airport^Al Ain International Airport^24.2616700^55.6091700^AE^^S^AIRP^^^^^0^264^248^Asia/Dubai^4.0^4.0^4.0^2007-01-03^AAN,OMAL^http://en.wikipedia.org/wiki/Al_Ain_International_Airport
 
 	# Save the line
@@ -77,11 +80,13 @@ function overrideDetails(myPK, myFullLine, myFeatClass, myFeatCode) {
 	$0 = saved_line
 }
 
-function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, myTravelLine, myCityLine, myNbOfPOR, myLastLine, myLine) {
-	# The POR/lines have to be combined or split the same way as in the ORI list:
-	#  - A single, combined, POR for a 'CX' location type (X = A, H, B, R, P, O)
-	#  - One POR by other location type (e.g., 'C', 'A', 'H', 'R')
-	#
+#
+# The POR/lines have to be combined or split the same way as in the ORI list:
+#  - A single, combined, POR for a 'CX' location type (X = A, H, B, R, P, O)
+#  - One POR by other location type (e.g., 'C', 'A', 'H', 'R', 'B', 'P', 'O')
+#
+function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
+					myTravelLine, myCityLine, myNbOfPOR, myLastLine, myLine) {
 
 	# Retrieve the full location type from the ORI-maintained list
 	location_type = location_type_list[myIataCode]
@@ -91,18 +96,93 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, myTravelLine, myCit
 		# There are two POR in Geonames sharing the same IATA code
 
 		if (myIataCode in combined_list) {
+			# The location type is made of several characters (by construction
+			# of the 'combined_list' list).
+
 			# Notification
 			if (log_level >= 5) {
-				print ("!! Notification: the POR #" FNR " and #" FNR-1 ", with IATA code=" myIataCode ", are distinct in Geonames, but combined in the ORI-maintained list. You could split it in ORI. Both POR:\n" myLastLine "\n" myLine) > "/dev/stderr"
+				print ("!! Notification: the POR #" FNR " and #" FNR-1 \
+					   ", with IATA code=" myIataCode \
+					   ", are distinct in Geonames, but combined in the " \
+					   "ORI-maintained list. You could split it in ORI." \
+					   " Both POR:\n" myLastLine "\n" myLine) > "/dev/stderr"
 			}
 
-			# The travel-related POR will inherit from the location type associated 
-			# (by ORI) to that POR. The city POR will be left untouched.
+			# The travel-related POR will inherit from the location type
+			# associated (by ORI) to that POR. The city POR will be left
+			# untouched.
 			print (myLastPK "^" myTravelLine)
 			#print (myIataCode "-C" "^" myCityLine)
 
+		} else if (location_type_alt == "") {
+			# The location type is made of a single character (otherwise, that
+			# POR would be part of the 'combined_list' list, by construction of
+			# that latter).
+			#
+			# Moreover, there is no alternate location type for that IATA code,
+			# meaning that there is a single line in the ORI-maintained list.
+			is_city = match (location_type, "[C]")
+
+			# Travel-related type
+			is_airport = match (location_type, "[A]")
+			is_rail = match (location_type, "[R]")
+			is_bus = match (location_type, "[B]")
+			is_heliport = match (location_type, "[H]")
+			is_port = match (location_type, "[P]")
+			is_offpoint = match (location_type, "[O]")
+			is_travel = is_airport + is_rail + is_bus + is_heliport + is_port \
+				+ is_offpoint
+
+			if (is_travel >= 1) {
+				# Notification
+				if (log_level >= 5) {
+					print ("!! Notification: the POR #" FNR " and #" FNR-1 \
+						   ", with IATA code=" myIataCode				\
+						   ", are distinct in Geonames, but combined as a " \
+						   "travel-related point in the ORI-maintained list. " \
+						   "You could split it in ORI. Both POR:\n" myLastLine \
+						   "\n" myLine) > "/dev/stderr"
+				}
+
+				# The travel-related POR will inherit from the location type
+				# associated (by ORI) to that POR. The city POR will be left
+				# untouched.
+				print (myLastPK "^" myTravelLine)
+				#print (myIataCode "-C" "^" myCityLine)
+
+			} else if (is_city >= 1) {
+				# Notification
+				if (log_level >= 5) {
+					print ("!! Notification: the POR #" FNR " and #" FNR-1 \
+						   ", with IATA code=" myIataCode				\
+						   ", are distinct in Geonames, but combined as a city" \
+						   " in the ORI-maintained list. "				\
+						   "You could split it in ORI. Both POR:\n" myLastLine \
+						   "\n" myLine) > "/dev/stderr"
+				}
+
+				# The city POR will inherit from the location type associated
+				# (by ORI) to that POR. The travel-related POR will be left
+				# untouched.
+				#print (myLastPK "^" myTravelLine)
+				print (myIataCode "-C" "^" myCityLine)
+
+			} else {
+				# Notification
+				if (log_level >= 4) {
+					print ("!! Error: the POR #" FNR " and #" FNR-1 \
+						   ", with IATA code=" myIataCode				\
+						   ", are distinct in Geonames, but combined " \
+						   " in the ORI-maintained list. However, the location"	\
+						   "type ('" location_type "') is unknown. Both POR:\n" \
+						   myLastLine "\n" myLine) > "/dev/stderr"
+				}
+			}
+
 		} else {
-			# There are two POR, exactly like in the ORI-maintained list
+			# The ORI-maintained list does provide two distinct lines for that
+			# IATA code, exactly like for Geonames. So, both lines are
+			# copied here.
 			print (myLastPK "^" myLastLine)
 			print (myLastAltPK "^" myLine)
 		}
@@ -110,16 +190,18 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, myTravelLine, myCit
 	} else {
 		# There is a single POR in Geonames for that IATA code.
 
-		if ((length(location_type) == 1 && location_type_alt == "") || myIataCode in combined_list) {
-			# There is also a single POR in the ORI-maintained list. It may be either:
+		if ((length(location_type) == 1 && location_type_alt == "") \
+			|| myIataCode in combined_list) {
+			# There is also a single POR in the ORI-maintained list. It may be
+			# either:
 			#  - A combined case ('CA'), such as NCE
 			#  - A mono-typed case (e.g., 'C', 'A', 'H'), such as LON or LHR
 			print (myLastPK "^" myLastLine)
 
 		} else {
-			# There are two POR in the ORI-maintained list sharing that IATA code.
-			# The details have therefore to be "invented", according to the
-			# second location type.
+			# There are two POR in the ORI-maintained list sharing that
+			# IATA code. The details have therefore to be "invented",
+			# according to the second location type.
 			print (myLastPK "^" myLastLine)
 
 			# DEBUG
@@ -149,19 +231,37 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, myTravelLine, myCit
 			} else {
 				# Notification
 				if (log_level >= 4) {
-					print ("!! Notification: For the line #" FNR " and the '" myIataCode "' IATA code, the details of the second POR have to be invented. However, the second location type ('" location_type_alt "') is unknown (first location type: '" location_type "') - Full line: " myLastLine) > "/dev/stderr"
+					print ("!! Notification: For the line #" FNR " and the '" \
+						   myIataCode "' IATA code, the details of the second" \
+						   " POR have to be invented. However, the second " \
+						   "location type ('" location_type_alt \
+						   "') is unknown (first location type: '" \
+						   location_type "') - Full line: " myLastLine) \
+						> "/dev/stderr"
 				}
 			}
 
 			# Notification
 			if (log_level >= 4) {
-				print ("!! Notification: For the line #" FNR " and the '" myIataCode "' IATA code, the details of the second POR had to be duplicated because the ORI-maintained list has got two entries (the location types being '" location_type_alt "' and '" location_type "') - Full original and invented lines: " myLastLine "\n" $0) > "/dev/stderr"
+				print ("!! Notification: For the line #" FNR " and the '" \
+					   myIataCode "' IATA code, the details of the second" \
+					   " POR had to be duplicated because the ORI-maintained" \
+					   " list has got two entries (the location types being '" \
+					   location_type_alt "' and '" location_type \
+					   "') - Full original and invented lines: " myLastLine \
+					   "\n" $0) > "/dev/stderr"
 			}
 
-			# Sanity check: by construction, the location type is multi-character;
-			#               an alternative location type should therefore be specified
+			# Sanity check: by construction, the location type is
+			# multi-character; an alternative location type should therefore
+			# be specified.
 			if (location_type_alt == "") {
-				print ("!!!! Error at line #" FNR " for the '" myIataCode "' IATA code; the location type ('" location_type "') has got at least two characters, while no alternative location has been defined (check also the ORI-maintained list) - Full line: " myLastLine) > "/dev/stderr"
+				print ("!!!! Error at line #" FNR " for the '" myIataCode \
+					   "' IATA code; the location type ('" location_type \
+					   "') has got at least two characters, while no " \
+					   "alternative location has been defined (check also" \
+					   " the ORI-maintained list) - Full line: " myLastLine) \
+					> "/dev/stderr"
 			}
 		}
 	}
@@ -184,18 +284,20 @@ BEGIN {
 }
 
 ##
-# The ../ORI/best_coordinates_known_so_far.csv data file is used, in order to specify
-# the POR primary key )and its location type).
+# The ../ORI/best_coordinates_known_so_far.csv data file is used, in order to
+# specify the POR primary key and its location type.
+#
 # Sample lines:
-#  ARN-A^ARN^59.651944^17.918611^STO (2 single in ORI, split from combined, 1 in Geonames)
-#  ARN-R^ARN^59.649463^17.929^STO
-#  IES-CA^IES^51.3^13.28^IES         (1 combined in ORI, 1 in Geonames)
-#  IEV-A^IEV^50.401694^30.449697^IEV (2 single in ORI, split from combined, 2 in Geonames)
-#  IEV-C^IEV^50.401694^30.449697^IEV
-#  KBP-A^KBP^50.345^30.894722^IEV    (1 single in ORI, 1 in Geonames)
-#  LHR-A^LHR^51.4775^-0.461389^LON   (1 single in ORI, 1 in Geonames)
-#  LON-C^LON^51.5^-0.1667^LON        (1 single in ORI, 1 in Geonames)
-#  NCE-CA^NCE^43.658411^7.215872^NCE (1 combined in ORI, 2 in Geonames)
+#  ALV-O^ALV^40.98^0.45^ALV          (1 line in ORI, 2 lines in Geonames)
+#  ARN-A^ARN^59.651944^17.918611^STO (2 lines in ORI, split from a combined line,
+#  ARN-R^ARN^59.649463^17.929^STO     1 line in Geonames)
+#  IES-CA^IES^51.3^13.28^IES         (1 combined line in ORI, 1 line in Geonames)
+#  IEV-A^IEV^50.401694^30.449697^IEV (2 lines in ORI, split from a combined line,
+#  IEV-C^IEV^50.401694^30.449697^IEV  2 lines in Geonames)
+#  KBP-A^KBP^50.345^30.894722^IEV    (1 line in ORI, 1 line in Geonames)
+#  LHR-A^LHR^51.4775^-0.461389^LON   (1 line in ORI, 1 line in Geonames)
+#  LON-C^LON^51.5^-0.1667^LON        (1 line in ORI, 1 line in Geonames)
+#  NCE-CA^NCE^43.658411^7.215872^NCE (1 combined line in ORI 2 lines in Geonames)
 #
 /^([A-Z]{3})-([A-Z]{1,2})\^([A-Z]{3})\^/ {
 
@@ -210,9 +312,9 @@ BEGIN {
 
 	# Check whether the POR is a city. It can be a city only or, most often,
 	# a combination of a city with a travel-related type (e.g., airport,
-	# rail station). In some rare cases, an airport may be combined with something
-	# else than a city (e.g., railway station); ARN is such an example, and
-	# CDG might be another one.
+	# rail station). In some rare cases, an airport may be combined with
+	# something else than a city (e.g., railway station); ARN is such
+	# an example, and CDG might be another one.
 	is_city = match (location_type, "[C]")
 
 	# Travel-related type
@@ -222,18 +324,21 @@ BEGIN {
 	is_heliport = match (location_type, "[H]")
 	is_port = match (location_type, "[P]")
 	is_offpoint = match (location_type, "[O]")
-	is_travel = is_airport + is_rail + is_bus + is_heliport + is_port + is_offpoint
+	is_travel = is_airport + is_rail + is_bus + is_heliport + is_port \
+		+ is_offpoint
 
 	# Sanity check
 	if (length(location_type) >= 2 && is_travel == 0) {
-		print ("!!!! Error at line #" FNR ", the location type ('" location_type "') is unknown - Full line: " $0) > "/dev/stderr"
+		print ("!!!! Error at line #" FNR ", the location type ('" \
+			   location_type "') is unknown - Full line: " $0) > "/dev/stderr"
 	}
 
 	# Store the location types. If there are two location types for that POR,
-	# the first should be the travel-related one and the second should be the city.
+	# the first should be the travel-related one and the second should be
+	# the city.
 	# Note that in some rare cases (e.g., ARN-AR, i.e. Stockholm Arlanda airport
-	# and railway station, both serving STO-C), the location type is combined ('AR'
-	# here), but there is no city.
+	# and railway station, both serving STO-C), the location type is combined
+	# ('AR' here), but there is no city.
 	last_location_type = location_type_list[iata_code]
 	if (last_location_type == "") {
 		# No location type has been registered yet
@@ -248,7 +353,8 @@ BEGIN {
 		is_last_heliport = match (last_location_type, "[H]")
 		is_last_port = match (last_location_type, "[P]")
 		is_last_offpoint = match (last_location_type, "[O]")
-		is_last_travel = is_last_airport + is_last_rail + is_last_bus + is_last_heliport + is_last_port + is_last_offpoint
+		is_last_travel = is_last_airport + is_last_rail + is_last_bus \
+			+ is_last_heliport + is_last_port + is_last_offpoint
 
 		if (is_last_city == 1) {
 			# The previously registered location type is a city. So, it is now
@@ -259,25 +365,33 @@ BEGIN {
 
 			# Sanity check: the new location type should be travel-related
 			if (is_travel == 0) {
-				print ("!!!! Rare case at line #" FNR ", there are at least two location types ('" last_location_type "' and '" location_type "'), but the latter one is neither a city nor travel-related - Full line: " $0) > "/dev/stderr"
+				print ("!!!! Rare case at line #" FNR \
+					   ", there are at least two location types ('" \
+					   last_location_type "' and '" location_type \
+					   "'), but the latter one is neither a city nor" \
+					   " travel-related - Full line: " $0) > "/dev/stderr"
 			}
 
 		} else if (is_city == 1) {
-			# The city is the new location type; the previously registered one must
-			# then be travel-related
+			# The city is the new location type; the previously
+			# registered one must then be travel-related.
 			location_type_list[iata_code] = last_location_type
 			location_type_alt_list[iata_code] = location_type
 
 			# Sanity check: the last location type should be travel-related
 			if (is_last_travel == 0) {
-				print ("!!!! Rare case at line #" FNR ", there are at least two location types ('" last_location_type "' and '" location_type "'), but the former one is neither a city nor travel-related - Full line: " $0) > "/dev/stderr"
+				print ("!!!! Rare case at line #" FNR \
+					   ", there are at least two location types ('" \
+					   last_location_type "' and '" location_type \
+					   "'), but the former one is neither a city nor" \
+					   " travel-related - Full line: " $0) > "/dev/stderr"
 			}
 
 		} else {
-			# Neither the previously registered location type nor the current one is
-			# a city. So, if there is an airport, it will be registered in the first
-			# position; otherwise, the alphabetical order of the location type is
-			# used by construction.
+			# Neither the previously registered location type nor the current
+			# one is a city. So, if there is an airport, it will be registered
+			# in the first position; otherwise, the alphabetical order of
+			# the location type is used by construction.
 			if (is_last_airport == 1) {
 				location_type_list[iata_code] = last_location_type
 				location_type_alt_list[iata_code] = location_type
@@ -366,7 +480,8 @@ BEGIN {
 	#
 	is_city = match (fcode, "PPL") + match (fcode, "ADM")
 
-	is_airport = match (fcode, "AIRB") + match (fcode, "AIRF") + match (fcode, "AIRP") + match (fcode, "AIRS")
+	is_airport = match (fcode, "AIRB") + match (fcode, "AIRF") \
+		+ match (fcode, "AIRP") + match (fcode, "AIRS")
 	is_rail = match (fcode, "RSTN")
 	is_bus = match (fcode, "BUST")
 	is_heliport = match (fcode, "AIRH")
@@ -384,7 +499,9 @@ BEGIN {
 
 	# Sanity check: the POR should be known from ORI
 	if (location_type == "") {
-		print ("!!!! Error at line #" FNR ", the POR with that IATA code ('" iata_code "') is not referenced in the ORI-maintained list: " full_line) > "/dev/stderr"
+		print ("!!!! Error at line #" FNR ", the POR with that IATA code ('" \
+			   iata_code "') is not referenced in the ORI-maintained list: " \
+			   full_line) > "/dev/stderr"
 	}
 
 	# New primary key, made of the IATA code and ORI-maintained location type
@@ -396,9 +513,12 @@ BEGIN {
 		# the second POR is a city, and the first POR is travel-related (e.g.,
 		# airport, railway station).
 
-		# Sanity check (there should not be more than two POR with the same IATA code)
+		# Sanity check (there should not be more than two POR with the
+		# same IATA code).
 		if (nb_of_por >= 3) {
-			print ("!!!! Error at line #" FNR ", there are over two POR with the same IATA code ('" iata_code "') - Last line: " full_line) > "/dev/stderr"
+			print ("!!!! Error at line #" FNR \
+				   ", there are over two POR with the same IATA code ('" \
+				   iata_code "') - Last line: " full_line) > "/dev/stderr"
 		}
 
 		if (last_is_city == 1) {
@@ -406,10 +526,14 @@ BEGIN {
 			travel_line = full_line
 			city_line = last_full_line
 
-			# Sanith check: the other POR should be travel-related (e.g., airport,
-			# heliport, railway station, off-point)
+			# Sanith check: the other POR should be travel-related
+			# (e.g., airport, heliport, railway station, off-point).
 			if (is_travel == 0) {
-				print ("!!!! Error for the POR #" FNR " and #" FNR-1 ", with IATA code=" iata_code ". The first POR is a city, but the second one is not travel-related. Both POR:\n" last_full_line "\n" full_line) > "/dev/stderr"
+				print ("!!!! Error for the POR #" FNR " and #" FNR-1 \
+					   ", with IATA code=" iata_code ". The first POR is a" \
+					   " city, but the second one is not travel-related." \
+					   " Both POR:\n" last_full_line "\n" full_line) \
+					> "/dev/stderr"
 			}
 
 		} else if (is_city == 1) {
@@ -417,23 +541,29 @@ BEGIN {
 			travel_line = last_full_line
 			city_line = full_line
 
-			# Sanith check: the other POR should be travel-related (e.g., airport,
-			# heliport, railway station, off-point)
+			# Sanith check: the other POR should be travel-related
+			# (e.g., airport, heliport, railway station, off-point).
 			if (last_is_travel == 0) {
-				print ("!!!! Error for the POR #" FNR " and #" FNR-1 ", with IATA code=" iata_code ". The second POR is a city, but the first one is not travel-related. Both POR:\n" last_full_line "\n" full_line) > "/dev/stderr"
+				print ("!!!! Error for the POR #" FNR " and #" FNR-1 \
+					   ", with IATA code=" iata_code \
+					   ". The second POR is a city, but the first one is not" \
+					   " travel-related. Both POR:\n" last_full_line "\n" \
+					   full_line) > "/dev/stderr"
 			}
 
 		} else {
-			# Neither POR is a city. It is a rare case, such as ARN-AR (Arlanda airport
-			# and railway station; the served city is STO/Stockholm).
-			# The display then respects the input: last line first, new line second
-			# (in the displayPOR() function, the city POR is displayed second).
+			# Neither POR is a city. It is a rare case, such as ARN-AR (Arlanda
+			# airport and railway station; the served city is STO/Stockholm).
+			# The display then respects the input:
+			# last line first, new line second (in the displayPOR() function,
+			# the city POR is displayed second).
 			travel_line = last_full_line
 			city_line = full_line
 		}
 
 		# Display the last POR
-		displayPOR(iata_code, last_pk, pk, pk_alt, travel_line, city_line, nb_of_por, last_full_line, full_line)
+		displayPOR(iata_code, last_pk, pk, pk_alt, travel_line, city_line, \
+				   nb_of_por, last_full_line, full_line)
 
 	} else {
 
@@ -442,7 +572,8 @@ BEGIN {
 
 		if (last_nb_of_por == 1) {
 			# Display the last POR
-			displayPOR(last_iata_code, last_pk, "", last_pk_alt, "", "", last_nb_of_por, last_full_line, "")
+			displayPOR(last_iata_code, last_pk, "", last_pk_alt, "", "", \
+					   last_nb_of_por, last_full_line, "")
 		}
 
 		#
@@ -466,7 +597,8 @@ ENDFILE {
 	#
 	if (last_nb_of_por == 1) {
 		# Display the last POR
-		displayPOR(last_iata_code, last_pk, "", last_pk_alt, "", "", last_nb_of_por, last_full_line, "")
+		displayPOR(last_iata_code, last_pk, "", last_pk_alt, "", "", \
+				   last_nb_of_por, last_full_line, "")
 	}
 
 	# DEBUG
