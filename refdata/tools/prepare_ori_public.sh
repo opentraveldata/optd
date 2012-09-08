@@ -49,8 +49,8 @@ then
 fi
 
 ##
-# Sanity check: that (executable) script should be located in the tools/ sub-directory
-# of the OpenTravelData project Git clone
+# Sanity check: that (executable) script should be located in the tools/
+# sub-directory of the OpenTravelData project Git clone.
 EXEC_DIR_NAME=`basename ${EXEC_FULL_PATH}`
 if [ "${EXEC_DIR_NAME}" != "tools" ]
 then
@@ -178,15 +178,16 @@ sed -i -e "/^$/d" ${ORI_WPK_FILE_TMP}
 
 
 ##
-# That version of the ORI-maintained POR file (without primary key) is sorted
-# according to the IATA code.
+# That version of the ORI-maintained POR file is sorted according to the
+# IATA code; re-sort it according to the primary key (IATA code and location
+# type).
 sort -t'^' -k 1,1 ${ORI_WPK_FILE_TMP} > ${SORTED_ORI_WPK_FILE}
 \rm -f ${ORI_WPK_FILE_TMP}
 
 ##
 # Only four columns/fields are kept in that version of the file:
-# the primary key, airport/city IATA code and the geographical coordinates (latitude,
-# longitude).
+# the primary key, airport/city IATA code and the geographical coordinates
+# (latitude, longitude).
 cut -d'^' -f 1,2,9,10 ${SORTED_ORI_WPK_FILE} > ${SORTED_CUT_ORI_WPK_FILE}
 
 ##
