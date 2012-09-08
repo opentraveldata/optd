@@ -169,14 +169,12 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 
 			} else {
 				# Notification
-				if (log_level >= 4) {
-					print ("!! Error: the POR #" FNR " and #" FNR-1 \
-						   ", with IATA code=" myIataCode				\
-						   ", are distinct in Geonames, but combined " \
-						   " in the ORI-maintained list. However, the location"	\
-						   "type ('" location_type "') is unknown. Both POR:\n" \
-						   myLastLine "\n" myLine) > "/dev/stderr"
-				}
+				print ("!! Error: the POR #" FNR " and #" FNR-1			\
+					   ", with IATA code=" myIataCode					\
+					   ", are distinct in Geonames, but combined "		\
+					   " in the ORI-maintained list. However, the location"	\
+					   "type ('" location_type "') is unknown. Both POR:\n" \
+					   myLastLine "\n" myLine) > "/dev/stderr"
 			}
 
 		} else {
