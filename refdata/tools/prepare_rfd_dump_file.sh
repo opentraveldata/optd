@@ -285,14 +285,12 @@ fi
 # Generate a second version of the file with the ORI primary key (integrating
 # the location type)
 ORI_PK_ADDER=${TOOLS_DIR}rfd_pk_creator.awk
-RFD_WPK_FILE_TMP=${RFD_WPK_FILE}.tmp
-\cp -f ${RFD_RAW_FILE} ${RFD_WPK_FILE_TMP}
-awk -F'^' -v log_level=${LOG_LEVEL} -f ${ORI_PK_ADDER} ${GEO_ORI_FILE} ${RFD_WPK_FILE_TMP} > ${RFD_WPK_FILE}
+awk -F'^' -v log_level=${LOG_LEVEL} -f ${ORI_PK_ADDER} ${GEO_ORI_FILE} ${RFD_RAW_FILE} > ${RFD_WPK_FILE}
 #sort -t'^' -k1,1 ${RFD_WPK_FILE}
-\rm -f ${RFD_WPK_FILE_TMP}
 
 ##
 # First, remove the header (first line)
+RFD_WPK_FILE_TMP=${RFD_WPK_FILE}.tmp
 sed -e "s/^pk\(.\+\)//g" ${RFD_WPK_FILE} > ${RFD_WPK_FILE_TMP}
 sed -i -e "/^$/d" ${RFD_WPK_FILE_TMP}
 
@@ -305,8 +303,8 @@ sort -t'^' -k 1,1 ${RFD_WPK_FILE_TMP} > ${SORTED_RFD_WPK_FILE}
 
 ##
 # Only four columns/fields are kept in that version of the file:
-# the primary key, airport/city IATA code and the geographical coordinates (latitude,
-# longitude).
+# the primary key, airport/city IATA code and the geographical coordinates
+# (latitude, longitude).
 cut -d'^' -f 1,2,16,17 ${SORTED_RFD_WPK_FILE} > ${SORTED_CUT_RFD_WPK_FILE}
 
 ##
