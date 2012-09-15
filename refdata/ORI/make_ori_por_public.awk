@@ -5,8 +5,8 @@
 # Header
 BEGIN {
 	printf ("%s", "iata_code^icao_code^is_geonames^geonameid^name^asciiname")
-	printf ("%s", "^alternatenames^latitude^longitude^fclass^fcode^country_code^cc2")
-	printf ("%s", "^admin1^admin2^admin3^admin4")
+	printf ("%s", "^alternatenames^latitude^longitude^fclass^fcode")
+	printf ("%s", "^country_code^cc2^admin1^admin2^admin3^admin4")
 	printf ("%s", "^population^elevation^gtopo30")
 	printf ("%s", "^timezone^gmt_offset^dst_offset^raw_offset^moddate")
 	printf ("%s", "^is_airport^is_commercial")
@@ -16,6 +16,11 @@ BEGIN {
 	printf ("%s", "^lang_alt4^alt_name4^lang_alt5^alt_name5^lang_alt6^alt_name6")
 	printf ("%s", "^lang_alt7^alt_name7^lang_alt8^alt_name8")
 	printf ("%s", "^lang_alt9^alt_name9^lang_alt10^alt_name10")
+	printf ("%s", "^lang_alt11^alt_name11^lang_alt12^alt_name12")
+	printf ("%s", "^lang_alt13^alt_name13^lang_alt14^alt_name14")
+	printf ("%s", "^lang_alt15^alt_name15^lang_alt16^alt_name16")
+	printf ("%s", "^lang_alt17^alt_name17^lang_alt18^alt_name18")
+	printf ("%s", "^lang_alt19^alt_name19^lang_alt20^alt_name20")
 	printf ("%s", "\n")
 	today_date = mktime ("YYYY-MM-DD")
 	unknown_idx = 1
@@ -24,8 +29,8 @@ BEGIN {
 # M A I N
 {
 
-	# When the 31st field is a IATA code, it means that the POR is in both Geonames
-	# and RFD.
+	# When the 31st field is a IATA code, it means that the POR is in
+	# both Geonames and RFD.
 	is_31st_fld_iata = match ($31, "[A-Z]{3}")
 	is_31st_fld_lang = match ($31, "[a-z0-9]{2,3}")
 
@@ -79,21 +84,25 @@ BEGIN {
 		# (1) NCE-CA ^ (2) NCE ^ (3) 43.658411 ^ (4) 7.215872 ^ (5) NCE ^
 
 		# From Geonames ($6 - $30)
-		# (6) NCE ^ (7) LFMN ^ (8) 6299418 ^ (9) Nice Côte d'Azur International Airport ^
-		# (10) Nice Cote d'Azur International Airport ^ (11) 43.66272 ^ (12) 7.20787 ^
+		# (6) NCE ^ (7) LFMN ^ (8) 6299418 ^
+		# (9) Nice Côte d'Azur International Airport ^
+		# (10) Nice Cote d'Azur International Airport ^
+		# (11) 43.66272 ^ (12) 7.20787 ^
 		# (13) FR ^ (14)  ^ (15) S ^ (16) AIRP ^
 		# (17) B8 ^ (18) 06 ^ (19) 062 ^ (20) 06088 ^
 		# (21) 0 ^ (22) 3 ^ (23) -9999
 		# (24) Europe/Paris ^ (25) 1.0 ^ (26) 2.0 ^ (27) 1.0 ^
 		# (28) 2012-06-30 ^
-		# (29) Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Flughafen Nizza,LFMN,NCE,Nice Airport,Nice Cote d'Azur International Airport,Nice Côte d'Azur International Airport,Niza Aeropuerto ^
+		# (29) Aeroport de Nice Cote d'Azur, ...,Niza Aeropuerto ^
 		# (30) http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport ^
 
-		# From RFD ($31 - $48+)
+		# From RFD ($31 - $48)
 		# (31) NCE ^ (32) CA ^ (33) NICE ^ (34) COTE D AZUR ^ (35) NICE ^
-		# (36) NICE/FR:COTE D AZUR ^ (37) NICE ^ (38) NCE ^ (39) Y ^ (40)  ^ (41) FR ^
-		# (42) EUROP ^ (43) ITC2 ^ (44) FR052 ^
+		# (36) NICE/FR:COTE D AZUR ^ (37) NICE ^ (38) NCE ^
+		# (39) Y ^ (40)  ^ (41) FR ^ (42) EUROP ^ (43) ITC2 ^ (44) FR052 ^
 		# (45) 43.6653 ^ (46) 7.215 ^ (47)  ^ (48) Y
+
+		# [optional] From Geonames alternate names ($49+)
 		# (49) ^ en (50) ^ Nice Airport
 		# (51) ^ en (52) ^ Nice Côte d'Azur International Airport
 
@@ -112,22 +121,45 @@ BEGIN {
 		location_type = substr ($1, 5)
 
 		#  ^ Feat. class ^ Feat. code
-		if ($14 == "Y") {
-			# The POR is an airport
+		is_city = match (location_type, "C")
+		is_offpoint = match (location_type, "O")
+		is_airport = match (location_type, "A")
+		is_heliport = match (location_type, "H")
+		is_railway = match (location_type, "R")
+		is_bus = match (location_type, "B")
+		is_port = match (location_type, "P")
+		is_ground = match (location_type, "G")
+		if (is_airport != 0) {
+			# The POR is an airport. Note that it takes precedence over the
+			# city, when the POR is both an airport and a city. 
 			printf ("%s", "^S^AIRP")
-		} else if (location_type == "CA") {
-			# The POR is an airport and a city, but RFD wrongly set it
-			printf ("%s", "^S^AIRP")
-		} else if (location_type == "C") {
-			# The POR is a city
+		} else if (is_heliport != 0) {
+			# The POR is an heliport
+			printf ("%s", "^S^AIRH")
+		} else if (is_railway != 0) {
+			# The POR is a railway station
+			printf ("%s", "^S^RSTN")
+		} else if (is_bus != 0) {
+			# The POR is a bus station
+			printf ("%s", "^S^BUSTN")
+		} else if (is_port != 0) {
+			# The POR is a (maritime) port
+			printf ("%s", "^S^PORT")
+		} else if (is_ground != 0) {
+			# The POR is a ground station
+			printf ("%s", "^S^XXXX")
+		} else if (is_city != 0) {
+			# The POR is (only) a city
 			printf ("%s", "^P^PPLC")
-		} else if (location_type == "O") {
-			# The POR is an off-line point, which could be a bus/railway station
+		} else if (is_offpoint != 0) {
+			# The POR is an off-line point, which could be a bus/railway station,
+			# or even a city/village.
 			printf ("%s", "^X^XXXX")
 		} else {
 			# The location type can not be determined
 			printf ("%s", "^Z^ZZZZ")
-			print ("!!!! Warning !!!! The location type can not be determined for the record #" FNR ":") > "/dev/stderr"
+			print ("!!!! Warning !!!! The location type cannot be determined" \
+				   " for the record #" FNR ":") > "/dev/stderr"
 			print ($0) > "/dev/stderr"
 		}
 
@@ -164,7 +196,8 @@ BEGIN {
 
 		# From RFD ($6 - $23)
 		# (6) XIT ^ (7) R ^ (8) LEIPZIG RAIL ^ (9) LEIPZIG HBF RAIL STN ^
-		# (10) LEIPZIG RAIL ^ (11) LEIPZIG/HALLE/DE:LEIPZIG HBF R ^ (12) LEIPZIG/HALLE ^
+		# (10) LEIPZIG RAIL ^ (11) LEIPZIG/HALLE/DE:LEIPZIG HBF R ^
+		# (12) LEIPZIG/HALLE ^
 		# (13) LEJ ^ (14) Y ^ (15)  ^ (16) DE ^ (17) EUROP ^ (18) ITC2 ^
 		# (19) DE040 ^ (20) 51.3 ^ (21) 12.3333 ^ (22)  ^ (23) N
 
@@ -279,7 +312,8 @@ BEGIN {
 		####
 		#
 		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
-		printf ("%s", $1 "^ZZZZ^N^0^" "UNKNOWN" unknown_idx  "^" "UNKNOWN" unknown_idx) > non_ori_por_file
+		printf ("%s", $1 "^ZZZZ^N^0^" "UNKNOWN" unknown_idx \
+				"^" "UNKNOWN" unknown_idx) > non_ori_por_file
 
 		# ^ Alternate names ^ Latitude ^ Longitude
 		printf ("%s", "^^" $3 "^" $4) > non_ori_por_file
@@ -319,7 +353,8 @@ BEGIN {
 		unknown_idx++
 
 	} else {
-		print ("!!!! Error for row #" FNR ", having " NF " fields: " $0) > "/dev/stderr"
+		print ("!!!! Error for row #" FNR ", having " NF " fields: " $0) \
+			> "/dev/stderr"
 	}
 
 }
