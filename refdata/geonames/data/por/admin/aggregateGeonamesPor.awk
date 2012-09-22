@@ -27,7 +27,7 @@
 # 1628031	2990440	he	ניס				
 # 1628034	2990440	ja	ニース
 # 1628046	2990440	ru	Ницца
-# 1633915	2990440	zh	尼斯
+# 1633915	2990440	zh-CN	尼斯
 # 2964254	2990440	link	http://en.wikipedia.org/wiki/Nice				
 # 3054759	2990440	link	http://ru.wikipedia.org/wiki/%D0%9D%D0%B8%D1%86%D1%86%D0%B0
 #
@@ -110,7 +110,7 @@ BEGIN {
 # For every Geoname ID, concatenate all the alternate name details
 # into a single string/line.
 #
-/^([0-9]{1,9})\t([0-9]{1,9})\t([a-z]{0,5}[_]{0,1}[0-9]{0,4})\t/ {
+/^([0-9]{1,9})\t([0-9]{1,9})\t([a-z]{0,5})(-[a-zA-Z]{2}|[_]{0,1}[0-9]{0,4})\t/ {
 	#alt_line++
 
 	# Alternate name ID
