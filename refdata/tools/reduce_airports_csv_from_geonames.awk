@@ -20,11 +20,14 @@ BEGIN {
 ## M A I N
 {
 	if (NF >= 29) {
-		# Primary key
+		# Primary key (IATA code)
 		printf ("%s", $1)
 
-		# ^ IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Name ^ ASCII name
-		printf ("%s", $2 "^" $6 "^Y^" $7 "^" $8 "^" $9)
+		# ^ ICAO code ^ Is in Geonames ^ GeonameID
+		printf ("%s", $2 "^" $6 "^Y^" $7)
+
+		# ^ Name ^ ASCII name
+		printf ("%s", "^" $8 "^" $9)
 
 		# ^ Alternate names ^ Latitude ^ Longitude ^ Feat. class ^ Feat. code
 		printf ("%s", "^" $28 "^" $3 "^" $4 "^" $14 "^" $15)
