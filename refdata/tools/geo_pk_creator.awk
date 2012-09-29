@@ -25,6 +25,7 @@
 #           field
 #  * AIRQ:  Abandoned air field
 #  * AIRH:  Heliport
+#  * FY:    Ferry port
 #  * PRT:   Maritime port
 #  * RSTN:  Railway station
 #  * BUSTN: Bus station; BUSTP: Bus stop
@@ -215,7 +216,7 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 				overrideDetails(myLastAltPK, myLastLine, "S", "AIRH")
 
 			} else if (location_type_alt == "P") {
-				overrideDetails(myLastAltPK, myLastLine, "S", "PRT")
+				overrideDetails(myLastAltPK, myLastLine, "S", "FY")
 
 			} else if (location_type_alt == "R") {
 				overrideDetails(myLastAltPK, myLastLine, "S", "RSTN")
@@ -483,7 +484,7 @@ BEGIN {
 	is_rail = match (fcode, "RSTN")
 	is_bus = match (fcode, "BUST")
 	is_heliport = match (fcode, "AIRH")
-	is_port = match (fcode, "NVB") + match (fcode, "PRT")
+	is_port = match (fcode, "NVB") + match (fcode, "PRT") + match (fcode, "FY")
 	is_travel = is_airport + is_rail + is_bus + is_heliport + is_port
 
 	# Store the full line
