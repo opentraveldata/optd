@@ -98,15 +98,18 @@ cd -
 # ----------------------------------------------------------------------
 #
 # The ORI-maintained list of POR needs to be updated
-./update_airports_csv_from_best_known_coordinates.sh
+cd ../ORI
+./make_ori_por_public.sh
+git add best_coordinates_known_so_far.csv ori_por_public.csv
 
 # Check that everything is fine:
-diff -c ../ORI/ori_por_public.csv ori_new_airports.csv
+git diff --cached ori_por_public.csv
 
-# Then:
-\cp -f ori_new_airports.csv ../ORI/ori_por_public.csv
-git add ../ORI/ori_por_public.csv
+# Clean the temporary files
+./make_ori_por_public.sh --clean
 
+# Commit the work
+git commit -m "[RefData][ORI] Fixed the geographical coordinates of ZZZ." best_coordinates_known_so_far.csv ori_por_public.csv 
 
 ##
 # 3.1. ORI-maintained list has a new POR unknown from the best coordinates
