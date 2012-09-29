@@ -21,13 +21,18 @@
 # Sample lines for the allCountries_w_alt.txt file:
 # NCE^LFMN^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^S^AIRP^B8^06^062^06088^0^3^-9999^Europe/Paris^^^^^Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Flughafen Nizza,LFMN,NCE,Nice Airport,Nice Cote d'Azur International Airport,Nice Côte d'Azur International Airport,Niza Aeropuerto^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de^Flughafen Nizza^^en^Nice Côte d'Azur International Airport^^es^Niza Aeropuerto^ps^fr^Aéroport de Nice Côte d'Azur^^en^Nice Airport^s
 #
-# Feature code (field #11 here; see also http://www.geonames.org/export/codes.html):
-# AIRB: Air base; AIRF: Air field; AIRH: Heliport; AIRP: Airport; 
-# AIRQ: Abandoned air field; AIRS: Seaplane landing field
-# RSTN: Railway station
-# BUSTN: Bus station; BUSTP: Bus stop
-# PPLx: Populated place
-# ADMx: Administrative division
+# A few examples of Geonames feature codes
+# (field #11 here; see also http://www.geonames.org/export/codes.html):
+#  * PPLx:  Populated place (city)
+#  * ADMx:  Administrative division (which may be a city in some cases)
+#  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
+#           field
+#  * AIRQ:  Abandoned air field
+#  * AIRH:  Heliport
+#  * FY:    Ferry port
+#  * PRT:   Maritime port
+#  * RSTN:  Railway station
+#  * BUSTN: Bus station; BUSTP: Bus stop
 #
 # Output format:
 # Geoname ID, Name, ASCII name, Latitude, Longitude,
@@ -75,6 +80,9 @@ function is_tvl_or_cty (feat_code) {
 	is_travel += match (feat_code, "^AIRH$") + match (feat_code, "^AIRP$")
 	is_travel += match (feat_code, "^AIRS$") + match (feat_code, "^RSTN$")
 	is_travel += match (feat_code, "^BUSTN$") + match (feat_code, "^BUSTP$")
+	is_travel += match (feat_code, "^BUSTN$") + match (feat_code, "^BUSTP$")
+	is_travel += match (feat_code, "^NVB") + match (feat_code, "^PRT")
+	is_travel += match (feat_code, "^FY")
 }
 
 
