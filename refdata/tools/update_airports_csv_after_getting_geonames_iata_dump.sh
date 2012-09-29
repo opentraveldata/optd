@@ -267,7 +267,7 @@ join -t'^' -a 2 -1 1 -2 1 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} > ${JOI
 
 ##
 # Keep only the first 4 fields:
-#  * The primary key, IATA code and both the coordinates of the Geonames dump file,
+#  * The primary key, IATA code and both coordinates of the Geonames dump file,
 #    when they exist.
 #  * The primary key, IATA code and the best coordinates, when no entry exists
 #    in the geonames dump file.
