@@ -335,7 +335,7 @@ function printAltNameSection(myAltNameSection) {
 		printf ("%s", "^^^")
 
 		# ^ Country code ^ Alt. country codes ^ Country name
-		printf ("%s", "^" $17 "^" $17)
+		printf ("%s", "^" $17 "^^" $17)
 
 		# ^ Admin1 code ^ Admin1 UTF8 name ^ Admin1 ASCII name
 		printf ("%s", "^^^")
