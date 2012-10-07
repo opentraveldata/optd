@@ -210,7 +210,8 @@ fi
 # Generate a second version of the file with the ORI primary key (integrating
 # the location type)
 ORI_PK_ADDER=${TOOLS_DIR}geo_pk_creator.awk
-awk -F'^' -v log_level=${LOG_LEVEL} -f ${ORI_PK_ADDER} ${GEO_ORI_FILE} ${GEO_RAW_FILE} > ${GEO_WPK_FILE}
+awk -F'^' -v log_level=${LOG_LEVEL} -f ${ORI_PK_ADDER} \
+	${GEO_ORI_FILE} ${GEO_RAW_FILE} > ${GEO_WPK_FILE}
 
 ##
 # Save the header
@@ -233,7 +234,8 @@ sort -t'^' -k1,1 ${GEO_WPK_FILE} > ${SORTED_GEO_WPK_FILE}
 #  * Primary key (IATA code - location type)
 #  * Airport/city IATA code
 #  * Geographical coordinates (latitude, longitude).
-cut -d'^' -f 1,2,7,8 ${SORTED_GEO_WPK_FILE} > ${SORTED_CUT_GEO_WPK_FILE}
+#echo "grep \"^AIY\" ${SORTED_GEO_WPK_FILE}"
+cut -d'^' -f 1,2,8,9 ${SORTED_GEO_WPK_FILE} > ${SORTED_CUT_GEO_WPK_FILE}
 
 ##
 # Re-add the header

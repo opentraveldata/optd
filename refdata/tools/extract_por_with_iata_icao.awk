@@ -19,7 +19,7 @@
 # Input format:
 # -------------
 # Sample lines for the allCountries_w_alt.txt file:
-# NCE^LFMN^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^S^AIRP^B8^06^062^06088^0^3^-9999^Europe/Paris^^^^^Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Flughafen Nizza,LFMN,NCE,Nice Airport,Nice Cote d'Azur International Airport,Nice Côte d'Azur International Airport,Niza Aeropuerto^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de^Flughafen Nizza^^en^Nice Côte d'Azur International Airport^^es^Niza Aeropuerto^ps^fr^Aéroport de Nice Côte d'Azur^^en^Nice Airport^s
+# NCE^LFMN^^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^France^S^AIRP^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Flughafen Nizza,LFMN,NCE,Nice Airport,Nice Cote d'Azur International Airport,Nice Côte d'Azur International Airport,Niza Aeropuerto^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de|Flughafen Nizza||en|Nice Côte d'Azur International Airport||es|Niza Aeropuerto|ps|fr|Aéroport de Nice Côte d'Azur||en|Nice Airport|s
 #
 # A few examples of Geonames feature codes
 # (field #11 here; see also http://www.geonames.org/export/codes.html):
@@ -35,10 +35,13 @@
 #  * BUSTN: Bus station; BUSTP: Bus stop
 #
 # Output format:
+# IATA code, ICAO code, FAAC code,
 # Geoname ID, Name, ASCII name, Latitude, Longitude,
-# Country, Country code 2, Feature class, Feature code,
-# Administrative code 1, Administrative code 2,
-# Administrative code 3, Administrative code 4,
+# Country 2-char code, Extra country code, Country name,
+# Feature class, Feature code,
+# Admin. level 1 code, Admin. level 1 UTF8 name, Admin. level 1 ASCII name,
+# Admin. level 2 code, Admin. level 2 UTF8 name, Admin. level 2 ASCII name,
+# Administrative level 3 code, Administrative level 4 code, 
 # Population, Elevation, Topo 30,
 # Time zone, GMT_offset, DST_offset, raw_offset,
 # Modification date, List of all the alternate names without details,
@@ -60,11 +63,16 @@ BEGIN {
 	}
 
 	# Header
-	hdr_line = "iata_code^icao_code^geonameid^name^asciiname^latitude^longitude"
-	hdr_line = hdr_line "^country^cc2^fclass^fcode^admin1^admin2^admin3^admin4"
+	hdr_line = "iata_code^icao_code^faac_code^geonameid^name^asciiname"
+	hdr_line = hdr_line "^latitude^longitude"
+	hdr_line = hdr_line "^country^cc2"
+	hdr_line = hdr_line "^fclass^fcode"
+	hdr_line = hdr_line "^adm1_code^adm1_name_utf^adm1_name_ascii"
+	hdr_line = hdr_line "^adm2_code^adm2_name_utf^adm2_name_ascii^adm3^adm4"
 	hdr_line = hdr_line "^population^elevation^gtopo30"
-	hdr_line = hdr_line "^timezone^GMT_offset^DST_offset^raw_offset^moddate^alternatenames"
-	hdr_line = hdr_line "^wiki_link^altname_iso^altname_text^altname_flags"
+	hdr_line = hdr_line "^timezone^GMT_offset^DST_offset^raw_offset"
+	hdr_line = hdr_line "^moddate^alternatenames^wiki_link"
+	hdr_line = hdr_line "^altname_section"
 
 	print (hdr_line) > iata_tvl_file
 	print (hdr_line) > iata_cty_file
@@ -80,29 +88,31 @@ function is_tvl_or_cty (feat_code) {
 	is_travel += match (feat_code, "^AIRH$") + match (feat_code, "^AIRP$")
 	is_travel += match (feat_code, "^AIRS$") + match (feat_code, "^RSTN$")
 	is_travel += match (feat_code, "^BUSTN$") + match (feat_code, "^BUSTP$")
-	is_travel += match (feat_code, "^BUSTN$") + match (feat_code, "^BUSTP$")
 	is_travel += match (feat_code, "^NVB") + match (feat_code, "^PRT")
 	is_travel += match (feat_code, "^FY")
 }
 
 
 ##
-# POR entries having neither a IATA nor a ICAO code (vast majority of the POR).
+# POR entries having neither a IATA, ICAO nor a FAAC code (vast majority of
+# the POR).
 # Sample:
-# ^^3022309^Cros-de-Cagnes^Cros-de-Cagnes^43.66405^7.1722^FR^^P^PPL^B8^06^061^06027^0^2^19^Europe/Paris^^^^2012-02-27^Cros-de-Cagnes^^^Cros-de-Cagnes^
+# ^^^3022309^Cros-de-Cagnes^Cros-de-Cagnes^43.66405^7.1722^FR^^France^P^PPL^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^061^06027^0^2^19^Europe/Paris^1.0^2.0^1.0^2012-02-27^Cros-de-Cagnes^^|Cros-de-Cagnes|
 #
-/^\^\^([0-9]{1,9})\^.*\^([0-9]{4}-[0-9]{2}-[0-9]{2})/ {
+/^\^\^\^([0-9]{1,9})\^.*\^([0-9]{4}-[0-9]{2}-[0-9]{2})/ {
 	# Feature code
-	fcode = $11
+	fcode = $13
 
 	# Calculate whether it is travel- or city-related
 	is_tvl_or_cty(fcode)
 
 	if (is_travel >= 1 || is_city >= 1) {
-		# Set the IATA and ICAO codes to "NULL". AWK recalculates the whole line ($0).
+		# Set the IATA, ICAO and FAAC codes to "NULL". AWK recalculates the
+		# whole line ($0).
 		OFS = FS
 		$1 = "NULL"
 		$2 = "NULL"
+		$3 = "NULL"
 
 		# 
 		print ($0) > iata_nocode_file
@@ -110,13 +120,13 @@ function is_tvl_or_cty (feat_code) {
 }
 
 ##
-# POR entries having only a ICAO code (and no IATA code)
+# POR entries having only a ICAO or a FAAC code (and no IATA code)
 # Sample:
-# ^BGKS^7730417^Kangersuatsiaq Heliport^Kangersuatsiaq Heliport^72.39667^-55.555^GL^^S^AIRH^03^^^^0^^-9999^America/Godthab^^^^2012-02-26^BGKS,KAQ^http://en.wikipedia.org/wiki/Kangersuatsiaq_Heliport^
+# ^BGKS^^7730417^Kangersuatsiaq Heliport^Kangersuatsiaq Heliport^72.39667^-55.555^GL^^Greenland^S^AIRH^03^^^^^^^^0^^-9999^America/Godthab^-3.0^-2.0^-3.0^2012-02-26^BGKS,KAQ^http://en.wikipedia.org/wiki/Kangersuatsiaq_Heliport
 #
-/^\^([A-Z0-9]{4})\^([0-9]{1,9})\^.*\^([0-9]{4}-[0-9]{2}-[0-9]{2})/ {
+/^\^([A-Z0-9]{4})\^([A-Z0-9]{0,4})\^([0-9]{1,9})\^.*\^([0-9]{4}-[0-9]{2}-[0-9]{2})/ {
 	# Feature code
-	fcode = $11
+	fcode = $13
 
 	# Calculate whether it is travel- or city-related
 	is_tvl_or_cty(fcode)
@@ -135,13 +145,14 @@ function is_tvl_or_cty (feat_code) {
 # no processing has to be done here. The data file is split in two, so as to keep
 # compatibility with the MySQL-based generation process.
 #
-# NCE^LFMN^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^S^AIRP^B8^06^062^06088^0^3^-9999^Europe/Paris^^^^^Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Flughafen Nizza,LFMN,NCE,Nice Airport,Nice Cote d'Azur International Airport,Nice Côte d'Azur International Airport,Niza Aeropuerto^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de^Flughafen Nizza^^en^Nice Côte d'Azur International Airport^^es^Niza Aeropuerto^ps^fr^Aéroport de Nice Côte d'Azur^^en^Nice Airport^s
-/^([A-Z0-9]{3})\^([A-Z0-9]{4}|)\^([0-9]{1,9})\^.*\^([0-9]{4}-[0-9]{2}-[0-9]{2})/ {
+# NCE^LFMN^^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^France^S^AIRP^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Flughafen Nizza,LFMN,NCE,Nice Airport,Nice Cote d'Azur International Airport,Nice Côte d'Azur International Airport,Niza Aeropuerto^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de|Flughafen Nizza||en|Nice Côte d'Azur International Airport||es|Niza Aeropuerto|ps|fr|Aéroport de Nice Côte d'Azur||en|Nice Airport|s
+#
+/^([A-Z0-9]{3})\^([A-Z0-9]{4}|)\^([A-Z0-9]{0,4})\^([0-9]{1,9})\^.*\^([0-9]{4}-[0-9]{2}-[0-9]{2})/ {
 	#
 	por_lines++
 
 	# Feature code
-	fcode = $11
+	fcode = $13
 
 	# IATA code
 	iata_code = $1
@@ -150,13 +161,10 @@ function is_tvl_or_cty (feat_code) {
 	icao_code = $2
 
 	# FAA code
-	#faa_code = $xx
+	faa_code = $3
 
 	# Geoname ID
-	geoname_id = $3
-
-	# English Wikipedia link
-	wiki_link_code = $25
+	geoname_id = $4
 
 	# Calculate whether it is travel- or city-related
 	is_tvl_or_cty(fcode)
@@ -165,15 +173,18 @@ function is_tvl_or_cty (feat_code) {
 	if (is_travel >= 1) {
 		# Travel-related
 
-		if (icao_code != "") {
-			# Travel-related with a ICAO code (e.g., airports)
+		if (icao_code != "" || faac_code != "") {
+			# Travel-related with a ICAO or a FAAC code (e.g., airports)
 			print ($0) > iata_tvl_file
 
 		} else {
-			# Travel-related with no ICAO code (e.g., some airports, train/bus stations).
-			# Set the ICAO code to "NULL". AWK recalculates the whole line ($0).
+			# Travel-related with neither a ICAO nor a FAAC code (e.g.,
+			# some airports, train/bus stations).
+			# Set the ICAO and FAAC codes to "NULL". AWK recalculates
+			# the whole line ($0).
 			OFS = FS
 			$2 = "NULL"
+			$3 = "NULL"
 
 			print ($0) > iata_noicao_file
 		}
@@ -181,14 +192,19 @@ function is_tvl_or_cty (feat_code) {
 
 	if (is_city >= 1) {
 
-		# Normally, the cities have no ICAO code
-		if (icao_code == "") {
-			# Set the ICAO code to "NULL". AWK recalculates the whole line ($0).
+		# Normally, the cities have neither ICAO nor FAAC code
+		if (icao_code == "" && faac_code == "") {
+			# Set the ICAO and FAAC codes to "NULL". AWK recalculates
+			# the whole line ($0).
 			OFS = FS
 			$2 = "NULL"
+			$3 = "NULL"
 
 		} else {
-			print ("[" FNR "] The POR having got geoname_id=" geoname_id " is a city, but has got a ICAO code (" icao_code "), which is not normal") > "/dev/stderr"
+			print ("!!! Error [" FNR "] The POR having got geoname_id=" \
+				   geoname_id " is a city, but has got a ICAO code (" icao_code \
+				   ") or a FAAC code (" faac_code "), which is not normal") \
+				> "/dev/stderr"
 		}
 		
 		# Cities
