@@ -194,10 +194,8 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Valid from date ^ Valid until date ^ Comment
 		printf ("%s", "^^^")
 
-		# ^ Country code ^ Alt. country codes
-		printf ("%s", "^" $15 "^" $16)
 		# ^ Country code ^ Alt. country codes ^ Country name
-		# printf ("%s", "^" $15 "^" $16 "^" $17)
+		printf ("%s", "^" $15 "^" $16 "^" $17)
 
 		# ^ Admin1 code ^ Admin1 UTF8 name ^ Admin1 ASCII name
 		printf ("%s", "^" $20 "^" $21 "^" $22)
@@ -336,10 +334,8 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Valid from date ^ Valid until date ^ Comment
 		printf ("%s", "^^^")
 
-		# ^ Country code ^ Alt. country codes
-		printf ("%s", "^" $17 "^")
 		# ^ Country code ^ Alt. country codes ^ Country name
-		# printf ("%s", "^" $17 "^" $17)
+		printf ("%s", "^" $17 "^" $17)
 
 		# ^ Admin1 code ^ Admin1 UTF8 name ^ Admin1 ASCII name
 		printf ("%s", "^^^")
@@ -416,10 +412,8 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Valid from date ^ Valid until date ^ Comment
 		printf ("%s", "^^^")
 
-		# ^ Country code ^ Alt. country codes
-		printf ("%s", "^" $15 "^" $16)
 		# ^ Country code ^ Alt. country codes ^ Country name
-		# printf ("%s", "^" $15 "^" $16 "^" $17)
+		printf ("%s", "^" $15 "^" $16 "^" $17)
 
 		# ^ Admin1 code ^ Admin1 UTF8 name ^ Admin1 ASCII name
 		printf ("%s", "^" $20 "^" $21 "^" $22)
@@ -530,10 +524,8 @@ function printAltNameSection(myAltNameSection) {
 		page_rank = getPageRank(iata_code, location_type)
 
 		#
-		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Validity ID
-		printf ("%s", iata_code "^ZZZZ^N^0^") > non_ori_por_file
-		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Validity ID
-		# printf ("%s", iata_code "^ZZZZ^^N^0^") > non_ori_por_file
+		# IATA code ^ ICAO code ^ FAA ^ Is in Geonames ^ GeonameID ^ Validity ID
+		printf ("%s", iata_code "^ZZZZ^^N^0^") > non_ori_por_file
 
 		# ^ Name ^ ASCII name
 		printf ("%s", "^UNKNOWN" unknown_idx "^UNKNOWN" unknown_idx) \
@@ -551,10 +543,8 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Valid from date ^ Valid until date ^ Comment
 		printf ("%s", "^^^") > non_ori_por_file
 
-		# ^ Country code ^ Alt. country codes
-		printf ("%s", "^" "ZZ" "^") > non_ori_por_file
 		# ^ Country code ^ Alt. country codes ^ Country name
-		# printf ("%s", "^" "ZZ" "^" "Zzzzz") > non_ori_por_file
+		printf ("%s", "^" "ZZ" "^" "Zzzzz") > non_ori_por_file
 
 		# ^ Admin1 code ^ Admin1 UTF8 name ^ Admin1 ASCII name
 		printf ("%s", "^^^") > non_ori_por_file
