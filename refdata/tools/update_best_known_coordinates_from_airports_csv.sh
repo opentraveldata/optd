@@ -148,6 +148,8 @@ sort -t'^' -k1,1 ${GEO_FULL_ORI} | uniq -w 3 > ${GEO_FULL_TMP}
 # Reduce entries (IATA codes) unknown by the file of best known coordinates, so
 # that the CSV file can be properly parsed. For all the known entries (IATA
 # codes), keep the entry of the file of best known coordinates.
+echo "\"^NCE\" ${GEO_FULL_ORI}"
+exit
 AWK_REDUCER=${EXEC_PATH}reduce_best_known_coordinates_from_airports_csv.awk
 awk -F'^' -v idx=1 -f ${AWK_REDUCER} ${GEO_FULL_ORI} > ${GEO_NEW_BEST_KNOWN_FILE}
 \rm -f ${GEO_ALL_BEST} ${GEO_ALL_ORI} ${GEO_FULL_ORI}

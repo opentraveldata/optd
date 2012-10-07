@@ -229,25 +229,6 @@ sort -t'^' -k1,1 ${GEO_WPK_FILE} > ${SORTED_GEO_WPK_FILE}
 \cp -f ${SORTED_GEO_WPK_FILE} ${GEO_WPK_FILE}
 
 ##
-# Note: no longer needed, as the data files are now sorted thanks to the primary key.
-#       To be removed once proved to be stable.
-#
-# Eliminate the city POR (points of reference) when those duplicate the
-# IATA code of the corresponding airport (e.g., SFO, LAX). Note that some
-# cities do not duplicate the IATA of their related airports (e.g., PAR, CHI,
-# LON).
-# a. Replace the 'NULL' fields by 'ZZZZ', so as to place them at the end
-#sed -i -e "s/^\([A-Z0-9]\{3\}-[A-Z]\{1,3\}\)\^\([A-Z0-9]\{3\}\)\^ZZZZ\^\(.\+\)/\1\^\2\^NULL\^\3/g" ${GEO_WPK_FILE_TMP}
-# b. Sort the file by the primary key
-#sort -t'^' -k1,1 ${GEO_WPK_FILE_TMP} > ${SORTED_GEO_WPK_FILE}
-#\rm -f ${GEO_WPK_FILE_TMP}
-# c. Remove the rows duplicating the primary key
-#uniq -w 3 ${SORTED_GEO_WPK_FILE} > ${GEO_WPK_FILE_TMP}
-#\mv -f ${GEO_WPK_FILE_TMP} ${SORTED_GEO_WPK_FILE}
-# d. Replace back the (remaining) 'ZZZZ' fields by 'NULL'
-#sed -i -e "s/^\([A-Z0-9]\{3\}-[A-Z]\{1,3\}\)\^\([A-Z0-9]\{3\}\)\^NULL\^\(.\+\)/\1\^\2\^ZZZZ\^\3/g" ${SORTED_GEO_WPK_FILE}
-
-##
 # Only four columns/fields are kept in that version of the file:
 #  * Primary key (IATA code - location type)
 #  * Airport/city IATA code

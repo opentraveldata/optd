@@ -72,7 +72,7 @@ sed -i -e "/^$/d" ${RFD_FILE}
 
 ##
 # Extract the POR having (0, 0) as coordinates
-awk -F'^' '{if ($2 == 0 || $3 ==0) {printf ($1 "\n")}}' ${BST_FILE} > ${BST_NEW_FILE}
+awk -F'^' '{if ($2 == 0 || $3 == 0) {print ($1)}}' ${BST_FILE} > ${BST_NEW_FILE}
 NB_ZERO_ROWS=`wc -l ${BST_NEW_FILE} | cut -d' ' -f1`
 
 ##

@@ -229,27 +229,28 @@ fi
 #
 # The 'join' command takes all the rows from the file #1 (Geonames dump file);
 # when there is no corresponding entry in the file of best coordinates, only
-# the four (extracted) fields of the Geonames dump file are kept.
+# the five (extracted) fields of the Geonames dump file are kept.
 # Hence, lines may have:
-#  * 8 fields: the primary key, IATA code and both coordinates of the Geonames
+#  * 9 fields: the primary key, IATA code and both coordinates of the Geonames
 #    dump file, followed by the IATA codes of the POR and its served city,
-#    as well as the best coordinates.
+#    as well as the best coordinates, ended by the from validity date.
 #  * 4 fields: the primary key, IATA code and both coordinates of the Geonames
 #    dump file.
 #
 JOINED_COORD_1=${GEO_COMBINED_FILE}.tmp.1
-join -t'^' -a 1 -1 1 -2 1 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} > ${JOINED_COORD_1}
+join -t'^' -a 1 -1 1 -2 1 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} \
+	> ${JOINED_COORD_1}
 
 ##
 # Sanity check: calculate the minimal number of fields on the resulting file
 MIN_FIELD_NB=`awk -F'^' 'BEGIN{n=10} {if (NF<n) {n=NF}} END{print n}' ${JOINED_COORD_1} | uniq | sort | uniq`
 
-if [ "${MIN_FIELD_NB}" != "8" -a "${MIN_FIELD_NB}" != "4" ]
+if [ "${MIN_FIELD_NB}" != "9" -a "${MIN_FIELD_NB}" != "4" ]
 then
 	echo
 	echo "Update step"
 	echo "-----------"
-	echo "Minimum number of fields in the new coordinate file should be 4 or 8. It is ${MIN_FIELD_NB}"
+	echo "Minimum number of fields in the new coordinate file should be 4 or 9. It is ${MIN_FIELD_NB}"
 	echo "Problem!"
 	echo "Check file ${JOINED_COORD_1}, which is a join of the coordinates from ${GEO_FILE_1_SORTED_CUT} and ${GEO_FILE_2}"
 	echo
@@ -263,7 +264,8 @@ fi
 # (not the point of reference) have the precedence over the "best known" ones.
 #
 JOINED_COORD_2=${GEO_COMBINED_FILE}.tmp.2
-join -t'^' -a 2 -1 1 -2 1 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} > ${JOINED_COORD_2}
+join -t'^' -a 2 -1 1 -2 1 -e NULL ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} \
+	> ${JOINED_COORD_2}
 
 ##
 # Keep only the first 4 fields:
@@ -287,7 +289,8 @@ cut -d'^' -f 1-4 ${JOINED_COORD_2} > ${JOINED_COORD_2}.dup
 # Re-aggregate all the fields, so that the format of the generated file be
 # the same as the Geonames dump file.
 JOINED_COORD_FULL=${JOINED_COORD_1}.tmp.full
-join -t'^' -a 1 -1 1 -2 1 ${JOINED_COORD_1} ${GEO_FILE_1_SORTED} > ${JOINED_COORD_FULL}
+join -t'^' -a 1 -1 1 -2 1 ${JOINED_COORD_1} ${GEO_FILE_1_SORTED} \
+	> ${JOINED_COORD_FULL}
 
 ##
 # Filter and re-order a few fields, so that the format of the generated file be
@@ -348,14 +351,16 @@ fi
 # It generates a data file (${POR_MAIN_DIFF}, e.g., por_main_diff.csv)
 # containing the greatest distances (in km), for each airport/city, between
 # both sets of coordinates (Geonames and best known ones).
-${COMPARE_EXEC} ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} ${AIRPORT_PG_SORTED_CUT} ${COMP_MIN_DIST}
+${COMPARE_EXEC} ${GEO_FILE_1_SORTED_CUT} ${GEO_FILE_2} \
+	${AIRPORT_PG_SORTED_CUT} ${COMP_MIN_DIST}
 
 
 ##
 # Clean
 if [ "${TMP_DIR}" != "/tmp/por/" ]
 then
-	\rm -f ${JOINED_COORD} ${JOINED_COORD_FULL} ${JOINED_COORD_1} ${JOINED_COORD_2}
+	\rm -f ${JOINED_COORD} ${JOINED_COORD_FULL}
+	\rm -f ${JOINED_COORD_1} ${JOINED_COORD_2}
 	\rm -f ${GEO_FILE_1_SORTED} ${GEO_FILE_1_SORTED_CUT}
 fi
 
