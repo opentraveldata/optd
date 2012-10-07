@@ -193,10 +193,10 @@ then
 fi
 
 ##
-# Save the extra alternate names (from field #27 onwards)
-cut -d'^' -f1,27- ${GEONAME_SORTED_FILE} > ${GEONAME_RAW_FILE_TMP}
+# Save the extra alternate names (from field #33 onwards)
+cut -d'^' -f1,33- ${GEONAME_SORTED_FILE} > ${GEONAME_RAW_FILE_TMP}
 # Remove the extra alternate names (see the line above)
-cut -d'^' -f1-26 ${GEONAME_SORTED_FILE} > ${GEONAME_CUT_SORTED_FILE}
+cut -d'^' -f1-32 ${GEONAME_SORTED_FILE} > ${GEONAME_CUT_SORTED_FILE}
 
 ##
 # Aggregate all the data sources into a single file
@@ -219,7 +219,8 @@ join -t'^' -a 1 -1 1 -2 1 ${ORI_POR_WITH_GEORFD} ${GEONAME_RAW_FILE_TMP} > ${ORI
 ##
 # Suppress the redundancies. See ${REDUCER} for more details and samples.
 REDUCER=make_ori_por_public.awk
-awk -F'^' -v non_ori_por_file="${ORI_ONLY_POR_FILE}" -f ${REDUCER} ${ORI_PR_FILE} ${ORI_POR_WITH_GEORFDALT} > ${ORI_POR_PUBLIC_FILE}
+awk -F'^' -v non_ori_por_file="${ORI_ONLY_POR_FILE}" -f ${REDUCER} \
+	${ORI_PR_FILE} ${ORI_POR_WITH_GEORFDALT} > ${ORI_POR_PUBLIC_FILE}
 echo "head ${ORI_POR_WITH_GEORFDALT} > ${ORI_POR_PUBLIC_FILE}"
 
 ##

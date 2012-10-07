@@ -1,20 +1,23 @@
 ##
 # That AWK script creates and adds a primary key for the Geonames dump file.
 # The primary key is made of the IATA code and location type. For instance:
+#  * ARN-A means the Arlanda airport in Stockholm, Sweden
+#  * ARN-R means the Arlanda railway station in Stockholm, Sweden
 #  * CDG-A means the Charles de Gaulle airport in Paris, France
 #  * PAR-C means the city of Paris, France
 #  * NCE-CA means Nice, France, indifferentiating the airport from the city
 #  * SFO-A means the San Francisco airport, California, US
 #  * SFO-C means the city of San Francisco, California, US
 #
-# A few examples of ORI-maintained location types:
+# A few examples of IATA location types:
 #  * 'C' for city
 #  * 'A' for airport
 #  * 'CA' for a combination of both
 #  * 'H' for heliport
-#  * 'P' for maritime port
 #  * 'R' for railway station
-#  * 'B' for bus station
+#  * 'B' for bus station,
+#  * 'P' for (maritime) port,
+#  * 'G' for ground station,
 #  * 'O' for off-line point (usually a small city/village or a railway station)
 #
 # A few examples of Geonames feature codes
@@ -45,12 +48,13 @@ function displayLists() {
 	displayList("Heliports", heliport_list)
 	displayList("Railway stations", rail_list)
 	displayList("Bus stations", bus_list)
+	displayList("Ground stations", ground_list)
 	displayList("Off-line points", offpoint_list)
 }
 
 function overrideDetails(myPK, myFullLine, myFeatClass, myFeatCode) {
 	# Sample input line:
-	# AAN^OMAL^6300095^Al Ain International Airport^Al Ain International Airport^24.2616700^55.6091700^AE^^S^AIRP^^^^^0^264^248^Asia/Dubai^4.0^4.0^4.0^2007-01-03^AAN,OMAL^http://en.wikipedia.org/wiki/Al_Ain_International_Airport
+	# AAN^OMAL^^6300095^Al Ain International Airport^Al Ain International Airport^24.26167^55.60917^AE^^United Arab Emirates^S^AIRP^^^^^^^^^0^264^248^Asia/Dubai^4.0^4.0^4.0^2007-01-03^AAN,OMAL^http://en.wikipedia.org/wiki/Al_Ain_International_Airport^
 
 	# Save the line
 	saved_line = $0
@@ -62,20 +66,23 @@ function overrideDetails(myPK, myFullLine, myFeatClass, myFeatCode) {
 	# Override the ICAO code
 	$2 = "ZZZZ"
 				
+	# Override the FAA code
+	$3 = ""
+				
 	# Override the Geonames ID
-	$3 = "0"
+	$4 = "0"
 
 	# Override the feature class and code
-	$10 = myFeatClass; $11 = myFeatCode
+	$12 = myFeatClass; $13 = myFeatCode
 				
 	# Override the alternate names and Wikipedia link
-	$24 = ""; $25 = ""
+	$30 = ""; $31 = ""
 
 	# Cut the line after the Wikipedia link (remove any alternate name)
-	NF = 25
+	NF = 31
 
-	#
-	print (myPK "^" $0)
+	# Add an empty last field (for the section of alternate names)
+	print (myPK "^" $0 "^")
 
 	# Restore the initial line
 	$0 = saved_line
@@ -83,8 +90,9 @@ function overrideDetails(myPK, myFullLine, myFeatClass, myFeatCode) {
 
 #
 # The POR/lines have to be combined or split the same way as in the ORI list:
-#  - A single, combined, POR for a 'CX' location type (X = A, H, B, R, P, O)
-#  - One POR by other location type (e.g., 'C', 'A', 'H', 'R', 'B', 'P', 'O')
+#  - A single, combined, POR for a 'CX' location type (X = A, H, B, R, P, O, G)
+#  - One POR by other location type (e.g., 'C', 'A', 'H', 'R', 'B', 'P', 'O',
+#    'G')
 #
 function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 					myTravelLine, myCityLine, myNbOfPOR, myLastLine, myLine) {
@@ -182,9 +190,13 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 		} else {
 			# The ORI-maintained list does provide two distinct lines for that
 			# IATA code, exactly like for Geonames. So, both lines are
-			# copied here.
-			print (myLastPK "^" myLastLine)
-			print (myLastAltPK "^" myLine)
+			# copied here. By construction of the primary key and alternative
+			# primary key, the travel-related one is the former (primary key)
+			# and the city-related one the latter (alternative primary key).
+			# When the alternative key is not city-related, it still comes
+			# in second position.
+			print (myLastPK "^" myTravelLine)
+			print (myLastAltPK "^" myCityLine)
 		}
 
 	} else {
@@ -224,6 +236,9 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 
 			} else if (location_type_alt == "B") {
 				overrideDetails(myLastAltPK, myLastLine, "S", "BUSTN")
+
+			} else if (location_type_alt == "G") {
+				overrideDetails(myLastAltPK, myLastLine, "S", "RSTN")
 
 			} else if (location_type_alt == "O") {
 				overrideDetails(myLastAltPK, myLastLine, "P", "PPL")
@@ -433,6 +448,10 @@ BEGIN {
 		bus_list[iata_code] = 1
 	}
 
+	if (is_ground != 0) {
+		ground_list[iata_code] = 1
+	}
+
 	if (is_heliport != 0) {
 		heliport_list[iata_code] = 1
 	}
@@ -459,14 +478,14 @@ BEGIN {
 ##
 # Geonames regular lines
 # Sample lines (truncated):
-#  IEV^UKKK^6300960^Kyiv Zhuliany International Airport^Kyiv Zhuliany International Airport^50.4016900^30.4497000^UA^^S^AIRP^^^^^0^178^174^Europe/Kiev^2.0^3.0^2.0^2012-06-03^Kyiv Airport,...^http://en.wikipedia.org/wiki/Kyiv_Zhuliany_International_Airport
-#  IEV^ZZZZ^703448^Kiev^Kiev^50.4546600^30.5238000^UA^^P^PPLC^12^^^^2514227^0^187^Europe/Kiev^2.0^3.0^2.0^2012-01-31^Kiev,...,Київ^
-#  LHR^EGLL^2647216^London Heathrow Airport^London Heathrow Airport^51.4711500^-0.4564900^GB^^S^AIRP^ENG^GLA^F9^^0^0^27^Europe/London^0.0^1.0^0.0^2010-08-03^London Heathrow,...,伦敦 海斯楼 飞机场,倫敦希斯路機場^http://en.wikipedia.org/wiki/London_Heathrow_Airport
-#  LON^ZZZZ^2643743^London^London^51.5085300^-0.1257400^GB^^P^PPLC^ENG^GLA^^^7556900^0^25^Europe/London^0.0^1.0^0.0^2012-06-11^City of London,...,伦敦,倫敦^
-#  NCE^LFMN^6299418^Nice - Côte d'Azur^Nice - Cote d'Azur^43.6608600^7.2054000^FR^^S^AIRP^B8^06^062^06088^0^3^7^Europe/Paris^1.0^2.0^1.0^2012-02-27^Nice Airport,...^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport
-#  NCE^ZZZZ^2990440^Nice^Nice^43.7031300^7.2660800^FR^^P^PPLA2^B8^06^062^06088^338620^25^18^Europe/Paris^1.0^2.0^1.0^2011-11-02^Nice,...,Ница,尼斯^
+#  IEV^UKKK^^6300960^Kyiv Zhuliany International Airport^Kyiv Zhuliany International Airport^50.40169^30.4497^UA^^Ukraine^S^AIRP^^^^^^^^^0^178^174^Europe/Kiev^2.0^3.0^2.0^2012-06-03^Kyiv Airport,...^http://en.wikipedia.org/wiki/Kyiv_Zhuliany_International_Airport^en|Kyiv Zhuliany International Airport|
+#  IEV^ZZZZ^NULL^703448^Kiev^Kiev^50.45466^30.5238^UA^^Ukraine^P^PPLC^12^Kyiv City^Kyiv City^^^^^^2514227^^187^Europe/Kiev^2.0^3.0^2.0^2012-08-18^Kiev,...,Київ^http://en.wikipedia.org/wiki/Kiev^en|Kiev|h|en|Kyiv|p
+#  LHR^EGLL^^2647216^London Heathrow Airport^London Heathrow Airport^51.47115^-0.45649^GB^^United Kingdom^S^AIRP^ENG^England^England^GLA^Greater London^Greater London^F9^^0^^27^Europe/London^0.0^1.0^0.0^2010-08-03^London Heathrow,...,伦敦 海斯楼 飞机场,倫敦希斯路機場,런던 히드로 공항^http://en.wikipedia.org/wiki/London_Heathrow_Airport^en|Heathrow Airport||en|Heathrow|s
+#  LON^ZZZZ^NULL^2643743^London^London^51.50853^-0.12574^GB^^United Kingdom^P^PPLC^ENG^England^England^GLA^Greater London^Greater London^^^7556900^^25^Europe/London^0.0^1.0^0.0^2012-08-19^City of London,...伦敦,倫敦^http://en.wikipedia.org/wiki/London^en|London|p|en|London City|
+#  NCE^LFMN^^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^France^S^AIRP^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^Nice Airport,...^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^en|Nice Airport|s
+#  NCE^ZZZZ^NULL^2990440^Nice^Nice^43.70313^7.26608^FR^^France^P^PPLA2^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^338620^25^18^Europe/Paris^1.0^2.0^1.0^2011-11-02^Nice,...,Ница,尼斯^http://en.wikipedia.org/wiki/Nice^en|Nice||ru|Ницца|
 #
-/^([A-Z]{3})\^([A-Z0-9]{4})\^([0-9]{1,10})\^/ {
+/^([A-Z]{3})\^([A-Z0-9]{4})\^([A-Z0-9]{0,4})\^([0-9]{1,10})\^/ {
 	#
 	nb_of_por++
 
@@ -476,8 +495,11 @@ BEGIN {
 	# ICAO code
 	icao_code = $2
 
+	# FAAC code
+	faac_code = $3
+
 	# Feature code
-	fcode = $11
+	fcode = $13
 
 	#
 	is_city = match (fcode, "PPL") + match (fcode, "ADM")
@@ -511,9 +533,9 @@ BEGIN {
 	pk_alt = iata_code "-" location_type_alt
 
 	if (iata_code == last_iata_code) {
-		# This is (at least) the second POR sharing the same IATA code. Normally,
-		# the second POR is a city, and the first POR is travel-related (e.g.,
-		# airport, railway station).
+		# This is (at least) the second POR sharing the same IATA code.
+		# Normally, the second POR is a city, and the first POR is
+		# travel-related (e.g., airport, railway station).
 
 		# Sanity check (there should not be more than two POR with the
 		# same IATA code).
@@ -523,7 +545,7 @@ BEGIN {
 				   iata_code "') - Last line: " full_line) > "/dev/stderr"
 		}
 
-		if (last_is_city == 1) {
+		if (last_is_city != 0) {
 			# The previous POR is the city.
 			travel_line = full_line
 			city_line = last_full_line

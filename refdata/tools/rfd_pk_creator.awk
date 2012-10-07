@@ -18,7 +18,7 @@
 #  * 'B' for bus station,
 #  * 'P' for (maritime) port,
 #  * 'G' for ground station,
-#  * 'O' for off-line point (usually small airports or railway stations)
+#  * 'O' for off-line point (usually a small city/village or a railway station)
 #
 # That script relies on the ORI-maintained list of POR (points of reference),
 # provided by the OpenTravelData project (http://github.com/opentraveldata/optd).

@@ -66,10 +66,16 @@ GEO_POR_DIR="${GEO_POR_DIR}/"
 DATA_DIR=${EXEC_PATH}../data/
 
 # Input data files
+GEO_ADM1_FILENAME=admin1CodesASCII.txt
+GEO_ADM2_FILENAME=admin2Codes.txt
+GEO_CTRY_FILENAME=countryInfo.txt
 GEO_TZ_FILENAME=timeZones.txt
 GEO_POR_FILENAME=allCountries.txt
 GEO_POR_ALT_FILENAME=alternateNames.txt
 #
+GEO_ADM1_FILE=${DATA_DIR}${GEO_ADM1_FILENAME}
+GEO_ADM2_FILE=${DATA_DIR}${GEO_ADM2_FILENAME}
+GEO_CTRY_FILE=${DATA_DIR}${GEO_CTRY_FILENAME}
 GEO_TZ_FILE=${DATA_DIR}${GEO_TZ_FILENAME}
 GEO_POR_FILE=${DATA_DIR}${GEO_POR_FILENAME}
 GEO_POR_ALT_FILE=${DATA_DIR}${GEO_POR_ALT_FILENAME}
@@ -79,7 +85,7 @@ GEO_POR_CONC_FILENAME=allCountries_w_alt.txt
 GEO_POR_CONC_FILE=${DATA_DIR}${GEO_POR_CONC_FILENAME}
 
 # Reference details for the Nice airport (IATA/ICAO codes: NCE/LFMN, Geoname ID: 6299418)
-NCE_POR_REF="NCE^LFMN^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^S^AIRP^B8^06^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Flughafen Nizza,LFMN,NCE,Nice Airport,Nice Cote d'Azur International Airport,Nice Côte d'Azur International Airport,Niza Aeropuerto^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de^Flughafen Nizza^^en^Nice Côte d'Azur International Airport^^es^Niza Aeropuerto^ps^fr^Aéroport de Nice Côte d'Azur^^en^Nice Airport^s"
+NCE_POR_REF="NCE^LFMN^^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^France^S^AIRP^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Flughafen Nizza,LFMN,NCE,Nice Airport,Nice Cote d'Azur International Airport,Nice Côte d'Azur International Airport,Niza Aeropuerto^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de|Flughafen Nizza||en|Nice Côte d'Azur International Airport||es|Niza Aeropuerto|ps|fr|Aéroport de Nice Côte d'Azur||en|Nice Airport|s"
 
 ##
 # Usage
@@ -137,7 +143,9 @@ fi
 AGGREGATOR=aggregateGeonamesPor.awk
 echo
 echo "Aggregating '${GEO_POR_ALT_FILE}' and '${GEO_POR_FILE}' input files..."
-time awk -F'\t' -v log_level=${LOG_LEVEL} -f ${AGGREGATOR} ${GEO_TZ_FILE} ${GEO_POR_ALT_FILE} ${GEO_POR_FILE} > ${GEO_POR_CONC_FILE}
+time awk -F'\t' -v log_level=${LOG_LEVEL} -f ${AGGREGATOR} \
+	${GEO_ADM1_FILE} ${GEO_ADM2_FILE} ${GEO_CTRY_FILE} ${GEO_TZ_FILE} \
+	${GEO_POR_ALT_FILE} ${GEO_POR_FILE} > ${GEO_POR_CONC_FILE}
 echo "... done"
 echo
 
@@ -154,7 +162,7 @@ echo
 
 # Check #2
 echo "Simple check #2: wc -l ${GEO_POR_ALT_FILE} ${GEO_POR_FILE} ${GEO_POR_CONC_FILE}"
-time wc -l ${GEO_POR_ALT_FILE} ${GEO_POR_FILE} ${GEO_POR_CONC_FILE}
+wc -l ${GEO_POR_ALT_FILE} ${GEO_POR_FILE} ${GEO_POR_CONC_FILE}
 echo
 
 # Check #3
