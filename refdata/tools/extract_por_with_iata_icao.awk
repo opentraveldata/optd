@@ -112,7 +112,7 @@ function is_tvl_or_cty (feat_code) {
 		OFS = FS
 		$1 = "NULL"
 		$2 = "NULL"
-		$3 = "NULL"
+		$3 = ""
 
 		# 
 		print ($0) > iata_nocode_file
@@ -184,7 +184,7 @@ function is_tvl_or_cty (feat_code) {
 			# the whole line ($0).
 			OFS = FS
 			$2 = "NULL"
-			$3 = "NULL"
+			$3 = ""
 
 			print ($0) > iata_noicao_file
 		}
@@ -198,7 +198,7 @@ function is_tvl_or_cty (feat_code) {
 			# the whole line ($0).
 			OFS = FS
 			$2 = "NULL"
-			$3 = "NULL"
+			$3 = ""
 
 		} else {
 			print ("!!! Error [" FNR "] The POR having got geoname_id=" \

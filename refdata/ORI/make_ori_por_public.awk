@@ -25,15 +25,7 @@ BEGIN {
 	printf ("%s", "^is_airport^is_commercial")
 	printf ("%s", "^city_code^state_code^region_code^location_type")
 	printf ("%s", "^wiki_link")
-	printf ("%s", "^lang_alt1^alt_name1^lang_alt2^alt_name2^lang_alt3^alt_name3")
-	printf ("%s", "^lang_alt4^alt_name4^lang_alt5^alt_name5^lang_alt6^alt_name6")
-	printf ("%s", "^lang_alt7^alt_name7^lang_alt8^alt_name8")
-	printf ("%s", "^lang_alt9^alt_name9^lang_alt10^alt_name10")
-	printf ("%s", "^lang_alt11^alt_name11^lang_alt12^alt_name12")
-	printf ("%s", "^lang_alt13^alt_name13^lang_alt14^alt_name14")
-	printf ("%s", "^lang_alt15^alt_name15^lang_alt16^alt_name16")
-	printf ("%s", "^lang_alt17^alt_name17^lang_alt18^alt_name18")
-	printf ("%s", "^lang_alt19^alt_name19^lang_alt20^alt_name20")
+	printf ("%s", "^alt_name_section")
 	printf ("%s", "\n")
 	today_date = mktime ("YYYY-MM-DD")
 	unknown_idx = 1
@@ -126,6 +118,31 @@ function getPageRank(myIataCode, myLocationType) {
 	return page_rank
 }
 
+##
+#
+function printAltNameSection(myAltNameSection) {
+	# Archive the full line and the separator
+	full_line = $0
+	fs_org = FS
+
+	# Change the separator in order to parse the section of alternate names
+	FS = "|"
+	$0 = myAltNameSection
+
+	# Print the alternate names
+	printf ("%s", "^")
+	for (fld = 1; fld <= NF; fld++) {
+		printf ("%s", $fld)
+		if (fld != NF) {
+			printf ("%s", "|")
+		}
+	}
+
+	# Restore the initial separator (and full line, if needed)
+	FS = fs_org
+	#$0 = full_line
+}
+
 
 ##
 # Aggregated content from Amadeus ORI, Amadeus RFD and Geonames
@@ -162,11 +179,8 @@ function getPageRank(myIataCode, myLocationType) {
 		# PageRank value
 		page_rank = getPageRank(iata_code, location_type)
 
-		#
-		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Validity ID
-		printf ("%s", iata_code "^" $8 "^Y^" $10 "^")
 		# IATA code ^ ICAO code ^ FAA ^ Is in Geonames ^ GeonameID ^ Validity ID
-		# printf ("%s", iata_code "^" $8 "^" $9 "^Y^" $10 "^")
+		printf ("%s", iata_code "^" $8 "^" $9 "^Y^" $10 "^")
 
 		# ^ Name ^ ASCII name
 		printf ("%s", "^" $11 "^" $12)
@@ -185,14 +199,12 @@ function getPageRank(myIataCode, myLocationType) {
 		# ^ Country code ^ Alt. country codes ^ Country name
 		# printf ("%s", "^" $15 "^" $16 "^" $17)
 
-		# ^ Admin1 code ^ Admin2 code ^ Admin3 code ^ Admin4 code
-		printf ("%s", "^" $20 "^" $23 "^" $26 "^" $27)
 		# ^ Admin1 code ^ Admin1 UTF8 name ^ Admin1 ASCII name
-		# printf ("%s", "^" $20 "^" $21 "^" $22)
+		printf ("%s", "^" $20 "^" $21 "^" $22)
 		# ^ Admin2 code ^ Admin2 UTF8 name ^ Admin2 ASCII name
-		# printf ("%s", "^" $23 "^" $24 "^" $25)
+		printf ("%s", "^" $23 "^" $24 "^" $25)
 		# ^ Admin3 code ^ Admin4 code
-		# printf ("%s", "^" $26 "^" $27)
+		printf ("%s", "^" $26 "^" $27)
 
 		# ^ Population ^ Elevation ^ gtopo30
 		printf ("%s", "^" $28 "^" $29 "^" $30)
@@ -215,23 +227,7 @@ function getPageRank(myIataCode, myLocationType) {
 		##
 		# ^ Section of alternate names
 		altname_section = $56
-
-		# Archive the full line and the separator
-		full_line = $0
-		fs_org = FS
-
-		# Change the separator in order to parse the section of alternate names
-		FS = "|"
-		$0 = altname_section
-
-		# Print the alternate names
-		for (fld = 1; fld <= NF; fld++) {
-			printf ("^%s", $fld)
-		}
-
-		# Restore the initial separator (and full line, if needed)
-		FS = fs_org
-		#$0 = full_line
+		printAltNameSection(altname_section)
 
 		# End of line
 		printf ("%s", "\n")
@@ -282,11 +278,8 @@ function getPageRank(myIataCode, myLocationType) {
 		# PageRank value
 		page_rank = getPageRank(iata_code, location_type)
 
-		#
-		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Validity ID
-		printf ("%s", iata_code "^ZZZZ^N^0^")
 		# IATA code ^ ICAO code ^ FAA ^ Is in Geonames ^ GeonameID ^ Validity ID
-		# printf ("%s", iata_code "^ZZZZ^^N^0^")
+		printf ("%s", iata_code "^ZZZZ^^N^0^")
 
 		# ^ Name ^ ASCII name
 		printf ("%s", "^" $12 "^" $12)
@@ -348,14 +341,12 @@ function getPageRank(myIataCode, myLocationType) {
 		# ^ Country code ^ Alt. country codes ^ Country name
 		# printf ("%s", "^" $17 "^" $17)
 
-		# ^ Admin1 ^ Admin2 ^ Admin3 ^ Admin4
-		printf ("%s", "^^^^")
 		# ^ Admin1 code ^ Admin1 UTF8 name ^ Admin1 ASCII name
-		# printf ("%s", "^^^")
+		printf ("%s", "^^^")
 		# ^ Admin2 code ^ Admin2 UTF8 name ^ Admin2 ASCII name
-		# printf ("%s", "^^^")
+		printf ("%s", "^^^")
 		# ^ Admin3 code ^ Admin4 code
-		# printf ("%s", "^^")
+		printf ("%s", "^^")
 
 		# ^ Population ^ Elevation ^ gtopo30
 		printf ("%s", "^^^")
@@ -379,7 +370,7 @@ function getPageRank(myIataCode, myLocationType) {
 		printf ("%s", "^")
 
 		# ^ Section of alternate names (empty here)
-		# printf ("%s", "^")
+		printf ("%s", "^")
 
 		# End of line
 		printf ("%s", "\n")
@@ -410,11 +401,8 @@ function getPageRank(myIataCode, myLocationType) {
 		# PageRank value
 		page_rank = getPageRank(iata_code, location_type)
 
-		#
-		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Validity ID
-		printf ("%s", iata_code "^" $8 "^Y^" $10 "^")
 		# IATA code ^ ICAO code ^ FAA ^ Is in Geonames ^ GeonameID ^ Validity ID
-		# printf ("%s", iata_code "^" $8 "^" $9 "^Y^" $10 "^")
+		printf ("%s", iata_code "^" $8 "^" $9 "^Y^" $10 "^")
 
 		# ^ Name ^ ASCII name
 		printf ("%s", "^" $11 "^" $12)
@@ -433,14 +421,12 @@ function getPageRank(myIataCode, myLocationType) {
 		# ^ Country code ^ Alt. country codes ^ Country name
 		# printf ("%s", "^" $15 "^" $16 "^" $17)
 
-		# ^ Admin1 ^ Admin2 ^ Admin3 ^ Admin4
-		printf ("%s", "^" $20 "^" $23 "^" $26 "^" $27)
 		# ^ Admin1 code ^ Admin1 UTF8 name ^ Admin1 ASCII name
-		# printf ("%s", "^" $20 "^" $21 "^" $22)
+		printf ("%s", "^" $20 "^" $21 "^" $22)
 		# ^ Admin2 code ^ Admin2 UTF8 name ^ Admin2 ASCII name
-		# printf ("%s", "^" $23 "^" $24 "^" $25)
+		printf ("%s", "^" $23 "^" $24 "^" $25)
 		# ^ Admin3 code ^ Admin4 code
-		# printf ("%s", "^" $26 "^" $27)
+		printf ("%s", "^" $26 "^" $27)
 
 		# ^ Population ^ Elevation ^ gtopo30
 		printf ("%s", "^" $28 "^" $29 "^" $30)
@@ -509,23 +495,7 @@ function getPageRank(myIataCode, myLocationType) {
 		##
 		# ^ Section of alternate names
 		altname_section = $38
-
-		# Archive the full line and the separator
-		full_line = $0
-		fs_org = FS
-
-		# Change the separator in order to parse the section of alternate names
-		FS = "|"
-		$0 = altname_section
-
-		# Print the alternate names
-		for (fld = 1; fld <= NF; fld++) {
-			printf ("^%s", $fld)
-		}
-
-		# Restore the initial separator (and full line, if needed)
-		FS = fs_org
-		#$0 = full_line
+		printAltNameSection(altname_section)
 
 		# End of line
 		printf ("%s", "\n")
@@ -586,14 +556,12 @@ function getPageRank(myIataCode, myLocationType) {
 		# ^ Country code ^ Alt. country codes ^ Country name
 		# printf ("%s", "^" "ZZ" "^" "Zzzzz") > non_ori_por_file
 
-		# ^ Admin1 ^ Admin2 ^ Admin3 ^ Admin4
-		printf ("%s", "^^^^") > non_ori_por_file
 		# ^ Admin1 code ^ Admin1 UTF8 name ^ Admin1 ASCII name
-		# printf ("%s", "^^^") > non_ori_por_file
+		printf ("%s", "^^^") > non_ori_por_file
 		# ^ Admin2 code ^ Admin2 UTF8 name ^ Admin2 ASCII name
-		# printf ("%s", "^^^") > non_ori_por_file
+		printf ("%s", "^^^") > non_ori_por_file
 		# ^ Admin3 code ^ Admin4 code
-		# printf ("%s", "^^") > non_ori_por_file
+		printf ("%s", "^^") > non_ori_por_file
 
 		# ^ Population ^ Elevation ^ gtopo30
 		printf ("%s", "^^^") > non_ori_por_file
@@ -617,7 +585,7 @@ function getPageRank(myIataCode, myLocationType) {
 		printf ("%s", "^") > non_ori_por_file
 
 		#  ^ Section of alternate names  (empty here)
-		# printf ("%s", "^") > non_ori_por_file
+		printf ("%s", "^") > non_ori_por_file
 
 		# End of line
 		printf ("%s", "\n") > non_ori_por_file
