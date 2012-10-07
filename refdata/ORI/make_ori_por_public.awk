@@ -131,16 +131,21 @@ function getPageRank(myIataCode, myLocationType) {
 # Aggregated content from Amadeus ORI, Amadeus RFD and Geonames
 #
 # Sample lines:
-# NCE-CA^NCE^43.658411^7.215872^NCE^NCE^LFMN^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^S^AIRP^B8^06^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^Nice Airport,...^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^NCE^CA^NICE^COTE D AZUR^NICE^NICE/FR:COTE D AZUR^NICE^NCE^Y^^FR^EUROP^ITC2^FR052^43.6653^7.215^^Y^en^Nice Airport^s
+# # Both in Geonames and in RFD
+# NCE-CA^NCE^43.658411^7.215872^NCE^^NCE^LFMN^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^S^AIRP^B8^06^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Flughafen Nizza,LFMN,NCE,Nice Airport,Nice Cote d'Azur International Airport,Nice Côte d'Azur International Airport,Niza Aeropuerto^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^NCE^CA^NICE^COTE D AZUR^NICE^NICE/FR:COTE D AZUR^NICE^NCE^Y^^FR^EUROP^ITC2^FR052^43.6653^7.215^^Y^de^Flughafen Nizza^^en^Nice Côte d'Azur International Airport^^es^Niza Aeropuerto^ps^fr^Aéroport de Nice Côte d'Azur^^en^Nice Airport^s
+# # In RFD
+# XIT-R^XIT^51.42^12.42^LEJ^^XIT^R^LEIPZIG RAIL^LEIPZIG HBF RAIL STN^LEIPZIG RAIL^LEIPZIG/HALLE/DE:LEIPZIG HBF R^LEIPZIG/HALLE^LEJ^Y^^DE^EUROP^ITC2^DE040^51.3^12.3333^^N
+# # In Geonames
+# SQX-CA^SQX^-26.7816^-53.5035^SQX^^SQX^SSOE^7731508^São Miguel do Oeste Airport^Sao Miguel do Oeste Airport^-26.7816^-53.5035^BR^^S^AIRP^26^4204905^^^0^^655^America/Sao_Paulo^-2.0^-3.0^-3.0^2012-08-03^SQX,SSOE^
 #
 /^([A-Z0-9]{3})-([A-Z]{1,2})\^([A-Z]{3})\^([0-9.+-]{0,12})\^/ {
 
-	# When the 31st field is a IATA code, it means that the POR is in
+	# When the 32nd field is a IATA code, it means that the POR is in
 	# both Geonames and RFD.
-	is_31st_fld_iata = match ($31, "[A-Z]{3}")
-	is_31st_fld_lang = match ($31, "[a-z0-9]{2,3}")
+	is_32nd_fld_iata = match ($32, "[A-Z]{3}")
+	is_32nd_fld_lang = match ($32, "[a-z0-9]{2,3}")
 
-	if (NF >= 48 && is_31st_fld_iata == 1) {
+	if (NF >= 49 && is_32nd_fld_iata == 1) {
 		####
 		## Both in Geonames and in RFD
 		####
@@ -156,13 +161,13 @@ function getPageRank(myIataCode, myLocationType) {
 
 		#
 		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Validity ID
-		printf ("%s", iata_code "^" $7 "^Y^" $8 "^")
+		printf ("%s", iata_code "^" $8 "^Y^" $9 "^")
 
 		# ^ Name ^ ASCII name
-		printf ("%s", "^" $9 "^" $10)
+		printf ("%s", "^" $10 "^" $11)
 
 		# ^ Alternate names ^ Latitude ^ Longitude ^ Feat. class ^ Feat. code
-		printf ("%s", "^" $29 "^" $3 "^" $4 "^" $15 "^" $16)
+		printf ("%s", "^" $30 "^" $3 "^" $4 "^" $16 "^" $17)
 
 		# ^ PageRank value
 		printf ("%s", "^" page_rank)
@@ -171,32 +176,32 @@ function getPageRank(myIataCode, myLocationType) {
 		printf ("%s", "^^^")
 
 		# ^ Country code ^ Alt. country codes
-		printf ("%s", "^" $13 "^" $14)
+		printf ("%s", "^" $14 "^" $15)
 
 		# ^ Admin1 ^ Admin2 ^ Admin3 ^ Admin4
-		printf ("%s", "^" $17 "^" $18 "^" $19 "^" $20)
+		printf ("%s", "^" $18 "^" $19 "^" $20 "^" $21)
 
 		# ^ Population ^ Elevation ^ gtopo30
-		printf ("%s", "^" $21 "^" $22 "^" $23)
+		printf ("%s", "^" $22 "^" $23 "^" $24)
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		printf ("%s", "^" $24 "^" $25 "^" $26 "^" $27)
+		printf ("%s", "^" $25 "^" $26 "^" $27 "^" $28)
 
 		# ^ Modification date
-		printf ("%s", "^" $28)
+		printf ("%s", "^" $29)
 
 		# ^ Is airport ^ Is commercial
-		printf ("%s", "^" $39 "^" $48)
+		printf ("%s", "^" $40 "^" $49)
 
 		# ^ City code ^ State code ^ Region code
-		printf ("%s", "^" $38 "^" $40 "^" $42)
+		printf ("%s", "^" $39 "^" $41 "^" $43)
 
 		# ^ Location type ^ Wiki link
-		printf ("%s", "^" location_type "^" $30)
+		printf ("%s", "^" location_type "^" $31)
 
 		# Print the extra alternate names
-		if (NF >= 49) {
-			for (fld = 49; fld <= NF; fld++) {
+		if (NF >= 50) {
+			for (fld = 50; fld <= NF; fld++) {
 				printf ("^%s", $fld)
 			}
 		}
@@ -205,33 +210,34 @@ function getPageRank(myIataCode, myLocationType) {
 		printf ("%s", "\n")
 
 		# ----
-		# From ORI-POR ($1 - $5)
-		# (1) NCE-CA ^ (2) NCE ^ (3) 43.658411 ^ (4) 7.215872 ^ (5) NCE ^
+		# From ORI-POR ($1 - $6)
+		# (1) NCE-CA ^ (2) NCE ^ (3) 43.658411 ^ (4) 7.215872 ^
+		# (5) NCE ^ (6)  ^
 
-		# From Geonames ($6 - $30)
-		# (6) NCE ^ (7) LFMN ^ (8) 6299418 ^
-		# (9) Nice Côte d'Azur International Airport ^
-		# (10) Nice Cote d'Azur International Airport ^
-		# (11) 43.66272 ^ (12) 7.20787 ^
-		# (13) FR ^ (14)  ^ (15) S ^ (16) AIRP ^
-		# (17) B8 ^ (18) 06 ^ (19) 062 ^ (20) 06088 ^
-		# (21) 0 ^ (22) 3 ^ (23) -9999
-		# (24) Europe/Paris ^ (25) 1.0 ^ (26) 2.0 ^ (27) 1.0 ^
-		# (28) 2012-06-30 ^
-		# (29) Aeroport de Nice Cote d'Azur, ...,Niza Aeropuerto ^
-		# (30) http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport ^
+		# From Geonames ($7 - $31)
+		# (7) NCE ^ (8) LFMN ^ (9) 6299418 ^
+		# (10) Nice Côte d'Azur International Airport ^
+		# (11) Nice Cote d'Azur International Airport ^
+		# (12) 43.66272 ^ (13) 7.20787 ^
+		# (14) FR ^ (15)  ^ (16) S ^ (17) AIRP ^
+		# (18) B8 ^ (19) 06 ^ (20) 062 ^ (21) 06088 ^
+		# (22) 0 ^ (23) 3 ^ (24) -9999
+		# (25) Europe/Paris ^ (26) 1.0 ^ (27) 2.0 ^ (28) 1.0 ^
+		# (29) 2012-06-30 ^
+		# (30) Aeroport de Nice Cote d'Azur, ...,Niza Aeropuerto ^
+		# (31) http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport ^
 
-		# From RFD ($31 - $48)
-		# (31) NCE ^ (32) CA ^ (33) NICE ^ (34) COTE D AZUR ^ (35) NICE ^
-		# (36) NICE/FR:COTE D AZUR ^ (37) NICE ^ (38) NCE ^
-		# (39) Y ^ (40)  ^ (41) FR ^ (42) EUROP ^ (43) ITC2 ^ (44) FR052 ^
-		# (45) 43.6653 ^ (46) 7.215 ^ (47)  ^ (48) Y
+		# From RFD ($32 - $49)
+		# (32) NCE ^ (33) CA ^ (34) NICE ^ (35) COTE D AZUR ^ (36) NICE ^
+		# (37) NICE/FR:COTE D AZUR ^ (38) NICE ^ (39) NCE ^
+		# (40) Y ^ (41)  ^ (42) FR ^ (43) EUROP ^ (44) ITC2 ^ (45) FR052 ^
+		# (46) 43.6653 ^ (47) 7.215 ^ (48)  ^ (49) Y
 
-		# [optional] From Geonames alternate names ($49+)
-		# (49) ^ en (50) ^ Nice Airport
-		# (51) ^ en (52) ^ Nice Côte d'Azur International Airport
+		# [optional] From Geonames alternate names ($50+)
+		# (50) ^ en (51) ^ Nice Airport ^ (52) 
+		# (53) ^ en (54) ^ Nice Côte d'Azur International Airport ^ (55) 
 
-	} else if (NF == 23) {
+	} else if (NF == 24) {
 		####
 		## Not in Geonames
 		####
@@ -250,7 +256,7 @@ function getPageRank(myIataCode, myLocationType) {
 		printf ("%s", iata_code "^ZZZZ^N^0^")
 
 		# ^ Name ^ ASCII name
-		printf ("%s", "^" $11 "^" $11)
+		printf ("%s", "^" $12 "^" $12)
 
 		# ^ Alternate names ^ Latitude ^ Longitude
 		printf ("%s", "^^" $3 "^" $4)
@@ -305,7 +311,7 @@ function getPageRank(myIataCode, myLocationType) {
 		printf ("%s", "^^^")
 
 		# ^ Country code ^ Alt. country codes
-		printf ("%s", "^" $16 "^")
+		printf ("%s", "^" $17 "^")
 
 		# ^ Admin1 ^ Admin2 ^ Admin3 ^ Admin4
 		printf ("%s", "^^^^")
@@ -314,16 +320,16 @@ function getPageRank(myIataCode, myLocationType) {
 		printf ("%s", "^^^")
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		printf ("%s", "^" $19 "^^^")
+		printf ("%s", "^" $20 "^^^")
 
 		# ^ Modification date
 		printf ("%s", "^" today_date)
 
 		# ^ Is airport ^ Is commercial
-		printf ("%s", "^" $14 "^" $23)
+		printf ("%s", "^" $15 "^" $24)
 
 		# ^ City code ^ State code ^ Region code
-		printf ("%s", "^" $13 "^" $15 "^" $17)
+		printf ("%s", "^" $14 "^" $16 "^" $18)
 
 		# ^ Location type ^ Wiki link (empty here)
 		printf ("%s", "^" location_type "^")
@@ -332,17 +338,18 @@ function getPageRank(myIataCode, myLocationType) {
 		printf ("%s", "\n")
 
 		# ----
-		# From ORI-POR ($1 - $5)
-		# (1) XIT-R ^ (2) XIT (3) 51.42 ^ (4) 12.42 ^ (5) LEJ ^
+		# From ORI-POR ($1 - $6)
+		# (1) XIT-R ^ (2) XIT (3) 51.42 ^ (4) 12.42 ^
+		# (5) LEJ ^ (6)  ^
 
-		# From RFD ($6 - $23)
-		# (6) XIT ^ (7) R ^ (8) LEIPZIG RAIL ^ (9) LEIPZIG HBF RAIL STN ^
-		# (10) LEIPZIG RAIL ^ (11) LEIPZIG/HALLE/DE:LEIPZIG HBF R ^
-		# (12) LEIPZIG/HALLE ^
-		# (13) LEJ ^ (14) Y ^ (15)  ^ (16) DE ^ (17) EUROP ^ (18) ITC2 ^
-		# (19) DE040 ^ (20) 51.3 ^ (21) 12.3333 ^ (22)  ^ (23) N
+		# From RFD ($7 - $24)
+		# (7) XIT ^ (8) R ^ (9) LEIPZIG RAIL ^ (10) LEIPZIG HBF RAIL STN ^
+		# (11) LEIPZIG RAIL ^ (12) LEIPZIG/HALLE/DE:LEIPZIG HBF R ^
+		# (13) LEIPZIG/HALLE ^
+		# (14) LEJ ^ (15) Y ^ (16)  ^ (17) DE ^ (18) EUROP ^ (19) ITC2 ^
+		# (20) DE040 ^ (21) 51.3 ^ (22) 12.3333 ^ (23)  ^ (24) N
 
-	} else if (NF >= 30) {
+	} else if (NF >= 31) {
 		####
 		## Not in RFD
 		####
@@ -358,13 +365,13 @@ function getPageRank(myIataCode, myLocationType) {
 
 		#
 		# IATA code ^ ICAO code ^ Is in Geonames ^ GeonameID ^ Validity ID
-		printf ("%s", iata_code "^" $7 "^Y^" $8 "^")
+		printf ("%s", iata_code "^" $8 "^Y^" $9 "^")
 
 		# ^ Name ^ ASCII name
-		printf ("%s", "^" $9 "^" $10)
+		printf ("%s", "^" $10 "^" $11)
 
 		# ^ Alternate names ^ Latitude ^ Longitude ^ Feat. class ^ Feat. code
-		printf ("%s", "^" $29 "^" $3 "^" $4 "^" $15 "^" $16)
+		printf ("%s", "^" $30 "^" $3 "^" $4 "^" $16 "^" $17)
 
 		# ^ PageRank value
 		printf ("%s", "^" page_rank)
@@ -373,19 +380,19 @@ function getPageRank(myIataCode, myLocationType) {
 		printf ("%s", "^^^")
 
 		# ^ Country code ^ Alt. country codes
-		printf ("%s", "^" $13 "^" $14)
+		printf ("%s", "^" $14 "^" $15)
 
 		# ^ Admin1 ^ Admin2 ^ Admin3 ^ Admin4
-		printf ("%s", "^" $17 "^" $18 "^" $19 "^" $20)
+		printf ("%s", "^" $18 "^" $19 "^" $20 "^" $21)
 
 		# ^ Population ^ Elevation ^ gtopo30
-		printf ("%s", "^" $21 "^" $22 "^" $23)
+		printf ("%s", "^" $22 "^" $23 "^" $24)
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		printf ("%s", "^" $24 "^" $25 "^" $26 "^" $27)
+		printf ("%s", "^" $25 "^" $26 "^" $27 "^" $28)
 
 		# ^ Modification date
-		printf ("%s", "^" $28)
+		printf ("%s", "^" $29)
 
 		# Location type
 		location_type = substr ($1, 5)
@@ -399,10 +406,10 @@ function getPageRank(myIataCode, myLocationType) {
 		}
 
 		# ^ City code ^ State code
-		printf ("%s", "^" $2 "^" $17)
+		printf ("%s", "^" $2 "^" $18)
 
 		# ^ Region code
-		region_full = $24
+		region_full = $25
 		region = gensub ("/[A-Za-z_]+", "", "g", region_full)
 		region_country = gensub ("[A-Za-z]+/", "", "1", region_full)
 		gsub ("/[A-Za-z_]+", "", region_country)
@@ -440,11 +447,11 @@ function getPageRank(myIataCode, myLocationType) {
 		printf ("%s", "^" location_type)
 
 		# ^ Wiki link (potentially empty)
-		printf ("%s", "^" $30)
+		printf ("%s", "^" $31)
 
 		# Print the extra alternate names
-		if (NF >= 31) {
-			for (fld = 31; fld <= NF; fld++) {
+		if (NF >= 32) {
+			for (fld = 32; fld <= NF; fld++) {
 				printf ("^%s", $fld)
 			}
 		}
@@ -453,20 +460,21 @@ function getPageRank(myIataCode, myLocationType) {
 		printf ("%s", "\n")
 
 		# ----
-		# From ORI-POR ($1 - $5)
-		# (1) SQX-CA ^ (2) SQX ^ (3) -26.7816 ^ (4) -53.5035 ^ (5) SQX ^
+		# From ORI-POR ($1 - $6)
+		# (1) SQX-CA ^ (2) SQX ^ (3) -26.7816 ^ (4) -53.5035 ^ 
+		# (5) SQX ^ (6)  ^
 
-		# From Geonames ($6 - $30+)
-		# (6) SQX ^ (7) SSOE ^ (8) 7731508 ^ (9) São Miguel do Oeste Airport ^
-		# (10) Sao Miguel do Oeste Airport ^ (11) -26.7816 ^ (12) -53.5035 ^
-		# (13) BR ^ (14)  ^ (15) S ^ (16) AIRP ^
-		# (17) 26 ^ (18)  ^ (19)  ^ (20)  ^
-		# (21) 0 ^ (22) 0 ^ (23) 655 ^ (24) America/Sao_Paulo ^
-		# (25) -2.0 ^ (26) -3.0 ^ (27) -3.0 ^ (28) 2011-03-18 ^ (29) SQX,SSOE ^
-		# (30) 
-		# [optional] ^ (31+)
+		# From Geonames ($7 - $31+)
+		# (7) SQX ^ (8) SSOE ^ (9) 7731508 ^ (10) São Miguel do Oeste Airport ^
+		# (11) Sao Miguel do Oeste Airport ^ (12) -26.7816 ^ (13) -53.5035 ^
+		# (14) BR ^ (15)  ^ (16) S ^ (17) AIRP ^
+		# (18) 26 ^ (19)  ^ (20)  ^ (21)  ^
+		# (22) 0 ^ (23) 0 ^ (24) 655 ^ (25) America/Sao_Paulo ^
+		# (26) -2.0 ^ (27) -3.0 ^ (28) -3.0 ^ (29) 2011-03-18 ^ (30) SQX,SSOE ^
+		# (31) 
+		# [optional] ^ (32+)
 
-	} else if (NF == 5) {
+	} else if (NF == 6) {
 		####
 		## Neither in Geonames nor in RFD
 		####

@@ -1,19 +1,6 @@
 #
 # AWK script to calculate the distance between two geographical points.
 #
-# Sample input lines:
-#  * POR in both the list of best known coordinates and Geonames, with a PageRank:
-#    - (10) NCE-CA^NCE^43.658411^7.215872^NCE^NCE^43.66272^7.20787^NCE^0.158712712008
-#
-#  * POR in both the list of best known coordinates and Geonames, without a PageRank:
-#    -  (8) AAC-CA^AAC^31.073333^33.835833^AAC^AAC^31.07333^33.83583
-#
-#  * POR only in the list of best known coordinates, with a PageRank
-#    -  (7) AJL-CA^AJL^23.746603^92.802767^AJL^AJL^0.00872092995415
-#
-#  * POR only in the list of best known coordinates, without a PageRank
-#    -  (5) XIT-R^XIT^51.42^12.42^LEJ
-#
 
 # More explicit name for the power function
 function pow (b, p) {
@@ -48,7 +35,8 @@ function distance_func() {
 	e = sqrt ((a*a - b*b) / (a*a))
 	mrcurt = ( a * (1 - (e*e))) / pow((1-((e*e) * pow(sin(meanlat),2))), 1.5)
 	prcurt = a / sqrt (1-pow((e * sin(meanlat)), 2))
-	distance = sqrt (pow(londif * prcurt * cos(meanlat), 2) + pow((latdif*mrcurt),2))
+	distance = sqrt (pow(londif * prcurt * cos(meanlat), 2) \
+					 + pow((latdif*mrcurt),2))
 }
 
 #
@@ -57,17 +45,20 @@ BEGIN {
 	rad = 180 / M_PI
 }
 
+##
 # Main
 {
 
-#  * POR in both the list of best known coordinates and Geonames, with a PageRank:
-#    - (10) NCE-CA^NCE^43.658411^7.215872^NCE^NCE^43.66272^7.20787^NCE^0.158712712008
-#  * POR in both the list of best known coordinates and Geonames, without a PageRank:
-#    -  (8) AAC-CA^AAC^31.073333^33.835833^AAC^AAC^31.07333^33.83583
+#  * POR in both the list of best known coordinates and Geonames,
+#    with a PageRank:
+#    - (11) NCE-CA^NCE^43.658411^7.215872^NCE^^NCE^43.66272^7.20787^NCE^0.158985215433
+#  * POR in both the list of best known coordinates and Geonames,
+#    without a PageRank:
+#    -  (9) AAC-CA^AAC^31.073333^33.835833^AAC^^AAC^31.07333^33.83583
 #  * POR only in the list of best known coordinates, with a PageRank
-#    -  (7) AJL-CA^AJL^23.746603^92.802767^AJL^AJL^0.00872092995415
+#    -  (8) AJL-CA^AJL^23.746603^92.802767^AJL^^AJL^0.00868396886294
 #  * POR only in the list of best known coordinates, without a PageRank
-#    -  (5) XIT-R^XIT^51.42^12.42^LEJ
+#    -  (6) XIT-R^XIT^51.42^12.42^LEJ^
 
 	# Primary key (IATA code - location type)
 	pk = $1
@@ -78,7 +69,7 @@ BEGIN {
 	pagerank = 0.001
 
 	# Best known geographical coordinates (fields #3 and #4)
-    if (NF >= 7) {
+    if (NF >= 8) {
 		lat1 = $3 / rad
 		lon1 = $4 / rad
 	} else {
@@ -86,24 +77,25 @@ BEGIN {
 		lon1 = 0
 	}
 
-	# Geonames geographical coordinates, when existing (fields #7 and #8)
-	if (NF == 10 || NF == 8) {
-		lat2 = $7 / rad
-		lon2 = $8 / rad
+	# Geonames geographical coordinates, when existing (fields #8 and #9)
+	if (NF == 11 || NF == 9) {
+		lat2 = $8 / rad
+		lon2 = $9 / rad
 	} else {
 		lat2 = 0
 		lon2 = 0
 	}
 
 	# The PageRank value, when existing, is the last field of the line (i.e.,
-	# field #10 when POR is in both input files, or field #7 when POR is only
+	# field #11 when POR is in both input files, or field #8 when POR is only
 	# in the list of best known coordinates)
-    if (NF == 10 || NF == 7) {
+    if (NF == 11 || NF == 8) {
 		pagerank = $NF
 	}
 
-	# For now, calculate the distance only when the POR exists in both input files
-    if (NF == 10 || NF == 8) {
+	# For now, calculate the distance only when the POR exists in both
+	# input files
+    if (NF == 11 || NF == 9) {
 		# Delegate the distance calculation
 		distance_func()
 
@@ -131,13 +123,15 @@ BEGIN {
 		# End-of-line
 		printf ("%s", "\n")
 
-	} else if (NF == 7 || NF == 5) {
-		# The POR (point of reference) is not known from Geonames. So, there is no
-		# difference to calculate: do nothing else here.
+	} else if (NF == 8 || NF == 6) {
+		# The POR (point of reference) is not known from Geonames.
+		# So, there is no difference to calculate: do nothing else here.
 
 	} else {
 		# Do nothing
-		print ("!!!! For " FNR " record, there are " NF " fields, whereas 5, 7, 8 or 10 are expected: " $0) > "/dev/stderr"
+		print ("!!!! For " FNR " record, there are " NF \
+			   " fields, whereas 6, 8, 9 or 11 are expected: " $0) \
+			> "/dev/stderr"
 	}
 
 }

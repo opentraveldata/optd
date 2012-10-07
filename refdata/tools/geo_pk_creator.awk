@@ -130,9 +130,10 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 			is_bus = match (location_type, "[B]")
 			is_heliport = match (location_type, "[H]")
 			is_port = match (location_type, "[P]")
+			is_ground = match (location_type, "[G]")
 			is_offpoint = match (location_type, "[O]")
 			is_travel = is_airport + is_rail + is_bus + is_heliport + is_port \
-				+ is_offpoint
+				+ is_ground + is_offpoint
 
 			if (is_travel >= 1) {
 				# Notification
@@ -287,16 +288,16 @@ BEGIN {
 # specify the POR primary key and its location type.
 #
 # Sample lines:
-#  ALV-O^ALV^40.98^0.45^ALV          (1 line in ORI, 2 lines in Geonames)
-#  ARN-A^ARN^59.651944^17.918611^STO (2 lines in ORI, split from a combined line,
-#  ARN-R^ARN^59.649463^17.929^STO     1 line in Geonames)
-#  IES-CA^IES^51.3^13.28^IES         (1 combined line in ORI, 1 line in Geonames)
-#  IEV-A^IEV^50.401694^30.449697^IEV (2 lines in ORI, split from a combined line,
-#  IEV-C^IEV^50.401694^30.449697^IEV  2 lines in Geonames)
-#  KBP-A^KBP^50.345^30.894722^IEV    (1 line in ORI, 1 line in Geonames)
-#  LHR-A^LHR^51.4775^-0.461389^LON   (1 line in ORI, 1 line in Geonames)
-#  LON-C^LON^51.5^-0.1667^LON        (1 line in ORI, 1 line in Geonames)
-#  NCE-CA^NCE^43.658411^7.215872^NCE (1 combined line in ORI 2 lines in Geonames)
+#  ALV-O^ALV^40.98^0.45^ALV^         (1 line in ORI, 2 lines in Geonames)
+#  ARN-A^ARN^59.651944^17.918611^STO^(2 lines in ORI, split from a combined line,
+#  ARN-R^ARN^59.649463^17.929^STO^    1 line in Geonames)
+#  IES-CA^IES^51.3^13.28^IES^        (1 combined line in ORI, 1 line in Geonames)
+#  IEV-A^IEV^50.401694^30.449697^IEV^(2 lines in ORI, split from a combined line,
+#  IEV-C^IEV^50.401694^30.449697^IEV^ 2 lines in Geonames)
+#  KBP-A^KBP^50.345^30.894722^IEV^   (1 line in ORI, 1 line in Geonames)
+#  LHR-A^LHR^51.4775^-0.461389^LON^  (1 line in ORI, 1 line in Geonames)
+#  LON-C^LON^51.5^-0.1667^LON^       (1 line in ORI, 1 line in Geonames)
+#  NCE-CA^NCE^43.658411^7.215872^NCE^(1 combined line in ORI 2 lines in Geonames)
 #
 /^([A-Z]{3})-([A-Z]{1,2})\^([A-Z]{3})\^/ {
 
@@ -322,9 +323,10 @@ BEGIN {
 	is_bus = match (location_type, "[B]")
 	is_heliport = match (location_type, "[H]")
 	is_port = match (location_type, "[P]")
+	is_ground = match (location_type, "[G]")
 	is_offpoint = match (location_type, "[O]")
-	is_travel = is_airport + is_rail + is_bus + is_heliport + is_port \
-		+ is_offpoint
+	is_travel = is_airport + is_heliport + is_rail + is_bus + is_port \
+		+ is_ground + is_offpoint
 
 	# Sanity check
 	if (length(location_type) >= 2 && is_travel == 0) {
@@ -351,9 +353,10 @@ BEGIN {
 		is_last_bus = match (last_location_type, "[B]")
 		is_last_heliport = match (last_location_type, "[H]")
 		is_last_port = match (last_location_type, "[P]")
+		is_last_ground = match (last_location_type, "[G]")
 		is_last_offpoint = match (last_location_type, "[O]")
 		is_last_travel = is_last_airport + is_last_rail + is_last_bus \
-			+ is_last_heliport + is_last_port + is_last_offpoint
+			+ is_last_heliport + is_last_port + is_last_ground + is_last_offpoint
 
 		if (is_last_city == 1) {
 			# The previously registered location type is a city. So, it is now

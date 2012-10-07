@@ -193,16 +193,16 @@ function registerPOR(myIataCode, myLocationType, myFullLine) {
 # The ../ORI/best_coordinates_known_so_far.csv data file is used, in order
 # to specify the POR primary key )and its location type).
 # Sample lines:
-#  ARN-A^ARN^59.651944^17.918611^STO (2 single in ORI, split from combined,
-#                                     1 in Amadeus RFD)
-#  ARN-R^ARN^59.649463^17.929^STO
-#  IEV-A^IEV^50.401694^30.449697^IEV (2 single in ORI, split from combined,
-#                                     1 in Amadeus RFD)
-#  IEV-C^IEV^50.401694^30.449697^IEV
-#  KBP-A^KBP^50.345^30.894722^IEV    (1 single in ORI, 1 in Amadeus RFD)
-#  LHR-A^LHR^51.4775^-0.461389^LON   (1 single in ORI, 1 in Amadeus RFD)
-#  LON-C^LON^51.5^-0.1667^LON        (1 single in ORI, 1 in Amadeus RFD)
-#  NCE-CA^NCE^43.658411^7.215872^NCE (1 combined in ORI, 1 in Amadeus RFD)
+#  ALV-O^ALV^40.98^0.45^ALV^         (1 line in ORI, 2 lines in Geonames)
+#  ARN-A^ARN^59.651944^17.918611^STO^(2 lines in ORI, split from a combined line,
+#  ARN-R^ARN^59.649463^17.929^STO^    1 line in Geonames)
+#  IES-CA^IES^51.3^13.28^IES^        (1 combined line in ORI, 1 line in Geonames)
+#  IEV-A^IEV^50.401694^30.449697^IEV^(2 lines in ORI, split from a combined line,
+#  IEV-C^IEV^50.401694^30.449697^IEV^ 2 lines in Geonames)
+#  KBP-A^KBP^50.345^30.894722^IEV^   (1 line in ORI, 1 line in Geonames)
+#  LHR-A^LHR^51.4775^-0.461389^LON^  (1 line in ORI, 1 line in Geonames)
+#  LON-C^LON^51.5^-0.1667^LON^       (1 line in ORI, 1 line in Geonames)
+#  NCE-CA^NCE^43.658411^7.215872^NCE^(1 combined line in ORI 2 lines in Geonames)
 #
 /^([A-Z]{3})-([A-Z]{1,2})\^([A-Z]{3})\^/ {
 

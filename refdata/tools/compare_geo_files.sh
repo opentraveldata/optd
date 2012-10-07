@@ -165,7 +165,7 @@ fi
 ##
 # For each airport/city code, join the two geographical coordinate sets.
 COMP_FILE_COORD_TMP=${COMP_FILE_COORD}.tmp2
-join -t'^' -a 1 -1 1 -2 1 -e NULL ${GEO_FILE_2} ${GEO_FILE_1} > ${COMP_FILE_COORD_TMP}
+join -t'^' -a 1 -1 1 -2 1 ${GEO_FILE_2} ${GEO_FILE_1} > ${COMP_FILE_COORD_TMP}
 
 ##
 # For each airport/city code, join the airport PageRank/popularity.
@@ -180,7 +180,7 @@ join -t'^' -a 1 -1 1 -2 1 ${COMP_FILE_COORD_TMP} ${AIRPORT_PR} > ${COMP_FILE_COO
 # For each airport/city code, calculate the distance between the two
 # geographical coordinate sets.
 AWK_DIST=${EXEC_PATH}distance.awk
-awk -F '^' -f ${AWK_DIST} ${COMP_FILE_COORD} > ${COMP_FILE_DIST}
+awk -F'^' -f ${AWK_DIST} ${COMP_FILE_COORD} > ${COMP_FILE_DIST}
 
 ##
 # Count the differences
@@ -190,13 +190,16 @@ POR_ALL_DIFF_NB=`wc -l ${COMP_FILE_DIST} | cut -d' ' -f1`
 # Filter the difference data file for all the distances greater than
 # ${COMP_MIN_DIST} (in km; by default 1km).
 POR_MAIN_DIFF_TMP=${POR_MAIN_DIFF}.tmp
-awk -F'^' -v comp_min_dist=${COMP_MIN_DIST} '{if ($2 >= comp_min_dist) {printf($1 "^" $2 "^" $3 "^" $4 "\n")}}' ${COMP_FILE_DIST} > ${POR_MAIN_DIFF_TMP}
+awk -F'^' -v comp_min_dist=${COMP_MIN_DIST} \
+	'{if ($2 >= comp_min_dist) {print($1 "^" $2 "^" $3 "^" $4)}}' \
+	${COMP_FILE_DIST} > ${POR_MAIN_DIFF_TMP}
 
 ##
 # Sort the differences, weighted by the PageRank/popularity of the airport
 # (equal to 1 when not specified), from the greatest to the least.
 sort -t'^' -k4nr -k2nr -k1 ${POR_MAIN_DIFF_TMP} > ${POR_MAIN_DIFF}
-echo "dep_city^distance^page_rank^dist_weighted_by_page_rank" | cat - ${POR_MAIN_DIFF} > ${POR_MAIN_DIFF_TMP}
+echo "dep_city^distance^page_rank^dist_weighted_by_page_rank" \
+	| cat - ${POR_MAIN_DIFF} > ${POR_MAIN_DIFF_TMP}
 \mv -f ${POR_MAIN_DIFF_TMP} ${POR_MAIN_DIFF}
 
 ##
