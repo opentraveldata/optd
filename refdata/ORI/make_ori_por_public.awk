@@ -7,23 +7,26 @@
 #  * Geonames
 #
 # Sample output lines:
-# IEV^UKKK^Y^6300960^^Kyiv Zhuliany International Airport^Kyiv Zhuliany International Airport^Kyiv Airport,...^50.401694^30.449697^S^AIRP^0.0118932671093^^^^UA^^^^^^0^178^174^Europe/Kiev^2.0^3.0^2.0^2012-06-03^Y^Y^IEV^^EURAS^A^http://en.wikipedia.org/wiki/Kyiv_Zhuliany_International_Airport^en^Kyiv Airport^s
-# IEV^ZZZZ^Y^703448^^Kiev^Kiev^Kiiev,...^50.401694^30.449697^P^PPLC^0.10607170217^^^^UA^^12^^^^2514227^^187^Europe/Kiev^2.0^3.0^2.0^2012-08-18^N^N^IEV^^EURAS^C^http://en.wikipedia.org/wiki/Kiev^et^Kiiev^
-# NCE^LFMN^Y^6299418^^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^Nice Airport,...^43.658411^7.215872^S^AIRP^0.158985215433^^^^FR^^B8^06^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^Y^Y^NCE^^EUROP^CA^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^en^Nice Airport^s
+# IEV^UKKK^^Y^6300960^^Kyiv Zhuliany International Airport^Kyiv Zhuliany International Airport^50.401694^30.449697^S^AIRP^0.0118932671093^^^^UA^^Ukraine^^^^^^^^^0^178^174^Europe/Kiev^2.0^3.0^2.0^2012-06-03^Y^Y^IEV^^^^EURAS^A^http://en.wikipedia.org/wiki/Kyiv_Zhuliany_International_Airport^en|Kyiv Zhuliany International Airport|=en|Kyiv International Airport|=en|Kyiv Airport|s=en|Kiev International Airport|=uk|Міжнародний аеропорт «Київ» (Жуляни)|=ru|Аэропорт «Киев» (Жуляны)|=ru|Международный аеропорт «Киев» (Жуляни)|
+# NCE^LFMN^^Y^6299418^^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.658411^7.215872^S^AIRP^0.158985215433^^^^FR^^France^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^Y^Y^NCE^^^^EUROP^CA^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de|Flughafen Nizza|=en|Nice Côte d'Azur International Airport|=es|Niza Aeropuerto|ps=fr|Aéroport de Nice Côte d'Azur|=en|Nice Airport|s
 #
 
 ##
 # Header
 BEGIN {
 	printf ("%s", "iata_code^icao_code^is_geonames^geoname_id^valid_id")
-	printf ("%s", "^name^asciiname^alternatenames^latitude^longitude")
+	printf ("%s", "^name^asciiname^latitude^longitude")
 	printf ("%s", "^fclass^fcode")
 	printf ("%s", "^page_rank^date_from^date_until^comment")
-	printf ("%s", "^country_code^cc2^admin1^admin2^admin3^admin4")
+	printf ("%s", "^country_code^cc2^country_name")
+	printf ("%s", "^adm1_code^adm1_name_utf^adm1_name_ascii")
+	printf ("%s", "^adm2_code^adm2_name_utf^adm2_name_ascii")
+	printf ("%s", "^adm3_code^adm4_code")
 	printf ("%s", "^population^elevation^gtopo30")
 	printf ("%s", "^timezone^gmt_offset^dst_offset^raw_offset^moddate")
 	printf ("%s", "^is_airport^is_commercial")
-	printf ("%s", "^city_code^state_code^region_code^location_type")
+	printf ("%s", "^city_code^city_name_utf^city_name_ascii")
+	printf ("%s", "^state_code^region_code^location_type")
 	printf ("%s", "^wiki_link")
 	printf ("%s", "^alt_name_section")
 	printf ("%s", "\n")
@@ -133,8 +136,18 @@ function printAltNameSection(myAltNameSection) {
 	printf ("%s", "^")
 	for (fld = 1; fld <= NF; fld++) {
 		printf ("%s", $fld)
+
+		# Separate the details of a given alternate name with the equal (=) sign
+		# and the alternate name blocks with the pipe (|) sign.
 		if (fld != NF) {
-			printf ("%s", "|")
+
+			idx = fld % 3
+			if (idx == 0) {
+				printf ("%s", "=")
+
+			} else {
+				printf ("%s", "|")
+			}
 		}
 	}
 
@@ -185,8 +198,11 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Name ^ ASCII name
 		printf ("%s", "^" $11 "^" $12)
 
-		# ^ Alternate names ^ Latitude ^ Longitude ^ Feat. class ^ Feat. code
-		printf ("%s", "^" $36 "^" $3 "^" $4 "^" $18 "^" $19)
+		# ^ Alternate names
+		# printf ("%s", "^" $36)
+
+		# ^ Latitude ^ Longitude ^ Feat. class ^ Feat. code
+		printf ("%s", "^" $3 "^" $4 "^" $18 "^" $19)
 
 		# ^ PageRank value
 		printf ("%s", "^" page_rank)
@@ -216,8 +232,11 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Is airport ^ Is commercial
 		printf ("%s", "^" $46 "^" $55)
 
-		# ^ City code ^ State code ^ Region code
-		printf ("%s", "^" $45 "^" $47 "^" $49)
+		# ^ City code ^ City UTF8 name ^ City ASCII name
+		printf ("%s", "^" $45 "^"  "^"  )
+
+		# ^ State code ^ Region code
+		printf ("%s", "^" $47 "^" $49)
 
 		# ^ Location type ^ Wiki link
 		printf ("%s", "^" location_type "^" $37)
@@ -282,8 +301,11 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Name ^ ASCII name
 		printf ("%s", "^" $12 "^" $12)
 
-		# ^ Alternate names ^ Latitude ^ Longitude
-		printf ("%s", "^^" $3 "^" $4)
+		# ^ Alternate names
+		# printf ("%s", "^")
+
+		# ^ Latitude ^ Longitude
+		printf ("%s", "^" $3 "^" $4)
 
 		# ^ Feat. class ^ Feat. code
 		is_city = match (location_type, "C")
@@ -356,8 +378,11 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Is airport ^ Is commercial
 		printf ("%s", "^" $15 "^" $24)
 
-		# ^ City code ^ State code ^ Region code
-		printf ("%s", "^" $14 "^" $16 "^" $18)
+		# ^ City code ^ City UTF8 name ^ City ASCII name
+		printf ("%s", "^" $14 "^"  "^"  )
+
+		# ^ State code ^ Region code
+		printf ("%s", "^" $16 "^" $18)
 
 		# ^ Location type
 		printf ("%s", "^" location_type)
@@ -403,8 +428,11 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Name ^ ASCII name
 		printf ("%s", "^" $11 "^" $12)
 
-		# ^ Alternate names ^ Latitude ^ Longitude ^ Feat. class ^ Feat. code
-		printf ("%s", "^" $36 "^" $3 "^" $4 "^" $18 "^" $19)
+		# ^ Alternate names
+		# printf ("%s", "^" $36)
+
+		# ^ Latitude ^ Longitude ^ Feat. class ^ Feat. code
+		printf ("%s", "^" $3 "^" $4 "^" $18 "^" $19)
 
 		# ^ PageRank value
 		printf ("%s", "^" page_rank)
@@ -442,8 +470,8 @@ function printAltNameSection(myAltNameSection) {
 			printf ("%s", "^N^Z")
 		}
 
-		# ^ City code ^ State code
-		printf ("%s", "^" $2 "^" $20)
+		# ^ City code ^ City UTF8 name ^ City ASCII name ^ State code
+		printf ("%s", "^" $2 "^"  "^"  "^" $20)
 
 		# ^ Region code
 		region_full = $31
@@ -531,8 +559,11 @@ function printAltNameSection(myAltNameSection) {
 		printf ("%s", "^UNKNOWN" unknown_idx "^UNKNOWN" unknown_idx) \
 			> non_ori_por_file
 
-		# ^ Alternate names ^ Latitude ^ Longitude
-		printf ("%s", "^^" $3 "^" $4) > non_ori_por_file
+		# ^ Alternate names
+		# printf ("%s", "^") > non_ori_por_file
+
+		# ^ Latitude ^ Longitude
+		printf ("%s", "^" $3 "^" $4) > non_ori_por_file
 
 		#  ^ Feat. class ^ Feat. code
 		printf ("%s", "^S^AIRP") > non_ori_por_file
@@ -565,8 +596,11 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Is airport ^ Is commercial
 		printf ("%s", "^" "Y" "^" "Y") > non_ori_por_file
 
-		# ^ City code ^ State code ^ Region code
-		printf ("%s", "^" "ZZZ" "^" "^" "UNKOWN") > non_ori_por_file
+		# ^ City code ^ City UTF8 name ^ City ASCII name
+		printf ("%s", "^" "ZZZ" "^"  "^"  ) > non_ori_por_file
+
+		# ^ State code ^ Region code
+		printf ("%s", "^"  "^" "UNKOWN") > non_ori_por_file
 
 		#  ^ Location type (city and airport)
 		printf ("%s", "^CA") > non_ori_por_file
