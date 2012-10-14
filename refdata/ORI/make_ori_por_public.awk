@@ -14,7 +14,7 @@
 ##
 # Header
 BEGIN {
-	printf ("%s", "iata_code^icao_code^is_geonames^geoname_id^valid_id")
+	printf ("%s","iata_code^icao_code^faac_code^is_geonames^geoname_id^valid_id")
 	printf ("%s", "^name^asciiname^latitude^longitude")
 	printf ("%s", "^fclass^fcode")
 	printf ("%s", "^page_rank^date_from^date_until^comment")
