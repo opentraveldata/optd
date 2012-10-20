@@ -66,9 +66,9 @@ function registerPOR(myIataCode, myLocationType, myFullLine) {
 
 	# Sanity check
 	if (length(myLocationType) >= 2 && is_travel == 0) {
-		print ("!!!! Error at line #" FNR ", the location type ('" \
+		print ("[" awk_file "] !!!! Error at line #" FNR ", the location type ('" \
 			   myLocationType "') is unknown - Full line: " myFullLine) \
-			> "/dev/stderr"
+			> error_stream
 	}
 
 	# Store the location types. If there are two location types for that POR,
@@ -104,12 +104,12 @@ function registerPOR(myIataCode, myLocationType, myFullLine) {
 
 			# Sanity check: the new location type should be travel-related
 			if (is_travel == 0) {
-				print ("!!!! Rare case at line #" FNR \
+				print ("[" awk_file "] !!!! Rare case at line #" FNR \
 					   ", there are at least two location types ('" \
 					   last_location_type "' and '" myLocationType \
 					   "'), but the latter one is neither a city nor " \
 					   "travel-related - Full line: " myFullLine) \
-					> "/dev/stderr"
+					> error_stream
 			}
 
 		} else if (is_city != 0) {
@@ -120,11 +120,11 @@ function registerPOR(myIataCode, myLocationType, myFullLine) {
 
 			# Sanity check: the last location type should be travel-related
 			if (is_last_travel == 0) {
-				print ("!!!! Rare case at line #" FNR \
+				print ("[" awk_file "] !!!! Rare case at line #" FNR \
 					   ", there are at least two location types ('" \
 					   last_location_type "' and '" myLocationType \
 					   "'), but the former one is neither a city nor " \
-					   "travel-related - Full line: " myFullLine) > "/dev/stderr"
+					   "travel-related - Full line: " myFullLine) > error_stream
 			}
 
 		} else {
@@ -186,6 +186,15 @@ function registerPOR(myIataCode, myLocationType, myFullLine) {
 	if (is_offpoint != 0) {
 		offpoint_list[myIataCode] = 1
 	}
+}
+
+
+##
+#
+BEGIN {
+	# Global variables
+	error_stream = "/dev/stderr"
+	awk_file = "rfd_pk_creator.awk"
 }
 
 
@@ -281,9 +290,9 @@ function registerPOR(myIataCode, myLocationType, myFullLine) {
 
 	# Sanity check: the POR should be known from ORI
 	if (location_type == "") {
-		print ("!!!! Error at line #" FNR ", the POR with that IATA code ('" \
-			   iata_code "') is not referenced in the ORI-maintained list: " \
-			   $0) > "/dev/stderr"
+		print ("[" awk_file "] !!!! Error at line #" FNR \
+			   ", the POR with that IATA code ('" iata_code \
+			   "') is not referenced in the ORI-maintained list: " $0) > error_stream
 	}
 
 	# New primary key, made of the IATA code and ORI-maintained location type
@@ -335,11 +344,11 @@ function registerPOR(myIataCode, myLocationType, myFullLine) {
 		#               an alternative location type should therefore be
 		#               specified.
 		if (location_type_alt == "") {
-			print ("!!!! Error at line #" FNR " for the '" iata_code \
+			print ("[" awk_file "] !!!! Error at line #" FNR " for the '" iata_code \
 				   "' IATA code; the location type ('" location_type \
 				   "') has got at least two characters, while no alternative" \
 				   " location has been defined (check also the ORI-maintained" \
-				   " list) - Full line: " $0) > "/dev/stderr"
+				   " list) - Full line: " $0) > error_stream
 		}
 	}
 }
