@@ -114,6 +114,7 @@ ORI_ONLY_POR_NEW_FILE=${ORI_ONLY_POR_FILE}.new
 ORI_POR_WITH_GEO=${ORI_POR_FILE}.withgeo
 ORI_POR_WITH_GEORFD=${ORI_POR_FILE}.withgeorfd
 ORI_POR_WITH_GEORFDALT=${ORI_POR_FILE}.withgeorfdalt
+ORI_POR_WITH_NO_CTY_NAME=${ORI_POR_FILE}.withnoctyname
 GEONAME_RAW_FILE_TMP=${GEONAME_RAW_FILE}.alt
 
 
@@ -149,7 +150,7 @@ fi
 if [ "$1" = "--clean" ];
 then
 	\rm -f ${ORI_POR_WITH_GEO} ${ORI_ONLY_POR_NEW_FILE} \
-		${ORI_POR_WITH_GEORFD} ${ORI_POR_WITH_GEORFDALT} \
+		${ORI_POR_WITH_GEORFD} ${ORI_POR_WITH_GEORFDALT} ${ORI_POR_WITH_NO_CTY_NAME} \
 		${GEONAME_WPK_FILE} ${GEONAME_RAW_FILE_TMP} \
 		${GEONAME_SORTED_FILE} ${GEONAME_CUT_SORTED_FILE} \
 		${RFD_SORTED_FILE} ${RFD_CUT_SORTED_FILE} \
@@ -220,8 +221,15 @@ join -t'^' -a 1 -1 1 -2 1 ${ORI_POR_WITH_GEORFD} ${GEONAME_RAW_FILE_TMP} > ${ORI
 # Suppress the redundancies. See ${REDUCER} for more details and samples.
 REDUCER=make_ori_por_public.awk
 awk -F'^' -v non_ori_por_file="${ORI_ONLY_POR_FILE}" -f ${REDUCER} \
-	${ORI_PR_FILE} ${ORI_POR_WITH_GEORFDALT} > ${ORI_POR_PUBLIC_FILE}
-#echo "head ${ORI_POR_WITH_GEORFDALT} > ${ORI_POR_PUBLIC_FILE}"
+	${ORI_PR_FILE} ${ORI_POR_WITH_GEORFDALT} > ${ORI_POR_WITH_NO_CTY_NAME}
+#echo "head ${ORI_POR_WITH_GEORFDALT} ${ORI_POR_WITH_NO_CTY_NAME}"
+
+##
+# Write the UTF8 and ASCII names of the city served by every travel-related
+# point of reference (POR)
+CITY_WRITER=add_city_name.awk
+awk -F'^' -f ${CITY_WRITER} ${ORI_POR_WITH_NO_CTY_NAME} ${ORI_POR_WITH_NO_CTY_NAME} \
+	> ${ORI_POR_PUBLIC_FILE}
 
 ##
 # Reporting
@@ -230,7 +238,7 @@ echo
 echo "Reporting Step"
 echo "--------------"
 echo
-echo "wc -l ${ORI_POR_FILE} ${ORI_POR_WITH_GEO} ${ORI_POR_WITH_GEORFD} ${ORI_POR_WITH_GEORFDALT}"
+echo "wc -l ${ORI_POR_FILE} ${ORI_POR_PUBLIC_FILE} ${ORI_POR_WITH_GEO} ${ORI_POR_WITH_GEORFD} ${ORI_POR_WITH_GEORFDALT} ${ORI_POR_WITH_NO_CTY_NAME}"
 if [ -f ${ORI_ONLY_POR_NEW_FILE} ]
 then
 	NB_LINES_ORI_ONLY=`wc -l ${ORI_ONLY_POR_NEW_FILE}`
