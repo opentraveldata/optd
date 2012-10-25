@@ -35,7 +35,7 @@
 #  * BUSTN: Bus station; BUSTP: Bus stop
 #
 # Output format:
-# IATA code, ICAO code, FAAC code,
+# IATA code, ICAO code, FAA code,
 # Geoname ID, Name, ASCII name, Latitude, Longitude,
 # Country 2-char code, Extra country code, Country name,
 # Feature class, Feature code,
@@ -63,7 +63,7 @@ BEGIN {
 	}
 
 	# Header
-	hdr_line = "iata_code^icao_code^faac_code^geonameid^name^asciiname"
+	hdr_line = "iata_code^icao_code^faa_code^geonameid^name^asciiname"
 	hdr_line = hdr_line "^latitude^longitude"
 	hdr_line = hdr_line "^country^cc2"
 	hdr_line = hdr_line "^fclass^fcode"
@@ -94,7 +94,7 @@ function is_tvl_or_cty (feat_code) {
 
 
 ##
-# POR entries having neither a IATA, ICAO nor a FAAC code (vast majority of
+# POR entries having neither a IATA, ICAO nor a FAA code (vast majority of
 # the POR).
 # Sample:
 # ^^^3022309^Cros-de-Cagnes^Cros-de-Cagnes^43.66405^7.1722^FR^^France^P^PPL^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^061^06027^0^2^19^Europe/Paris^1.0^2.0^1.0^2012-02-27^Cros-de-Cagnes^^|Cros-de-Cagnes|
@@ -107,8 +107,8 @@ function is_tvl_or_cty (feat_code) {
 	is_tvl_or_cty(fcode)
 
 	if (is_travel >= 1 || is_city >= 1) {
-		# Set the IATA, ICAO and FAAC codes to "NULL". AWK recalculates the
-		# whole line ($0).
+		# Set the IATA, ICAO and FAA codes to "NULL". AWK recalculates
+		# the whole line ($0).
 		OFS = FS
 		$1 = "NULL"
 		$2 = "NULL"
@@ -120,7 +120,7 @@ function is_tvl_or_cty (feat_code) {
 }
 
 ##
-# POR entries having only a ICAO or a FAAC code (and no IATA code)
+# POR entries having only a ICAO or a FAA code (and no IATA code)
 # Sample:
 # ^BGKS^^7730417^Kangersuatsiaq Heliport^Kangersuatsiaq Heliport^72.39667^-55.555^GL^^Greenland^S^AIRH^03^^^^^^^^0^^-9999^America/Godthab^-3.0^-2.0^-3.0^2012-02-26^BGKS,KAQ^http://en.wikipedia.org/wiki/Kangersuatsiaq_Heliport
 #
@@ -173,14 +173,14 @@ function is_tvl_or_cty (feat_code) {
 	if (is_travel >= 1) {
 		# Travel-related
 
-		if (icao_code != "" || faac_code != "") {
-			# Travel-related with a ICAO or a FAAC code (e.g., airports)
+		if (icao_code != "" || faa_code != "") {
+			# Travel-related with a ICAO or a FAA code (e.g., airports)
 			print ($0) > iata_tvl_file
 
 		} else {
-			# Travel-related with neither a ICAO nor a FAAC code (e.g.,
+			# Travel-related with neither a ICAO nor a FAA code (e.g.,
 			# some airports, train/bus stations).
-			# Set the ICAO and FAAC codes to "NULL". AWK recalculates
+			# Set the ICAO and FAA codes to "NULL". AWK recalculates
 			# the whole line ($0).
 			OFS = FS
 			$2 = "NULL"
@@ -192,9 +192,9 @@ function is_tvl_or_cty (feat_code) {
 
 	if (is_city >= 1) {
 
-		# Normally, the cities have neither ICAO nor FAAC code
-		if (icao_code == "" && faac_code == "") {
-			# Set the ICAO and FAAC codes to "NULL". AWK recalculates
+		# Normally, the cities have neither ICAO nor FAA code
+		if (icao_code == "" && faa_code == "") {
+			# Set the ICAO and FAA codes to "NULL". AWK recalculates
 			# the whole line ($0).
 			OFS = FS
 			$2 = "NULL"
@@ -203,7 +203,7 @@ function is_tvl_or_cty (feat_code) {
 		} else {
 			print ("!!! Error [" FNR "] The POR having got geoname_id=" \
 				   geoname_id " is a city, but has got a ICAO code (" icao_code \
-				   ") or a FAAC code (" faac_code "), which is not normal") \
+				   ") or a FAA code (" faa_code "), which is not normal") \
 				> "/dev/stderr"
 		}
 		
