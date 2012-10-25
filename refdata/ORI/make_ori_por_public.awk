@@ -19,7 +19,7 @@ BEGIN {
 	awk_file = "make_ori_por_public.awk"
 
 	# Header
-	printf ("%s","iata_code^icao_code^faac_code^is_geonames^geoname_id^valid_id")
+	printf ("%s","iata_code^icao_code^faa_code^is_geonames^geoname_id^valid_id")
 	printf ("%s", "^name^asciiname^latitude^longitude")
 	printf ("%s", "^fclass^fcode")
 	printf ("%s", "^page_rank^date_from^date_until^comment")

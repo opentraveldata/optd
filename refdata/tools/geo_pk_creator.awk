@@ -504,8 +504,8 @@ BEGINFILE {
 	# ICAO code
 	icao_code = $2
 
-	# FAAC code
-	faac_code = $3
+	# FAA code
+	faa_code = $3
 
 	# Feature code
 	fcode = $13
