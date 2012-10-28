@@ -75,8 +75,8 @@ then
 fi
 
 ##
-# Sanity check: that (executable) script should be located in the tools/ sub-directory
-# of the OpenTravelData project Git clone
+# Sanity check: that (executable) script should be located in the
+# tools/ sub-directory of the OpenTravelData project Git clone
 EXEC_DIR_NAME=`basename ${EXEC_FULL_PATH}`
 if [ "${EXEC_DIR_NAME}" != "tools" ]
 then
@@ -161,6 +161,10 @@ then
 	fi
 	exit -1
 fi
+
+##
+# 0.0. Clean the temporary files lurking after the extraction
+\rm -f *_tvl*.csv *_cty_*.csv
 
 ##
 # 1.1. Aggregate both dump files
