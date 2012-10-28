@@ -73,7 +73,7 @@ then
 	echo "      + '${DUMP_FILE_NO_ICAO}'"
 	echo "      + '${DUMP_FILE_DUP}'"
 	echo
-	exit -1
+	exit
 fi
 
 ##
