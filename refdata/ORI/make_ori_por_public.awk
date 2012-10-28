@@ -69,9 +69,10 @@ BEGIN {
 
 	# Sanity check
 	if (iata_code != $2) {
-		print ("!!! Error at recrod #" FNR ": the IATA code ('" iata_code \
+		print ("[" awk_file "] !!! Error at recrod #" FNR \
+			   ": the IATA code ('" iata_code			  \
 			   "') should be equal to the field #2 ('" $2 \
-			   "'), but is not. The whole line " $0) > "/dev/stderr"
+			   "'), but is not. The whole line " $0) > error_stream
 	}
 
 	# Check whether it is a city
@@ -199,8 +200,15 @@ function printAltNameSection(myAltNameSection) {
 		# PageRank value
 		page_rank = getPageRank(iata_code, location_type)
 
+		# Is in Geonames?
+		geonameID = $10
+		isGeonames = "Y"
+		if (geonameID == "0" || geonameID == "") {
+			isGeonames = "N"
+		}
+
 		# IATA code ^ ICAO code ^ FAA ^ Is in Geonames ^ GeonameID ^ Validity ID
-		printf ("%s", iata_code "^" $8 "^" $9 "^Y^" $10 "^")
+		printf ("%s", iata_code "^" $8 "^" $9 "^" isGeonames "^" geonameID "^")
 
 		# ^ Name ^ ASCII name
 		printf ("%s", "^" $11 "^" $12)
@@ -302,8 +310,12 @@ function printAltNameSection(myAltNameSection) {
 		# PageRank value
 		page_rank = getPageRank(iata_code, location_type)
 
+		# Is in Geonames?
+		geonameID = "0"
+		isGeonames = "N"
+
 		# IATA code ^ ICAO code ^ FAA ^ Is in Geonames ^ GeonameID ^ Validity ID
-		printf ("%s", iata_code "^ZZZZ^^N^0^")
+		printf ("%s", iata_code "^ZZZZ^^" isGeonames "^" geonameID "^")
 
 		# ^ Name ^ ASCII name
 		printf ("%s", "^" $12 "^" $12)
@@ -346,15 +358,16 @@ function printAltNameSection(myAltNameSection) {
 			# The POR is (only) a city
 			printf ("%s", "^P^PPLC")
 		} else if (is_offpoint != 0) {
-			# The POR is an off-line point, which could be a bus/railway station,
-			# or even a city/village.
+			# The POR is an off-line point, which could be
+			# a bus/railway station, or even a city/village.
 			printf ("%s", "^X^XXXX")
 		} else {
 			# The location type can not be determined
 			printf ("%s", "^Z^ZZZZ")
-			print ("!!!! Warning !!!! The location type cannot be determined" \
-				   " for the record #" FNR ":") > "/dev/stderr"
-			print ($0) > "/dev/stderr"
+			print ("[" awk_file "] !!!! Warning !!!! The location type " \
+				   "cannot be determined for the record #" FNR ":") \
+				> error_stream
+			print ($0) > error_stream
 		}
 
 		# ^ PageRank value
@@ -429,8 +442,15 @@ function printAltNameSection(myAltNameSection) {
 		# PageRank value
 		page_rank = getPageRank(iata_code, location_type)
 
+		# Is in Geonames?
+		geonameID = $10
+		isGeonames = "Y"
+		if (geonameID == "0" || geonameID == "") {
+			isGeonames = "N"
+		}
+
 		# IATA code ^ ICAO code ^ FAA ^ Is in Geonames ^ GeonameID ^ Validity ID
-		printf ("%s", iata_code "^" $8 "^" $9 "^Y^" $10 "^")
+		printf ("%s", iata_code "^" $8 "^" $9 "^" isGeonames "^" geonameID "^")
 
 		# ^ Name ^ ASCII name
 		printf ("%s", "^" $11 "^" $12)
@@ -558,9 +578,13 @@ function printAltNameSection(myAltNameSection) {
 		# PageRank value
 		page_rank = getPageRank(iata_code, location_type)
 
-		#
+		# Is in Geonames?
+		geonameID = "0"
+		isGeonames = "N"
+
 		# IATA code ^ ICAO code ^ FAA ^ Is in Geonames ^ GeonameID ^ Validity ID
-		printf ("%s", iata_code "^ZZZZ^^N^0^") > non_ori_por_file
+		printf ("%s", iata_code "^ZZZZ^^" isGeonames "^" geonameID "^") \
+			> non_ori_por_file
 
 		# ^ Name ^ ASCII name
 		printf ("%s", "^UNKNOWN" unknown_idx "^UNKNOWN" unknown_idx) \
@@ -629,8 +653,8 @@ function printAltNameSection(myAltNameSection) {
 		unknown_idx++
 
 	} else {
-		print ("!!!! Error for row #" FNR ", having " NF " fields: " $0) \
-			> "/dev/stderr"
+		print ("[" awk_file "] !!!! Error for row #" FNR ", having " NF \
+			   " fields: " $0) > error_stream
 	}
 
 }
