@@ -67,7 +67,7 @@ then
 	echo "  - Default name for the airport PageRank/popularity: '${AIRPORT_PR}'"
 	echo "  - Default distance (in km) triggering a difference: '${COMP_MIN_DIST}'"
 	echo
-	exit -1
+	exit
 fi
 
 ##
@@ -89,7 +89,7 @@ fi
 
 if [ ! -f "${GEO_FILE_1}" ]
 then
-	echo "The '${GEO_FILE_1}' file does not exist."
+	echo "[$0:$LINENO] The '${GEO_FILE_1}' file does not exist."
 	if [ "$1" = "" ];
 	then
 		${PREPARE_EXEC} --geonames
@@ -128,7 +128,7 @@ fi
 if [ ! -f "${AIRPORT_PR}" ]
 then
 	echo
-	echo "The '${AIRPORT_PR}' file does not exist."
+	echo "[$0:$LINENO] The '${AIRPORT_PR}' file does not exist."
 	if [ "$3" = "" ];
 	then
 		${PREPARE_PR_EXEC} --popularity
@@ -147,14 +147,14 @@ then
 	if [ "${DIFF_EXPR}" = "" ]
 	then
 		echo
-		echo "The minimal distance (in km) must be a number greater than zero, and less than 65000. It is currently $4."
+		echo "[$0:$LINENO] The minimal distance (in km) must be a number greater than zero, and less than 65000. It is currently $4."
 		echo
 		exit -1
 	fi
 	if [ ${DIFF_EXPR} -lt 0 -o ${DIFF_EXPR} -gt 65000 ]
 	then
 		echo
-		echo "The minimal distance (in km) must be greater than (or equal to) zero, and less than 65000. It is currently $4."
+		echo "[$0:$LINENO] The minimal distance (in km) must be greater than (or equal to) zero, and less than 65000. It is currently $4."
 		echo
 		exit -1
 	fi
