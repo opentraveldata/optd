@@ -114,8 +114,8 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 
 			# Notification
 			if (log_level >= 5) {
-				print ("[" awk_file "] !! Notification: the POR #" FNR " and #" FNR-1 \
-					   ", with IATA code=" myIataCode \
+				print ("[" awk_file "] !! Notification: the POR #" FNR \
+					   " and #" FNR-1 ", with IATA code=" myIataCode \
 					   ", are distinct in Geonames, but combined in the " \
 					   "ORI-maintained list. You could split it in ORI." \
 					   " Both POR:\n" myLastLine "\n" myLine) > error_stream
@@ -150,8 +150,8 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 			if (is_travel >= 1) {
 				# Notification
 				if (log_level >= 5) {
-					print ("[" awk_file "] !! Notification: the POR #" FNR " and #" FNR-1\
-						   ", with IATA code=" myIataCode				\
+					print ("[" awk_file "] !! Notification: the POR #" FNR \
+						   " and #" FNR-1 ", with IATA code=" myIataCode \
 						   ", are distinct in Geonames, but combined as a " \
 						   "travel-related point in the ORI-maintained list. " \
 						   "You could split it in ORI. Both POR:\n" myLastLine \
@@ -167,8 +167,8 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 			} else if (is_city >= 1) {
 				# Notification
 				if (log_level >= 5) {
-					print ("[" awk_file "] !! Notification: the POR #" FNR " and #" FNR-1\
-						   ", with IATA code=" myIataCode				\
+					print ("[" awk_file "] !! Notification: the POR #" FNR \
+						   " and #" FNR-1 ", with IATA code=" myIataCode \
 						   ", are distinct in Geonames, but combined as a city" \
 						   " in the ORI-maintained list. "				\
 						   "You could split it in ORI. Both POR:\n" myLastLine \
@@ -183,7 +183,7 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 
 			} else {
 				# Notification
-				print ("[" awk_file "] !! Error: the POR #" FNR " and #" FNR-1			\
+				print ("[" awk_file "] !! Error: the POR #" FNR " and #" FNR-1 \
 					   ", with IATA code=" myIataCode					\
 					   ", are distinct in Geonames, but combined "		\
 					   " in the ORI-maintained list. However, the location"	\
@@ -215,13 +215,15 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 			print (myLastPK "^" myLastLine)
 
 		} else {
-			# There are two POR in the ORI-maintained list sharing that IATA code.
-			# The details have therefore to be "invented", according to the second
-			# location type.
+			# There are two POR in the ORI-maintained list sharing
+			# that IATA code. The details have therefore to be "invented",
+			# according to the second location type.
 			print (myLastPK "^" myLastLine)
 
 			# DEBUG
-			#print ("[" myIataCode "][" myLastPK "][" myLastAltPK "]{" myLocationType "}{" myLocationTypeAlt "} " myLastLine) > error_stream
+			# print ("[" myIataCode "][" myLastPK "][" myLastAltPK "]{" \
+			#        myLocationType "}{" myLocationTypeAlt "} " myLastLine) \
+			#    > error_stream
 
 			if (myLocationTypeAlt == "C") {
 				overrideDetails(myLastAltPK, myLastLine, "P", "PPL")
@@ -251,8 +253,9 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 				# Notification
 				if (log_level >= 4) {
 					print ("[" awk_file "] !! Notification: For the line #" FNR \
-						   " and the '" myIataCode "' IATA code, the details of the " \
-						   "second POR have to be invented. However, the second " \
+						   " and the '" myIataCode \
+						   "' IATA code, the details of the second POR have " \
+						   "to be invented. However, the second " \
 						   "location type ('" myLocationTypeAlt			\
 						   "') is unknown (first location type: '"		\
 						   myLocationType "') - Full line: " myLastLine) \
@@ -262,19 +265,22 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 
 			# Notification
 			if (log_level >= 4) {
-				print ("[" awk_file "] !! Notification: For the line #" FNR " and the '" \
-					   myIataCode "' IATA code, the details of the second " \
+				print ("[" awk_file "] !! Notification: For the line #" FNR \
+					   " and the '" myIataCode \
+					   "' IATA code, the details of the second "		\
 					   "POR had to be duplicated because the ORI-maintained " \
 					   "list has got two entries (the location types being '" \
 					   myLocationTypeAlt "' and '" myLocationType \
-					   "') - Full original and invented lines: " myLastLine "\n" $0) \
-					> error_stream
+					   "') - Full original and invented lines: " myLastLine \
+					   "\n" $0) > error_stream
 			}
 
-			# Sanity check: by construction, the location type is multi-character;
-			# an alternative location type should therefore be specified.
+			# Sanity check: by construction, the location type is
+			# multi-character; an alternative location type should
+			# therefore be specified.
 			if (myLocationTypeAlt == "") {
-				print ("[" awk_file "] !!!! Error at line #" FNR " for the '" myIataCode \
+				print ("[" awk_file "] !!!! Error at line #" FNR \
+					   " for the '" myIataCode							\
 					   "' IATA code; the location type ('" myLocationType \
 					   "') has got at least two characters, while no " \
 					   "alternative location has been defined (check also " \
@@ -354,7 +360,8 @@ BEGINFILE {
 
 	# Sanity check
 	if (length(location_type) >= 2 && is_travel == 0) {
-		print ("[" awk_file "] !!!! Error at line #" FNR ", the location type ('" \
+		print ("[" awk_file "] !!!! Error at line #" FNR \
+			   ", the location type ('"									\
 			   location_type "') is unknown - Full line: " $0) > error_stream
 	}
 
@@ -563,8 +570,9 @@ BEGINFILE {
 			# Sanith check: the other POR should be travel-related
 			# (e.g., airport, heliport, railway station, off-point).
 			if (is_travel == 0) {
-				print ("[" awk_file "] !!!! Error for the POR #" FNR " and #" FNR-1 \
-					   ", with IATA code=" iata_code ". The first POR is a" \
+				print ("[" awk_file "] !!!! Error for the POR #" FNR \
+					   " and #" FNR-1 ", with IATA code=" iata_code \
+					   ". The first POR is a"							\
 					   " city, but the second one is not travel-related." \
 					   " Both POR:\n" last_full_line "\n" full_line) \
 					> error_stream
@@ -578,8 +586,8 @@ BEGINFILE {
 			# Sanith check: the other POR should be travel-related
 			# (e.g., airport, heliport, railway station, off-point).
 			if (last_is_travel == 0) {
-				print ("[" awk_file "] !!!! Error for the POR #" FNR " and #" FNR-1 \
-					   ", with IATA code=" iata_code \
+				print ("[" awk_file "] !!!! Error for the POR #" FNR \
+					   " and #" FNR-1 ", with IATA code=" iata_code \
 					   ". The second POR is a city, but the first one is not" \
 					   " travel-related. Both POR:\n" last_full_line "\n" \
 					   full_line) > error_stream
@@ -607,8 +615,8 @@ BEGINFILE {
 
 		# Display the last POR, if:
 		#  * It corresponds to a single POR entry.
-		#  * It is defined in the ORI-maintained list (and, hence, the location type is
-		#    defined).
+		#  * It is defined in the ORI-maintained list (and, hence,
+		#    the location type is defined).
 		if (last_nb_of_por == 1 && last_location_type != "") {
 			displayPOR(last_iata_code, last_pk, "", last_pk_alt, "", "", \
 					   last_nb_of_por, last_full_line, "")
