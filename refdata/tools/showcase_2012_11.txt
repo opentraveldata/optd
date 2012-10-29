@@ -284,7 +284,7 @@ mysql -u root --password=${ROOT_PW} -h ${MYSQL_SVR} -P ${MYSQL_PORT} \
 	  -e "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, FILE, INDEX, \
 	  ALTER, CREATE TEMPORARY TABLES, CREATE VIEW, EVENT, TRIGGER, SHOW VIEW, \
       CREATE ROUTINE, ALTER ROUTINE, EXECUTE ON *.* \
-      TO 'rfd@'%' IDENTIFIED BY 'rfd';"
+      TO 'rfd'@'%' IDENTIFIED BY 'rfd';"
 mysql -u root --password=${ROOT_PW} -h ${MYSQL_SVR} -P ${MYSQL_PORT} \
 	  -e "flush privileges"
 
