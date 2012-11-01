@@ -163,10 +163,6 @@ then
 fi
 
 ##
-# 0.0. Clean the temporary files lurking after the extraction
-\rm -f *_tvl*.csv *_cty_*.csv
-
-##
 # 1.1. Aggregate both dump files
 cat ${GEO_IATA_FILE} ${GEO_NOICAO_FILE} > ${GEO_RAW_FILE}
 
