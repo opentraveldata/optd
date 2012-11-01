@@ -75,7 +75,7 @@ GEO_FILE_1_MISSING=${GEO_FILE_1}.missing
 GEO_FILE_2_MISSING=${GEO_FILE_2}.missing
 
 #
-if [ "$1" = "-h" -o "$1" = "--help" ];
+if [ "$1" = "-h" -o "$1" = "--help" ]
 then
 	echo
 	echo "Usage: $0 [<Geo data file #1> [<Geo data file #2> [<PageRanked airport file>] [<minimum distance>]]]]"
@@ -88,7 +88,7 @@ then
 fi
 
 #
-if [ "$1" = "--clean" ];
+if [ "$1" = "--clean" ]
 then
 	if [ "${TMP_DIR}" = "/tmp/por/" ]
 	then

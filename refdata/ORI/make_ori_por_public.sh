@@ -147,7 +147,7 @@ fi
 
 ##
 #
-if [ "$1" = "--clean" ];
+if [ "$1" = "--clean" ]
 then
 	\rm -f ${ORI_POR_WITH_GEO} ${ORI_ONLY_POR_NEW_FILE} \
 		${ORI_POR_WITH_GEORFD} ${ORI_POR_WITH_GEORFDALT} ${ORI_POR_WITH_NO_CTY_NAME} \
