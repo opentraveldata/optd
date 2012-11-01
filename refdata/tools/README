@@ -4,38 +4,74 @@
 ############################
 
 ##
-# 1.1. Update from Geonames
+# 1.1. Generate the ORI-maintained POR (points of reference) file
+# ---------------------------------------------------------------
+#
+cd ../ORI
+./make_ori_por_public.sh
+./make_ori_por_public.sh --clean
+git add ori_por_public.csv
+git diff --cached ori_por_public.csv
+git ci -m "[RefData][ORI] Integrated the latest updates from Geonames."
+cd -
+
+
+##
+# 2.1. Update from Geonames
 # -------------------------
 #
-# The Geonames (database/Web) service has been updated, i.e., new Geonames
-# data files have been downloaded and the geo_geonames database has been
-# refreshed/updated.
+# The Geonames data has been updated, i.e., new Geonames data files have been
+# downloaded and the allCountries_w_alt.txt data file has been recomputed.
 #
 
-./update_airports_csv_after_getting_geonames_iata_dump.sh \
+# Generate four por_all_*_YYYYMMDD.csv data files
+./extract_por_with_iata_icao.sh
+
+# Generates the dump_from_geonames.csv from the four data files obtained above
+./preprepare_geonames_dump_file.sh
+
+# Recompute the ORI-maintained POR file: do 1.1.
+
+
+##
+# 2.2. Update from RFD
+# --------------------
+#
+# The RFD data has been updated, i.e., new RFD data files have been downloaded
+# and the dump_from_crb_city.csv has been recomputed.
+#
+
+# Recompute the ORI-maintained POR file: do 1.1.
+
+
+##
+# 3.1. Compute the differences among all the POR files
+# ----------------------------------------------------
+#
+
+./compare_por_files.sh \
   dump_from_geonames.csv ../ORI/best_coordinates_known_so_far.csv \
   ../ORI/ref_airport_pageranked.csv 0
 
-# The new suggested file of ORI-maintained airport is 'new_airports.csv'.
-# However, as of now (March 2012), its format (Geonames-based) does not
-# correspond to the ORI-maintained data file format (ORI-enriched).
-# Both files can be compared, though:
-# diff -c new_airports.csv ../ORI/ori_por_public.csv
-
-# But, more importantly, a data file, summing up all the differences,
-# is generated, namely 'por_main_diff.csv'. Those differences correspond to
-# the geographical distance weighted by the airport popularity (expressed as
-# a number of passengers per year).
+# A data file, summing up all the differences, is generated, namely
+# 'por_main_diff.csv'. Those differences correspond to the geographical distance
+# weighted by the airport importance (expressed as the PageRank derived from
+# the flight schedules for a whole year). That file is sorted by decreasing
+# differences.
 less por_main_diff.csv
 
-# To see the respective details of a given airport, just type something like:
-grep "^LHR" dump_from_*.csv ../ORI/best_coordinates_known_so_far.csv
+# To see the respective details of a given POR (point of reference), just type
+# something like:
+grep "^LHR" ../ORI/best_coordinates_known_so_far.csv \
+	 dump_from_crb_city.csv dump_from_geonames.csv
 
 # Then, compare
 # a. in Geonames:
 midori http://www.geonames.org/maps/google.html
+midori http://www.geonames.org/2647216
 # b. in Google Maps:
 midori http://maps.google.com
+midori https://maps.google.com/?q=51.47115+-0.45649&hl=en
 # c. in Wikipedia:
 midori http://en.wikipedia.org
 # d. in Bing Maps:
@@ -43,7 +79,7 @@ midori http://maps.bing.com
 
 
 ##
-# 1.2. Geonames has better coordinates for a known POR
+# 4.1. Geonames has better coordinates for a known POR
 # ----------------------------------------------------
 #
 # When the geographical details of a given POR are proved better in Geonames
@@ -53,129 +89,47 @@ midori http://maps.bing.com
 vi ../ORI/best_coordinates_known_so_far.csv
 git add ../ORI/best_coordinates_known_so_far.csv
 
-# For the bulk update, see also 7.
+# For the bulk update, see also 8.
 
-# Proceed with the use case 2.1, since the ORI-maintained list of best known
+# Proceed with the use case 1.1, since the ORI-maintained list of best known
 # coordinates has now better coordinates than the ORI-maintained list of POR.
 
 
 ##
-# 1.3. Geonames has details for an unknown POR
+# 4.2. Geonames has details for an unknown POR
 # --------------------------------------------
 #
 # A new POR, still unknown from ORI, may have been specified within Geonames.
 #
-# 1.3.1. Follow the instructions given by the
-#  ./update_airports_csv_after_getting_geonames_iata_dump.sh script. That is:
-cat ../ORI/best_coordinates_known_so_far.csv ./best_coordinates_known_so_far.csv.missing | sort -t'^' -k1,1 > ./best_coordinates_known_so_far.csv.tmp
-
-# Check that everything if fine:
-diff -c ./best_coordinates_known_so_far.csv.tmp ../ORI/best_coordinates_known_so_far.csv
-
-# Then:
-\mv -f ./best_coordinates_known_so_far.csv.tmp ../ORI/best_coordinates_known_so_far.csv
-\rm -f best_coordinates_known_so_far.csv.missing
-git add ../ORI/best_coordinates_known_so_far.csv
-
-# 1.3.2. Re-generate the ORI-maintained POR data file
-# To ease the process, the following can be performed from another terminal,
-# from the same directory (remember, we are in ../tools):
-cd ../ORI
-./make_ori_por_public.sh
-
-# Check that everything is fine:
-git diff ori_por_public.csv
-
-# Then:
-git add ori_por_public.csv
-
-# Re-do (go back to) 1.1.
-cd -
+# The procedure is exactly the same as in 4.1: manually edit the
+# ../ORI/best_coordinates_known_so_far.csv and re-generate the ORI-maintained
+# POR file (step 1.1).
 
 
 ##
-# 2.1. ORI-maintained best known coordinates file has better coordinates
+# 5.1. ORI-maintained best known coordinates file has better coordinates
 # ----------------------------------------------------------------------
 #
-# The ORI-maintained list of POR needs to be updated
-cd ../ORI
-./make_ori_por_public.sh
-git add best_coordinates_known_so_far.csv ori_por_public.csv
+# Fix the POR (points of reference) in Geonames and Wikipedia.
+# See 3.1 for the URLs.
 
-# Check that everything is fine:
-git diff --cached ori_por_public.csv
-
-# Clean the temporary files
-./make_ori_por_public.sh --clean
-
-# Commit the work
-git commit -m "[RefData][ORI] Fixed the geographical coordinates of ZZZ." best_coordinates_known_so_far.csv ori_por_public.csv 
 
 ##
-# 3.1. ORI-maintained list has a new POR unknown from the best coordinates
-# ------------------------------------------------------------------------
+# 6.1. ORI-maintained list has got POR unknown from Geonames
+# ----------------------------------------------------------
 #
-# The file of best known coordinates has to be updated:
-./update_best_known_coordinates_from_airports_csv.sh
-
-# Check that everything is fine:
-diff -c ../ORI/best_coordinates_known_so_far.csv best_new_coordinates_known_so_far.csv
-
-# Then:
-\cp -f best_new_coordinates_known_so_far.csv ../ORI/best_coordinates_known_so_far.csv
-git add ../ORI/best_coordinates_known_so_far.csv
-
-# Re-do (go back to) 1.1.
+# Add the POR in Geonames and Wikipedia. See 2.1 for the URLs.
 
 
 ##
-# 4.1. ORI-maintained list has a new POR unknown from Geonames
-# ------------------------------------------------------------
-#
-# Add the POR in Geonames:
-midori http://www.geonames.org/maps/google.html
-# Check with:
-# a. in Google Maps:
-midori http://maps.google.com
-# b. in Wikipedia:
-midori http://en.wikipedia.org
-# c. in Bing Maps:
-midori http://maps.bing.com
-
-
-##
-# 5.1. Generation of the OpenTrep-related POR data files
-# ------------------------------------------------------
-#
-../trep/make_trep_por.sh
-# In a terminal with OpenTrep:
-cd ${TREP_DIR}
-\cp -f /tmp/por/trep_place_details.csv /tmp/por/trep_place_names.csv db/data
-git add db/data/trep_place_details.csv db/data/trep_place_names.csv
-
-# As a reminder, the following then allows to run OpenTrep
-# rm -rf build && mkdir build
-cd build
-export INSTALL_BASEDIR=~/dev/deliveries
-export LIBSUFFIX_4_CMAKE="-DLIB_SUFFIX=64"
-cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_BASEDIR}/opentrep-99.99.99 -DCMAKE_BUILD_TYPE:STRING=Debug -DINSTALL_DOC:BOOL=OFF ${LIBSUFFIX_4_CMAKE} ..
-make && make install
-# ${INSTALL_BASEDIR}/opentrep-99.99.99/create_trep_tables.sh
-${INSTALL_BASEDIR}/opentrep-99.99.99/load_trep_data.sh
-mkdir -p /tmp/opentrep/traveldb
-./opentrep/opentrep-indexer
-./opentrep/opentrep-indexer -q cdg sfo
-
-
-##
-# 6. Generation of the list of POR, specified in IATA,
+# 7. Generation of the list of POR, specified in IATA,
 #    but missing from Geonames
 # -----------------------------------------------------------------------
 #
-# 6.1. Do like in 1.1:
-./update_airports_csv_after_getting_geonames_iata_dump.sh
+# 7.1. Do like in 2.1:
+./compare_por_files.sh
 
-# 6.2. Then, generate the por_in_iata_but_missing_from_geonames.csv and
+# 7.2. Then, generate the por_in_iata_but_missing_from_geonames.csv and
 #      pageranked_por_in_iata_but_missing_from_geonames.csv files:
 ./generate_por_lists_for_geonames.sh
 
@@ -183,36 +137,43 @@ mkdir -p /tmp/opentrep/traveldb
 # will be generated); follow the suggestion to remove those entries from
 # the dump_from_geonames.csv.missing file.
 
-# 6.3. Send the por_in_iata_but_missing_from_geonames.csv file to Geonames
+# 7.3. Send the por_in_iata_but_missing_from_geonames.csv file to Geonames
 gzip por_in_iata_but_missing_from_geonames.csv
 gzip pageranked_por_in_iata_but_missing_from_geonames.csv
 
+
 ##
-# 7. Bulk fix the best known coordinates, when those are equal to zero
-#    and they are known by Geonames and/or by RFD.
-#
-#    That is the bulk version of 1.2.
+# 8. Bulk fix the best known coordinates, when those are equal to zero and
+#    they are known by Geonames and/or by RFD. That is the bulk version of 4.1.
+# -----------------------------------------------------------------------------
+#    
 #
 ./fix_best_known_coordinates.sh
 
 # When Geonames has better coordinates
-wc -l new_best_coordinates_known_so_far.csv.wgeo ../ORI/best_coordinates_known_so_far.csv
-diff -c new_best_coordinates_known_so_far.csv.wgeo ../ORI/best_coordinates_known_so_far.csv | less
+wc -l new_best_coordinates_known_so_far.csv.wgeo \
+   ../ORI/best_coordinates_known_so_far.csv
+diff -c new_best_coordinates_known_so_far.csv.wgeo \
+	../ORI/best_coordinates_known_so_far.csv | less
 
 # When RFD has better coordinates
-wc -l new_best_coordinates_known_so_far.csv.wrfd ../ORI/best_coordinates_known_so_far.csv
-diff -c new_best_coordinates_known_so_far.csv.wrfd ../ORI/best_coordinates_known_so_far.csv | less
+wc -l new_best_coordinates_known_so_far.csv.wrfd \
+   ../ORI/best_coordinates_known_so_far.csv
+diff -c new_best_coordinates_known_so_far.csv.wrfd \
+	 ../ORI/best_coordinates_known_so_far.csv | less
 
 # In case everything seems correct, replace the ORI-maintained file:
 #  - When Geonames has better coordinates
-\mv -f new_best_coordinates_known_so_far.csv.wgeo ../ORI/best_coordinates_known_so_far.csv
+\mv -f new_best_coordinates_known_so_far.csv.wgeo \
+	../ORI/best_coordinates_known_so_far.csv
 #  - When RFD has better coordinates
-\mv -f new_best_coordinates_known_so_far.csv.wrfd ../ORI/best_coordinates_known_so_far.csv
+\mv -f new_best_coordinates_known_so_far.csv.wrfd \
+	../ORI/best_coordinates_known_so_far.csv
 
 # Add it into Git and re-check
 git add ../ORI/best_coordinates_known_so_far.csv
 git diff --cached ../ORI/best_coordinates_known_so_far.csv
 
-# Go to 2.1., as the ORI-maintained file of best known coordinates
+# Go to 1.1., as the ORI-maintained file of best known coordinates
 # has been updated
 
