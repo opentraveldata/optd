@@ -51,12 +51,16 @@ DUMP_FILE_NO_ICAO_FILENAME=por_all_noicao_${SNAPSHOT_DATE}.csv
 DUMP_FILE_DUP_FILENAME=por_all_dup_iata_${SNAPSHOT_DATE}.csv
 #
 DUMP_FILE_IATA_TVL=${TMP_DIR}${DUMP_FILE_IATA_TVL_FILENAME}
+DUMP_FILE_TVL_HDR=${DUMP_FILE_IATA_TVL}.tmp.tvlhdr
+DUMP_UNIQ_FILE=${DUMP_FILE_IATA_TVL}.tmp.uniq
 DUMP_FILE_IATA_CTY=${TMP_DIR}${DUMP_FILE_IATA_CTY_FILENAME}
+DUMP_FILE_CTY_HDR=${DUMP_FILE_IATA_CTY}.tmp.ctyhdr
 DUMP_FILE_IATA_ALL=${TMP_DIR}${DUMP_FILE_IATA_ALL_FILENAME}
 DUMP_FILE_ICAO_ONLY=${TMP_DIR}${DUMP_FILE_ICAO_ONLY_FILENAME}
 DUMP_FILE_NO_CODE=${TMP_DIR}${DUMP_FILE_NO_CODE_FILENAME}
 DUMP_FILE_NO_ICAO=${TMP_DIR}${DUMP_FILE_NO_ICAO_FILENAME}
 DUMP_FILE_DUP=${TMP_DIR}${DUMP_FILE_DUP_FILENAME}
+DUMP_FILE_TMP=${TMP_DIR}sorted.csv.tmp
 
 #
 if [ "$1" = "-h" -o "$1" = "--help" ];
@@ -77,10 +81,26 @@ then
 fi
 
 ##
+#
+if [ "$1" = "--clean" ]
+	then
+	if [ "${TMP_DIR}" = "/tmp/por/" ]
+	then
+		\rm -rf ${TMP_DIR}
+	else
+		\rm -f ${DUMP_FILE_TVL_HDR} ${DUMP_FILE_CTY_HDR}
+		\rm -f ${DUMP_FILE_TMP} ${DUMP_UNIQ_FILE}
+		\rm -f ${DUMP_FILE_IATA_TVL} ${DUMP_FILE_IATA_CTY}
+	fi
+	exit
+fi
+
+##
 # 0. Data extraction from the Geonames data file, for travel-related POR
 #    and cities.
 echo
-echo "Extracting travel-related points of reference (POR, i.e., airports, railway stations) and populated place (city) data from the Geonames dump data file."
+echo "Extracting travel-related points of reference (POR, i.e., airports, railway stations)"
+echo "and populated place (city) data from the Geonames dump data file."
 echo "The '${GEO_POR_FILE}' input data file allows to generate both '${DUMP_FILE_IATA_TVL}' and '${DUMP_FILE_IATA_CTY}' files."
 echo "That operation may take several minutes..."
 IATA_EXTRACTOR=${EXEC_PATH}extract_por_with_iata_icao.awk
@@ -100,10 +120,8 @@ echo
 
 # 1.1. Extract the headers into temporary files
 # 1.1.1. For travel-related POR
-DUMP_FILE_TVL_HDR=${DUMP_FILE_IATA_TVL}.tmp.tvlhdr
 grep "^iata\(.\+\)" ${DUMP_FILE_IATA_TVL} > ${DUMP_FILE_TVL_HDR}
 # 1.1.2. For cities
-DUMP_FILE_CTY_HDR=${DUMP_FILE_IATA_CTY}.tmp.ctyhdr
 grep "^iata\(.\+\)" ${DUMP_FILE_IATA_CTY} > ${DUMP_FILE_CTY_HDR}
 
 # 1.2. Remove the headers
@@ -115,7 +133,6 @@ sed -i -e "s/^iata\(.\+\)//g" ${DUMP_FILE_IATA_CTY}
 sed -i -e "/^$/d" ${DUMP_FILE_IATA_CTY}
 
 # 2. Sort the files
-DUMP_FILE_TMP=${TMP_DIR}sorted.csv.tmp
 # 2.1. Travel-related
 sort -t '^' -k1,2 ${DUMP_FILE_IATA_TVL} > ${DUMP_FILE_TMP}
 \mv -f ${DUMP_FILE_TMP} ${DUMP_FILE_IATA_TVL}
@@ -139,7 +156,6 @@ sort -t '^' -k1,2 ${DUMP_FILE_NO_ICAO} > ${DUMP_FILE_TMP}
 #      entries.
 #
 # 3.1.1. Create the file with no duplicated IATA code.
-DUMP_UNIQ_FILE=${DUMP_FILE_IATA_TVL}.tmp.uniq
 uniq -w 3 ${DUMP_FILE_IATA_TVL} > ${DUMP_UNIQ_FILE}
 
 # 3.1.2. Create the file with only the duplicated IATA code entries, if any.
@@ -171,11 +187,22 @@ sort -t'^' -k1,2 ${DUMP_FILE_IATA_ALL} > ${DUMP_FILE_TMP}
 cat ${DUMP_FILE_TVL_HDR} ${DUMP_FILE_IATA_ALL} > ${DUMP_FILE_TMP}
 sed -e "/^$/d" ${DUMP_FILE_TMP} > ${DUMP_FILE_IATA_ALL}
 
+
 ##
-# Clean
-if [ "${TMP_DIR}" != "/tmp/por/" ]
-then
-	\rm -f ${DUMP_FILE_TVL_HDR} ${DUMP_FILE_TMP} ${DUMP_FILE_CTY_HDR}
-	\rm -f ${DUMP_UNIQ_FILE} ${DUMP_FILE_IATA_CTY_TMP}
-fi
+# Reporting
+#
+echo
+echo "Reporting step"
+echo "--------------"
+echo
+echo "From the '${GEO_POR_FILE}' input data file, the following data files have been derived:"
+echo " + '${DUMP_FILE_ICAO_ONLY}'"
+echo " + '${DUMP_FILE_NO_CODE}'"
+echo " + '${DUMP_FILE_NO_ICAO}'"
+echo " + '${DUMP_FILE_DUP}'"
+echo
+echo
+echo "Other temporary files have been generated. Just issue the following command to delete them:"
+echo "$0 --clean"
+echo
 
