@@ -34,8 +34,8 @@ LOG_LEVEL=3
 
 ##
 # ORI path
-OPTD_DIR_DIR=${EXEC_PATH}../
-ORI_DIR=${OPTD_DIR_DIR}ORI/
+OPTD_DIR=${EXEC_PATH}../
+ORI_DIR=${OPTD_DIR}ORI/
 
 ##
 # Geonames data dump file
@@ -170,7 +170,7 @@ fi
 #  * The primary key (IATA code - location type)
 #  * The airport/city code
 #  * The geographical coordinates.
-${PREPARE_EXEC} ${OPTD_DIR_DIR} ${LOG_LEVEL}
+${PREPARE_EXEC} ${OPTD_DIR} ${LOG_LEVEL}
 
 
 # ORI-maintained list of "best known" geographical coordinates
