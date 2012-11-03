@@ -134,6 +134,8 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 			#
 			# Moreover, there is no alternate location type for that IATA code,
 			# meaning that there is a single line in the ORI-maintained list.
+
+			# City-related type
 			is_city = match (myLocationType, "[C]")
 
 			# Travel-related type
