@@ -1,10 +1,12 @@
 ##
-# That AWK script adds the name, in both UTF8 and ASCII encodings, of the served cities.
-# The ori_por_public.csv data file is parsed twice, once to store the city names,
-# the second time to write the corresponding fields in that very same ori_por_public.csv
-# file, which is therefore amended.
+# That AWK script adds the name, in both UTF8 and ASCII encodings,
+# of the served cities.
+# The ori_por_public.csv data file is parsed twice:
+#  * once to store the city names,
+#  * the second time to write the corresponding fields in that very same
+#    ori_por_public.csv file, which is therefore amended.
 #
-# As of October 2012:
+# As of November 2012:
 #  * The city code is the field #38
 #  * The city UTF8 name is the field #39
 #  * The city ASCII name is the field #40
@@ -47,14 +49,15 @@ BEGINFILE {
 
 	# Sanity check
 	if (idx_file >=3) {
-		print ("[" awk_file "] !!!! Error - The '" FILENAME \
-			   "' data file should not be parsed more than two times" ) > error_stream
+		print ("[" awk_file "] !!!! Error - The '" FILENAME "' data file " \
+			   "should not be parsed more than twice" ) > error_stream
 	}
 }
 
 ##
 # First parsing
-function extractAndStoreCityNames(porIataCode, porUtfName, porAsciiName, porLocType) {
+function extractAndStoreCityNames(porIataCode, porUtfName, porAsciiName, \
+								  porLocType) {
 	# Parse the location type
 	is_city = match (porLocType, "C")
 	is_tvl = isTravel(porLocType)
@@ -127,14 +130,15 @@ function writeCityNames(porIataCode, porLocType, cityIataCode, fullLine) {
 		full_line = $0
 
 		# Write the city names for that POR
-		#writeCityNames(iata_code, location_type, city_iata_code, full_line)
+		writeCityNames(iata_code, location_type, city_iata_code, full_line)
 
-		# Write the full line, amended by the call to the writeCityNames() function
+		# Write the full line, amended by the call to the writeCityNames()
+		# function
 		print ($0)
 
 	} else {
 		# Sanity check
-		print ("[" awk_file "] !!!! Error - The '" FILENAME \
-			   "' data file should not be parsed more than two times" ) > error_stream
+		print ("[" awk_file "] !!!! Error - The '" FILENAME "' data file " \
+			   "should not be parsed more than twice" ) > error_stream
 	}
 }
