@@ -4,6 +4,7 @@
 # - best_coordinates_known_so_far.csv
 # - dump_from_geonames.csv
 # - dump_from_crb_city.csv
+# - ref_airport_pageranked.csv
 #
 # => ori_por_public.csv
 #
@@ -64,7 +65,6 @@ LOG_LEVEL=3
 ##
 # Initial
 ORI_POR_FILE=best_coordinates_known_so_far.csv
-ORI_ONLY_POR_FILE=ori_only_por.csv
 
 ##
 # PageRank values
@@ -107,6 +107,7 @@ RFD_CUT_SORTED_FILE=${TOOLS_DIR}${RFD_CUT_SORTED_FILENAME}
 ##
 # Target (generated files)
 ORI_POR_PUBLIC_FILE=ori_por_public.csv
+ORI_ONLY_POR_FILE=ori_only_por.csv
 ORI_ONLY_POR_NEW_FILE=${ORI_ONLY_POR_FILE}.new
 
 ##
@@ -145,7 +146,36 @@ then
 	exit -1
 fi
 
+
 ##
+# Usage helper
+#
+if [ "$1" = "-h" -o "$1" = "--help" ]
+then
+	echo
+	echo "That script generates the public version of the ORI-maintained list of POR (points of reference)"
+	echo
+	echo "Usage: $0 [<log level (0: quiet; 5: verbose)>]"
+	echo " - Default log level (from 0 to 5): ${LOG_LEVEL}"
+	echo
+	echo "* Input data files"
+	echo "------------------"
+	echo " - ORI-maintained file of best known coordinates: '${ORI_POR_FILE}'"
+	echo " - RFD data dump file: '${RFD_RAW_FILE}'"
+	echo " - Geonames data dump file: '${GEONAME_RAW_FILE}'"
+	echo " - ORI-maintained file of PageRanked POR: '${ORI_PR_FILE}'"
+	echo
+	echo "* Output data file"
+	echo "------------------"
+	echo " - ORI-maintained public file of POR: '${ORI_POR_PUBLIC_FILE}'"
+	echo " - ORI-maintained list of non-IATA/outlier POR: '${ORI_ONLY_POR_FILE}'"
+	echo
+	exit
+fi
+
+
+##
+# Cleaning
 #
 if [ "$1" = "--clean" ]
 then
@@ -165,6 +195,15 @@ then
 	echo "Back to the ${BACK_DIR} directory"
 	exit
 fi
+
+
+##
+# Log level
+if [ "$1" != "" ]
+then
+	LOG_LEVEL="$1"
+fi
+
 
 ##
 # Preparation
