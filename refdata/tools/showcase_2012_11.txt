@@ -67,7 +67,8 @@ TOOLDIRNAME=${RDDIRNAME}/tools
 ORIDIRNAME=${RDDIRNAME}/ORI
 GEOEXTRACTOR=extract_por_with_iata_icao.sh
 GEOPREPARATOR=preprepare_geonames_dump_file.sh
-GOEDIFFCALCULATOR=compare_por_files.sh
+GEODIFFCALCULATOR=compare_por_files.sh
+DEDUPLICATOR=ori_por_splitter.sh
 ORIMAKER=make_ori_por_public.sh
 
 
@@ -196,6 +197,30 @@ git commit -m "[RefData][ORI] Integrated the latest Geonames updates." ori_only_
 ##
 ## =========================== Section 05 ===========================
 ## ==                                                              ==
+## ==                     De-duplication of ORI POR                ==
+## ==                                                              ==
+## ==================================================================
+##
+
+##
+# De-duplication of combined POR (point of reference) entries in ORI,
+# when Geonames has got the full details for every location type of the
+# combined entry. For instance, a 'CA' (city and airport) entry may be split
+# into a city and an airport when Geonames knows about those two POR
+# individually: they can therefore be distinguished.
+
+##
+# Calculate the differences, in terms of coordinates, between ORI,
+# RFD and Geonames.
+#
+cd ${OPTDDIR}     # cdopentraveldata
+cd ${TOOLDIRNAME} # cd refdata/tools
+./${DEDUPLICATOR} 3
+
+
+##
+## =========================== Section 06 ===========================
+## ==                                                              ==
 ## ==                       Source comparison                      ==
 ## ==                                                              ==
 ## ==================================================================
@@ -207,12 +232,12 @@ git commit -m "[RefData][ORI] Integrated the latest Geonames updates." ori_only_
 #
 cd ${OPTDDIR}     # cdopentraveldata
 cd ${TOOLDIRNAME} # cd refdata/tools
-./${GOEDIFFCALCULATOR}
+./${GEODIFFCALCULATOR}
 
 
 
 ##
-## =========================== Section 06 ===========================
+## =========================== Section 07 ===========================
 ## ==                                                              ==
 ## ==                       Difference analysis                    ==
 ## ==                                                              ==
@@ -230,7 +255,7 @@ less ./por_main_diff.csv
 # Iterate on the POR (points of reference). See Appendix C for a few examples.
 
 # When done, clean the temporary files
-./${GOEDIFFCALCULATOR} --clean
+./${GEODIFFCALCULATOR} --clean
 
 
 
@@ -335,14 +360,23 @@ mysql -u root --password=${ROOT_PW} -h ${MYSQL_SVR} -P ${MYSQL_PORT} \
 ## ==================================================================
 ##
 
-##
+####
 # Interesting POR issues
-#
+####
 
 ##
 # Easy issues
-#
+##
 
+##
+# [Recently added POR]
+awk -F'^' '{if ($6 != "") {print $0}}' ../ORI/best_coordinates_known_so_far.csv 
+# BUT
+# BUT-CA^BUT^27.5619^90.7469^BUT^2012-10-12
+
+
+##
+# [Difference analysis - Section 07]
 # MIL-C
 grep "^MIL" ../ORI/best_coordinates_known_so_far.csv \
 	 ./dump_from_crb_city.csv ./dump_from_geonames.csv
@@ -355,9 +389,45 @@ git add ../ORI/best_coordinates_known_so_far.csv
 git ci -m "[RefData][ORI] Fixed the geographical coordinates of MIL (Milan, Italy)." ../ORI/best_coordinates_known_so_far.csv
 
 ##
-# Harder issues
+# [De-duplication of ORI single POR - Section 05]
+# MBW
+# - ORI has got MBW-A^MBW^-37.975833^145.102222^MEL^
+# - where as Geonames has got:
+#   + MBW^YMMB^^6301316^Moorabbin Airport Aws
+#   + MBW^ZZZZ^^2157026^Moorabbin
+# - IATA states that there is no MBW city, and the served city is MEL.
+# So, the corresponding Geonames entry may be fixed: delete the MBW IATA code
+# from the Moorabbin city in Geonames:
+midori http://www.geonames.org/2157026
 #
+# SEN
+# - ORI has got MBW-A^MBW^-37.975833^145.102222^MEL^
+# - where as Geonames has got:
+#   + MBW^YMMB^^6301316^Moorabbin Airport Aws
+#   + MBW^ZZZZ^^2157026^Moorabbin
+# - IATA states that there is no SEN city, and the served city is LON.
+# IATA notification:
+midori https://docs.google.com/file/d/0BwKITpyjB9nJVWp0c2NMMkJzM0E/edit
+# So, the corresponding Geonames entry may be fixed: delete the SEN IATA code
+# from the Southend city in Geonames:
+midori http://www.geonames.org/2637434
+#
+# SPA
+# - ORI has got SPA-A^SPA^34.915722^-81.9565^GSP^
+# - where as Geonames has got:
+#   + SPA^KSPA^^4597209^Spartanburg Downtown Memorial Airport
+#   + SPA^ZZZZ^^4597200^Spartanburg
+# - IATA states that there is actually a SPA city, serving the SPA airport.
+# So, ORI needs to be fixed: transform the 'SPA-A' entry into 'SPA-CA' and
+# assign 'SPA' for its served city.
 
+
+##
+# Harder issues
+##
+
+##
+# [Difference analysis - Section 07]
 # BCV
 grep "^BCV" ../ORI/best_coordinates_known_so_far.csv \
 	 ./dump_from_crb_city.csv ./dump_from_geonames.csv
@@ -381,6 +451,38 @@ vi ../ORI/best_coordinates_known_so_far.csv
 git add ../ORI/best_coordinates_known_so_far.csv
 git ci -m "[RefData][ORI] Fixed the geographical coordinates of BCV (Belmopan, Belize)." ../ORI/best_coordinates_known_so_far.csv
 
+##
+# [De-duplication of ORI single POR - Section 05]
+# BDL
+grep "^BDL" ../ORI/best_coordinates_known_so_far.csv \
+	 ./dump_from_crb_city.csv ./dump_from_geonames.csv
+grep "^HFD" ../ORI/best_coordinates_known_so_far.csv \
+	 ./dump_from_crb_city.csv ./dump_from_geonames.csv
+# When Geonames knows at least two POR entries when ORI knows only one
+# (which is current when ORI has a single 'CA' entry while Geonames
+# distinguishes between the airport and the city), the served city
+# has usually the same IATA code as the ORI POR entry.
+# If not, it means that Geonames has assigned the IATA code
+# of the current POR to the served city, where as that latter
+# should be assigned a different IATA code, as stated by ORI.
+#
+# For instance, say:
+#   - ORI has got BDL-CA^BDL^41.938889^-72.683222^HFD^
+#   - where as Geonames has got:
+#     + BDL^KBDL^^5282636^Bradley International Airport^
+#     + BDL^ZZZZ^^4845926^Windsor Locks^
+# One may assume that the city served by the BDL (Bradley) airport
+# is HFD (Hartford), as stated by ORI, and that no city should be
+# assigned the BDL IATA code. However, Geonames has got a city
+# with BDL for IATA code.
+#
+# Note that in this case, though, Geonames is right!
+# Indeed, ORI is not logical when specifying 'CA' for BDL while having no
+# BDL city. Moreover, http://www.iata.org/ps/publications/Pages/code-search.aspx
+# is clear for BDL and HFD: the BDL (Bradley) airport serves three cities:
+# BDL (Windsor Locks), HFD (Hartford) and SFY (Springfield).
+
+
 
 ##
 ## =========================== Appendix D ===========================
@@ -391,7 +493,7 @@ git ci -m "[RefData][ORI] Fixed the geographical coordinates of BCV (Belmopan, B
 ##
 
 ##
-# Cheat sheet for Geonames and Wikipedia
+# Cheat sheet for Geonames, Wikipedia and BlogSpot
 #
 
 # To updates from Marc on Geonames:
@@ -407,3 +509,8 @@ midori http://www.geonames.org/recent-changes/user/denis.arnaud/
 # To updates from Amadeus on Geonames:
 midori http://www.geonames.org/recent-changes/user/amadeus/
 midori http://www.geonames.org/recent-changes/user/amadeus.arnaud/
+
+# To create a new MapEdits blog entry:
+midori http://www.blogger.com/blogger.g?blogID=6053493198961095809#editor
+# Take inspiration from another similar blog entry:
+midori http://www.blogger.com/post-edit.g?blogID=6053493198961095809&postID=3454594981508296115&from=pencil
