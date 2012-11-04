@@ -69,9 +69,9 @@ function deriveLocationTypes(myLocType) {
 
 	# Travel-related type
 	is_airport = match (myLocType, "[A]")
+	is_heliport = match (myLocType, "[H]")
 	is_rail = match (myLocType, "[R]")
 	is_bus = match (myLocType, "[B]")
-	is_heliport = match (myLocType, "[H]")
 	is_port = match (myLocType, "[P]")
 	is_ground = match (myLocType, "[G]")
 	is_offpoint = match (myLocType, "[O]")
@@ -132,7 +132,7 @@ function deriveLocationTypes(myLocType) {
 #  - One POR by other location type (e.g., 'C', 'A', 'H', 'R', 'B', 'P', 'O',
 #    'G')
 #
-function displayPOR(myIataCode, myTravelLine, myCityLine, myNbOfPOR) {
+function displayPOR(myIataCode, myNbOfPOR, myGeoLat, myGeoLon, myCityPos) {
 
 	# DEBUG
 	# print ("[" myIataCode "] myNbOfPOR=" myNbOfPOR) > error_stream
@@ -141,12 +141,19 @@ function displayPOR(myIataCode, myTravelLine, myCityLine, myNbOfPOR) {
 	myLocationType = location_type_list[myIataCode]
 	myLocationTypeAlt = location_type_alt_list[myIataCode]
 
+	# Derive the boolean values for all the location types, as well as the
+	# myLocTypes[] array.
+	deriveLocationTypes(myLocationType)
+
+	# Retrieve the best known geographical coordinates from/for the
+	# travel-related POR
+	myGeoLatBest = geo_lat_list[myIataCode, myLocationType]
+	myGeoLonBest = geo_lon_list[myIataCode, myLocationType]
+	myGeoLatBestAlt = geo_lat_list[myIataCode, myLocationTypeAlt]
+	myGeoLonBestAlt = geo_lon_list[myIataCode, myLocationTypeAlt]
+
 	if (myNbOfPOR >= 2) {
 		# There are two POR in Geonames sharing the same IATA code
-
-		# Derive the boolean values for all the location types, as well as the
-		# myLocTypes[] array.
-		deriveLocationTypes(myLocationType)
 
 		if (myIataCode in combined_list) {
 			# The location type is made of several characters (by construction
@@ -157,70 +164,103 @@ function displayPOR(myIataCode, myTravelLine, myCityLine, myNbOfPOR) {
 				print ("[" awk_file "] !! Error: the POR #" FNR " and #" FNR-1 \
 					   ", with IATA code=" myIataCode ", should have a " \
 					   "combined location type, but they do not. Location " \
-					   "type: '" myLocationType "'. Both POR:\n"		\
-					   myTravelLine "\n" myCityLine) > error_stream
+					   "type: '" myLocationType "'.") > error_stream
 			}
 
-			# The travel-related POR will inherit from the location type
-			# associated (by ORI) to that POR. The city POR will be left
-			# untouched.
-			print (myIataCode "-" myLocTypes[1] "^" myTravelLine)
-			print (myIataCode "-C" "^" myCityLine)
+			# Retrieve the travel-related location type part
+			myTvlLocType = myLocTypes[1]
+			myCtyLocType = "C"
+
+			# - The travel-related POR, the one known from ORI, is assigned
+			#   the best known coordinates
+			# - The city-related POR, the one known from Geonames only,
+			#   is assigned the Geonames coordinates
+			print (myIataCode "-" myTvlLocType "^" myGeoLatBest "^" myGeoLonBest)
+			print (myIataCode "-" myCtyLocType "^" myGeoLat "^" myGeoLon)
 
 		} else if (myLocationTypeAlt == "") {
-			# The location type is made of a single character (otherwise, that
+			# The location type has got no city-related part (otherwise, that
 			# POR would be part of the 'combined_list' list, by construction of
 			# that latter).
 			#
 			# Moreover, there is no alternate location type for that IATA code,
 			# meaning that there is a single line in the ORI-maintained list.
+			#
 			# Typically, the location type is 'O', standing for off-line point.
+			# It may also be 'AR', standing for both an airport and a railway
+			# station.
 
 			if (is_travel >= 1) {
-				# The travel-related POR will inherit from the location type
-				# associated (by ORI) to that POR. The city POR will be left
-				# untouched.
+				# The location type is travel-related (only).
 
 				# Sanity check
 				if (myLocTypes[0] == "C" || myLocTypes[1] == "") {
 					print ("[" awk_file "] !! Error: the POR #" FNR " and #" \
 						   FNR-1 ", with IATA code=" myIataCode ", should " \
 						   "have a location type with no city, but they don't." \
-						   " Location type: '" myLocationType "'. Both POR:\n" \
-						   myTravelLine "\n" myCityLine) > error_stream
+						   " Location type: '" myLocationType "'.") \
+						> error_stream
 				}
 
+				# Retrieve the travel-related location type part
+				myTvlLocType = myLocTypes[1]
+				# Assign the other POR to either:
+				#  - A second travel-related location type, when existing
+				#  - A city-related location type otherwise
 				if (length(myLocTypes) >= 3) {
-					myOtherLocType = myLocTypes[2]
+					myOthTvlLocType = myLocTypes[2]
 				} else {
-					myOtherLocType = myLocTypes[1]
+					myOthTvlLocType = "C"
 				}
 
-				print (myIataCode "-" myLocTypes[1] "^" myTravelLine)
-				print (myIataCode "-" myOtherLocType "^" myCityLine)
+				# - One travel-related POR, the one known from ORI, is assigned
+				#   the best known coordinates
+				# - The other (either travel- or city-related) POR, the one
+				#   known from Geonames only, is assigned the Geonames
+				#   coordinates
+				print (myIataCode "-" myTvlLocType \
+					   "^" myGeoLatBest "^" myGeoLonBest)
+				print (myIataCode "-" myOthTvlLocType "^" myGeoLat "^" myGeoLon)
 
 			} else if (is_city >= 1) {
-				# The city POR will inherit from the location type associated
-				# (by ORI) to that POR. The travel-related POR will be left
-				# untouched.
+				# The location type is city-related (only). That case should be
+				# very rare: the ORI-maintained list has a single entry for that
+				# IATA code, and it is city-related only (there is no
+				# travel-related part).
+				#
+				# Moreover, as for all the other cases, there are two Geonames
+				# POR entries for that IATA code. For instance, one could be
+				# related to a populated place, while the other would be related
+				# to an administrative division (it would be a bad thing to have
+				# in Geonames, though).
+
+				# Notification
+				if (log_level >= 3) {
+					print ("[" awk_file "] !! Notification: the POR #" FNR \
+						   " and #"	FNR-1 ", with IATA code=" myIataCode \
+						   ", have got a rare location type: '" myLocationType \
+						   "'.") > error_stream
+				}
 
 				# Sanity check
 				if (myLocTypes[0] != "C" || myLocTypes[1] != "") {
 					print ("[" awk_file "] !! Error: the POR #" FNR " and #" \
 						   FNR-1 ", with IATA code=" myIataCode ", should " \
 						   "have a city as location type, but they do not." \
-						   " Location type: '" myLocationType "'. Both POR:\n" \
-						   myTravelLine "\n" myCityLine) > error_stream
+						   " Location type: '" myLocationType "'.") \
+						> error_stream
 				}
 
-				if (length(myLocTypes) >= 2) {
-					myOtherLocType = myLocTypes[1]
-				} else {
-					myOtherLocType = "C"
-				}
+				# Retrieve the travel-related location type part
+				myCtyLocType = "C"
 
-				print (myIataCode "-" myOtherLocType "^" myTravelLine)
-				print (myIataCode "-C" "^" myCityLine)
+				# - One city-related POR, the one known from ORI, is assigned
+				#   the best known coordinates
+				# - The other city-related POR, the one known from Geonames only,
+				#   is assigned the Geonames coordinates
+				print (myIataCode "-" myCtyLocType \
+					   "^" myGeoLatBest "^" myGeoLonBest)
+				print (myIataCode "-" myCtyLocType "^" myGeoLat "^" myGeoLon)
 
 			} else {
 				# Notification
@@ -228,8 +268,7 @@ function displayPOR(myIataCode, myTravelLine, myCityLine, myNbOfPOR) {
 					   ", with IATA code=" myIataCode					\
 					   ", are distinct in Geonames, but combined "		\
 					   " in the ORI-maintained list. However, the location"	\
-					   "type ('" myLocationType "') is unknown. Both POR:\n" \
-					   myTravelLine "\n" myCityLine) > error_stream
+					   "type ('" myLocationType "') is unknown.") > error_stream
 			}
 
 		} else {
@@ -245,9 +284,8 @@ function displayPOR(myIataCode, myTravelLine, myCityLine, myNbOfPOR) {
 		print ("[" awk_file "] !! Error: the POR #" FNR " and #" FNR-1	\
 			   ", with IATA code=" myIataCode							\
 			   ", have supposedly the same IATA code, but the number of POR " \
-			   "is equal to 1. That is a code error, not recoverable. " \
-			   "Both POR:\n"											\
-			   myTravelLine "\n" myCityLine) > error_stream
+			   "is equal to 1. That is a code error, not recoverable.") \
+			> error_stream
 	}
 }
 
@@ -262,15 +300,10 @@ BEGINFILE {
 	#
 	last_iata_code = ""
 	last_location_type = ""
-	last_pk = ""
-	last_pk_alt = ""
 	last_full_line = ""
 	last_is_city = 0
 	last_is_travel = 0
-	last_city_line = ""
-	last_travel_line = ""
 	nb_of_por = 0
-	last_nb_of_por = 0
 }
 
 ##
@@ -297,6 +330,10 @@ BEGINFILE {
 	# IATA code
 	iata_code = $2
 
+	# Geographical coordinates
+	geo_lat = $3
+	geo_lon = $4
+
 	# Location type
 	location_type = substr (pk, 5)
 
@@ -304,19 +341,8 @@ BEGINFILE {
 	# a combination of a city with a travel-related type (e.g., airport,
 	# rail station). In some rare cases, an airport may be combined with
 	# something else than a city (e.g., railway station); ARN is such
-	# an example, and CDG might be another one.
-	is_city = match (location_type, "[C]")
-
-	# Travel-related type
-	is_airport = match (location_type, "[A]")
-	is_rail = match (location_type, "[R]")
-	is_bus = match (location_type, "[B]")
-	is_heliport = match (location_type, "[H]")
-	is_port = match (location_type, "[P]")
-	is_ground = match (location_type, "[G]")
-	is_offpoint = match (location_type, "[O]")
-	is_travel = is_airport + is_heliport + is_rail + is_bus + is_port \
-		+ is_ground + is_offpoint
+	# an example, and CDG might be another one in the future.
+	deriveLocationTypes(location_type)
 
 	# Sanity check
 	if (length(location_type) >= 2 && is_travel == 0) {
@@ -324,6 +350,10 @@ BEGINFILE {
 			   ", the location type ('" location_type			\
 			   "') is unknown - Full line: " $0) > error_stream
 	}
+
+	# Store the geographical coordinates
+	geo_lat_list[iata_code, location_type] = geo_lat
+	geo_lon_list[iata_code, location_type] = geo_lon
 
 	# Store the location types. If there are two location types for that POR,
 	# the first should be the travel-related one and the second should be
@@ -464,6 +494,7 @@ BEGINFILE {
 /^([A-Z]{3})\^([A-Z0-9]{4})\^([A-Z0-9]{0,4})\^([0-9]{1,10})\^/ {
 	#
 	nb_of_por++
+	city_pos = -1
 
 	# IATA code
 	iata_code = $1
@@ -474,24 +505,27 @@ BEGINFILE {
 	# FAA code
 	faa_code = $3
 
+	# Geographical coordinates
+	geo_lat = $7
+	geo_lon = $8
+
 	# Feature code
 	fcode = $13
 
-	#
+	# City-related part
 	is_city = match (fcode, "PPL") + match (fcode, "ADM")
 
+	# Travel-related part
 	is_airport = match (fcode, "AIRB") + match (fcode, "AIRF") \
 		+ match (fcode, "AIRP") + match (fcode, "AIRS")
+	is_heliport = match (fcode, "AIRH")
 	is_rail = match (fcode, "RSTN")
 	is_bus = match (fcode, "BUST")
-	is_heliport = match (fcode, "AIRH")
 	is_port = match (fcode, "NVB") + match (fcode, "PRT") + match (fcode, "FY")
 	is_travel = is_airport + is_rail + is_bus + is_heliport + is_port
 
 	# Store the full line
 	full_line = $0
-	city_line = full_line
-	travel_line = full_line
 
 	# ORI-maintained location type
 	location_type = location_type_list[iata_code]
@@ -524,8 +558,9 @@ BEGINFILE {
 
 		if (last_is_city != 0) {
 			# The previous POR is the city.
-			travel_line = full_line
-			city_line = last_full_line
+			city_pos = 1
+			cty_geo_lat = last_geo_lat
+			cty_geo_lon = last_geo_lon
 
 			# Sanith check: the other POR should be travel-related
 			# (e.g., airport, heliport, railway station, off-point).
@@ -540,8 +575,9 @@ BEGINFILE {
 
 		} else if (is_city == 1) {
 			# The current POR is the city.
-			travel_line = last_full_line
-			city_line = full_line
+			city_pos = 2
+			cty_geo_lat = geo_lat
+			cty_geo_lon = geo_lon
 
 			# Sanith check: the other POR should be travel-related
 			# (e.g., airport, heliport, railway station, off-point).
@@ -559,14 +595,15 @@ BEGINFILE {
 			# The display then respects the input:
 			# last line first, new line second (in the displayPOR() function,
 			# the city POR is displayed second).
-			travel_line = last_full_line
-			city_line = full_line
+			city_pos = 0
+			cty_geo_lat = geo_lat
+			cty_geo_lon = geo_lon
 		}
 
 		# Display the POR entries, only when the IATA code is specified in the
 		# ORI-maintained list (and, hence, the location type is defined).
 		if (location_type != "") {
-			displayPOR(iata_code, travel_line, city_line, nb_of_por)
+			displayPOR(iata_code, nb_of_por, cty_geo_lat, cty_geo_lon, city_pos)
 		}
 
 	} else {
@@ -578,14 +615,11 @@ BEGINFILE {
 	# Iteration
 	last_iata_code = iata_code
 	last_location_type = location_type
-	last_pk = pk
-	last_pk_alt = pk_alt
+	last_geo_lat = geo_lat
+	last_geo_lon = geo_lon
 	last_full_line = full_line
-	last_city_line = city_line
-	last_travel_line = travel_line
 	last_is_city = is_city
 	last_is_travel = is_travel
-	last_nb_of_por = nb_of_por
 }
 
 #
