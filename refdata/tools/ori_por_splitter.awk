@@ -145,12 +145,12 @@ function displayPOR(myIataCode, myNbOfPOR, myGeoLat, myGeoLon, myCityPos) {
 	# myLocTypes[] array.
 	deriveLocationTypes(myLocationType)
 
-	# Retrieve the best known geographical coordinates from/for the
-	# travel-related POR
+	# Retrieve the best known details (i.e., geographical coordinates,
+	# served city IATA code, effective date) from/for the travel-related POR
 	myGeoLatBest = geo_lat_list[myIataCode, myLocationType]
 	myGeoLonBest = geo_lon_list[myIataCode, myLocationType]
-	myGeoLatBestAlt = geo_lat_list[myIataCode, myLocationTypeAlt]
-	myGeoLonBestAlt = geo_lon_list[myIataCode, myLocationTypeAlt]
+	mySvdCtyCodeBest = svd_cty_code_list[myIataCode, myLocationType]
+	myEffDateBest = eff_date_list[myIataCode, myLocationType]
 
 	if (myNbOfPOR >= 2) {
 		# There are two POR in Geonames sharing the same IATA code
@@ -175,8 +175,12 @@ function displayPOR(myIataCode, myNbOfPOR, myGeoLat, myGeoLon, myCityPos) {
 			#   the best known coordinates
 			# - The city-related POR, the one known from Geonames only,
 			#   is assigned the Geonames coordinates
-			print (myIataCode "-" myTvlLocType "^" myGeoLatBest "^" myGeoLonBest)
-			print (myIataCode "-" myCtyLocType "^" myGeoLat "^" myGeoLon)
+			print (myIataCode "-" myTvlLocType "^" myIataCode	\
+				   "^" myGeoLatBest "^" myGeoLonBest			\
+				   "^" mySvdCtyCodeBest "^" myEffDateBest)
+			print (myIataCode "-" myCtyLocType "^" myIataCode \
+				   "^" myGeoLat "^" myGeoLon				  \
+				   "^" mySvdCtyCodeBest "^" myEffDateBest)
 
 		} else if (myLocationTypeAlt == "") {
 			# The location type has got no city-related part (otherwise, that
@@ -218,9 +222,12 @@ function displayPOR(myIataCode, myNbOfPOR, myGeoLat, myGeoLon, myCityPos) {
 				# - The other (either travel- or city-related) POR, the one
 				#   known from Geonames only, is assigned the Geonames
 				#   coordinates
-				print (myIataCode "-" myTvlLocType \
-					   "^" myGeoLatBest "^" myGeoLonBest)
-				print (myIataCode "-" myOthTvlLocType "^" myGeoLat "^" myGeoLon)
+				print (myIataCode "-" myTvlLocType "^" myIataCode	\
+					   "^" myGeoLatBest "^" myGeoLonBest			\
+					   "^" mySvdCtyCodeBest "^" myEffDateBest)
+				print (myIataCode "-" myOthTvlLocType "^" myIataCode \
+					   "^" myGeoLat "^" myGeoLon					 \
+					   "^" mySvdCtyCodeBest "^" myEffDateBest)
 
 			} else if (is_city >= 1) {
 				# The location type is city-related (only). That case should be
@@ -258,9 +265,12 @@ function displayPOR(myIataCode, myNbOfPOR, myGeoLat, myGeoLon, myCityPos) {
 				#   the best known coordinates
 				# - The other city-related POR, the one known from Geonames only,
 				#   is assigned the Geonames coordinates
-				print (myIataCode "-" myCtyLocType \
-					   "^" myGeoLatBest "^" myGeoLonBest)
-				print (myIataCode "-" myCtyLocType "^" myGeoLat "^" myGeoLon)
+				print (myIataCode "-" myCtyLocType "^" myIataCode	\
+					   "^" myGeoLatBest "^" myGeoLonBest			\
+					   "^" mySvdCtyCodeBest "^" myEffDateBest)
+				print (myIataCode "-" myCtyLocType "^" myIataCode \
+					   "^" myGeoLat "^" myGeoLon				  \
+					   "^" mySvdCtyCodeBest "^" myEffDateBest)
 
 			} else {
 				# Notification
@@ -271,8 +281,42 @@ function displayPOR(myIataCode, myNbOfPOR, myGeoLat, myGeoLon, myCityPos) {
 					   "type ('" myLocationType "') is unknown.") > error_stream
 			}
 
+			# By construction, Geonames knows at least two POR entries
+			# when ORI knows only one. Hence, usually, the served city
+			# should have the same IATA code as the current POR entries.
+			# If not, it means that Geonames has assigned the IATA code
+			# of the current POR to the served city, where as that latter
+			# should be assigned a different IATA code, as stated by ORI.
+			#
+			# For instance, say:
+			#   - ORI has got BDL-CA^BDL^41.938889^-72.683222^HFD^
+			#   - where as Geonames has got:
+			#     + BDL^KBDL^^5282636^Bradley International Airport^
+			#     + BDL^ZZZZ^^4845926^Windsor Locks^
+			# One may assume that the city served by the BDL (Bradley) airport
+			# is HFD (Hartford), as stated by ORI, and that no city should be
+			# assigned the BDL IATA code. However, Geonames has got a city
+			# with BDL for IATA code.
+			#
+			# Note that in this case, though, Geonames is right!
+			# Indeed, ORI is not logical when specifying 'CA' for BDL while
+			# having no BDL city. Moreover,
+			# http://www.iata.org/ps/publications/Pages/code-search.aspx
+			# is clear for BDL and HFD: the BDL (Bradley) airport serves
+			# three cities:
+			# BDL (Windsor Locks), HFD (Hartford) and SFY (Springfield).
+			if (myIataCode != mySvdCtyCodeBest) {
+				if (log_level >= 3) {
+					print ("[" awk_file "] !! Notification: the POR #" FNR \
+						   " and #"	FNR-1 ", with IATA code=" myIataCode \
+						   ", serve a city which has got a different IATA " \
+						   "code ('" mySvdCtyCodeBest "'), which make " \
+						   "Geonames differ from ORI.") > error_stream
+				}
+			}
+
 		} else {
-			# The ORI-maintained list does provide two distinct lines for that
+			# The ORI-maintained list provides two distinct lines for that
 			# IATA code, exactly like for Geonames. So, there is nothing more
 			# to be done at that stage.
 		}
@@ -334,6 +378,13 @@ BEGINFILE {
 	geo_lat = $3
 	geo_lon = $4
 
+	# IATA code of the served city
+	svd_cty_code = $5
+
+	# Effective fate (when empty, that IATA code is considered to have been
+	# always effective)
+	eff_date = $6
+
 	# Location type
 	location_type = substr (pk, 5)
 
@@ -354,6 +405,12 @@ BEGINFILE {
 	# Store the geographical coordinates
 	geo_lat_list[iata_code, location_type] = geo_lat
 	geo_lon_list[iata_code, location_type] = geo_lon
+
+	# Store the served city IATA code
+	svd_cty_code_list[iata_code, location_type] = svd_cty_code
+
+	# Store the effective date
+	eff_date_list[iata_code, location_type] = eff_date
 
 	# Store the location types. If there are two location types for that POR,
 	# the first should be the travel-related one and the second should be

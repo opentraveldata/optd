@@ -56,7 +56,7 @@ TOOLS_DIR=${OPTD_DIR}tools/
 
 ##
 # Log level
-LOG_LEVEL=3
+LOG_LEVEL=2
 
 ##
 # Initial
