@@ -132,12 +132,10 @@ function deriveLocationTypes(myLocType) {
 #  - One POR by other location type (e.g., 'C', 'A', 'H', 'R', 'B', 'P', 'O',
 #    'G')
 #
-function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
-					myTravelLine, myCityLine, myNbOfPOR, myLastLine, myLine) {
+function displayPOR(myIataCode, myTravelLine, myCityLine, myNbOfPOR) {
 
 	# DEBUG
-	# print ("[" myIataCode "] myLastPK=" myLastPK ", myPK=" myPK			\
-	#	   ", myLastAltPK=" myLastAltPK ", myNbOfPOR=" myNbOfPOR) > error_stream
+	# print ("[" myIataCode "] myNbOfPOR=" myNbOfPOR) > error_stream
 
 	# Retrieve the full location type from the ORI-maintained list
 	myLocationType = location_type_list[myIataCode]
@@ -160,7 +158,7 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 					   ", with IATA code=" myIataCode ", should have a " \
 					   "combined location type, but they do not. Location " \
 					   "type: '" myLocationType "'. Both POR:\n"		\
-					   myLastLine "\n" myLine) > error_stream
+					   myTravelLine "\n" myCityLine) > error_stream
 			}
 
 			# The travel-related POR will inherit from the location type
@@ -189,7 +187,7 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 						   FNR-1 ", with IATA code=" myIataCode ", should " \
 						   "have a location type with no city, but they don't." \
 						   " Location type: '" myLocationType "'. Both POR:\n" \
-						   myLastLine "\n" myLine) > error_stream
+						   myTravelLine "\n" myCityLine) > error_stream
 				}
 
 				if (length(myLocTypes) >= 3) {
@@ -212,7 +210,7 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 						   FNR-1 ", with IATA code=" myIataCode ", should " \
 						   "have a city as location type, but they do not." \
 						   " Location type: '" myLocationType "'. Both POR:\n" \
-						   myLastLine "\n" myLine) > error_stream
+						   myTravelLine "\n" myCityLine) > error_stream
 				}
 
 				if (length(myLocTypes) >= 2) {
@@ -231,7 +229,7 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 					   ", are distinct in Geonames, but combined "		\
 					   " in the ORI-maintained list. However, the location"	\
 					   "type ('" myLocationType "') is unknown. Both POR:\n" \
-					   myLastLine "\n" myLine) > error_stream
+					   myTravelLine "\n" myCityLine) > error_stream
 			}
 
 		} else {
@@ -249,7 +247,7 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 			   ", have supposedly the same IATA code, but the number of POR " \
 			   "is equal to 1. That is a code error, not recoverable. " \
 			   "Both POR:\n"											\
-			   myLastLine "\n" myLine) > error_stream
+			   myTravelLine "\n" myCityLine) > error_stream
 	}
 }
 
@@ -568,8 +566,7 @@ BEGINFILE {
 		# Display the POR entries, only when the IATA code is specified in the
 		# ORI-maintained list (and, hence, the location type is defined).
 		if (location_type != "") {
-			displayPOR(iata_code, last_pk, pk, pk_alt, travel_line, city_line, \
-					   nb_of_por, last_full_line, full_line)
+			displayPOR(iata_code, travel_line, city_line, nb_of_por)
 		}
 
 	} else {
