@@ -374,6 +374,24 @@ awk -F'^' '{if ($6 != "") {print $0}}' ../ORI/best_coordinates_known_so_far.csv
 # BUT
 # BUT-CA^BUT^27.5619^90.7469^BUT^2012-10-12
 
+##
+# [Recently deleted POR] / POR appearing in the ../ORI/ori_only_por.csv file
+# RAU (deleted as per IATA LIWG #33 2012)
+midori http://www.theairdb.com/airport/RAU.html
+midori http://www.flightstats.com/go/Airport/airportDetails.do?airport=RAU
+# KZK (deleted as per IATA LIWG #33 2012)
+midori http://www.theairdb.com/airport/KZK.html
+midori http://www.flightstats.com/go/Airport/airportDetails.do?airport=KZK
+# IIN (deleted as per IATA LIWG #39 2012)
+# => add the POR entry, as in the ori_por_public.csv file, into 
+#    ori_por_non_iata.csv, then suppress that POR entry from
+#    the best_coordinates_known_so_far.csv data file
+grep "^RAU" ori_por_public.csv # >> ori_por_non_iata.csv
+vi best_coordinates_known_so_far.csv
+./make_ori_por_public.sh
+git add best_coordinates_known_so_far.csv ori_por_public.csv ori_por_non_iata.csv
+git ci -m "[RefData][ORI] Suppressed the RAU/Rangpur (Bangladesh) POR (as per IATA LIWG #33, 2012)."
+
 
 ##
 # [Difference analysis - Section 07]
