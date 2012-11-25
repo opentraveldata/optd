@@ -2,9 +2,10 @@
 
 ##
 # That Shell script de-duplicates combined POR (point of reference) entries
-# when Geonames has got the full details for every location type of the combined
-# entry. For instance, a 'CA' (city and airport) entry may be split into a city
-# and an airport when Geonames knows about those two POR individually:
+# when Geonames has got the full details for every location type of the
+# combined entry. For instance, a 'CA' (city and airport) entry may be split
+# into a city and an airport when Geonames knows about those two POR
+# individually:
 # they can therefore be distinguished. The input data files are:
 # - ../ORI/best_coordinates_known_so_far.csv
 # - dump_from_geonames.csv
@@ -211,8 +212,8 @@ fi
 ##
 # Merge the file of best known coordinates (${ORI_POR_FILE}, aka
 # best_coordinates_known_so_far.csv) with the newly created splitted one
-# (${ORI_POR_TOBESPLIT_FILE}, aka ori_por_to_be_split.csv). They both have got the same
-# format.
+# (${ORI_POR_TOBESPLIT_FILE}, aka ori_por_to_be_split.csv).
+# They both have got the same format.
 MERGER=ori_por_merger.awk
 if [ -f ${ORI_POR_TOBESPLIT_FILE} ]
 then

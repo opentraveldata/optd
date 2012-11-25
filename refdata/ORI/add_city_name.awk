@@ -62,23 +62,32 @@ function extractAndStoreCityNames(porIataCode, porUtfName, porAsciiName, \
 	is_city = match (porLocType, "C")
 	is_tvl = isTravel(porLocType)
 
-	# Store the names of the point of reference (POR)
-	name_utf_list[porIataCode] = porUtfName
-	name_ascii_list[porIataCode] = porAsciiName
+	# Store the names of the point of reference (POR) when it is a city
+	if (is_city != 0) {
+		name_utf_list[porIataCode] = porUtfName
+		name_ascii_list[porIataCode] = porAsciiName
+	}
 }
 
 ##
 # Second parsing
-function writeCityNames(porIataCode, porLocType, cityIataCode, fullLine) {
+function writeCityNames(porIataCode, porLocType, cityIataCode, \
+						porUtfName, porAsciiName, fullLine) {
 	# Output separator
 	OFS = FS
 
 	# UTF8 name of the served city
 	utfName = name_utf_list[cityIataCode]
+	if (utfName == "") {
+		utfName = porUtfName
+	}
 	$39 = utfName
 
 	# ASCII name of the served city
 	asciiName = name_ascii_list[cityIataCode]
+	if (asciiName == "") {
+		asciiName = porAsciiName
+	}
 	$40 = asciiName
 }
 
@@ -120,17 +129,24 @@ function writeCityNames(porIataCode, porLocType, cityIataCode, fullLine) {
 		# IATA code of the point of reference (POR) itself
 		iata_code = $1
 
-		# IATA location type
-		location_type = $43
+		# UTF8 name of the POR itself
+		name_utf = $7
+
+		# ASCII name of the POR itself
+		name_ascii = $8
 
 		# IATA code of the city served by that POR
 		city_iata_code = $38
+
+		# IATA location type
+		location_type = $43
 
 		# Full line
 		full_line = $0
 
 		# Write the city names for that POR
-		writeCityNames(iata_code, location_type, city_iata_code, full_line)
+		writeCityNames(iata_code, location_type, city_iata_code, \
+					   name_utf, name_ascii, full_line)
 
 		# Write the full line, amended by the call to the writeCityNames()
 		# function

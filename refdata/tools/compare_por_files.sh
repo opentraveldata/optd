@@ -238,6 +238,14 @@ then
 	COMP_MIN_DIST=$4
 fi
 
+##
+# Extract the header into a temporary file
+ORI_BEST_FILE_HEADER=${ORI_BEST_FILE}.tmp.hdr
+grep "^pk\(.\+\)" ${ORI_BEST_FILE} > ${ORI_BEST_FILE_HEADER}
+
+# Remove the header
+sed -i -e "s/^pk\(.\+\)//g" ${ORI_BEST_FILE}
+sed -i -e "/^$/d" ${ORI_BEST_FILE}
 
 ##
 # The two files contain only four fields (the primary key, the IATA code and
@@ -408,6 +416,15 @@ fi
 # both sets of coordinates (Geonames and best known ones).
 ${COMPARE_EXEC} ${GEONAME_FILE_SORTED_CUT} ${ORI_BEST_FILE} \
 	${AIRPORT_PR_SORTED_CUT} ${COMP_MIN_DIST}
+
+
+##
+# Re-add the header
+ORI_BEST_FILE_TMP=${ORI_BEST_FILE}.tmp
+cat ${ORI_BEST_FILE_HEADER} ${ORI_BEST_FILE} > ${ORI_BEST_FILE_TMP}
+sed -i -e "/^$/d" ${ORI_BEST_FILE_TMP}
+\mv -f ${ORI_BEST_FILE_TMP} ${ORI_BEST_FILE}
+\rm -f ${ORI_BEST_FILE_HEADER}
 
 
 ##
