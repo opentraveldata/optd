@@ -82,7 +82,11 @@ GEONAME_CUT_SORTED_FILE=${TOOLS_DIR}${GEONAME_CUT_SORTED_FILENAME}
 
 ##
 # Target (generated files)
-ORI_POR_TOBESPLIT_FILE=ori_por_to_be_split.csv
+ORI_POR_TOBESPLIT_FILENAME=ori_por_to_be_split.csv
+ORI_POR_NEW_FILENAME=new_${ORI_POR_FILENAME}
+#
+ORI_POR_TOBESPLIT_FILE=${TMP_DIR}${ORI_POR_TOBESPLIT_FILENAME}
+ORI_POR_NEW_FILE=${TMP_DIR}${ORI_POR_NEW_FILENAME}
 
 
 ##
@@ -135,7 +139,7 @@ fi
 if [ "$1" = "--clean" ]
 then
 	\rm -f ${GEONAME_WPK_FILE} ${GEONAME_SORTED_FILE} ${GEONAME_CUT_SORTED_FILE}
-
+	\rm -f ${ORI_POR_TOBESPLIT_FILE} ${ORI_POR_NEW_FILE}
 	bash prepare_geonames_dump_file.sh --clean || exit -1
 	exit
 fi
@@ -189,7 +193,7 @@ awk -F'^' '/^([A-Z]{3})-/ {print ($1)}' ${ORI_POR_TOBESPLIT_FILE} \
 #  2.1. Extract the primary keys (e.g., IEV-A or IEV-C)
 #  2.2. Extract the IATA codes (e.g., IEV)
 #  2.3. Count the occurences of every IATA code (e.g., 2 IEV)
-#  2.4. Check the IATA code having just a single entry
+#  2.4. Check the IATA codes having just a single entry
 #
 SINGLE_POR_LIST=`
 awk -F'^' '/^([A-Z]{3})-/ {print ($1)}' ${ORI_POR_TOBESPLIT_FILE} \
@@ -204,6 +208,18 @@ then
 	exit -1
 fi
 
+##
+# Merge the file of best known coordinates (${ORI_POR_FILE}, aka
+# best_coordinates_known_so_far.csv) with the newly created splitted one
+# (${ORI_POR_TOBESPLIT_FILE}, aka ori_por_to_be_split.csv). They both have got the same
+# format.
+MERGER=ori_por_merger.awk
+if [ -f ${ORI_POR_TOBESPLIT_FILE} ]
+then
+	awk -F'^' -v log_level=${LOG_LEVEL} -f ${MERGER} \
+		${ORI_POR_TOBESPLIT_FILE} ${ORI_POR_FILE} > ${ORI_POR_NEW_FILE}
+fi
+
 
 ##
 # Reporting
@@ -215,13 +231,40 @@ echo
 echo "wc -l ${ORI_POR_FILE}"
 if [ -f ${ORI_POR_TOBESPLIT_FILE} ]
 then
-	NB_LINES_ORI_TOBESPLIT=`wc -l ${ORI_POR_TOBESPLIT_FILE}`
+	NB_LINES_ORI_POR=`wc -l ${ORI_POR_FILE} | cut -d' ' -f1`
+	NB_LINES_ORI_TOBESPLIT=`wc -l ${ORI_POR_TOBESPLIT_FILE} | cut -d' ' -f1`
+	NB_LINES_ORI_NEW=`wc -l ${ORI_POR_NEW_FILE} | cut -d' ' -f1`
+	NB_EXP_LINES_ORI_NEW=`echo ${NB_LINES_ORI_TOBESPLIT}/2 + ${NB_LINES_ORI_POR} + 1 | bc 2> /dev/null`
 	echo
-	echo "See also the '${ORI_POR_TOBESPLIT_FILE}' file, which contains ${NB_LINES_ORI_TOBESPLIT} lines:"
-	echo "less ${ORI_POR_TOBESPLIT_FILE}"
+	echo "See:"
+	echo "  + '${ORI_POR_FILE}' file, which contains ${NB_LINES_ORI_POR} lines"
+	echo "  + '${ORI_POR_TOBESPLIT_FILE}' file, which contains ${NB_LINES_ORI_TOBESPLIT} lines"
+	echo "  + '${ORI_POR_NEW_FILE}' file, which contains ${NB_LINES_ORI_NEW} lines."
+	if [ ${NB_EXP_LINES_ORI_NEW} -eq ${NB_LINES_ORI_NEW} ]
+	then
+		echo "    Hence, it is equal to the expected number of lines, which is ${NB_EXP_LINES_ORI_NEW} (= ${NB_LINES_ORI_TOBESPLIT}/2 + ${NB_LINES_ORI_POR} + 1)"
+	else
+		echo "    [WARNING] Hence, it is not equal to the expected number of lines, which is ${NB_EXP_LINES_ORI_NEW} (= ${NB_LINES_ORI_TOBESPLIT}/2 + ${NB_LINES_ORI_POR} + 1)"
+	fi
+	echo "head -3 ${ORI_POR_FILE} ${ORI_POR_TOBESPLIT_FILE} ${ORI_POR_NEW_FILE}"
+	echo "grep \"^NCE\" ${ORI_POR_FILE} ${ORI_POR_TOBESPLIT_FILE} ${ORI_POR_NEW_FILE}"
 	echo
 	echo "List of location types for the de-duplicated POR entries:"
 	echo "${LOC_TYPE_LIST}"
+	echo
+	echo "Next steps:"
+	echo "-----------"
+	echo "First, there should be no warning from the process above."
+	echo "Then, double check that the generated file is comparable to the original one:"
+	echo "diff -c ${ORI_POR_FILE} ${ORI_POR_NEW_FILE} | less"
+	echo "Then, replace the original file and tell Git about it:"
+	echo "cp ${ORI_POR_NEW_FILE} ${ORI_POR_FILE}"
+	echo "git add ${ORI_POR_FILE}"
+	echo "git diff --cached ${ORI_POR_FILE}"
+	echo "git ci -m \"[RefData][ORI] De-duplicated the POR (points of reference) entries of the ORI-maintained file of best known coordinates.\" ${ORI_POR_FILE}"
+	echo
+	echo "Finally, do some cleaning:"
+	echo "$0 --clean"
 	echo
 fi
 echo

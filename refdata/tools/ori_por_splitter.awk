@@ -132,7 +132,8 @@ function deriveLocationTypes(myLocType) {
 #  - One POR by other location type (e.g., 'C', 'A', 'H', 'R', 'B', 'P', 'O',
 #    'G')
 #
-function displayPOR(myIataCode, myNbOfPOR, myGeoLat, myGeoLon, myCityPos) {
+function displayPOR(myIataCode, myNbOfPOR, myGeoLatCty, myGeoLonCty, myCityPos, \
+					myGeoLatTvl, myGeoLonTvl) {
 
 	# DEBUG
 	# print ("[" myIataCode "] myNbOfPOR=" myNbOfPOR) > error_stream
@@ -172,15 +173,19 @@ function displayPOR(myIataCode, myNbOfPOR, myGeoLat, myGeoLon, myCityPos) {
 			myCtyLocType = "C"
 
 			# - The travel-related POR, the one known from ORI, is assigned
-			#   the best known coordinates
+			#   the best known coordinates, when those latter are not null
 			# - The city-related POR, the one known from Geonames only,
 			#   is assigned the Geonames coordinates
-			print (myIataCode "-" myTvlLocType "^" myIataCode	\
-				   "^" myGeoLatBest "^" myGeoLonBest			\
-				   "^" mySvdCtyCodeBest "^" myEffDateBest)
-			print (myIataCode "-" myCtyLocType "^" myIataCode \
-				   "^" myGeoLat "^" myGeoLon				  \
-				   "^" mySvdCtyCodeBest "^" myEffDateBest)
+			if (myGeoLatBest == "" || myGeoLonBest == "") {
+				myGeoLatBest = myGeoLatTvl
+				myGeoLonBest = myGeoLonTvl
+			}
+			print (myIataCode "-" myTvlLocType "^" myIataCode		\
+				   "^" myGeoLatBest "^" myGeoLonBest				\
+				   "^" mySvdCtyCodeBest "^" myEffDateBest "^DEDUP")
+			print (myIataCode "-" myCtyLocType "^" myIataCode		\
+				   "^" myGeoLatCty "^" myGeoLonCty					\
+				   "^" mySvdCtyCodeBest "^" myEffDateBest "^DEDUP")
 
 		} else if (myLocationTypeAlt == "") {
 			# The location type has got no city-related part (otherwise, that
@@ -202,7 +207,7 @@ function displayPOR(myIataCode, myNbOfPOR, myGeoLat, myGeoLon, myCityPos) {
 					print ("[" awk_file "] !! Error: the POR #" FNR " and #" \
 						   FNR-1 ", with IATA code=" myIataCode ", should " \
 						   "have a location type with no city, but they don't." \
-						   " Location type: '" myLocationType "'.") \
+						   " Location type: '" myLocationType "'.")		\
 						> error_stream
 				}
 
@@ -218,16 +223,20 @@ function displayPOR(myIataCode, myNbOfPOR, myGeoLat, myGeoLon, myCityPos) {
 				}
 
 				# - One travel-related POR, the one known from ORI, is assigned
-				#   the best known coordinates
+				#   the best known coordinates, when those latter are not null
 				# - The other (either travel- or city-related) POR, the one
 				#   known from Geonames only, is assigned the Geonames
 				#   coordinates
-				print (myIataCode "-" myTvlLocType "^" myIataCode	\
-					   "^" myGeoLatBest "^" myGeoLonBest			\
-					   "^" mySvdCtyCodeBest "^" myEffDateBest)
-				print (myIataCode "-" myOthTvlLocType "^" myIataCode \
-					   "^" myGeoLat "^" myGeoLon					 \
-					   "^" mySvdCtyCodeBest "^" myEffDateBest)
+				if (myGeoLatBest == "" || myGeoLonBest == "") {
+					myGeoLatBest = myGeoLatTvl
+					myGeoLonBest = myGeoLonTvl
+				}
+				print (myIataCode "-" myTvlLocType "^" myIataCode		\
+					   "^" myGeoLatBest "^" myGeoLonBest				\
+					   "^" mySvdCtyCodeBest "^" myEffDateBest "^DEDUP")
+				print (myIataCode "-" myOthTvlLocType "^" myIataCode	\
+					   "^" myGeoLatCty "^" myGeoLonCty					\
+					   "^" mySvdCtyCodeBest "^" myEffDateBest "^DEDUP")
 
 			} else if (is_city >= 1) {
 				# The location type is city-related (only). That case should be
@@ -262,15 +271,19 @@ function displayPOR(myIataCode, myNbOfPOR, myGeoLat, myGeoLon, myCityPos) {
 				myCtyLocType = "C"
 
 				# - One city-related POR, the one known from ORI, is assigned
-				#   the best known coordinates
+				#   the best known coordinates, when those latter are not null
 				# - The other city-related POR, the one known from Geonames only,
 				#   is assigned the Geonames coordinates
-				print (myIataCode "-" myCtyLocType "^" myIataCode	\
-					   "^" myGeoLatBest "^" myGeoLonBest			\
-					   "^" mySvdCtyCodeBest "^" myEffDateBest)
-				print (myIataCode "-" myCtyLocType "^" myIataCode \
-					   "^" myGeoLat "^" myGeoLon				  \
-					   "^" mySvdCtyCodeBest "^" myEffDateBest)
+				if (myGeoLatBest == "" || myGeoLonBest == "") {
+					myGeoLatBest = myGeoLatTvl
+					myGeoLonBest = myGeoLonTvl
+				}
+				print (myIataCode "-" myCtyLocType "^" myIataCode		\
+					   "^" myGeoLatBest "^" myGeoLonBest				\
+					   "^" mySvdCtyCodeBest "^" myEffDateBest "^DEDUP")
+				print (myIataCode "-" myCtyLocType "^" myIataCode		\
+					   "^" myGeoLatCty "^" myGeoLonCty					\
+					   "^" mySvdCtyCodeBest "^" myEffDateBest "^DEDUP")
 
 			} else {
 				# Notification
@@ -381,7 +394,7 @@ BEGINFILE {
 	# IATA code of the served city
 	svd_cty_code = $5
 
-	# Effective fate (when empty, that IATA code is considered to have been
+	# Effective date (when empty, that IATA code is considered to have been
 	# always effective)
 	eff_date = $6
 
@@ -535,7 +548,7 @@ BEGINFILE {
 ##
 # Geonames header line
 /^iata_code/ {
-	print ("pk^" $0)
+	print ("pk^iata_code^latitude^longitude^city_code^date_from^dedup_tag")
 }
 
 ##
@@ -614,10 +627,12 @@ BEGINFILE {
 		}
 
 		if (last_is_city != 0) {
-			# The previous POR is the city.
+			# The previous POR is the city, the current POR is the travel-related one.
 			city_pos = 1
 			cty_geo_lat = last_geo_lat
 			cty_geo_lon = last_geo_lon
+			tvl_geo_lat = geo_lat
+			tvl_geo_lon = geo_lon
 
 			# Sanith check: the other POR should be travel-related
 			# (e.g., airport, heliport, railway station, off-point).
@@ -631,10 +646,12 @@ BEGINFILE {
 			}
 
 		} else if (is_city == 1) {
-			# The current POR is the city.
+			# The current POR is the city, the previous POR is the travel-related one.
 			city_pos = 2
 			cty_geo_lat = geo_lat
 			cty_geo_lon = geo_lon
+			tvl_geo_lat = last_geo_lat
+			tvl_geo_lon = last_geo_lon
 
 			# Sanith check: the other POR should be travel-related
 			# (e.g., airport, heliport, railway station, off-point).
@@ -651,16 +668,19 @@ BEGINFILE {
 			# airport and railway station; the served city is STO/Stockholm).
 			# The display then respects the input:
 			# last line first, new line second (in the displayPOR() function,
-			# the city POR is displayed second).
+			# the city POR is displayed in the second place).
 			city_pos = 0
 			cty_geo_lat = geo_lat
 			cty_geo_lon = geo_lon
+			tvl_geo_lat = last_geo_lat
+			tvl_geo_lon = last_geo_lon
 		}
 
 		# Display the POR entries, only when the IATA code is specified in the
 		# ORI-maintained list (and, hence, the location type is defined).
 		if (location_type != "") {
-			displayPOR(iata_code, nb_of_por, cty_geo_lat, cty_geo_lon, city_pos)
+			displayPOR(iata_code, nb_of_por, cty_geo_lat, cty_geo_lon, city_pos, \
+					   tvl_geo_lat, tvl_geo_lon)
 		}
 
 	} else {
