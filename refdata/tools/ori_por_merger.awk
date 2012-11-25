@@ -1,12 +1,13 @@
 ##
-# That AWK script merges the file of best known coordinates with the newly created
-# de-duplicated one. They both have got the same format.
-# For instance, a 'CA' (city and airport) entry in the original file (passed as the
-# second data file to that AWK script) may be split into a city and an airport
-# in the newly created file (passed as the first data file to that AWK script).
+# That AWK script merges the file of best known coordinates with the newly
+# created de-duplicated one. They both have got the same format.
+# For instance, a 'CA' (city and airport) entry in the original file (passed
+# as the second data file to that AWK script) may be split into a city and
+# an airport in the newly created file (passed as the first data file to
+# that AWK script).
 #
-# For instance, the following POR entries of the ../ORI/best_coordinates_known_so_far.csv
-# data file:
+# For instance, the following POR entries of the
+# ../ORI/best_coordinates_known_so_far.csv data file:
 # is made of the IATA code and location type. For instance:
 #  * NCE-CA^NCE^43.658411^7.215872^NCE^
 # will be de-duplicated in the ori_por_to_be_split.csv data file:
@@ -314,8 +315,9 @@ BEGINFILE {
 		nb_of_loc_types = length(new_loc_type)
 		delete loc_type_array
 
-		# Transform the (small) location_type string (e.g., 'CA' for city and airport)
-		# into the corresponding array (e.g., ['C', 'A']), so that it can be sorted
+		# Transform the (small) location_type string (e.g., 'CA' for city
+		# and airport) into the corresponding array (e.g., ['C', 'A']),
+		# so that it can be sorted
 		for (idx = 1; idx <= nb_of_loc_types; idx++) {
 			# Extract the single location type (e.g., 'A' for airport)
 			single_loc_type = substr (new_loc_type, idx, 1)
@@ -343,8 +345,8 @@ BEGINFILE {
 			eff_date = eff_date_list[iata_code, single_loc_type]
 
 			# Print the de-duplicated entry for that POR
-			print (iata_code "-" single_loc_type "^" iata_code "^" geo_lat "^" geo_lon	\
-				   "^" svd_cty_code "^" eff_date)
+			print (iata_code "-" single_loc_type "^" iata_code			\
+				   "^" geo_lat "^" geo_lon "^" svd_cty_code "^" eff_date)
 		}
 
 	} else {

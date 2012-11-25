@@ -627,7 +627,8 @@ BEGINFILE {
 		}
 
 		if (last_is_city != 0) {
-			# The previous POR is the city, the current POR is the travel-related one.
+			# The previous POR is the city, the current POR is the
+			# travel-related one.
 			city_pos = 1
 			cty_geo_lat = last_geo_lat
 			cty_geo_lon = last_geo_lon
@@ -637,16 +638,17 @@ BEGINFILE {
 			# Sanith check: the other POR should be travel-related
 			# (e.g., airport, heliport, railway station, off-point).
 			if (is_travel == 0) {
-				print ("[" awk_file "] !!!! Error for the POR #" FNR \
-					   " and #" FNR-1 ", with IATA code=" iata_code \
+				print ("[" awk_file "] !!!! Error for the POR #" FNR	\
+					   " and #" FNR-1 ", with IATA code=" iata_code		\
 					   ". The first POR is a"							\
 					   " city, but the second one is not travel-related." \
-					   " Both POR:\n" last_full_line "\n" full_line) \
+					   " Both POR:\n" last_full_line "\n" full_line)	\
 					> error_stream
 			}
 
 		} else if (is_city == 1) {
-			# The current POR is the city, the previous POR is the travel-related one.
+			# The current POR is the city, the previous POR is the
+			# travel-related one.
 			city_pos = 2
 			cty_geo_lat = geo_lat
 			cty_geo_lon = geo_lon
@@ -656,8 +658,8 @@ BEGINFILE {
 			# Sanith check: the other POR should be travel-related
 			# (e.g., airport, heliport, railway station, off-point).
 			if (last_is_travel == 0) {
-				print ("[" awk_file "] !!!! Error for the POR #" FNR \
-					   " and #" FNR-1 ", with IATA code=" iata_code \
+				print ("[" awk_file "] !!!! Error for the POR #" FNR	\
+					   " and #" FNR-1 ", with IATA code=" iata_code		\
 					   ". The second POR is a city, but the first one is not" \
 					   " travel-related. Both POR:\n" last_full_line "\n" \
 					   full_line) > error_stream
@@ -679,8 +681,8 @@ BEGINFILE {
 		# Display the POR entries, only when the IATA code is specified in the
 		# ORI-maintained list (and, hence, the location type is defined).
 		if (location_type != "") {
-			displayPOR(iata_code, nb_of_por, cty_geo_lat, cty_geo_lon, city_pos, \
-					   tvl_geo_lat, tvl_geo_lon)
+			displayPOR(iata_code, nb_of_por, cty_geo_lat, cty_geo_lon,	\
+					   city_pos, tvl_geo_lat, tvl_geo_lon)
 		}
 
 	} else {

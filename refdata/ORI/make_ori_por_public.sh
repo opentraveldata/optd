@@ -37,8 +37,8 @@ then
 fi
 
 ##
-# Sanity check: that (executable) script should be located in the ORI/ sub-directory
-# of the OpenTravelData project Git clone
+# Sanity check: that (executable) script should be located in the ORI/
+# sub-directory of the OpenTravelData project Git clone
 EXEC_DIR_NAME=`basename ${EXEC_FULL_PATH}`
 if [ "${EXEC_DIR_NAME}" != "ORI" ]
 then
@@ -239,22 +239,34 @@ cut -d'^' -f1,33- ${GEONAME_SORTED_FILE} > ${GEONAME_RAW_FILE_TMP}
 cut -d'^' -f1-32 ${GEONAME_SORTED_FILE} > ${GEONAME_CUT_SORTED_FILE}
 
 ##
+# Extract the header into a temporary file
+ORI_POR_FILE_HEADER=${ORI_POR_FILE}.tmp.hdr
+grep "^pk\(.\+\)" ${ORI_POR_FILE} > ${ORI_POR_FILE_HEADER}
+
+# Remove the header
+sed -i -e "s/^pk\(.\+\)//g" ${ORI_POR_FILE}
+sed -i -e "/^$/d" ${ORI_POR_FILE}
+
+##
 # Aggregate all the data sources into a single file
 #
 # ${ORI_POR_FILE} (best_coordinates_known_so_far.csv) and
 # ${GEONAME_CUT_SORTED_FILE} (../tools/cut_sorted_wpk_dump_from_geonames.csv)
 # are joined on the primary key (i.e., IATA code - location type):
-join -t'^' -a 1 -1 1 -2 1 ${ORI_POR_FILE} ${GEONAME_CUT_SORTED_FILE} > ${ORI_POR_WITH_GEO}
+join -t'^' -a 1 -1 1 -2 1 ${ORI_POR_FILE} ${GEONAME_CUT_SORTED_FILE} \
+	> ${ORI_POR_WITH_GEO}
 
 # ${ORI_POR_WITH_GEO} (best_coordinates_known_so_far.csv.withgeo) and
 # ${GEONAME_CUT_SORTED_FILE} (sorted_wpk_dump_from_crb_city.csv) are joined on
 # the primary key (i.e., IATA code - location type):
-join -t'^' -a 1 -1 1 -2 1 ${ORI_POR_WITH_GEO} ${RFD_SORTED_FILE} > ${ORI_POR_WITH_GEORFD}
+join -t'^' -a 1 -1 1 -2 1 ${ORI_POR_WITH_GEO} ${RFD_SORTED_FILE} \
+	> ${ORI_POR_WITH_GEORFD}
 
 # ${ORI_POR_WITH_GEORFD} (best_coordinates_known_so_far.csv.withgeorfd) and
 # ${GEONAME_RAW_FILE_TMP} (../tools/dump_from_geonames.csv.alt) are joined on
 # the primary key (i.e., IATA code - location type):
-join -t'^' -a 1 -1 1 -2 1 ${ORI_POR_WITH_GEORFD} ${GEONAME_RAW_FILE_TMP} > ${ORI_POR_WITH_GEORFDALT}
+join -t'^' -a 1 -1 1 -2 1 ${ORI_POR_WITH_GEORFD} ${GEONAME_RAW_FILE_TMP} \
+	> ${ORI_POR_WITH_GEORFDALT}
 
 ##
 # Suppress the redundancies. See ${REDUCER} for more details and samples.
@@ -267,8 +279,17 @@ awk -F'^' -v non_ori_por_file="${ORI_ONLY_POR_FILE}" -f ${REDUCER} \
 # Write the UTF8 and ASCII names of the city served by every travel-related
 # point of reference (POR)
 CITY_WRITER=add_city_name.awk
-awk -F'^' -f ${CITY_WRITER} ${ORI_POR_WITH_NO_CTY_NAME} ${ORI_POR_WITH_NO_CTY_NAME} \
+awk -F'^' -f ${CITY_WRITER} \
+	${ORI_POR_WITH_NO_CTY_NAME} ${ORI_POR_WITH_NO_CTY_NAME} \
 	> ${ORI_POR_PUBLIC_FILE}
+
+##
+# Re-add the header
+ORI_POR_FILE_TMP=${ORI_POR_FILE}.tmp
+cat ${ORI_POR_FILE_HEADER} ${ORI_POR_FILE} > ${ORI_POR_FILE_TMP}
+sed -i -e "/^$/d" ${ORI_POR_FILE_TMP}
+\mv -f ${ORI_POR_FILE_TMP} ${ORI_POR_FILE}
+\rm -f ${ORI_POR_FILE_HEADER}
 
 ##
 # Reporting
