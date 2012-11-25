@@ -30,24 +30,45 @@ then
 fi
 
 ##
-# Geonames data store
-GEO_POR_DATA_DIR=${EXEC_PATH}../geonames/data/por/data/
-
 # Snapshot date
 SNAPSHOT_DATE=`date "+%Y%m%d"`
 SNAPSHOT_DATE_HUMAN=`date`
+
+##
+# Retrieve the latest schedule file
+POR_FILE_PFX1=por_all_iata
+POR_FILE_PFX2=por_all_icao_only
+POR_FILE_PFX3=por_all_nocode
+POR_FILE_PFX4=por_all_noicao
+LATEST_EXTRACT_DATE=`ls ${EXEC_PATH}/${POR_FILE_PFX1}_????????.csv | tail -1 | sed -e "s/${POR_FILE_PFX1}_\([0-9]\+\)\.csv/\1/" | xargs basename`
+if [ "${LATEST_EXTRACT_DATE}" != "" ]
+then
+	LATEST_EXTRACT_DATE_HUMAN=`date -d ${LATEST_EXTRACT_DATE}`
+fi
+if [ "${LATEST_EXTRACT_DATE}" != "" \
+	-a "${LATEST_EXTRACT_DATE}" != "${SNAPSHOT_DATE}" ]
+then
+	LATEST_DUMP_FILE_IATA_ALL_FILENAME=${POR_FILE_PFX1}_${LATEST_EXTRACT_DATE}.csv
+	LATEST_DUMP_FILE_ICAO_ONLY_FILENAME=${POR_FILE_PFX2}_${LATEST_EXTRACT_DATE}.csv
+	LATEST_DUMP_FILE_NO_CODE_FILENAME=${POR_FILE_PFX3}_${LATEST_EXTRACT_DATE}.csv
+	LATEST_DUMP_FILE_NO_ICAO_FILENAME=${POR_FILE_PFX4}_${LATEST_EXTRACT_DATE}.csv
+fi
+
+##
+# Geonames data store
+GEO_POR_DATA_DIR=${EXEC_PATH}../geonames/data/por/data/
 
 ##
 # Extract airport/city information from the Geonames data file
 GEO_POR_FILENAME=allCountries_w_alt.txt
 GEO_POR_FILE=${GEO_POR_DATA_DIR}${GEO_POR_FILENAME}
 # Generated files
-DUMP_FILE_IATA_TVL_FILENAME=por_all_iata_tvl_${SNAPSHOT_DATE}.csv
-DUMP_FILE_IATA_CTY_FILENAME=por_all_iata_cty_${SNAPSHOT_DATE}.csv
-DUMP_FILE_IATA_ALL_FILENAME=por_all_iata_${SNAPSHOT_DATE}.csv
-DUMP_FILE_ICAO_ONLY_FILENAME=por_all_icao_only_${SNAPSHOT_DATE}.csv
-DUMP_FILE_NO_CODE_FILENAME=por_all_nocode_${SNAPSHOT_DATE}.csv
-DUMP_FILE_NO_ICAO_FILENAME=por_all_noicao_${SNAPSHOT_DATE}.csv
+DUMP_FILE_IATA_TVL_FILENAME=${POR_FILE_PFX1}_tvl_${SNAPSHOT_DATE}.csv
+DUMP_FILE_IATA_CTY_FILENAME=${POR_FILE_PFX1}_cty_${SNAPSHOT_DATE}.csv
+DUMP_FILE_IATA_ALL_FILENAME=${POR_FILE_PFX1}_${SNAPSHOT_DATE}.csv
+DUMP_FILE_ICAO_ONLY_FILENAME=${POR_FILE_PFX2}_${SNAPSHOT_DATE}.csv
+DUMP_FILE_NO_CODE_FILENAME=${POR_FILE_PFX3}_${SNAPSHOT_DATE}.csv
+DUMP_FILE_NO_ICAO_FILENAME=${POR_FILE_PFX4}_${SNAPSHOT_DATE}.csv
 DUMP_FILE_DUP_FILENAME=por_all_dup_iata_${SNAPSHOT_DATE}.csv
 #
 DUMP_FILE_IATA_TVL=${TMP_DIR}${DUMP_FILE_IATA_TVL_FILENAME}
@@ -61,6 +82,11 @@ DUMP_FILE_NO_CODE=${TMP_DIR}${DUMP_FILE_NO_CODE_FILENAME}
 DUMP_FILE_NO_ICAO=${TMP_DIR}${DUMP_FILE_NO_ICAO_FILENAME}
 DUMP_FILE_DUP=${TMP_DIR}${DUMP_FILE_DUP_FILENAME}
 DUMP_FILE_TMP=${TMP_DIR}sorted.csv.tmp
+#
+LATEST_DUMP_FILE_IATA_ALL_FILE=${TMP_DIR}${LATEST_DUMP_FILE_IATA_ALL_FILENAME}
+LATEST_DUMP_FILE_ICAO_ONLY_FILE=${TMP_DIR}${LATEST_DUMP_FILE_ICAO_ONLY_FILENAME}
+LATEST_DUMP_FILE_NO_CODE_FILE=${TMP_DIR}${LATEST_DUMP_FILE_NO_CODE_FILENAME}
+LATEST_DUMP_FILE_NO_ICAO_FILE=${TMP_DIR}${LATEST_DUMP_FILE_NO_ICAO_FILENAME}
 
 #
 if [ "$1" = "-h" -o "$1" = "--help" ];
@@ -68,8 +94,14 @@ then
 	echo
 	echo "Usage: $0"
 	echo "  - Snapshot date: '${SNAPSHOT_DATE}' (${SNAPSHOT_DATE_HUMAN})"
+	if [ "${LATEST_EXTRACT_DATE}" != "" \
+		-a "${LATEST_EXTRACT_DATE}" != "${SNAPSHOT_DATE}" ]
+	then
+		echo "  - Latest extraction date: '${LATEST_EXTRACT_DATE}' (${LATEST_EXTRACT_DATE_HUMAN})"
+	fi
 	echo "  - Input (CSV-formatted) data file: '${GEO_POR_FILE}'"
 	echo "  - Generated (CSV-formatted) data files:"
+	echo "      + '${DUMP_FILE_IATA_ALL}'"
 	echo "      + '${DUMP_FILE_IATA_TVL}'"
 	echo "      + '${DUMP_FILE_IATA_CTY}'"
 	echo "      + '${DUMP_FILE_ICAO_ONLY}'"
@@ -196,6 +228,7 @@ echo "Reporting step"
 echo "--------------"
 echo
 echo "From the '${GEO_POR_FILE}' input data file, the following data files have been derived:"
+echo " + '${DUMP_FILE_IATA_ALL}'"
 echo " + '${DUMP_FILE_ICAO_ONLY}'"
 echo " + '${DUMP_FILE_NO_CODE}'"
 echo " + '${DUMP_FILE_NO_ICAO}'"
@@ -204,5 +237,22 @@ echo
 echo
 echo "Other temporary files have been generated. Just issue the following command to delete them:"
 echo "$0 --clean"
+echo
+echo "Following steps:"
+echo "----------------"
+echo "After having checked that the updates brought by Geonames are legitimate and not disruptive, i.e.:"
+if [ "${LATEST_EXTRACT_DATE}" != "" \
+	-a "${LATEST_EXTRACT_DATE}" != "${SNAPSHOT_DATE}" ]
+then
+	echo "diff -c ${LATEST_DUMP_FILE_IATA_ALL_FILE} ${DUMP_FILE_IATA_ALL} | less"
+	echo "diff -c ${LATEST_DUMP_FILE_ICAO_ONLY_FILE} ${DUMP_FILE_ICAO_ONLY} | less"
+	echo "diff -c ${LATEST_DUMP_FILE_NO_CODE_FILE} ${DUMP_FILE_NO_CODE} | less"
+	echo "diff -c ${LATEST_DUMP_FILE_NO_ICAO_FILE} ${DUMP_FILE_NO_ICAO} | less"
+	echo "mkdir -p archives && bzip2 *_${LATEST_EXTRACT_DATE}.csv && mv *_${LATEST_EXTRACT_DATE}.csv.bz2 archives"
+fi
+echo
+echo "The consolidated Geonames data file (dump_from_geonames.csv) may be generated:"
+echo "${EXEC_PATH}preprepare_geonames_dump_file.sh"
+echo
 echo
 
