@@ -24,6 +24,7 @@
 # (see http://www.geonames.org/export/codes.html):
 #  * PPLx:  Populated place (city)
 #  * ADMx:  Administrative division (which may be a city in some cases)
+#  * PCLI:  Political entity (country, e.g., Bahrain, Monaco)
 #  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
 #           field
 #  * AIRQ:  Abandoned air field
@@ -519,9 +520,10 @@ BEGINFILE {
 	# Feature code
 	fcode = $13
 
-	#
-	is_city = match (fcode, "PPL") + match (fcode, "ADM")
+	# City-related part
+	is_city = match (fcode, "PPL") + match (fcode, "ADM") + match (fcode, "PCLI")
 
+	# Travel-related part
 	is_airport = match (fcode, "AIRB") + match (fcode, "AIRF") \
 		+ match (fcode, "AIRP") + match (fcode, "AIRS")
 	is_rail = match (fcode, "RSTN")
