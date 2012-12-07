@@ -25,6 +25,7 @@
 #  * PPLx:  Populated place (city)
 #  * ADMx:  Administrative division (which may be a city in some cases)
 #  * PCLI:  Political entity (country, e.g., Bahrain, Monaco)
+#  * ISLx:  Island (e.g., Dalma Island)
 #  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
 #           field
 #  * AIRQ:  Abandoned air field
