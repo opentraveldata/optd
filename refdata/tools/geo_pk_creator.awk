@@ -25,6 +25,7 @@
 #  * PPLx:  Populated place (city)
 #  * ADMx:  Administrative division (which may be a city in some cases)
 #  * PCLI:  Political entity (country, e.g., Bahrain, Monaco)
+#  * LCTY:  Locality (e.g., Sdom)
 #  * ISLx:  Island (e.g., Dalma Island)
 #  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
 #           field
@@ -522,14 +523,15 @@ BEGINFILE {
 	fcode = $13
 
 	# City-related part
-	is_city = match (fcode, "PPL") + match (fcode, "ADM") + match (fcode, "PCLI")
+	is_city = match (fcode, "PPL") + match (fcode, "ADM")
+	is_city += match (fcode, "LCTY") + match (fcode, "PCLI")
 
 	# Travel-related part
-	is_airport = match (fcode, "AIRB") + match (fcode, "AIRF") \
-		+ match (fcode, "AIRP") + match (fcode, "AIRS")
+	is_airport = match (fcode, "AIRB") + match (fcode, "AIRF")
+	is_airport += match (fcode, "AIRP") + match (fcode, "AIRS")
+	is_heliport = match (fcode, "AIRH")
 	is_rail = match (fcode, "RSTN")
 	is_bus = match (fcode, "BUST")
-	is_heliport = match (fcode, "AIRH")
 	is_port = match (fcode, "NVB") + match (fcode, "PRT") + match (fcode, "FY")
 	is_travel = is_airport + is_rail + is_bus + is_heliport + is_port
 
