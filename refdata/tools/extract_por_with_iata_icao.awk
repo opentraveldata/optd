@@ -26,6 +26,7 @@
 #  * PPLx:  Populated place (city)
 #  * ADMx:  Administrative division (which may be a city in some cases)
 #  * PCLI:  Political entity (country, e.g., Bahrain, Monaco)
+#  * LCTY:  Locality (e.g., Sdom)
 #  * ISLx:  Island (e.g., Dalma Island)
 #  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
 #           field
@@ -86,7 +87,7 @@ BEGIN {
 function is_tvl_or_cty (feat_code) {
 	# Calculate the flags corresponding to the type
 	is_city = match (feat_code, "^ADM.*$") + match (feat_code, "^PPL.*$")
-	is_city += match (feat_code, "^PCLI*$")
+	is_city += match (feat_code, "^LCTY$") + match (feat_code, "^PCLI$")
 	is_travel = match (feat_code, "^AIRB$") + match (feat_code, "^AIRF$")
 	is_travel += match (feat_code, "^AIRH$") + match (feat_code, "^AIRP$")
 	is_travel += match (feat_code, "^AIRS$") + match (feat_code, "^RSTN$")
