@@ -112,6 +112,7 @@ ORI_ONLY_POR_NEW_FILE=${ORI_ONLY_POR_FILE}.new
 
 ##
 # Temporary
+ORI_POR_WITH_NOHD=${ORI_POR_FILE}.wohd
 ORI_POR_WITH_GEO=${ORI_POR_FILE}.withgeo
 ORI_POR_WITH_GEORFD=${ORI_POR_FILE}.withgeorfd
 ORI_POR_WITH_GEORFDALT=${ORI_POR_FILE}.withgeorfdalt
@@ -180,7 +181,8 @@ fi
 if [ "$1" = "--clean" ]
 then
 	\rm -f ${ORI_POR_WITH_GEO} ${ORI_ONLY_POR_NEW_FILE} \
-		${ORI_POR_WITH_GEORFD} ${ORI_POR_WITH_GEORFDALT} ${ORI_POR_WITH_NO_CTY_NAME} \
+		${ORI_POR_WITH_GEORFD} ${ORI_POR_WITH_GEORFDALT} \
+		${ORI_POR_WITH_NO_CTY_NAME} ${ORI_POR_FILE_HEADER} ${ORI_POR_WITH_NOHD} \
 		${GEONAME_WPK_FILE} ${GEONAME_RAW_FILE_TMP} \
 		${GEONAME_SORTED_FILE} ${GEONAME_CUT_SORTED_FILE} \
 		${RFD_SORTED_FILE} ${RFD_CUT_SORTED_FILE} \
@@ -244,8 +246,8 @@ ORI_POR_FILE_HEADER=${ORI_POR_FILE}.tmp.hdr
 grep "^pk\(.\+\)" ${ORI_POR_FILE} > ${ORI_POR_FILE_HEADER}
 
 # Remove the header
-sed -i -e "s/^pk\(.\+\)//g" ${ORI_POR_FILE}
-sed -i -e "/^$/d" ${ORI_POR_FILE}
+sed -e "s/^pk\(.\+\)//g" ${ORI_POR_FILE} > ${ORI_POR_WITH_NOHD}
+sed -i -e "/^$/d" ${ORI_POR_WITH_NOHD}
 
 ##
 # Aggregate all the data sources into a single file
@@ -253,7 +255,7 @@ sed -i -e "/^$/d" ${ORI_POR_FILE}
 # ${ORI_POR_FILE} (best_coordinates_known_so_far.csv) and
 # ${GEONAME_CUT_SORTED_FILE} (../tools/cut_sorted_wpk_dump_from_geonames.csv)
 # are joined on the primary key (i.e., IATA code - location type):
-join -t'^' -a 1 -1 1 -2 1 ${ORI_POR_FILE} ${GEONAME_CUT_SORTED_FILE} \
+join -t'^' -a 1 -1 1 -2 1 ${ORI_POR_WITH_NOHD} ${GEONAME_CUT_SORTED_FILE} \
 	> ${ORI_POR_WITH_GEO}
 
 # ${ORI_POR_WITH_GEO} (best_coordinates_known_so_far.csv.withgeo) and
@@ -284,11 +286,7 @@ awk -F'^' -f ${CITY_WRITER} \
 	> ${ORI_POR_PUBLIC_FILE}
 
 ##
-# Re-add the header
-ORI_POR_FILE_TMP=${ORI_POR_FILE}.tmp
-cat ${ORI_POR_FILE_HEADER} ${ORI_POR_FILE} > ${ORI_POR_FILE_TMP}
-sed -i -e "/^$/d" ${ORI_POR_FILE_TMP}
-\mv -f ${ORI_POR_FILE_TMP} ${ORI_POR_FILE}
+# Remove the header
 \rm -f ${ORI_POR_FILE_HEADER}
 
 ##
