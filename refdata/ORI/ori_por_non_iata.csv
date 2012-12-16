@@ -52,7 +52,7 @@ HHA^ZGCS^^Y^6301358^^Changsha Datuopu Airport^Changsha Datuopu Airport^28.19^113
 HIC^PRETORIA HIC^PRETORIA HIC^PRETORIA/ZA:ISCOR HPT^PRY^Y^^ZA^AFRIC^ITC2^ZA^-25.82^28.17^0^N^H
 HIX^HIVA OA^HIVA OA^HIVA OA/PF^HIX^Y^^PF^PACIF^ITC3^PF086^-9.75^-139^0^N^CA
 HNK^HINCHINBROOK ISL^HINCHINBROOK IS^HINCHINBROOK ISL/QL/AU^HNK^Y^QL^AU^AUSTL^ITC3^AU131^-18.38^146.3^0^N^CA
-HPP^ZZZZ^^Y^8298820^^Poipet^Poipet^13.65^102.7^S^AIRP^^^2012-10-27^IATA Notification #33 (2012)^KH^^Cambodia^01^^^^^^^^0^^35^Asia/Phnom_Penh^7.0^7.0^7.0^2012-05-18^Y^N^HPP^^^^SEASI^CA^^
+HPP^ZZZZ^^Y^8298820^^Poipet^Poipet^13.65^102.7^S^AIRP^^^2012-10-27^IATA Notification #33 (2012) - Airport not operational^KH^^Cambodia^01^^^^^^^^0^^35^Asia/Phnom_Penh^7.0^7.0^7.0^2012-05-18^Y^N^HPP^^^^SEASI^CA^^
 HPR^PRETORIA HPR^PRETORIA HPR^PRETORIA/ZA:CENTRAL HPR^PRY^Y^^ZA^AFRIC^ITC2^ZA^-25.98^28.15^0^N^H
 HTF^UNKNOWN3352^UNKNOWN3352^UNKNOWN3352/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^51.75^-0.2333^0^N^CA
 IIN^ZZZZ^^Y^1855203^1^Nishinoomote Airport^Nishinoomote Airport^30.83^131^P^PPL^^^2012-11-01^IATA Notification #39 (2012) - Same location as TNE^JP^^Japan^18^Kagoshima^Kagoshima^^^^^^17832^^38^Asia/Tokyo^9.0^9.0^9.0^2006-01-17^Y^N^IIN^Nishinoomote^Nishinoomote^^ASIA^CA^http://en.wikipedia.org/wiki/Nishinoomote%2C_Kagoshima^|Nisinoomote|
@@ -67,6 +67,7 @@ KNO^UNKNOWN4253^UNKNOWN4253^UNKNOWN4253/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^51.42^3.25^0^
 KOB^UNKNOWN4266^UNKNOWN4266^UNKNOWN4266/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^5^10^0^N^CA
 KQB^ZZZZ^2068246^Koonibba^Koonibba^-31.9666700^133.4500000^AU^^P^PPL^05^41010^^^130^0^66^Australia/Adelaide^10.5^9.5^9.5^2011-06-04^KQB
 KYB^YANGOONABIE^YANGOONABIE^YANGOONABIE/SA/AU^KYB^Y^SA^AU^AUSTL^ITC3^AU009^-34.75^138.7^0^N^CA
+KZK^ZZZZ^^N^0^^Kompong Thom^Kompong Thom^12.72^104.9^S^AIRP^^^2012-12-01^IATA Notification #33 (2012) - Airport not found^KH^^Cambodia^05^Kompong Thom^Kompong Thom^^^^^^0^^17^Asia/Phnom_Penh^7.0^7.0^7.0^2012-12-01^Y^N^KZD^Kompong Thom^Kompong Thom^^SEASI^CA^^
 LIU^UNKNOWN4676^UNKNOWN4676^UNKNOWN4676/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^35.83^12.83^0^N^CA
 LKT^UNKNOWN4702^UNKNOWN4702^UNKNOWN4702/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^5.85^-5.683^0^N^CA
 LPH^UNKNOWN4802^UNKNOWN4802^UNKNOWN4802/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^56.05^-5.433^0^N^CA
@@ -106,9 +107,11 @@ PLB^UNKNOWN6559^UNKNOWN6559^UNKNOWN6559/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^44.68^-73.52^
 PTE^ZZZZ^2148398^Port Stephens^Port Stephens^-32.6966000^152.0634800^AU^AU^P^PPL^02^^^^26000^0^-9999^Australia/Sydney^11.0^10.0^10.0^2009-12-22^PTE,Port Stephen
 PVX^UNKNOWN6810^UNKNOWN6810^UNKNOWN6810/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^64.37^173.2^0^N^CA
 QBS^ZZZZ^^Y^3181554^^Brescia^Brescia^45.54^10.222^P^PPLA2^^^2012-10-27^IATA Monthly Amendment Bulletin July 2012 - With the assignment of BRZ, Brescia no longer requires an off-line point^IT^^Italy^09^Lombardy^Lombardy^BS^Provincia di Brescia^Provincia di Brescia^017029^^187567^^132^Europe/Rome^1.0^2.0^1.0^2011-02-23^Y^N^QBS^^^^EUROP^O^^es|Brescia|=de|Brescia|=pl|Brescia|=en|Brescia|=ar|بريشيا|=ca|Brescia|=cs|Brescia|=eo|Brescia|=et|Brescia|=fi|Brescia|=fr|Brescia|=id|Brescia|=it|Brescia|=ja|ブレシア|=la|Brixia|=nap|Brescia|=nl|Brescia|=no|Brescia|=pt|Bréscia|=ro|Brescia|=ru|Брешия|=sv|Brescia|=sl|Brescia|=vec|Bresia|=co|Brescia|=pms|Bressia|=sr|Бреша|=zh|布雷西亚|
+QEJ^ZZZZ^^N^0^^Elgarhbolli^Elgarhbolli^^^S^AIRP^^^2012-01-01^^LY^^Libya^47^^^^^^^^0^^43^Africa/Tripoli^2.0^2.0^2.0^2012-04-29^Y^N^QEJ^Elgarhbolli^Elgarhbolli^^AFRIC^CA^^
 QLU^ZZZZ^Y^765876^1^Lublin^Lublin^Liublinas,Ljublin,Lublin,Lublina,Lublino,Lyublin,QLU,lublini,lwblyn,ruburin,Ļubļina,Лублин,Люблин,Люблін,לובלין,ლუბლინი,ルブリン^51.24^22.572^P^PPLA^^^2012-06-01^IATA Amendment Bulletin of June 2012 - With the assignment of LUZ, Lublin no longer requires an off-line point^PL^^75^^^^360044^^183^Europe/Warsaw^1.0^2.0^1.0^2012-01-19^N^N^QLU^^EEURO^O^http://en.wikipedia.org/wiki/Lublin^^Lyublin^^pl^Lublin^^de^Lublin^^en^Lublin^^bg^Люблин^^bs^Lublin^^cs^Lublin^^eo^Lublin^^et^Lublin^^fi^Lublin^^fr^Lublin^^he^לובלין^^hu^Lublin^^it^Lublino^^ja^ルブリン^^lt^Liublinas^^lv^Ļubļina^^na^Lublin^^nds^Lublin^^nl^Lublin^^no^Lublin^^ro^Lublin^^ru^Люблин^^sr^Лублин^^sv^Lublin^^ua^Люблін^^es^Lublin^^eu^Lublin^^id^Lublin^^ka^ლუბლინი^^pt^Lublin^^tr^Lublin^^be^Люблін^^gl^Lublin^^^Lublin^
 QMT^UNKNOWN7182^UNKNOWN7182^UNKNOWN7182/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^36.7^3.233^0^N^CA
 QTC^ZZZZ^^Y^3179866^^Caserta^Caserta^41.0667^14.3333^P^PPLA2^^^2012-10-27^IATA Monthly Amendment Bulletin July 2012 - With the assignment of CTJ, Caserta no longer requires an off-line point^IT^^Italy^04^Campania^Campania^CE^Provincia di Caserta^Provincia di Caserta^061022^^75208^^81^Europe/Rome^1.0^2.0^1.0^2012-08-22^Y^N^QTC^^^^EUROP^O^http://en.wikipedia.org/wiki/Caserta^de|Caserta|=en|Caserta|=cs|Caserta|=eo|Caserta|=fr|Caserte|=it|Caserta|=ja|カゼルタ|=nap|Caserta|=nl|Caserta|=pl|Caserta|=pt|Caserta|=ro|Caserta|=ru|Казерта|=sv|Caserta|=es|Caserta|
+RAU^ZZZZ^^N^0^^Rangpur Airport^Rangpur Airport^25.75^89.23^S^AIRP^^^2012-12-01^IATA Notification #33 (2012) - Airport not found^BD^^Bangladesh^70^^^^^^^^0^^56^Asia/Dhaka^6.0^6.0^6.0^2012-01-01^Y^N^RAU^Rangpur^Rangpur^^ASIA^CA^^
 RAY^UNKNOWN7534^UNKNOWN7534^UNKNOWN7534/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^55.85^-5.05^0^N^CA
 RKO^ZZZZ^^Y^0^1^Sipora Airport^Sipora Airport^-2.08333^99.6833^S^AIRP^^^2012-09-01^IATA Notification #38 (2012) - Same location as RKI^ID^^Indonesia^24^West Sumatra^West Sumatra^^^^^^0^^-9999^Asia/Jakarta^7.0^7.0^7.0^2012-10-21^Y^N^RKO^Rokot^Rokot^^SEASI^CA^^
 SAE^ZZZZ^^Y^7731478^^Sangir Airport^Sangir Airport^2.317^125.4^S^AIRP^^^2012-10-12^^ID^^Indonesia^^^^^^^^^0^^4^Asia/Makassar^8.0^8.0^8.0^2011-03-18^Y^N^SAE^^^^SEASI^CA^^
@@ -131,6 +134,7 @@ SSX^ZZZZ^^N^0^^Samsun^Samsun^41.28^36.33^P^PPL^0.0131671386793^^2012-12-14^IATA 
 SUY^UNKNOWN8404^UNKNOWN8404^UNKNOWN8404/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^66.02^-23.83^0^N^CA
 SVR^UNKNOWN8404^UNKNOWN8404^UNKNOWN8404/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^11.08^105.8^0^N^CA
 SWZ^SYDNEY WEST^SYDNEY WEST^SYDNEY/NS/AU:SYDNEY WEST^SYD^Y^NS^AU^AUSTL^ITC3^AU007^-33.88^150.7^0^N^A
+SZD^ZZZZ^^N^0^^Sheffield Airport^Sheffield Airport^53.394256^-1.388486^S^BUSTN^^^2012-01-01^^GB^^United Kingdom^ENG^England^England^D5^Borough of Doncaster^Borough of Doncaster^00CE043^^0^^40^Europe/London^0.0^1.0^0.0^2012-07-16^Y^N^SZD^Sheffield^Sheffield^^EUROP^CA^^
 SZH^ZZZZ^^Y^7731530^^Senipah Airport^Senipah Airport^-0.9667^117.1^S^AIRP^^^2012-10-12^^ID^^Indonesia^14^East Kalimantan^East Kalimantan^^^^^^0^^16^Asia/Makassar^8.0^8.0^8.0^2011-03-18^Y^N^SZH^^^^SEASI^CA^^
 T71^ZZZZ^4684559^Cuero Municipal Airport^Cuero Municipal Airport^29.0835900^-97.2669300^US^^S^AIRP^TX^123^^^0^63^66^America/Chicago^-6.0^-5.0^-6.0^2011-07-23^T71
 TBX^UNKNOWN8585^UNKNOWN8585^UNKNOWN8585/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^5.833^-5.367^0^N^CA
