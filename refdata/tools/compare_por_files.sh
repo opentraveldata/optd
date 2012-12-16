@@ -62,15 +62,6 @@ AIRPORT_PR_SORTED_CUT=cut_sorted_${AIRPORT_PR_FILENAME}
 AIRPORT_PR_FILE=${ORI_DIR}${AIRPORT_PR_FILENAME}
 
 ##
-# [No longer used]
-# ORI-maintained list of POR popularity details
-AIRPORT_POP_FILENAME=ref_airport_popularity.csv
-AIRPORT_POP_SORTED=sorted_${AIRPORT_POP_FILENAME}
-AIRPORT_POP_SORTED_CUT=cut_sorted_${AIRPORT_POP_FILENAME}
-#
-AIRPORT_POP=${ORI_DIR}${AIRPORT_POP_FILENAME}
-
-##
 # Comparison files
 POR_MAIN_DIFF_FILENAME=por_main_diff.csv
 #
@@ -87,6 +78,7 @@ ORI_BEST_FILE_MISSING=${ORI_BEST_FILE}.missing
 
 ##
 # Temporary files
+ORI_BEST_WITH_NOHD=${TMP_DIR}${ORI_BEST_FILENAME}.wohd
 GEO_COMBINED_TMP_FILE=geo_combined_file.csv.tmp
 
 
@@ -116,6 +108,7 @@ then
 		\rm -rf ${TMP_DIR}
 	else
 		\rm -f ${GEONAME_FILE_MISSING} ${ORI_BEST_FILE_MISSING} \
+			${ORI_BEST_FILE_HEADER} ${ORI_BEST_WITH_NOHD} \
 			${GEONAME_FILE} ${GEONAME_FILE_SORTED} ${GEONAME_FILE_SORTED_CUT} \
 			${AIRPORT_PR_SORTED} ${AIRPORT_PR_SORTED_CUT} ${POR_MAIN_DIFF}
 	fi
@@ -244,8 +237,8 @@ ORI_BEST_FILE_HEADER=${ORI_BEST_FILE}.tmp.hdr
 grep "^pk\(.\+\)" ${ORI_BEST_FILE} > ${ORI_BEST_FILE_HEADER}
 
 # Remove the header
-sed -i -e "s/^pk\(.\+\)//g" ${ORI_BEST_FILE}
-sed -i -e "/^$/d" ${ORI_BEST_FILE}
+sed -e "s/^pk\(.\+\)//g" ${ORI_BEST_FILE} > ${ORI_BEST_WITH_NOHD}
+sed -i -e "/^$/d" ${ORI_BEST_WITH_NOHD}
 
 ##
 # The two files contain only four fields (the primary key, the IATA code and
@@ -276,8 +269,8 @@ sed -i -e "/^$/d" ${ORI_BEST_FILE}
 #    dump file.
 #
 GEONAME_MASTER=${GEO_COMBINED_TMP_FILE}.geomst
-join -t'^' -a 1 -1 1 -2 1 -e NULL ${GEONAME_FILE_SORTED_CUT} ${ORI_BEST_FILE} \
-	> ${GEONAME_MASTER}
+join -t'^' -a 1 -1 1 -2 1 -e NULL \
+	${GEONAME_FILE_SORTED_CUT} ${ORI_BEST_WITH_NOHD} > ${GEONAME_MASTER}
 
 ##
 # Sanity check: calculate the minimal number of fields on the resulting file
@@ -326,8 +319,8 @@ fi
 #    ended by the from validity date.
 #
 ORI_BEST_MASTER=${GEO_COMBINED_TMP_FILE}.bstmst
-join -t'^' -a 2 -1 1 -2 1 -e NULL ${GEONAME_FILE_SORTED_CUT} ${ORI_BEST_FILE} \
-	> ${ORI_BEST_MASTER}
+join -t'^' -a 2 -1 1 -2 1 -e NULL \
+	${GEONAME_FILE_SORTED_CUT} ${ORI_BEST_WITH_NOHD} > ${ORI_BEST_MASTER}
 
 ##
 # Sanity check: calculate the minimal number of fields on the resulting file
@@ -357,6 +350,15 @@ fi
 cut -d'^' -f 1-4 ${GEONAME_MASTER} > ${GEONAME_MASTER}.dup
 \mv -f ${GEONAME_MASTER}.dup ${GEONAME_MASTER}
 cut -d'^' -f 1-4 ${ORI_BEST_MASTER} > ${ORI_BEST_MASTER}.dup
+\mv -f ${ORI_BEST_MASTER}.dup ${ORI_BEST_MASTER}
+
+
+##
+# Re-sort the files. Indeed, when there are duplicates (e.g., DUR/Durham),
+# the duplicated lines may not be in the sorting order, due to the coordinates
+sort ${GEONAME_MASTER} > ${GEONAME_MASTER}.dup
+\mv -f ${GEONAME_MASTER}.dup ${GEONAME_MASTER}
+sort ${ORI_BEST_MASTER} > ${ORI_BEST_MASTER}.dup
 \mv -f ${ORI_BEST_MASTER}.dup ${ORI_BEST_MASTER}
 
 
@@ -402,9 +404,9 @@ then
 	echo
 	echo "Suggestion step"
 	echo "---------------"
-	echo "${POR_MISSING_BEST_NB} points of reference (POR) are missing from the file of best coordinates ('${ORI_BEST_FILE}')."
+	echo "${POR_MISSING_BEST_NB} points of reference (POR) are missing from the file of best coordinates ('${ORI_BEST_FILE}' => '${ORI_BEST_WITH_NOHD}')."
 	echo "To incorporate the missing POR into '${ORI_BEST_FILE}', just do:"
-	echo "cat ${ORI_BEST_FILE} ${ORI_BEST_FILE_MISSING} | sort -t'^' -k1,1 > ${ORI_BEST_FILE}.tmp && \mv -f ${ORI_BEST_FILE}.tmp ${ORI_BEST_FILE} && \rm -f ${ORI_BEST_FILE_MISSING}"
+	echo "cat ${ORI_BEST_WITH_NOHD} ${ORI_BEST_FILE_MISSING} | sort -t'^' -k1,1 > ${ORI_BEST_FILE}.tmp && \mv -f ${ORI_BEST_FILE}.tmp ${ORI_BEST_FILE} && \rm -f ${ORI_BEST_FILE_MISSING}"
 	echo
 fi
 
@@ -414,17 +416,8 @@ fi
 # It generates a data file (${POR_MAIN_DIFF}, e.g., por_main_diff.csv)
 # containing the greatest distances (in km), for each airport/city, between
 # both sets of coordinates (Geonames and best known ones).
-${COMPARE_EXEC} ${GEONAME_FILE_SORTED_CUT} ${ORI_BEST_FILE} \
+${COMPARE_EXEC} ${GEONAME_FILE_SORTED_CUT} ${ORI_BEST_WITH_NOHD} \
 	${AIRPORT_PR_SORTED_CUT} ${COMP_MIN_DIST}
-
-
-##
-# Re-add the header
-ORI_BEST_FILE_TMP=${ORI_BEST_FILE}.tmp
-cat ${ORI_BEST_FILE_HEADER} ${ORI_BEST_FILE} > ${ORI_BEST_FILE_TMP}
-sed -i -e "/^$/d" ${ORI_BEST_FILE_TMP}
-\mv -f ${ORI_BEST_FILE_TMP} ${ORI_BEST_FILE}
-\rm -f ${ORI_BEST_FILE_HEADER}
 
 
 ##
@@ -433,6 +426,7 @@ sed -i -e "/^$/d" ${ORI_BEST_FILE_TMP}
 if [ "${TMP_DIR}" != "/tmp/por/" ]
 then
 	\rm -f ${JOINED_COORD} ${JOINED_COORD_FULL}
+	\rm -f ${ORI_BEST_FILE_HEADER} ${ORI_BEST_WITH_NOHD}
 	\rm -f ${GEONAME_MASTER} ${ORI_BEST_MASTER}
 	\rm -f ${GEONAME_FILE_SORTED} ${GEONAME_FILE_SORTED_CUT}
 fi

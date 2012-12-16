@@ -3,8 +3,7 @@
 ##
 # Input files
 GEO_FILE_1=dump_from_geonames.csv
-GEO_FILE_1_MISSING=${GEO_FILE_1}.missing
-GEO_FILE_1_TMP=${GEO_FILE_1}.tmp
+GEO_FILE_1_MISSING=wpk_${GEO_FILE_1}.missing
 RFD_FILE=dump_from_crb_city.csv
 PR_FILE=../ORI/ref_airport_pageranked.csv
 
@@ -15,9 +14,24 @@ GEO_FILE_2_PR=pageranked_${GEO_FILE_2}
 SORTED_PR_FILE=sorted_ref_airport_pageranked.csv
 
 ##
+# Temporary files
+GEO_FILE_1_TMP=${GEO_FILE_1}.tmp
+GEO_COMB_FILE=${GEO_FILE_1_MISSING}.withrfd
+CUT_GEO_COMB_FILE=${GEO_COMB_FILE}.cut
+
+##
 # Headers
-HDR_1="code^ticketing_name^detailed_name^teleticketing_name^extended_name^city_name^rel_city_code^is_airport^state_code^rel_country_code^rel_region_code^rel_continent_code^rel_time_zone_grp^latitude^longitude^numeric_code^is_commercial^location_type"
+HDR_1="iata_code^ticketing_name^detailed_name^teleticketing_name^extended_name^city_name^rel_city_code^is_airport^state_code^rel_country_code^rel_region_code^rel_continent_code^rel_time_zone_grp^latitude^longitude^numeric_code^is_commercial^location_type"
 HDR_2="${HDR_1}^page_rank"
+
+##
+# Cleaning
+#
+if [ "$1" = "--clean" ]
+then
+	\rm -f ${GEO_FILE_2} ${GEO_FILE_2_PR}
+	exit
+fi
 
 ##
 #
@@ -25,7 +39,7 @@ if [ ! -f ${GEO_FILE_1_MISSING} ]
 then
 	echo
 	echo "The ${GEO_FILE_1_MISSING} file is missing."
-	echo "Hint: launch the ./update_airports_csv_after_getting_geonames_iata_dump.sh script."
+	echo "Hint: launch the ./compare_por_files.sh script."
 	echo
 	exit -1
 fi
@@ -42,23 +56,22 @@ fi
 ##
 # Extract the header into a temporary file
 RFD_FILE_HEADER=${RFD_FILE}.tmp.hdr
-grep "^code\(.\+\)" ${RFD_FILE} > ${RFD_FILE_HEADER}
+grep "^iata_code\(.\+\)" ${RFD_FILE} > ${RFD_FILE_HEADER}
 
 # Remove the header
-sed -i -e "s/^code\(.\+\)//g" ${RFD_FILE}
+sed -i -e "s/^iata_code\(.\+\)//g" ${RFD_FILE}
 sed -i -e "/^$/d" ${RFD_FILE}
 
 ##
 # Extract only the IATA code from the file
-cut -d'^' -f1 ${GEO_FILE_1_MISSING} > ${GEO_FILE_1_TMP}
+cut -d'^' -f2 ${GEO_FILE_1_MISSING} > ${GEO_FILE_1_TMP}
 \mv -f ${GEO_FILE_1_TMP} ${GEO_FILE_1_MISSING}
 
 ##
 # Check that all the POR are in RFD.
-GEO_COMB_FILE=${GEO_FILE_1_MISSING}.withrfd
-CUT_GEO_COMB_FILE=${GEO_COMB_FILE}.cut
 join -t'^' -a 2 ${RFD_FILE} ${GEO_FILE_1_MISSING} > ${GEO_COMB_FILE}
-awk -F'^' '{if (NF != 18) {printf ($0 "\n")}}' ${GEO_COMB_FILE} > ${CUT_GEO_COMB_FILE}
+awk -F'^' '{if (NF != 18) {printf ($0 "\n")}}' ${GEO_COMB_FILE} \
+	> ${CUT_GEO_COMB_FILE}
 # If there are any non-RFD entries, suggest to remove them.
 NB_NON_RFD_ROWS=`wc -l ${CUT_GEO_COMB_FILE} | cut -d' ' -f1`
 if [ ${NB_NON_RFD_ROWS} -gt 0 ]
@@ -95,6 +108,10 @@ echo "${HDR_2}" > ${GEO_FILE_2}.hdr
 cat ${GEO_FILE_2}.hdr ${GEO_FILE_2_PR} > ${GEO_FILE_1_TMP}
 \mv -f ${GEO_FILE_1_TMP} ${GEO_FILE_2_PR}
 \rm -f ${GEO_FILE_2}.hdr
+
+##
+# Cleaning
+\rm -f ${GEO_COMB_FILE} ${CUT_GEO_COMB_FILE} ${RFD_FILE_HEADER}
 
 ##
 # Reporting
