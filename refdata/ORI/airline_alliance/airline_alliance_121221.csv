@@ -1,0 +1,84 @@
+Alliance,Status,IATA Code,IATA Name
+OneWorld,Member,AA,American Airlines
+OneWorld,Member,AB,Air Berlin
+OneWorld,Member,AX,American Connection
+OneWorld,Member,AY,Finnair
+OneWorld,Member,BA,British Airways
+OneWorld,Member,CJ,BA CityFlyer
+OneWorld,Member,CX,Cathay Pacific
+OneWorld,Member,EC,OpenSkies
+OneWorld,Member,GH,Globus LLC
+OneWorld,Member,HG,Niki
+OneWorld,Member,I2,Iberia Express
+OneWorld,Member,I4,Airlink
+OneWorld,Member,IB,Iberia
+OneWorld,Member,IT,Kingfisher Airlines
+OneWorld,Member,JC,JAL Express
+OneWorld,Member,JL,Japan Airlines
+OneWorld,Member,KA,Dragonair
+OneWorld,Member,LA,LAN Airlines
+OneWorld,Member,LP,LANPeru
+OneWorld,Member,LU,LAN Express
+OneWorld,Member,NU,Japan Transocean Air
+OneWorld,Member,QF,Qantas Airways
+OneWorld,Member,QR,Qatar Airways
+OneWorld,Member,RJ,Royal Jordanian
+OneWorld,Affiliate,4M,LANArgentina
+OneWorld,Affiliate,MH,Malaysia Airlines
+OneWorld,Affiliate,MN,Comair Ltd
+OneWorld,Affiliate,MQ,American Eagle
+OneWorld,Future,S7,Siberia Airlines
+OneWorld,Future,UL,SriLankan Airlines
+OneWorld,Future,XL,LANEcuador Aerolane SA
+OneWorld,Future,YW,Air Nostrum
+Skyteam,Member,AF,Air France
+Skyteam,Member,AM,AeroMexico
+Skyteam,Member,AR,Aerolineas Argentinas
+Skyteam,Member,AZ,Alitalia C.A.I. S.P.A.
+Skyteam,Member,CI,China Airlines
+Skyteam,Member,CT,Alitalia City Liner SPA
+Skyteam,Member,CZ,China Southern Airlines
+Skyteam,Member,DL,Delta Air Lines
+Skyteam,Member,GA,Garuda Indonesia
+Skyteam,Member,KE,Korean Air
+Skyteam,Member,KL,KLM Royal Dutch Airlines
+Skyteam,Member,KQ,Kenya Airways
+Skyteam,Member,OK,Czech Airlines CSA
+Skyteam,Member,UX,Air Europa
+Skyteam,Member,VN,Vietnam Airlines
+Skyteam,Member,XM,C.A.I. First S.P.A.
+Skyteam,Affiliate,ME,Middle East Airlines
+Skyteam,Affiliate,MF,Xiamen Airlines
+Skyteam,Affiliate,MU,China Eastern Airlines
+Skyteam,Future,RO,Tarom
+Skyteam,Future,SU,Aeroflot
+Skyteam,Future,SV,Saudi Arabian Airlines
+Star Alliance,Member,A3,Aegean Airlines
+Star Alliance,Member,AC,Air Canada
+Star Alliance,Member,CA,Air China
+Star Alliance,Member,CL,Lufthansa CityLine
+Star Alliance,Member,CM,Copa Airlines
+Star Alliance,Member,ET,Ethiopian Airlines
+Star Alliance,Member,JJ,TAM Linhas Aereas
+Star Alliance,Member,JP,Adria Airways
+Star Alliance,Member,LH,Lufthansa
+Star Alliance,Member,LO,LOT Polish Airlines
+Star Alliance,Member,LX,Swiss International Airlines
+Star Alliance,Member,NH,All Nippon Airways
+Star Alliance,Member,NZ,Air New Zealand
+Star Alliance,Member,OS,Austrian Airlines
+Star Alliance,Member,OU,Croatia Airlines
+Star Alliance,Member,OZ,Asiana Airlines
+Star Alliance,Member,RG,Rotana Jet
+Star Alliance,Member,US,US Airways
+Star Alliance,Affiliate,MS,Egyptair
+Star Alliance,Future,SA,South African Airways
+Star Alliance,Future,SK,Scandinavian Airlines
+Star Alliance,Future,SN,Brussels Airlines
+Star Alliance,Future,SQ,Singapore Airlines
+Star Alliance,Future,TA,TACA International Airlines
+Star Alliance,Future,TG,Thai Airways International
+Star Alliance,Future,TK,Turkish Airlines
+Star Alliance,Future,TP,TAP Portugal
+Star Alliance,Future,UA,United Airlines
+Star Alliance,Future,ZH,Shenzhen Airlines
