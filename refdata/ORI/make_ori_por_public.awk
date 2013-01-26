@@ -10,8 +10,8 @@
 # AWK script, namely add_City_name.awk, located in the very same directory.
 #
 # Sample output lines:
-# IEV^UKKK^^Y^6300960^^Kyiv Zhuliany International Airport^Kyiv Zhuliany International Airport^50.401694^30.449697^S^AIRP^0.0240196752049^^^^UA^^Ukraine^^^^^^^^^0^178^174^Europe/Kiev^2.0^3.0^2.0^2012-06-03^IEV^^^^A^http://en.wikipedia.org/wiki/Kyiv_Zhuliany_International_Airport^en|Kyiv Zhuliany International Airport|=en|Kyiv International Airport|=en|Kyiv Airport|s=en|Kiev International Airport|=uk|Міжнародний аеропорт «Київ» (Жуляни)|=ru|Аэропорт «Киев» (Жуляны)|=ru|Международный аеропорт «Киев» (Жуляни)|
-# NCE^LFMN^^Y^6299418^^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.658411^7.215872^S^AIRP^0.157408761216^^^^FR^^France^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^NCE^^^^CA^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de|Flughafen Nizza|=en|Nice Côte d'Azur International Airport|=es|Niza Aeropuerto|ps=fr|Aéroport de Nice Côte d'Azur|=en|Nice Airport|s
+# IEV^UKKK^^Y^6300960^^Kyiv Zhuliany International Airport^Kyiv Zhuliany International Airport^50.401694^30.449697^S^AIRP^0.0240196752049^^^^UA^^Ukraine^^^^^^^^^0^178^174^Europe/Kiev^2.0^3.0^2.0^2012-06-03^IEV^^^^^A^http://en.wikipedia.org/wiki/Kyiv_Zhuliany_International_Airport^en|Kyiv Zhuliany International Airport|=en|Kyiv International Airport|=en|Kyiv Airport|s=en|Kiev International Airport|=uk|Міжнародний аеропорт «Київ» (Жуляни)|=ru|Аэропорт «Киев» (Жуляны)|=ru|Международный аеропорт «Киев» (Жуляни)|
+# NCE^LFMN^^Y^6299418^^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.658411^7.215872^S^AIRP^0.157408761216^^^^FR^^France^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^NCE^^^^^CA^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de|Flughafen Nizza|=en|Nice Côte d'Azur International Airport|=es|Niza Aeropuerto|ps=fr|Aéroport de Nice Côte d'Azur|=en|Nice Airport|s
 #
 
 ##
@@ -32,7 +32,7 @@ BEGIN {
 	printf ("%s", "^adm3_code^adm4_code")
 	printf ("%s", "^population^elevation^gtopo30")
 	printf ("%s", "^timezone^gmt_offset^dst_offset^raw_offset^moddate")
-	printf ("%s", "^city_code^city_name_utf^city_name_ascii")
+	printf ("%s", "^city_code^city_name_utf^city_name_ascii^tvl_por_list")
 	printf ("%s", "^state_code^location_type")
 	printf ("%s", "^wiki_link")
 	printf ("%s", "^alt_name_section")
@@ -246,8 +246,9 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Modification date
 		printf ("%s", "^" $35)
 
-		# ^ City code ^ City UTF8 name ^ City ASCII name
-		printf ("%s", "^" $45 "^"  "^"  )
+		# ^ City code ^ City UTF8 name ^ City ASCII name ^ Travel-related list
+		# Note: The actual values are added by the add_city_name.awk script
+		printf ("%s", "^" $45 "^"  "^"  "^" )
 
 		# ^ State code
 		printf ("%s", "^" $47)
@@ -394,8 +395,9 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Modification date
 		printf ("%s", "^" today_date)
 
-		# ^ City code ^ City UTF8 name ^ City ASCII name
-		printf ("%s", "^" $14 "^"  "^"  )
+		# ^ City code ^ City UTF8 name ^ City ASCII name ^ Travel-related list
+		# Note: The actual values are added by the add_city_name.awk script
+		printf ("%s", "^" $14 "^"  "^"  "^" )
 
 		# ^ State code
 		printf ("%s", "^" $16)
@@ -482,8 +484,9 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Modification date
 		printf ("%s", "^" $35)
 
-		# ^ City code ^ City UTF8 name ^ City ASCII name
-		printf ("%s", "^" $2 "^"  "^" )
+		# ^ City code ^ City UTF8 name ^ City ASCII name ^ Travel-related list
+		# Note: The actual values are added by the add_city_name.awk script
+		printf ("%s", "^" $2 "^"  "^"  "^" )
 
 		# ^ State code
 		printf ("%s", "^" $20)
@@ -578,16 +581,13 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Modification date
 		printf ("%s", "^" today_date) > non_ori_por_file
 
-		# ^ Is airport ^ Is commercial
-		printf ("%s", "^" "Y" "^" "Y") > non_ori_por_file
+		# ^ City code ^ City UTF8 name ^ City ASCII name ^ Travel-related list
+		printf ("%s", "^" "ZZZ" "^"  "^"  "^" ) > non_ori_por_file
 
-		# ^ City code ^ City UTF8 name ^ City ASCII name
-		printf ("%s", "^" "ZZZ" "^"  "^"  ) > non_ori_por_file
+		# ^ State code
+		printf ("%s", "^" ) > non_ori_por_file
 
-		# ^ State code ^ Region code
-		printf ("%s", "^"  "^" "UNKOWN") > non_ori_por_file
-
-		#  ^ Location type (city and airport)
+		#  ^ Location type (the default, i.e., city and airport)
 		printf ("%s", "^CA") > non_ori_por_file
 
 		#  ^ Wiki link (empty here)

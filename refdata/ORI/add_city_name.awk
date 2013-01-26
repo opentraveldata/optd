@@ -1,15 +1,17 @@
 ##
-# That AWK script adds the name, in both UTF8 and ASCII encodings,
-# of the served cities.
+# That AWK script:
+#  1. Adds the name, in both UTF8 and ASCII encodings, of the served cities.
+#  2. Adds the list of travel-related POR IATA codes.
 # The ori_por_public.csv data file is parsed twice:
 #  * once to store the city names,
 #  * the second time to write the corresponding fields in that very same
 #    ori_por_public.csv file, which is therefore amended.
 #
-# As of November 2012:
+# As of January 2013:
 #  * The city code is the field #36
 #  * The city UTF8 name is the field #37
 #  * The city ASCII name is the field #38
+#  * The list of travel-related POR IATA codes is the field #39
 #
 
 
@@ -55,7 +57,7 @@ BEGINFILE {
 }
 
 ##
-# First parsing
+# First parsing - extraction of the city (UTF8 and ASCII) names
 function extractAndStoreCityNames(porIataCode, porUtfName, porAsciiName, \
 								  porLocType) {
 	# Parse the location type
@@ -66,6 +68,16 @@ function extractAndStoreCityNames(porIataCode, porUtfName, porAsciiName, \
 	if (is_city != 0) {
 		name_utf_list[porIataCode] = porUtfName
 		name_ascii_list[porIataCode] = porAsciiName
+	}
+}
+
+##
+# First parsing - collection of the travel-related points serving a given city
+function collectTravelPoints(porIataCodePk, porIataCodeServed, porLocType) {
+	# Store the names of the point of reference (POR) when it is not only a city
+	if (porLocType != "C") {
+		travel_por_list[porIataCodeServed] = \
+		travel_por_list[porIataCodeServed] "," porIataCodePk
 	}
 }
 
@@ -101,11 +113,11 @@ function writeCityNames(porIataCode, porLocType, cityIataCode, \
 
 ##
 # Sample input and output lines:
-# iata_code^icao_code^faa_code^is_geonames^geoname_id^valid_id^name^asciiname^latitude^longitude^fclass^fcode^page_rank^date_from^date_until^comment^country_code^cc2^country_name^adm1_code^adm1_name_utf^adm1_name_ascii^adm2_code^adm2_name_utf^adm2_name_ascii^adm3_code^adm4_code^population^elevation^gtopo30^timezone^gmt_offset^dst_offset^raw_offset^moddate^city_code^city_name_utf^city_name_ascii^state_code^location_type^wiki_link^alt_name_section
+# iata_code^icao_code^faa_code^is_geonames^geoname_id^valid_id^name^asciiname^latitude^longitude^fclass^fcode^page_rank^date_from^date_until^comment^country_code^cc2^country_name^adm1_code^adm1_name_utf^adm1_name_ascii^adm2_code^adm2_name_utf^adm2_name_ascii^adm3_code^adm4_code^population^elevation^gtopo30^timezone^gmt_offset^dst_offset^raw_offset^moddate^city_code^city_name_utf^city_name_ascii^tvl_por_list^state_code^location_type^wiki_link^alt_name_section
 #
-# IEV^UKKK^^Y^6300960^^Kyiv Zhuliany International Airport^Kyiv Zhuliany International Airport^50.401694^30.449697^S^AIRP^0.0240196752049^^^^UA^^Ukraine^^^^^^^^^0^178^174^Europe/Kiev^2.0^3.0^2.0^2012-06-03^IEV^^^^A^http://en.wikipedia.org/wiki/Kyiv_Zhuliany_International_Airport^en|Kyiv Zhuliany International Airport|=en|Kyiv International Airport|=en|Kyiv Airport|s=en|Kiev International Airport|=uk|Міжнародний аеропорт «Київ» (Жуляни)|=ru|Аэропорт «Киев» (Жуляны)|=ru|Международный аеропорт «Киев» (Жуляни)|
+# IEV^UKKK^^Y^6300960^^Kyiv Zhuliany International Airport^Kyiv Zhuliany International Airport^50.401694^30.449697^S^AIRP^0.0240196752049^^^^UA^^Ukraine^^^^^^^^^0^178^174^Europe/Kiev^2.0^3.0^2.0^2012-06-03^IEV^^^^^A^http://en.wikipedia.org/wiki/Kyiv_Zhuliany_International_Airport^en|Kyiv Zhuliany International Airport|=en|Kyiv International Airport|=en|Kyiv Airport|s=en|Kiev International Airport|=uk|Міжнародний аеропорт «Київ» (Жуляни)|=ru|Аэропорт «Киев» (Жуляны)|=ru|Международный аеропорт «Киев» (Жуляни)|
 #
-# NCE^LFMN^^Y^6299418^^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.658411^7.215872^S^AIRP^0.157408761216^^^^FR^^France^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^NCE^^^^CA^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de|Flughafen Nizza|=en|Nice Côte d'Azur International Airport|=es|Niza Aeropuerto|ps=fr|Aéroport de Nice Côte d'Azur|=en|Nice Airport|s
+# NCE^LFMN^^Y^6299418^^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.658411^7.215872^S^AIRP^0.157408761216^^^^FR^^France^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^NCE^^^^^CA^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de|Flughafen Nizza|=en|Nice Côte d'Azur International Airport|=es|Niza Aeropuerto|ps=fr|Aéroport de Nice Côte d'Azur|=en|Nice Airport|s
 #
 /^([A-Z0-9]{3})\^([A-Z0-9]{0,4})\^([A-Z0-9]{0,4})\^/{
 
@@ -119,11 +131,17 @@ function writeCityNames(porIataCode, porLocType, cityIataCode, \
 		# ASCII name of the POR itself
 		name_ascii = $8
 
+		# Served city IATA code
+		served_city_code = $36
+
 		# IATA location type
-		location_type = $40
+		location_type = $41
 
 		# Store the POR names for the POR IATA code
 		extractAndStoreCityNames(iata_code, name_utf, name_ascii, location_type)
+
+		# Collect the travel-related POR IATA code
+		collectTravelPoints(iata_code, served_city_code, location_type)
 
 	} else if (idx_file == 2) {
 		# IATA code of the point of reference (POR) itself
@@ -139,7 +157,7 @@ function writeCityNames(porIataCode, porLocType, cityIataCode, \
 		city_iata_code = $36
 
 		# IATA location type
-		location_type = $40
+		location_type = $41
 
 		# Full line
 		full_line = $0
