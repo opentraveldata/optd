@@ -6,9 +6,12 @@
 #  * Amadeus RFD (Referential Data)
 #  * Geonames
 #
+# Note that the city (UTF8 and ASCII) names are added afterwards, by another
+# AWK script, namely add_City_name.awk, located in the very same directory.
+#
 # Sample output lines:
-# IEV^UKKK^^Y^6300960^^Kyiv Zhuliany International Airport^Kyiv Zhuliany International Airport^50.401694^30.449697^S^AIRP^0.0240196752049^^^^UA^^Ukraine^^^^^^^^^0^178^174^Europe/Kiev^2.0^3.0^2.0^2012-06-03^Y^Y^IEV^^^^EURAS^A^http://en.wikipedia.org/wiki/Kyiv_Zhuliany_International_Airport^en|Kyiv Zhuliany International Airport|=en|Kyiv International Airport|=en|Kyiv Airport|s=en|Kiev International Airport|=uk|Міжнародний аеропорт «Київ» (Жуляни)|=ru|Аэропорт «Киев» (Жуляны)|=ru|Международный аеропорт «Киев» (Жуляни)|
-# NCE^LFMN^^Y^6299418^^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.658411^7.215872^S^AIRP^0.157408761216^^^^FR^^France^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^Y^Y^NCE^^^^EUROP^CA^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de|Flughafen Nizza|=en|Nice Côte d'Azur International Airport|=es|Niza Aeropuerto|ps=fr|Aéroport de Nice Côte d'Azur|=en|Nice Airport|s
+# IEV^UKKK^^Y^6300960^^Kyiv Zhuliany International Airport^Kyiv Zhuliany International Airport^50.401694^30.449697^S^AIRP^0.0240196752049^^^^UA^^Ukraine^^^^^^^^^0^178^174^Europe/Kiev^2.0^3.0^2.0^2012-06-03^IEV^^^^A^http://en.wikipedia.org/wiki/Kyiv_Zhuliany_International_Airport^en|Kyiv Zhuliany International Airport|=en|Kyiv International Airport|=en|Kyiv Airport|s=en|Kiev International Airport|=uk|Міжнародний аеропорт «Київ» (Жуляни)|=ru|Аэропорт «Киев» (Жуляны)|=ru|Международный аеропорт «Киев» (Жуляни)|
+# NCE^LFMN^^Y^6299418^^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.658411^7.215872^S^AIRP^0.157408761216^^^^FR^^France^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^NCE^^^^CA^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de|Flughafen Nizza|=en|Nice Côte d'Azur International Airport|=es|Niza Aeropuerto|ps=fr|Aéroport de Nice Côte d'Azur|=en|Nice Airport|s
 #
 
 ##
@@ -29,9 +32,8 @@ BEGIN {
 	printf ("%s", "^adm3_code^adm4_code")
 	printf ("%s", "^population^elevation^gtopo30")
 	printf ("%s", "^timezone^gmt_offset^dst_offset^raw_offset^moddate")
-	printf ("%s", "^is_airport^is_commercial")
 	printf ("%s", "^city_code^city_name_utf^city_name_ascii")
-	printf ("%s", "^state_code^region_code^location_type")
+	printf ("%s", "^state_code^location_type")
 	printf ("%s", "^wiki_link")
 	printf ("%s", "^alt_name_section")
 	printf ("%s", "\n")
@@ -244,14 +246,11 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Modification date
 		printf ("%s", "^" $35)
 
-		# ^ Is airport ^ Is commercial
-		printf ("%s", "^" $46 "^" $55)
-
 		# ^ City code ^ City UTF8 name ^ City ASCII name
 		printf ("%s", "^" $45 "^"  "^"  )
 
-		# ^ State code ^ Region code
-		printf ("%s", "^" $47 "^" $49)
+		# ^ State code
+		printf ("%s", "^" $47)
 
 		# ^ Location type ^ Wiki link
 		printf ("%s", "^" location_type "^" $37)
@@ -395,14 +394,11 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Modification date
 		printf ("%s", "^" today_date)
 
-		# ^ Is airport ^ Is commercial
-		printf ("%s", "^" $15 "^" $24)
-
 		# ^ City code ^ City UTF8 name ^ City ASCII name
 		printf ("%s", "^" $14 "^"  "^"  )
 
-		# ^ State code ^ Region code
-		printf ("%s", "^" $16 "^" $18)
+		# ^ State code
+		printf ("%s", "^" $16)
 
 		# ^ Location type
 		printf ("%s", "^" location_type)
@@ -486,56 +482,14 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Modification date
 		printf ("%s", "^" $35)
 
-		# Location type
-		location_type = substr ($1, 5)
-		is_airport = match (location_type, "[A]")
+		# ^ City code ^ City UTF8 name ^ City ASCII name
+		printf ("%s", "^" $2 "^"  "^" )
 
-		# ^ Is airport ^ Is commercial
-		if (is_airport != 0) {
-			printf ("%s", "^Y^Z")
-		} else {
-			printf ("%s", "^N^Z")
-		}
-
-		# ^ City code ^ City UTF8 name ^ City ASCII name ^ State code
-		printf ("%s", "^" $2 "^"  "^"  "^" $20)
-
-		# ^ Region code
-		region_full = $31
-		region = gensub ("/[A-Za-z_]+", "", "g", region_full)
-		region_country = gensub ("[A-Za-z]+/", "", "1", region_full)
-		gsub ("/[A-Za-z_]+", "", region_country)
-		region_city = gensub ("[A-Za-z_]+/", "", "g", region_full)
-
-		if (region == "Europe") {
-			if (region_country == "Kiev") {
-				printf ("%s", "^EEURO")
-			} else {
-				printf ("%s", "^EUROP")
-			}
-		} else if (region == "Africa") {
-			printf ("%s", "^AFRICA")
-		} else if (region == "Asia") {
-			printf ("%s", "^ASIA")
-		} else if (region == "Atlantic") {
-			printf ("%s", "^ATLAN")
-		} else if (region == "Australia") {
-			printf ("%s", "^AUSTL")
-		} else if (region == "America") {
-			if (region_country == "Argentina") {
-				printf ("%s", "^SAMER")
-			} else {
-				printf ("%s", "^NAMER")
-			}
-		} else if (region == "Indian") {
-			printf ("%s", "^IOCEA")
-		} else if (region == "Pacific") {
-			printf ("%s", "^PACIF")
-		} else {
-			printf ("%s", "^ZZZZZ")
-		}
+		# ^ State code
+		printf ("%s", "^" $20)
 
 		#  ^ Location type
+		location_type = substr ($1, 5)
 		printf ("%s", "^" location_type)
 
 		# ^ Wiki link (potentially empty)
