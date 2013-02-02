@@ -3,11 +3,18 @@
 # derived from four sources:
 #  * Amadeus ORI-maintained list of best known coordinates
 #  * Amadeus ORI-maintained list of PageRank values
+#  * Amadeus ORI-maintained list of country-associated time-zones
 #  * Amadeus RFD (Referential Data)
 #  * Geonames
 #
-# Note that the city (UTF8 and ASCII) names are added afterwards, by another
-# AWK script, namely add_City_name.awk, located in the very same directory.
+# Notes:
+# 1. When the POR is existing only in Amadeus RFD data, the cryptic time-zone
+#    ID is replaced by a more standard time-zone ID. That latter is a simplified
+#    version of the standard time-zone ID (such as the one given by Geonames),
+#    as there is then a single time-zone ID per country; that is obviously
+#    inaccurate for countries such as Russia, Canada, USA, Antartica, Australia.
+# 2. The city (UTF8 and ASCII) names are added afterwards, by another AWK script,
+#    namely add_city_name.awk, located in the very same directory.
 #
 # Sample output lines:
 # IEV^UKKK^^Y^6300960^^Kyiv Zhuliany International Airport^Kyiv Zhuliany International Airport^50.401694^30.449697^S^AIRP^0.0240196752049^^^^UA^^Ukraine^^^^^^^^^0^178^174^Europe/Kiev^2.0^3.0^2.0^2012-06-03^IEV^^^^^A^http://en.wikipedia.org/wiki/Kyiv_Zhuliany_International_Airport^en|Kyiv Zhuliany International Airport|=en|Kyiv International Airport|=en|Kyiv Airport|s=en|Kiev International Airport|=uk|Міжнародний аеропорт «Київ» (Жуляни)|=ru|Аэропорт «Киев» (Жуляны)|=ru|Международный аеропорт «Киев» (Жуляни)|
@@ -97,6 +104,25 @@ BEGIN {
 
 
 ##
+# File of time-zone IDs
+#
+# Sample lines:
+# country_code^time_zone
+# ES^Europe/Spain
+# RU^Europe/Russia
+/^([A-Z]{2})\^([A-Za-z_\/]+)$/ {
+	# Country code
+	country_code = $1
+
+	# Time-zone ID
+	tz_id = $2
+
+	# Register the time-zone ID associated to that country
+	ctry_tz_list[country_code] = tz_id
+}
+
+
+##
 # States whether that location type corresponds to a travel-related POR
 function isTravel(myLocationType) {
 	is_airport = match (myLocationType, "A")
@@ -129,6 +155,13 @@ function getPageRank(myIataCode, myLocationType) {
 	}
 
 	return page_rank
+}
+
+##
+# Retrieve the time-zone ID for that country
+function getTimeZone(myCountryCode) {
+	tz_id = ctry_tz_list[myCountryCode]
+	return tz_id
 }
 
 ##
@@ -390,7 +423,9 @@ function printAltNameSection(myAltNameSection) {
 		printf ("%s", "^^^")
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		printf ("%s", "^" $20 "^^^")
+		country_code = substr ($20, 1, 2)
+		time_zone_id = getTimeZone(country_code)
+		printf ("%s", "^" time_zone_id "^^^")
 
 		# ^ Modification date
 		printf ("%s", "^" today_date)
