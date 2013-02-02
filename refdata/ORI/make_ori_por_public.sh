@@ -63,8 +63,12 @@ TOOLS_DIR=${OPTD_DIR}tools/
 LOG_LEVEL=3
 
 ##
-# Initial
+# File of best known coordinates
 ORI_POR_FILE=best_coordinates_known_so_far.csv
+
+##
+# Light (and inaccurate) version of the country-related time-zones
+ORI_TZ_FILE=ori_tz_light.csv
 
 ##
 # PageRank values
@@ -165,6 +169,7 @@ then
 	echo " - RFD data dump file: '${RFD_RAW_FILE}'"
 	echo " - Geonames data dump file: '${GEONAME_RAW_FILE}'"
 	echo " - ORI-maintained file of PageRanked POR: '${ORI_PR_FILE}'"
+	echo " - ORI-maintained file of country-related time-zones: '${ORI_TZ_FILE}'"
 	echo
 	echo "* Output data file"
 	echo "------------------"
@@ -274,7 +279,8 @@ join -t'^' -a 1 -1 1 -2 1 ${ORI_POR_WITH_GEORFD} ${GEONAME_RAW_FILE_TMP} \
 # Suppress the redundancies. See ${REDUCER} for more details and samples.
 REDUCER=make_ori_por_public.awk
 awk -F'^' -v non_ori_por_file="${ORI_ONLY_POR_FILE}" -f ${REDUCER} \
-	${ORI_PR_FILE} ${ORI_POR_WITH_GEORFDALT} > ${ORI_POR_WITH_NO_CTY_NAME}
+	${ORI_PR_FILE} ${ORI_TZ_FILE} ${ORI_POR_WITH_GEORFDALT} \
+	> ${ORI_POR_WITH_NO_CTY_NAME}
 #echo "head ${ORI_POR_WITH_GEORFDALT} ${ORI_POR_WITH_NO_CTY_NAME}"
 
 ##
