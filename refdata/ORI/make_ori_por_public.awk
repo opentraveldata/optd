@@ -17,8 +17,8 @@
 #    namely add_city_name.awk, located in the very same directory.
 #
 # Sample output lines:
-# IEV^UKKK^^Y^6300960^^Kyiv Zhuliany International Airport^Kyiv Zhuliany International Airport^50.401694^30.449697^S^AIRP^0.0240196752049^^^^UA^^Ukraine^^^^^^^^^0^178^174^Europe/Kiev^2.0^3.0^2.0^2012-06-03^IEV^^^^^A^http://en.wikipedia.org/wiki/Kyiv_Zhuliany_International_Airport^en|Kyiv Zhuliany International Airport|=en|Kyiv International Airport|=en|Kyiv Airport|s=en|Kiev International Airport|=uk|Міжнародний аеропорт «Київ» (Жуляни)|=ru|Аэропорт «Киев» (Жуляны)|=ru|Международный аеропорт «Киев» (Жуляни)|
-# NCE^LFMN^^Y^6299418^^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.658411^7.215872^S^AIRP^0.157408761216^^^^FR^^France^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^NCE^^^^^CA^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de|Flughafen Nizza|=en|Nice Côte d'Azur International Airport|=es|Niza Aeropuerto|ps=fr|Aéroport de Nice Côte d'Azur|=en|Nice Airport|s
+# IEV^UKKK^^Y^6300960^^Kyiv Zhuliany International Airport^Kyiv Zhuliany International Airport^50.401694^30.449697^S^AIRP^0.0240196752049^^^^UA^^Ukraine^Europe^^^^^^^^^0^178^174^Europe/Kiev^2.0^3.0^2.0^2012-06-03^IEV^^^^^A^http://en.wikipedia.org/wiki/Kyiv_Zhuliany_International_Airport^en|Kyiv Zhuliany International Airport|=en|Kyiv International Airport|=en|Kyiv Airport|s=en|Kiev International Airport|=uk|Міжнародний аеропорт «Київ» (Жуляни)|=ru|Аэропорт «Киев» (Жуляны)|=ru|Международный аеропорт «Киев» (Жуляни)|
+# NCE^LFMN^^Y^6299418^^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.658411^7.215872^S^AIRP^0.157408761216^^^^FR^^France^Europe^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^NCE^^^^^CA^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de|Flughafen Nizza|=en|Nice Côte d'Azur International Airport|=es|Niza Aeropuerto|ps=fr|Aéroport de Nice Côte d'Azur|=en|Nice Airport|s
 #
 
 ##
@@ -33,7 +33,7 @@ BEGIN {
 	printf ("%s", "^name^asciiname^latitude^longitude")
 	printf ("%s", "^fclass^fcode")
 	printf ("%s", "^page_rank^date_from^date_until^comment")
-	printf ("%s", "^country_code^cc2^country_name")
+	printf ("%s", "^country_code^cc2^country_name^continent_name")
 	printf ("%s", "^adm1_code^adm1_name_utf^adm1_name_ascii")
 	printf ("%s", "^adm2_code^adm2_name_utf^adm2_name_ascii")
 	printf ("%s", "^adm3_code^adm4_code")
@@ -206,22 +206,17 @@ function printAltNameSection(myAltNameSection) {
 # Sample input lines:
 #
 # # Both in Geonames and in RFD (56 fields)
-# NCE-CA^NCE^43.658411^7.215872^NCE^^NCE^LFMN^^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^France^S^AIRP^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^Nice Airport,...^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^NCE^CA^NICE^COTE D AZUR^NICE^NICE/FR:COTE D AZUR^NICE^NCE^Y^^FR^EUROP^ITC2^FR052^43.6653^7.215^^Y^en|Nice Airport|s
+# NCE-CA^NCE^43.658411^7.215872^NCE^^NCE^LFMN^^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^France^Europe^S^AIRP^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^Nice Airport,...^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^NCE^CA^NICE^COTE D AZUR^NICE^NICE/FR:COTE D AZUR^NICE^NCE^Y^^FR^EUROP^ITC2^FR052^43.6653^7.215^^Y^en|Nice Airport|s
 #
 # # In RFD (24 fields)
 # XIT-R^XIT^51.42^12.42^LEJ^^XIT^R^LEIPZIG RAIL^LEIPZIG HBF RAIL STN^LEIPZIG RAIL^LEIPZIG/HALLE/DE:LEIPZIG HBF R^LEIPZIG/HALLE^LEJ^Y^^DE^EUROP^ITC2^DE040^51.3^12.3333^^N
 #
 # # In Geonames (38 fields)
-# SQX-CA^SQX^-26.7816^-53.5035^SQX^^SQX^SSOE^^7731508^São Miguel do Oeste Airport^Sao Miguel do Oeste Airport^-26.7816^-53.5035^BR^^Brazil^S^AIRP^26^Santa Catarina^Santa Catarina^4204905^Descanso^Descanso^^^0^^655^America/Sao_Paulo^-2.0^-3.0^-3.0^2012-08-03^SQX,SSOE^^
+# SQX-CA^SQX^-26.7816^-53.5035^SQX^^SQX^SSOE^^7731508^São Miguel do Oeste Airport^Sao Miguel do Oeste Airport^-26.7816^-53.5035^BR^^Brazil^Europe^S^AIRP^26^Santa Catarina^Santa Catarina^4204905^Descanso^Descanso^^^0^^655^America/Sao_Paulo^-2.0^-3.0^-3.0^2012-08-03^SQX,SSOE^^
 #
 /^([A-Z0-9]{3})-([A-Z]{1,2})\^([A-Z]{3})\^([0-9.+-]{0,12})\^/ {
 
-	# When the 32nd field is a IATA code, it means that the POR is in
-	# both Geonames and RFD.
-	#is_32nd_fld_iata = match ($32, "[A-Z]{3}")
-	#is_32nd_fld_lang = match ($32, "[a-z0-9]{2,3}")
-
-	if (NF == 56) {
+	if (NF == 57) {
 		####
 		## Both in Geonames and in RFD
 		####
@@ -249,10 +244,10 @@ function printAltNameSection(myAltNameSection) {
 		printf ("%s", "^" $11 "^" $12)
 
 		# ^ Alternate names
-		# printf ("%s", "^" $36)
+		# printf ("%s", "^" $37)
 
 		# ^ Latitude ^ Longitude ^ Feat. class ^ Feat. code
-		printf ("%s", "^" $3 "^" $4 "^" $18 "^" $19)
+		printf ("%s", "^" $3 "^" $4 "^" $19 "^" $20)
 
 		# ^ PageRank value
 		printf ("%s", "^" page_rank)
@@ -260,38 +255,38 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Valid from date ^ Valid until date ^ Comment
 		printf ("%s", "^^^")
 
-		# ^ Country code ^ Alt. country codes ^ Country name
-		printf ("%s", "^" $15 "^" $16 "^" $17)
+		# ^ Country code ^ Alt. country codes ^ Country name ^ Continent name
+		printf ("%s", "^" $15 "^" $16 "^" $17 "^" $18)
 
 		# ^ Admin1 code ^ Admin1 UTF8 name ^ Admin1 ASCII name
-		printf ("%s", "^" $20 "^" $21 "^" $22)
+		printf ("%s", "^" $21 "^" $22 "^" $23)
 		# ^ Admin2 code ^ Admin2 UTF8 name ^ Admin2 ASCII name
-		printf ("%s", "^" $23 "^" $24 "^" $25)
+		printf ("%s", "^" $24 "^" $25 "^" $26)
 		# ^ Admin3 code ^ Admin4 code
-		printf ("%s", "^" $26 "^" $27)
+		printf ("%s", "^" $27 "^" $28)
 
 		# ^ Population ^ Elevation ^ gtopo30
-		printf ("%s", "^" $28 "^" $29 "^" $30)
+		printf ("%s", "^" $29 "^" $30 "^" $31)
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		printf ("%s", "^" $31 "^" $32 "^" $33 "^" $34)
+		printf ("%s", "^" $32 "^" $33 "^" $34 "^" $35)
 
 		# ^ Modification date
-		printf ("%s", "^" $35)
+		printf ("%s", "^" $36)
 
 		# ^ City code ^ City UTF8 name ^ City ASCII name ^ Travel-related list
 		# Note: The actual values are added by the add_city_name.awk script
-		printf ("%s", "^" $45 "^"  "^"  "^" )
+		printf ("%s", "^" $46 "^"  "^"  "^" )
 
 		# ^ State code
-		printf ("%s", "^" $47)
+		printf ("%s", "^" $48)
 
 		# ^ Location type ^ Wiki link
-		printf ("%s", "^" location_type "^" $37)
+		printf ("%s", "^" location_type "^" $38)
 
 		##
 		# ^ Section of alternate names
-		altname_section = $56
+		altname_section = $57
 		printAltNameSection(altname_section)
 
 		# End of line
@@ -302,31 +297,31 @@ function printAltNameSection(myAltNameSection) {
 		# (1) NCE-CA ^ (2) NCE ^ (3) 43.658411 ^ (4) 7.215872 ^
 		# (5) NCE ^ (6)  ^
 
-		# From Geonames ($7 - $37)
+		# From Geonames ($7 - $38)
 		# (7) NCE ^ (8) LFMN ^ (9)  ^ (10) 6299418 ^
 		# (11) Nice Côte d'Azur International Airport ^
 		# (12) Nice Cote d'Azur International Airport ^
 		# (13) 43.66272 ^ (14) 7.20787 ^
-		# (15) FR ^ (16)  ^ (17) France ^ (18) S ^ (19) AIRP ^
-		# (20) B8 ^ (21) Provence-Alpes-Côte d'Azur ^
-		# (22) Provence-Alpes-Cote d'Azur ^
-		# (23) 06 ^ (24) Département des Alpes-Maritimes ^ 
-		# (25) Departement des Alpes-Maritimes ^
-		# (26) 062 ^ (27) 06088 ^
-		# (28) 0 ^ (29) 3 ^ (30) -9999
-		# (31) Europe/Paris ^ (32) 1.0 ^ (33) 2.0 ^ (34) 1.0 ^
-		# (35) 2012-06-30 ^
-		# (36) Aeroport de Nice Cote d'Azur, ...,Niza Aeropuerto ^
-		# (37) http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport ^
+		# (15) FR ^ (16)  ^ (17) France ^ (18) Europe ^ (19) S ^ (20) AIRP ^
+		# (21) B8 ^ (22) Provence-Alpes-Côte d'Azur ^
+		# (23) Provence-Alpes-Cote d'Azur ^
+		# (24) 06 ^ (25) Département des Alpes-Maritimes ^ 
+		# (26) Departement des Alpes-Maritimes ^
+		# (27) 062 ^ (28) 06088 ^
+		# (29) 0 ^ (30) 3 ^ (31) -9999
+		# (32) Europe/Paris ^ (33) 1.0 ^ (34) 2.0 ^ (35) 1.0 ^
+		# (36) 2012-06-30 ^
+		# (37) Aeroport de Nice Cote d'Azur, ...,Niza Aeropuerto ^
+		# (38) http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport ^
 
-		# From RFD ($38 - $49)
-		# (38) NCE ^ (39) CA ^ (40) NICE ^ (41) COTE D AZUR ^ (42) NICE ^
-		# (43) NICE/FR:COTE D AZUR ^ (44) NICE ^ (45) NCE ^
-		# (46) Y ^ (47)  ^ (48) FR ^ (49) EUROP ^ (50) ITC2 ^ (51) FR052 ^
-		# (52) 43.6653 ^ (53) 7.215 ^ (54)  ^ (55) Y ^
+		# From RFD ($39 - $56)
+		# (39) NCE ^ (40) CA ^ (41) NICE ^ (42) COTE D AZUR ^ (43) NICE ^
+		# (44) NICE/FR:COTE D AZUR ^ (45) NICE ^ (46) NCE ^
+		# (47) Y ^ (48)  ^ (49) FR ^ (50) EUROP ^ (51) ITC2 ^ (52) FR052 ^
+		# (53) 43.6653 ^ (54) 7.215 ^ (55)  ^ (56) Y ^
 
-		# From Geonames alternate names ($56)
-		# (56) en | Nice Airport | s |
+		# From Geonames alternate names ($57)
+		# (57) en | Nice Airport | s |
 		#      en | Nice Côte d'Azur International Airport | 
 
 	} else if (NF == 24) {
@@ -409,8 +404,11 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Valid from date ^ Valid until date ^ Comment
 		printf ("%s", "^^^")
 
-		# ^ Country code ^ Alt. country codes ^ Country name
-		printf ("%s", "^" $17 "^^" $17)
+		# ^ Country code ^ Alt. country codes ^ Country name ^ Continent name
+		country_code = $17
+		time_zone_id = getTimeZone(country_code)
+		continent_name = gensub ("/[A-Za-z_]+", "", "g", time_zone_id)
+		printf ("%s", "^" country_code "^^" country_code "^" continent_name)
 
 		# ^ Admin1 code ^ Admin1 UTF8 name ^ Admin1 ASCII name
 		printf ("%s", "^^^")
@@ -423,8 +421,6 @@ function printAltNameSection(myAltNameSection) {
 		printf ("%s", "^^^")
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		country_code = substr ($20, 1, 2)
-		time_zone_id = getTimeZone(country_code)
 		printf ("%s", "^" time_zone_id "^^^")
 
 		# ^ Modification date
@@ -461,7 +457,7 @@ function printAltNameSection(myAltNameSection) {
 		# (14) LEJ ^ (15) Y ^ (16)  ^ (17) DE ^ (18) EUROP ^ (19) ITC2 ^
 		# (20) DE040 ^ (21) 51.3 ^ (22) 12.3333 ^ (23)  ^ (24) N
 
-	} else if (NF == 38) {
+	} else if (NF == 39) {
 		####
 		## Not in RFD
 		####
@@ -489,10 +485,10 @@ function printAltNameSection(myAltNameSection) {
 		printf ("%s", "^" $11 "^" $12)
 
 		# ^ Alternate names
-		# printf ("%s", "^" $36)
+		# printf ("%s", "^" $37)
 
 		# ^ Latitude ^ Longitude ^ Feat. class ^ Feat. code
-		printf ("%s", "^" $3 "^" $4 "^" $18 "^" $19)
+		printf ("%s", "^" $3 "^" $4 "^" $19 "^" $20)
 
 		# ^ PageRank value
 		printf ("%s", "^" page_rank)
@@ -500,42 +496,42 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Valid from date ^ Valid until date ^ Comment
 		printf ("%s", "^^^")
 
-		# ^ Country code ^ Alt. country codes ^ Country name
-		printf ("%s", "^" $15 "^" $16 "^" $17)
+		# ^ Country code ^ Alt. country codes ^ Country name ^ Continent name
+		printf ("%s", "^" $15 "^" $16 "^" $17 "^" $18)
 
 		# ^ Admin1 code ^ Admin1 UTF8 name ^ Admin1 ASCII name
-		printf ("%s", "^" $20 "^" $21 "^" $22)
+		printf ("%s", "^" $21 "^" $22 "^" $23)
 		# ^ Admin2 code ^ Admin2 UTF8 name ^ Admin2 ASCII name
-		printf ("%s", "^" $23 "^" $24 "^" $25)
+		printf ("%s", "^" $24 "^" $25 "^" $26)
 		# ^ Admin3 code ^ Admin4 code
-		printf ("%s", "^" $26 "^" $27)
+		printf ("%s", "^" $27 "^" $28)
 
 		# ^ Population ^ Elevation ^ gtopo30
-		printf ("%s", "^" $28 "^" $29 "^" $30)
+		printf ("%s", "^" $29 "^" $30 "^" $31)
 
 		# ^ Time-zone ^ GMT offset ^ DST offset ^ Raw offset
-		printf ("%s", "^" $31 "^" $32 "^" $33 "^" $34)
+		printf ("%s", "^" $32 "^" $33 "^" $34 "^" $35)
 
 		# ^ Modification date
-		printf ("%s", "^" $35)
+		printf ("%s", "^" $36)
 
 		# ^ City code ^ City UTF8 name ^ City ASCII name ^ Travel-related list
 		# Note: The actual values are added by the add_city_name.awk script
 		printf ("%s", "^" $2 "^"  "^"  "^" )
 
 		# ^ State code
-		printf ("%s", "^" $20)
+		printf ("%s", "^" $21)
 
 		#  ^ Location type
 		location_type = substr ($1, 5)
 		printf ("%s", "^" location_type)
 
 		# ^ Wiki link (potentially empty)
-		printf ("%s", "^" $37)
+		printf ("%s", "^" $38)
 
 		##
 		# ^ Section of alternate names
-		altname_section = $38
+		altname_section = $39
 		printAltNameSection(altname_section)
 
 		# End of line
@@ -546,16 +542,17 @@ function printAltNameSection(myAltNameSection) {
 		# (1) SQX-CA ^ (2) SQX ^ (3) -26.7816 ^ (4) -53.5035 ^ 
 		# (5) SQX ^ (6)  ^
 
-		# From Geonames ($7 - $38)
+		# From Geonames ($7 - $39)
 		# (7) SQX ^ (8) SSOE ^ (9)  ^ (10) 7731508 ^
 		# (11) São Miguel do Oeste Airport ^
 		# (12) Sao Miguel do Oeste Airport ^ (13) -26.7816 ^ (14) -53.5035 ^
-		# (15) BR ^ (16)  ^ (17) Brazil ^ (18) S ^ (19) AIRP ^
-		# (20) 26 ^ (21) Santa Catarina ^ (22) Santa Catarina ^
-		# (23) 4204905 ^ (24) Descanso ^ (25) Descanso ^ (26)  ^ (27)  ^
-		# (28) 0 ^ (29)  ^ (30) 655 ^ (31) America/Sao_Paulo ^
-		# (32) -2.0 ^ (33) -3.0 ^ (34) -3.0 ^ (35) 2011-03-18 ^ (36) SQX,SSOE ^
-		# (37)  ^ (38)  
+		# (15) BR ^ (16)  ^ (17) Brazil ^ (18) South America ^
+		# (19) S ^ (20) AIRP ^
+		# (21) 26 ^ (22) Santa Catarina ^ (23) Santa Catarina ^
+		# (24) 4204905 ^ (25) Descanso ^ (26) Descanso ^ (27)  ^ (28)  ^
+		# (29) 0 ^ (30)  ^ (31) 655 ^ (32) America/Sao_Paulo ^
+		# (33) -2.0 ^ (34) -3.0 ^ (35) -3.0 ^ (36) 2011-03-18 ^ (37) SQX,SSOE ^
+		# (38)  ^ (39)  
 
 	} else if (NF == 6) {
 		####

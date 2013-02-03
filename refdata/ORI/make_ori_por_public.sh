@@ -240,10 +240,10 @@ then
 fi
 
 ##
-# Save the extra alternate names (from field #33 onwards)
-cut -d'^' -f1,33- ${GEONAME_SORTED_FILE} > ${GEONAME_RAW_FILE_TMP}
+# Save the extra alternate names (from field #34 onwards)
+cut -d'^' -f1,34- ${GEONAME_SORTED_FILE} > ${GEONAME_RAW_FILE_TMP}
 # Remove the extra alternate names (see the line above)
-cut -d'^' -f1-32 ${GEONAME_SORTED_FILE} > ${GEONAME_CUT_SORTED_FILE}
+cut -d'^' -f1-33 ${GEONAME_SORTED_FILE} > ${GEONAME_CUT_SORTED_FILE}
 
 ##
 # Extract the header into a temporary file
