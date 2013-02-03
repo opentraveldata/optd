@@ -182,7 +182,7 @@ sed -i -e "s/^\([A-Z0-9]\{3\}\)\^NULL\^\(.\+\)/\1\^ZZZZ\^\2/g" ${GEO_RAW_FILE}
 # 3.2. Sort the Geonames dump file according to the (IATA, ICAO, FAAC, feature)
 #      code quadruplet
 GEO_RAW_FILE_TMP=${GEO_RAW_FILE}.tmp
-sort -t'^' -k1,1 -k2,2 -k3,3 -k12,12 ${GEO_RAW_FILE} > ${GEO_RAW_FILE_TMP}
+sort -t'^' -k1,1 -k2,2 -k3,3 -k13,13 ${GEO_RAW_FILE} > ${GEO_RAW_FILE_TMP}
 \mv -f ${GEO_RAW_FILE_TMP} ${GEO_RAW_FILE}
 
 # 4.1. Re-add the header

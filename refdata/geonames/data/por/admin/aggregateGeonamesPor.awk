@@ -55,14 +55,24 @@
 #
 # 1.5. countryInfo.txt
 # --------------------
-# ISO ISO3 ISO-Numeric fips Country Capital Area(in sq km) Population Continent tld CurrencyCode CurrencyName Phone Postal Code Format Postal Code Regex Languages geonameid neighbours EquivalentFipsCode
+# ISO ISO3 ISO-Numeric fips CountryName Capital Area(in sq km) Population Continent tld CurrencyCode CurrencyName Phone Postal Code Format Postal Code Regex Languages geonameid neighbours EquivalentFipsCode
 # DE DEU 276 GM Germany Berlin 357021 81802257 EU .de EUR Euro 49 ##### ^(\d{5})$ de 2921044 CH,PL,NL,DK,BE,CZ,LU,FR,AT
 # FR FRA 250 FR France Paris 547030 64768389 EU .fr EUR Euro 33 ##### ^(\d{5})$ fr-FR,frp,br,co,ca,eu,oc 3017382 CH,DE,BE,LU,IT,AD,MC,ES 
 # GB GBR 826 UK United Kingdom London 244820 62348447 EU .uk GBP Pound 44 @# #@@|@## #@@|@@# #@@|@@## #@@|@#@ #@@|@@#@ #@@|GIR0AA ^(([A-Z]\d{2}[A-Z]{2})|([A-Z]\d{3}[A-Z]{2})|([A-Z]{2}\d{2}[A-Z]{2})|([A-Z]{2}\d{3}[A-Z]{2})|([A-Z]\d[A-Z]\d[A-Z]{2})|([A-Z]{2}\d[A-Z]\d[A-Z]{2})|(GIR0AA))$ en-GB,cy-GB,gd 2635167 IE
 # RU RUS 643 RS Russia Moscow 1.71E+007 140702000 EU .ru RUB Ruble 7 ###### ^(\d{6})$ ru,tt,xal,cau,ady,kv,ce,tyv,cv,udm,tut,mns,bua,myv,mdf,chm,ba,inh,tut,kbd,krc,ava,sah,nog 2017370 GE,CN,BY,UA,KZ,LV,PL,EE,LT,FI,MN,NO,AZ,KP 
 # US USA 840 US United States Washington 9629091 310232863 NA .us USD Dollar 1 #####-#### ^(\d{9})$ en-US,es-US,haw,fr 6252001 CA,MX,CU
 #
-# 1.6. timeZones.txt
+# 1.6. continentCodes.txt
+# -----------------------
+# AF Africa 6255146
+# AS Asia 6255147
+# EU Europe 6255148
+# NA North America 6255149
+# OC Oceania 6255151
+# SA South America 6255150
+# AN Antarctica 6255152
+#
+# 1.7. timeZones.txt
 # ------------------
 # CountryCode TimeZoneId GMT offset 1. Jan 2012 DST offset 1. Jul 2012 rawOffset (independant of DST)
 # US America/Anchorage -9.0 -8.0 -9.0
@@ -80,22 +90,33 @@
 # 2. Sample output lines:
 # -----------------------
 # iata_code^icao_code^faac_code^geonameid^name^asciiname^latitude^longitude^country^cc2^ctry_name^fclass^fcode^adm1^adm1_name_utf^adm1_name_ascii^adm2^adm2_name_utf^adm2_name_ascii^adm3^adm4^population^elevation^gtopo30^timezone^GMT_offset^DST_offset^raw_offset^moddate^alternatenames^wiki_link^altname_iso^altname_text
-# NCE^LFMN^^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^S^AIRP^B8^06^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Flughafen Nizza,LFMN,NCE,Nice Airport,Nice Cote d'Azur International Airport,Nice Côte d'Azur International Airport,Niza Aeropuerto^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de|Flughafen Nizza||en|Nice Côte d'Azur International Airport||es|Niza Aeropuerto|ps|fr|Aéroport de Nice Côte d'Azur||en|Nice Airport|s
-# NCE^^^2990440^Nice^Nice^43.70313^7.26608^FR^^P^PPLA2^B8^06^062^06088^338620^25^18^Europe/Paris^1.0^2.0^1.0^2011-11-02^NCE,Nica,Nicaea,Nicca,Nice,Nicea,Nico,Nisa,Niza,Nizza,Niça,ni si,nisa,nisu,nitsa,nys,Ница,Ницца,ניס,نيس,नीस,ნიცა,ニース,尼斯^http://en.wikipedia.org/wiki/Nice^en|Nice||de|Nizza||es|Niza|ps|af|Nice||ar|نيس||bg|Ница||ca|Niça||da|Nice||eo|Nico||et|Nice||fi|Nizza||fr|Nice||he|ניס||id|Nice||it|Nizza||ja|ニース||la|Nicaea||lad|Nice||lb|Nice||lt|Nica||nb|Nice||nl|Nice||no|Nice||oc|Niça||pl|Nicea||pt|Nice||ro|Nisa||ru|Ницца||sl|Nica||sv|Nice||cy|Nice||eu|Niza||zh|尼斯||ceb|Nice||hi|नीस||ka|ნიცა||lv|Nica||qu|Nice||scn|Nizza||sk|Nice||sr|Ница||post|06100||post|06000|p|post|06200||post|06300|
+# NCE^LFMN^^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^Europe^S^AIRP^B8^06^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^Aeroport de Nice Cote d'Azur,Aéroport de Nice Côte d'Azur,Flughafen Nizza,LFMN,NCE,Nice Airport,Nice Cote d'Azur International Airport,Nice Côte d'Azur International Airport,Niza Aeropuerto^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^de|Flughafen Nizza||en|Nice Côte d'Azur International Airport||es|Niza Aeropuerto|ps|fr|Aéroport de Nice Côte d'Azur||en|Nice Airport|s
+# NCE^^^2990440^Nice^Nice^43.70313^7.26608^FR^^Europe^P^PPLA2^B8^06^062^06088^338620^25^18^Europe/Paris^1.0^2.0^1.0^2011-11-02^NCE,Nica,Nicaea,Nicca,Nice,Nicea,Nico,Nisa,Niza,Nizza,Niça,ni si,nisa,nisu,nitsa,nys,Ница,Ницца,ניס,نيس,नीस,ნიცა,ニース,尼斯^http://en.wikipedia.org/wiki/Nice^en|Nice||de|Nizza||es|Niza|ps|af|Nice||ar|نيس||bg|Ница||ca|Niça||da|Nice||eo|Nico||et|Nice||fi|Nizza||fr|Nice||he|ניס||id|Nice||it|Nizza||ja|ニース||la|Nicaea||lad|Nice||lb|Nice||lt|Nica||nb|Nice||nl|Nice||no|Nice||oc|Niça||pl|Nicea||pt|Nice||ro|Nisa||ru|Ницца||sl|Nica||sv|Nice||cy|Nice||eu|Niza||zh|尼斯||ceb|Nice||hi|नीस||ka|ნიცა||lv|Nica||qu|Nice||scn|Nizza||sk|Nice||sr|Ница||post|06100||post|06000|p|post|06200||post|06300|
 #
+
+##
+# Debugging support function
+function printList(myArray) {
+	printf ("%s", "Size: " length(myArray) "\n") > "/dev/stderr"
+	for (idx in myArray) {
+		printf ("%s", idx "^" myArray[idx]) > "/dev/stderr"
+	}
+	printf ("%s", "\n") > "/dev/stderr"
+}
 
 ##
 #
 BEGIN {
 	#
 	tz_line = 0
+	cont_line = 0
 	por_line = 0
 	alt_line = 0
 
 	# Header
 	printf ("%s", "iata_code^icao_code^geonameid")
 	printf ("%s", "^name^asciiname^latitude^longitude")
-	printf ("%s", "^country^cc2^ctry_name^fclass^fcode")
+	printf ("%s", "^country^cc2^ctry_name^continent^fclass^fcode")
 	printf ("%s", "^adm1^adm1_name_utf^adm1_name_ascii")
 	printf ("%s", "^adm2^adm2_name_utf^adm2_name_ascii^adm3^adm4")
 	printf ("%s", "^population^elevation^gtopo30")
@@ -200,7 +221,7 @@ BEGIN {
 #
 # Register the details for the countries
 #
-# ISO ISO3 ISO-Numeric fips Country Capital Area(in sq km) Population Continent tld CurrencyCode CurrencyName Phone Postal Code Format Postal Code Regex Languages geonameid neighbours EquivalentFipsCode
+# ISO ISO3 ISO-Numeric fips CountryName Capital Area(in sq km) Population Continent tld CurrencyCode CurrencyName Phone Postal Code Format Postal Code Regex Languages geonameid neighbours EquivalentFipsCode
 # DE DEU 276 GM Germany Berlin 357021 81802257 EU .de EUR Euro 49 ##### ^(\d{5})$ de 2921044 CH,PL,NL,DK,BE,CZ,LU,FR,AT
 # FR FRA 250 FR France Paris 547030 64768389 EU .fr EUR Euro 33 ##### ^(\d{5})$ fr-FR,frp,br,co,ca,eu,oc 3017382 CH,DE,BE,LU,IT,AD,MC,ES 
 # GB GBR 826 UK United Kingdom London 244820 62348447 EU .uk GBP Pound 44 @# #@@|@## #@@|@@# #@@|@@## #@@|@#@ #@@|@@#@ #@@|GIR0AA ^(([A-Z]\d{2}[A-Z]{2})|([A-Z]\d{3}[A-Z]{2})|([A-Z]{2}\d{2}[A-Z]{2})|([A-Z]{2}\d{3}[A-Z]{2})|([A-Z]\d[A-Z]\d[A-Z]{2})|([A-Z]{2}\d[A-Z]\d[A-Z]{2})|(GIR0AA))$ en-GB,cy-GB,gd 2635167 IE
@@ -220,8 +241,12 @@ BEGIN {
 	# (ASCII) Name
 	ctry_name = $5
 
+	# Continent code
+	cont_code = $9
+
 	# Register the details for that country
 	ctry_list_name[iso_2char_code] = ctry_name
+	ctry_list_cont[iso_2char_code] = cont_code
 }
 
 ##
@@ -262,6 +287,28 @@ BEGIN {
 	tz_list_gmt[tz_id] = gmt_offset
 	tz_list_dst[tz_id] = dst_offset
 	tz_list_raw[tz_id] = raw_offset
+}
+
+##
+# continentCodes.txt
+#
+# Register the continents
+#
+# ContinentCode ContinentName geonameid
+# EU Europe 6255148
+# NA North America 6255149
+/^([A-Z]{2})\t([A-Za-z ]+)\t([0-9]{1,9})$/ {
+	#
+	cont_line++
+
+	# Continent code
+	cont_code = $1
+
+	# Continent name
+	cont_name = $2
+
+	# Register the continent name
+	cont_list[cont_code] = cont_name
 }
 
 ##
@@ -425,6 +472,16 @@ BEGIN {
 	ctry_name = ctry_list_name[ctry_code]
 	cc_code_list = $10
 
+	# Continent
+	cont_code = ctry_list_cont[ctry_code]
+	cont_name = cont_list[cont_code]
+	# Sanity check
+	if (cont_name == "") {
+		print ("!!!! [" FNR "] The " ctry_code							\
+			   " country has no associated continent.") > "/dev/stderr"
+		printList(cont_list)
+	}
+
 	# Codes and names for administrative levels
 	adm1_code = $11
 	adm1_name_utf = adm1_list_name_utf[ctry_code, adm1_code]
@@ -476,7 +533,7 @@ BEGIN {
 	out_line = out_line "^" utf8_name "^" ascii_name
 	out_line = out_line "^" latitude "^" longitude
 	out_line = out_line "^" ctry_code "^" cc_code_list "^" ctry_name
-	out_line = out_line "^" fclass "^" fcode
+	out_line = out_line "^" cont_name "^" fclass "^" fcode
 	out_line = out_line "^" adm1_code "^" adm1_name_utf "^" adm1_name_ascii
 	out_line = out_line "^" adm2_code "^" adm2_name_utf "^" adm2_name_ascii
 	out_line = out_line "^" adm3_code "^" adm4_code
