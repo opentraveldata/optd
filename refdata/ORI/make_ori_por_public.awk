@@ -275,8 +275,11 @@ function printAltNameSection(myAltNameSection) {
 		printf ("%s", "^" $36)
 
 		# ^ City code ^ City UTF8 name ^ City ASCII name ^ Travel-related list
-		# Note: The actual values are added by the add_city_name.awk script
-		printf ("%s", "^" $46 "^"  "^"  "^" )
+		# Notes:
+		#   1. The actual name values are added by the add_city_name.awk script.
+		#   2. The city code is the one from the file of best known coordinates,
+		#      not the one from Amadeus RFD (as it is sometimes inaccurate).
+		printf ("%s", "^" $5 "^"  "^"  "^" )
 
 		# ^ State code
 		printf ("%s", "^" $48)
@@ -427,8 +430,11 @@ function printAltNameSection(myAltNameSection) {
 		printf ("%s", "^" today_date)
 
 		# ^ City code ^ City UTF8 name ^ City ASCII name ^ Travel-related list
-		# Note: The actual values are added by the add_city_name.awk script
-		printf ("%s", "^" $14 "^"  "^"  "^" )
+		# Notes:
+		#   1. The actual name values are added by the add_city_name.awk script.
+		#   2. The city code is the one from the file of best known coordinates,
+		#      not the one from Amadeus RFD (as it is sometimes inaccurate).
+		printf ("%s", "^" $5 "^"  "^"  "^" )
 
 		# ^ State code
 		printf ("%s", "^" $16)
@@ -516,8 +522,11 @@ function printAltNameSection(myAltNameSection) {
 		printf ("%s", "^" $36)
 
 		# ^ City code ^ City UTF8 name ^ City ASCII name ^ Travel-related list
-		# Note: The actual values are added by the add_city_name.awk script
-		printf ("%s", "^" $2 "^"  "^"  "^" )
+		# Notes:
+		#   1. The actual name values are added by the add_city_name.awk script.
+		#   2. The city code is the one from the file of best known coordinates,
+		#      not the one from Amadeus RFD (as it is sometimes inaccurate).
+		printf ("%s", "^" $5 "^"  "^"  "^" )
 
 		# ^ State code
 		printf ("%s", "^" $21)
