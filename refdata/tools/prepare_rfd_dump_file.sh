@@ -125,8 +125,8 @@ then
 fi
 
 ##
-# Sanity check: that (executable) script should be located in the tools/ sub-directory
-# of the OpenTravelData project Git clone
+# Sanity check: that (executable) script should be located in the tools/
+# sub-directory of the OpenTravelData project Git clone
 EXEC_DIR_NAME=`basename ${EXEC_FULL_PATH}`
 if [ "${EXEC_DIR_NAME}" != "tools" ]
 then
@@ -157,10 +157,12 @@ GEO_ORI_FILE=${ORI_DIR}${GEO_ORI_FILENAME}
 
 ##
 # Amadeus RFD
+RFD_CAP_FILENAME=cap_${RFD_RAW_FILENAME}
 RFD_WPK_FILENAME=wpk_${RFD_RAW_FILENAME}
 SORTED_RFD_WPK_FILENAME=sorted_${RFD_WPK_FILENAME}
 SORTED_CUT_RFD_WPK_FILENAME=cut_${SORTED_RFD_WPK_FILENAME}
 #
+RFD_CAP_FILE=${TMP_DIR}${RFD_CAP_FILENAME}
 RFD_WPK_FILE=${TMP_DIR}${RFD_WPK_FILENAME}
 SORTED_RFD_WPK_FILE=${TMP_DIR}${SORTED_RFD_WPK_FILENAME}
 SORTED_CUT_RFD_WPK_FILE=${TMP_DIR}${SORTED_CUT_RFD_WPK_FILENAME}
@@ -175,7 +177,7 @@ then
 		\rm -rf ${TMP_DIR}
 	else
 		\rm -f ${SORTED_RFD_WPK_FILE} ${SORTED_CUT_RFD_WPK_FILE}
-		\rm -f ${RFD_WPK_FILE}
+		\rm -f ${RFD_CAP_FILE} ${RFD_WPK_FILE}
 	fi
 	exit
 fi
@@ -193,6 +195,7 @@ then
 	echo "  - Default log level: ${LOG_LEVEL}"
 	echo "    + 0: No log; 1: Critical; 2: Error; 3; Notification; 4: Debug; 5: Verbose"
 	echo "  - Generated files:"
+	echo "    + '${RFD_CAP_FILE}'"
 	echo "    + '${RFD_WPK_FILE}'"
 	echo "    + '${SORTED_RFD_WPK_FILE}'"
 	echo "    + '${SORTED_CUT_RFD_WPK_FILE}'"
@@ -249,6 +252,7 @@ if [ "$2" != "" ]
 then
 	RFD_RAW_FILE="$2"
 	RFD_RAW_FILENAME=`basename ${RFD_RAW_FILE}`
+	RFD_CAP_FILENAME=cap_${RFD_RAW_FILENAME}
 	RFD_WPK_FILENAME=wpk_${RFD_RAW_FILENAME}
 	SORTED_RFD_WPK_FILENAME=sorted_${RFD_WPK_FILENAME}
 	SORTED_CUT_RFD_WPK_FILENAME=cut_${SORTED_RFD_WPK_FILENAME}
@@ -257,6 +261,7 @@ then
 		RFD_RAW_FILE="${TMP_DIR}${RFD_RAW_FILE}"
 	fi
 fi
+RFD_CAP_FILE=${TMP_DIR}${RFD_CAP_FILENAME}
 RFD_WPK_FILE=${TMP_DIR}${RFD_WPK_FILENAME}
 SORTED_RFD_WPK_FILE=${TMP_DIR}${SORTED_RFD_WPK_FILENAME}
 SORTED_CUT_RFD_WPK_FILE=${TMP_DIR}${SORTED_CUT_RFD_WPK_FILENAME}
@@ -282,22 +287,29 @@ fi
 
 
 ##
-# Generate a second version of the file with the ORI primary key (integrating
-# the location type)
+# Capitalise the names
+RFD_CAPITILISER=rfd_capitalise.awk
+awk -F'^' -v log_level=${LOG_LEVEL} -f ${RFD_CAPITILISER} ${RFD_RAW_FILE} \
+	> ${RFD_CAP_FILE}
+
+##
+# Generate a second version of the file with the ORI primary key
+# (integrating the location type)
 ORI_PK_ADDER=${TOOLS_DIR}rfd_pk_creator.awk
-awk -F'^' -v log_level=${LOG_LEVEL} -f ${ORI_PK_ADDER} ${GEO_ORI_FILE} ${RFD_RAW_FILE} > ${RFD_WPK_FILE}
+awk -F'^' -v log_level=${LOG_LEVEL} -f ${ORI_PK_ADDER} \
+	${GEO_ORI_FILE} ${RFD_CAP_FILE} > ${RFD_WPK_FILE}
 #sort -t'^' -k1,1 ${RFD_WPK_FILE}
 
 ##
-# First, remove the header (first line)
+# Remove the header (first line)
 RFD_WPK_FILE_TMP=${RFD_WPK_FILE}.tmp
 sed -e "s/^pk\(.\+\)//g" ${RFD_WPK_FILE} > ${RFD_WPK_FILE_TMP}
 sed -i -e "/^$/d" ${RFD_WPK_FILE_TMP}
 
 
 ##
-# That version of the RFD dump file (without primary key) is sorted according to
-# the IATA code.
+# That version of the RFD dump file (without primary key) is sorted
+# according to the IATA code.
 sort -t'^' -k 1,1 ${RFD_WPK_FILE_TMP} > ${SORTED_RFD_WPK_FILE}
 \rm -f ${RFD_WPK_FILE_TMP}
 
@@ -312,6 +324,6 @@ cut -d'^' -f 1,2,16,17 ${SORTED_RFD_WPK_FILE} > ${SORTED_CUT_RFD_WPK_FILE}
 echo
 echo "Preparation step"
 echo "----------------"
-echo "The '${RFD_WPK_FILE}', '${SORTED_RFD_WPK_FILE}' and '${SORTED_CUT_RFD_WPK_FILE}' files have been derived from '${RFD_RAW_FILE}'."
+echo "The '${RFD_CAP_FILE}', '${RFD_WPK_FILE}', '${SORTED_RFD_WPK_FILE}' and '${SORTED_CUT_RFD_WPK_FILE}' files have been derived from '${RFD_RAW_FILE}'."
 echo
 
