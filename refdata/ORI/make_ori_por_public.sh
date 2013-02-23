@@ -2,9 +2,11 @@
 
 # Create the public version of the ORI-maintained list of POR, from:
 # - best_coordinates_known_so_far.csv
-# - dump_from_geonames.csv
-# - dump_from_crb_city.csv
 # - ref_airport_pageranked.csv
+# - ori_tz_light.csv
+# - ori_cont.csv
+# - dump_from_crb_city.csv
+# - dump_from_geonames.csv
 #
 # => ori_por_public.csv
 #
@@ -69,6 +71,8 @@ ORI_POR_FILE=best_coordinates_known_so_far.csv
 ##
 # Light (and inaccurate) version of the country-related time-zones
 ORI_TZ_FILE=ori_tz_light.csv
+# Mapping between the Countries and their corresponding continent
+ORI_CNT_FILE=ori_cont.csv
 
 ##
 # PageRank values
@@ -166,10 +170,11 @@ then
 	echo "* Input data files"
 	echo "------------------"
 	echo " - ORI-maintained file of best known coordinates: '${ORI_POR_FILE}'"
-	echo " - RFD data dump file: '${RFD_RAW_FILE}'"
-	echo " - Geonames data dump file: '${GEONAME_RAW_FILE}'"
 	echo " - ORI-maintained file of PageRanked POR: '${ORI_PR_FILE}'"
 	echo " - ORI-maintained file of country-related time-zones: '${ORI_TZ_FILE}'"
+	echo " - ORI-maintained file of country-continent mapping: '${ORI_CNT_FILE}'"
+	echo " - RFD data dump file: '${RFD_RAW_FILE}'"
+	echo " - Geonames data dump file: '${GEONAME_RAW_FILE}'"
 	echo
 	echo "* Output data file"
 	echo "------------------"
@@ -279,7 +284,7 @@ join -t'^' -a 1 -1 1 -2 1 ${ORI_POR_WITH_GEORFD} ${GEONAME_RAW_FILE_TMP} \
 # Suppress the redundancies. See ${REDUCER} for more details and samples.
 REDUCER=make_ori_por_public.awk
 awk -F'^' -v non_ori_por_file="${ORI_ONLY_POR_FILE}" -f ${REDUCER} \
-	${ORI_PR_FILE} ${ORI_TZ_FILE} ${ORI_POR_WITH_GEORFDALT} \
+	${ORI_PR_FILE} ${ORI_TZ_FILE} ${ORI_CNT_FILE} ${ORI_POR_WITH_GEORFDALT} \
 	> ${ORI_POR_WITH_NO_CTY_NAME}
 #echo "head ${ORI_POR_WITH_GEORFDALT} ${ORI_POR_WITH_NO_CTY_NAME}"
 

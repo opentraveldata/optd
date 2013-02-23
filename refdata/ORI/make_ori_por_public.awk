@@ -1,11 +1,13 @@
 ##
 # That AWK script re-formats the full details of POR (points of reference)
-# derived from four sources:
-#  * Amadeus ORI-maintained list of best known coordinates
-#  * Amadeus ORI-maintained list of PageRank values
-#  * Amadeus ORI-maintained list of country-associated time-zones
-#  * Amadeus RFD (Referential Data)
-#  * Geonames
+# derived from a few sources:
+#  * Amadeus ORI-maintained lists of:
+#    * Best known coordinates:          best_coordinates_known_so_far.csv
+#    * PageRank values:                 ref_airport_pageranked.csv
+#    * Country-associated time-zones:   ori_tz_light.csv
+#    * Country-associated continents:   ori_cont.csv
+#  * Amadeus RFD (Referential Data):    dump_from_crb_city.csv
+#  * Geonames:                          dump_from_geonames.csv
 #
 # Notes:
 # 1. When the POR is existing only in Amadeus RFD data, the cryptic time-zone
@@ -123,6 +125,30 @@ BEGIN {
 
 
 ##
+# File of country-continent mappings
+#
+# Sample lines:
+# country_code^country_name^continent_code^continent_name
+# DE^Germany^EU^Europe
+# AG^Antigua and Barbuda^NA^North America
+# PE^Peru^SA^South America
+/^([A-Z]{2})\^([A-Za-z,. \-]+)\^([A-Z]{2})\^([A-Za-z ]+)$/ {
+	# Country code
+	country_code = $1
+
+	# Continent code
+	continent_code = $3
+
+	# Continent name
+	continent_name = $4
+
+	# Register the time-zone ID associated to that country
+	# ctry_cont_code_list[country_code] = continent_code
+	ctry_cont_name_list[country_code] = continent_name
+}
+
+
+##
 # States whether that location type corresponds to a travel-related POR
 function isTravel(myLocationType) {
 	is_airport = match (myLocationType, "A")
@@ -162,6 +188,20 @@ function getPageRank(myIataCode, myLocationType) {
 function getTimeZone(myCountryCode) {
 	tz_id = ctry_tz_list[myCountryCode]
 	return tz_id
+}
+
+##
+# Retrieve the continent code for that country
+function getContinentCode(myCountryCode) {
+	# cnt_code = ctry_cont_code_list[myCountryCode]
+	return cnt_code
+}
+
+##
+# Retrieve the continent name for that country
+function getContinentName(myCountryCode) {
+	cnt_name = ctry_cont_name_list[myCountryCode]
+	return cnt_name
 }
 
 ##
@@ -410,7 +450,8 @@ function printAltNameSection(myAltNameSection) {
 		# ^ Country code ^ Alt. country codes ^ Country name ^ Continent name
 		country_code = $17
 		time_zone_id = getTimeZone(country_code)
-		continent_name = gensub ("/[A-Za-z_]+", "", "g", time_zone_id)
+		continent_name = getContinentName(country_code)
+		# continent_name = gensub ("/[A-Za-z_]+", "", "g", time_zone_id)
 		printf ("%s", "^" country_code "^^" country_code "^" continent_name)
 
 		# ^ Admin1 code ^ Admin1 UTF8 name ^ Admin1 ASCII name
