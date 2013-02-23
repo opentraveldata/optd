@@ -286,7 +286,7 @@ REDUCER=make_ori_por_public.awk
 awk -F'^' -v non_ori_por_file="${ORI_ONLY_POR_FILE}" -f ${REDUCER} \
 	${ORI_PR_FILE} ${ORI_TZ_FILE} ${ORI_CNT_FILE} ${ORI_POR_WITH_GEORFDALT} \
 	> ${ORI_POR_WITH_NO_CTY_NAME}
-#echo "head ${ORI_POR_WITH_GEORFDALT} ${ORI_POR_WITH_NO_CTY_NAME}"
+#echo "head -3 ${ORI_POR_WITH_GEORFDALT} ${ORI_POR_WITH_NO_CTY_NAME}"
 
 ##
 # Write the UTF8 and ASCII names of the city served by every travel-related

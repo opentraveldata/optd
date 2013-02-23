@@ -293,7 +293,7 @@ function printAltNameSection(myAltNameSection) {
 		printf ("%s", "^" page_rank)
 
 		# ^ Valid from date ^ Valid until date ^ Comment
-		printf ("%s", "^^^")
+		printf ("%s", "^" $6 "^^")
 
 		# ^ Country code ^ Alt. country codes ^ Country name ^ Continent name
 		printf ("%s", "^" $15 "^" $16 "^" $17 "^" $18)
@@ -445,7 +445,7 @@ function printAltNameSection(myAltNameSection) {
 		printf ("%s", "^" page_rank)
 
 		# ^ Valid from date ^ Valid until date ^ Comment
-		printf ("%s", "^^^")
+		printf ("%s", "^" $6 "^^")
 
 		# ^ Country code ^ Alt. country codes ^ Country name ^ Continent name
 		country_code = $17
@@ -541,7 +541,7 @@ function printAltNameSection(myAltNameSection) {
 		printf ("%s", "^" page_rank)
 
 		# ^ Valid from date ^ Valid until date ^ Comment
-		printf ("%s", "^^^")
+		printf ("%s", "^" $6 "^^")
 
 		# ^ Country code ^ Alt. country codes ^ Country name ^ Continent name
 		printf ("%s", "^" $15 "^" $16 "^" $17 "^" $18)
@@ -642,7 +642,7 @@ function printAltNameSection(myAltNameSection) {
 		printf ("%s", "^" page_rank) > non_ori_por_file
 
 		# ^ Valid from date ^ Valid until date ^ Comment
-		printf ("%s", "^^^") > non_ori_por_file
+		printf ("%s", "^" $6 "^^") > non_ori_por_file
 
 		# ^ Country code ^ Alt. country codes ^ Country name
 		printf ("%s", "^" "ZZ" "^" "Zzzzz") > non_ori_por_file
