@@ -54,20 +54,45 @@ BEGIN {
 
 
 ##
-# File of PageRank values
+# File of PageRank values.
 #
-# Sample lines:
-# LON-C^LON^1.0
-# PAR-C^PAR^0.994632137197
-# NYC-C^NYC^0.948221089373
-# CHI-C^CHI^0.768305897463
-# ATL-A^ATL^0.686723208248
-# ATL-C^ATL^0.686723208248
-# NCE-CA^NCE^0.158985215433
-# ORD-A^ORD^0.677280625337
-# CDG-A^CDG^0.647060165878
+# Note that the location types of that file are not the same as the ones
+# in the best_coordinates_known_so_far.csv file. Indeed, the location types
+# take a value from three possible ones: 'C', 'A' or 'CA', where 'A' actually
+# means travel-related rather than airport. There are distinct entries for
+# the city and for the corresponding travel-related POR, only when there are
+# several travel-related POR serving the city.
 #
-/^([A-Z0-9]{3})-([A-Z]{1,2})\^([A-Z]{3})\^([0-9.]{1,15})$/ {
+# In the best_coordinates_known_so_far.csv file, instead, there are distinct
+# entries when Geonames has got itself distinct entries.
+#
+# For instance:
+#  * NCE has got:
+#    - 2 distinct entries in the best_coordinates_known_so_far.csv file:
+#       NCE-A-6299418^NCE^43.658411^7.215872^NCE^
+#       NCE-C-2990440^NCE^43.70313^7.26608^NCE^
+#    - 1 entry in the file of PageRank values:
+#       NCE-CA^NCE^0.161281957529
+#  * IEV has got:
+#    - 2 distinct entries in the best_coordinates_known_so_far.csv file:
+#       IEV-A-6300960^IEV^50.401694^30.449697^IEV^
+#       IEV-C-703448^IEV^50.401694^30.449697^IEV^
+#    - 2 entries in the file of PageRank values:
+#       IEV-C^IEV^0.109334523229
+#       IEV-A^IEV^0.0280192004497
+#
+# Sample input lines:
+#   LON-C^LON^1.0
+#   PAR-C^PAR^0.994632137197
+#   NYC-C^NYC^0.948221089373
+#   CHI-C^CHI^0.768305897463
+#   ATL-A^ATL^0.686723208248
+#   ATL-C^ATL^0.686723208248
+#   NCE-CA^NCE^0.158985215433
+#   ORD-A^ORD^0.677280625337
+#   CDG-A^CDG^0.647060165878
+#
+/^([A-Z]{3})-([A-Z]{1,2})\^([A-Z]{3})\^([0-9.]{1,15})$/ {
 	# Primary key (IATA code and location pseudo-code)
 	pk = $1
 
@@ -166,7 +191,7 @@ function isTravel(myLocationType) {
 
 ##
 # Retrieve the PageRank value for that POR
-function getPageRank(myIataCode, myLocationType) {
+function getPageRank(myIataCode, myLocationType, myGeonamesID) {
 	is_city = match (myLocationType, "C")
 	is_tvl = isTravel(myLocationType)
 	
@@ -246,35 +271,51 @@ function printAltNameSection(myAltNameSection) {
 # Sample input lines:
 #
 # # Both in Geonames and in RFD (56 fields)
-# NCE-CA^NCE^43.658411^7.215872^NCE^^NCE^LFMN^^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^France^Europe^S^AIRP^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^Nice Airport,...^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^NCE^CA^NICE^COTE D AZUR^NICE^NICE/FR:COTE D AZUR^NICE^NCE^Y^^FR^EUROP^ITC2^FR052^43.6653^7.215^^Y^en|Nice Airport|s
+# NCE-A-6299418^NCE^43.658411^7.215872^NCE^6299418^NCE^LFMN^^6299418^Nice Côte d'Azur International Airport^Nice Cote d'Azur International Airport^43.66272^7.20787^FR^^France^Europe^S^AIRP^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^062^06088^0^3^-9999^Europe/Paris^1.0^2.0^1.0^2012-06-30^Nice Airport,...^http://en.wikipedia.org/wiki/Nice_C%C3%B4te_d%27Azur_Airport^NCE^A^Nice^Cote D Azur^Nice^Nice FR Cote D Azur^Nice^NCE^Y^^FR^EUROP^ITC2^FR052^43.6653^7.215^^Y^en|Nice Côte d'Azur International Airport|s
 #
 # # In RFD (24 fields)
-# XIT-R^XIT^51.42^12.42^LEJ^^XIT^R^LEIPZIG RAIL^LEIPZIG HBF RAIL STN^LEIPZIG RAIL^LEIPZIG/HALLE/DE:LEIPZIG HBF R^LEIPZIG/HALLE^LEJ^Y^^DE^EUROP^ITC2^DE040^51.3^12.3333^^N
+# XIT-R-0^XIT^51.42^12.42^LEJ^^XIT^R^Leipzig Rail^Leipzig Hbf Rail Stn^Leipzig Rail^Leipzig HALLE DE Leipzig Hbf R^Leipzig HALLE^LEJ^Y^^DE^EUROP^ITC2^DE040^51.3^12.3333^^N
 #
 # # In Geonames (38 fields)
-# SQX-CA^SQX^-26.7816^-53.5035^SQX^^SQX^SSOE^^7731508^São Miguel do Oeste Airport^Sao Miguel do Oeste Airport^-26.7816^-53.5035^BR^^Brazil^Europe^S^AIRP^26^Santa Catarina^Santa Catarina^4204905^Descanso^Descanso^^^0^^655^America/Sao_Paulo^-2.0^-3.0^-3.0^2012-08-03^SQX,SSOE^^
+# SQX-CA-7731508^SQX^-26.7816^-53.5035^SQX^7731508^SQX^SSOE^^7731508^São Miguel do Oeste Airport^Sao Miguel do Oeste Airport^-26.7816^-53.5035^BR^^Brazil^South America^S^AIRP^26^Santa Catarina^Santa Catarina^4204905^Descanso^Descanso^^^0^^655^America/Sao_Paulo^-2.0^-3.0^-3.0^2012-08-03^SQX,SSOE^^
 #
-/^([A-Z0-9]{3})-([A-Z]{1,2})\^([A-Z]{3})\^([0-9.+-]{0,12})\^/ {
+/^([A-Z]{3})-([A-Z]{1,2})-([0-9]{1,10})\^([A-Z]{3})\^([0-9.+-]{0,12})\^/ {
 
 	if (NF == 57) {
 		####
 		## Both in Geonames and in RFD
 		####
 
+		# Primary key
+		pk = $1
+
 		# Location type (extracted from the primary key)
-		location_type = substr($1, 5)
+		location_type = gensub ("^([A-Z]{3})-([A-Z]{1,2})-([0-9]{1,10})$", \
+								"\\2", "g", pk)
+
+		# Geonames ID
+		geonames_id = gensub ("^([A-Z]{3})-([A-Z]{1,2})-([0-9]{1,10})$", \
+							  "\\3",	"g", pk)
 
 		# IATA code
 		iata_code = $2
 
 		# PageRank value
-		page_rank = getPageRank(iata_code, location_type)
+		page_rank = getPageRank(iata_code, location_type, geonames_id)
 
 		# Is in Geonames?
 		geonameID = $10
 		isGeonames = "Y"
 		if (geonameID == "0" || geonameID == "") {
 			isGeonames = "N"
+		}
+
+		# Sanity check
+		if (geonames_id != geonameID) {
+			print ("[" awk_file "] !!!! Warning !!!! The two Geonames ID" \
+				   " are not equal: pk="	pk " and " geonameID		\
+				   " for the record #" FNR ":" $0)						\
+				> error_stream
 		}
 
 		# IATA code ^ ICAO code ^ FAA ^ Is in Geonames ^ GeonameID ^ Validity ID
@@ -337,8 +378,8 @@ function printAltNameSection(myAltNameSection) {
 
 		# ----
 		# From ORI-POR ($1 - $6)
-		# (1) NCE-CA ^ (2) NCE ^ (3) 43.658411 ^ (4) 7.215872 ^
-		# (5) NCE ^ (6)  ^
+		# (1) NCE-A-6299418 ^ (2) NCE ^ (3) 43.658411 ^ (4) 7.215872 ^
+		# (5) NCE ^ (6) 6299418 ^
 
 		# From Geonames ($7 - $38)
 		# (7) NCE ^ (8) LFMN ^ (9)  ^ (10) 6299418 ^
@@ -372,14 +413,22 @@ function printAltNameSection(myAltNameSection) {
 		## Not in Geonames
 		####
 
+		# Primary key
+		pk = $1
+
 		# Location type (extracted from the primary key)
-		location_type = substr($1, 5)
+		location_type = gensub ("^([A-Z]{3})-([A-Z]{1,2})-([0-9]{1,10})$", \
+								"\\2", "g", pk)
+
+		# Geonames ID
+		geonames_id = gensub ("^([A-Z]{3})-([A-Z]{1,2})-([0-9]{1,10})$", \
+							  "\\3", "g", pk)
 
 		# IATA code
 		iata_code = $2
 
 		# PageRank value
-		page_rank = getPageRank(iata_code, location_type)
+		page_rank = getPageRank(iata_code, location_type, geonames_id)
 
 		# Is in Geonames?
 		geonameID = "0"
@@ -436,7 +485,7 @@ function printAltNameSection(myAltNameSection) {
 			# The location type can not be determined
 			printf ("%s", "^Z^ZZZZ")
 			print ("[" awk_file "] !!!! Warning !!!! The location type " \
-				   "cannot be determined for the record #" FNR ":") \
+				   "cannot be determined for the record #" FNR ":")		\
 				> error_stream
 			print ($0) > error_stream
 		}
@@ -494,7 +543,7 @@ function printAltNameSection(myAltNameSection) {
 
 		# ----
 		# From ORI-POR ($1 - $6)
-		# (1) XIT-R ^ (2) XIT (3) 51.42 ^ (4) 12.42 ^
+		# (1) XIT-R-0 ^ (2) XIT (3) 51.42 ^ (4) 12.42 ^
 		# (5) LEJ ^ (6)  ^
 
 		# From RFD ($7 - $24)
@@ -509,14 +558,22 @@ function printAltNameSection(myAltNameSection) {
 		## Not in RFD
 		####
 
+		# Primary key
+		pk = $1
+
 		# Location type (extracted from the primary key)
-		location_type = substr($1, 5)
+		location_type = gensub ("^([A-Z]{3})-([A-Z]{1,2})-([0-9]{1,10})$", \
+								"\\2", "g", pk)
+
+		# Geonames ID
+		geonames_id = gensub ("^([A-Z]{3})-([A-Z]{1,2})-([0-9]{1,10})$", \
+							  "\\3", "g", pk)
 
 		# IATA code
 		iata_code = $2
 
 		# PageRank value
-		page_rank = getPageRank(iata_code, location_type)
+		page_rank = getPageRank(iata_code, location_type, geonames_id)
 
 		# Is in Geonames?
 		geonameID = $10
@@ -573,7 +630,6 @@ function printAltNameSection(myAltNameSection) {
 		printf ("%s", "^" $21)
 
 		#  ^ Location type
-		location_type = substr ($1, 5)
 		printf ("%s", "^" location_type)
 
 		# ^ Wiki link (potentially empty)
@@ -589,8 +645,8 @@ function printAltNameSection(myAltNameSection) {
 
 		# ----
 		# From ORI-POR ($1 - $6)
-		# (1) SQX-CA ^ (2) SQX ^ (3) -26.7816 ^ (4) -53.5035 ^ 
-		# (5) SQX ^ (6)  ^
+		# (1) SQX-CA-7731508 ^ (2) SQX ^ (3) -26.7816 ^ (4) -53.5035 ^ 
+		# (5) SQX ^ (6) 7731508 ^
 
 		# From Geonames ($7 - $39)
 		# (7) SQX ^ (8) SSOE ^ (9)  ^ (10) 7731508 ^
@@ -608,14 +664,17 @@ function printAltNameSection(myAltNameSection) {
 		####
 		## Neither in Geonames nor in RFD
 		####
-		# Location type (extracted from the primary key)
+		# Location type (hard-coded to be an airport)
 		location_type = "A"
+
+		# Geonames ID
+		geonames_id = "0"
 
 		# IATA code
 		iata_code = $1
 
 		# PageRank value
-		page_rank = getPageRank(iata_code, location_type)
+		page_rank = getPageRank(iata_code, location_type, geonames_id)
 
 		# Is in Geonames?
 		geonameID = "0"

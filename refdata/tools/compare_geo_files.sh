@@ -37,9 +37,15 @@ then
 fi
 
 ##
+# ORI path
+OPTD_DIR=${EXEC_PATH}../
+ORI_DIR=${OPTD_DIR}ORI/
+
+##
 # Geo data files
 GEO_FILE_1_FILENAME=cut_sorted_dump_from_geonames.csv
-AIRPORT_PR_FILENAME=cut_sorted_ref_airport_pageranked.csv
+#AIRPORT_PR_FILENAME=cut_sorted_ref_airport_pageranked.csv
+AIRPORT_PR_FILENAME=ref_airport_pageranked.csv
 # Comparison files
 COMP_FILE_COORD_FILENAME=por_comparison_coord.csv
 COMP_FILE_DIST_FILENAME=por_comparison_dist.csv
@@ -51,7 +57,8 @@ COMP_MIN_DIST=10
 # Geo data files
 GEO_FILE_1=${TMP_DIR}${GEO_FILE_1_FILENAME}
 GEO_FILE_2=${TMP_DIR}${GEO_FILE_2_FILENAME}
-AIRPORT_PR=${TMP_DIR}${AIRPORT_PR_FILENAME}
+#AIRPORT_PR_FILE=${TMP_DIR}${AIRPORT_PR_FILENAME}
+AIRPORT_PR_FILE=${ORI_DIR}${AIRPORT_PR_FILENAME}
 # Comparison files
 COMP_FILE_COORD=${TMP_DIR}${COMP_FILE_COORD_FILENAME}
 COMP_FILE_DIST=${TMP_DIR}${COMP_FILE_DIST_FILENAME}
@@ -64,7 +71,7 @@ then
 	echo "Usage: $0 [<Geo data file 1> [<Geo data file 2>]]"
 	echo "  - Default name for the geo data file #1: '${GEO_FILE_1}'"
 	echo "  - Default name for the geo data file #2: '${GEO_FILE_2}'"
-	echo "  - Default name for the airport PageRank/popularity: '${AIRPORT_PR}'"
+	echo "  - Default name for the airport PageRank/popularity: '${AIRPORT_PR_FILE}'"
 	echo "  - Default distance (in km) triggering a difference: '${COMP_MIN_DIST}'"
 	echo
 	exit
@@ -117,22 +124,22 @@ fi
 # Data file with airport PageRank/popularity
 if [ "$3" != "" ];
 then
-	AIRPORT_PR=$3
-	AIRPORT_PR_FILENAME=`basename ${AIRPORT_PR}`
-	if [ "${AIRPORT_PR}" = "${AIRPORT_PR_FILENAME}" ]
+	AIRPORT_PR_FILE=$3
+	AIRPORT_PR_FILENAME=`basename ${AIRPORT_PR_FILE}`
+	if [ "${AIRPORT_PR_FILE}" = "${AIRPORT_PR_FILENAME}" ]
 	then
-		AIRPORT_PR="${TMP_DIR}${AIRPORT_PR_FILENAME}"
+		AIRPORT_PR_FILE="${TMP_DIR}${AIRPORT_PR_FILENAME}"
 	fi
 fi
 
-if [ ! -f "${AIRPORT_PR}" ]
+if [ ! -f "${AIRPORT_PR_FILE}" ]
 then
 	echo
-	echo "[$0:$LINENO] The '${AIRPORT_PR}' file does not exist."
+	echo "[$0:$LINENO] The '${AIRPORT_PR_FILE}' file does not exist."
 	if [ "$3" = "" ];
 	then
 		${PREPARE_PR_EXEC} --popularity
-		echo "The default name of the airport PageRank/popularity copy is '${AIRPORT_PR}'."
+		echo "The default name of the airport PageRank/popularity copy is '${AIRPORT_PR_FILE}'."
 		echo
 	fi
 	exit -1
@@ -166,11 +173,13 @@ fi
 # For each airport/city code, join the two geographical coordinate sets.
 COMP_FILE_COORD_TMP=${COMP_FILE_COORD}.tmp2
 join -t'^' -a 1 -1 1 -2 1 ${GEO_FILE_2} ${GEO_FILE_1} > ${COMP_FILE_COORD_TMP}
+\mv -f ${COMP_FILE_COORD_TMP} ${COMP_FILE_COORD}
 
 ##
 # For each airport/city code, join the airport PageRank/popularity.
-join -t'^' -a 1 -1 1 -2 1 ${COMP_FILE_COORD_TMP} ${AIRPORT_PR} > ${COMP_FILE_COORD}
-\rm -f ${COMP_FILE_COORD_TMP}
+#join -t'^' -a 1 -1 1 -2 1 ${COMP_FILE_COORD_TMP} ${AIRPORT_PR_FILE} \
+#	> ${COMP_FILE_COORD}
+#\rm -f ${COMP_FILE_COORD_TMP}
 
 ##
 # Suppress empty coordinate fields, from the geonames dump file:
@@ -179,8 +188,11 @@ join -t'^' -a 1 -1 1 -2 1 ${COMP_FILE_COORD_TMP} ${AIRPORT_PR} > ${COMP_FILE_COO
 ##
 # For each airport/city code, calculate the distance between the two
 # geographical coordinate sets.
+# The file with the airport PageRank/popularity values is also given as input.
 AWK_DIST=${EXEC_PATH}distance.awk
-awk -F'^' -f ${AWK_DIST} ${COMP_FILE_COORD} > ${COMP_FILE_DIST}
+awk -F'^' -f ${AWK_DIST} \
+	${AIRPORT_PR_FILE} ${COMP_FILE_COORD} > ${COMP_FILE_DIST}
+#echo "head -3 ${AIRPORT_PR_FILE} ${COMP_FILE_COORD} ${COMP_FILE_DIST}"
 
 ##
 # Count the differences

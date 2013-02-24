@@ -1,13 +1,23 @@
 ##
 # That AWK script creates and adds a primary key for the Geonames dump file.
-# The primary key is made of the IATA code and location type. For instance:
-#  * ARN-A means the Arlanda airport in Stockholm, Sweden
-#  * ARN-R means the Arlanda railway station in Stockholm, Sweden
-#  * CDG-A means the Charles de Gaulle airport in Paris, France
-#  * PAR-C means the city of Paris, France
-#  * NCE-CA means Nice, France, indifferentiating the airport from the city
-#  * SFO-A means the San Francisco airport, California, US
-#  * SFO-C means the city of San Francisco, California, US
+# It uses the following input files:
+#  * Geonames dump data file:
+#      dump_from_geonames.csv
+#  * ORI-maintained list of best known coordinates:
+#      best_coordinates_known_so_far.csv
+#
+# The primary key is made of:
+#  * The IATA code
+#  * The location type
+#  * The Geonames ID, when existing, or 0 otherwise
+# For instance:
+#  * ARN-A-2725346 means the Arlanda airport in Stockholm, Sweden
+#  * ARN-R-8335457 means the Arlanda railway station in Stockholm, Sweden
+#  * CDG-A-6269554 means the Charles de Gaulle airport in Paris, France
+#  * PAR-C-2988507 means the city of Paris, France
+#  * NCE-CA-0 means Nice, France, indifferentiating the airport from the city
+#  * SFO-A-5391989 means the San Francisco airport, California, USA
+#  * SFO-C-5391959 means the city of San Francisco, California, USA
 #
 # A few examples of IATA location types:
 #  * 'C' for city
@@ -91,13 +101,13 @@ function overrideDetails(myPK, myFullLine, myFeatClass, myFeatCode) {
 	$0 = saved_line
 }
 
-#
+##
 # The POR/lines have to be combined or split the same way as in the ORI list:
 #  - A single, combined, POR for a 'CX' location type (X = A, H, B, R, P, O, G)
 #  - One POR by other location type (e.g., 'C', 'A', 'H', 'R', 'B', 'P', 'O',
 #    'G')
 #
-function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
+function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK,			\
 					myTravelLine, myCityLine, myNbOfPOR, myLastLine, myLine) {
 
 	# DEBUG
@@ -107,6 +117,9 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 	# Retrieve the full location type from the ORI-maintained list
 	myLocationType = location_type_list[myIataCode]
 	myLocationTypeAlt = location_type_alt_list[myIataCode]
+	# Retrieve the Geoanames ID from the ORI-maintained list
+	myGeonamesID = geonames_id_list[myIataCode]
+	myGeonamesIDAlt = geonames_id_alt_list[myIataCode]
 
 	if (myNbOfPOR >= 2) {
 		# There are two POR in Geonames sharing the same IATA code
@@ -128,7 +141,7 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 			# associated (by ORI) to that POR. The city POR will be left
 			# untouched.
 			print (myLastPK "^" myTravelLine)
-			#print (myIataCode "-C" "^" myCityLine)
+			#print (myIataCode "-C-" myGeonamesID "^" myCityLine)
 
 		} else if (myLocationTypeAlt == "") {
 			# The location type is made of a single character (otherwise, that
@@ -167,7 +180,7 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 				# associated (by ORI) to that POR. The city POR will be left
 				# untouched.
 				print (myLastPK "^" myTravelLine)
-				#print (myIataCode "-C" "^" myCityLine)
+				#print (myIataCode "-C-" myGeonamesID "^" myCityLine)
 
 			} else if (is_city >= 1) {
 				# Notification
@@ -184,7 +197,7 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 				# (by ORI) to that POR. The travel-related POR will be left
 				# untouched.
 				#print (myLastPK "^" myTravelLine)
-				print (myIataCode "-C" "^" myCityLine)
+				print (myIataCode "-C-" myGeonamesID "^" myCityLine)
 
 			} else {
 				# Notification
@@ -299,13 +312,18 @@ function displayPOR(myIataCode, myLastPK, myPK, myLastAltPK, \
 
 ##
 #
-BEGINFILE {
+BEGIN {
 	# Global variables
 	error_stream = "/dev/stderr"
 	awk_file = "geo_pk_creator.awk"
+}
 
-	#
+##
+#
+BEGINFILE {
+	# Global variables
 	last_iata_code = ""
+	last_geonames_id = 0
 	last_location_type = ""
 	last_pk = ""
 	last_pk_alt = ""
@@ -323,27 +341,34 @@ BEGINFILE {
 # specify the POR primary key and its location type.
 #
 # Sample lines:
-#  ALV-O^ALV^40.98^0.45^ALV^         (1 line in ORI, 2 lines in Geonames)
-#  ARN-A^ARN^59.651944^17.918611^STO^(2 lines in ORI, split from a combined line,
-#  ARN-R^ARN^59.649463^17.929^STO^    1 line in Geonames)
-#  IES-CA^IES^51.3^13.28^IES^        (1 combined line in ORI, 1 line in Geonames)
-#  IEV-A^IEV^50.401694^30.449697^IEV^(2 lines in ORI, split from a combined line,
-#  IEV-C^IEV^50.401694^30.449697^IEV^ 2 lines in Geonames)
-#  KBP-A^KBP^50.345^30.894722^IEV^   (1 line in ORI, 1 line in Geonames)
-#  LHR-A^LHR^51.4775^-0.461389^LON^  (1 line in ORI, 1 line in Geonames)
-#  LON-C^LON^51.5^-0.1667^LON^       (1 line in ORI, 1 line in Geonames)
-#  NCE-CA^NCE^43.658411^7.215872^NCE^(1 combined line in ORI 2 lines in Geonames)
+#  ALV-C-3041563^ALV^42.50779^1.52109^ALV^ (2 lines in ORI, 2 lines in Geonames)
+#  ALV-O-7730819^ALV^40.98^0.45^ALV^       (2 lines in ORI, 2 lines in Geonames)
+#  ARN-A-2725346^ARN^59.651944^17.918611^STO^ (2 lines in ORI, split from a
+#  ARN-R-8335457^ARN^59.649463^17.929^STO^     combined line, 1 line in Geonames)
+#  IES-CA-2846939^IES^51.3^13.28^IES^(1 combined line in ORI, 1 line in Geonames)
+#  IEV-A-6300960^IEV^50.401694^30.449697^IEV^(2 lines in ORI, split from a
+#  IEV-C-703448^IEV^50.401694^30.449697^IEV^  combined line, 2 lines in Geonames)
+#  KBP-A-6300952^KBP^50.345^30.894722^IEV^   (1 line in ORI, 1 line in Geonames)
+#  LHR-A-2647216^LHR^51.4775^-0.461389^LON^  (1 line in ORI, 1 line in Geonames)
+#  LON-C-2643743^LON^51.5^-0.1667^LON^       (1 line in ORI, 1 line in Geonames)
+#  NCE-CA-0^NCE^43.658411^7.215872^NCE^      (1 combined line in ORI
+#                                             2 lines in Geonames)
 #
-/^([A-Z]{3})-([A-Z]{1,2})\^([A-Z]{3})\^/ {
+/^([A-Z]{3})-([A-Z]{1,2})-([0-9]{1,10})\^([A-Z]{3})\^/ {
 
-	# Primary key (combination of IATA code and location type)
+	# Primary key (combination of IATA code, location type and Geonames ID)
 	pk = $1
+
+	# Location type
+	location_type = gensub ("^([A-Z]{3})-([A-Z]{1,2})-([0-9]{1,10})$", "\\2", \
+							"g", pk)
+
+	# Geonames ID
+	geonames_id = gensub ("^([A-Z]{3})-([A-Z]{1,2})-([0-9]{1,10})$", "\\3", \
+						  "g", pk)
 
 	# IATA code
 	iata_code = $2
-
-	# Location type
-	location_type = substr (pk, 5)
 
 	# Check whether the POR is a city. It can be a city only or, most often,
 	# a combination of a city with a travel-related type (e.g., airport,
@@ -377,9 +402,11 @@ BEGINFILE {
 	# and railway station, both serving STO-C), the location type is combined
 	# ('AR' here), but there is no city.
 	last_location_type = location_type_list[iata_code]
+	last_geonames_id = geonames_id_list[iata_code]
 	if (last_location_type == "") {
 		# No location type has been registered yet
 		location_type_list[iata_code] = location_type
+		geonames_id_list[iata_code] = geonames_id
 
 	} else {
 		# A location type has already been registered
@@ -391,7 +418,7 @@ BEGINFILE {
 		is_last_port = match (last_location_type, "[P]")
 		is_last_ground = match (last_location_type, "[G]")
 		is_last_offpoint = match (last_location_type, "[O]")
-		is_last_travel = is_last_airport + is_last_rail + is_last_bus \
+		is_last_travel = is_last_airport + is_last_rail + is_last_bus	\
 			+ is_last_heliport + is_last_port + is_last_ground + is_last_offpoint
 
 		if (is_last_city == 1) {
@@ -400,13 +427,16 @@ BEGINFILE {
 			# the travel-related POR.
 			location_type_list[iata_code] = location_type
 			location_type_alt_list[iata_code] = last_location_type
+			#
+			geonames_id_list[iata_code] = geonames_id
+			geonames_id_alt_list[iata_code] = last_geonames_id
 
 			# Sanity check: the new location type should be travel-related
 			if (is_travel == 0) {
-				print ("[" awk_file "] !!!! Rare case at line #" FNR \
-					   ", there are at least two location types ('" \
-					   last_location_type "' and '" location_type \
-					   "'), but the latter one is neither a city nor" \
+				print ("[" awk_file "] !!!! Rare case at line #" FNR	\
+					   ", there are at least two location types ('"		\
+					   last_location_type "' and '" location_type		\
+					   "'), but the latter one is neither a city nor"	\
 					   " travel-related - Full line: " $0) > error_stream
 			}
 
@@ -415,13 +445,16 @@ BEGINFILE {
 			# registered one must then be travel-related.
 			location_type_list[iata_code] = last_location_type
 			location_type_alt_list[iata_code] = location_type
+			#
+			geonames_id_list[iata_code] = last_geonames_id
+			geonames_id_alt_list[iata_code] = geonames_id
 
 			# Sanity check: the last location type should be travel-related
 			if (is_last_travel == 0) {
-				print ("[" awk_file "] !!!! Rare case at line #" FNR \
-					   ", there are at least two location types ('" \
-					   last_location_type "' and '" location_type \
-					   "'), but the former one is neither a city nor" \
+				print ("[" awk_file "] !!!! Rare case at line #" FNR	\
+					   ", there are at least two location types ('"		\
+					   last_location_type "' and '" location_type		\
+					   "'), but the former one is neither a city nor"	\
 					   " travel-related - Full line: " $0) > error_stream
 			}
 
@@ -431,15 +464,26 @@ BEGINFILE {
 			# in the first position; otherwise, the alphabetical order of
 			# the location type is used by construction.
 			if (is_last_airport == 1) {
+				#
 				location_type_list[iata_code] = last_location_type
 				location_type_alt_list[iata_code] = location_type
+				#
+				geonames_id_list[iata_code] = last_geonames_id
+				geonames_id_alt_list[iata_code] = geonames_id
 
 			} else if (is_airport == 1) {
+				#
 				location_type_list[iata_code] = location_type
 				location_type_alt_list[iata_code] = last_location_type
+				#
+				geonames_id_list[iata_code] = geonames_id
+				geonames_id_alt_list[iata_code] = last_geonames_id
 
 			} else {
+				#
 				location_type_alt_list[iata_code] = location_type
+				#
+				geonames_id_alt_list[iata_code] = geonames_id
 			}
 		}
 	}
@@ -519,6 +563,9 @@ BEGINFILE {
 	# FAA code
 	faa_code = $3
 
+	# Geonames ID
+	geonames_id = $4
+
 	# Feature code
 	fcode = $14
 
@@ -544,18 +591,21 @@ BEGINFILE {
 	# ORI-maintained location type
 	location_type = location_type_list[iata_code]
 	location_type_alt = location_type_alt_list[iata_code]
+	# ORI-maintained Geonames ID
+	geonames_id = geonames_id_list[iata_code]
+	geonames_id_alt = geonames_id_alt_list[iata_code]
 
 	# Sanity check: the POR should be known from ORI
 	if (location_type == "") {
-  		print ("[" awk_file "] !!!! Error at line #" FNR	\
-			   ", the POR with that IATA code ('" iata_code \
+  		print ("[" awk_file "] !!!! Error at line #" FNR				\
+			   ", the POR with that IATA code ('" iata_code				\
 			   "') is not referenced in the ORI-maintained list: " full_line) \
 			> error_stream
 	}
 
 	# New primary key, made of the IATA code and ORI-maintained location type
-	pk = iata_code "-" location_type
-	pk_alt = iata_code "-" location_type_alt
+	pk = iata_code "-" location_type "-" geonames_id
+	pk_alt = iata_code "-" location_type_alt "-" geonames_id_alt
 
 	if (iata_code == last_iata_code) {
 		# This is (at least) the second POR sharing the same IATA code.
@@ -626,7 +676,7 @@ BEGINFILE {
 		#  * It is defined in the ORI-maintained list (and, hence,
 		#    the location type is defined).
 		if (last_nb_of_por == 1 && last_location_type != "") {
-			displayPOR(last_iata_code, last_pk, "", last_pk_alt, "", "", \
+			displayPOR(last_iata_code, last_pk, "",	last_pk_alt, "", "", \
 					   last_nb_of_por, last_full_line, "")
 		}
 
@@ -636,6 +686,7 @@ BEGINFILE {
 
 	# Iteration
 	last_iata_code = iata_code
+	last_geonames_id = geonames_id
 	last_location_type = location_type
 	last_pk = pk
 	last_pk_alt = pk_alt
@@ -652,7 +703,7 @@ ENDFILE {
 	#
 	if (last_nb_of_por == 1 && last_location_type != "") {
 		# Display the last POR
-		displayPOR(last_iata_code, last_pk, "", last_pk_alt, "", "", \
+		displayPOR(last_iata_code, last_pk, "", last_pk_alt, "", "",	\
 				   last_nb_of_por, last_full_line, "")
 	}
 

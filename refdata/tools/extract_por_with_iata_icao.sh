@@ -43,7 +43,9 @@ POR_FILE_PFX4=por_all_noicao
 LATEST_EXTRACT_DATE=`ls ${EXEC_PATH}/${POR_FILE_PFX1}_????????.csv 2> /dev/null`
 if [ "${LATEST_EXTRACT_DATE}" != "" ]
 then
-	LATEST_EXTRACT_DATE=`echo ${LATEST_EXTRACT_DATE} | tail -1 | sed -e "s/${POR_FILE_PFX1}_\([0-9]\+\)\.csv/\1/" | xargs basename`
+	# (Trick to) Extract the latest entry
+	for myfile in ${LATEST_EXTRACT_DATE}; do echo > /dev/null; done
+	LATEST_EXTRACT_DATE=`echo ${myfile} | sed -e "s/${POR_FILE_PFX1}_\([0-9]\+\)\.csv/\1/" | xargs basename`
 fi
 if [ "${LATEST_EXTRACT_DATE}" != "" ]
 then
