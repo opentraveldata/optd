@@ -1,13 +1,23 @@
 ##
 # That AWK script creates and adds a primary key for the Amadeus RFD dump file.
-# The primary key is made of the IATA code and location type. For instance:
-#  * ARN-A means the Arlanda airport in Stockholm, Sweden
-#  * ARN-R means the Arlanda railway station in Stockholm, Sweden
-#  * CDG-A means the Charles de Gaulle airport in Paris, France
-#  * PAR-C means the city of Paris, France
-#  * NCE-CA means Nice, France, indifferentiating the airport from the city
-#  * SFO-A means the San Francisco airport, California, US
-#  * SFO-C means the city of San Francisco, California, US
+# It uses the following input files:
+#  * Amadeus RFD dump data file:
+#      dump_from_crb_city.csv
+#  * ORI-maintained list of best known coordinates:
+#      best_coordinates_known_so_far.csv
+#
+# The primary key is made of:
+#  * The IATA code
+#  * The location type
+#  * The Geonames ID, when existing, or 0 otherwise
+# For instance:
+#  * ARN-A-2725346 means the Arlanda airport in Stockholm, Sweden
+#  * ARN-R-8335457 means the Arlanda railway station in Stockholm, Sweden
+#  * CDG-A-6269554 means the Charles de Gaulle airport in Paris, France
+#  * PAR-C-2988507 means the city of Paris, France
+#  * NCE-CA-0 means Nice, France, indifferentiating the airport from the city
+#  * SFO-A-5391989 means the San Francisco airport, California, USA
+#  * SFO-C-5391959 means the city of San Francisco, California, USA
 #
 # A few examples of IATA location types:
 #  * 'C' for city
@@ -45,7 +55,7 @@ function displayLists() {
 }
 
 #
-function registerPOR(myIataCode, myLocationType, myFullLine) {
+function registerPOR(myIataCode, myLocationType, myGeonamesID, myFullLine) {
 	# Check whether the POR is a city. It can be a city only or, most often,
 	# a combination of a city with a travel-related type (e.g., airport,
 	# rail station). In some rare cases, an airport may be combined with
@@ -66,9 +76,9 @@ function registerPOR(myIataCode, myLocationType, myFullLine) {
 
 	# Sanity check
 	if (length(myLocationType) >= 2 && is_travel == 0) {
-		print ("[" awk_file "] !!!! Error at line #" FNR ", the location type ('" \
-			   myLocationType "') is unknown - Full line: " myFullLine) \
-			> error_stream
+		print ("[" awk_file "] !!!! Error at line #" FNR				\
+			   ", the location type ('" myLocationType					\
+			   "') is unknown - Full line: " myFullLine) > error_stream
 	}
 
 	# Store the location types. If there are two location types for that POR,
@@ -78,9 +88,11 @@ function registerPOR(myIataCode, myLocationType, myFullLine) {
 	# and railway station, both serving STO-C), the location type is combined
 	# ('AR' here), but there is no city.
 	last_location_type = location_type_list[myIataCode]
+	last_geonames_id = geonames_id_list[myIataCode]
 	if (last_location_type == "") {
 		# No location type has been registered yet
 		location_type_list[myIataCode] = myLocationType
+		geonames_id_list[myIataCode] = myGeonamesID
 
 	} else {
 		# A location type has already been registered
@@ -101,6 +113,9 @@ function registerPOR(myIataCode, myLocationType, myFullLine) {
 			# the travel-related POR.
 			location_type_list[myIataCode] = myLocationType
 			location_type_alt_list[myIataCode] = last_location_type
+			# The Geonames ID must follow the move
+			geonames_id_list[myIataCode] = myGeonamesID
+			geonames_id_alt_list[myIataCode] = last_geonames_id
 
 			# Sanity check: the new location type should be travel-related
 			if (is_travel == 0) {
@@ -117,13 +132,16 @@ function registerPOR(myIataCode, myLocationType, myFullLine) {
 			# one must then be travel-related.
 			location_type_list[myIataCode] = last_location_type
 			location_type_alt_list[myIataCode] = myLocationType
+			# The Geonames ID must follow the move
+			geonames_id_list[myIataCode] = last_geonames_id
+			geonames_id_alt_list[myIataCode] = myGeonamesID
 
 			# Sanity check: the last location type should be travel-related
 			if (is_last_travel == 0) {
-				print ("[" awk_file "] !!!! Rare case at line #" FNR \
-					   ", there are at least two location types ('" \
-					   last_location_type "' and '" myLocationType \
-					   "'), but the former one is neither a city nor " \
+				print ("[" awk_file "] !!!! Rare case at line #" FNR	\
+					   ", there are at least two location types ('"		\
+					   last_location_type "' and '" myLocationType		\
+					   "'), but the former one is neither a city nor "	\
 					   "travel-related - Full line: " myFullLine) > error_stream
 			}
 
@@ -135,13 +153,21 @@ function registerPOR(myIataCode, myLocationType, myFullLine) {
 			if (is_last_airport != 0) {
 				location_type_list[myIataCode] = last_location_type
 				location_type_alt_list[myIataCode] = myLocationType
+				#
+				geonames_id_list[myIataCode] = last_geonames_id
+				geonames_id_alt_list[myIataCode] = myGeonamesID
 
 			} else if (is_airport != 0) {
 				location_type_list[myIataCode] = myLocationType
 				location_type_alt_list[myIataCode] = last_location_type
+				#
+				geonames_id_list[myIataCode] = myGeonamesID
+				geonames_id_alt_list[myIataCode] = last_geonames_id
 
 			} else {
 				location_type_alt_list[myIataCode] = myLocationType
+				#
+				geonames_id_alt_list[myIataCode] = myGeonamesID
 			}
 		}
 	}
@@ -199,36 +225,44 @@ BEGIN {
 
 
 ##
-# The ../ORI/best_coordinates_known_so_far.csv data file is used, in order
-# to specify the POR primary key )and its location type).
-# Sample lines:
-#  ALV-O^ALV^40.98^0.45^ALV^         (1 line in ORI, 2 lines in Geonames)
-#  ARN-A^ARN^59.651944^17.918611^STO^(2 lines in ORI, split from a combined line,
-#  ARN-R^ARN^59.649463^17.929^STO^    1 line in Geonames)
-#  IES-CA^IES^51.3^13.28^IES^        (1 combined line in ORI, 1 line in Geonames)
-#  IEV-A^IEV^50.401694^30.449697^IEV^(2 lines in ORI, split from a combined line,
-#  IEV-C^IEV^50.401694^30.449697^IEV^ 2 lines in Geonames)
-#  KBP-A^KBP^50.345^30.894722^IEV^   (1 line in ORI, 1 line in Geonames)
-#  LHR-A^LHR^51.4775^-0.461389^LON^  (1 line in ORI, 1 line in Geonames)
-#  LON-C^LON^51.5^-0.1667^LON^       (1 line in ORI, 1 line in Geonames)
-#  NCE-CA^NCE^43.658411^7.215872^NCE^(1 combined line in ORI 2 lines in Geonames)
+# The ../ORI/best_coordinates_known_so_far.csv data file is used, in order to
+# specify the POR primary key and its location type.
 #
-/^([A-Z]{3})-([A-Z]{1,2})\^([A-Z]{3})\^/ {
+# Sample input lines:
+#  ALV-C-3041563^ALV^42.50779^1.52109^ALV^ (2 lines in ORI, 2 lines in Geonames)
+#  ALV-O-7730819^ALV^40.98^0.45^ALV^       (2 lines in ORI, 2 lines in Geonames)
+#  ARN-A-2725346^ARN^59.651944^17.918611^STO^ (2 lines in ORI, split from a
+#  ARN-R-8335457^ARN^59.649463^17.929^STO^     combined line, 1 line in Geonames)
+#  IES-CA-2846939^IES^51.3^13.28^IES^(1 combined line in ORI, 1 line in Geonames)
+#  IEV-A-6300960^IEV^50.401694^30.449697^IEV^(2 lines in ORI, split from a
+#  IEV-C-703448^IEV^50.401694^30.449697^IEV^  combined line, 2 lines in Geonames)
+#  KBP-A-6300952^KBP^50.345^30.894722^IEV^   (1 line in ORI, 1 line in Geonames)
+#  LHR-A-2647216^LHR^51.4775^-0.461389^LON^  (1 line in ORI, 1 line in Geonames)
+#  LON-C-2643743^LON^51.5^-0.1667^LON^       (1 line in ORI, 1 line in Geonames)
+#  NCE-CA-0^NCE^43.658411^7.215872^NCE^      (1 combined line in ORI
+#                                             2 lines in Geonames)
+#
+/^([A-Z]{3})-([A-Z]{1,2})-([0-9]{1,10})\^([A-Z]{3})\^/ {
 
-	# Primary key (combination of IATA code and location type)
+	# Primary key (combination of IATA code, location type and Geonames ID)
 	pk = $1
 
 	# IATA code
 	iata_code = $2
 
 	# Location type
-	location_type = substr (pk, 5)
+	location_type = gensub ("^([A-Z]{3})-([A-Z]{1,2})-([0-9]{1,10})$", "\\2", \
+							"g", pk)
+
+	# Geonames ID
+	geonames_id = gensub ("^([A-Z]{3})-([A-Z]{1,2})-([0-9]{1,10})$", "\\3", \
+						  "g", pk)
 
 	# Full line
 	full_line = $0
 
 	# Register the POR
-	registerPOR(iata_code, location_type, full_line)
+	registerPOR(iata_code, location_type, geonames_id, full_line)
 }
 
 
@@ -243,7 +277,8 @@ BEGIN {
 
 ##
 # Amadeus RFD regular lines
-# Sample lines (truncated):
+#
+# Sample input lines (truncated):
 #  BFJ^^BA^BUCKLEY ANGB^BA^BA/FJ:BA^BA^BFJ^Y^^FJ^AUSTL^ITC3^FJ169^^^^N
 #  IEV^CA^KIEV ZHULIANY INT^ZHULIANY INTL^KIEV ZHULIANY I^KIEV/UA:ZHULIANY INTL
 #    ^KIEV^IEV^Y^^UA^EURAS^ITC2^UA127^50.4^30.4667^2082^Y
@@ -287,17 +322,21 @@ BEGIN {
 	# Retrieve the full location type from the ORI-maintained list
 	location_type = location_type_list[iata_code]
 	location_type_alt = location_type_alt_list[iata_code]
+	# Retrieve the full Geonames ID from the ORI-maintained list
+	geonames_id = geonames_id_list[iata_code]
+	geonames_id_alt = geonames_id_alt_list[iata_code]
 
 	# Sanity check: the POR should be known from ORI
 	if (location_type == "") {
-		print ("[" awk_file "] !!!! Error at line #" FNR \
-			   ", the POR with that IATA code ('" iata_code \
-			   "') is not referenced in the ORI-maintained list: " $0) > error_stream
+		print ("[" awk_file "] !!!! Error at line #" FNR				\
+			   ", the POR with that IATA code ('" iata_code				\
+			   "') is not referenced in the ORI-maintained list: " $0)	\
+			> error_stream
 	}
 
 	# New primary key, made of the IATA code and ORI-maintained location type
-	pk = iata_code "-" location_type
-	pk_alt = iata_code "-" location_type_alt
+	pk = iata_code "-" location_type "-" geonames_id
+	pk_alt = iata_code "-" location_type_alt "-" geonames_id_alt
 
 	# The POR/lines have to be combined or split the same way as in the ORI list:
 	#  - A single, combined, POR for a 'CX' location type (X = A, H, B, R, P, O)
@@ -344,8 +383,8 @@ BEGIN {
 		#               an alternative location type should therefore be
 		#               specified.
 		if (location_type_alt == "") {
-			print ("[" awk_file "] !!!! Error at line #" FNR " for the '" iata_code \
-				   "' IATA code; the location type ('" location_type \
+			print ("[" awk_file "] !!!! Error at line #" FNR " for the '" \
+				   iata_code "' IATA code; the location type ('" location_type \
 				   "') has got at least two characters, while no alternative" \
 				   " location has been defined (check also the ORI-maintained" \
 				   " list) - Full line: " $0) > error_stream

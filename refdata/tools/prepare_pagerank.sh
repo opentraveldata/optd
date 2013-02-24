@@ -128,13 +128,14 @@ AIRPORT_PR_TMP=${AIRPORT_PR}.tmp
 ##
 # The PageRanked airport file should be sorted according to the code (as are
 # the Geonames data dump and the file of best coordinates).
-sort -t'^' -k 1,1 ${AIRPORT_PR_TMP} > ${AIRPORT_PR_SORTED}
+sort -t'^' -k1,1 ${AIRPORT_PR_TMP} > ${AIRPORT_PR_SORTED}
 \rm -f ${AIRPORT_PR_TMP}
 
 ##
 # Only three columns/fields are kept in that version of the file:
-# the airport/city IATA code, the corresponding type (e.g., 'CA' for city and airport,
-# 'A' for airport only and 'C' for city only, 'O' for off-line point) and the PageRank.
+# the airport/city IATA code, the corresponding type (e.g., 'CA' for city
+# and airport, 'A' for airport only and 'C' for city only, 'O' for off-line
+# point) and the PageRank.
 # Note: as of now (June 2012), the file has got no other field. So, that step
 # is useless.
 cut -d'^' -f 1-3 ${AIRPORT_PR_SORTED} > ${AIRPORT_PR_SORTED_CUT}

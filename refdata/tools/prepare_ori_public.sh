@@ -85,6 +85,12 @@ SORTED_ORI_WPK_FILE=${SORTED_ORI_WPK_FILENAME}
 SORTED_CUT_ORI_WPK_FILE=${SORTED_CUT_ORI_WPK_FILENAME}
 
 ##
+# Temporary files
+ORI_WPK_FILE_TMP=${ORI_WPK_FILE}.tmp
+ORI_WPK_FILE_TMP2=${ORI_WPK_FILE}.tmp2
+
+
+##
 # Cleaning
 if [ "$1" = "--clean" ]
 then
@@ -93,6 +99,7 @@ then
 		\rm -rf ${TMP_DIR}
 	else
 		\rm -f ${SORTED_ORI_WPK_FILE} ${SORTED_CUT_ORI_WPK_FILE}
+		\rm -f ${ORI_WPK_FILE_TMP} ${ORI_WPK_FILE_TMP2}
 		\rm -f ${ORI_WPK_FILE}
 	fi
 	exit
@@ -142,6 +149,8 @@ fi
 ORI_WPK_FILE=${TMP_DIR}${ORI_WPK_FILENAME}
 SORTED_ORI_WPK_FILE=${TMP_DIR}${SORTED_ORI_WPK_FILENAME}
 SORTED_CUT_ORI_WPK_FILE=${TMP_DIR}${SORTED_CUT_ORI_WPK_FILENAME}
+ORI_WPK_FILE_TMP=${ORI_WPK_FILE}.tmp
+ORI_WPK_FILE_TMP2=${ORI_WPK_FILE}.tmp2
 
 if [ ! -f "${ORI_RAW_FILE}" ]
 then
@@ -165,24 +174,23 @@ fi
 # Generate a second version of the file with the ORI primary key (integrating
 # the location type)
 ORI_PK_ADDER=${EXEC_PATH}ori_pk_creator.awk
-ORI_WPK_FILE_TMP=${ORI_WPK_FILE}.tmp
 \cp -f ${ORI_RAW_FILE} ${ORI_WPK_FILE_TMP}
-awk -F'^' -v log_level=${LOG_LEVEL} -f ${ORI_PK_ADDER} ${ORI_WPK_FILE_TMP} > ${ORI_WPK_FILE}
+awk -F'^' -v log_level=${LOG_LEVEL} \
+	-f ${ORI_PK_ADDER} ${ORI_WPK_FILE_TMP} > ${ORI_WPK_FILE}
 #sort -t'^' -k1,1 ${ORI_WPK_FILE}
-\rm -f ${ORI_WPK_FILE_TMP}
+#echo "head -3 ${ORI_WPK_FILE_TMP} ${ORI_WPK_FILE}"
 
 ##
 # First, remove the header (first line)
-sed -e "s/^pk\(.\+\)//g" ${ORI_WPK_FILE} > ${ORI_WPK_FILE_TMP}
-sed -i -e "/^$/d" ${ORI_WPK_FILE_TMP}
+sed -e "s/^pk\(.\+\)//g" ${ORI_WPK_FILE} > ${ORI_WPK_FILE_TMP2}
+sed -i -e "/^$/d" ${ORI_WPK_FILE_TMP2}
 
 
 ##
-# That version of the ORI-maintained POR file is sorted according to the
-# IATA code; re-sort it according to the primary key (IATA code and location
-# type).
-sort -t'^' -k 1,1 ${ORI_WPK_FILE_TMP} > ${SORTED_ORI_WPK_FILE}
-\rm -f ${ORI_WPK_FILE_TMP}
+# That version of the ORI-maintained POR file is sorted according to the IATA
+# code; re-sort it according to the primary key (IATA code, location type and
+# Geonames ID).
+sort -t'^' -k1,1 ${ORI_WPK_FILE_TMP2} > ${SORTED_ORI_WPK_FILE}
 
 ##
 # Only four columns/fields are kept in that version of the file:

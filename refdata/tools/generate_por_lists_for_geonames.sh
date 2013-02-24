@@ -94,8 +94,10 @@ NB_ROWS=`wc -l ${GEO_FILE_2} | cut -d' ' -f1`
 # Generate a version with the PageRanked POR
 sort -t'^' -k1,1 ${PR_FILE} > ${SORTED_PR_FILE}
 join -t'^' -a 1 ${GEO_FILE_2} ${SORTED_PR_FILE} > ${GEO_FILE_1_TMP}
-awk -F'^' '{printf ($0); if (NF == 18) {printf ("^0.01\n")} else {printf ("\n")}}' ${GEO_FILE_1_TMP} > ${GEO_FILE_2_PR}
-sort -t'^' -nrk19,19 ${GEO_FILE_2_PR} > ${GEO_FILE_1_TMP}
+awk -F'^' '{printf ($0); if (NF == 18) {print ("^0.01")} else {print ("")}}' \
+	${GEO_FILE_1_TMP} > ${GEO_FILE_2_PR}
+#echo "head -3 ${GEO_FILE_1_TMP} ${GEO_FILE_2_PR}"
+sort -t'^' -k19nr,19 ${GEO_FILE_2_PR} > ${GEO_FILE_1_TMP}
 \mv -f ${GEO_FILE_1_TMP} ${GEO_FILE_2_PR}
 
 ##

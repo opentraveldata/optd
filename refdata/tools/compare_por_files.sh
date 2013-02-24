@@ -126,7 +126,7 @@ COMPARE_EXEC="bash ${EXEC_PATH}compare_geo_files.sh"
 
 ##
 # Geonames data dump file
-if [ "$1" != "" ];
+if [ "$1" != "" ]
 then
 	GEONAME_FILE_RAW=$1
 	GEONAME_FILE_RAW_FILENAME=`basename ${GEONAME_FILE_RAW}`
@@ -167,7 +167,7 @@ ${PREPARE_EXEC} ${OPTD_DIR} ${LOG_LEVEL}
 
 
 # ORI-maintained list of "best known" geographical coordinates
-if [ "$2" != "" ];
+if [ "$2" != "" ]
 then
 	ORI_BEST_FILE="$2"
 fi
@@ -176,7 +176,7 @@ if [ ! -f "${ORI_BEST_FILE}" ]
 then
 	echo
 	echo "[$0:$LINENO] The '${ORI_BEST_FILE}' file does not exist."
-	if [ "$2" = "" ];
+	if [ "$2" = "" ]
 	then
 		echo
 		echo "Hint:"
@@ -189,7 +189,7 @@ fi
 
 ##
 # Data file of PageRanked POR
-if [ "$3" != "" ];
+if [ "$3" != "" ]
 then
 	AIRPORT_PR_FILE=$3
 	AIRPORT_PR_FILENAME=`basename ${AIRPORT_PR_FILE}`
@@ -207,7 +207,7 @@ if [ ! -f "${AIRPORT_PR_FILE}" ]
 then
 	echo
 	echo "[$0:$LINENO] The '${AIRPORT_PR_FILE}' file does not exist."
-	if [ "$3" = "" ];
+	if [ "$3" = "" ]
 	then
 		${PREPARE_PR_EXEC} --popularity
 		echo "The default name of the airport popularity copy is '${AIRPORT_PR_FILE}'."
@@ -271,6 +271,8 @@ sed -i -e "/^$/d" ${ORI_BEST_WITH_NOHD}
 GEONAME_MASTER=${GEO_COMBINED_TMP_FILE}.geomst
 join -t'^' -a 1 -1 1 -2 1 -e NULL \
 	${GEONAME_FILE_SORTED_CUT} ${ORI_BEST_WITH_NOHD} > ${GEONAME_MASTER}
+#echo "head -3 ${GEONAME_FILE_SORTED_CUT} ${ORI_BEST_WITH_NOHD} ${GEONAME_MASTER}"
+
 
 ##
 # Sanity check: calculate the minimal number of fields on the resulting file
@@ -321,6 +323,8 @@ fi
 ORI_BEST_MASTER=${GEO_COMBINED_TMP_FILE}.bstmst
 join -t'^' -a 2 -1 1 -2 1 -e NULL \
 	${GEONAME_FILE_SORTED_CUT} ${ORI_BEST_WITH_NOHD} > ${ORI_BEST_MASTER}
+#echo "head -3 ${GEONAME_FILE_SORTED_CUT} ${ORI_BEST_WITH_NOHD} ${ORI_BEST_MASTER}"
+
 
 ##
 # Sanity check: calculate the minimal number of fields on the resulting file
@@ -348,8 +352,10 @@ fi
 #    in the Geonames dump file.
 #
 cut -d'^' -f 1-4 ${GEONAME_MASTER} > ${GEONAME_MASTER}.dup
+#echo "head -3 ${GEONAME_MASTER} ${GEONAME_MASTER}.dup"
 \mv -f ${GEONAME_MASTER}.dup ${GEONAME_MASTER}
 cut -d'^' -f 1-4 ${ORI_BEST_MASTER} > ${ORI_BEST_MASTER}.dup
+#echo "head -3 ${ORI_BEST_MASTER} ${ORI_BEST_MASTER}.dup"
 \mv -f ${ORI_BEST_MASTER}.dup ${ORI_BEST_MASTER}
 
 
@@ -372,6 +378,9 @@ sort ${ORI_BEST_MASTER} > ${ORI_BEST_MASTER}.dup
 #    the entries of the ORI-maintained list of best known geographical
 #    coordinates (best_coordinates_known_so_far.csv)
 #
+#echo "comm -12 ${GEONAME_MASTER} ${ORI_BEST_MASTER} | less"
+#echo "comm -23 ${GEONAME_MASTER} ${ORI_BEST_MASTER} | less"
+#echo "comm -13 ${GEONAME_MASTER} ${ORI_BEST_MASTER} | less"
 POR_NB_COMMON=`comm -12 ${GEONAME_MASTER} ${ORI_BEST_MASTER} | wc -l`
 POR_NB_FILE1=`comm -23 ${GEONAME_MASTER} ${ORI_BEST_MASTER} | wc -l`
 POR_NB_FILE2=`comm -13 ${GEONAME_MASTER} ${ORI_BEST_MASTER} | wc -l`
@@ -417,7 +426,8 @@ fi
 # containing the greatest distances (in km), for each airport/city, between
 # both sets of coordinates (Geonames and best known ones).
 ${COMPARE_EXEC} ${GEONAME_FILE_SORTED_CUT} ${ORI_BEST_WITH_NOHD} \
-	${AIRPORT_PR_SORTED_CUT} ${COMP_MIN_DIST}
+	${AIRPORT_PR_FILE} ${COMP_MIN_DIST}
+# ${AIRPORT_PR_SORTED_CUT}
 
 
 ##

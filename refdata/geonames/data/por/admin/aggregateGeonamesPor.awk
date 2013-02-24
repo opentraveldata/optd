@@ -429,9 +429,9 @@ BEGIN {
 		} else {
 			# Notification
 			if (log_level >= 5) {
-				printf ("%s", "!!!! [" FNR "] The type of the alternate name ('"\
-						alt_name_type "') is unknown. The Geoname ID is " \
-						geoname_id "\n") > "/dev/stderr"
+				print ("!!!! [" FNR "] The type of the alternate name ('" \
+					   alt_name_type "') is unknown. The Geoname ID is " \
+					   geoname_id) > "/dev/stderr"
 			}
 		}
 	}
