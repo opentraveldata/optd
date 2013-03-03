@@ -56,21 +56,21 @@ function displayLists() {
 
 ##
 # State whether the POR is (matches with) a city
-function isLocTypeCity(__paramLocationType) {
-	__resultIsCity = match (__paramLocationType, "[C]")
+function isLocTypeCity(__iltcParamLocationType) {
+	__resultIsCity = match (__iltcParamLocationType, "[C]")
 	return __resultIsCity
 }
 
 ##
 # State whether the POR is travel-related
-function isLocTypeTvlRtd(__paramLocationType) {
-	__isAirport = match (__paramLocationType, "[A]")
-	__isHeliport = match (__paramLocationType, "[H]")
-	__isRail = match (__paramLocationType, "[R]")
-	__isBus = match (__paramLocationType, "[B]")
-	__isGround = match (__paramLocationType, "[G]")
-	__isPort = match (__paramLocationType, "[P]")
-	__isOffpoint = match (__paramLocationType, "[O]")
+function isLocTypeTvlRtd(__ilttrParamLocationType) {
+	__isAirport = match (__ilttrParamLocationType, "[A]")
+	__isHeliport = match (__ilttrParamLocationType, "[H]")
+	__isRail = match (__ilttrParamLocationType, "[R]")
+	__isBus = match (__ilttrParamLocationType, "[B]")
+	__isGround = match (__ilttrParamLocationType, "[G]")
+	__isPort = match (__ilttrParamLocationType, "[P]")
+	__isOffpoint = match (__ilttrParamLocationType, "[O]")
 
 	# Aggregation
 	__resultIsTravelRelated = __isAirport + __isHeliport + __isRail + __isBus \
@@ -81,87 +81,87 @@ function isLocTypeTvlRtd(__paramLocationType) {
 
 ##
 # State whether the POR is (matches with) a city
-function isFeatCodeCity(__paramFeatureCode) {
+function isFeatCodeCity(__ifccParamFeatureCode) {
 	# City, populated place, administrative locality, political entity, island
-	__resultIsCity  = match (__paramFeatureCode, "PPL")
-	__resultIsCity += match (__paramFeatureCode, "ADM")
-	__resultIsCity += match (__paramFeatureCode, "LCTY")
-	__resultIsCity += match (__paramFeatureCode, "PCLI")
-	__resultIsCity += match (__paramFeatureCode, "ISL")
+	__resultIsCity  = match (__ifccParamFeatureCode, "PPL")
+	__resultIsCity += match (__ifccParamFeatureCode, "ADM")
+	__resultIsCity += match (__ifccParamFeatureCode, "LCTY")
+	__resultIsCity += match (__ifccParamFeatureCode, "PCLI")
+	__resultIsCity += match (__ifccParamFeatureCode, "ISL")
 
 	return __resultIsCity
 }
 
 ##
 # State whether the POR is an airport (or air field/base or sea plane base)
-function isFeatCodeAirport(__paramFeatureCode) {
+function isFeatCodeAirport(__ifcaParamFeatureCode) {
 	# Airport (AIRP)
-	__resultIsAirport  = match (__paramFeatureCode, "AIRP")
+	__resultIsAirport  = match (__ifcaParamFeatureCode, "AIRP")
 	# Airfield (AIRF)
-	__resultIsAirport += match (__paramFeatureCode, "AIRF")
+	__resultIsAirport += match (__ifcaParamFeatureCode, "AIRF")
 	# Airbase (AIRB)
-	__resultIsAirport += match (__paramFeatureCode, "AIRB")
+	__resultIsAirport += match (__ifcaParamFeatureCode, "AIRB")
 	# Sea plane base (AIRS), a.k.a. SPB
-	__resultIsAirport += match (__paramFeatureCode, "AIRS")
+	__resultIsAirport += match (__ifcaParamFeatureCode, "AIRS")
 
 	return __resultIsAirport
 }
 
 ##
 # State whether the POR is an heliport
-function isFeatCodeHeliport(__paramFeatureCode) {
+function isFeatCodeHeliport(__ifchParamFeatureCode) {
 	# Heliport
-	__resultIsHeliport = match (__paramFeatureCode, "AIRH")
+	__resultIsHeliport = match (__ifchParamFeatureCode, "AIRH")
 
 	return __resultIsHeliport
 }
 
 ##
 # State whether the POR is a railway station
-function isFeatCodeRail(__paramFeatureCode) {
+function isFeatCodeRail(__ifcrParamFeatureCode) {
 	# Railway station
-	__resultIsRail = match (__paramFeatureCode, "RSTN")
+	__resultIsRail = match (__ifcrParamFeatureCode, "RSTN")
 
 	return __resultIsRail
 }
 
 ##
 # State whether the POR is a bus station or stop
-function isFeatCodeBus(__paramFeatureCode) {
+function isFeatCodeBus(__ifcbParamFeatureCode) {
 	# Bus station (BUSTN) or bus stop (BUSTP)
-	__resultIsBus = match (__paramFeatureCode, "BUST")
+	__resultIsBus = match (__ifcbParamFeatureCode, "BUST")
 
 	return __resultIsBus
 }
 
 ##
 # State whether the POR is a maritime port or ferry or naval base
-function isFeatCodePort(__paramFeatureCode) {
+function isFeatCodePort(__ifcpParamFeatureCode) {
 	# Naval base (NVB), maritime port (PRT), ferry (FY)
-	__resultIsPort  = match (__paramFeatureCode, "NVB")
-	__resultIsPort += match (__paramFeatureCode, "PRT")
-	__resultIsPort += match (__paramFeatureCode, "FY")
+	__resultIsPort  = match (__ifcpParamFeatureCode, "NVB")
+	__resultIsPort += match (__ifcpParamFeatureCode, "PRT")
+	__resultIsPort += match (__ifcpParamFeatureCode, "FY")
 
 	return __resultIsPort
 }
 
 ##
 # State whether the POR is travel-related
-function isFeatCodeTvlRtd(__paramFeatureCode) {
+function isFeatCodeTvlRtd(__ifctrParamFeatureCode) {
 	# Airbase (AIRB), airport (AIRP), airfield (AIRF), sea plane base (AIRS)
-	__isAirport  = isFeatCodeAirport(__paramFeatureCode)
+	__isAirport  = isFeatCodeAirport(__ifctrParamFeatureCode)
 
 	# Heliport
-	__isHeliport = isFeatCodeHeliport(__paramFeatureCode)
+	__isHeliport = isFeatCodeHeliport(__ifctrParamFeatureCode)
 
 	# Railway station
-	__isRail = isFeatCodeRail(__paramFeatureCode)
+	__isRail = isFeatCodeRail(__ifctrParamFeatureCode)
 
 	# Bus station or bus stop
-	__isBus = isFeatCodeBus(__paramFeatureCode)
+	__isBus = isFeatCodeBus(__ifctrParamFeatureCode)
 
 	# Naval base, maritime port or ferry
-	__isPort  = isFeatCodePort(__paramFeatureCode)
+	__isPort  = isFeatCodePort(__ifctrParamFeatureCode)
 
 
 	# Aggregation
@@ -174,10 +174,10 @@ function isFeatCodeTvlRtd(__paramFeatureCode) {
 ##
 # Derive the Geonames feature class.
 # See also http://www.geonames.org/export/codes.html
-function getFeatureClass(__paramLocationType) {
+function getFeatureClass(__gfcParamLocationType) {
 	__resultFeatureClass = "NA"
 
-	switch (__paramLocationType) {
+	switch (__gfcParamLocationType) {
 	case "C": case "O":
 		__resultFeatureClass = "P"
 		break
@@ -192,10 +192,10 @@ function getFeatureClass(__paramLocationType) {
 ##
 # Derive the Geonames feature code.
 # See also http://www.geonames.org/export/codes.html
-function getFeatureCode(__paramLocationType) {
+function getFeatureCode(__gfcParamLocationType) {
 	__resultFeatureCode = "NA"
 
-	switch (__paramLocationType) {
+	switch (__gfcParamLocationType) {
 	case "C": case "O":
 		__resultFeatureCode = "PPL"
 		break
@@ -225,30 +225,30 @@ function getFeatureCode(__paramLocationType) {
 ##
 # Derive the ORI/IATA location type.
 # See also http://www.geonames.org/export/codes.html
-function getLocationType(__paramFeatureCode) {
+function getLocationType(__gltParamFeatureCode) {
 	__resultLocationType = "NA"
 
-	if (isFeatCodeCity(__paramFeatureCode)) {
+	if (isFeatCodeCity(__gltParamFeatureCode)) {
 		# City
 		__resultLocationType = "C"
 
-	} else if (isFeatCodeAirport(__paramFeatureCode)) {
+	} else if (isFeatCodeAirport(__gltParamFeatureCode)) {
 		# Airport
 		__resultLocationType = "A"
 
-	} else if (isFeatCodeHeliport(__paramFeatureCode)) {
+	} else if (isFeatCodeHeliport(__gltParamFeatureCode)) {
 		# Heliport
 		__resultLocationType = "H"
 
-	} else if (isFeatCodeRail(__paramFeatureCode)) {
+	} else if (isFeatCodeRail(__gltParamFeatureCode)) {
 		# Railway station
 		__resultLocationType = "R"
 
-	} else if (isFeatCodeBus(__paramFeatureCode)) {
+	} else if (isFeatCodeBus(__gltParamFeatureCode)) {
 		# Bus station/stop
 		__resultLocationType = "B"
 
-	} else if (isFeatCodePort(__paramFeatureCode)) {
+	} else if (isFeatCodePort(__gltParamFeatureCode)) {
 		# Maritime port, ferry, naval base
 		__resultLocationType = "P"
 	}
@@ -261,31 +261,33 @@ function getLocationType(__paramFeatureCode) {
 # 1. The IATA code
 # 2. The ORI-maintained location type
 # 3. The ORI-maintained Geonames ID
-function extractPrimaryKeyDetails(__paramPK) {
+function extractPrimaryKeyDetails(__epkdParamPK) {
 	# Specification of the primary key format
 	pk_regexp = "^([A-Z]{3})-([A-Z]{1,2})-([0-9]{1,10})$"
 
 	# IATA code (first field of the primary key)
-	epkdIataCode = gensub (pk_regexp, "\\1", "g", __paramPK)
+	epkdIataCode = gensub (pk_regexp, "\\1", "g", __epkdParamPK)
 
 	# Location type (second field of the primary key)
-	epkdLocationType = gensub (pk_regexp, "\\2", "g", __paramPK)
+	epkdLocationType = gensub (pk_regexp, "\\2", "g", __epkdParamPK)
 
 	# Geonames ID (third field of the primary key)
-	epkdGeonamesID = gensub (pk_regexp, "\\3", "g", __paramPK)
+	epkdGeonamesID = gensub (pk_regexp, "\\3", "g", __epkdParamPK)
 }
 
 ##
 # Extract the primary key fields as an array.
-function getPrimaryKeyAsArray(__paramPK, __resultPKArray) {
-	__resultNbOfFields = split (__paramPK, __resultPKArray, "-")
+function getPrimaryKeyAsArray(__gpkaaParamPK, __resultPKArray) {
+	__resultNbOfFields = split (__gpkaaParamPK, __resultPKArray, "-")
 	return __resultNbOfFields
 }
 
 ##
 # Extract the primary key fields as an array.
-function getPrimaryKey(__paramIataCode, __paramLocationType, __paramGeonamesID) {
-	__resultPK = __paramIataCode "-" __paramLocationType "-" __paramGeonamesID
+function getPrimaryKey(__gpkParamIataCode, __gpkParamLocationType, \
+					   __gpkParamGeonamesID) {
+	__resultPK = \
+		__gpkParamIataCode "-" __gpkParamLocationType "-" __gpkParamGeonamesID
 	return __resultPK
 }
 
@@ -293,15 +295,67 @@ function getPrimaryKey(__paramIataCode, __paramLocationType, __paramGeonamesID) 
 # Add the given location type to the given dedicated ORI list. The location type
 # and the list correspond to the file of best known coordinates.
 #
-function addLocTypeToORIList(__paramIataCode, __paramLocationType,	\
-							 __paramORIList) {
+function addLocTypeToORIList(__alttolParamIataCode, __alttolParamLocationType, \
+							 __alttolParamORIList) {
 	# Register the details of the ORI-maintained POR entry for the latitude
-	myTmpString = __paramORIList[__paramIataCode]
+	myTmpString = __alttolParamORIList[__alttolParamIataCode]
 	if (myTmpString) {
 		myTmpString = myTmpString ","
 	}
-	myTmpString = myTmpString __paramLocationType
-	__paramORIList[__paramIataCode] = myTmpString
+	myTmpString = myTmpString __alttolParamLocationType
+	__alttolParamORIList[__alttolParamIataCode] = myTmpString
+}
+
+##
+# Add the given Geonames ID to the given dedicated ORI list. The Geonames ID
+# and the list correspond to the file of best known coordinates.
+#
+function addGeoIDToORIList(__agitolParamIataCode, __agitolParamLocationType, \
+						   __agitolParamGeonamesID, __agitolParamORIList) {
+	# Register the details of the ORI-maintained POR entry for the latitude
+	myTmpString = \
+		__agitolParamORIList[__agitolParamIataCode, __agitolParamLocationType]
+	if (myTmpString) {
+		myTmpString = myTmpString ","
+	}
+	myTmpString = myTmpString __agitolParamGeonamesID
+	__agitolParamORIList[__agitolParamIataCode, __agitolParamLocationType] = \
+		myTmpString
+}
+
+##
+# Add the given Geonames ID to the given dedicated Geonames list. The Geonames ID
+# and the list correspond to the Geonames data dump.
+#
+function addGeoIDToGeoList(__agitolParamLocationType, __agitolParamGeonamesID, \
+						   __agitolParamGeoList) {
+	# Register the details of the ORI-maintained POR entry for the latitude
+	myTmpString = __agitolParamGeoList[__agitolParamLocationType]
+	if (myTmpString) {
+		myTmpString = myTmpString ","
+	}
+	myTmpString = myTmpString __agitolParamGeonamesID
+	__agitolParamGeoList[__agitolParamLocationType] = myTmpString
+}
+
+##
+# Add the given Geonames ID to the given dedicated Geonames list. The Geonames ID
+# and the list correspond to the Geonames data dump.
+#
+function addLocTypeToGeoList(__alttglParamLocationType, __alttglParamGeoString) {
+	__resultGeoString = __alttglParamGeoString
+
+	# If the location type is already listed, do not add it again
+	if (match (__alttglParamGeoString, __alttglParamLocationType)) {
+		return __resultGeoString
+	}
+
+	# Register the location type
+	if (__resultGeoString) {
+		__resultGeoString = __resultGeoString ","
+	}
+	__resultGeoString = __resultGeoString __alttglParamLocationType
+	return __resultGeoString
 }
 
 ##
@@ -313,15 +367,17 @@ function addLocTypeToORIList(__paramIataCode, __paramLocationType,	\
 # * Served city IATA code
 # * Beginning date of the validity range
 #
-function addORIFieldToList(__paramIataCode, __paramLocationType,	\
-						   __paramORIList, __paramORIField) {
+function addORIFieldToList(__aoftlParamIataCode, __aoftlParamLocationType,	\
+						   __aoftlParamORIList, __aoftlParamORIField) {
 	# Register the details of the ORI-maintained POR entry for the latitude
-	myTmpString = __paramORIList[__paramIataCode, __paramLocationType]
+	myTmpString = \
+		__aoftlParamORIList[__aoftlParamIataCode, __aoftlParamLocationType]
 	if (myTmpString) {
 		myTmpString = myTmpString ","
 	}
-	myTmpString = myTmpString __paramORIField
-	__paramORIList[__paramIataCode, __paramLocationType] = myTmpString
+	myTmpString = myTmpString __aoftlParamORIField
+	__aoftlParamORIList[__aoftlParamIataCode, __aoftlParamLocationType] = \
+		myTmpString
 }
 
 ##
@@ -339,12 +395,13 @@ function addORIFieldToList(__paramIataCode, __paramLocationType,	\
 # Note 1: the location type is either individual (e.g., 'C', 'A', 'H', 'R', 'B',
 #         'P', 'G', 'O') or combined (e.g., 'CA', 'CH', 'CR', 'CB', 'CP')
 #
-function registerORILine(__paramPK, __paramIataCode2,					\
-						 __paramLatitude, __paramLongitude,				\
-						 __paramServedCityCode, __paramBeginDate,		\
-						 __paramFullLine, __paramAWKFile, __paramErrorStream) {
+function registerORILine(__rolParamPK, __rolParamIataCode2,				\
+						 __rolParamLatitude, __rolParamLongitude,		\
+						 __rolParamServedCityCode, __rolParamBeginDate,	\
+						 __rolParamFullLine, __rolParamAWKFile, \
+						 __rolParamErrorStream) {
 	# Extract the primary key fields
-	getPrimaryKeyAsArray(__paramPK, myPKArray)
+	getPrimaryKeyAsArray(__rolParamPK, myPKArray)
 	rolIataCode = myPKArray[1]
 	rolLocationType = myPKArray[2]
 	rolGeonamesID = myPKArray[3]
@@ -354,32 +411,37 @@ function registerORILine(__paramPK, __paramIataCode2,					\
 	myIsTravel = isLocTypeTvlRtd(rolLocationType)
 
 	# DEBUG
-	# print ("PK=" __paramPK ", IATA code=" rolIataCode ", loc_type="		\
+	# print ("PK=" __rolParamPK ", IATA code=" rolIataCode ", loc_type=" \
 	#	   rolLocationType ", GeoID=" rolGeonamesID ", srvd city="		\
-	#	   __paramServedCityCode ", beg date=" __paramBeginDate ", awk=" \
+	#	   __rolParamServedCityCode ", beg date=" __rolParamBeginDate ", awk=" \
 	#	   awk_file ", err=" error_stream)
 
 	# Sanity check: the IATA codes of the primary key and of the dedicated field
 	#               should be equal.
-	if (rolIataCode != __paramIataCode2) {
-		print ("[" __paramAWKFile "] !!!! Error at line #" FNR			\
+	if (rolIataCode != __rolParamIataCode2) {
+		print ("[" __rolParamAWKFile "] !!!! Error at line #" FNR		\
 			   ", the IATA code ('" rolIataCode "') of the primary key " \
 			   "is not the same as the one of the dedicated field ('"	\
-			   __paramIataCode2 "') - Full line: " __paramFullLine)		\
-			> __paramErrorStream
+			   __rolParamIataCode2 "') - Full line: " __rolParamFullLine) \
+			> __rolParamErrorStream
 	}
 
 	# Sanity check: when the location type is a combined type, one of those
 	#               types should be a travel-related POR.
 	if (length(rolLocationType) >= 2 && myIsTravel == 0) {
-		print ("[" __paramAWKFile "] !!!! Error at line #" FNR			\
+		print ("[" __rolParamAWKFile "] !!!! Error at line #" FNR		\
 			   ", the location type ('"	rolLocationType					\
-			   "') is unknown - Full line: " __paramFullLine)			\
-			> __paramErrorStream
+			   "') is unknown - Full line: " __rolParamFullLine)		\
+			> __rolParamErrorStream
 	}
 
 	# Add the location type to the dedicated list for that IATA code
 	addLocTypeToORIList(rolIataCode, rolLocationType, ori_por_loctype_list)
+
+	# Add the Geonames ID to the dedicated list for that (IATA code, location
+	# type)
+	addGeoIDToORIList(rolIataCode, rolLocationType, rolGeonamesID,	\
+					  ori_por_geoid_list)
 
 	# Calculate the index for that IATA code
 	ori_por_idx_list[rolIataCode, rolLocationType]++
@@ -387,25 +449,26 @@ function registerORILine(__paramPK, __paramIataCode2,					\
 
 	# Register the details of the ORI-maintained POR entry for the latitude
 	addORIFieldToList(rolIataCode, rolLocationType,			\
-					  ori_por_lat_list, __paramLatitude)
+					  ori_por_lat_list, __rolParamLatitude)
 
 	# Register the details of the ORI-maintained POR entry for the longitude
-	addORIFieldToList(rolIataCode, rolLocationType,			\
-					  ori_por_lon_list, __paramLongitude)
+	addORIFieldToList(rolIataCode, rolLocationType,				\
+					  ori_por_lon_list, __rolParamLongitude)
 
 	# Register the details of the ORI-maintained POR entry for the served city
-	addORIFieldToList(rolIataCode, rolLocationType,			\
-					  ori_por_cty_list, __paramServedCityCode)
+	addORIFieldToList(rolIataCode, rolLocationType,					\
+					  ori_por_cty_list, __rolParamServedCityCode)
 
 	# Register the details of the ORI-maintained POR entry for the beg. date
-	addORIFieldToList(rolIataCode, rolLocationType,			\
-					  ori_por_bdate_list, __paramBeginDate)
+	addORIFieldToList(rolIataCode, rolLocationType,				\
+					  ori_por_bdate_list, __rolParamBeginDate)
 }
 
 ##
 # Reset the list of the ORI-maintained POR entries
 function resetORILineList() {
 	delete ori_por_loctype_list
+	delete ori_por_geoid_list
  	delete ori_por_idx_list
 	delete ori_por_lat_list
 	delete ori_por_lon_list
@@ -416,118 +479,117 @@ function resetORILineList() {
 ##
 # Reset the list of last Geonames POR entries
 function resetGeonamesLineList() {
-	delete geo_line_idx_list
 	delete geo_line_list
+	delete geo_line_geoid_list
+	geo_line_loctype_list = ""
 }
 
 ##
 # Suggest a next step for the user: add the given POR entry
-function displayNextStepAdd(__paramIataCode, __paramFeatureCode,	\
-							__paramGeonamesID,						\
-							__paramAWKFile, __paramErrorStream) {
-	# Calculate the location type
-	dnsaLocationType = getLocationType(__paramFeatureCode)
-
+function displayNextStepAdd(__dnsaParamIataCode, __dnsaParamLocationType, \
+							__dnsaParamGeonamesID,						\
+							__dnsaParamAWKFile, __dnsaParamErrorStream) {
 	# Calculate the primary key
-	dnsaPK = getPrimaryKey(__paramIataCode, dnsLocationType, __paramGeonamesID)
+	dnsaPK = getPrimaryKey(__dnsaParamIataCode, __dnsaParamLocationType, \
+						   __dnsaParamGeonamesID)
 
 	#
-	print ("[" __paramAWKFile "] Next step: add an entry in the ORI file of " \
-		   "best known coordinates for the " dnsaPK " primary key")		\
-		> __paramErrorStream
+	print ("[" __dnsaParamAWKFile "] Next step: add an entry in the ORI " \
+		   "file of best known coordinates for the " dnsaPK " primary key")	\
+		> __dnsaParamErrorStream
 }
 
 ##
 # Suggest a next step for the user: fix the location type of the given POR entry
-function displayNextStepFix(__paramIataCode, __paramFeatureCode,	\
-							__paramGeonamesID,						\
-							__paramAWKFile, __paramErrorStream) {
-	# Calculate the location type
-	dnsfLocationType = getLocationType(__paramFeatureCode)
-
+function displayNextStepFixLocType(__dnsfltParamIataCode,				\
+								   __dnsfltParamLocationType,			\
+								   __dnsfltParamGeonamesID,				\
+								   __dnsfltParamAWKFile,				\
+								   __dnsfltParamErrorStream) {
 	# Calculate the primary key
-	dnsfPK = getPrimaryKey(__paramIataCode, dnsfLocationType, __paramGeonamesID)
+	dnsfPK = getPrimaryKey(__dnsfltParamIataCode, __dnsfltParamLocationType, \
+						   __dnsfltParamGeonamesID)
 
 	#
-	print ("[" __paramAWKFile "] Next step: fix the entry in the ORI file of " \
-		   "best known coordinates for the " dnsfPK " primary key")		\
-		> __paramErrorStream
+	print ("[" __dnsfltParamAWKFile "] Next step: fix the entry in the ORI " \
+		   "file of best known coordinates for the " dnsfPK " primary key")	\
+		> __dnsfltParamErrorStream
 }
 
+##
+# Suggest a next step for the user: fix the Geonames ID of the given POR entry
+function displayNextStepFixID(__dnsfiParamIataCode, __dnsfiParamLocationType, \
+							  __dnsfiParamGeonamesID,					\
+							  __dnsfiParamAWKFile, __dnsfiParamErrorStream) {
+	# Calculate the primary key
+	dnsfPK = getPrimaryKey(__dnsfiParamIataCode, __dnsfiParamLocationType, \
+						   __dnsfiParamGeonamesID)
+
+	#
+	print ("[" __dnsfiParamAWKFile "] Next step: fix the entry in the ORI " \
+		   "file of best known coordinates for the " dnsfPK " primary key")	\
+		> __dnsfiParamErrorStream
+}
+
+
+##
+# Calculate an alternate location type
+function getAltLocTypeFromGeo(__galtfgParamLocationType) {
+	if (isLocTypeTvlRtd(__galtfgParamLocationType)) {
+		__resultLocationType = "C" __galtfgParamLocationType
+
+	} else if (isLocTypeCity(__galtfgParamLocationType)) {
+		__resultLocationType = "O"
+	}
+	return __resultLocationType
+}
+
+##
+# Calculate an alternate location type
+function areLocTypeSimilarEnough(__altseParamORILocType, \
+								 __altseParamGeoLocType) {
+	__resultAreSimilar = 0
+	if (isLocTypeTvlRtd(__altseParamORILocType)			\
+		&& isLocTypeTvlRtd(__altseParamGeoLocType)) {
+		__resultAreSimilar = 1
+		return __resultAreSimilar
+	}
+
+	if ((isLocTypeCity(__altseParamORILocType)		\
+		 || match (__altseParamORILocType, "O")) &&	\
+		(isLocTypeCity(__altseParamGeoLocType)		\
+		 || match (__altseParamGeoLocType, "O"))) {
+		__resultAreSimilar = 1
+		return __resultAreSimilar
+	}
+
+	return __resultAreSimilar
+}
 
 ##
 # Register the full Geonames POR entry details for the given primary key:
 # 1. The IATA code
 # 2. The ORI-maintained location type
 # 3. The ORI-maintained Geonames ID
-function registerGeonamesLine(__paramIataCode, __paramFeatureCode,	\
-							  __paramGeonamesID, __paramFullLine,	\
-							  __paramAWKFile, __paramErrorStream,	\
-							  __paramLogLevel, __paramNbOfPOR) {
+function registerGeonamesLine(__rglParamIataCode, __rglParamFeatureCode, \
+							  __rglParamGeonamesID, __rglParamFullLine,	\
+							  __rglParamAWKFile, __rglParamErrorStream,	\
+							  __rglParamLogLevel, __rglParamNbOfPOR) {
 
 	# Derive the location type from the feature code.
 	# Note: by design of a Geonames POR entry, its location type is individual.
 	#       However, the POR entry may have been registered in the ORI list as
 	#       combined. In that latter case, a 'C' has to be added in front of
 	#       the travel-related location type. For instance, 'A' => 'CA'.
-	rglLocationType = getLocationType(__paramFeatureCode)
-	if (isLocTypeTvlRtd(rglLocationType)) {
-		rglAltLocationType = "C" rglLocationType
-	} else if (isLocTypeCity(rglLocationType)) {
-		rglAltLocationType = "O"
-	}
+	rglLocationType = getLocationType(__rglParamFeatureCode)
 
 	# Sanity check: the location type should be known
 	if (rglLocationType == "NA") {
-  		print ("[" __paramAWKFile "] !!!! Error at line #" __paramNbOfPOR \
-			   ", the POR with that IATA code ('" __paramIataCode		\
-			   "') has an unknown feature code ('" __paramFeatureCode	\
-			   "') - Full line: " __paramFullLine) > __paramErrorStream
+  		print ("[" __rglParamAWKFile "] !!!! Error at line #" __rglParamNbOfPOR \
+			   ", the POR with that IATA code ('" __rglParamIataCode		\
+			   "') has an unknown feature code ('" __rglParamFeatureCode	\
+			   "') - Full line: " __rglParamFullLine) > __rglParamErrorStream
 		return
-	}
-
-	# Check whether that IATA code and location type are known from ORI
-	ori_por_idx = ori_por_idx_list[__paramIataCode, rglLocationType]
-	ori_por_cmb_idx = ori_por_idx_list[__paramIataCode, rglAltLocationType]
-
-	# Sanity check: the POR should be known by ORI
-	if (ori_por_idx + ori_por_cmb_idx == 0) {
-
-		# Extract the list of location types that ORI may know
-		rglLocTypeList = ori_por_loctype_list[__paramIataCode]
-		if (rglLocTypeList == "") {
-			# The ORI-maintained list of POR has no entry with that IATA code
-
-			# Notification
-			if (__paramLogLevel >= 4) {
-				print ("[" __paramAWKFile "] !!!! Error at line #" FNR	\
-					   ", the POR with that IATA code ('" __paramIataCode \
-					   "') is not referenced in the ORI-maintained list, be it" \
-					   " with the individual location type ('" rglLocationType \
-					   "') or the alternate location type ('"			\
-					   rglAltLocationType "'). Full line: "				\
-					   __paramFullLine) > __paramErrorStream
-				displayNextStepAdd(__paramIataCode, __paramFeatureCode,	\
-								   __paramGeonamesID,					\
-								   __paramAWKFile, __paramErrorStream)
-			}
-			return
-		}
-
-		# split (rglLocTypeList, rglLocTypeArray, SUBSEP)
-		# for (rglLocType in rglLocTypeArray) { }
-		# Notification
-		if (__paramLogLevel >= 5) {
-			print ("[" __paramAWKFile "] !!!! Notification at line #" FNR \
-				   ", the POR with that IATA code ('" __paramIataCode	\
-				   "') is referenced in the ORI-maintained list, but with " \
-				   "a different location type (among '" rglLocTypeList	\
-				   "') than the Geonames' one ('" rglLocationType		\
-				   "'). Full line: " __paramFullLine) > __paramErrorStream
-			displayNextStepFix(__paramIataCode, __paramFeatureCode,		\
-							   __paramGeonamesID,						\
-							   __paramAWKFile, __paramErrorStream)
-		}
 	}
 
 	# Display the last read POR entry, when:
@@ -535,22 +597,71 @@ function registerGeonamesLine(__paramIataCode, __paramFeatureCode,	\
 	#    then is not defined).
 	# 2. The current POR entry has got a (IATA code, location type) combination
 	#    distinct from the last POR entry.
-	if ((__paramIataCode, rglLocationType) in geo_line_idx_list	\
-		|| __paramNbOfPOR == 1) {
-
+	if (__rglParamIataCode == geo_iata_code || __rglParamNbOfPOR == 1) {
+		
 	} else {
 		# Display the last Geonames POR entries
-		displayGeonamesPOREntries(__paramAWKFile, __paramErrorStream,	\
-								  __paramLogLevel)
-
-		# Reset the list for the next turn
-		resetGeonamesLineList()
+		displayGeonamesPOREntries(__rglParamAWKFile, __rglParamErrorStream,	\
+								  __rglParamLogLevel)
 	}
 
 	# Register the Geonames POR entry in the list of last entries
 	# for that IATA code
-	geo_line_idx_list[__paramIataCode, rglLocationType]++
-	geo_line_list[__paramGeonamesID] = __paramFullLine
+	geo_iata_code = __rglParamIataCode
+
+	# DEBUG
+	#print ("[" __rglParamAWKFile "][" __rglParamNbOfPOR "] iata_code="	\
+	#	   __rglParamIataCode ", feat_code=" __rglParamFeatureCode		\
+	#	   ", geo_loc_type=" rglLocationType ", GeoID=" __rglParamGeonamesID) \
+	#	> __rglParamErrorStream
+
+	# Add the location type to the dedicated list
+	geo_line_loctype_list = addLocTypeToGeoList(rglLocationType, \
+												geo_line_loctype_list)
+
+	# Add the Geonames ID to the dedicated list for that location type
+	addGeoIDToGeoList(rglLocationType, __rglParamGeonamesID, geo_line_geoid_list)
+
+	# Store the full details of the Geonames POR entry
+	geo_line_list[__rglParamGeonamesID] = __rglParamFullLine
+}
+
+##
+# Display the full details of the Geonames POR entry, prefixed by the
+# corresponding primary key (IATA code, location type, Geonames ID).
+#
+function displayPORWithPK(__dpwpParamIataCode, __dpwpParamORILocType,	\
+						  __dpwpParamORIGeoID, __dpwpParamGeonamesGeoID, \
+						  __dpwpParamAWKFile, __dpwpParamErrorStream,	\
+						  __dpwpParamLogLevel) {
+	# Notification
+	if (__dpwpParamGeonamesGeoID != __dpwpParamORIGeoID && \
+		__dpwpParamLogLevel >= 4) {
+		print ("[" __dpwpParamAWKFile "] !!!! Warning at line #" FNR	\
+			   ", the POR with that IATA code ('" __dpwpParamIataCode	\
+			   "') and location type ('" __dpwpParamORILocType			\
+			   "') is referenced in the ORI-maintained list, "			\
+			   "but with a different Geonames ID (" __dpwpParamORIGeoID	\
+			   ") than the Geonames' one (" __dpwpParamGeonamesGeoID	\
+			   "'). The retained Geonames ID is " __dpwpParamORIGeoID)	\
+			> __dpwpParamErrorStream
+		displayNextStepFixID(__dpwpParamIataCode, __dpwpParamORILocType, \
+							 __dpwpParamORIGeoID,						\
+							 __dpwpParamAWKFile, __dpwpParamErrorStream)
+	}
+
+	# Build the primary key
+	dpwpPK = getPrimaryKey(__dpwpParamIataCode, __dpwpParamORILocType, \
+						   __dpwpParamORIGeoID)
+
+	# Retrieve the full details of the Geonames POR entry
+	dpwpGeonamesPORLine = geo_line_list[__dpwpParamGeonamesGeoID]
+
+	# Add the primary key as a prefix
+	dpwpGeonamesPORPlusPKLine = dpwpPK FS dpwpGeonamesPORLine
+
+	# Dump the full line, prefixed by the primary key
+	print (dpwpGeonamesPORPlusPKLine)
 }
 
 ##
@@ -562,50 +673,91 @@ function registerGeonamesLine(__paramIataCode, __paramFeatureCode,	\
 # RDU-A-4487056 serves both RDU-C-4464368 (Raleigh) and RDU-C-4487042 (Durham)
 # in North Carolina, USA. In that case, there are two entries for RDU-C.
 #
-function displayGeonamesPOREntries(__paramAWKFile, __paramErrorStream, \
-								   __paramLogLevel) {
+function displayGeonamesPOREntries(__dgpeParamAWKFile, __dgpeParamErrorStream, \
+								   __dgpeParamLogLevel) {
 
-	# Calculate the number of the last Geonames POR entries. Most of the time,
-	# that number should be one.
-	dgpeNbOfPOR = length(geo_line_idx_list)
+	# Calculate the number of the Geonames POR entries corresponding to
+	# the last IATA code.
+	dgpeNbOfGeoPOR = length(geo_line_list)
 
-	# Sanity check: by construction, there should be no more than one Geonames
-	#               POR entry for the (IATA code, location type) combination
-	if (dgpeNbOfPOR != 1) {
-  		print ("[" __paramAWKFile "] !!!! Error at line #" FNR	\
-			   ", the number of last Geonames POR entries (" dgpeNbOfPOR \
-			   ") is not exactly one (1).") > __paramErrorStream
-		return
-	}
-
-	# Extract the IATA code and location type
-	for (dgpeCombIdx in geo_line_idx_list) {
-		split (dgpeCombIdx, dgpeIdxArray, SUBSEP)
-		dgpeIataCode = dgpeIdxArray[1]
-		dgpeLocationType = dgpeIdxArray[2]
-	}
-
-	# Calculate the number of the last Geonames POR entries. Most of the time,
-	# that number should be one.
-	dgpeNbOfGeoID = length(geo_line_list)
-
-	# Notification
-	if (dgpeNbOfGeoID >= 2 && __paramLogLevel >= 5) {
-  		print ("[" __paramAWKFile "] !!!! Notification at line #" FNR	\
-			   ", the number of last Geonames POR entries (" dgpeNbOfGeoID \
-			   ") is greater than one for that (" dgpeIataCode ", "		\
-			   dgpeLocationType ") combination.") > __paramErrorStream
-	}
-
-	# Browse the last registered Geonames POR entries
-	for (dgpeGeonamesPORIdx in geo_line_list) {
-		dgpePK = getPrimaryKey(dgpeIataCode, dgpeLocationType, \
-							   dgpeGeonamesPORIdx)
-		dgpeGeonamesPORLine = dgpePK FS geo_line_list[dgpeGeonamesPORIdx]
-
+	# Browse all the location types known by ORI for that IATA code
+	dgpeORILocTypeList = ori_por_loctype_list[geo_iata_code]
+	split (dgpeORILocTypeList, dgpeORILocTypeArray, ",")
+	for (dgpeORILocTypeIdx in dgpeORILocTypeArray) {
 		#
-		print (dgpeGeonamesPORLine)
+		dgpeORILocType = dgpeORILocTypeArray[dgpeORILocTypeIdx]
+
+		# Browse all the Geonames IDs known by ORI for that (IATA code,
+		# location type) combination
+		dgpeORIGeoIDList = ori_por_geoid_list[geo_iata_code, dgpeORILocType]
+		split (dgpeORIGeoIDList, dgpeORIGeoIDArray, ",")
+		for (dgpeORIGeoIDIdx in dgpeORIGeoIDArray) {
+			#
+			dgpeORIGeoID = dgpeORIGeoIDArray[dgpeORIGeoIDIdx]
+
+			# Check whether the ORI-derived location type is to be found
+			# in the Geonames POR entries for that IATA code
+			if (dgpeORILocType in geo_line_geoid_list) {
+				# Retrieve the list of Geonames ID
+				dgpeGeoIDList = geo_line_geoid_list[dgpeORILocType]
+
+				# DEBUG
+				#print ("[" __dgpeParamAWKFile "] iata_code=" geo_iata_code	\
+				#	   ", ORI-loctype=" dgpeORILocType ", ORI-GeoID="	\
+				#	   dgpeORIGeoID ", Geo-GeoIDList=" dgpeGeoIDList)	\
+				#	> __dgpeParamErrorStream
+
+				# Extract the first Geonames ID from the Geonames-derived list
+				split (dgpeGeoIDList, dgpeGeoIDArray, ",")
+				dgpeGeoID = dgpeGeoIDArray[1]
+
+				# Display the full details of the Geonames POR entry
+				displayPORWithPK(geo_iata_code, dgpeORILocType, dgpeORIGeoID, \
+								 dgpeGeoID)
+
+			} else {
+				# The ORI location type is not found in the list of
+				# Geonames-derived location types. Typically, The ORI location
+				# type may be combined (e.g., 'CA', 'CH', 'CR', 'CB', 'CP')
+				# or correspond to an off-line point (i.e., 'O'), while the
+				# Geonames-derived location types are individual (i.e., either
+				# 'C' or travel-related such 'A', 'H', 'R', 'B', 'P').
+				# In all the cases, there is a single location type in ORI
+				# and potentially several in Geonames. If they are similar
+				# enough, The Geonames-derived location type is replaced by
+				# ORI's one.
+				dgpeAreSimilar = areLocTypeSimilarEnough(dgpeORILocType, \
+														 geo_line_loctype_list)
+				if (dgpeAreSimilar) {
+					# Extract the first location type from the Geonames-derived
+					# list
+					split (geo_line_loctype_list, dgpeLocTypeArray, ",")
+					dgpeGeoLocType = dgpeLocTypeArray[1]
+
+					# Retrieve the list of Geonames ID
+					dgpeGeoIDList = geo_line_geoid_list[dgpeGeoLocType]
+
+					# Extract the first Geonames ID from the Geonames-derived
+					# list
+					split (dgpeGeoIDList, dgpeGeoIDArray, ",")
+					dgpeGeoID = dgpeGeoIDArray[1]
+
+					# Display the full details of the Geonames POR entry
+					displayPORWithPK(geo_iata_code, dgpeORILocType, \
+									 dgpeORIGeoID, dgpeGeoID)
+
+				} else {
+					# Notification
+					print ("[" __dgpeParamAWKFile "] iata_code=" geo_iata_code \
+						   ", ORI-loctype=" dgpeORILocType ", ORI-GeoID=" \
+						   dgpeORIGeoID " not found in Geonames. "		\
+						   "Known Geo ID list: "						\
+						   geo_line_loctype_list) > __dgpeParamErrorStream
+				}
+			}
+		}
 	}
 
-	return
+	# Reset the list for the next turn
+	resetGeonamesLineList()
 }
