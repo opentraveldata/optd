@@ -9,8 +9,12 @@ function initGeoAwkLib(__igalParamAWKFile, __igalParamErrorStream, \
 	__glGlobalAWKFile = __igalParamAWKFile
 	__glGlobalErrorStream = __igalParamErrorStream
 	__glGlobalLogLevel = __igalParamLogLevel
+	__glGlobalIsForGeonames = 0
+	__glGlobalIsForRFD = 0
 
+	# Debugging support
 	__glGlobalDebugIataCode = ""
+	#__glGlobalDebugIataCode = "AAE"
 	#__glGlobalDebugIataCode = "RDU"
 
 	# Initialise the ORI-derived lists
@@ -22,6 +26,8 @@ function initGeoAwkLib(__igalParamAWKFile, __igalParamErrorStream, \
 function initFileGeoAwkLib() {
 	# Initialise the Geonames-derived lists
 	resetGeonamesLineList()
+	# Initialise the RFD-derived lists
+	resetRFDLineList()
 }
 
 ##
@@ -32,8 +38,15 @@ function finalizeFileGeoAwkLib() {
 ##
 # Function to be called during the END section
 function finalizeGeoAwkLib() {
-	# Display the last Geonames POR entries
-	displayGeonamesPOREntries()
+	# Display the last Geonames POR entries, if appropriate
+	if (__glGlobalIsForGeonames == 1) {
+		displayGeonamesPOREntries()
+	}
+
+	# Display the last RFD POR entries
+	if (__glGlobalIsForRFD == 1) {
+		displayRFDPOREntries()
+	}
 }
 
 ##
@@ -103,9 +116,16 @@ function isLocTypeCity(__iltcParamLocationType) {
 }
 
 ##
+# State whether the POR is an airport
+function isLocTypeAirport(__ilttrParamLocationType) {
+	__resultIsAirport = match (__ilttrParamLocationType, "[A]")
+	return __resultIsAirport
+}
+
+##
 # State whether the POR is travel-related
 function isLocTypeTvlRtd(__ilttrParamLocationType) {
-	__isAirport = match (__ilttrParamLocationType, "[A]")
+	__isAirport = isLocTypeAirport(__ilttrParamLocationType)
 	__isHeliport = match (__ilttrParamLocationType, "[H]")
 	__isRail = match (__ilttrParamLocationType, "[R]")
 	__isBus = match (__ilttrParamLocationType, "[B]")
@@ -266,7 +286,7 @@ function getFeatureCode(__gfcParamLocationType) {
 ##
 # Derive the ORI/IATA location type.
 # See also http://www.geonames.org/export/codes.html
-function getLocationType(__gltParamFeatureCode) {
+function getLocTypeFromFeatCode(__gltParamFeatureCode) {
 	__resultLocationType = "NA"
 
 	if (isFeatCodeCity(__gltParamFeatureCode)) {
@@ -418,8 +438,7 @@ function addLocTypeToGeoList(__alttglParamGeonamesID, \
 }
 
 ##
-# Add the given location type to the given dedicated Geonames list.
-# The Geonames ID and the list correspond to the Geonames data dump.
+# Add the given location type to the given dedicated Geonames or RFD list.
 #
 function addLocTypeToAllGeoList(__alttglParamLocationType,	\
 								__alttglParamGeoString) {
@@ -599,6 +618,12 @@ function resetGeonamesLineList() {
 }
 
 ##
+# Reset the list of last RFD POR entries
+function resetRFDLineList() {
+	rfd_last_full_line = ""
+}
+
+##
 # Suggest a next step for the user: add the given POR entry
 function displayNextStepAdd(__dnsaParamIataCode, __dnsaParamLocationType, \
 							__dnsaParamGeonamesID) {
@@ -729,13 +754,16 @@ function getMostSimilarLocType(__gmsltParamORILocType, __gmsltParamORIGeoID, \
 function registerGeonamesLine(__rglParamIataCode, __rglParamFeatureCode, \
 							  __rglParamGeonamesID, __rglParamFullLine,	\
 							  __rglParamNbOfPOR) {
+	# Register the fact that the AWK script runs on the Geonames data dump
+	# (most probably called from the geo_pk_creator.awk file)
+	__glGlobalIsForGeonames = 1
 
 	# Derive the location type from the feature code.
 	# Note: by design of a Geonames POR entry, its location type is individual.
 	#       However, the POR entry may have been registered in the ORI list as
 	#       combined. In that latter case, a 'C' has to be added in front of
 	#       the travel-related location type. For instance, 'A' => 'CA'.
-	rglLocationType = getLocationType(__rglParamFeatureCode)
+	rglLocationType = getLocTypeFromFeatCode(__rglParamFeatureCode)
 
 	# Sanity check: the location type should be known
 	if (rglLocationType == "NA") {
@@ -791,8 +819,9 @@ function registerGeonamesLine(__rglParamIataCode, __rglParamFeatureCode, \
 # Display the full details of the Geonames POR entry, prefixed by the
 # corresponding primary key (IATA code, location type, Geonames ID).
 #
-function displayPORWithPK(__dpwpParamIataCode, __dpwpParamORILocType,	\
-						  __dpwpParamORIGeoID, __dpwpParamGeonamesGeoID) {
+function displayGeonamesPORWithPK(__dpwpParamIataCode, __dpwpParamORILocType, \
+								  __dpwpParamORIGeoID, \
+								  __dpwpParamGeonamesGeoID) {
 	# Notification
 	if (__dpwpParamGeonamesGeoID != __dpwpParamORIGeoID && \
 		__glGlobalLogLevel >= 4) {
@@ -900,8 +929,8 @@ function displayGeonamesPOREntries() {
 				}
 
 				# Display the full details of the Geonames POR entry
-				displayPORWithPK(geo_iata_code, dgpeORILocType,			\
-								 dgpeORIGeoID, dgpeGeoID)
+				displayGeonamesPORWithPK(geo_iata_code, dgpeORILocType,	\
+										 dgpeORIGeoID, dgpeGeoID)
 				
 			} else {
 				# The ORI location type is not found in the list of
@@ -939,8 +968,8 @@ function displayGeonamesPOREntries() {
 					}
 
 					# Display the full details of the Geonames POR entry
-					displayPORWithPK(geo_iata_code, dgpeORILocType,		\
-									 dgpeORIGeoID, dgpeGeoID)
+					displayGeonamesPORWithPK(geo_iata_code, dgpeORILocType,	\
+											 dgpeORIGeoID, dgpeGeoID)
 					
 				} else {
 					# Notification
@@ -960,3 +989,135 @@ function displayGeonamesPOREntries() {
 	# Reset the list for the next turn
 	resetGeonamesLineList()
 }
+
+##
+# Register the full RFD POR entry details for the given primary key:
+# 1. The IATA code
+# 2. The ORI-maintained location type
+function registerRFDLine(__rrlParamIataCode, __rrlParamLocType, \
+						 __rrlParamFullLine, __rrlParamNbOfPOR) {
+	# Register the fact that the AWK script runs on the RFD data dump
+	# (most probably called from the rfd_pk_creator.awk file)
+	__glGlobalIsForRFD = 1
+
+	# Display the last read POR entry, when:
+	# 1. The current POR entry is not the first one (as the last POR entry
+	#    then is not defined).
+	# 2. The current POR entry has got a (IATA code, location type) combination
+	#    distinct from the last POR entry.
+	if (__rrlParamIataCode == geo_iata_code || __rrlParamNbOfPOR == 1) {
+		
+	} else {
+		# Display the last Geonames POR entries
+		displayRFDPOREntries()
+	}
+
+	# Register the Geonames POR entry in the list of last entries
+	# for that IATA code
+	geo_iata_code = __rrlParamIataCode
+
+	# DEBUG
+	#print ("[" __glGlobalAWKFile "][" __rrlParamNbOfPOR "] iata_code="	\
+	#	   __rrlParamIataCode ", geo_loc_type=" __rrlParamLocType) \
+	#	> __glGlobalErrorStream
+
+	# Store the location type of the RFD POR entry
+	rfd_last_loctype = __rrlParamLocType
+
+	# Store the full details of the RFD POR entry
+	rfd_last_full_line = __rrlParamFullLine
+}
+
+##
+# Display the full details of the RFD POR entry, prefixed by the
+# corresponding primary key (IATA code, location type, Geonames ID).
+#
+function displayRFDPORWithPK(__drpwkParamIataCode, __drpwkParamORILocType, \
+							 __drpwkParamORIGeoID) {
+	# Build the primary key
+	drpwkPK = getPrimaryKey(__drpwkParamIataCode, __drpwkParamORILocType, \
+							__drpwkParamORIGeoID)
+
+	# Re-write, within the RFD full line:
+	#  * The location type (field #2)
+	#  * The airport flag (field #9)
+	#  * The commercial flag (field #18)
+	drpwkFullLine = rfd_last_full_line
+
+	# Reparse the line
+	OFS = FS
+	$0 = drpwkFullLine
+
+	# Override the location type
+	$2 = __drpwkParamORILocType
+
+	# Override the airport flag when the POR is not an airport
+	if (isLocTypeTvlRtd(__drpwkParamORILocType) == 0) {
+		$9 = "N"
+	}
+
+	# Override the commercial flag when the POR is a city only
+	if (__drpwkParamORILocType == "C") {
+		$18 = "N"
+	}
+	drpwkFullLine = $0
+
+	# Add the primary key as a prefix to the full details of the RFD POR entry
+	drpwkRFDPORPlusPKLine = drpwkPK FS drpwkFullLine
+
+	# Dump the full line, prefixed by the primary key
+	print (drpwkRFDPORPlusPKLine)
+}
+
+##
+# Display the list of Geonames POR entries.
+# Usually, there is no more than one POR entry for a given IATA code
+# and location type.
+#
+# In some rare cases, a travel-related POR serves several cities. For instance,
+# RDU-A-4487056 serves both RDU-C-4464368 (Raleigh) and RDU-C-4487042 (Durham)
+# in North Carolina, USA. In that case, there are two entries for RDU-C.
+#
+function displayRFDPOREntries() {
+
+	# DEBUG
+	if (__glGlobalDebugIataCode != "" && \
+		geo_iata_code == __glGlobalDebugIataCode) {
+		print ("[" __glGlobalDebugIataCode "] ORI loc_type list: "	  \
+			   ori_por_loctype_list[geo_iata_code] ", RFD loc_type: " \
+			   rfd_last_loctype) > __glGlobalErrorStream
+	}
+
+	# Browse all the location types known by ORI for that IATA code
+	drpeORILocTypeList = ori_por_loctype_list[geo_iata_code]
+	split (drpeORILocTypeList, drpeORILocTypeArray, ",")
+	for (drpeORILocTypeIdx in drpeORILocTypeArray) {
+		#
+		drpeORILocType = drpeORILocTypeArray[drpeORILocTypeIdx]
+
+		# Browse all the Geonames IDs known by ORI for that
+		# (IATA code, location type) combination
+		drpeORIGeoIDList = ori_por_geoid_list[geo_iata_code, drpeORILocType]
+		split (drpeORIGeoIDList, drpeORIGeoIDArray, ",")
+		for (drpeORIGeoIDIdx in drpeORIGeoIDArray) {
+			#
+			drpeORIGeoID = drpeORIGeoIDArray[drpeORIGeoIDIdx]
+
+			# Display the full details of the Geonames POR entry
+			displayRFDPORWithPK(geo_iata_code, drpeORILocType, drpeORIGeoID)
+		
+			# DEBUG
+			if (__glGlobalDebugIataCode != "" &&		\
+				geo_iata_code == __glGlobalDebugIataCode) {
+				print ("[" __glGlobalDebugIataCode "] ORI-loctype: "	\
+					   drpeORILocType ", ORI GeoID: " drpeORIGeoID		\
+					   ", RFD loc_type list: " rfd_last_loctype)		\
+					> __glGlobalErrorStream
+			}
+		}
+	}
+
+	# Reset the list for the next turn
+	resetRFDLineList()
+}
+
