@@ -10,6 +10,9 @@ function initGeoAwkLib(__igalParamAWKFile, __igalParamErrorStream, \
 	__glGlobalErrorStream = __igalParamErrorStream
 	__glGlobalLogLevel = __igalParamLogLevel
 
+	__glGlobalDebugIataCode = ""
+	#__glGlobalDebugIataCode = "RDU"
+
 	# Initialise the ORI-derived lists
 	resetORILineList()
 }
@@ -335,11 +338,36 @@ function getPrimaryKey(__gpkParamIataCode, __gpkParamLocationType, \
 #
 function addLocTypeToORIList(__alttolParamIataCode, __alttolParamLocationType, \
 							 __alttolParamORIList) {
-	# Register the details of the ORI-maintained POR entry for the latitude
 	myTmpString = __alttolParamORIList[__alttolParamIataCode]
+
+	# If the location type is already listed, do not add it again.
+	# Note that the ORI-derived location types may be combined. For instance,
+	# 'CA' is a typical ORI-derived location type. So, let us assume that the
+	# list of the ORI-derived location types is {'CA'} and that 'C' is to be
+	# added. If the AWK match() is used in that case, it will return a positive
+	# match (as 'C' is part of 'CA'), but 'C' is different from 'CA'.
+	# That is why the list of ORI-derived location types must be split before
+	# checking each of them one by one.
+	# See also the addLocTypeToAllGeoList() function below.
+	split (myTmpString, alttolORILocTypeArray, ",")
+	for (alttolORILocTypeIdx in alttolORILocTypeArray) {
+		alttolORILocType = alttolORILocTypeArray[alttolORILocTypeIdx]
+		if (alttolORILocType == __alttolParamLocationType) {
+			# DEBUG
+			#print ("[" __alttolParamIataCode "-" __alttolParamLocationType \
+			#	   "] already exists. Indeed, the ORI loc_type list is: " \
+			#	   myTmpString) > __glGlobalErrorStream
+			return
+		}
+	}
+
+	# By construction, we are now sure that the given location type
+	# is not already listed
 	if (myTmpString) {
 		myTmpString = myTmpString ","
 	}
+
+	# Add the given location type
 	myTmpString = myTmpString __alttolParamLocationType
 	__alttolParamORIList[__alttolParamIataCode] = myTmpString
 }
@@ -350,7 +378,6 @@ function addLocTypeToORIList(__alttolParamIataCode, __alttolParamLocationType, \
 #
 function addGeoIDToORIList(__agitolParamIataCode, __agitolParamLocationType, \
 						   __agitolParamGeonamesID, __agitolParamORIList) {
-	# Register the details of the ORI-maintained POR entry for the latitude
 	myTmpString = \
 		__agitolParamORIList[__agitolParamIataCode, __agitolParamLocationType]
 	if (myTmpString) {
@@ -367,7 +394,6 @@ function addGeoIDToORIList(__agitolParamIataCode, __agitolParamLocationType, \
 #
 function addGeoIDToGeoList(__agitolParamLocationType, __agitolParamGeonamesID, \
 						   __agitolParamGeoList) {
-	# Register the details of the ORI-maintained POR entry for the latitude
 	myTmpString = __agitolParamGeoList[__agitolParamLocationType]
 	if (myTmpString) {
 		myTmpString = myTmpString ","
@@ -383,7 +409,6 @@ function addGeoIDToGeoList(__agitolParamLocationType, __agitolParamGeonamesID, \
 function addLocTypeToGeoList(__alttglParamGeonamesID, \
 							 __alttglParamLocationType, \
 							 __alttglParamGeoList) {
-	# Register the details of the ORI-maintained POR entry for the latitude
 	myTmpString = __alttglParamGeoList[__alttglParamGeonamesID]
 	if (myTmpString) {
 		myTmpString = myTmpString ","
@@ -400,7 +425,14 @@ function addLocTypeToAllGeoList(__alttglParamLocationType,	\
 								__alttglParamGeoString) {
 	__resultGeoString = __alttglParamGeoString
 
-	# If the location type is already listed, do not add it again
+	# If the location type is already listed, do not add it again.
+	# Note that, contrary to what may happen with ORI-derived location types
+	# (see the addLocTypeToORIList() function above),
+	# the Geonames-derived location types are not combined. For instance,
+	# 'CA' is a typical ORI-derived location type. In Geonames, by construction,
+	# there would be two POR entries with non-combined location types,
+	# 'C' and 'A' in that example. Hence, the AWK match() function is enough
+	# to check that the location type does not already exist.
 	if (match (__alttglParamGeoString, __alttglParamLocationType)) {
 		return __resultGeoString
 	}
@@ -494,7 +526,7 @@ function registerORILine(__rolParamPK, __rolParamIataCode2,				\
 	# print ("PK=" __rolParamPK ", IATA code=" rolIataCode ", loc_type=" \
 	#	   rolLocationType ", GeoID=" rolGeonamesID ", srvd city="		\
 	#	   __rolParamServedCityCode ", beg date=" __rolParamBeginDate ", awk=" \
-	#	   awk_file ", err=" error_stream)
+	#	   awk_file ", err=" __glGlobalErrorStream)
 
 	# Sanity check: the IATA codes of the primary key and of the dedicated field
 	#               should be equal.
@@ -634,10 +666,16 @@ function getAltLocTypeFromGeo(__galtfgParamLocationType) {
 # If they are similar enough, the Geonames-derived location type is returned.
 #
 # ORI samples:
+# CRK-A-6300472
+# CRK-C-1704703
+# CRK-C-1730737
 # TNK-CA-5876829
 # TVX-C-1790942
 # TVX-R-8411019
 # Geonames samples:
+# CRK^...^6300472^AIRP
+# CRK^...^1704703^PPLA3
+# CRK^...^1730737^PPL
 # TNK^...^5876833^AIRP  (should match, but with less weight than the following)
 # TNK^...^5876829^PPL   (should match with ORI-derived TNK-CA-5876829)
 # TVX^...^1790942^PPLA3 (should match with ORI-derived TVX-C-1790942)
@@ -799,12 +837,14 @@ function displayGeonamesPOREntries() {
 	dgpeNbOfGeoPOR = length(geo_line_list)
 
 	# DEBUG
-	#if (geo_iata_code == "TNK") {
-	#	print ("[TNK] " dgpeNbOfGeoPOR " Geonames entries, ORI loc_type_list: " \
-	#		   ori_por_loctype_list[geo_iata_code] ", Geonames_loc_type_list: " \
-	#		   geo_line_loctype_all_list ", GeoID_list: "				\
-	#		   geo_line_geoid_all_list) > error_stream
-	#}
+	if (__glGlobalDebugIataCode != "" && \
+		geo_iata_code == __glGlobalDebugIataCode) {
+		print ("[" __glGlobalDebugIataCode "] " dgpeNbOfGeoPOR \
+			   " Geonames entries, ORI loc_type_list: "					\
+			   ori_por_loctype_list[geo_iata_code] ", Geonames loc_type_list: " \
+			   geo_line_loctype_all_list ", Geonames GeoID_list: "		\
+			   geo_line_geoid_all_list) > __glGlobalErrorStream
+	}
 
 	# Browse all the location types known by ORI for that IATA code
 	dgpeORILocTypeList = ori_por_loctype_list[geo_iata_code]
@@ -813,8 +853,8 @@ function displayGeonamesPOREntries() {
 		#
 		dgpeORILocType = dgpeORILocTypeArray[dgpeORILocTypeIdx]
 
-		# Browse all the Geonames IDs known by ORI for that (IATA code,
-		# location type) combination
+		# Browse all the Geonames IDs known by ORI for that
+		# (IATA code, location type) combination
 		dgpeORIGeoIDList = ori_por_geoid_list[geo_iata_code, dgpeORILocType]
 		split (dgpeORIGeoIDList, dgpeORIGeoIDArray, ",")
 		for (dgpeORIGeoIDIdx in dgpeORIGeoIDArray) {
@@ -828,10 +868,13 @@ function displayGeonamesPOREntries() {
 			if (dgpeGeoIDList != "") {
 
 				# DEBUG
-				#print ("[" __dgpeParamAWKFile "] iata_code=" geo_iata_code	\
-				#	   ", ORI-loctype=" dgpeORILocType ", ORI-GeoID="	\
-				#	   dgpeORIGeoID ", Geo-GeoIDList=" dgpeGeoIDList)	\
-				#	> __dgpeParamErrorStream
+				if (__glGlobalDebugIataCode != "" &&			\
+					geo_iata_code == __glGlobalDebugIataCode) {
+					print ("[" __glGlobalDebugIataCode "] ORI-loctype: " \
+						   dgpeORILocType ", ORI GeoID: " dgpeORIGeoID	\
+						   ", Geonames GeoID_list[" dgpeORILocType "]: " \
+						   dgpeGeoIDList) > __glGlobalErrorStream
+				}
 
 				# Check whether the ORI-derived Geonames ID exists in the
 				# Geonames data dump. If yes, rely on it. If not, take the
@@ -848,12 +891,13 @@ function displayGeonamesPOREntries() {
 				}
 
 				# DEBUG
-				#if (geo_iata_code == "TNK") {
-				#	print ("[TNK] Matching loc type: "					\
-				#		   dgpeORILocType ", GeoID list: "				\
-				#		   dgpeGeoIDList ", kept GeoID: " dgpeGeoID)	\
-				#		> error_stream
-				#}
+				if (__glGlobalDebugIataCode != "" &&			\
+					geo_iata_code == __glGlobalDebugIataCode) {
+					print ("[" __glGlobalDebugIataCode "] Matching loc type: " \
+						   dgpeORILocType ", Geonames GeoID list: "		\
+						   dgpeGeoIDList ", kept GeoID: " dgpeGeoID)	\
+						> __glGlobalErrorStream
+				}
 
 				# Display the full details of the Geonames POR entry
 				displayPORWithPK(geo_iata_code, dgpeORILocType,			\
@@ -885,12 +929,14 @@ function displayGeonamesPOREntries() {
 					dgpeGeoID = dgpeGeoIDArray[1]
 
 					# DEBUG
-					#if (geo_iata_code == "TNK") {
-					#	print ("[TNK] Matching similar loc type: "		\
-					#		   dgpeORILocType ", GeoID list: "			\
-					#		   dgpeGeoIDList ", kept GeoID: " dgpeGeoID) \
-					#		> error_stream
-					#}
+					if (__glGlobalDebugIataCode != "" &&		\
+						geo_iata_code == __glGlobalDebugIataCode) {
+						print ("[" __glGlobalDebugIataCode				\
+							   "] Matching similar loc type: " dgpeORILocType \
+							   ", Geonames GeoID list: " dgpeGeoIDList	\
+							   ", kept GeoID: " dgpeGeoID)				\
+							> __glGlobalErrorStream
+					}
 
 					# Display the full details of the Geonames POR entry
 					displayPORWithPK(geo_iata_code, dgpeORILocType,		\
