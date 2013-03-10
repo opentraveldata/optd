@@ -324,8 +324,8 @@ function addGeoIDToORIList(__agitolParamIataCode, __agitolParamLocationType, \
 }
 
 ##
-# Add the given Geonames ID to the given dedicated Geonames list. The Geonames ID
-# and the list correspond to the Geonames data dump.
+# Add the given Geonames ID to the given dedicated Geonames list.
+# The Geonames ID and the list correspond to the Geonames data dump.
 #
 function addGeoIDToGeoList(__agitolParamLocationType, __agitolParamGeonamesID, \
 						   __agitolParamGeoList) {
@@ -339,10 +339,27 @@ function addGeoIDToGeoList(__agitolParamLocationType, __agitolParamGeonamesID, \
 }
 
 ##
-# Add the given Geonames ID to the given dedicated Geonames list. The Geonames ID
-# and the list correspond to the Geonames data dump.
+# Add the given location type to the given dedicated Geonames list.
+# The Geonames ID and the list correspond to the Geonames data dump.
 #
-function addLocTypeToGeoList(__alttglParamLocationType, __alttglParamGeoString) {
+function addLocTypeToGeoList(__alttglParamGeonamesID, \
+							 __alttglParamLocationType, \
+							 __alttglParamGeoList) {
+	# Register the details of the ORI-maintained POR entry for the latitude
+	myTmpString = __alttglParamGeoList[__alttglParamGeonamesID]
+	if (myTmpString) {
+		myTmpString = myTmpString ","
+	}
+	myTmpString = myTmpString __alttglParamLocationType
+	__alttglParamGeoList[__alttglParamGeonamesID] = myTmpString
+}
+
+##
+# Add the given location type to the given dedicated Geonames list.
+# The Geonames ID and the list correspond to the Geonames data dump.
+#
+function addLocTypeToAllGeoList(__alttglParamLocationType,	\
+								__alttglParamGeoString) {
 	__resultGeoString = __alttglParamGeoString
 
 	# If the location type is already listed, do not add it again
@@ -355,6 +372,33 @@ function addLocTypeToGeoList(__alttglParamLocationType, __alttglParamGeoString) 
 		__resultGeoString = __resultGeoString ","
 	}
 	__resultGeoString = __resultGeoString __alttglParamLocationType
+	return __resultGeoString
+}
+
+##
+# Add the given Geonames ID to the given dedicated Geonames list.
+# The Geonames ID and the list correspond to the Geonames data dump.
+#
+function addGeoIDToAllGeoList(__alttaglParamGeonamesID,__alttaglParamGeoString, \
+							  __alttaglParamAWKFile, __alttaglParamErrorStream) {
+	__resultGeoString = __alttaglParamGeoString
+
+	# If the Geonames ID is already listed, notify the user
+	if (match (__alttaglParamGeoString, __alttaglParamGeonamesID)) {
+		print ("[" __alttaglParamAWKFile "] !!!! Error at line #" FNR	\
+			   ", the Geonames ID (" __alttaglParamGeonamesID			\
+			   ") already exists ('" __alttaglParamGeoString			\
+			   "'): it is a duplicate. Check the Geonames data dump. By " \
+			   "construction, that should not happen!")					\
+			> __alttaglParamErrorStream
+		return __resultGeoString
+	}
+
+	# Register the location type
+	if (__resultGeoString) {
+		__resultGeoString = __resultGeoString ","
+	}
+	__resultGeoString = __resultGeoString __alttaglParamGeonamesID
 	return __resultGeoString
 }
 
@@ -480,8 +524,10 @@ function resetORILineList() {
 # Reset the list of last Geonames POR entries
 function resetGeonamesLineList() {
 	delete geo_line_list
+	delete geo_line_loctype_list
 	delete geo_line_geoid_list
-	geo_line_loctype_list = ""
+	geo_line_loctype_all_list = ""
+	geo_line_geoid_all_list = ""
 }
 
 ##
@@ -545,25 +591,64 @@ function getAltLocTypeFromGeo(__galtfgParamLocationType) {
 }
 
 ##
-# Calculate an alternate location type
-function areLocTypeSimilarEnough(__altseParamORILocType, \
-								 __altseParamGeoLocType) {
-	__resultAreSimilar = 0
-	if (isLocTypeTvlRtd(__altseParamORILocType)			\
-		&& isLocTypeTvlRtd(__altseParamGeoLocType)) {
-		__resultAreSimilar = 1
-		return __resultAreSimilar
+# Get the Geonames location type, if any, which is the most similar to the
+# ORI-derived given one.
+# Typically, The ORI location type may be combined (e.g., 'CA', 'CH', 'CR',
+# 'CB', 'CP') or correspond to an off-line point (i.e., 'O'), while the
+# Geonames-derived location types are individual (i.e., either 'C' or
+# travel-related such 'A', 'H', 'R', 'B', 'P').
+# In all the cases, with the algorithm used here, there is a single ORI-derived
+# location type (which may be combined) and potentially several in Geonames.
+# If they are similar enough, the Geonames-derived location type is returned.
+#
+# ORI samples:
+# TNK-CA-5876829
+# TVX-C-1790942
+# TVX-R-8411019
+# Geonames samples:
+# TNK^...^5876833^AIRP  (should match, but with less weight than the following)
+# TNK^...^5876829^PPL   (should match with ORI-derived TNK-CA-5876829)
+# TVX^...^1790942^PPLA3 (should match with ORI-derived TVX-C-1790942)
+# TVX^...^8411019^AIRP  (should match with ORI-derived TVX-R-8411019 and notify
+#                        the user as there is a location type mismatch)
+function getMostSimilarLocType(__gmsltParamORILocType, __gmsltParamORIGeoID, \
+							   __gmsltParamGeoLocTypeListString,		\
+							   __gmsltParamGeoGeoIDListString) {
+	__resultMostSimilarLocType = ""
+
+	# First, check whether the ORI-derived Geonames ID is to be found in the
+	# Geonames data dump
+	isGeoIDKnownToGeonames = \
+		match (__gmsltParamGeoGeoIDListString, __gmsltParamORIGeoID)
+	if (isGeoIDKnownToGeonames) {
+		# Retrieve the Geonames-derived location type corresponding to that
+		# Geonames-derived Geonames ID. That Geonames-derived location type
+		# will allow to retrieve the right Geonames ID later on.
+		gmsltGeoLocType = geo_line_loctype_list[__gmsltParamORIGeoID]
+		__resultMostSimilarLocType = gmsltGeoLocType
+		return __resultMostSimilarLocType
 	}
 
-	if ((isLocTypeCity(__altseParamORILocType)		\
-		 || match (__altseParamORILocType, "O")) &&	\
-		(isLocTypeCity(__altseParamGeoLocType)		\
-		 || match (__altseParamGeoLocType, "O"))) {
-		__resultAreSimilar = 1
-		return __resultAreSimilar
+	split (__gmsltParamGeoLocTypeListString, gmsltGeoLocTypeArray, ",")
+	for (gmsltGeoLocTypeIdx in gmsltGeoLocTypeArray) {
+		gmsltGeoLocType = gmsltGeoLocTypeArray[gmsltGeoLocTypeIdx]
+
+		if (isLocTypeTvlRtd(__gmsltParamORILocType)		\
+			&& isLocTypeTvlRtd(gmsltGeoLocType)) {
+			__resultMostSimilarLocType = gmsltGeoLocType
+			break
+		}
+
+		if ((isLocTypeCity(__gmsltParamORILocType)	\
+			 || match (__gmsltParamORILocType, "O")) &&	\
+			(isLocTypeCity(gmsltGeoLocType)		\
+			 || match (gmsltGeoLocType, "O"))) {
+			__resultMostSimilarLocType = gmsltGeoLocType
+			break
+		}
 	}
 
-	return __resultAreSimilar
+	return __resultMostSimilarLocType
 }
 
 ##
@@ -616,8 +701,17 @@ function registerGeonamesLine(__rglParamIataCode, __rglParamFeatureCode, \
 	#	> __rglParamErrorStream
 
 	# Add the location type to the dedicated list
-	geo_line_loctype_list = addLocTypeToGeoList(rglLocationType, \
-												geo_line_loctype_list)
+	geo_line_loctype_all_list =											\
+		addLocTypeToAllGeoList(rglLocationType,	geo_line_loctype_all_list)
+
+	# Add the location type to the dedicated list for that Geonames ID
+	addLocTypeToGeoList(__rglParamGeonamesID, rglLocationType,	\
+						geo_line_loctype_list)
+
+	# Add the Geonames ID to the dedicated list
+	geo_line_geoid_all_list = \
+		addGeoIDToAllGeoList(__rglParamGeonamesID, geo_line_geoid_all_list, \
+							 __rglParamAWKFile, __rglParamErrorStream)
 
 	# Add the Geonames ID to the dedicated list for that location type
 	addGeoIDToGeoList(rglLocationType, __rglParamGeonamesID, geo_line_geoid_list)
@@ -638,12 +732,11 @@ function displayPORWithPK(__dpwpParamIataCode, __dpwpParamORILocType,	\
 	if (__dpwpParamGeonamesGeoID != __dpwpParamORIGeoID && \
 		__dpwpParamLogLevel >= 4) {
 		print ("[" __dpwpParamAWKFile "] !!!! Warning at line #" FNR	\
-			   ", the POR with that IATA code ('" __dpwpParamIataCode	\
-			   "') and location type ('" __dpwpParamORILocType			\
-			   "') is referenced in the ORI-maintained list, "			\
-			   "but with a different Geonames ID (" __dpwpParamORIGeoID	\
+			   ", the ORI-derived POR with that IATA code ('"			\
+			   __dpwpParamIataCode "'), location type ('" __dpwpParamORILocType	\
+			   "') has got a different Geonames ID (" __dpwpParamORIGeoID \
 			   ") than the Geonames' one (" __dpwpParamGeonamesGeoID	\
-			   "'). The retained Geonames ID is " __dpwpParamORIGeoID)	\
+			   "). The retained Geonames ID is " __dpwpParamGeonamesGeoID)	\
 			> __dpwpParamErrorStream
 		displayNextStepFixID(__dpwpParamIataCode, __dpwpParamORILocType, \
 							 __dpwpParamORIGeoID,						\
@@ -652,7 +745,7 @@ function displayPORWithPK(__dpwpParamIataCode, __dpwpParamORILocType,	\
 
 	# Build the primary key
 	dpwpPK = getPrimaryKey(__dpwpParamIataCode, __dpwpParamORILocType, \
-						   __dpwpParamORIGeoID)
+						   __dpwpParamGeonamesGeoID)
 
 	# Retrieve the full details of the Geonames POR entry
 	dpwpGeonamesPORLine = geo_line_list[__dpwpParamGeonamesGeoID]
@@ -680,6 +773,14 @@ function displayGeonamesPOREntries(__dgpeParamAWKFile, __dgpeParamErrorStream, \
 	# the last IATA code.
 	dgpeNbOfGeoPOR = length(geo_line_list)
 
+	# DEBUG
+	#if (geo_iata_code == "TNK") {
+	#	print ("[TNK] " dgpeNbOfGeoPOR " Geonames entries, ORI loc_type_list: " \
+	#		   ori_por_loctype_list[geo_iata_code] ", Geonames_loc_type_list: " \
+	#		   geo_line_loctype_all_list ", GeoID_list: "				\
+	#		   geo_line_geoid_all_list) > error_stream
+	#}
+
 	# Browse all the location types known by ORI for that IATA code
 	dgpeORILocTypeList = ori_por_loctype_list[geo_iata_code]
 	split (dgpeORILocTypeList, dgpeORILocTypeArray, ",")
@@ -696,10 +797,10 @@ function displayGeonamesPOREntries(__dgpeParamAWKFile, __dgpeParamErrorStream, \
 			dgpeORIGeoID = dgpeORIGeoIDArray[dgpeORIGeoIDIdx]
 
 			# Check whether the ORI-derived location type is to be found
-			# in the Geonames POR entries for that IATA code
-			if (dgpeORILocType in geo_line_geoid_list) {
-				# Retrieve the list of Geonames ID
-				dgpeGeoIDList = geo_line_geoid_list[dgpeORILocType]
+			# in the Geonames POR entries for that IATA code.
+			# Retrieve the list of Geonames ID, if existing/non empty.
+			dgpeGeoIDList = geo_line_geoid_list[dgpeORILocType]
+			if (dgpeGeoIDList != "") {
 
 				# DEBUG
 				#print ("[" __dgpeParamAWKFile "] iata_code=" geo_iata_code	\
@@ -707,14 +808,34 @@ function displayGeonamesPOREntries(__dgpeParamAWKFile, __dgpeParamErrorStream, \
 				#	   dgpeORIGeoID ", Geo-GeoIDList=" dgpeGeoIDList)	\
 				#	> __dgpeParamErrorStream
 
-				# Extract the first Geonames ID from the Geonames-derived list
-				split (dgpeGeoIDList, dgpeGeoIDArray, ",")
-				dgpeGeoID = dgpeGeoIDArray[1]
+				# Check whether the ORI-derived Geonames ID exists in the
+				# Geonames data dump. If yes, rely on it. If not, take the
+				# first one of the Geonames-derived list.
+				dgpeIsORIGeoIDInGeonames = match (dgpeGeoIDList, dgpeORIGeoID)
+				if (dgpeIsORIGeoIDInGeonames) {
+					dgpeGeoID = dgpeORIGeoID
+
+				} else {
+					# Extract the first Geonames ID from
+					# the Geonames-derived list
+					split (dgpeGeoIDList, dgpeGeoIDArray, ",")
+					dgpeGeoID = dgpeGeoIDArray[1]
+				}
+
+				# DEBUG
+				#if (geo_iata_code == "TNK") {
+				#	print ("[TNK] Matching loc type: "					\
+				#		   dgpeORILocType ", GeoID list: "				\
+				#		   dgpeGeoIDList ", kept GeoID: " dgpeGeoID)	\
+				#		> error_stream
+				#}
 
 				# Display the full details of the Geonames POR entry
-				displayPORWithPK(geo_iata_code, dgpeORILocType, dgpeORIGeoID, \
-								 dgpeGeoID)
-
+				displayPORWithPK(geo_iata_code, dgpeORILocType,			\
+								 dgpeORIGeoID, dgpeGeoID,				\
+								 __dgpeParamAWKFile, __dgpeParamErrorStream, \
+								 __dgpeParamLogLevel)
+				
 			} else {
 				# The ORI location type is not found in the list of
 				# Geonames-derived location types. Typically, The ORI location
@@ -724,35 +845,46 @@ function displayGeonamesPOREntries(__dgpeParamAWKFile, __dgpeParamErrorStream, \
 				# 'C' or travel-related such 'A', 'H', 'R', 'B', 'P').
 				# In all the cases, there is a single location type in ORI
 				# and potentially several in Geonames. If they are similar
-				# enough, The Geonames-derived location type is replaced by
+				# enough, the Geonames-derived location type is replaced by
 				# ORI's one.
-				dgpeAreSimilar = areLocTypeSimilarEnough(dgpeORILocType, \
-														 geo_line_loctype_list)
-				if (dgpeAreSimilar) {
-					# Extract the first location type from the Geonames-derived
-					# list
-					split (geo_line_loctype_list, dgpeLocTypeArray, ",")
-					dgpeGeoLocType = dgpeLocTypeArray[1]
-
-					# Retrieve the list of Geonames ID
-					dgpeGeoIDList = geo_line_geoid_list[dgpeGeoLocType]
+				dgpeMostSimilarLocType =								\
+					getMostSimilarLocType(dgpeORILocType, dgpeORIGeoID, \
+										  geo_line_loctype_all_list,	\
+										  geo_line_geoid_all_list)
+				if (dgpeMostSimilarLocType != "") {
+					# Retrieve the list of Geonames ID corresponding to that
+					# (Geonames-derived) location type
+					dgpeGeoIDList = geo_line_geoid_list[dgpeMostSimilarLocType]
 
 					# Extract the first Geonames ID from the Geonames-derived
 					# list
 					split (dgpeGeoIDList, dgpeGeoIDArray, ",")
 					dgpeGeoID = dgpeGeoIDArray[1]
 
-					# Display the full details of the Geonames POR entry
-					displayPORWithPK(geo_iata_code, dgpeORILocType, \
-									 dgpeORIGeoID, dgpeGeoID)
+					# DEBUG
+					#if (geo_iata_code == "TNK") {
+					#	print ("[TNK] Matching similar loc type: "		\
+					#		   dgpeORILocType ", GeoID list: "			\
+					#		   dgpeGeoIDList ", kept GeoID: " dgpeGeoID) \
+					#		> error_stream
+					#}
 
+					# Display the full details of the Geonames POR entry
+					displayPORWithPK(geo_iata_code, dgpeORILocType,		\
+									 dgpeORIGeoID, dgpeGeoID,			\
+									 __dgpeParamAWKFile,__dgpeParamErrorStream, \
+									 __dgpeParamLogLevel)
+					
 				} else {
 					# Notification
-					print ("[" __dgpeParamAWKFile "] iata_code=" geo_iata_code \
-						   ", ORI-loctype=" dgpeORILocType ", ORI-GeoID=" \
-						   dgpeORIGeoID " not found in Geonames. "		\
-						   "Known Geo ID list: "						\
-						   geo_line_loctype_list) > __dgpeParamErrorStream
+					if ((__dgpeParamLogLevel >= 4 && dgpeORIGeoID != 0) || \
+						(__dgpeParamLogLevel >= 5 && dgpeORIGeoID == 0)) {
+						print ("[" __dgpeParamAWKFile "] iata_code="	\
+							   geo_iata_code ", ORI-loctype=" dgpeORILocType \
+							   ", ORI-GeoID=" dgpeORIGeoID				\
+							   " not found in Geonames. Known Geo ID list: " \
+							   geo_line_geoid_all_list) > __dgpeParamErrorStream
+					}
 				}
 			}
 		}
