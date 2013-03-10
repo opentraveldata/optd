@@ -2,6 +2,45 @@
 #
 
 ##
+# Function to be called during the BEGIN section
+function initGeoAwkLib(__igalParamAWKFile, __igalParamErrorStream, \
+					   __igalParamLogLevel) {
+	# Global variables
+	__glGlobalAWKFile = __igalParamAWKFile
+	__glGlobalErrorStream = __igalParamErrorStream
+	__glGlobalLogLevel = __igalParamLogLevel
+
+	# Initialise the ORI-derived lists
+	resetORILineList()
+}
+
+##
+# Function to be called during the BEGINFILE section
+function initFileGeoAwkLib() {
+	# Initialise the Geonames-derived lists
+	resetGeonamesLineList()
+}
+
+##
+# Function to be called during the ENDFILE section
+function finalizeFileGeoAwkLib() {
+}
+
+##
+# Function to be called during the END section
+function finalizeGeoAwkLib() {
+	# Display the last Geonames POR entries
+	displayGeonamesPOREntries()
+}
+
+##
+# Display the header of the ORI POR public data file
+function displayORIPorPublicHeader(__dopphFullLine) {
+	# Just add the 'pk' (meaning primary key) word
+	print ("pk^" __dopphFullLine)
+}
+
+##
 # Display a list
 function displayList(__paramListType, __paramList) {
 	if (length(__paramList) == 0) {
@@ -30,7 +69,6 @@ function display2dList(__paramListType, __paramList) {
 	}
 }
 
-##
 ##
 # Display all the geographical-related lists:
 # cities, airports, heliports, railway stations, bus stations, ground stations,
@@ -379,18 +417,17 @@ function addLocTypeToAllGeoList(__alttglParamLocationType,	\
 # Add the given Geonames ID to the given dedicated Geonames list.
 # The Geonames ID and the list correspond to the Geonames data dump.
 #
-function addGeoIDToAllGeoList(__alttaglParamGeonamesID,__alttaglParamGeoString, \
-							  __alttaglParamAWKFile, __alttaglParamErrorStream) {
+function addGeoIDToAllGeoList(__alttaglParamGeonamesID,__alttaglParamGeoString) {
 	__resultGeoString = __alttaglParamGeoString
 
 	# If the Geonames ID is already listed, notify the user
 	if (match (__alttaglParamGeoString, __alttaglParamGeonamesID)) {
-		print ("[" __alttaglParamAWKFile "] !!!! Error at line #" FNR	\
+		print ("[" __glGlobalAWKFile "] !!!! Error at line #" FNR	\
 			   ", the Geonames ID (" __alttaglParamGeonamesID			\
 			   ") already exists ('" __alttaglParamGeoString			\
 			   "'): it is a duplicate. Check the Geonames data dump. By " \
 			   "construction, that should not happen!")					\
-			> __alttaglParamErrorStream
+			> __glGlobalErrorStream
 		return __resultGeoString
 	}
 
@@ -442,8 +479,7 @@ function addORIFieldToList(__aoftlParamIataCode, __aoftlParamLocationType,	\
 function registerORILine(__rolParamPK, __rolParamIataCode2,				\
 						 __rolParamLatitude, __rolParamLongitude,		\
 						 __rolParamServedCityCode, __rolParamBeginDate,	\
-						 __rolParamFullLine, __rolParamAWKFile, \
-						 __rolParamErrorStream) {
+						 __rolParamFullLine) {
 	# Extract the primary key fields
 	getPrimaryKeyAsArray(__rolParamPK, myPKArray)
 	rolIataCode = myPKArray[1]
@@ -463,20 +499,20 @@ function registerORILine(__rolParamPK, __rolParamIataCode2,				\
 	# Sanity check: the IATA codes of the primary key and of the dedicated field
 	#               should be equal.
 	if (rolIataCode != __rolParamIataCode2) {
-		print ("[" __rolParamAWKFile "] !!!! Error at line #" FNR		\
+		print ("[" __glGlobalAWKFile "] !!!! Error at line #" FNR		\
 			   ", the IATA code ('" rolIataCode "') of the primary key " \
 			   "is not the same as the one of the dedicated field ('"	\
 			   __rolParamIataCode2 "') - Full line: " __rolParamFullLine) \
-			> __rolParamErrorStream
+			> __glGlobalErrorStream
 	}
 
 	# Sanity check: when the location type is a combined type, one of those
 	#               types should be a travel-related POR.
 	if (length(rolLocationType) >= 2 && myIsTravel == 0) {
-		print ("[" __rolParamAWKFile "] !!!! Error at line #" FNR		\
+		print ("[" __glGlobalAWKFile "] !!!! Error at line #" FNR		\
 			   ", the location type ('"	rolLocationType					\
 			   "') is unknown - Full line: " __rolParamFullLine)		\
-			> __rolParamErrorStream
+			> __glGlobalErrorStream
 	}
 
 	# Add the location type to the dedicated list for that IATA code
@@ -533,48 +569,44 @@ function resetGeonamesLineList() {
 ##
 # Suggest a next step for the user: add the given POR entry
 function displayNextStepAdd(__dnsaParamIataCode, __dnsaParamLocationType, \
-							__dnsaParamGeonamesID,						\
-							__dnsaParamAWKFile, __dnsaParamErrorStream) {
+							__dnsaParamGeonamesID) {
 	# Calculate the primary key
 	dnsaPK = getPrimaryKey(__dnsaParamIataCode, __dnsaParamLocationType, \
 						   __dnsaParamGeonamesID)
 
 	#
-	print ("[" __dnsaParamAWKFile "] Next step: add an entry in the ORI " \
+	print ("[" __glGlobalAWKFile "] Next step: add an entry in the ORI " \
 		   "file of best known coordinates for the " dnsaPK " primary key")	\
-		> __dnsaParamErrorStream
+		> __glGlobalErrorStream
 }
 
 ##
 # Suggest a next step for the user: fix the location type of the given POR entry
 function displayNextStepFixLocType(__dnsfltParamIataCode,				\
 								   __dnsfltParamLocationType,			\
-								   __dnsfltParamGeonamesID,				\
-								   __dnsfltParamAWKFile,				\
-								   __dnsfltParamErrorStream) {
+								   __dnsfltParamGeonamesID) {
 	# Calculate the primary key
 	dnsfPK = getPrimaryKey(__dnsfltParamIataCode, __dnsfltParamLocationType, \
 						   __dnsfltParamGeonamesID)
 
 	#
-	print ("[" __dnsfltParamAWKFile "] Next step: fix the entry in the ORI " \
+	print ("[" __glGlobalAWKFile "] Next step: fix the entry in the ORI " \
 		   "file of best known coordinates for the " dnsfPK " primary key")	\
-		> __dnsfltParamErrorStream
+		> __glGlobalErrorStream
 }
 
 ##
 # Suggest a next step for the user: fix the Geonames ID of the given POR entry
 function displayNextStepFixID(__dnsfiParamIataCode, __dnsfiParamLocationType, \
-							  __dnsfiParamGeonamesID,					\
-							  __dnsfiParamAWKFile, __dnsfiParamErrorStream) {
+							  __dnsfiParamGeonamesID) {
 	# Calculate the primary key
 	dnsfPK = getPrimaryKey(__dnsfiParamIataCode, __dnsfiParamLocationType, \
 						   __dnsfiParamGeonamesID)
 
 	#
-	print ("[" __dnsfiParamAWKFile "] Next step: fix the entry in the ORI " \
+	print ("[" __glGlobalAWKFile "] Next step: fix the entry in the ORI " \
 		   "file of best known coordinates for the " dnsfPK " primary key")	\
-		> __dnsfiParamErrorStream
+		> __glGlobalErrorStream
 }
 
 
@@ -658,8 +690,7 @@ function getMostSimilarLocType(__gmsltParamORILocType, __gmsltParamORIGeoID, \
 # 3. The ORI-maintained Geonames ID
 function registerGeonamesLine(__rglParamIataCode, __rglParamFeatureCode, \
 							  __rglParamGeonamesID, __rglParamFullLine,	\
-							  __rglParamAWKFile, __rglParamErrorStream,	\
-							  __rglParamLogLevel, __rglParamNbOfPOR) {
+							  __rglParamNbOfPOR) {
 
 	# Derive the location type from the feature code.
 	# Note: by design of a Geonames POR entry, its location type is individual.
@@ -670,10 +701,10 @@ function registerGeonamesLine(__rglParamIataCode, __rglParamFeatureCode, \
 
 	# Sanity check: the location type should be known
 	if (rglLocationType == "NA") {
-  		print ("[" __rglParamAWKFile "] !!!! Error at line #" __rglParamNbOfPOR \
+  		print ("[" __glGlobalAWKFile "] !!!! Error at line #" __rglParamNbOfPOR \
 			   ", the POR with that IATA code ('" __rglParamIataCode		\
 			   "') has an unknown feature code ('" __rglParamFeatureCode	\
-			   "') - Full line: " __rglParamFullLine) > __rglParamErrorStream
+			   "') - Full line: " __rglParamFullLine) > __glGlobalErrorStream
 		return
 	}
 
@@ -686,8 +717,7 @@ function registerGeonamesLine(__rglParamIataCode, __rglParamFeatureCode, \
 		
 	} else {
 		# Display the last Geonames POR entries
-		displayGeonamesPOREntries(__rglParamAWKFile, __rglParamErrorStream,	\
-								  __rglParamLogLevel)
+		displayGeonamesPOREntries()
 	}
 
 	# Register the Geonames POR entry in the list of last entries
@@ -695,10 +725,10 @@ function registerGeonamesLine(__rglParamIataCode, __rglParamFeatureCode, \
 	geo_iata_code = __rglParamIataCode
 
 	# DEBUG
-	#print ("[" __rglParamAWKFile "][" __rglParamNbOfPOR "] iata_code="	\
+	#print ("[" __glGlobalAWKFile "][" __rglParamNbOfPOR "] iata_code="	\
 	#	   __rglParamIataCode ", feat_code=" __rglParamFeatureCode		\
 	#	   ", geo_loc_type=" rglLocationType ", GeoID=" __rglParamGeonamesID) \
-	#	> __rglParamErrorStream
+	#	> __glGlobalErrorStream
 
 	# Add the location type to the dedicated list
 	geo_line_loctype_all_list =											\
@@ -710,8 +740,7 @@ function registerGeonamesLine(__rglParamIataCode, __rglParamFeatureCode, \
 
 	# Add the Geonames ID to the dedicated list
 	geo_line_geoid_all_list = \
-		addGeoIDToAllGeoList(__rglParamGeonamesID, geo_line_geoid_all_list, \
-							 __rglParamAWKFile, __rglParamErrorStream)
+		addGeoIDToAllGeoList(__rglParamGeonamesID, geo_line_geoid_all_list)
 
 	# Add the Geonames ID to the dedicated list for that location type
 	addGeoIDToGeoList(rglLocationType, __rglParamGeonamesID, geo_line_geoid_list)
@@ -725,22 +754,19 @@ function registerGeonamesLine(__rglParamIataCode, __rglParamFeatureCode, \
 # corresponding primary key (IATA code, location type, Geonames ID).
 #
 function displayPORWithPK(__dpwpParamIataCode, __dpwpParamORILocType,	\
-						  __dpwpParamORIGeoID, __dpwpParamGeonamesGeoID, \
-						  __dpwpParamAWKFile, __dpwpParamErrorStream,	\
-						  __dpwpParamLogLevel) {
+						  __dpwpParamORIGeoID, __dpwpParamGeonamesGeoID) {
 	# Notification
 	if (__dpwpParamGeonamesGeoID != __dpwpParamORIGeoID && \
-		__dpwpParamLogLevel >= 4) {
-		print ("[" __dpwpParamAWKFile "] !!!! Warning at line #" FNR	\
+		__glGlobalLogLevel >= 4) {
+		print ("[" __glGlobalAWKFile "] !!!! Warning at line #" FNR	\
 			   ", the ORI-derived POR with that IATA code ('"			\
 			   __dpwpParamIataCode "'), location type ('" __dpwpParamORILocType	\
 			   "') has got a different Geonames ID (" __dpwpParamORIGeoID \
 			   ") than the Geonames' one (" __dpwpParamGeonamesGeoID	\
 			   "). The retained Geonames ID is " __dpwpParamGeonamesGeoID)	\
-			> __dpwpParamErrorStream
+			> __glGlobalErrorStream
 		displayNextStepFixID(__dpwpParamIataCode, __dpwpParamORILocType, \
-							 __dpwpParamORIGeoID,						\
-							 __dpwpParamAWKFile, __dpwpParamErrorStream)
+							 __dpwpParamORIGeoID)
 	}
 
 	# Build the primary key
@@ -766,8 +792,7 @@ function displayPORWithPK(__dpwpParamIataCode, __dpwpParamORILocType,	\
 # RDU-A-4487056 serves both RDU-C-4464368 (Raleigh) and RDU-C-4487042 (Durham)
 # in North Carolina, USA. In that case, there are two entries for RDU-C.
 #
-function displayGeonamesPOREntries(__dgpeParamAWKFile, __dgpeParamErrorStream, \
-								   __dgpeParamLogLevel) {
+function displayGeonamesPOREntries() {
 
 	# Calculate the number of the Geonames POR entries corresponding to
 	# the last IATA code.
@@ -832,9 +857,7 @@ function displayGeonamesPOREntries(__dgpeParamAWKFile, __dgpeParamErrorStream, \
 
 				# Display the full details of the Geonames POR entry
 				displayPORWithPK(geo_iata_code, dgpeORILocType,			\
-								 dgpeORIGeoID, dgpeGeoID,				\
-								 __dgpeParamAWKFile, __dgpeParamErrorStream, \
-								 __dgpeParamLogLevel)
+								 dgpeORIGeoID, dgpeGeoID)
 				
 			} else {
 				# The ORI location type is not found in the list of
@@ -871,19 +894,17 @@ function displayGeonamesPOREntries(__dgpeParamAWKFile, __dgpeParamErrorStream, \
 
 					# Display the full details of the Geonames POR entry
 					displayPORWithPK(geo_iata_code, dgpeORILocType,		\
-									 dgpeORIGeoID, dgpeGeoID,			\
-									 __dgpeParamAWKFile,__dgpeParamErrorStream, \
-									 __dgpeParamLogLevel)
+									 dgpeORIGeoID, dgpeGeoID)
 					
 				} else {
 					# Notification
-					if ((__dgpeParamLogLevel >= 4 && dgpeORIGeoID != 0) || \
-						(__dgpeParamLogLevel >= 5 && dgpeORIGeoID == 0)) {
-						print ("[" __dgpeParamAWKFile "] iata_code="	\
+					if ((__glGlobalLogLevel >= 4 && dgpeORIGeoID != 0) || \
+						(__glGlobalLogLevel >= 5 && dgpeORIGeoID == 0)) {
+						print ("[" __glGlobalAWKFile "] iata_code="	\
 							   geo_iata_code ", ORI-loctype=" dgpeORILocType \
 							   ", ORI-GeoID=" dgpeORIGeoID				\
 							   " not found in Geonames. Known Geo ID list: " \
-							   geo_line_geoid_all_list) > __dgpeParamErrorStream
+							   geo_line_geoid_all_list) > __glGlobalErrorStream
 					}
 				}
 			}
