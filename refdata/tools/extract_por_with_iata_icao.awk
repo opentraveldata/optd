@@ -179,6 +179,13 @@ function is_tvl_or_cty (feat_code) {
 		# Travel-related
 
 		if (icao_code != "" || faa_code != "") {
+			if (icao_code == "") {
+				# Set the ICAO code to "NULL". AWK recalculates
+				# the whole line ($0).
+				OFS = FS
+				$2 = "NULL"
+			}
+
 			# Travel-related with a ICAO or a FAA code (e.g., airports)
 			print ($0) > iata_tvl_file
 
