@@ -126,7 +126,7 @@ BEGINFILE {
 	# Retrieve the full line
 	full_line = $0
 
-	# Add the primary key key word ('pk') and print it
+	# Add the primary key keyword ('pk') and print it
 	displayORIPorPublicHeader(full_line)
 }
 
