@@ -54,6 +54,10 @@
 ##
 # Initialisation
 BEGIN {
+	# Global variables
+	error_stream = "/dev/stderr"
+	awk_file = "extract_por_with_iata_icao.awk"
+
 	#
 	por_lines = 0
 
@@ -213,10 +217,10 @@ function is_tvl_or_cty (feat_code) {
 			$3 = ""
 
 		} else {
-			print ("!!! Error [" FNR "] The POR having got geoname_id=" \
-				   geoname_id " is a city, but has got a ICAO code (" icao_code \
-				   ") or a FAA code (" faa_code "), which is not normal") \
-				> "/dev/stderr"
+			print ("[" awk_file "][" FNR "] !! Error !! The POR having got " \
+				   "Geonames ID=" geoname_id " is a city, but has got a " \
+				   "ICAO code (" icao_code ") or a FAA code (" faa_code \
+				   "), which is not normal") > error_stream
 		}
 		
 		# Cities
