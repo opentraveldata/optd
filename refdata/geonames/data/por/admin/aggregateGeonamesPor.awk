@@ -97,21 +97,30 @@
 ##
 # Debugging support function
 function printList(myArray) {
-	printf ("%s", "Size: " length(myArray) "\n") > "/dev/stderr"
+	printf ("%s", "Size: " length(myArray) "\n") > error_stream
 	for (idx in myArray) {
-		printf ("%s", idx "^" myArray[idx]) > "/dev/stderr"
+		printf ("%s", idx "^" myArray[idx] "; ") > error_stream
 	}
-	printf ("%s", "\n") > "/dev/stderr"
+	printf ("%s", "\n") > error_stream
 }
 
 ##
 #
 BEGIN {
-	#
+	# Global variables
+	error_stream = "/dev/stderr"
+	awk_file = "aggregateGeonamesPor.awk"
+
+	# Counters
 	tz_line = 0
 	cont_line = 0
 	por_line = 0
 	alt_line = 0
+
+	# Country and continent for special cases (such as Persian Gulf)
+	ctry_list_name["ZZ"] = "Not relevant/available"
+	ctry_list_cont["ZZ"] = "ZZ"
+	cont_list["ZZ"] = "Not relevant/available"
 
 	# Header
 	printf ("%s", "iata_code^icao_code^geonameid")
@@ -338,10 +347,28 @@ BEGIN {
 		is_historical = "h"
 	}
 
-	#
 	if (alt_name_type == "iata") {
+		# The alternate name is a IATA code
 		if (is_historical != "h") {
-			alt_name_list_iata[geoname_id] = alt_name_content
+			alt_name_content_old = alt_name_list_iata[geoname_id]
+
+			if (alt_name_content_old == "" || \
+				substr(alt_name_content_old, 1, 1) == "_") {
+				alt_name_list_iata[geoname_id] = alt_name_content
+
+			} else {
+				# TODO: add the new IATA code in a list.
+				# That situation occurs for instance for the Mulhouse/Basel
+				# airport: MLH and BSL are both legitimate.
+				# For now, just report that situation
+				if (log_level >= 4) {
+					print ("[" awk_file "][" FNR "] There is more than one " \
+						   "active IATA code for Geonames ID=" geoname_id \
+						   ": " alt_name_content_old " and " alt_name_content) \
+						> error_stream
+				}
+			}
+
 		} else {
 			if (alt_name_list_iata[geoname_id] == "") {
 				alt_name_list_iata[geoname_id] = "_" alt_name_content
@@ -349,8 +376,25 @@ BEGIN {
 		}
 
 	} else if (alt_name_type == "icao") {
+		# The alternate name is a ICAO code
 		if (is_historical != "h") {
-			alt_name_list_icao[geoname_id] = alt_name_content
+			alt_name_content_old = alt_name_list_icao[geoname_id]
+
+			if (alt_name_content_old == "" ||					\
+				substr(alt_name_content_old, 1, 1) == "_") {
+				alt_name_list_icao[geoname_id] = alt_name_content
+
+			} else {
+				# Notification
+				if (log_level >= 4) {
+					print ("[" awk_file "][" FNR "] !!!! Error !!!! "	\
+						   "There is more than one active ICAO code for " \
+						   "Geonames ID=" geoname_id					\
+						   ": " alt_name_content_old " and " alt_name_content) \
+						> error_stream
+				}
+			}
+
 		} else {
 			if (alt_name_list_icao[geoname_id] == "") {
 				alt_name_list_icao[geoname_id] = "_" alt_name_content
@@ -358,8 +402,25 @@ BEGIN {
 		}
 
 	} else if (alt_name_type == "faac") {
+		# The alternate name is a FAA code
 		if (is_historical != "h") {
-			alt_name_list_faac[geoname_id] = alt_name_content
+			alt_name_content_old = alt_name_list_faac[geoname_id]
+
+			if (alt_name_content_old == "" ||					\
+				substr(alt_name_content_old, 1, 1) == "_") {
+				alt_name_list_faac[geoname_id] = alt_name_content
+
+			} else {
+				# Notification
+				if (log_level >= 4) {
+					print ("[" awk_file "][" FNR "] !!!! Error !!!! "	\
+						   "There is more than one active FAA code for " \
+						   "Geonames ID=" geoname_id					\
+						   ": " alt_name_content_old " and " alt_name_content) \
+						> error_stream
+				}
+			}
+
 		} else {
 			if (alt_name_list_faac[geoname_id] == "") {
 				alt_name_list_faac[geoname_id] = "_" alt_name_content
@@ -429,9 +490,9 @@ BEGIN {
 		} else {
 			# Notification
 			if (log_level >= 5) {
-				print ("!!!! [" FNR "] The type of the alternate name ('" \
-					   alt_name_type "') is unknown. The Geoname ID is " \
-					   geoname_id) > "/dev/stderr"
+				print ("[" awk_file "][" FNR "] !!!! The type of the " \
+					   "alternate name ('" alt_name_type "') is unknown. " \
+					   "The Geoname ID is " geoname_id) > error_stream
 			}
 		}
 	}
@@ -469,17 +530,37 @@ BEGIN {
 
 	# Country codes and name
 	ctry_code = $9
-	ctry_name = ctry_list_name[ctry_code]
+
+	# (Alternate) country code list
 	cc_code_list = $10
+
+	if (ctry_code == "") {
+		ctry_name = "ZZ"
+
+		# Notification: the country code may be empty for gulfs for instance.
+		if (log_level >= 5) {
+			print ("[" awk_file "][" FNR "] The country code is empty for " \
+				   utf8_name " (GeoID = " geoname_id ").") > error_stream
+			printList(cont_list)
+		}
+
+	} else {
+		ctry_name = ctry_list_name[ctry_code]
+	}
 
 	# Continent
 	cont_code = ctry_list_cont[ctry_code]
 	cont_name = cont_list[cont_code]
-	# Sanity check
+
+	# Sanity check: at that point, the continent name should not be empty
 	if (cont_name == "") {
-		print ("!!!! [" FNR "] The " ctry_code							\
-			   " country has no associated continent.") > "/dev/stderr"
-		printList(cont_list)
+		if (log_level >= 5) {
+			print ("[" awk_file "][" FNR "] The '" ctry_code			\
+				   "' country has no associated continent for " utf8_name \
+				   " (GeoID = " geoname_id "). Known continent list: ")	\
+				> error_stream
+			printList(cont_list)
+		}
 	}
 
 	# Codes and names for administrative levels
@@ -549,10 +630,9 @@ BEGIN {
 
 	# Notification when multiple English Wikipedia links for a single POR
 	if (link2_code != "" && iata_code != "" && log_level >= 5) {
-		print ("!!!! [" FNR \
-			   "] There are duplicated English Wikipedia links, i.e., at least "\
-			   link2_code " and " link_code ". The Geoname ID is " geoname_id) \
-			> "/dev/stderr"
+		print ("[" awk_file "][" FNR "] !!!! There are duplicated English " \
+			   "Wikipedia links, i.e., at least " link2_code " and " link_code \
+			   ". The Geoname ID is " geoname_id) > error_stream
 	}
 }
 
