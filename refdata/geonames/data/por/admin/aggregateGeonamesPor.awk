@@ -105,6 +105,37 @@ function printList(myArray) {
 }
 
 ##
+# Display the POR (point of reference) entry
+function displayPOR() {
+	# Build the output line, in the desired format
+	out_line = iata_code "^" icao_code "^" faac_code "^" geoname_id
+	out_line = out_line "^" utf8_name "^" ascii_name
+	out_line = out_line "^" latitude "^" longitude
+	out_line = out_line "^" ctry_code "^" cc_code_list "^" ctry_name
+	out_line = out_line "^" cont_name "^" fclass "^" fcode
+	out_line = out_line "^" adm1_code "^" adm1_name_utf "^" adm1_name_ascii
+	out_line = out_line "^" adm2_code "^" adm2_name_utf "^" adm2_name_ascii
+	out_line = out_line "^" adm3_code "^" adm4_code
+	out_line = out_line "^" population "^" elevation "^" gtopo30
+	out_line = out_line "^" tz_id
+	out_line = out_line "^" gmt_offset "^" dst_offset "^" raw_offset
+	out_line = out_line "^" mod_date
+	out_line = out_line "^" alt_names_compact
+	out_line = out_line "^" link_code
+	out_line = out_line	"^" alt_names
+
+	# Print the output line
+	print (out_line)
+
+	# Notification when multiple English Wikipedia links for a single POR
+	if (link2_code != "" && iata_code != "" && log_level >= 5) {
+		print ("[" awk_file "][" FNR "] !!!! There are duplicated English " \
+			   "Wikipedia links, i.e., at least " link2_code " and "	\
+			   link_code ". The Geoname ID is " geoname_id) > error_stream
+	}
+}
+
+##
 #
 BEGIN {
 	# Global variables
@@ -357,10 +388,17 @@ BEGIN {
 				alt_name_list_iata[geoname_id] = alt_name_content
 
 			} else {
-				# TODO: add the new IATA code in a list.
-				# That situation occurs for instance for the Mulhouse/Basel
-				# airport: MLH and BSL are both legitimate.
-				# For now, just report that situation
+				# Add the new IATA code in the dedicated list for that
+				# Geonames ID. That situation occurs, for instance,
+				# for the Mulhouse/Basel airport: MLH and BSL are both
+				# legitimate.
+				# However, it should be very rare. When a POR has got more
+				# than a single IATA code, it is most often a sign of
+				# corrupted data. So, it will be reported as well.
+				alt_name_list_iata[geoname_id] = \
+					alt_name_content_old "," alt_name_content
+
+				# Report that situation, just in case it is illigetimate
 				if (log_level >= 4) {
 					print ("[" awk_file "][" FNR "] There is more than one " \
 						   "active IATA code for Geonames ID=" geoname_id \
@@ -594,7 +632,7 @@ BEGIN {
 	raw_offset = tz_list_raw[tz_id]
 
 	# Retrieve the details coming from the alternate names
-	iata_code = alt_name_list_iata[geoname_id]
+	iata_code_list = alt_name_list_iata[geoname_id]
 	icao_code = alt_name_list_icao[geoname_id]
 	faac_code = alt_name_list_faac[geoname_id]
 	link_code = alt_name_list_link[geoname_id]
@@ -609,30 +647,21 @@ BEGIN {
 	delete alt_name_list_link2[geoname_id]
 	delete alt_name_list_lang[geoname_id]
 
-	# Build the output line, in the desired format
-	out_line = iata_code "^" icao_code "^" faac_code "^" geoname_id
-	out_line = out_line "^" utf8_name "^" ascii_name
-	out_line = out_line "^" latitude "^" longitude
-	out_line = out_line "^" ctry_code "^" cc_code_list "^" ctry_name
-	out_line = out_line "^" cont_name "^" fclass "^" fcode
-	out_line = out_line "^" adm1_code "^" adm1_name_utf "^" adm1_name_ascii
-	out_line = out_line "^" adm2_code "^" adm2_name_utf "^" adm2_name_ascii
-	out_line = out_line "^" adm3_code "^" adm4_code
-	out_line = out_line "^" population "^" elevation "^" gtopo30
-	out_line = out_line "^" tz_id "^" gmt_offset "^" dst_offset "^" raw_offset
-	out_line = out_line "^" mod_date
-	out_line = out_line "^" alt_names_compact
-	out_line = out_line "^" link_code
-	out_line = out_line	"^" alt_names
+	if (iata_code_list) {
+		# When the list of IATA codes is not empty, iterate on it.
+		# Note that normally, there is at most one IATA code.
+		split (iata_code_list, iata_code_array, ",")
+		for (iata_code_idx in iata_code_array) {
+			iata_code = iata_code_array[iata_code_idx]
+		
+			displayPOR()
+		}
 
-	# Print the output line
-	print (out_line)
-
-	# Notification when multiple English Wikipedia links for a single POR
-	if (link2_code != "" && iata_code != "" && log_level >= 5) {
-		print ("[" awk_file "][" FNR "] !!!! There are duplicated English " \
-			   "Wikipedia links, i.e., at least " link2_code " and " link_code \
-			   ". The Geoname ID is " geoname_id) > error_stream
+	} else {
+		# The POR has no IATA code. It corresponds to the vast majority
+		# of the cases
+		iata_code = ""
+		displayPOR()
 	}
 }
 
