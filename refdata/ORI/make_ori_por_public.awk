@@ -161,14 +161,22 @@ BEGIN {
 	# Country code
 	country_code = $1
 
+	# Country name
+	country_name = $2
+
 	# Continent code
 	continent_code = $3
 
 	# Continent name
 	continent_name = $4
 
-	# Register the time-zone ID associated to that country
-	# ctry_cont_code_list[country_code] = continent_code
+	# Register the country name associated to that country
+	ctry_name_list[country_code] = country_name
+
+	# Register the continent code associated to that country
+	ctry_cont_code_list[country_code] = continent_code
+
+	# Register the continent name associated to that country
 	ctry_cont_name_list[country_code] = continent_name
 }
 
@@ -216,9 +224,16 @@ function getTimeZone(myCountryCode) {
 }
 
 ##
+# Retrieve the country name for that country
+function getCountryName(myCountryCode) {
+	ctry_name = ctry_name_list[myCountryCode]
+	return ctry_name
+}
+
+##
 # Retrieve the continent code for that country
 function getContinentCode(myCountryCode) {
-	# cnt_code = ctry_cont_code_list[myCountryCode]
+	cnt_code = ctry_cont_code_list[myCountryCode]
 	return cnt_code
 }
 
@@ -498,10 +513,11 @@ function printAltNameSection(myAltNameSection) {
 
 		# ^ Country code ^ Alt. country codes ^ Country name ^ Continent name
 		country_code = $17
+		country_name = getCountryName(country_code)
 		time_zone_id = getTimeZone(country_code)
 		continent_name = getContinentName(country_code)
 		# continent_name = gensub ("/[A-Za-z_]+", "", "g", time_zone_id)
-		printf ("%s", "^" country_code "^^" country_code "^" continent_name)
+		printf ("%s", "^" country_code "^^" country_name "^" continent_name)
 
 		# ^ Admin1 code ^ Admin1 UTF8 name ^ Admin1 ASCII name
 		printf ("%s", "^^^")
