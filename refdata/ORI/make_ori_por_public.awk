@@ -30,6 +30,11 @@ BEGIN {
 	error_stream = "/dev/stderr"
 	awk_file = "make_ori_por_public.awk"
 
+	# Lists
+	ctry_name_list["ZZ"] = "Not relevant/available"
+	ctry_cont_code_list["ZZ"] = "ZZ"
+	ctry_cont_name_list["ZZ"] = "Not relevant/available"
+
 	# Header
 	printf ("%s","iata_code^icao_code^faa_code^is_geonames^geoname_id^valid_id")
 	printf ("%s", "^name^asciiname^latitude^longitude")
@@ -559,15 +564,15 @@ function printAltNameSection(myAltNameSection) {
 
 		# ----
 		# From ORI-POR ($1 - $6)
-		# (1) XIT-R-0 ^ (2) XIT (3) 51.42 ^ (4) 12.42 ^
-		# (5) LEJ ^ (6)  ^
+		# (1) HDQ-CA-0 ^ (2) HDQ ^ (3) <empty lat.> ^ (4)  ^ <empty long.>
+		# (5) HDQ ^ (6)  ^
 
 		# From RFD ($7 - $24)
-		# (7) XIT ^ (8) R ^ (9) LEIPZIG RAIL ^ (10) LEIPZIG HBF RAIL STN ^
-		# (11) LEIPZIG RAIL ^ (12) LEIPZIG/HALLE/DE:LEIPZIG HBF R ^
-		# (13) LEIPZIG/HALLE ^
-		# (14) LEJ ^ (15) Y ^ (16)  ^ (17) DE ^ (18) EUROP ^ (19) ITC2 ^
-		# (20) DE040 ^ (21) 51.3 ^ (22) 12.3333 ^ (23)  ^ (24) N
+		# (7) HDQ ^ (8) CA ^ (9) Headquarters ^ (10) ^
+		# (11) Headquarters ^ (12) Headquarters ZZ ^
+		# (13) Headquarters ^
+		# (14) HDQ ^ (15) Y ^ (16) ^ (17) ZZ ^ (18) NONE ^ (19) ITC2 ^
+		# (20) ZZ205 ^ (21) 0.00028 ^ (22) -0.00028 ^ (23)  ^ (24) Y
 
 	} else if (NF == 39) {
 		####
