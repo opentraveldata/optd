@@ -5,7 +5,7 @@
 #  * Geonames dump data file:
 #      dump_from_geonames.csv
 #  * ORI-maintained list of best known coordinates:
-#      best_coordinates_known_so_far.csv
+#      ori_por_best_known_so_far.csv
 #
 # The primary key is made of:
 #  * The IATA code

@@ -7,7 +7,7 @@
 # that AWK script).
 #
 # For instance, the following POR entries of the
-# ../ORI/best_coordinates_known_so_far.csv data file:
+# ../ORI/ori_por_best_known_so_far.csv data file:
 # is made of the IATA code and location type. For instance:
 #  * NCE-CA^NCE^43.658411^7.215872^NCE^
 # will be de-duplicated in the ori_por_to_be_split.csv data file:
@@ -128,7 +128,7 @@ BEGINFILE {
 ##
 # ./ori_por_to_be_split.csv
 #
-# Sample lines: same as for best_coordinates_known_so_far.csv below,
+# Sample lines: same as for ori_por_best_known_so_far.csv below,
 # but with a "^DEDUP" tag at the end of every line.
 #
 # Sample lines:
@@ -271,7 +271,7 @@ BEGINFILE {
 
 
 ##
-# ../ORI/best_coordinates_known_so_far.csv
+# ../ORI/ori_por_best_known_so_far.csv
 #
 # Sample lines:
 #  ALV-O^ALV^40.98^0.45^ALV^         (1 line in ORI, 2 lines in Geonames)

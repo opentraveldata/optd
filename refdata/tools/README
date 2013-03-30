@@ -50,7 +50,7 @@ cd -
 #
 
 ./compare_por_files.sh \
-  dump_from_geonames.csv ../ORI/best_coordinates_known_so_far.csv \
+  dump_from_geonames.csv ../ORI/ori_por_best_known_so_far.csv \
   ../ORI/ref_airport_pageranked.csv 0
 
 # A data file, summing up all the differences, is generated, namely
@@ -62,7 +62,7 @@ less por_main_diff.csv
 
 # To see the respective details of a given POR (point of reference), just type
 # something like:
-grep "^LHR" ../ORI/best_coordinates_known_so_far.csv \
+grep "^LHR" ../ORI/ori_por_best_known_so_far.csv \
 	 dump_from_crb_city.csv dump_from_geonames.csv
 
 # Then, compare
@@ -86,8 +86,8 @@ midori http://maps.bing.com
 # than in the ORI-maintained data files, those latters have to be corrected.
 # Just update the coordinates within the ORI-maintained list of best known
 # coordinates:
-vi ../ORI/best_coordinates_known_so_far.csv
-git add ../ORI/best_coordinates_known_so_far.csv
+vi ../ORI/ori_por_best_known_so_far.csv
+git add ../ORI/ori_por_best_known_so_far.csv
 
 # For the bulk update, see also 8.
 
@@ -102,7 +102,7 @@ git add ../ORI/best_coordinates_known_so_far.csv
 # A new POR, still unknown from ORI, may have been specified within Geonames.
 #
 # The procedure is exactly the same as in 4.1: manually edit the
-# ../ORI/best_coordinates_known_so_far.csv and re-generate the ORI-maintained
+# ../ORI/ori_por_best_known_so_far.csv and re-generate the ORI-maintained
 # POR file (step 1.1).
 
 
@@ -151,28 +151,28 @@ gzip pageranked_por_in_iata_but_missing_from_geonames.csv
 ./fix_best_known_coordinates.sh
 
 # When Geonames has better coordinates
-wc -l new_best_coordinates_known_so_far.csv.wgeo \
-   ../ORI/best_coordinates_known_so_far.csv
-diff -c new_best_coordinates_known_so_far.csv.wgeo \
-	../ORI/best_coordinates_known_so_far.csv | less
+wc -l new_ori_por_best_known_so_far.csv.wgeo \
+   ../ORI/ori_por_best_known_so_far.csv
+diff -c new_ori_por_best_known_so_far.csv.wgeo \
+	../ORI/ori_por_best_known_so_far.csv | less
 
 # When RFD has better coordinates
-wc -l new_best_coordinates_known_so_far.csv.wrfd \
-   ../ORI/best_coordinates_known_so_far.csv
-diff -c new_best_coordinates_known_so_far.csv.wrfd \
-	 ../ORI/best_coordinates_known_so_far.csv | less
+wc -l new_ori_por_best_known_so_far.csv.wrfd \
+   ../ORI/ori_por_best_known_so_far.csv
+diff -c new_ori_por_best_known_so_far.csv.wrfd \
+	 ../ORI/ori_por_best_known_so_far.csv | less
 
 # In case everything seems correct, replace the ORI-maintained file:
 #  - When Geonames has better coordinates
-\mv -f new_best_coordinates_known_so_far.csv.wgeo \
-	../ORI/best_coordinates_known_so_far.csv
+\mv -f new_ori_por_best_known_so_far.csv.wgeo \
+	../ORI/ori_por_best_known_so_far.csv
 #  - When RFD has better coordinates
-\mv -f new_best_coordinates_known_so_far.csv.wrfd \
-	../ORI/best_coordinates_known_so_far.csv
+\mv -f new_ori_por_best_known_so_far.csv.wrfd \
+	../ORI/ori_por_best_known_so_far.csv
 
 # Add it into Git and re-check
-git add ../ORI/best_coordinates_known_so_far.csv
-git diff --cached ../ORI/best_coordinates_known_so_far.csv
+git add ../ORI/ori_por_best_known_so_far.csv
+git diff --cached ../ORI/ori_por_best_known_so_far.csv
 
 # Go to 1.1., as the ORI-maintained file of best known coordinates
 # has been updated

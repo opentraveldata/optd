@@ -1,21 +1,21 @@
 ##
-# That AWK script has been run once (June 2012), and is not intended to be re-processed.
-# It is left here, just as a sample.
+# That AWK script has been run once (June 2012), and is not intended to be
+# re-processed. It is left here, just as a sample.
 #
-# The script aims at splitting single combined POR lines (e.g., with location types
-# such as 'CA' or 'AR') into the corresponding distinct POR lines (e.g., a line with
-# 'A' and the other with 'C' as location type). All the other fields remain identical
-# (untouched).
+# The script aims at splitting single combined POR lines (e.g., with location
+# types such as 'CA' or 'AR') into the corresponding distinct POR lines (e.g.,
+# a line with 'A' and the other with 'C' as location type). All the other
+# fields remain identical (untouched).
 #
 # Way it was used:
 # 
 # sed -e "s/^iata\(.\+\)//g" ori_por_public.csv > ori_por_public.csv.woh
 # sed -i -e "/^$/d" ori_por_public.csv.woh
-# join -t'^' -a 1 -1 2 -2 1 best_coordinates_known_so_far.csv ori_por_public.csv.woh > best_coordinates_known_so_far.csv.tmp
-# awk -F'^' -f ori_split_best_once.awk ori_por_cty.csv best_coordinates_known_so_far.csv.tmp > best_coordinates_known_so_far.csv.new
-# diff -c best_coordinates_known_so_far.csv best_coordinates_known_so_far.csv.new | less
-# \mv -f best_coordinates_known_so_far.csv.new best_coordinates_known_so_far.csv
-# \rm -f best_coordinates_known_so_far.csv.tmp
+# join -t'^' -a 1 -1 2 -2 1 ori_por_best_known_so_far.csv ori_por_public.csv.woh > ori_por_best_known_so_far.csv.tmp
+# awk -F'^' -f ori_split_best_once.awk ori_por_cty.csv ori_por_best_known_so_far.csv.tmp > ori_por_best_known_so_far.csv.new
+# diff -c ori_por_best_known_so_far.csv ori_por_best_known_so_far.csv.new | less
+# \mv -f ori_por_best_known_so_far.csv.new ori_por_best_known_so_far.csv
+# \rm -f ori_por_best_known_so_far.csv.tmp
 
 
 ##
@@ -25,10 +25,10 @@
 # by the sequence below), at least two POR (point of reference, e.g., airport,
 # heliport, railway station, bus station) serve the city.
 #
-# Among all the entries for a given city, the entry having the same IATA code for the
-# airport and for the city (which has got "CA" for location_type), must be split.
-# Indeed, the airport and the city must be distinguised for some of their details
-# (e.g, geographical coordinates, PageRank).
+# Among all the entries for a given city, the entry having the same IATA code
+# for the airport and for the city (which has got "CA" for location_type),
+# must be split. Indeed, the airport and the city must be distinguised for
+# some of their details (e.g, geographical coordinates, PageRank).
 #
 /^([A-Z]{3})\^([0-9]{1,2})/ {
 	# IATA code of the city
@@ -69,7 +69,8 @@
 	por_details = latitude "^" longitude
 
 	#
-	if (city_code in city_por_freq && iata_code == city_code && location_type == "CA") {
+	if (city_code in city_por_freq && iata_code == city_code && \
+		location_type == "CA") {
 		# For the POR being referenced in Amadeus RFD as both a city and
 		# an airport ("CA"), split that POR into two distinct entries:
 		# one for the city ("C") and another one for the airport ("A").
@@ -80,10 +81,11 @@
 		printf ("%s", primary_key "^" iata_code "^" por_details "\n")
 
 	} else {
-		# Standard POR. When that POR is both a city and an airport, by construction
-		# of the por_cty_rfd_????????.csv file, there is a single airport serving
-		# the city. For now (as of June 2012), those POR are not split, as they may
-		# be considered as a single entity for many processes (e.g., PageRank).
+		# Standard POR. When that POR is both a city and an airport,
+		# by construction of the por_cty_rfd_????????.csv file, there is a
+		# single airport serving the city. For now (as of June 2012),
+		# those POR are not split, as they may be considered as a single
+		# entity for many processes (e.g., PageRank).
 		printf ("%s", primary_key "^" iata_code "^" por_details "\n")
 	}
 

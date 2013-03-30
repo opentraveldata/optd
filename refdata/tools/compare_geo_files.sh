@@ -7,7 +7,7 @@
 
 ##
 #
-GEO_FILE_2_FILENAME=best_coordinates_known_so_far.csv
+GEO_FILE_2_FILENAME=ori_por_best_known_so_far.csv
 
 ##
 # Temporary path

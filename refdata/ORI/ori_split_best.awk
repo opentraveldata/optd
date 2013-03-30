@@ -1,20 +1,20 @@
 ##
-# That AWK script has been run once (July 2012), and is not intended to be processed
-# that often. It is left here, just as a sample.
+# That AWK script has been run once (July 2012), and is not intended to be
+# processed that often. It is left here, just as a sample.
 #
 # The script takes a list of POR for which the location type is "combined":
 # most of the time, it is "CA" (meaning city and airport), but it can also be
 # something like "AR" (meaning airport and railway station).
 #
 # Typical sequence of commands to issue in order to use that script:
-# awk -F'^' -f ori_split_best.awk best_to_split.csv best_coordinates_known_so_far.csv > best_coordinates_known_so_far.csv.new
-# sort -t'^' -k1,1 best_coordinates_known_so_far.csv.new > best_coordinates_known_so_far.csv.new2
-# \mv best_coordinates_known_so_far.csv.new2 best_coordinates_known_so_far.csv.new
+# awk -F'^' -f ori_split_best.awk best_to_split.csv ori_por_best_known_so_far.csv > ori_por_best_known_so_far.csv.new
+# sort -t'^' -k1,1 ori_por_best_known_so_far.csv.new > ori_por_best_known_so_far.csv.new2
+# \mv ori_por_best_known_so_far.csv.new2 ori_por_best_known_so_far.csv.new
 # Check with:
-# comm -3 best_coordinates_known_so_far.csv best_coordinates_known_so_far.csv.new | less
+# comm -3 ori_por_best_known_so_far.csv ori_por_best_known_so_far.csv.new | less
 # Then:
-# \mv best_coordinates_known_so_far.csv.new best_coordinates_known_so_far.csv
-# git add best_coordinates_known_so_far.csv
+# \mv ori_por_best_known_so_far.csv.new ori_por_best_known_so_far.csv
+# git add ori_por_best_known_so_far.csv
 #
 
 ##
@@ -32,7 +32,7 @@
 }
 
 ##
-# ORI-maintained list of POR (normally, 'best_coordinates_known_so_far.csv')
+# ORI-maintained list of POR (normally, 'ori_por_best_known_so_far.csv')
 # Sample lines:
 # AAH-CA^AAH^50.75^6.133^AAH
 /^([A-Z]{3})-([A-Z]{1,2})\^([A-Z]{3})\^/ {

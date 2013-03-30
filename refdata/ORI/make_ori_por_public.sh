@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Create the public version of the ORI-maintained list of POR, from:
-# - best_coordinates_known_so_far.csv
+# - ori_por_best_known_so_far.csv
 # - ref_airport_pageranked.csv
 # - ori_tz_light.csv
 # - ori_cont.csv
@@ -66,7 +66,7 @@ LOG_LEVEL=3
 
 ##
 # File of best known coordinates
-ORI_POR_FILE=best_coordinates_known_so_far.csv
+ORI_POR_FILE=ori_por_best_known_so_far.csv
 
 ##
 # Light (and inaccurate) version of the country-related time-zones
@@ -262,19 +262,19 @@ sed -i -e "/^$/d" ${ORI_POR_WITH_NOHD}
 ##
 # Aggregate all the data sources into a single file
 #
-# ${ORI_POR_FILE} (best_coordinates_known_so_far.csv) and
+# ${ORI_POR_FILE} (ori_por_best_known_so_far.csv) and
 # ${GEONAME_CUT_SORTED_FILE} (../tools/cut_sorted_wpk_dump_from_geonames.csv)
 # are joined on the primary key (i.e., IATA code - location type):
 join -t'^' -a 1 -1 1 -2 1 ${ORI_POR_WITH_NOHD} ${GEONAME_CUT_SORTED_FILE} \
 	> ${ORI_POR_WITH_GEO}
 
-# ${ORI_POR_WITH_GEO} (best_coordinates_known_so_far.csv.withgeo) and
+# ${ORI_POR_WITH_GEO} (ori_por_best_known_so_far.csv.withgeo) and
 # ${GEONAME_CUT_SORTED_FILE} (sorted_wpk_dump_from_crb_city.csv) are joined on
 # the primary key (i.e., IATA code - location type):
 join -t'^' -a 1 -1 1 -2 1 ${ORI_POR_WITH_GEO} ${RFD_SORTED_FILE} \
 	> ${ORI_POR_WITH_GEORFD}
 
-# ${ORI_POR_WITH_GEORFD} (best_coordinates_known_so_far.csv.withgeorfd) and
+# ${ORI_POR_WITH_GEORFD} (ori_por_best_known_so_far.csv.withgeorfd) and
 # ${GEONAME_RAW_FILE_TMP} (../tools/dump_from_geonames.csv.alt) are joined on
 # the primary key (i.e., IATA code - location type):
 join -t'^' -a 1 -1 1 -2 1 ${ORI_POR_WITH_GEORFD} ${GEONAME_RAW_FILE_TMP} \

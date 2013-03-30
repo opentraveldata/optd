@@ -49,7 +49,7 @@ GEONAME_FILE=${TMP_DIR}${GEONAME_FILENAME}
 
 ##
 # ORI-maintained list of "best known" geographical coordinates
-ORI_BEST_FILENAME=best_coordinates_known_so_far.csv
+ORI_BEST_FILENAME=ori_por_best_known_so_far.csv
 #
 ORI_BEST_FILE=${ORI_DIR}${ORI_BEST_FILENAME}
 
@@ -376,7 +376,7 @@ sort ${ORI_BEST_MASTER} > ${ORI_BEST_MASTER}.dup
 #    the entries of the Geonames dump file (./wpk_dump_from_geonames.csv)
 #  * ${ORI_BEST_MASTER} (e.g., geo_combined_file.csv.tmp.bstmst) has got all
 #    the entries of the ORI-maintained list of best known geographical
-#    coordinates (best_coordinates_known_so_far.csv)
+#    coordinates (ori_por_best_known_so_far.csv)
 #
 #echo "comm -12 ${GEONAME_MASTER} ${ORI_BEST_MASTER} | less"
 #echo "comm -23 ${GEONAME_MASTER} ${ORI_BEST_MASTER} | less"
