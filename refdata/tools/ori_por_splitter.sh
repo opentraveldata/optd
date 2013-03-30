@@ -7,7 +7,7 @@
 # into a city and an airport when Geonames knows about those two POR
 # individually:
 # they can therefore be distinguished. The input data files are:
-# - ../ORI/best_coordinates_known_so_far.csv
+# - ../ORI/ori_por_best_known_so_far.csv
 # - dump_from_geonames.csv
 #
 # The generated file is:
@@ -61,7 +61,7 @@ LOG_LEVEL=2
 
 ##
 # Initial
-ORI_POR_FILENAME=best_coordinates_known_so_far.csv
+ORI_POR_FILENAME=ori_por_best_known_so_far.csv
 ORI_POR_FILE=${ORI_DIR}${ORI_POR_FILENAME}
 
 ##
@@ -211,7 +211,7 @@ fi
 
 ##
 # Merge the file of best known coordinates (${ORI_POR_FILE}, aka
-# best_coordinates_known_so_far.csv) with the newly created splitted one
+# ori_por_best_known_so_far.csv) with the newly created splitted one
 # (${ORI_POR_TOBESPLIT_FILE}, aka ori_por_to_be_split.csv).
 # They both have got the same format.
 MERGER=ori_por_merger.awk

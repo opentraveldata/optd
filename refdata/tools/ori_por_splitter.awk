@@ -5,7 +5,7 @@
 # into a city and an airport when Geonames knows about those two POR
 # individually: they can therefore be distinguished.
 #
-# In the ../ORI/best_coordinates_known_so_far.csv data file, the primary key
+# In the ../ORI/ori_por_best_known_so_far.csv data file, the primary key
 # is made of the IATA code and location type. For instance:
 #  * ARN-A means the Arlanda airport in Stockholm, Sweden
 #  * ARN-R means the Arlanda railway station in Stockholm, Sweden
@@ -367,7 +367,7 @@ BEGINFILE {
 }
 
 ##
-# The ../ORI/best_coordinates_known_so_far.csv data file is used, in order to
+# The ../ORI/ori_por_best_known_so_far.csv data file is used, in order to
 # specify the POR primary key and its location type.
 #
 # Sample lines:

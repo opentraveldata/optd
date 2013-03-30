@@ -1,16 +1,16 @@
 ##
 # That AWK script strips the trailing zeros (0) from the geographical coordinates
-# of various files. It is intended to be used once on a file. If some other scripts
-# produce trailing zeros, then it is better to fix it.
+# of various files. It is intended to be used once on a file. If some other
+# scripts produce trailing zeros, then it is better to fix it.
 #
 # Typical use cases:
 # awk -F'^' -f strip_trailing_zeros.awk -v add_hdr=1 por_all_iata_20120708.csv > por_all_iata_20120708.csv2
 # kdiff3 por_all_iata_20120708.csv por_all_iata_20120708.csv2
 # \mv -f por_all_iata_20120708.csv2 por_all_iata_20120708.csv
 #
-# awk -F'^' -f strip_trailing_zeros.awk ../ORI/best_coordinates_known_so_far.csv > ../ORI/best_coordinates_known_so_far.csv
-# kdiff3 ../ORI/best_coordinates_known_so_far.csv2 ../ORI/best_coordinates_known_so_far.csv
-# \mv -f ../ORI/best_coordinates_known_so_far.csv2 ../ORI/best_coordinates_known_so_far.csv
+# awk -F'^' -f strip_trailing_zeros.awk ../ORI/ori_por_best_known_so_far.csv > ../ORI/ori_por_best_known_so_far.csv
+# kdiff3 ../ORI/ori_por_best_known_so_far.csv2 ../ORI/ori_por_best_known_so_far.csv
+# \mv -f ../ORI/ori_por_best_known_so_far.csv2 ../ORI/ori_por_best_known_so_far.csv
 #
 
 ##
