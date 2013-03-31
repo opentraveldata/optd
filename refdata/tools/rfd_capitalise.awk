@@ -104,7 +104,7 @@ BEGIN {
 ##
 # Amadeus RFD header line
 /^iata_code/ {
-	print ("pk^" $0)
+	print ($0)
 }
 
 ##

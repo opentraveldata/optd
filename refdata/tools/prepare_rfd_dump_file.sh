@@ -24,12 +24,7 @@ displayGeonamesDetails() {
 	echo "cd optdgit/refdata/geonames/data"
 	echo "./getDataFromGeonamesWebsite.sh  # it may take several minutes"
 	echo "cd por/admin"
-	echo "./create_geo_user.sh"
-	echo "./create_geo_db.sh"
-	echo "./loadGeonamesData.sh"
-	echo "./loadGeonamesPorAllByChunks.sh # follow the instructions"
-	echo "./loadGeonamesPorAltByChunks.sh # follow the instructions"
-	echo "./create_geo_index.sh           # it may take several minutes"
+	echo "./aggregateGeonamesPor.sh # it may take several minutes (~10 minutes)"
 	if [ "${TMP_DIR}" = "/tmp/por/" ]
 	then
 		echo "mkdir -p ${TMP_DIR}"
