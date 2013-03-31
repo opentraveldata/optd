@@ -49,7 +49,7 @@ AIRPORT_PR_FILENAME=ref_airport_pageranked.csv
 # Comparison files
 COMP_FILE_COORD_FILENAME=por_comparison_coord.csv
 COMP_FILE_DIST_FILENAME=por_comparison_dist.csv
-POR_MAIN_DIFF_FILENAME=por_main_diff.csv
+POR_MAIN_DIFF_FILENAME=ori_por_diff_w_geonames.csv
 # Minimal distance triggering a difference (in km)
 COMP_MIN_DIST=10
 
@@ -232,6 +232,8 @@ then
 	echo "To see the ${POR_MAIN_DIFF_NB} main differences (greater than ${COMP_MIN_DIST} kms), over ${POR_ALL_DIFF_NB} differences in all,"
 	echo "between the Geonames coordinates ('${GEO_FILE_1}') and the best known ones ('${GEO_FILE_2}'),"
 	echo "sorted by distance (in km), just do: less ${POR_MAIN_DIFF}"
+	echo "After examining the file, you can copy it into the ORI/ sub-directory:"
+	echo "\cp ${POR_MAIN_DIFF} ${ORI_DIR}"
 	echo
 else
 	echo

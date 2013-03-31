@@ -2,7 +2,7 @@
 #
 # Four parameters are optional for this script:
 # - the Geonames data dump file, only for its geographical coordinates
-# - the ORI-maintained list of "best known" geographical coordinates
+# - the ORI-maintained list of "best known" POR (points of reference)
 # - the ORI-maintained list of POR importance (i.e., PageRank) figures
 # - the minimal distance (in km) triggering a difference
 #
@@ -48,7 +48,7 @@ GEONAME_FILE_RAW=${TMP_DIR}${GEONAME_FILE_RAW_FILENAME}
 GEONAME_FILE=${TMP_DIR}${GEONAME_FILENAME}
 
 ##
-# ORI-maintained list of "best known" geographical coordinates
+# ORI-maintained list of "best known" POR (points of reference)
 ORI_BEST_FILENAME=ori_por_best_known_so_far.csv
 #
 ORI_BEST_FILE=${ORI_DIR}${ORI_BEST_FILENAME}
@@ -63,7 +63,7 @@ AIRPORT_PR_FILE=${ORI_DIR}${AIRPORT_PR_FILENAME}
 
 ##
 # Comparison files
-POR_MAIN_DIFF_FILENAME=por_main_diff.csv
+POR_MAIN_DIFF_FILENAME=ori_por_diff_w_geonames.csv
 #
 POR_MAIN_DIFF=${TMP_DIR}${POR_MAIN_DIFF_FILENAME}
 
@@ -422,7 +422,7 @@ fi
 
 ##
 # Compare the Geonames coordinates to the best known ones (unil now).
-# It generates a data file (${POR_MAIN_DIFF}, e.g., por_main_diff.csv)
+# It generates a data file (${POR_MAIN_DIFF}, e.g., ori_por_diff_w_geonames.csv)
 # containing the greatest distances (in km), for each airport/city, between
 # both sets of coordinates (Geonames and best known ones).
 ${COMPARE_EXEC} ${GEONAME_FILE_SORTED_CUT} ${ORI_BEST_WITH_NOHD} \
