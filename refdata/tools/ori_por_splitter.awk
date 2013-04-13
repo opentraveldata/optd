@@ -31,7 +31,7 @@
 #  * PPLx:  Populated place (city)
 #  * ADMx:  Administrative division (which may be a city in some cases)
 #  * LCTY:  Locality (e.g., Sdom)
-#  * PCLI:  Political entity (country, e.g., Bahrain, Monaco)
+#  * PCLx:  Political entity (country, e.g., Bahrain, Monaco)
 #  * ISLx:  Island (e.g., Dalma Island)
 #  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
 #           field
@@ -587,7 +587,7 @@ BEGINFILE {
 
 	# City-related part
 	is_city = match (fcode, "PPL") + match (fcode, "ADM")
-	is_city += match (fcode, "LCTY") + match (fcode, "PCLI")
+	is_city += match (fcode, "LCTY") + match (fcode, "PCL")
 	is_city += match (fcode, "ISL")
 
 	# Travel-related part
