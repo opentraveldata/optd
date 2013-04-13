@@ -8,6 +8,7 @@ AFP^KAFP^^Y^4452709^1^Anson County Airport^Anson County Airport^35.0240400^-80.0
 AHA^ZZZZ^^Y^1847949^1^Naha Air Base^Naha Air Base^26.2^127.7^S^AIRB^^^2012-11-01^IATA Notification #39 (2012) - Same location as OKA^JP^JP^Japan^00^^^^^^^^0^^3^Asia/Tokyo^9.0^9.0^9.0^2012-01-27^OKA^Okinawa^Okinawa^^^A^http://en.wikipedia.org/wiki/Naha_Air_Base^|Oroku Airport|=|Naha Airfield|=|Oroku Hikōjō|=|Naha Air Force Base|=|Naha Kūkō|
 AIP^ZZZZ^^Y^7303646^1^Airuk Airfield^Airuk Airfield^7.27936^168.82562^S^AIRF^^^2013-02-16^Abandoned air strip^MH^MH^Marshall Islands^Oceania^010^Ailinglaplap Atoll^Ailinglaplap Atoll^^^^^^0^^2^Pacific/Kwajalein^12.0^12.0^12.0^2010-08-06^AIP^Airuk Airfield^Airuk Airfield^AIP^^CA^^|Ailinglaplap Airfield|
 TODO:AJO^ALJOUF^ALJOUF^ALJOUF/YE^AJO^Y^^YE^MEAST^ITC2^YE^29.785133^40.100006^0^N^CA
+ANH^ZZZZ^^Y^8298950^1^Anuha Isld Resort^Anuha Isld Resort^-8.983^160.5^S^AIRP^^^2013-03-01^IATA Notification #45 (2013) - Location no longer exists^SB^^Solomon Islands^Oceania^^^^^^^^^0^^-9999^Pacific/Guadalcanal^11.0^11.0^11.0^2012-05-18^ANH^Anuha Isld Resort^Anuha Isld Resort^ANH^^CA^^
 TODO:AQO^UNKNOWN389^UNKNOWN389^UNKNOWN389/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^30.7851800^-98.6600400^0^N^CA
 TODO:AWH^AWAREH^AWAREH^AWAREH/ET^AWH^Y^^ET^AFRIC^ITC2^ET^8.267^44.18^0^N^CA
 TODO:AYH^UNKNOWN548^UNKNOWN548^UNKNOWN548/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^52.37^-0.2667^0^N^CA
@@ -15,6 +16,7 @@ BAU^SBBU^^Y^6300606^1^Bauru Airport^Bauru Airport^-22.345042^-49.0538^S^AIRP^^^2
 BBE^ZZZZ^^Y^2076656^1^Big Bell^Big Bell^-27.35^117.66667^S^AIRP^^^^^AU^^Australia^08^Western Australia^Western Australia^52380^Cue^Cue^^^0^0^443^Australia/Perth^8.0^8.0^8.0^2012-01-18^CUY^Cue^Cue^^WA^A^^
 TODO:BGG^UNKNOWN738^UNKNOWN738^UNKNOWN738/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^6.65^-4.2^0^N^CA
 TODO:BGN^UNKNOWN745^UNKNOWN745^UNKNOWN745/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^51.2^6.133^0^N^CA
+BKN^ZZZZ^^Y^8260986^1^Birni Nkoni^Birni Nkoni^13.8^5.233^S^AIRP^^^2013-04-01^No airport can be found^NE^^Niger^Africa^06^Tahoua^Tahoua^^^^^^0^^272^Africa/Niamey^1.0^1.0^1.0^2012-04-29^BKN^Birni Nkoni^Birni Nkoni^BKN^^CA^^
 BPE^ZZZZ^^Y^8260718^1^Bagan^Bagan^24^96^S^AIRP^^^2013-02-01^IATA Notification #41 (2013) - Same location as NYU^MM^^Myanmar^Asia^10^Sagain^Sagain^^^^^^0^^166^Asia/Rangoon^6.5^6.5^6.5^2012-04-29^BPE^Bagan^Bagan^^^A^^
 BPE^ZZZZ^^Y^1328630^1^Bagan^Bagan^21.36667^95.46667^P^PPL^^^2013-02-01^IATA Notification #41 (2013) - Same location as NYU^MM^MM^Myanmar^Asia^08^Mandalay^Mandalay^^^^^^0^^146^Asia/Rangoon^6.5^6.5^6.5^2011-01-19^BPE^Bagan^Bagan^BPE^^C^^|Bagan|
 TODO:BRZ^UNKNOWN1028^UNKNOWN1028^UNKNOWN1028/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^8.733^-7.5^0^N^CA
@@ -47,6 +49,7 @@ FYN^ZZZZ^^Y^8260741^1^Fuyun^Fuyun^45^90^S^AIRP^^2012-07-01^IATA Notification #34
 FYN^ZZZZ^^Y^1529504^1^Fuyun^Fuyun^47^89.46667^P^PPL^^^2012-07-01^IATA Notification #34 (2012) - Airport closed^CN^CN^China^Asia^13^Xinjiang Uygur Zizhiqu^Xinjiang Uygur Zizhiqu^^^^^^0^^820^Asia/Urumqi^8.0^8.0^8.0^2012-01-18^FYN^Fuyun^Fuyun^FYN^13^C^^|Koktokay|=|Fuyun|
 TODO:FZY^UNKNOWN2690^UNKNOWN2690^UNKNOWN2690/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^43.3506200^-76.3874400^0^N^CA
 TODO:GBN^UNKNOWN2730^UNKNOWN2730^UNKNOWN2730/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^41.7^15.73^0^N^CA
+GEI^ZZZZ^^N^0^1^Green Islands PG^Green Islands PG^-4.5^154.2^S^AIRP^^^2013-02-01^IATA Notification #44 (2013) - Same location as IIS^PG^^Papua New Guinea^Oceania^^^^^^^^^^^^Pacific/Port_Moresby^^^^-1^GEI^Green Islands PG^Green Islands PG^GEI^^CA^^
 TODO:GHD^GHIMBI^GHIMBI^GHIMBI/ET^GHD^Y^^ET^AFRIC^ITC2^ET^9.4^39.27^0^N^CA
 TODO:GHK^UNKNOWN2820^UNKNOWN2820^UNKNOWN2820/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^32.12^34.78^0^N^CA
 TODO:GMY^UNKNOWN2895^UNKNOWN2895^UNKNOWN2895/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^52.35^14.55^0^N^CA
@@ -54,6 +57,8 @@ TODO:GQJ^UNKNOWN2945^UNKNOWN2945^UNKNOWN2945/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^55.43722
 GTB^ZZZZ^^Y^7731073^1^Genting Airport^Genting Airport^2.11667^111.7^S^AIRP^^^2013-03-01^IATA Notification #40 (2012) - Airport not found^MY^^Malaysia^Asia^11^Sarawak^Sarawak^^^^^^0^^3^Asia/Kuching^8.0^8.0^8.0^2012-03-25^GTB^Genting^Genting^^^A^http://en.wikipedia.org/wiki/Genting_Airport^ms|Lapangan Terbang Genting|
 GTB^ZZZZ^^Y^1735882^1^Genting^Genting^2.11667^111.7^P^PPL^^^2013-03-01^IATA Notification #40 (2012) - Airport not found^MY^^Malaysia^Asia^11^Sarawak^Sarawak^^^^^^0^^3^Asia/Kuching^8.0^8.0^8.0^2012-05-05^GTB^Genting^Genting^GTB^^C^^|Genting|
 GTK^ZZZZ^^Y^7731074^1^Sungei Tekai Airport^Sungei Tekai Airport^2.6^102.9^S^AIRP^^^2013-03-01^IATA Notification #40 (2012) - Airport not found^MY^^Malaysia^Asia^01^Johor^Johor^^^^^^0^^56^Asia/Kuala_Lumpur^8.0^8.0^8.0^2011-03-17^GTK^Sungei Tekai Airport^Sungei Tekai Airport^GTK^^CA^^
+GOY^VCCG^^Y^7730209^1^Ampara Airport^Ampara Airport^7.337081^81.625881^S^AIRP^^^2013-03-01^IATA Notification #45 (2013) - Same location as ADP^LK^^Sri Lanka^Asia^^^^^^^^^0^^50^Asia/Colombo^5.5^5.5^5.5^2013-04-03^GOY^Ampara Airport^Ampara Airport^GOY^^CA^http://en.wikipedia.org/wiki/Amparai_Airport^en|Ampara Airport|=en|Amparai Airport|=en|SLAF Ampara|=en|Sri Lanka Air Force Ampara|
+GSI^ZZZZ^^N^0^1^Guadalcanal SB^Guadalcanal SB^38.1^-5.817^S^AIRP^^^2013-03-01^IATA Notification #45 (2013) - Same location as HIR^SB^^Solomon Islands^Oceania^^^^^^^^^^^^Pacific/Guadalcanal^^^^-1^GSI^Guadalcanal SB^Guadalcanal SB^GSI^^CA^^
 TODO:GWW^UNKNOWN3053^UNKNOWN3053^UNKNOWN3053/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^52.57^13.3^0^N^CA
 TODO:GXH^UNKNOWN3057^UNKNOWN3057^UNKNOWN3057/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^52.2^0.5167^0^N^CA
 HBL^ZZZZ^^Y^1105747^1^Babelegi^Babelegi^-25.35756^28.27737^P^PPL^^^^^ZA^^South Africa^10^North-West^North-West^DC37^Bojanala Platinum District Municipality^Bojanala Platinum District Municipality^NW375^^0^^1067^Africa/Johannesburg^2.0^2.0^2.0^2011-04-19^HBL^Babelegi^Babelegi^^^C^^
@@ -80,6 +85,7 @@ JRS^LLJR^^Y^283468^1^Jerusalem Airport^Jerusalem Airport^31.86667^35.21667^S^AIR
 KBH^OPKL^^Y^7730751^1^Kalat Airport^Kalat Airport^29.05^66.58^S^AIRP^^^2013-02-01^IATA Notification #43 (2013) - Airport not found^PK^^Pakistan^Asia^02^Balochistān^Balochistan^^^^^^0^^1856^Asia/Karachi^5.0^5.0^5.0^2011-03-17^KBH^Kalat^Kalat^^^A^^
 KBH^ZZZZ^^Y^1342927^1^Kalat^Kalat^25.39257^64.0216^P^PPL^^^2013-02-01^IATA Notification #43 (2013) - Airport not found^PK^^Pakistan^Asia^02^Balochistān^Balochistan^^^^^^0^^4^Asia/Karachi^5.0^5.0^5.0^2012-05-06^KBH^Kalat^Kalat^KBH^^C^^|Kalat|
 TODO:KDG^UNKNOWN4035^UNKNOWN4035^UNKNOWN4035/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^41.62^25.33^0^N^CA
+KDY^ZZZZ^^Y^8299260^1^Mahaweli^Mahaweli^7.218^81.6^S^AIRP^^^2013-03-01^IATA Notification #45 (2013) - Same location as KDZ^LK^^Sri Lanka^Asia^^^^^^^^^0^^36^Asia/Colombo^5.5^5.5^5.5^2012-05-18^KDY^Mahaweli^Mahaweli^KDY^^CA^^
 KEA^ZZZZ^^Y^7731164^1^Keisah Airport^Keisah Airport^-7.667^140.5^S^AIRP^^^2012-10-04^IATA Notification #38 (2012) - Duplicate of DIB ([NDLR: DIB is in India; IATA certainly made an error, as usual; DOB or MUF are closer)^ID^^Indonesia^36^Papua^Papua^^^^^^0^^30^Asia/Jayapura^9.0^9.0^9.0^2011-03-17^KEA^Keisah^Keisah^^^CA^^
 TODO:KHL^UNKNOWN4035^UNKNOWN4035^UNKNOWN4035/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^22.8^89.55^0^N^CA
 KJN^ZZZZ^^N^0^1^Kenana^Kenana^13.17^32.72^S^AIRP^^^^Duplicate of KST^SD^^Sudan^^^^^^^^^0^381^389^Africa/Khartoum^3.0^3.0^3.0^2006-10-28^KST^Kosti^Kosti^^^A^^
@@ -91,6 +97,7 @@ KUZ^ZZZZ^^Y^6300416^1^Gunsan Air Base^Gunsan Air Base^35.903756^126.615906^S^AIR
 KYB^ZZZZ^^N^0^1^Yangoonabie Airport^Yangoonabie Airport^-34.75^138.7^S^AIRP^^^^^AU^^Australia^05^South Australia^South Australia^48410^City of West Torrens^City of West Torrens^^^0^6^6^Australia/Adelaide^10.5^9.5^9.5^2011-06-04^KYB^Yangoonabie^Yangoonabie^^SA^A^^
 KZK^ZZZZ^^N^0^1^Kompong Thom^Kompong Thom^12.72^104.9^S^AIRP^^^2012-12-01^IATA Notification #33 (2012) - Airport not found^KH^^Cambodia^05^Kompong Thom^Kompong Thom^^^^^^0^^17^Asia/Phnom_Penh^7.0^7.0^7.0^2012-12-01^KZD^Kompong Thom^Kompong Thom^^^CA^^
 LAV^ZZZZ^^Y^4035301^1^Lalomalava^Lalomalava^-13.92^-172^P^PPL^^^2013-02-01^IATA Notification #43 (2013) - Airport not found^WS^^Samoa^Oceania^04^Fa‘asaleleaga^Fa`asaleleaga^^^^^^399^^13^Pacific/Apia^14.0^13.0^13.0^2012-12-10^LAV^Lalomalava^Lalomalava^LAV^^CA^http://en.wikipedia.org/wiki/Lalomalava^|Lalomalava|
+LHN^ZZZZ^^Y^1672799^1^Lishan^Lishan^24.25^121.2^P^PPL^^^2013-03-01^IATA Notification #45 (2013) - Airport not found^TW^^Taiwan^Asia^04^Taiwan^Taiwan^^^^^^0^^1963^Asia/Taipei^8.0^8.0^8.0^2012-01-17^LHN^Lishan^Lishan^LHN^^CA^^|Ping Ting|=zh|P’ing-teng-ts’un|=zh|梨山|=|Lishan|=|Li-shan|
 TODO:LIU^UNKNOWN4676^UNKNOWN4676^UNKNOWN4676/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^35.83^12.83^0^N^CA
 TODO:LKT^UNKNOWN4702^UNKNOWN4702^UNKNOWN4702/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^5.85^-5.683^0^N^CA
 LLM^ZZZZ^^Y^7731229^1^Long Lama Airport^Long Lama Airport^3.767^114.4^S^AIRP^^^2013-03-01^IATA Notification #40 (2012) - Airport not found^MY^^Malaysia^Asia^11^Sarawak^Sarawak^^^^^^0^^123^Asia/Kuching^8.0^8.0^8.0^2011-03-17^LLM^Long Lama^Long Lama^^^A^^
@@ -106,6 +113,8 @@ TODO:MHJ^MISRAK GASHAMO^MISRAK GASHAMO^MISRAK GASHAMO/ET^MHJ^Y^^ET^AFRIC^ITC2^ET
 MJY^ZZZZ^^Y^7731277^1^Mangunjaya Airport^Mangunjaya Airport^-2.733^103.6^S^AIRP^^^2012-10-12^^ID^^Indonesia^32^South Sumatra^South Sumatra^^^^^^0^^18^Asia/Jakarta^7.0^7.0^7.0^2011-03-17^MJY^Mangunjaya^Mangunjaya^^^CA^^
 TODO:MKD^CHAGNI^CHAGNI^CHAGNI/ET^MKD^Y^^ET^AFRIC^ITC2^ET^11.03^36.47^0^N^CA
 TODO:MKX^UNKNOWN5262^UNKNOWN5262^UNKNOWN5262/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^14.53^49.13^0^N^CA
+MNH^VCCH^^Y^7731283^1^Hingurakgoda Air Force Base^Hingurakgoda Air Force Base^7.75^83^S^AIRP^^^2013-03-01^IATA Notification #45 (2013) - Same location as HIM^LK^^Sri Lanka^Asia^^^^^^^^^0^^53^Asia/Colombo^5.5^5.5^5.5^2011-03-17^MNH^Minneriya^Minneriya^^^A^^
+MNH^ZZZZ^^Y^1235015^1^Minneriya^Minneriya^8.04652^80.9025^P^PPL^^^IATA Notification #45 (2013) - Same location as HIM^LK^^Sri Lanka^Asia^30^North Central^North Central^^^^^^0^^97^Asia/Colombo^5.5^5.5^5.5^2012-11-08^MNH^Minneriya^Minneriya^MNH^^C^http://en.wikipedia.org/wiki/Minneriya^|Minnerya|=|Minneriya|
 MOH^ZZZZ^^N^0^1^MOHANBARI/IN^MOHANBARI/IN^27.483853^95.016922^S^AIRP^^^2012-09-01^IATA Notification #37 (2012) - Same location as DIB^IN^^India^03^Assam^Assam^^^^^^122155^^93^Asia/Kolkata^5.5^5.5^5.5^2012-10-06^MOH^Mohanbari^Mohanbari^^^CA^^
 TODO:MOK^UNKNOWN5353^UNKNOWN5353^UNKNOWN5353/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^8.067^-6.2^0^N^CA
 MPK^RKJM^^Y^7668416^1^Mokpo Airport^Mokpo Airport^34.7589^126.38^S^AIRP^^^IATA Notification #39 (2012) - Airport closed, replaced by Muan airport (MWX)^KR^^South Korea^Asia^16^South Jeolla^South Jeolla^^^^^^0^^1^Asia/Seoul^9.0^9.0^9.0^2011-02-17^MPK^Mokpo Airport^Mokpo Airport^MPK^^CA^http://en.wikipedia.org/wiki/Mokpo_Airport^
@@ -162,6 +171,7 @@ SEX^ZZZZ^^N^0^1^Ramstein^Ramstein^49.5^7.867^S^AIRP^^^^^DE^^Germany^^^^^^^^^0^23
 SGG^WBGY^^Y^1735800^1^Simanggang^Simanggang^1.217^111.5^S^AIRF^^^2012-11-01^IATA Notification #40 (2012) - Airport closed^MY^^Malaysia^Asia^11^Sarawak^Sarawak^^^^^^0^^14^Asia/Kuching^8.0^8.0^8.0^2012-01-17^SGG^Simanggang^Simanggang^^^A^^|Simanggang|
 SGG^ZZZZ^^Y^1735799^1^Simanggang^Simanggang^1.24722^111.45278^P^PPL^^^2012-11-01^IATA Notification #40 (2012) - Airport closed^MY^^Malaysia^Asia^11^Sarawak^Sarawak^^^^^^27207^^11^Asia/Kuching^8.0^8.0^8.0^2012-01-17^SGG^Simanggang^Simanggang^SGG^^C^^|Bandar Sri Aman|=|Simmangang|=|Sri Aman|=|Simmanggang|=|Simanggang|
 SHO^RKND^^Y^7668418^1^Sokcho Airport^Sokcho Airport^38.142614^128.598556^S^AIRP^^^2012-12-14^IATA Notification #39 (2012) - Airport closed, replaced by Yangyang airport (YNY).^KR^^South Korea^06^Gangwon^Gangwon^^^^^^0^^21^Asia/Seoul^9.0^9.0^9.0^2011-02-17^SHO^Sokcho^Sokcho^^^CA^http://en.wikipedia.org/wiki/Sokcho_Airport^
+SMT^ZZZZ^^Y^8298895^1^Sun Moon Lake^Sun Moon Lake^23.88^120.9^S^AIRP^^^2013-03-01^IATA Notification #45 (2013) - Airport not found^TW^^Taiwan^Asia^^^^^^^^^0^^723^Asia/Taipei^8.0^8.0^8.0^2012-05-18^SMT^Sun Moon Lake^Sun Moon Lake^SMT^^CA^^
 SND^ZZZZ^^Y^8299043^1^Seno^Seno^16.67^105^S^AIRP^^^2012-12-14^IATA Notification #40 (2012) - Defunct airport^LA^^Laos^20^Savannahkhét^Savannahkhet^^^^^^0^^190^Asia/Vientiane^7.0^7.0^7.0^2012-05-18^SND^Seno^Seno^^^CA^^
 SQD^ZZZZ^^Y^739600^1^Sinop^Sinop^42.0333^35.15^P^PPLA^0.013800567425^^2011-01-01^IATA Notification #12 (2011) - At the time, deleted duplicate with SIC (now, in 2012, NOP)^TR^^Turkey^57^Sinop^Sinop^^^^^^34834^^100^Europe/Istanbul^2.0^3.0^2.0^2012-01-18^SIC^Sinop^Sinop^^^CA^^
 TODO:SQJ^SHEHDI^SHEHDI^SHEHDI/ET^SQJ^Y^^ET^AFRIC^ITC2^ET^12.78^36.22^0^N^CA
