@@ -41,6 +41,7 @@
 #  * PRT:   Maritime port
 #  * RSTN:  Railway station
 #  * BUSTN: Bus station; BUSTP: Bus stop
+#  * MTRO:  Metro station
 #
 
 # Helper functions
@@ -596,8 +597,9 @@ BEGINFILE {
 	is_heliport = match (fcode, "AIRH")
 	is_rail = match (fcode, "RSTN")
 	is_bus = match (fcode, "BUST")
+	is_metro = match (fcode, "MTRO")
 	is_port = match (fcode, "NVB") + match (fcode, "PRT") + match (fcode, "FY")
-	is_travel = is_airport + is_rail + is_bus + is_heliport + is_port
+	is_travel = is_airport + is_rail + is_bus + is_metro + is_heliport + is_port
 
 	# Store the full line
 	full_line = $0

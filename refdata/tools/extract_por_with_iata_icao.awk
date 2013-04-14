@@ -36,6 +36,7 @@
 #  * PRT:   Maritime port
 #  * RSTN:  Railway station
 #  * BUSTN: Bus station; BUSTP: Bus stop
+#  * MTRO:  Metro station
 #
 # Output format:
 # IATA code, ICAO code, FAA code,
