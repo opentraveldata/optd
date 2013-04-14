@@ -96,6 +96,7 @@ function displayLists() {
 	displayList("Heliports", heliport_list)
 	displayList("Railway stations", rail_list)
 	displayList("Bus stations", bus_list)
+	displayList("Metro stations", metro_list)
 	displayList("Ground stations", ground_list)
 	displayList("Ports", port_list)
 	displayList("Off-line points", offpoint_list)
@@ -196,6 +197,15 @@ function isFeatCodeBus(__ifcbParamFeatureCode) {
 }
 
 ##
+# State whether the POR is a metro station
+function isFeatCodeMetro(__ifcmParamFeatureCode) {
+	# Metro station
+	__resultIsMetro = match (__ifcmParamFeatureCode, "MTRO")
+
+	return __resultIsMetro
+}
+
+##
 # State whether the POR is a maritime port or ferry or naval base
 function isFeatCodePort(__ifcpParamFeatureCode) {
 	# Naval base (NVB), maritime port (PRT), ferry (FY)
@@ -221,13 +231,16 @@ function isFeatCodeTvlRtd(__ifctrParamFeatureCode) {
 	# Bus station or bus stop
 	__isBus = isFeatCodeBus(__ifctrParamFeatureCode)
 
+	# Metro station
+	__isMetro = isFeatCodeMetro(__ifctrParamFeatureCode)
+
 	# Naval base, maritime port or ferry
 	__isPort  = isFeatCodePort(__ifctrParamFeatureCode)
 
 
 	# Aggregation
-	__resultIsTravelRelated = __isAirport + __isHeliport + __isRail + __isBus \
-		+ __isPort
+	__resultIsTravelRelated = __isAirport + __isHeliport + __isRail \
+		+ __isBus + __isMetro + __isPort
 
 	return __resultIsTravelRelated
 }
@@ -305,8 +318,9 @@ function getLocTypeFromFeatCode(__gltParamFeatureCode) {
 		# Railway station
 		__resultLocationType = "R"
 
-	} else if (isFeatCodeBus(__gltParamFeatureCode)) {
-		# Bus station/stop
+	} else if (isFeatCodeBus(__gltParamFeatureCode)			\
+			   || isFeatCodeMetro(__gltParamFeatureCode)) {
+		# Bus station/stop or metro station
 		__resultLocationType = "B"
 
 	} else if (isFeatCodePort(__gltParamFeatureCode)) {
