@@ -37,6 +37,8 @@
 #  * LCTY:  Locality (e.g., Sdom)
 #  * PCLx:  Political entity (country, e.g., Bahrain, Monaco)
 #  * ISLx:  Island (e.g., Dalma Island)
+#  * BAYx:  Bay (e.g., South Way Bay)
+#  * AREA:  Area (e.g., Bloodvein River area)
 #  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
 #           field
 #  * AIRQ:  Abandoned air field

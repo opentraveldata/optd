@@ -148,8 +148,10 @@ function isFeatCodeCity(__ifccParamFeatureCode) {
 	__resultIsCity  = match (__ifccParamFeatureCode, "PPL")
 	__resultIsCity += match (__ifccParamFeatureCode, "ADM")
 	__resultIsCity += match (__ifccParamFeatureCode, "LCTY")
-	__resultIsCity += match (__ifccParamFeatureCode, "PCLI")
+	__resultIsCity += match (__ifccParamFeatureCode, "PCL")
+	__resultIsCity += match (__ifccParamFeatureCode, "AREA")
 	__resultIsCity += match (__ifccParamFeatureCode, "ISL")
+	__resultIsCity += match (__ifccParamFeatureCode, "BAY")
 
 	return __resultIsCity
 }
