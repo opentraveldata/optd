@@ -32,10 +32,15 @@
 #  * ADMx:  Administrative division (which may be a city in some cases)
 #  * LCTY:  Locality (e.g., Sdom)
 #  * PCLx:  Political entity (country, e.g., Bahrain, Monaco)
+#  * RGNx:  Region
+#  * AREA:  Area (e.g., Bloodvein River area)
 #  * ISLx:  Island (e.g., Dalma Island)
 #  * ATOL:  Atoll (e.g., Atoll Tikehau)
+#  * LKx:   Lake (e.g., Pinehouse Lake)
+#  * RSVx:  Reservoir
 #  * BAYx:  Bay (e.g., South Way Bay)
-#  * AREA:  Area (e.g., Bloodvein River area)
+#  * PANx:  Pan
+#  * CMPx:  Camp (e.g., Savuti Rest Camp)
 #  * PRK:   Park (e.g., Serengeti National Park)
 #  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
 #           field
@@ -593,9 +598,10 @@ BEGINFILE {
 	# City-related part
 	is_city = match (fcode, "PPL") + match (fcode, "ADM")
 	is_city += match (fcode, "LCTY") + match (fcode, "PCL")
+	is_city += match (fcode, "RGN") + match (fcode, "AREA")
 	is_city += match (fcode, "ISL") + match (fcode, "ATOL")
-	is_city += match (fcode, "BAY")
-	is_city += match (fcode, "AREA") + match (fcode, "PRK")
+	is_city += match (fcode, "LK") + match (fcode, "RSV") + match (fcode, "BAY")
+	is_city += match (fcode, "PAN") + match (fcode, "CMP") + match (fcode, "PRK")
 
 	# Travel-related part
 	is_airport = match (fcode, "AIRB") + match (fcode, "AIRF")

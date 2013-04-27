@@ -36,10 +36,15 @@
 #  * ADMx:  Administrative division (which may be a city in some cases)
 #  * LCTY:  Locality (e.g., Sdom)
 #  * PCLx:  Political entity (country, e.g., Bahrain, Monaco)
+#  * RGNx:  Region
+#  * AREA:  Area (e.g., Bloodvein River area)
 #  * ISLx:  Island (e.g., Dalma Island)
 #  * ATOL:  Atoll (e.g., Atoll Tikehau)
+#  * LKx:   Lake (e.g., Pinehouse Lake)
+#  * RSVx:  Reservoir
 #  * BAYx:  Bay (e.g., South Way Bay)
-#  * AREA:  Area (e.g., Bloodvein River area)
+#  * PANx:  Pan
+#  * CMPx:  Camp (e.g., Savuti Rest Camp)
 #  * PRK:   Park (e.g., Serengeti National Park)
 #  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
 #           field
