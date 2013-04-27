@@ -46,6 +46,7 @@
 #  * PANx:  Pan
 #  * CMPx:  Camp (e.g., Savuti Rest Camp)
 #  * PRK:   Park (e.g., Serengeti National Park)
+#  * RESx:  Reserve (e.g., Maasai-Mara National Reserve)
 #  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
 #           field
 #  * AIRQ:  Abandoned air field
