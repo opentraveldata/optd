@@ -27,10 +27,15 @@
 #  * ADMx:  Administrative division (which may be a city in some cases)
 #  * LCTY:  Locality (e.g., Sdom)
 #  * PCLx:  Political entity (country, e.g., Bahrain, Monaco)
+#  * RGNx:  Region
+#  * AREA:  Area (e.g., Bloodvein River area)
 #  * ISLx:  Island (e.g., Dalma Island)
 #  * ATOL:  Atoll (e.g., Atoll Tikehau)
+#  * LKx:   Lake (e.g., Pinehouse Lake)
+#  * RSVx:  Reservoir
 #  * BAYx:  Bay (e.g., South Way Bay)
-#  * AREA:  Area (e.g., Bloodvein River area)
+#  * PANx:  Pan
+#  * CMPx:  Camp (e.g., Savuti Rest Camp)
 #  * PRK:   Park (e.g., Serengeti National Park)
 #  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
 #           field
@@ -97,9 +102,11 @@ function is_tvl_or_cty (feat_code) {
 	# Calculate the flags corresponding to the type
 	is_city = match (feat_code, "^PPL.*$") + match (feat_code, "^ADM.*$")
 	is_city += match (feat_code, "^LCTY$") + match (feat_code, "^PCL.*$")
-	is_city += match (feat_code, "^ISL.*$") + match (feat_code, "^BAY.*$")
-	is_city += match (feat_code, "^ATOL$")
-	is_city += match (feat_code, "^AREA$") + match (feat_code, "^PRK$")
+	is_city += match (feat_code, "^RGN.*$") + match (feat_code, "^AREA$")
+	is_city += match (feat_code, "^ISL.*$") + match (feat_code, "^ATOL$")
+	is_city += match (feat_code, "^LK.*$") + match (feat_code, "^RSV.*$")
+	is_city += match (feat_code, "^BAY.*$") + match (feat_code, "^PAN.*$")
+	is_city += match (feat_code, "^CMP.*$") + match (feat_code, "^PRK.*$")
 	is_travel = match (feat_code, "^AIRB$") + match (feat_code, "^AIRF$")
 	is_travel += match (feat_code, "^AIRH$") + match (feat_code, "^AIRP$")
 	is_travel += match (feat_code, "^AIRS$") + match (feat_code, "^RSTN$")
