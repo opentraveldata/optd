@@ -37,6 +37,7 @@
 #  * PANx:  Pan
 #  * CMPx:  Camp (e.g., Savuti Rest Camp)
 #  * PRK:   Park (e.g., Serengeti National Park)
+#  * RESx:  Reserve (e.g., Maasai-Mara National Reserve)
 #  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
 #           field
 #  * AIRQ:  Abandoned air field
@@ -107,6 +108,7 @@ function is_tvl_or_cty (feat_code) {
 	is_city += match (feat_code, "^LK.*$") + match (feat_code, "^RSV.*$")
 	is_city += match (feat_code, "^BAY.*$") + match (feat_code, "^PAN.*$")
 	is_city += match (feat_code, "^CMP.*$") + match (feat_code, "^PRK.*$")
+	is_city += match (feat_code, "^RES.*$")
 	is_travel = match (feat_code, "^AIRB$") + match (feat_code, "^AIRF$")
 	is_travel += match (feat_code, "^AIRH$") + match (feat_code, "^AIRP$")
 	is_travel += match (feat_code, "^AIRS$") + match (feat_code, "^RSTN$")
