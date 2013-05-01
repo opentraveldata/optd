@@ -11,6 +11,7 @@ function initGeoAwkLib(__igalParamAWKFile, __igalParamErrorStream, \
 	__glGlobalLogLevel = __igalParamLogLevel
 	__glGlobalIsForGeonames = 0
 	__glGlobalIsForRFD = 0
+	__glGlobalIsForInnovata = 0
 
 	# Debugging support
 	__glGlobalDebugIataCode = ""
@@ -28,6 +29,8 @@ function initFileGeoAwkLib() {
 	resetGeonamesLineList()
 	# Initialise the RFD-derived lists
 	resetRFDLineList()
+	# Initialise the Innovata-derived lists
+	resetInnovataLineList()
 }
 
 ##
@@ -46,6 +49,11 @@ function finalizeGeoAwkLib() {
 	# Display the last RFD POR entries
 	if (__glGlobalIsForRFD == 1) {
 		displayRFDPOREntries()
+	}
+
+	# Display the last Innovata POR entries
+	if (__glGlobalIsForInnovata == 1) {
+		displayInnovataPOREntries()
 	}
 }
 
@@ -339,6 +347,56 @@ function getLocTypeFromFeatCode(__gltParamFeatureCode) {
 	}
 
 	return __resultLocationType
+}
+
+##
+# Convert the geographical coordinates (latitude) from the Innovata format
+# into the standard ones
+function convertLatToStd(__cgcLat) {
+	# Specification of the latitude format
+	lat_regexp = "^([0-9]{2})([0-9]{2})([0-9]{2})(S|N)$"
+
+	# Sign (+ for North, - for South)
+	cgcStdLatSgn = gensub (lat_regexp, "\\4", "g", __cgcLat)
+
+	# Degrees, minutes, seconds
+	cgcStdLatDeg = gensub (lat_regexp, "\\1", "g", __cgcLat)
+	cgcStdLatMin = gensub (lat_regexp, "\\2", "g", __cgcLat)
+	cgcStdLatSec = gensub (lat_regexp, "\\3", "g", __cgcLat)
+
+	cgcStdLat = cgcStdLatDeg
+	cgcStdLat += (cgcStdLatMin / 60.0)
+	cgcStdLat += (cgcStdLatSec / 6000.0)
+
+	if (cgcStdLatSgn == "S") {
+		cgcStdLat = -1 * cgcStdLat
+	}
+	return cgcStdLat
+}
+
+##
+# Convert the geographical coordinates (longitude) from the Innovata format
+# into the standard ones
+function convertLonToStd(__cgcLon) {
+	# Specification of the longitude format
+	lon_regexp = "^([0-9]{3})([0-9]{2})([0-9]{2})(W|E)$"
+
+	# Sign (+ for West, - for East)
+	cgcStdLonSgn = gensub (lon_regexp, "\\4", "g", __cgcLon)
+
+	# Degrees, minutes, seconds
+	cgcStdLonDeg = gensub (lon_regexp, "\\1", "g", __cgcLon)
+	cgcStdLonMin = gensub (lon_regexp, "\\2", "g", __cgcLon)
+	cgcStdLonSec = gensub (lon_regexp, "\\3", "g", __cgcLon)
+
+	cgcStdLon = cgcStdLonDeg
+	cgcStdLon += (cgcStdLonMin / 60.0)
+	cgcStdLon += (cgcStdLonSec / 6000.0)
+
+	if (cgcStdLonSgn == "E") {
+		cgcStdLon = -1 * cgcStdLon
+	}
+	return cgcStdLon
 }
 
 ##
@@ -645,6 +703,12 @@ function resetGeonamesLineList() {
 # Reset the list of last RFD POR entries
 function resetRFDLineList() {
 	rfd_last_full_line = ""
+}
+
+##
+# Reset the list of last Innoavata POR entries
+function resetInnovataLineList() {
+	inn_last_full_line = ""
 }
 
 ##
@@ -1036,7 +1100,7 @@ function registerRFDLine(__rrlParamIataCode, __rrlParamLocType, \
 		displayRFDPOREntries()
 	}
 
-	# Register the Geonames POR entry in the list of last entries
+	# Register the RFD POR entry in the list of last entries
 	# for that IATA code
 	geo_iata_code = __rrlParamIataCode
 
@@ -1094,7 +1158,7 @@ function displayRFDPORWithPK(__drpwkParamIataCode, __drpwkParamORILocType, \
 }
 
 ##
-# Display the list of Geonames POR entries.
+# Display the list of RFD POR entries.
 # Usually, there is no more than one POR entry for a given IATA code
 # and location type.
 #
@@ -1127,7 +1191,7 @@ function displayRFDPOREntries() {
 			#
 			drpeORIGeoID = drpeORIGeoIDArray[drpeORIGeoIDIdx]
 
-			# Display the full details of the Geonames POR entry
+			# Display the full details of the RFD POR entry
 			displayRFDPORWithPK(geo_iata_code, drpeORILocType, drpeORIGeoID)
 		
 			# DEBUG
@@ -1143,5 +1207,138 @@ function displayRFDPOREntries() {
 
 	# Reset the list for the next turn
 	resetRFDLineList()
+}
+
+##
+# Register the full Innovata POR entry details for the given primary key:
+# 1. The IATA code
+# 2. The ORI-maintained location type
+function registerInnovataLine(__rilParamIataCode, __rilParamLocType, \
+							  __rilParamFullLine, __rilParamNbOfPOR) {
+	# Register the fact that the AWK script runs on the Innovata data dump
+	# (most probably called from the inn_pk_creator.awk file)
+	__glGlobalIsForInnovata = 1
+
+	# Display the last read POR entry, when:
+	# 1. The current POR entry is not the first one (as the last POR entry
+	#    then is not defined).
+	# 2. The current POR entry has got a (IATA code, location type) combination
+	#    distinct from the last POR entry.
+	if (__rilParamIataCode == geo_iata_code || __rilParamNbOfPOR == 1) {
+		
+	} else {
+		# Display the last Geonames POR entries
+		displayInnovataPOREntries()
+	}
+
+	# Register the Innovata POR entry in the list of last entries
+	# for that IATA code
+	geo_iata_code = __rilParamIataCode
+
+	# DEBUG
+	#print ("[" __glGlobalAWKFile "][" __rilParamNbOfPOR "] iata_code="	\
+	#	   __rilParamIataCode ", geo_loc_type=" __rilParamLocType)		\
+	#	> __glGlobalErrorStream
+
+	# Store the location type of the Innovata POR entry
+	inn_last_loctype = __rilParamLocType
+
+	# Store the full details of the Innovata POR entry
+	inn_last_full_line = __rilParamFullLine
+}
+
+##
+# Display the list of Innovata POR entries.
+# Usually, there is no more than one POR entry for a given IATA code
+# and location type.
+#
+# In some rare cases, a travel-related POR serves several cities. For instance,
+# RDU-A-4487056 serves both RDU-C-4464368 (Raleigh) and RDU-C-4487042 (Durham)
+# in North Carolina, USA. In that case, there are two entries for RDU-C.
+#
+function displayInnovataPOREntries() {
+
+	# DEBUG
+	if (__glGlobalDebugIataCode != "" && \
+		geo_iata_code == __glGlobalDebugIataCode) {
+		print ("[" __glGlobalDebugIataCode "] ORI loc_type list: "	  \
+			   ori_por_loctype_list[geo_iata_code] ", Innovata loc_type: " \
+			   inn_last_loctype) > __glGlobalErrorStream
+	}
+
+	# Browse all the location types known by ORI for that IATA code
+	dipeORILocTypeList = ori_por_loctype_list[geo_iata_code]
+	split (dipeORILocTypeList, dipeORILocTypeArray, ",")
+	for (dipeORILocTypeIdx in dipeORILocTypeArray) {
+		#
+		dipeORILocType = dipeORILocTypeArray[dipeORILocTypeIdx]
+
+		# Browse all the Geonames IDs known by ORI for that
+		# (IATA code, location type) combination
+		dipeORIGeoIDList = ori_por_geoid_list[geo_iata_code, dipeORILocType]
+		split (dipeORIGeoIDList, dipeORIGeoIDArray, ",")
+		for (dipeORIGeoIDIdx in dipeORIGeoIDArray) {
+			#
+			dipeORIGeoID = dipeORIGeoIDArray[dipeORIGeoIDIdx]
+
+			# Display the full details of the Innovata POR entry
+			displayInnovataPORWithPK(geo_iata_code, dipeORILocType, dipeORIGeoID)
+		
+			# DEBUG
+			if (__glGlobalDebugIataCode != "" &&		\
+				geo_iata_code == __glGlobalDebugIataCode) {
+				print ("[" __glGlobalDebugIataCode "] ORI-loctype: "	\
+					   dipeORILocType ", ORI GeoID: " dipeORIGeoID		\
+					   ", Innovata loc_type list: " inn_last_loctype)		\
+					> __glGlobalErrorStream
+			}
+		}
+	}
+
+	# Reset the list for the next turn
+	resetInnovataLineList()
+}
+
+##
+# Display the full details of the Innovata POR entry, prefixed by the
+# corresponding primary key (IATA code, location type, Geonames ID).
+#
+function displayInnovataPORWithPK(__dipwkParamIataCode, __dipwkParamORILocType, \
+								  __dipwkParamORIGeoID) {
+	# Build the primary key
+	dipwkPK = getPrimaryKey(__dipwkParamIataCode, __dipwkParamORILocType, \
+							__dipwkParamORIGeoID)
+
+	# Re-write, within the Innovata full line:
+	#  * The location type (field #8)
+	#  * The geographical coordinates (fields #6 and #7)
+	dipwkFullLine = inn_last_full_line
+
+	# Reparse the line
+	OFS = "^"
+	$0 = dipwkFullLine
+
+	# Override the location type
+	$10 = __dipwkParamORILocType
+
+	# Convert and override the latitude
+	inn_lat = $7
+	std_lat = convertLatToStd(inn_lat)
+	$7 = std_lat
+
+	# Convert and override the longitude
+	inn_lon = $8
+	std_lon = convertLonToStd(inn_lon)
+	$8 = std_lon
+
+	# Retrieve the full line
+	dipwkFullLine = $0
+
+	# Add the primary key as a prefix to the full details
+    # of the Innovata POR entry
+	dipwkInnovataPORPlusPKLine = dipwkPK "^" dipwkFullLine
+
+	# Dump the full line, prefixed by the primary key
+	print (dipwkInnovataPORPlusPKLine)
 }
 
