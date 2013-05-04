@@ -43,6 +43,7 @@
 #  * CMPx:  Camp (e.g., Savuti Rest Camp)
 #  * PRK:   Park (e.g., Serengeti National Park)
 #  * RESx:  Reserve (e.g., Maasai-Mara National Reserve)
+#  * MTx:   Mountain (e.g., Mount Hotham)
 #  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
 #           field
 #  * AIRQ:  Abandoned air field
@@ -603,7 +604,7 @@ BEGINFILE {
 	is_city += match (fcode, "ISL") + match (fcode, "ATOL")
 	is_city += match (fcode, "LK") + match (fcode, "RSV") + match (fcode, "BAY")
 	is_city += match (fcode, "PAN") + match (fcode, "CMP")
-	is_city += match (fcode, "PRK") + match (fcode, "RES")
+	is_city += match (fcode, "PRK") + match (fcode, "RES") + match (fcode, "MT")
 
 	# Travel-related part
 	is_airport = match (fcode, "AIRB") + match (fcode, "AIRF")
