@@ -48,6 +48,7 @@
 #  * PRK:   Park (e.g., Serengeti National Park)
 #  * RESx:  Reserve (e.g., Maasai-Mara National Reserve)
 #  * MTx:   Mountain (e.g., Mount Hotham)
+#  * MNx:   Mine (e.g., Osborne Mine)
 #  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
 #           field
 #  * AIRQ:  Abandoned air field
