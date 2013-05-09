@@ -394,7 +394,7 @@ function convertLonToStd(__cgcLon) {
 	cgcStdLon += (cgcStdLonMin / 60.0)
 	cgcStdLon += (cgcStdLonSec / 6000.0)
 
-	if (cgcStdLonSgn == "E") {
+	if (cgcStdLonSgn == "W") {
 		cgcStdLon = -1 * cgcStdLon
 	}
 	return cgcStdLon
