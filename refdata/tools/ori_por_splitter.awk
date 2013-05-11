@@ -39,6 +39,7 @@
 #  * LKx:   Lake (e.g., Pinehouse Lake)
 #  * RSVx:  Reservoir
 #  * BAYx:  Bay (e.g., South Way Bay)
+#  * HBRx:  Harbor (e.g., Port Canaveral)
 #  * PANx:  Pan
 #  * CMPx:  Camp (e.g., Savuti Rest Camp)
 #  * PRK:   Park (e.g., Serengeti National Park)
@@ -603,7 +604,8 @@ BEGINFILE {
 	is_city += match (fcode, "LCTY") + match (fcode, "PCL")
 	is_city += match (fcode, "RGN") + match (fcode, "AREA")
 	is_city += match (fcode, "ISL") + match (fcode, "ATOL")
-	is_city += match (fcode, "LK") + match (fcode, "RSV") + match (fcode, "BAY")
+	is_city += match (fcode, "LK") + match (fcode, "RSV")
+	is_city += match (fcode, "BAY") + match (fcode, "HBR")
 	is_city += match (fcode, "PAN") + match (fcode, "CMP")
 	is_city += match (fcode, "PRK") + match (fcode, "RES")
 	is_city += match (fcode, "MT") + match (fcode, "MN")
