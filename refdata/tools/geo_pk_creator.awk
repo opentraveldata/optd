@@ -43,6 +43,7 @@
 #  * LKx:   Lake (e.g., Pinehouse Lake)
 #  * RSVx:  Reservoir
 #  * BAYx:  Bay (e.g., South Way Bay)
+#  * HBRx:  Harbor (e.g., Port Canaveral)
 #  * PANx:  Pan
 #  * CMPx:  Camp (e.g., Savuti Rest Camp)
 #  * PRK:   Park (e.g., Serengeti National Park)

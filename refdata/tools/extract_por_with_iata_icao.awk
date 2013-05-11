@@ -34,6 +34,7 @@
 #  * LKx:   Lake (e.g., Pinehouse Lake)
 #  * RSVx:  Reservoir
 #  * BAYx:  Bay (e.g., South Way Bay)
+#  * HBRx:  Harbor (e.g., Port Canaveral)
 #  * PANx:  Pan
 #  * CMPx:  Camp (e.g., Savuti Rest Camp)
 #  * PRK:   Park (e.g., Serengeti National Park)
@@ -108,9 +109,9 @@ function is_tvl_or_cty (feat_code) {
 	is_city += match (feat_code, "^RGN.*$") + match (feat_code, "^AREA$")
 	is_city += match (feat_code, "^ISL.*$") + match (feat_code, "^ATOL$")
 	is_city += match (feat_code, "^LK.*$") + match (feat_code, "^RSV.*$")
-	is_city += match (feat_code, "^BAY.*$") + match (feat_code, "^PAN.*$")
-	is_city += match (feat_code, "^CMP.*$") + match (feat_code, "^PRK.*$")
-	is_city += match (feat_code, "^RES.*$")
+	is_city += match (feat_code, "^BAY.*$") + match (feat_code, "^HBR.*$")
+	is_city += match (feat_code, "^PAN.*$") + match (feat_code, "^CMP.*$")
+	is_city += match (feat_code, "^PRK.*$") + match (feat_code, "^RES.*$")
 	is_city += match (feat_code, "^MT.*$") + match (feat_code, "^MN.*$")
 	is_travel = match (feat_code, "^AIRB$") + match (feat_code, "^AIRF$")
 	is_travel += match (feat_code, "^AIRH$") + match (feat_code, "^AIRP$")
