@@ -380,36 +380,38 @@ BEGIN {
 
 	if (alt_name_type == "iata") {
 		# The alternate name is a IATA code
-		if (is_historical != "h") {
-			alt_name_content_old = alt_name_list_iata[geoname_id]
+		alt_name_content_old = alt_name_list_iata[geoname_id]
 
-			if (alt_name_content_old == "" || \
-				substr(alt_name_content_old, 1, 1) == "_") {
-				alt_name_list_iata[geoname_id] = alt_name_content
+		# Add an underscore ("_") in front of historical IATA codes
+		if (is_historical == "h") {
+			alt_name_content = "_" alt_name_content
+		}
 
-			} else {
-				# Add the new IATA code in the dedicated list for that
-				# Geonames ID. That situation occurs, for instance,
-				# for the Mulhouse/Basel airport: MLH and BSL are both
-				# legitimate.
-				# However, it should be very rare. When a POR has got more
-				# than a single IATA code, it is most often a sign of
-				# corrupted data. So, it will be reported as well.
-				alt_name_list_iata[geoname_id] = \
-					alt_name_content_old "," alt_name_content
-
-				# Report that situation, just in case it is illigetimate
-				if (log_level >= 4) {
-					print ("[" awk_file "][" FNR "] There is more than one " \
-						   "active IATA code for Geonames ID=" geoname_id \
-						   ": " alt_name_content_old " and " alt_name_content) \
-						> error_stream
-				}
-			}
+		# Check whether the POR is the first one with that IATA code
+		if (alt_name_content_old == "") {
+			# First POR with that IATA code
+			alt_name_list_iata[geoname_id] = alt_name_content
 
 		} else {
-			if (alt_name_list_iata[geoname_id] == "") {
-				alt_name_list_iata[geoname_id] = "_" alt_name_content
+			# New POR with that IATA code.
+			# Add the new IATA code in the dedicated list for that
+			# Geonames ID. That situation occurs, for instance,
+			# for the Mulhouse/Basel airport: MLH and BSL are both
+			# legitimate.
+			# However, it should be very rare. When a POR has got more
+			# than a single IATA code, it is most often a sign of
+			# corrupted data. So, it will be reported as well.
+			alt_name_list_iata[geoname_id] =				\
+				alt_name_content_old "," alt_name_content
+
+			# Report that situation, just in case it is illigetimate
+			if (substr(alt_name_content_old, 1, 1) != "_"		\
+				&& substr(alt_name_content, 1, 1) != "_"		\
+				&& log_level >= 4) {
+				print ("[" awk_file "][" FNR "] There is more than one " \
+					   "active IATA code for Geonames ID=" geoname_id	\
+					   ": " alt_name_content_old " and " alt_name_content) \
+					> error_stream
 			}
 		}
 
