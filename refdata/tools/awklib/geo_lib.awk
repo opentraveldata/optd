@@ -581,7 +581,7 @@ function addGeoIDToAllGeoList(__alttaglParamGeonamesID,__alttaglParamGeoString) 
 # of the following:
 # * Latitude
 # * Longitude
-# * Served city IATA code
+# * Served city IATA code(s)
 # * Beginning date of the validity range
 #
 function addORIFieldToList(__aoftlParamIataCode, __aoftlParamLocationType,	\
@@ -605,7 +605,7 @@ function addORIFieldToList(__aoftlParamIataCode, __aoftlParamLocationType,	\
 # 1.3. The ORI-maintained Geonames ID
 # 2. The IATA code of the POR itself
 # 3. The geographical coordinates (latitude and longitude)
-# 4. The IATA code of the served city
+# 4. The IATA code (list) of the served cit(y)(ies)
 # 5. The beginning date of the validity range.
 #    When blank, it has always been valid.
 #
