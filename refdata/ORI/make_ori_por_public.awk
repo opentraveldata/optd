@@ -55,12 +55,42 @@ BEGIN {
 	#
 	today_date = mktime ("YYYY-MM-DD")
 	unknown_idx = 1
+
+	# File of PageRank values
+	pr_date_generation = ""
+	pr_date_from = ""
+	pr_date_to = ""
 }
 
 
 ##
 # File of PageRank values.
 #
+# Header:
+# -------
+# [PR] Generation date: 2013-05-17
+# [PR] License: CC-BY-SA (http://creativecommons.org/licenses/by-sa/3.0/deed.en_US)
+# [PR] Validity period:
+# [PR]   From: 2013-05-16
+# [PR]   To: 2013-05-22
+/^# \[PR\] Generation date: ([0-9]{4}-[0-9]{2}-[0-9]{2})$/ {
+	pr_date_generation = gensub ("^([^0-9]+)([0-9]{4}-[0-9]{2}-[0-9]{2})$", \
+								 "\\2", "g", $0)
+}
+/^# \[PR\]   From: ([0-9]{4}-[0-9]{2}-[0-9]{2})$/ {
+	pr_date_from = gensub ("^([^0-9]+)([0-9]{4}-[0-9]{2}-[0-9]{2})$", \
+						   "\\2", "g", $0)
+}
+/^# \[PR\]   To: ([0-9]{4}-[0-9]{2}-[0-9]{2})$/ {
+	pr_date_to = gensub ("^([^0-9]+)([0-9]{4}-[0-9]{2}-[0-9]{2})$", \
+						 "\\2", "g", $0)
+}
+
+##
+# File of PageRank values.
+#
+# Content:
+# --------
 # Note that the location types of that file are not the same as the ones
 # in the ori_por_best_known_so_far.csv file. Indeed, the location types
 # take a value from three possible ones: 'C', 'A' or 'CA', where 'A' actually
@@ -773,4 +803,10 @@ function printAltNameSection(myAltNameSection) {
 			   " fields: " $0) > error_stream
 	}
 
+}
+
+END {
+	# DEBUG
+	# print ("Generated: " pr_date_generation ", valid from: " pr_date_from \
+	#	   " to " pr_date_to) > error_stream
 }
