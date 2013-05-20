@@ -671,7 +671,8 @@ function registerORILine(__rolParamPK, __rolParamIataCode2,				\
 	addORIFieldToList(rolIataCode, rolLocationType,				\
 					  ori_por_lon_list, __rolParamLongitude)
 
-	# Register the details of the ORI-maintained POR entry for the served city
+	# Register the details of the ORI-maintained POR entry for the (list of)
+	# served cit(y)(ies)
 	addORIFieldToList(rolIataCode, rolLocationType,					\
 					  ori_por_cty_list, __rolParamServedCityCode)
 

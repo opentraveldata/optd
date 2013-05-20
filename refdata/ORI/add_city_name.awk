@@ -3,12 +3,12 @@
 #  1. Adds the name, in both UTF8 and ASCII encodings, of the served cities.
 #  2. Adds the list of travel-related POR IATA codes.
 # The ori_por_public.csv data file is parsed twice:
-#  * once to store the city names,
+#  * once to store, in memory, the city names,
 #  * the second time to write the corresponding fields in that very same
 #    ori_por_public.csv file, which is therefore amended.
 #
 # As of February 2013:
-#  * The city code is the field #37
+#  * The (list of) city code(s) is the field #37
 #  * The city UTF8 name is the field #38
 #  * The city ASCII name is the field #39
 #  * The list of travel-related POR IATA codes is the field #40
@@ -73,35 +73,48 @@ function extractAndStoreCityNames(porIataCode, porUtfName, porAsciiName, \
 
 ##
 # First parsing - collection of the travel-related points serving a given city
-function collectTravelPoints(porIataCodePk, porIataCodeServed, porLocType) {
+function collectTravelPoints(porIataCodePk, porIataCodeServedList, porLocType) {
 	# Store the names of the point of reference (POR) when it is not only a city
 	if (porLocType != "C") {
-		tvl_por_list = travel_por_list_array[porIataCodeServed]
-		if (tvl_por_list == "") {
-			travel_por_list_array[porIataCodeServed] = porIataCodePk
-		} else {
-			travel_por_list_array[porIataCodeServed] =	\
-				tvl_por_list "," porIataCodePk
+
+		# Split the list of cities
+		# Note: most of the time, that list contains a single IATA code
+		split (porIataCodeServedList, porIataCodeServedArray, ",")
+		for (porIataCodeServedIdx in porIataCodeServedArray) {
+			porIataCodeServed = porIataCodeServedArray[porIataCodeServedIdx]
+
+			tvl_por_list = travel_por_list_array[porIataCodeServed]
+			if (tvl_por_list == "") {
+				travel_por_list_array[porIataCodeServed] = porIataCodePk
+			} else {
+				travel_por_list_array[porIataCodeServed] =	\
+					tvl_por_list "," porIataCodePk
+			}
 		}
 	}
 }
 
 ##
 # Second parsing - writing of the city (UTF8 and ASCII) names
-function writeCityNames(porIataCode, porLocType, cityIataCode, \
+function writeCityNames(porIataCode, porLocType, porIataCodeServedList, \
 						porUtfName, porAsciiName) {
 	# Output separator
 	OFS = FS
 
+	# Split the list of city code(s) and (arbitrarily) take the first one.
+	# Note: most of the time, that list contains a single IATA code.
+	split (porIataCodeServedList, porIataCodeServedArray, ",")
+	porIataCodeServed = porIataCodeServedArray[1]
+
 	# UTF8 name of the served city
-	utfName = name_utf_list[cityIataCode]
+	utfName = name_utf_list[porIataCodeServed]
 	if (utfName == "") {
 		utfName = porUtfName
 	}
 	$38 = utfName
 
 	# ASCII name of the served city
-	asciiName = name_ascii_list[cityIataCode]
+	asciiName = name_ascii_list[porIataCodeServed]
 	if (asciiName == "") {
 		asciiName = porAsciiName
 	}
@@ -110,7 +123,7 @@ function writeCityNames(porIataCode, porLocType, cityIataCode, \
 
 ##
 # Second parsing - writing of the travel-related points serving a given city
-function writeTravelPORList(porIataCode, porLocType, cityIataCode) {
+function writeTravelPORList(porIataCode, porLocType, porIataCodeServedList) {
 	# Parse the location type
 	is_city = match (porLocType, "C")
 
@@ -118,8 +131,13 @@ function writeTravelPORList(porIataCode, porLocType, cityIataCode) {
 		# Output separator
 		OFS = FS
 
+		# Split the list of city code(s) and (arbitrarily) take the first one.
+		# Note: most of the time, that list contains a single IATA code.
+		split (porIataCodeServedList, porIataCodeServedArray, ",")
+		porIataCodeServed = porIataCodeServedArray[1]
+
 		# Travel-related POR list
-		tvl_por_list = travel_por_list_array[cityIataCode]
+		tvl_por_list = travel_por_list_array[porIataCodeServed]
 		$40 = tvl_por_list
 	}
 }
@@ -153,7 +171,7 @@ function writeTravelPORList(porIataCode, porLocType, cityIataCode) {
 		name_ascii = $8
 
 		# Served city IATA code
-		served_city_code = $37
+		served_city_code_list = $37
 
 		# IATA location type
 		location_type = $42
@@ -162,7 +180,7 @@ function writeTravelPORList(porIataCode, porLocType, cityIataCode) {
 		extractAndStoreCityNames(iata_code, name_utf, name_ascii, location_type)
 
 		# Collect the travel-related POR IATA code
-		collectTravelPoints(iata_code, served_city_code, location_type)
+		collectTravelPoints(iata_code, served_city_code_list, location_type)
 
 	} else if (idx_file == 2) {
 		# IATA code of the point of reference (POR) itself
@@ -175,17 +193,17 @@ function writeTravelPORList(porIataCode, porLocType, cityIataCode) {
 		name_ascii = $8
 
 		# IATA code of the city served by that POR
-		city_iata_code = $37
+		city_iata_code_list = $37
 
 		# IATA location type
 		location_type = $42
 
 		# Write the city names for that POR
-		writeCityNames(iata_code, location_type, city_iata_code, \
+		writeCityNames(iata_code, location_type, city_iata_code_list, \
 					   name_utf, name_ascii)
 
 		# Write the travel-related points serving a given city
-		writeTravelPORList(iata_code, location_type, city_iata_code)
+		writeTravelPORList(iata_code, location_type, city_iata_code_list)
 
 		# Write the full line, amended by the call to the writeCityNames()
 		# function
