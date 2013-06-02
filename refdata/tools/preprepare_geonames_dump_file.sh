@@ -50,8 +50,9 @@ TMP_DIR="/tmp/por"
 # Path of the executable: set it to empty when this is the current directory.
 EXEC_PATH=`dirname $0`
 # Trick to get the actual full-path
-EXEC_FULL_PATH=`pushd ${EXEC_PATH}`
-EXEC_FULL_PATH=`echo ${EXEC_FULL_PATH} | cut -d' ' -f1`
+pushd ${EXEC_PATH} > /dev/null
+EXEC_FULL_PATH=`popd`
+popd > /dev/null
 EXEC_FULL_PATH=`echo ${EXEC_FULL_PATH} | sed -e 's|~|'${HOME}'|'`
 #
 CURRENT_DIR=`pwd`
