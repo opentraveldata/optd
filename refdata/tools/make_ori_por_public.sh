@@ -30,6 +30,12 @@ then
 	EXEC_PATH="."
 	TMP_DIR="."
 fi
+# If the Geonames dump file is in the current directory, then the current
+# directory is certainly intended to be the temporary directory.
+if [ -f ${GEO_RAW_FILENAME} ]
+then
+	TMP_DIR="."
+fi
 EXEC_PATH="${EXEC_PATH}/"
 TMP_DIR="${TMP_DIR}/"
 
@@ -39,13 +45,13 @@ then
 fi
 
 ##
-# Sanity check: that (executable) script should be located in the ORI/
-# sub-directory of the OpenTravelData project Git clone
+# Sanity check: that (executable) script should be located in the
+# tools/ sub-directory of the OpenTravelData project Git clone
 EXEC_DIR_NAME=`basename ${EXEC_FULL_PATH}`
-if [ "${EXEC_DIR_NAME}" != "ORI" ]
+if [ "${EXEC_DIR_NAME}" != "tools" ]
 then
 	echo
-	echo "[$0:$LINENO] Inconsistency error: this script ($0) should be located in the refdata/ORI/ sub-directory of the OpenTravelData project Git clone, but apparently is not. EXEC_FULL_PATH=\"${EXEC_FULL_PATH}\""
+	echo "[$0:$LINENO] Inconsistency error: this script ($0) should be located in the refdata/tools/ sub-directory of the OpenTravelData project Git clone, but apparently is not. EXEC_FULL_PATH=\"${EXEC_FULL_PATH}\""
 	echo
 	exit -1
 fi
@@ -66,17 +72,21 @@ LOG_LEVEL=3
 
 ##
 # File of best known coordinates
-ORI_POR_FILE=ori_por_best_known_so_far.csv
+ORI_POR_FILENAME=ori_por_best_known_so_far.csv
+ORI_POR_FILE=${ORI_DIR}${ORI_POR_FILENAME}
 
 ##
 # Light (and inaccurate) version of the country-related time-zones
-ORI_TZ_FILE=ori_tz_light.csv
+ORI_TZ_FILENAME=ori_tz_light.csv
+ORI_TZ_FILE=${ORI_DIR}${ORI_TZ_FILENAME}
 # Mapping between the Countries and their corresponding continent
-ORI_CNT_FILE=ori_cont.csv
+ORI_CNT_FILENAME=ori_cont.csv
+ORI_CNT_FILE=${ORI_DIR}${ORI_CNT_FILENAME}
 
 ##
 # PageRank values
-ORI_PR_FILE=ref_airport_pageranked.csv
+ORI_PR_FILENAME=ref_airport_pageranked.csv
+ORI_PR_FILE=${ORI_DIR}${ORI_PR_FILENAME}
 
 ##
 # Geonames (to be found, as temporary files, within the ../tools directory)
@@ -114,9 +124,12 @@ RFD_CUT_SORTED_FILE=${TOOLS_DIR}${RFD_CUT_SORTED_FILENAME}
 
 ##
 # Target (generated files)
-ORI_POR_PUBLIC_FILE=ori_por_public.csv
-ORI_ONLY_POR_FILE=ori_only_por.csv
+ORI_POR_PUBLIC_FILENAME=ori_por_public.csv
+ORI_ONLY_POR_FILENAME=ori_only_por.csv
 ORI_ONLY_POR_NEW_FILE=${ORI_ONLY_POR_FILE}.new
+#
+ORI_POR_PUBLIC_FILE=${ORI_DIR}${ORI_POR_PUBLIC_FILENAME}
+ORI_ONLY_POR_FILE=${ORI_DIR}${ORI_ONLY_POR_FILENAME}
 
 ##
 # Temporary
@@ -198,13 +211,8 @@ then
 		${RFD_SORTED_FILE} ${RFD_CUT_SORTED_FILE} \
 		${ORI_ONLY_POR_NEW_FILE}
 
-	echo "Changing to the ${TOOLS_DIR} directory"
-	pushd ${TOOLS_DIR} > /dev/null
 	bash prepare_geonames_dump_file.sh --clean || exit -1
 	bash prepare_rfd_dump_file.sh --clean || exit -1
-	BACK_DIR=`popd`
-	popd > /dev/null
-	echo "Back to the ${BACK_DIR} directory"
 	exit
 fi
 
@@ -219,13 +227,8 @@ fi
 
 ##
 # Preparation
-echo "Changing to the ${TOOLS_DIR} directory"
-pushd ${TOOLS_DIR} > /dev/null
 bash prepare_geonames_dump_file.sh ${OPTD_DIR} ${LOG_LEVEL} || exit -1
 bash prepare_rfd_dump_file.sh ${OPTD_DIR} ${RFD_RAW_FILE} ${LOG_LEVEL} || exit -1
-BACK_DIR=`popd`
-popd > /dev/null
-echo "Back to the ${BACK_DIR} directory"
 
 ##
 #
