@@ -14,22 +14,10 @@
 #  * The list of travel-related POR IATA codes is the field #40
 #
 
-
 ##
-# States whether that location type corresponds to a travel-related POR
-function isTravel(porLocType) {
-	is_airport = match (myLocationType, "A")
-	is_heliport = match (myLocationType, "H")
-	is_rail = match (myLocationType, "R")
-	is_bus = match (myLocationType, "B")
-	is_port = match (myLocationType, "P")
-	is_ground = match (myLocationType, "G")
-	is_offpoint = match (myLocationType, "O")
-	is_travel = is_airport + is_rail + is_bus + is_heliport + is_port	\
-		+ is_ground + is_offpoint
+# Helper functions
+@include "awklib/geo_lib.awk"
 
-	return is_travel
-}
 
 ##
 #
@@ -61,8 +49,8 @@ BEGINFILE {
 function extractAndStoreCityNames(porIataCode, porUtfName, porAsciiName, \
 								  porLocType) {
 	# Parse the location type
-	is_city = match (porLocType, "C")
-	is_tvl = isTravel(porLocType)
+	is_city = isLocTypeCity(porLocType)
+	is_tvl = isLocTypeTvlRtd(porLocType)
 
 	# Store the names of the point of reference (POR) when it is a city
 	if (is_city != 0) {
@@ -125,7 +113,7 @@ function writeCityNames(porIataCode, porLocType, porIataCodeServedList, \
 # Second parsing - writing of the travel-related points serving a given city
 function writeTravelPORList(porIataCode, porLocType, porIataCodeServedList) {
 	# Parse the location type
-	is_city = match (porLocType, "C")
+	is_city = isLocTypeCity(porLocType)
 
 	if (is_city != 0) {
 		# Output separator
