@@ -24,6 +24,11 @@
 #
 
 ##
+# Helper functions
+@include "awklib/geo_lib.awk"
+
+
+##
 #
 BEGIN {
 	# Global variables
@@ -147,10 +152,10 @@ BEGIN {
 	}
 
 	# Check whether it is a city
-	is_city = match (por_type, "C")
+	is_city = isLocTypeCity(por_type)
 
 	# Check whether it is travel-related
-	is_tvl = match (por_type, "A")
+	is_tvl = isLocTypeTvlRtd(por_type)
 
 	# PageRank value
 	pr_value = $3
@@ -217,26 +222,10 @@ BEGIN {
 
 
 ##
-# States whether that location type corresponds to a travel-related POR
-function isTravel(myLocationType) {
-	is_airport = match (myLocationType, "A")
-	is_rail = match (myLocationType, "R")
-	is_bus = match (myLocationType, "B")
-	is_heliport = match (myLocationType, "H")
-	is_port = match (myLocationType, "P")
-	is_ground = match (myLocationType, "G")
-	is_offpoint = match (myLocationType, "O")
-	is_travel = is_airport + is_rail + is_bus + is_heliport + is_port	\
-		+ is_ground + is_offpoint
-
-	return is_travel
-}
-
-##
 # Retrieve the PageRank value for that POR
 function getPageRank(myIataCode, myLocationType, myGeonamesID) {
-	is_city = match (myLocationType, "C")
-	is_tvl = isTravel(myLocationType)
+	is_city = isLocTypeCity(myLocationType)
+	is_tvl = isLocTypeTvlRtd(myLocationType)
 	
 	if (is_city != 0) {
 		page_rank = city_list[myIataCode]
@@ -497,9 +486,9 @@ function printAltNameSection(myAltNameSection) {
 		printf ("%s", "^" $3 "^" $4)
 
 		# ^ Feat. class ^ Feat. code
-		is_city = match (location_type, "C")
+		is_city = isLocTypeCity(location_type)
 		is_offpoint = match (location_type, "O")
-		is_airport = match (location_type, "A")
+		is_airport = isLocTypeAirport(location_type)
 		is_heliport = match (location_type, "H")
 		is_railway = match (location_type, "R")
 		is_bus = match (location_type, "B")
