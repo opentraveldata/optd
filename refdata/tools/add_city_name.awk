@@ -7,11 +7,15 @@
 #  * the second time to write the corresponding fields in that very same
 #    ori_por_public.csv file, which is therefore amended.
 #
-# As of February 2013:
+# As of June 2013 (see also the "Fields" part in the BEGIN{} section):
+#  * The POR IATA code is the field #1
+#  * The POR UTF8 name is the field #7
+#  * The POR ASCII name is the field #8
 #  * The (list of) city code(s) is the field #37
-#  * The city UTF8 name is the field #38
-#  * The city ASCII name is the field #39
+#  * The (list of) city UTF8 name(s) is the field #38
+#  * The (list of) city ASCII name(s) is the field #39
 #  * The list of travel-related POR IATA codes is the field #40
+#  * The location type is the field #42
 #
 
 ##
@@ -25,6 +29,16 @@ BEGIN {
 	# Global variables
 	error_stream = "/dev/stderr"
 	awk_file = "add_city_name.awk"
+
+	# Fields
+	K_POR_CDE = 1
+	K_NME_UTF = 7
+	K_NME_ASC = 8
+	K_SVD_CTY_LST = 37
+	K_CTY_UTF_LST = 38
+	K_CTY_ASC_LST = 39
+	K_TVL_LST = 40
+	K_LOC_TYP = 42
 
 	#
 	idx_file = 0
@@ -99,14 +113,14 @@ function writeCityNames(porIataCode, porLocType, porIataCodeServedList, \
 	if (utfName == "") {
 		utfName = porUtfName
 	}
-	$38 = utfName
+	$K_CTY_UTF_LST = utfName
 
 	# ASCII name of the served city
 	asciiName = name_ascii_list[porIataCodeServed]
 	if (asciiName == "") {
 		asciiName = porAsciiName
 	}
-	$39 = asciiName
+	$K_CTY_ASC_LST = asciiName
 }
 
 ##
@@ -126,7 +140,7 @@ function writeTravelPORList(porIataCode, porLocType, porIataCodeServedList) {
 
 		# Travel-related POR list
 		tvl_por_list = travel_por_list_array[porIataCodeServed]
-		$40 = tvl_por_list
+		$K_TVL_LST = tvl_por_list
 	}
 }
 
@@ -149,20 +163,23 @@ function writeTravelPORList(porIataCode, porLocType, porIataCodeServedList) {
 /^([A-Z0-9]{3})\^([A-Z0-9]{0,4})\^([A-Z0-9]{0,4})\^/{
 
 	if (idx_file == 1) {
+		##
+		# First parsing
+
 		# IATA code of the point of reference (POR) itself
-		iata_code = $1
+		iata_code = $K_POR_CDE
 
 		# UTF8 name of the POR itself
-		name_utf = $7
+		name_utf = $K_NME_UTF
 
 		# ASCII name of the POR itself
-		name_ascii = $8
+		name_ascii = $K_NME_ASC
 
 		# Served city IATA code
-		served_city_code_list = $37
+		served_city_code_list = $K_SVD_CTY_LST
 
 		# IATA location type
-		location_type = $42
+		location_type = $K_LOC_TYP
 
 		# Store the POR names for the POR IATA code
 		extractAndStoreCityNames(iata_code, name_utf, name_ascii, location_type)
@@ -171,20 +188,23 @@ function writeTravelPORList(porIataCode, porLocType, porIataCodeServedList) {
 		collectTravelPoints(iata_code, served_city_code_list, location_type)
 
 	} else if (idx_file == 2) {
+		##
+		# Second parsing
+
 		# IATA code of the point of reference (POR) itself
-		iata_code = $1
+		iata_code = $K_POR_CDE
 
 		# UTF8 name of the POR itself
-		name_utf = $7
+		name_utf = $K_NME_UTF
 
 		# ASCII name of the POR itself
-		name_ascii = $8
+		name_ascii = $K_NME_ASC
 
 		# IATA code of the city served by that POR
-		city_iata_code_list = $37
+		city_iata_code_list = $K_SVD_CTY_LST
 
 		# IATA location type
-		location_type = $42
+		location_type = $K_LOC_TYP
 
 		# Write the city names for that POR
 		writeCityNames(iata_code, location_type, city_iata_code_list, \
