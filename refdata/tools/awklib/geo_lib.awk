@@ -438,6 +438,19 @@ function getPrimaryKey(__gpkParamIataCode, __gpkParamLocationType, \
 }
 
 ##
+# Add the given field content to the given dedicated list. The field content
+# and the list correspond to the file of best known coordinates.
+#
+function addFieldToList(__aftlParamIataCode, __aftlParamList, __aftlParamField) {
+	myTmpString = __aftlParamList[__aftlParamIataCode]
+	if (myTmpString) {
+		myTmpString = myTmpString ","
+	}
+	myTmpString = myTmpString __aftlParamField
+	__aftlParamList[__aftlParamIataCode] = myTmpString
+}
+
+##
 # Add the given location type to the given dedicated ORI list. The location type
 # and the list correspond to the file of best known coordinates.
 #

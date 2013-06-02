@@ -41,7 +41,8 @@ BEGIN {
 	ctry_cont_name_list["ZZ"] = "Not relevant/available"
 
 	# Header
-	printf ("%s","iata_code^icao_code^faa_code^is_geonames^geoname_id^valid_id")
+	printf ("%s", "iata_code^icao_code^faa_code")
+	printf ("%s", "^is_geonames^geoname_id^envelope_id")
 	printf ("%s", "^name^asciiname^latitude^longitude")
 	printf ("%s", "^fclass^fcode")
 	printf ("%s", "^page_rank^date_from^date_until^comment")
@@ -51,7 +52,7 @@ BEGIN {
 	printf ("%s", "^adm3_code^adm4_code")
 	printf ("%s", "^population^elevation^gtopo30")
 	printf ("%s", "^timezone^gmt_offset^dst_offset^raw_offset^moddate")
-	printf ("%s", "^city_code^city_name_utf^city_name_ascii^tvl_por_list")
+	printf ("%s", "^city_code_list^city_name_list^city_detail_list^tvl_por_list")
 	printf ("%s", "^state_code^location_type")
 	printf ("%s", "^wiki_link")
 	printf ("%s", "^alt_name_section")
