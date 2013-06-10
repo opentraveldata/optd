@@ -224,7 +224,9 @@ VGG^ZZZZ^^N^0^1^Vangrieng LA^Vangrieng LA^17.97^102.6^S^AIRP^^^2013-03-01^IATA N
 TODO:VIZ^UNKNOWN9367^UNKNOWN9367^UNKNOWN9367/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^23.18^75.77^0^N^CA
 VNG^ZZZZ^^Y^8260951^1^Viengxay^Viengxay^18.93^102.5^S^AIRP^^^2013-03-01^IATA code no longer referenced by IATA^LA^^Laos^Asia^27^Khouèng Viangchan^Khoueng Viangchan^^^^^^0^^488^Asia/Vientiane^7.0^7.0^7.0^2012-04-29^VNG^Viengxay^Viengxay^^^A^^
 VNG^ZZZZ^^Y^7648323^1^Viengxay^Viengxay^20.34222^104.34464^P^PPLA2^^^2013-03-01^IATA code no longer referenced by IATA^LA^^Laos^Asia^03^Houaphan^Houaphan^^^^^^0^^662^Asia/Vientiane^7.0^7.0^7.0^2011-01-31^VNG^Viengxay^Viengxay^VNG^^C^^
+VVE^ZZZZ^^N^0^1^City Name Test Three^City Name Test Three^43.37^7.233^S^AIRP^^^^^FR^^France^Europe^^^^^^^^^^^^Europe/Paris^^^^-1^VVE^City Name Test Three^VVE|0|City Name Test Three|City Name Test Three^VVE^^CA^^
 VVV^ZZZZ^^N^0^1^Pseudo message arrival^Pseudo message arrival^0.00028^-0.00028^S^AIRP^^^^^ZZ^^ZZ^^^^^^^^^^^^^^^^^-1^VVV^Pseudo message^Pseudo message^VVV^^CA^^
+VWY^ZZZZ^^N^0^1^Nilgris^Nilgris^28.58^77.13^S^AIRP^^^2007-01-01^Not been referenced by IATA recently^IN^^India^Asia^^^^^^^^^^^^Asia/Kolkata^^^^-1^VWY^Nilgris^VWY|0|Nilgris|Nilgris^VWY^^CA^^
 WEM^ZZZZ^^N^0^1^West Malling Airport^West Malling Airport^51.3^0.4167^S^AIRP^^^^^GB^^United Kingdom^ENG^England^England^GLA^Greater London^Greater London^B8^^0^182^171^Europe/London^0.0^1.0^0.0^2011-03-28^LON^London^London^^^CA^^
 WGB^OPBR^^Y^7730750^1^Bahawalnagar Airport^Bahawalnagar Airport^30^73.25^S^AIRP^^^2013-02-01^IATA Notification #43 (2013) - Airport not found^PK^^Pakistan^Asia^04^Punjab^Punjab^^^^^^0^^153^Asia/Karachi^5.0^5.0^5.0^2011-03-17^WGB^Bahawalnagar Airport^Bahawalnagar Airport^WGB^^CA^^
 WGL^ZZZZ^^N^0^1^Baltra Island^Baltra Island^-0.453758^-90.265914^S^AIRP^^^^^EC^^Ecuador^01^Galápagos^Galapagos^^^^^^0^63^54^Pacific/Galapagos^-6.0^-6.0^-6.0^2007-03-30^WGL^Baltra Island^Baltra Island^^^CA^^
@@ -251,4 +253,5 @@ ZTX^ZZZZ^^N^0^1^TSUEN WAN/HK:TSUEN WAN^TSUEN WAN/HK:TSUEN WAN^^^P^PPL^^^2012-08-
 TODO:ZUE^UNKNOWN11391^UNKNOWN11391^UNKNOWN11391/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^7.433^-6.05^0^N^CA
 TODO:ZXF^UNKNOWN11467^UNKNOWN11467^UNKNOWN11467/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^59.93^10.75^0^N^CA
 TODO:ZZE^UNKNOWN11516^UNKNOWN11516^UNKNOWN11516/ZZ^ZZZ^Y^^ZZ^ZZZZZ^ITZ1^ZZ^43.87^19.83^0^N^CA
+ZZW^ZZZZ^^N^0^1^Day Trip Mystery^Day Trip Mystery^-32^147^S^AIRP^^^1970-01-01^Niether an actual airport nor referenced by IATA^AU^^Australia^Oceania^^^^^^^^^^^^Australia/Sydney^^^^-1^ZZW^Day Trip Mystery^ZZW|0|Day Trip Mystery|Day Trip Mystery^ZZW^NS^CA^^
 ZZZ^ZZZZ^^N^0^1^Greenwich mean TM^Greenwich mean TM^51.88^0.2333^S^AIRP^^^^^GB^^United Kingdom^Europe^ENG^England^England^E4^Essex^Essex^22UQ^^0^106^103^Europe/London^0.0^1.0^0.0^-1^ZZZ^London^London^ZZZ^^CA^^
