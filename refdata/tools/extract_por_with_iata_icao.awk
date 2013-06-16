@@ -29,6 +29,7 @@
 #  * PCLx:  Political entity (country, e.g., Bahrain, Monaco)
 #  * RGNx:  Region
 #  * AREA:  Area (e.g., Bloodvein River area)
+#  * HMSD:  Homestead (e.g., Roy Hill Station)
 #  * ISLx:  Island (e.g., Dalma Island)
 #  * ATOL:  Atoll (e.g., Atoll Tikehau)
 #  * LKx:   Lake (e.g., Pinehouse Lake)
@@ -103,10 +104,11 @@ BEGIN {
 ##
 #
 function is_tvl_or_cty (feat_code) {
-	# Calculate the flags corresponding to the type
+	# Calculate the flags corresponding to the type (Geonames feature code)
 	is_city = match (feat_code, "^PPL.*$") + match (feat_code, "^ADM.*$")
 	is_city += match (feat_code, "^LCTY$") + match (feat_code, "^PCL.*$")
 	is_city += match (feat_code, "^RGN.*$") + match (feat_code, "^AREA$")
+	is_city += match (feat_code, "^HMSD$")
 	is_city += match (feat_code, "^ISL.*$") + match (feat_code, "^ATOL$")
 	is_city += match (feat_code, "^LK.*$") + match (feat_code, "^RSV.*$")
 	is_city += match (feat_code, "^BAY.*$") + match (feat_code, "^HBR.*$")
