@@ -34,6 +34,7 @@
 #  * PCLx:  Political entity (country, e.g., Bahrain, Monaco)
 #  * RGNx:  Region
 #  * AREA:  Area (e.g., Bloodvein River area)
+#  * HMSD:  Homestead (e.g., Roy Hill Station)
 #  * ISLx:  Island (e.g., Dalma Island)
 #  * ATOL:  Atoll (e.g., Atoll Tikehau)
 #  * LKx:   Lake (e.g., Pinehouse Lake)
@@ -603,6 +604,7 @@ BEGINFILE {
 	is_city = match (fcode, "PPL") + match (fcode, "ADM")
 	is_city += match (fcode, "LCTY") + match (fcode, "PCL")
 	is_city += match (fcode, "RGN") + match (fcode, "AREA")
+	is_city += match (fcode, "HMSD")
 	is_city += match (fcode, "ISL") + match (fcode, "ATOL")
 	is_city += match (fcode, "LK") + match (fcode, "RSV")
 	is_city += match (fcode, "BAY") + match (fcode, "HBR")

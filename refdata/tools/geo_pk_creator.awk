@@ -38,6 +38,7 @@
 #  * PCLx:  Political entity (country, e.g., Bahrain, Monaco)
 #  * RGNx:  Region
 #  * AREA:  Area (e.g., Bloodvein River area)
+#  * HMSD:  Homestead (e.g., Roy Hill Station)
 #  * ISLx:  Island (e.g., Dalma Island)
 #  * ATOL:  Atoll (e.g., Atoll Tikehau)
 #  * LKx:   Lake (e.g., Pinehouse Lake)
