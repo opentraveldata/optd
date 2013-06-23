@@ -2,6 +2,7 @@
 
 # Create the public version of the ORI-maintained list of POR, from:
 # - ori_por_best_known_so_far.csv
+# - ori_por_no_longer_valid.csv
 # - ref_airport_pageranked.csv
 # - ori_tz_light.csv
 # - ori_cont.csv
@@ -74,6 +75,9 @@ LOG_LEVEL=3
 # File of best known coordinates
 ORI_POR_FILENAME=ori_por_best_known_so_far.csv
 ORI_POR_FILE=${ORI_DIR}${ORI_POR_FILENAME}
+# File of no longer valid IATA entries
+ORI_NOIATA_FILENAME=ori_por_no_longer_valid.csv
+ORI_NOIATA_FILE=${ORI_DIR}${ORI_NOIATA_FILENAME}
 
 ##
 # Light (and inaccurate) version of the country-related time-zones
@@ -134,10 +138,15 @@ ORI_ONLY_POR_FILE=${ORI_DIR}${ORI_ONLY_POR_FILENAME}
 ##
 # Temporary
 ORI_POR_WITH_NOHD=${ORI_POR_FILE}.wohd
+ORI_NOIATA_WITH_NOHD=${ORI_NOIATA_FILE}.wohd
 ORI_POR_WITH_GEO=${ORI_POR_FILE}.withgeo
 ORI_POR_WITH_GEORFD=${ORI_POR_FILE}.withgeorfd
 ORI_POR_WITH_GEORFDALT=${ORI_POR_FILE}.withgeorfdalt
 ORI_POR_WITH_NO_CTY_NAME=${ORI_POR_FILE}.withnoctyname
+ORI_POR_PUBLIC_WO_NOIATA_FILE=${ORI_POR_FILE}.wonoiata
+ORI_POR_PUBLIC_WO_NOIATA_WITH_NOHD=${ORI_POR_FILE}.wonoiata.wohd
+ORI_POR_PUBLIC_W_NOIATA_UNSORTED_WOHD=${ORI_POR_FILE}.wnoiata.wohd
+ORI_POR_PUBLIC_W_NOIATA_UNSORTED_FILE=${ORI_POR_FILE}.wnoiata.unsorted
 GEONAME_RAW_FILE_TMP=${GEONAME_RAW_FILE}.alt
 
 
@@ -183,6 +192,7 @@ then
 	echo "* Input data files"
 	echo "------------------"
 	echo " - ORI-maintained file of best known coordinates: '${ORI_POR_FILE}'"
+	echo " - ORI-maintained file of non longer valid IATA POR: '${ORI_NOIATA_FILE}'"
 	echo " - ORI-maintained file of PageRanked POR: '${ORI_PR_FILE}'"
 	echo " - ORI-maintained file of country-related time-zones: '${ORI_TZ_FILE}'"
 	echo " - ORI-maintained file of country-continent mapping: '${ORI_CNT_FILE}'"
@@ -205,6 +215,11 @@ if [ "$1" = "--clean" ]
 then
 	\rm -f ${ORI_POR_WITH_GEO} ${ORI_ONLY_POR_NEW_FILE} \
 		${ORI_POR_WITH_GEORFD} ${ORI_POR_WITH_GEORFDALT} \
+		${ORI_POR_PUBLIC_WO_NOIATA_FILE} \
+		${ORI_POR_PUBLIC_WO_NOIATA_WITH_NOHD} \
+		${ORI_POR_PUBLIC_W_NOIATA_UNSORTED_WOHD} \
+		${ORI_POR_PUBLIC_W_NOIATA_UNSORTED_FILE} \
+		${ORI_NOIATA_WITH_NOHD} \
 		${ORI_POR_WITH_NO_CTY_NAME} ${ORI_POR_FILE_HEADER} ${ORI_POR_WITH_NOHD} \
 		${GEONAME_WPK_FILE} ${GEONAME_RAW_FILE_TMP} \
 		${GEONAME_SORTED_FILE} ${GEONAME_CUT_SORTED_FILE} \
@@ -254,10 +269,6 @@ cut -d'^' -f1,34- ${GEONAME_SORTED_FILE} > ${GEONAME_RAW_FILE_TMP}
 cut -d'^' -f1-33 ${GEONAME_SORTED_FILE} > ${GEONAME_CUT_SORTED_FILE}
 
 ##
-# Extract the header into a temporary file
-ORI_POR_FILE_HEADER=${ORI_POR_FILE}.tmp.hdr
-grep "^pk\(.\+\)" ${ORI_POR_FILE} > ${ORI_POR_FILE_HEADER}
-
 # Remove the header
 sed -e "s/^pk\(.\+\)//g" ${ORI_POR_FILE} > ${ORI_POR_WITH_NOHD}
 sed -i -e "/^$/d" ${ORI_POR_WITH_NOHD}
@@ -284,19 +295,65 @@ join -t'^' -a 1 -1 1 -2 1 ${ORI_POR_WITH_GEORFD} ${GEONAME_RAW_FILE_TMP} \
 	> ${ORI_POR_WITH_GEORFDALT}
 
 ##
-# Suppress the redundancies. See ${REDUCER} for more details and samples.
+# Re-format the aggregated entries. See ${REDUCER} for more details and samples.
+echo
+echo "Aggregation Step"
+echo "----------------"
+echo
 REDUCER=make_ori_por_public.awk
-awk -F'^' -v non_ori_por_file="${ORI_ONLY_POR_FILE}" -f ${REDUCER} \
+time awk -F'^' -v non_ori_por_file="${ORI_ONLY_POR_FILE}" -f ${REDUCER} \
 	${ORI_PR_FILE} ${ORI_TZ_FILE} ${ORI_CNT_FILE} ${ORI_POR_WITH_GEORFDALT} \
 	> ${ORI_POR_WITH_NO_CTY_NAME}
 
 ##
 # Write the UTF8 and ASCII names of the city served by every travel-related
-# point of reference (POR)
+# point of reference (POR).
+echo
+echo "City addition Step"
+echo "------------------"
+echo
 CITY_WRITER=add_city_name.awk
-awk -F'^' -f ${CITY_WRITER} \
+time awk -F'^' -f ${CITY_WRITER} \
 	${ORI_POR_WITH_NO_CTY_NAME} ${ORI_POR_WITH_NO_CTY_NAME} \
+	> ${ORI_POR_PUBLIC_WO_NOIATA_FILE}
+
+##
+# Extract the header into temporary files
+ORI_POR_FILE_HEADER=${ORI_POR_FILE}.tmp.hdr
+grep "^iata_code\(.\+\)" ${ORI_POR_PUBLIC_WO_NOIATA_FILE} \
+	> ${ORI_POR_FILE_HEADER}
+
+# Remove the headers
+sed -e "s/^iata_code\(.\+\)//g" ${ORI_POR_PUBLIC_WO_NOIATA_FILE} \
+	> ${ORI_POR_PUBLIC_WO_NOIATA_WITH_NOHD}
+sed -i -e "/^$/d" ${ORI_POR_PUBLIC_WO_NOIATA_WITH_NOHD}
+
+sed -e "s/^iata_code\(.\+\)//g" ${ORI_NOIATA_FILE} > ${ORI_NOIATA_WITH_NOHD}
+sed -i -e "/^$/d" ${ORI_NOIATA_WITH_NOHD}
+
+
+##
+# Add the non longer valid IATA entries.
+echo
+echo "No longer valid IATA Step"
+echo "-------------------------"
+echo
+NOIATA_ADDER=add_noiata_por.awk
+time awk -F'^' -f ${NOIATA_ADDER} \
+	${ORI_POR_PUBLIC_WO_NOIATA_WITH_NOHD} ${ORI_NOIATA_WITH_NOHD} \
+	> ${ORI_POR_PUBLIC_W_NOIATA_UNSORTED_WOHD}
+
+##
+# Sort the final file
+echo
+echo "Sorting Step"
+echo "------------"
+echo
+time sort -t'^' -k1,5 ${ORI_POR_PUBLIC_W_NOIATA_UNSORTED_WOHD} \
+	> ${ORI_POR_PUBLIC_W_NOIATA_UNSORTED_FILE}
+cat ${ORI_POR_FILE_HEADER} ${ORI_POR_PUBLIC_W_NOIATA_UNSORTED_FILE} \
 	> ${ORI_POR_PUBLIC_FILE}
+
 
 ##
 # Remove the header
@@ -309,7 +366,7 @@ echo
 echo "Reporting Step"
 echo "--------------"
 echo
-echo "wc -l ${ORI_POR_FILE} ${ORI_POR_PUBLIC_FILE} ${ORI_POR_WITH_GEO} ${ORI_POR_WITH_GEORFD} ${ORI_POR_WITH_GEORFDALT} ${ORI_POR_WITH_NO_CTY_NAME}"
+echo "wc -l ${ORI_POR_FILE} ${ORI_POR_PUBLIC_FILE} ${ORI_POR_PUBLIC_W_NOIATA_UNSORTED_FILE} ${ORI_POR_PUBLIC_W_NOIATA_UNSORTED_WOHD} ${ORI_POR_PUBLIC_WO_NOIATA_WITH_NOHD} ${ORI_POR_PUBLIC_WO_NOIATA_FILE} ${ORI_POR_WITH_GEO} ${ORI_POR_WITH_GEORFD} ${ORI_POR_WITH_GEORFDALT} ${ORI_POR_WITH_NO_CTY_NAME}"
 if [ -f ${ORI_ONLY_POR_NEW_FILE} ]
 then
 	NB_LINES_ORI_ONLY=`wc -l ${ORI_ONLY_POR_NEW_FILE}`
