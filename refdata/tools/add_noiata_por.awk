@@ -29,8 +29,10 @@ BEGIN {
 }
 
 ##
-# List of no longer valid POR: ori_por_no_longer_valid.csv file
-# That file has the exact same format as the output of ori_por_public.csv
+# List of:
+# * Re-formatted list of POR: ori_por_public.csv.wonoiata (temporary)
+# * No longer valid POR: ori_por_no_longer_valid.csv file
+# Those files have the exact same format as the output of ori_por_public.csv
 #
 # Sample input lines:
 # UNS^ZZZZ^^Y^8298981^1^Umnak Island Airport^Umnak Island Airport^53.38277^-167.88946^S^AIRP^^^1948-01-01^Air base closed after WWII, in 1947^US^^United States^North America^^^^^^^^^^^^America/USA^^^^-1^UMB^Umnak Island^UMB|5877180|Umnak Island|Umnak Island^^AK^A^http://en.wikipedia.org/wiki/Cape_Field_at_Fort_Glenn^
