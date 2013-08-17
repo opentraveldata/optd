@@ -45,6 +45,7 @@
 #  * RSVx:  Reservoir
 #  * BAYx:  Bay (e.g., South Way Bay)
 #  * HBRx:  Harbor (e.g., Port Canaveral)
+#  * DAM:   Dam (e.g., La Grande-3 Dam)
 #  * PANx:  Pan
 #  * CMPx:  Camp (e.g., Savuti Rest Camp)
 #  * PRK:   Park (e.g., Serengeti National Park)
