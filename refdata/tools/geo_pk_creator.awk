@@ -50,6 +50,7 @@
 #  * CMPx:  Camp (e.g., Savuti Rest Camp)
 #  * PRK:   Park (e.g., Serengeti National Park)
 #  * RESx:  Reserve (e.g., Maasai-Mara National Reserve)
+#  * PT:    Point (e.g., Long Point)
 #  * MTx:   Mountain (e.g., Mount Hotham)
 #  * MNx:   Mine (e.g., Osborne Mine)
 #  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
