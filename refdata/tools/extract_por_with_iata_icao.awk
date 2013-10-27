@@ -39,6 +39,7 @@
 #  * DAM:   Dam (e.g., La Grande-3 Dam)
 #  * PANx:  Pan
 #  * CMPx:  Camp (e.g., Savuti Rest Camp)
+#  * CHN:   Channel/sound (e.g., Greenway sound)
 #  * PRK:   Park (e.g., Serengeti National Park)
 #  * RESx:  Reserve (e.g., Maasai-Mara National Reserve)
 #  * PT:    Point (e.g., Long Point)
@@ -115,6 +116,7 @@ function is_tvl_or_cty (feat_code) {
 	is_city += match (feat_code, "^LK.*$") + match (feat_code, "^RSV.*$")
 	is_city += match (feat_code, "^BAY.*$") + match (feat_code, "^HBR.*$")
 	is_city += match (feat_code, "^PAN.*$") + match (feat_code, "^CMP.*$")
+	is_city += match (feat_code, "^CHN$")
 	is_city += match (feat_code, "^PRK.*$") + match (feat_code, "^RES.*$")
 	is_city += match (feat_code, "^PT$")
 	is_city += match (feat_code, "^MT.*$") + match (feat_code, "^MN.*$")
