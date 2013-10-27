@@ -127,6 +127,12 @@ RFD_SORTED_FILE=${TOOLS_DIR}${RFD_SORTED_FILENAME}
 RFD_CUT_SORTED_FILE=${TOOLS_DIR}${RFD_CUT_SORTED_FILENAME}
 
 ##
+# Innovata (to be found, as temporary files, within the ../tools directory)
+INNO_RAW_FILENAME=dump_from_innovata.csv
+#
+INNO_RAW_FILE=${TOOLS_DIR}${INNO_RAW_FILENAME}
+
+##
 # Target (generated files)
 ORI_POR_PUBLIC_FILENAME=ori_por_public.csv
 ORI_ONLY_POR_FILENAME=ori_only_por.csv
