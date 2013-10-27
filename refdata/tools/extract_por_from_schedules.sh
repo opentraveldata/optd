@@ -124,7 +124,7 @@ echo
 echo "Check that the ${LATEST_DUMP_POR_SKD_ALL_FILENAME} file is sorted:"
 echo "bzless ${LATEST_DUMP_POR_SKD_ALL_FILE}"
 echo "If not sorted, sort it:"
-echo "bzcat ${LATEST_DUMP_POR_SKD_ALL_FILE} | sort -t'^' -k1,1 -k2n,2 -k3n,3 | bzip2 > ${TMP_DUMP_POR_SKD_ALL} && mv -f ${TMP_DUMP_POR_SKD_ALL} ${LATEST_DUMP_POR_SKD_ALL_FILE}"
+echo "bzcat ${LATEST_DUMP_POR_SKD_ALL_FILE} | sort -t'^' -k1,1 -k4,4 -k5,5 | bzip2 > ${TMP_DUMP_POR_SKD_ALL} && mv -f ${TMP_DUMP_POR_SKD_ALL} ${LATEST_DUMP_POR_SKD_ALL_FILE}"
 
 ##
 # Counting
