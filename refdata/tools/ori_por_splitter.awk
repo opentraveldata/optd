@@ -44,6 +44,7 @@
 #  * DAM:   Dam (e.g., La Grande-3 Dam)
 #  * PANx:  Pan
 #  * CMPx:  Camp (e.g., Savuti Rest Camp)
+#  * CHN:   Channel/sound (e.g., Greenway sound)
 #  * PRK:   Park (e.g., Serengeti National Park)
 #  * RESx:  Reserve (e.g., Maasai-Mara National Reserve)
 #  * PT:    Point (e.g., Long Point)
@@ -611,6 +612,7 @@ BEGINFILE {
 	is_city += match (fcode, "LK") + match (fcode, "RSV")
 	is_city += match (fcode, "BAY") + match (fcode, "HBR")
 	is_city += match (fcode, "PAN") + match (fcode, "CMP")
+	is_city += match (fcode, "CHN")
 	is_city += match (fcode, "PRK") + match (fcode, "RES")
 	is_city += match (fcode, "PT")
 	is_city += match (fcode, "MT") + match (fcode, "MN")
