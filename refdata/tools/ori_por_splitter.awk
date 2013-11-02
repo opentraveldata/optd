@@ -49,6 +49,7 @@
 #  * RESx:  Reserve (e.g., Maasai-Mara National Reserve)
 #  * PT:    Point (e.g., Long Point)
 #  * MTx:   Mountain (e.g., Mount Hotham)
+#  * RK:    Rock (e.g., Ayers Rock)
 #  * MNx:   Mine (e.g., Osborne Mine)
 #  * AIRB:  Air base; AIRF: Air field; AIRP: Airport; AIRS: Seaplane landing
 #           field
@@ -614,8 +615,8 @@ BEGINFILE {
 	is_city += match (fcode, "PAN") + match (fcode, "CMP")
 	is_city += match (fcode, "CHN")
 	is_city += match (fcode, "PRK") + match (fcode, "RES")
-	is_city += match (fcode, "PT")
-	is_city += match (fcode, "MT") + match (fcode, "MN")
+	is_city += match (fcode, "PT") + match (fcode, "MT")
+	is_city += match (fcode, "RK") + match (fcode, "MN")
 
 	# Travel-related part
 	is_airport = match (fcode, "AIRB") + match (fcode, "AIRF")
