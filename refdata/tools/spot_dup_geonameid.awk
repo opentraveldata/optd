@@ -21,13 +21,20 @@
 #  * Geonames ID=6299466: MLH and BSL
 #  ** BSL-A-6299466^BSL^47.58958^7.52991^EAP^
 #  ** MLH-A-6299466^MLH^47.58958^7.52991^EAP^
+#  * Geonames ID=7730274: DNM and MJK
+#  ** DNM-A-7730274^DNM^-25.88937^113.57554^DNM^
+#  ** MJK-A-7730274^MJK^-25.88937^113.57554^MJK^
+#  * Geonames ID=3394605: MTE and QGD
+#  ** MTE-C-3394605^MTE^-2.00082^-54.08102^MTE^
+#  ** QGD-C-3394605^QGD^-2.00082^-54.08102^QGD^
+#  * Geonames ID=3572604: COX and TZN
+#  ** COX-A-3572604^COX^24.15745^-77.58356^COX^
+#  ** TZN-A-3572604^TZN^24.15745^-77.58356^TZN^
+#  * Geonames ID=6299819: ENQ and XPL
+#  ** ENQ-A-6299819^ENQ^14.38237^-87.62116^XPL^
+#  ** XPL-A-6299819^XPL^14.38237^-87.62116^XPL^
 #
 
-# Two POR entries have been detected for Geoname ID=7730274: DNM and MJK
-# Two POR entries have been detected for Geoname ID=3394605: MTE and QGD
-# Two POR entries have been detected for Geoname ID=3571949: MAY and TZN
-# Two POR entries have been detected for Geoname ID=6299819: ENQ and XPL
-# Two POR entries have been detected for Geoname ID=6296264: YCA and YQQ
 
 ##
 # Import the AWK Geo library
