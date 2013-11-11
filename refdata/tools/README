@@ -28,7 +28,7 @@ cd -
 ./extract_por_with_iata_icao.sh
 
 # Generates the dump_from_geonames.csv from the four data files obtained above
-./preprepare_geonames_dump_file.sh
+#./preprepare_geonames_dump_file.sh (no longer used)
 
 # Recompute the ORI-maintained POR file: do 1.1.
 
@@ -43,27 +43,46 @@ cd -
 
 # Recompute the ORI-maintained POR file: do 1.1.
 
+##
+# 2.2. Update from Innovata
+# -------------------------
+#
+# The Innovata data may be updated, i.e., new Innovata data files have been
+# downloaded and the dump_from_innovata.csv has to be recomputed.
+# That file is just used for comparison purpose.
+#
+
 
 ##
 # 3.1. Compute the differences among all the POR files
 # ----------------------------------------------------
 #
 
-./compare_por_files.sh \
-  dump_from_geonames.csv ../ORI/ori_por_best_known_so_far.csv \
-  ../ORI/ref_airport_pageranked.csv 0
+./compare_por_files.sh
 
 # A data file, summing up all the differences, is generated, namely
-# 'por_main_diff.csv'. Those differences correspond to the geographical distance
-# weighted by the airport importance (expressed as the PageRank derived from
-# the flight schedules for a whole year). That file is sorted by decreasing
-# differences.
-less por_main_diff.csv
+# 'ori_por_diff_w_geonames.csv'. Those differences correspond to the
+# geographical distance weighted by the airport importance (expressed
+# as the PageRank derived from the flight schedules for a whole year).
+# That file is sorted by decreasing differences.
+less ori_por_diff_w_geonames.csv
+diff -c ori_por_diff_w_geonames.csv ../ORI/ori_por_diff_w_geonames.csv
 
-# To see the respective details of a given POR (point of reference), just type
-# something like:
+# When the differences have been analysed:
+\mv -f ori_por_diff_w_geonames.csv ../ORI/ori_por_diff_w_geonames.csv
+git add ../ORI/ori_por_diff_w_geonames.csv
+
+
+# To see the respective details of a given POR (point of reference), a reminder
+# script is available:
+./extract_por_info.sh
+
+# It should give something like:
 grep "^LHR" ../ORI/ori_por_best_known_so_far.csv \
-	 dump_from_crb_city.csv dump_from_geonames.csv
+	 dump_from_crb_city.csv dump_from_geonames.csv dump_from_innovata.csv \
+     ../ORI/por_in_schedule/por_schedule_counts_2011_01_to_2013_10.csv \
+     ../ORI/ref_airport_pageranked.csv
+
 
 # Then, compare
 # a. in Geonames:
@@ -178,6 +197,45 @@ git diff --cached ../ORI/ori_por_best_known_so_far.csv
 # has been updated
 
 
+##
+# 9. Check issues with Geonames ID on ORI POR
+# -------------------------------------------
+#
+sh prepare_geonames_dump_file.sh ../ 5
+sh prepare_geonames_dump_file.sh --clean
+\rm -f wpk_dump_from_geonames.csv
+
+
+##
+# 10. Spot POR having distinct IATA codes but having the same Geonames ID
+# -----------------------------------------------------------------------
+#
+./spot_dup_geonameid.sh
+
+
+##
+# 11. Spot POR for which Geonames may be improved
+# -----------------------------------------------
+#
+./extract_por_for_geonames.sh
+
+
+##
+# 12. Extract POR information from schedules
+# ------------------------------------------
+#
+./extract_por_from_schedules.sh
+
+
+##
+# 13. Extract airport-related POR missing from Geonames
+# -----------------------------------------------------
+#
+./generate_por_apt_list_for_geonames.sh
+wc -l ../ORI/ori_por_apt_for_geonames.csv
+less ../ORI/ori_por_apt_for_geonames.csv
+
+
 ##--------------------------------------------------------------------##
 
 
@@ -204,7 +262,7 @@ refdata/geonames/data/por/admin/aggregateGeonamesPor.sh
 
 * For Geonames data extraction:
 refdata/tools/extract_por_with_iata_icao.awk
-refdata/tools/preprepare_geonames_dump_file.sh
+#refdata/tools/preprepare_geonames_dump_file.sh (no longer used)
 
 * For ORI-maintained data file processing:
 refdata/ORI/make_ori_por_public.sh
