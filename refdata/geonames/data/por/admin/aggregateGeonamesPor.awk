@@ -154,11 +154,11 @@ BEGIN {
 	cont_list["ZZ"] = "Not relevant/available"
 
 	# Header
-	printf ("%s", "iata_code^icao_code^geonameid")
+	printf ("%s", "iata_code^icao_code^faac_code^geonameid")
 	printf ("%s", "^name^asciiname^latitude^longitude")
-	printf ("%s", "^country^cc2^ctry_name^continent^fclass^fcode")
-	printf ("%s", "^adm1^adm1_name_utf^adm1_name_ascii")
-	printf ("%s", "^adm2^adm2_name_utf^adm2_name_ascii^adm3^adm4")
+	printf ("%s", "^country_code^cc2^country_name^continent_name^fclass^fcode")
+	printf ("%s", "^adm1_code^adm1_name_utf^adm1_name_ascii")
+	printf ("%s", "^adm2_code^adm2_name_utf^adm2_name_ascii^adm3^adm4")
 	printf ("%s", "^population^elevation^gtopo30")
 	printf ("%s", "^timezone^GMT_offset^DST_offset^raw_offset")
 	printf ("%s", "^moddate")
