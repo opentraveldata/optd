@@ -191,6 +191,8 @@ function isFeatCodeAirport(__ifcaParamFeatureCode) {
 	__resultIsAirport += match (__ifcaParamFeatureCode, "AIRB")
 	# Sea plane base (AIRS), a.k.a. SPB
 	__resultIsAirport += match (__ifcaParamFeatureCode, "AIRS")
+	# Abandonned airport (AIRQ)
+	__resultIsAirport += match (__ifcaParamFeatureCode, "AIRQ")
 
 	return __resultIsAirport
 }

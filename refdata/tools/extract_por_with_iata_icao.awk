@@ -84,12 +84,12 @@ BEGIN {
 	#
 	por_lines = 0
 
-	#
-	if (iata_tvl_file == "") {
-		iata_tvl_file = "/dev/stdout"
+	# Output files
+	if (iata_file == "") {
+		iata_file = "/dev/stdout"
 	}
-	if (iata_cty_file == "") {
-		iata_cty_file = "/dev/stdout"
+	if (noiata_file == "") {
+		noiata_file = "/dev/stdout"
 	}
 }
 
@@ -101,49 +101,32 @@ BEGIN {
 	hdr_line = $0
 
 	# Print the header
-	print (hdr_line) > iata_all_file
+	print (hdr_line) > iata_file
+	print (hdr_line) > noiata_file
 }
 
 ##
-# POR entries having neither a IATA, ICAO nor a FAA code (vast majority of
-# the POR).
-# Sample:
+# POR entries having no IATA code (vast majority of the POR).
+#
+#
+# Samples:
+# ========
+#
+# No code
+# -------
 # ^^^3022309^Cros-de-Cagnes^Cros-de-Cagnes^43.66405^7.1722^FR^^France^Europe^P^PPL^B8^Provence-Alpes-Côte d'Azur^Provence-Alpes-Cote d'Azur^06^Département des Alpes-Maritimes^Departement des Alpes-Maritimes^061^06027^0^2^19^Europe/Paris^1.0^2.0^1.0^2012-02-27^Cros-de-Cagnes^^|Cros-de-Cagnes|
 #
-/^\^\^\^([0-9]{1,9})\^.*\^([0-9]{4}-[0-9]{2}-[0-9]{2})/ {
-	# Feature code
-	fcode = $14
-
-	# Calculate whether it is travel- or city-related
-	if (isFeatCodeTvlRtd(fcode) >= 1 || isFeatCodeCity(fcode) >= 1) {
-		# Set the IATA, ICAO and FAA codes to "NULL". AWK recalculates
-		# the whole line ($0).
-		OFS = FS
-		$1 = "NULL"
-		$2 = "NULL"
-		$3 = ""
-
-		# 
-		print ($0) > iata_nocode_file
-	}
-}
-
-##
-# POR entries having only a ICAO or a FAA code (and no IATA code)
-# Sample:
+# ICAO code
+# ---------
 # ^BGKS^^7730417^Kangersuatsiaq Heliport^Kangersuatsiaq Heliport^72.39667^-55.555^GL^^Greenland^America^S^AIRH^03^^^^^^^^0^^-9999^America/Godthab^-3.0^-2.0^-3.0^2012-02-26^BGKS,KAQ^http://en.wikipedia.org/wiki/Kangersuatsiaq_Heliport
 #
-/^\^([A-Z0-9]{4})\^([A-Z0-9]{0,4})\^([0-9]{1,9})\^.*\^([0-9]{4}-[0-9]{2}-[0-9]{2})/ {
+/^([A-Z0-9]{4}|)\^([A-Z0-9]{0,4})\^([0-9]{1,9})\^.*\^([0-9]{4}-[0-9]{2}-[0-9]{2})/ {
 	# Feature code
 	fcode = $14
 
-	# Calculate whether it is travel- or city-related
+	# Dump the line when the POR is either travel- or city-related
 	if (isFeatCodeTvlRtd(fcode) >= 1 || isFeatCodeCity(fcode) >= 1) {
-		# Set the IATA code to "NULL". AWK recalculates the whole line ($0).
-		OFS = FS
-		$1 = "NULL"
-
-		print ($0) > iata_icaoonly_file
+		print ($0) > noiata_file
 	}
 }
 
@@ -159,7 +142,7 @@ BEGIN {
 	por_lines++
 
 	#
-	print ($0) > iata_all_file
+	print ($0) > iata_file
 }
 
 

@@ -475,7 +475,7 @@ function printAltNameSection(myAltNameSection) {
 		isGeonames = "N"
 
 		# IATA code ^ ICAO code ^ FAA ^ Is in Geonames ^ GeonameID ^ Validity ID
-		printf ("%s", iata_code "^ZZZZ^^" isGeonames "^" geonameID "^")
+		printf ("%s", iata_code "^^^" isGeonames "^" geonameID "^")
 
 		# ^ Name ^ ASCII name
 		printf ("%s", "^" $12 "^" $12)
@@ -722,7 +722,7 @@ function printAltNameSection(myAltNameSection) {
 		isGeonames = "N"
 
 		# IATA code ^ ICAO code ^ FAA ^ Is in Geonames ^ GeonameID ^ Validity ID
-		printf ("%s", iata_code "^ZZZZ^^" isGeonames "^" geonameID "^") \
+		printf ("%s", iata_code "^^^" isGeonames "^" geonameID "^") \
 			> non_ori_por_file
 
 		# ^ Name ^ ASCII name
@@ -745,7 +745,7 @@ function printAltNameSection(myAltNameSection) {
 		printf ("%s", "^" $6 "^^") > non_ori_por_file
 
 		# ^ Country code ^ Alt. country codes ^ Country name
-		printf ("%s", "^" "ZZ" "^" "Zzzzz") > non_ori_por_file
+		printf ("%s", "^" "ZZ" "^" "No country") > non_ori_por_file
 
 		# ^ Admin1 code ^ Admin1 UTF8 name ^ Admin1 ASCII name
 		printf ("%s", "^^^") > non_ori_por_file
