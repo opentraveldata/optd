@@ -120,7 +120,7 @@ BEGIN {
 # ---------
 # ^BGKS^^7730417^Kangersuatsiaq Heliport^Kangersuatsiaq Heliport^72.39667^-55.555^GL^^Greenland^America^S^AIRH^03^^^^^^^^0^^-9999^America/Godthab^-3.0^-2.0^-3.0^2012-02-26^BGKS,KAQ^http://en.wikipedia.org/wiki/Kangersuatsiaq_Heliport
 #
-/^([A-Z0-9]{4}|)\^([A-Z0-9]{0,4})\^([0-9]{1,9})\^.*\^([0-9]{4}-[0-9]{2}-[0-9]{2})/ {
+/^\^([A-Z0-9]{4}|)\^([A-Z0-9]{0,4})\^([0-9]{1,9})\^.*\^([0-9]{4}-[0-9]{2}-[0-9]{2})/ {
 	# Feature code
 	fcode = $14
 
