@@ -226,7 +226,7 @@ echo "awk -F'^' '{if (\$5 == 0 && \$6 == \"\" && \$13 != \"\" && match (\$42, \"
 ##
 # Valid non-Geonames bus POR, appearing in schedules (i.e., important)
 NB_POR=`awk -F'^' '{if ($5 == 0 && $6 == "" && $13 != "" && match ($42, "B")) {print $0}}' ${ORI_POR_PUBLIC_FILE} | wc -l`
-echo "${NB_POR} railway stations:"
+echo "${NB_POR} bus stations:"
 echo "awk -F'^' '{if (\$5 == 0 && \$6 == \"\" && \$13 != \"\" && match (\$42, \"B\")) {print \$0}}' ${ORI_POR_PUBLIC_FILE} | less"
 
 ##
