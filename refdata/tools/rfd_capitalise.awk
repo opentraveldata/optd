@@ -23,70 +23,8 @@
 #
 
 ##
-# Support function to capitalise all the words of a given string
-function capitaliseWords(myString) {
-	# Current string
-	rmgStr = myString
-
-	# Target string
-	genStr = ""
-
-	# Loop until there is no more match (on words)
-	while (idx = match (rmgStr, /(\/?[[:alpha:]]+)/)) {
-
-		# Extract a single-character prefix, if any
-		prefixChar = substr (rmgStr, idx, 1)
-
-		# When the word is prefixed by a slash ('/'), it is most probably
-		# a country or state code. In that latter case, it should not be
-		# capitalised.
-		matchLen = RLENGTH
-		if (prefixChar == "/") {
-			idx++
-			matchLen--
-		}
-
-		# Extract the (matched) word
-		wordStr = substr (rmgStr, idx, matchLen)
-
-		# Insulate the first letter
-		firstLetter = substr (wordStr, 1, 1)
-
-		# Insulate the remaining letters, if any
-		if (matchLen >= 2) {
-			rmgLetters = substr (wordStr, 2)
-		} else {
-			rmgLetters = ""
-		}
-
-		# DEBUG
-		# print ("idx=" idx ", pfx=" prefixChar ", fl=" firstLetter \
-		#	   ", rmg=" rmgLetters ", rlen=" matchLen ", word=" wordStr)
-
-		if (prefixChar != "/") {
-			# Capitalise the word
-			firstLetter = toupper (firstLetter)
-			rmgLetters = tolower (rmgLetters)
-		}
-
-		# Re-aggregate the (now capitalised) word
-		wordStr = firstLetter rmgLetters
-
-		# Add the separator (white space here)
-		if (genStr != "") {
-			genStr = genStr " "
-		}
-
-		# Add the capitalised work to the target string
-		genStr = genStr wordStr
-
-		# Remove the match from the current string
-		rmgStr = substr (rmgStr, idx + matchLen)
-	}
-
-	return genStr
-}
-
+# Helper functions
+@include "awklib/geo_lib.awk"
 
 ##
 #

@@ -118,6 +118,71 @@ function displayLists() {
 }
 
 ##
+# Support function to capitalise all the words of a given string
+function capitaliseWords(__cwInStr) {
+	# Current string
+	__cwRmgStr = __cwInStr
+
+	# Target string
+	__cwGenStr = ""
+
+	# Loop until there is no more match (on words)
+	while (__cwIdx = match (__cwRmgStr, /(\/?[[:alpha:]]+)/)) {
+
+		# Extract a single-character prefix, if any
+		__cwPrefixChar = substr (__cwRmgStr, __cwIdx, 1)
+
+		# When the word is prefixed by a slash ('/'), it is most probably
+		# a country or state code. In that latter case, it should not be
+		# capitalised.
+		__cwMatchLen = RLENGTH
+		if (__cwPrefixChar == "/") {
+			__cwIdx++
+			__cwMatchLen--
+		}
+
+		# Extract the (matched) word
+		__cwWordStr = substr (__cwRmgStr, __cwIdx, __cwMatchLen)
+
+		# Insulate the first letter
+		__cwFirstLetter = substr (__cwWordStr, 1, 1)
+
+		# Insulate the remaining letters, if any
+		if (__cwMatchLen >= 2) {
+			__cwRmgLetters = substr (__cwWordStr, 2)
+		} else {
+			__cwRmgLetters = ""
+		}
+
+		# DEBUG
+		# print ("idx=" __cwIdx ", pfx=" __cwPrefixChar ", fl=" __cwFirstLetter \
+		#	   ", rmg=" __cwRmgLetters ", rlen=" __cwMatchLen ", word=" __cwWordStr)
+
+		if (__cwPrefixChar != "/") {
+			# Capitalise the word
+			__cwFirstLetter = toupper (__cwFirstLetter)
+			__cwRmgLetters = tolower (__cwRmgLetters)
+		}
+
+		# Re-aggregate the (now capitalised) word
+		__cwWordStr = __cwFirstLetter __cwRmgLetters
+
+		# Add the separator (white space here)
+		if (__cwGenStr != "") {
+			__cwGenStr = __cwGenStr " "
+		}
+
+		# Add the capitalised work to the target string
+		__cwGenStr = __cwGenStr __cwWordStr
+
+		# Remove the match from the current string
+		__cwRmgStr = substr (__cwRmgStr, __cwIdx + __cwMatchLen)
+	}
+
+	return __cwGenStr
+}
+
+##
 # State whether the POR is (matches with) a city
 function isLocTypeCity(__iltcParamLocationType) {
 	__resultIsCity = match (__iltcParamLocationType, "[C]")
