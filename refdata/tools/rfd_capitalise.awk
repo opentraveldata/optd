@@ -1,7 +1,9 @@
 ##
 # That AWK script capitalises the names within the Amadeus RFD dump file.
 #
-# The format of the Amadeus RFD dump file is assumed to be the following:
+# The format of the Amadeus RFD dump file is assumed to be one of the following:
+#
+# full RFD dump
 # - [1]  iata_code^
 # - [2]  location_type^
 # - [3]  ticketing_name^
@@ -21,6 +23,15 @@
 # - [17] numeric_code^
 # - [18] is_commercial
 #
+# airline RFD dump
+# - [1]  NEW_CODE^ #ICAO 3 digit code
+# - [2]  OLD_CODE^ #IATA 2 digit code
+# - [3]  NUM_CODE^ #numeric code which is mainly used in ticket
+# - [4]  NAME^
+# - [5]  TICKETING_NAME^ #often the same as NAME
+# - [6]  CODE #one line appears with ICAO code, another line with IATA code 
+
+
 
 ##
 # Helper functions
@@ -33,6 +44,8 @@ BEGIN {
 	error_stream = "/dev/stderr"
 	awk_file = "rfd_capitalise.awk"
 	idx_por = 0
+	# Override the output separator (to be equal to the input one)
+	OFS = FS
 }
 
 
@@ -60,7 +73,7 @@ BEGIN {
 #  NCE^CA^NICE^COTE D AZUR^NICE^NICE/FR:COTE D AZUR
 #    ^NICE^NCE^Y^^FR^EUROP^ITC2^FR052^43.6653^7.215^^Y
 #
-/^([A-Z]{3})\^([A-Z]*)\^/ {
+/^([A-Z]{3})\^([A-Z]*)\^([A-Z]*)\^/ {
 	# DEBUG
 	#idx_por++
 	#if (idx_por >= 2) {
@@ -76,9 +89,6 @@ BEGIN {
 			   "' IATA code; the number of fields is not equal to 18 "	\
 			   "- Full line: " $0) > error_stream
 	}
-
-	# Override the output separator (to be equal to the input one)
-	OFS = FS
 
 	# Ticketing name
 	ticketing_name = capitaliseWords($3)
@@ -105,6 +115,38 @@ BEGIN {
 
 }
 
+##
+# RFD airline
+# Sample lines (truncated):
+#  ^*A^0^STAR ALLIANCE^^*A
+#  ^*Q^0^THE QUALIFLYER GROUP^^*Q
+#  ^*S^0^SKYTEAM^^*S
+#  ^0B^671^BLUE AIR^^0B
+#  ^0C^0^CATOVAIR^CATOVAIR^0C
+#  DWT^0D^779^DARWIN AIRLINE^DARWIN^0D
+#  ^0G^0^GHADAMES AIR TRANSPORT^^0G
+#  KRT^0K^0^AIRCOMPANY KOKSHETAU^^0K
+#
+/^([A-Z]{3})?\^([*A-Z0-9]{2}\^[0-9]*)\^/ {
+
+	# Sanity check: if the fields change, it is wiser to be warned.
+	if (NF != 6) {
+		print ("[" awk_file "] !!!! Error at line #" FNR " for the '" iata_code \
+			   "' IATA code; " NF " fields instead of 6 "	\
+			   "- Full line: " $0) > error_stream
+	}
+
+	# airline name
+	airline_name = capitaliseWords($4)
+	$4 = airline_name
+
+	# Teleticketing name
+	teleticketing_name = capitaliseWords($5)
+	$5 = teleticketing_name
+	
+	# Print the amended line
+	print ($0)
+}
 #
 ENDFILE {
 	# DEBUG
