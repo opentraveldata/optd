@@ -249,7 +249,7 @@ fi
 ##
 # Preparation
 bash prepare_geonames_dump_file.sh ${OPTD_DIR} ${LOG_LEVEL} || exit -1
-bash prepare_rfd_dump_file.sh ${OPTD_DIR} ${RFD_RAW_FILE} ${LOG_LEVEL} || exit -1
+bash prepare_rfd_dump_file.sh ${OPTD_DIR} ${TOOLS_DIR} ${LOG_LEVEL} || exit -1
 
 ##
 #

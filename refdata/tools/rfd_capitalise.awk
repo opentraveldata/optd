@@ -1,9 +1,9 @@
 ##
-# That AWK script capitalises the names within the Amadeus RFD dump file.
+# That AWK script capitalises the names within the Amadeus RFD dump files.
 #
-# The format of the Amadeus RFD dump file is assumed to be one of the following:
+# The format of the Amadeus RFD dump files is assumed to be as per the following:
 #
-# full RFD dump
+# RFD geographical dump (CRB_CITY)
 # - [1]  iata_code^
 # - [2]  location_type^
 # - [3]  ticketing_name^
@@ -23,7 +23,7 @@
 # - [17] numeric_code^
 # - [18] is_commercial
 #
-# airline RFD dump
+# RFD airline dump (CRB_AIRLINE)
 # - [1]  NEW_CODE^ #ICAO 3 digit code
 # - [2]  OLD_CODE^ #IATA 2 digit code
 # - [3]  NUM_CODE^ #numeric code which is mainly used in ticket
@@ -44,8 +44,6 @@ BEGIN {
 	error_stream = "/dev/stderr"
 	awk_file = "rfd_capitalise.awk"
 	idx_por = 0
-	# Override the output separator (to be equal to the input one)
-	OFS = FS
 }
 
 
@@ -53,15 +51,15 @@ BEGIN {
 ## Amadeus RFD dump file
 
 ##
-# Amadeus RFD header line
+# RFD geographical header line
 /^iata_code/ {
 	print ($0)
 }
 
 ##
-# Amadeus RFD regular lines
+# Amadeus RFD geographical file regular lines
 # Sample lines (truncated):
-#  BFJ^^BA^BUCKLEY ANGB^BA^BA/FJ:BA^BA^BFJ^Y^^FJ^AUSTL^ITC3^FJ169^^^^N
+#  DUN^^DUNDAS^^DUNDAS^DUNDAS/GL^DUNDAS^DUN^Y^^GL^EUROP^ITC1^GL055^^^^N
 #  IEV^CA^KIEV ZHULIANY INT^ZHULIANY INTL^KIEV ZHULIANY I^KIEV/UA:ZHULIANY INTL
 #    ^KIEV^IEV^Y^^UA^EURAS^ITC2^UA127^50.4^30.4667^2082^Y
 #  KBP^A^KIEV BORYSPIL^BORYSPIL INTL^KIEV BORYSPIL^KIEV/UA:BORYSPIL INTL
@@ -73,7 +71,7 @@ BEGIN {
 #  NCE^CA^NICE^COTE D AZUR^NICE^NICE/FR:COTE D AZUR
 #    ^NICE^NCE^Y^^FR^EUROP^ITC2^FR052^43.6653^7.215^^Y
 #
-/^([A-Z]{3})\^([A-Z]*)\^([A-Z]*)\^/ {
+/^([A-Z]{3})\^([A-Z]{0,2})\^(.*)\^([YN])$/ {
 	# DEBUG
 	#idx_por++
 	#if (idx_por >= 2) {
@@ -89,6 +87,9 @@ BEGIN {
 			   "' IATA code; the number of fields is not equal to 18 "	\
 			   "- Full line: " $0) > error_stream
 	}
+
+	# Override the output separator (to be equal to the input one)
+	OFS = FS
 
 	# Ticketing name
 	ticketing_name = capitaliseWords($3)
@@ -116,37 +117,45 @@ BEGIN {
 }
 
 ##
-# RFD airline
+# RFD airline file regular lines
 # Sample lines (truncated):
-#  ^*A^0^STAR ALLIANCE^^*A
-#  ^*Q^0^THE QUALIFLYER GROUP^^*Q
-#  ^*S^0^SKYTEAM^^*S
-#  ^0B^671^BLUE AIR^^0B
-#  ^0C^0^CATOVAIR^CATOVAIR^0C
-#  DWT^0D^779^DARWIN AIRLINE^DARWIN^0D
-#  ^0G^0^GHADAMES AIR TRANSPORT^^0G
-#  KRT^0K^0^AIRCOMPANY KOKSHETAU^^0K
+#  *A^^*A^0^STAR ALLIANCE^
+#  *O^^*O^0^ONEWORLD^
+#  *S^^*S^0^SKYTEAM^
+#  AF^AFR^AF^57^AIR FRANCE^AIR FRANCE
+#  AFR^AFR^AF^57^AIR FRANCE^AIR FRANCE
+#  BA^BAW^BA^125^BRITISH AIRWAYS^BRITISH A/W
+#  BAW^BAW^BA^125^BRITISH AIRWAYS^BRITISH A/W
+#  DLH^DLH^LH^220^LUFTHANSA^LUFTHANSA
+#  LH^DLH^LH^220^LUFTHANSA^LUFTHANSA
 #
-/^([A-Z]{3})?\^([*A-Z0-9]{2}\^[0-9]*)\^/ {
+/^([*A-Z0-9]{2,3})\^([A-Z]{3})?\^([*A-Z0-9]{2})\^([0-9]+)\^/ {
 
-	# Sanity check: if the fields change, it is wiser to be warned.
-	if (NF != 6) {
+	# Sanity check: if the format (here, the number of fields) changes,
+	# it is wiser to be warned.
+	exp_nb_fields = 6
+	if (NF != exp_nb_fields) {
 		print ("[" awk_file "] !!!! Error at line #" FNR " for the '" iata_code \
-			   "' IATA code; " NF " fields instead of 6 "	\
+			   "' IATA code (in the dump_from_crb_airline.csv file); " NF \
+			   " fields instead of " exp_nb_fields						\
 			   "- Full line: " $0) > error_stream
 	}
 
-	# airline name
-	airline_name = capitaliseWords($4)
-	$4 = airline_name
+	# Override the output separator (to be equal to the input one)
+	OFS = FS
 
-	# Teleticketing name
-	teleticketing_name = capitaliseWords($5)
-	$5 = teleticketing_name
+	# Airline name
+	airline_name = capitaliseWords($5)
+	$5 = airline_name
+
+	# Ticketing name
+	ticketing_name = capitaliseWords($6)
+	$6 = ticketing_name
 	
 	# Print the amended line
 	print ($0)
 }
+
 #
 ENDFILE {
 	# DEBUG

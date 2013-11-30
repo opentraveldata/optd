@@ -83,7 +83,8 @@ displayRfdDetails() {
 
 ##
 # Input file names
-RFD_RAW_FILENAME=dump_from_crb_city.csv
+AIR_RFD_FILENAME=dump_from_crb_airline.csv
+GEO_RFD_FILENAME=dump_from_crb_city.csv
 GEO_ORI_FILENAME=ori_por_best_known_so_far.csv
 
 ##
@@ -107,7 +108,7 @@ then
 fi
 # If the RFD dump file is in the current directory, then the current
 # directory is certainly intended to be the temporary directory.
-if [ -f ${RFD_RAW_FILENAME} ]
+if [ -f ${GEO_RFD_FILENAME} ]
 then
 	TMP_DIR="."
 fi
@@ -140,6 +141,7 @@ OPTD_DIR="${OPTD_DIR}/"
 # ORI sub-directory
 ORI_DIR=${OPTD_DIR}ORI/
 TOOLS_DIR=${OPTD_DIR}tools/
+RFD_DIR=${TOOLS_DIR}
 
 ##
 # Log level
@@ -147,20 +149,23 @@ LOG_LEVEL=4
 
 ##
 # Input files
-RFD_RAW_FILE=${TOOLS_DIR}${RFD_RAW_FILENAME}
+AIR_RFD_FILE=${TOOLS_DIR}${AIR_RFD_FILENAME}
+GEO_RFD_FILE=${TOOLS_DIR}${GEO_RFD_FILENAME}
 GEO_ORI_FILE=${ORI_DIR}${GEO_ORI_FILENAME}
 
 ##
 # Amadeus RFD
-RFD_CAP_FILENAME=cap_${RFD_RAW_FILENAME}
-RFD_WPK_FILENAME=wpk_${RFD_RAW_FILENAME}
-SORTED_RFD_WPK_FILENAME=sorted_${RFD_WPK_FILENAME}
-SORTED_CUT_RFD_WPK_FILENAME=cut_${SORTED_RFD_WPK_FILENAME}
+AIR_RFD_CAP_FILENAME=cap_${AIR_RFD_FILENAME}
+GEO_RFD_CAP_FILENAME=cap_${GEO_RFD_FILENAME}
+GEO_RFD_WPK_FILENAME=wpk_${GEO_RFD_FILENAME}
+SORTED_GEO_RFD_WPK_FILENAME=sorted_${GEO_RFD_WPK_FILENAME}
+SORTED_CUT_GEO_RFD_WPK_FILENAME=cut_${SORTED_GEO_RFD_WPK_FILENAME}
 #
-RFD_CAP_FILE=${TMP_DIR}${RFD_CAP_FILENAME}
-RFD_WPK_FILE=${TMP_DIR}${RFD_WPK_FILENAME}
-SORTED_RFD_WPK_FILE=${TMP_DIR}${SORTED_RFD_WPK_FILENAME}
-SORTED_CUT_RFD_WPK_FILE=${TMP_DIR}${SORTED_CUT_RFD_WPK_FILENAME}
+AIR_RFD_CAP_FILE=${TMP_DIR}${AIR_RFD_CAP_FILENAME}
+GEO_RFD_CAP_FILE=${TMP_DIR}${GEO_RFD_CAP_FILENAME}
+GEO_RFD_WPK_FILE=${TMP_DIR}${GEO_RFD_WPK_FILENAME}
+SORTED_GEO_RFD_WPK_FILE=${TMP_DIR}${SORTED_GEO_RFD_WPK_FILENAME}
+SORTED_CUT_GEO_RFD_WPK_FILE=${TMP_DIR}${SORTED_CUT_GEO_RFD_WPK_FILENAME}
 
 
 ##
@@ -171,8 +176,8 @@ then
 	then
 		\rm -rf ${TMP_DIR}
 	else
-		\rm -f ${SORTED_RFD_WPK_FILE} ${SORTED_CUT_RFD_WPK_FILE}
-		\rm -f ${RFD_CAP_FILE} ${RFD_WPK_FILE}
+		\rm -f ${SORTED_GEO_RFD_WPK_FILE} ${SORTED_CUT_GEO_RFD_WPK_FILE}
+		\rm -f ${AIR_RFD_CAP_FILE} ${GEO_RFD_CAP_FILE} ${GEO_RFD_WPK_FILE}
 	fi
 	exit
 fi
@@ -183,17 +188,20 @@ fi
 if [ "$1" = "-h" -o "$1" = "--help" ]
 then
 	echo
-	echo "Usage: $0 [<refdata directory of the OpenTravelData project Git clone> [<Amadeus RFD CRB_CITY data dump file> [<log level>]]]"
+	echo "Usage: $0 [<refdata directory of the OpenTravelData project Git clone> [<Amadeus RFD directory for data dump files> [<log level>]]]"
 	echo "  - Default refdata directory for the OpenTravelData project Git clone: '${OPTD_DIR}'"
 	echo "  - Default path for the ORI-maintained file of best known coordinates: '${GEO_ORI_FILE}'"
-	echo "  - Default path for the Amadeus RFD CRB_CITY data dump file: '${RFD_RAW_FILE}'"
+	echo "  - Default path for the Amadeus RFD data dump files: '${RFD_DIR}'"
+	echo "    + 'Airlines (CRB_AIRLINE): ${AIR_RFD_FILE}'"
+	echo "    + 'Airports/cities (CRB_CITY): ${GEO_RFD_FILE}'"
 	echo "  - Default log level: ${LOG_LEVEL}"
 	echo "    + 0: No log; 1: Critical; 2: Error; 3; Notification; 4: Debug; 5: Verbose"
 	echo "  - Generated files:"
-	echo "    + '${RFD_CAP_FILE}'"
-	echo "    + '${RFD_WPK_FILE}'"
-	echo "    + '${SORTED_RFD_WPK_FILE}'"
-	echo "    + '${SORTED_CUT_RFD_WPK_FILE}'"
+	echo "    + '${AIR_RFD_CAP_FILE}'"
+	echo "    + '${GEO_RFD_CAP_FILE}'"
+	echo "    + '${GEO_RFD_WPK_FILE}'"
+	echo "    + '${SORTED_GEO_RFD_WPK_FILE}'"
+	echo "    + '${SORTED_CUT_GEO_RFD_WPK_FILE}'"
 	echo
 	exit
 fi
@@ -226,6 +234,7 @@ then
 	OPTD_DIR="${OPTD_DIR_DIR}/${OPTD_DIR_BASE}/"
 	ORI_DIR=${OPTD_DIR}ORI/
 	TOOLS_DIR=${OPTD_DIR}tools/
+	RFD_DIR=${TOOLS_DIR}
 	GEO_ORI_FILE=${ORI_DIR}${GEO_ORI_FILENAME}
 fi
 
@@ -245,32 +254,41 @@ fi
 # RFD data dump file with geographical coordinates
 if [ "$2" != "" ]
 then
-	RFD_RAW_FILE="$2"
-	RFD_RAW_FILENAME=`basename ${RFD_RAW_FILE}`
-	RFD_CAP_FILENAME=cap_${RFD_RAW_FILENAME}
-	RFD_WPK_FILENAME=wpk_${RFD_RAW_FILENAME}
-	SORTED_RFD_WPK_FILENAME=sorted_${RFD_WPK_FILENAME}
-	SORTED_CUT_RFD_WPK_FILENAME=cut_${SORTED_RFD_WPK_FILENAME}
-	if [ "${RFD_RAW_FILE}" = "${RFD_RAW_FILENAME}" ]
+	RFD_DIR="$2"
+	AIR_RFD_FILE=${RFD_DIR}${AIR_RFD_FILENAME}
+	GEO_RFD_FILE=${RFD_DIR}${GEO_RFD_FILENAME}
+	if [ "${GEO_RFD_FILE}" = "${GEO_RFD_FILENAME}" ]
 	then
-		RFD_RAW_FILE="${TMP_DIR}${RFD_RAW_FILE}"
+		GEO_RFD_FILE="${TMP_DIR}${GEO_RFD_FILE}"
 	fi
 fi
-RFD_CAP_FILE=${TMP_DIR}${RFD_CAP_FILENAME}
-RFD_WPK_FILE=${TMP_DIR}${RFD_WPK_FILENAME}
-SORTED_RFD_WPK_FILE=${TMP_DIR}${SORTED_RFD_WPK_FILENAME}
-SORTED_CUT_RFD_WPK_FILE=${TMP_DIR}${SORTED_CUT_RFD_WPK_FILENAME}
+AIR_RFD_CAP_FILE=${TMP_DIR}${AIR_RFD_CAP_FILENAME}
+GEO_RFD_CAP_FILE=${TMP_DIR}${GEO_RFD_CAP_FILENAME}
+GEO_RFD_WPK_FILE=${TMP_DIR}${GEO_RFD_WPK_FILENAME}
+SORTED_GEO_RFD_WPK_FILE=${TMP_DIR}${SORTED_GEO_RFD_WPK_FILENAME}
+SORTED_CUT_GEO_RFD_WPK_FILE=${TMP_DIR}${SORTED_CUT_GEO_RFD_WPK_FILENAME}
 
-if [ ! -f "${RFD_RAW_FILE}" ]
+if [ ! -f "${GEO_RFD_FILE}" ]
 then
 	echo
-	echo "[$0:$LINENO] The '${RFD_RAW_FILE}' file does not exist."
+	echo "[$0:$LINENO] The '${GEO_RFD_FILE}' file does not exist."
 	echo
 	if [ "$2" = "" ]
 	then
 		displayRfdDetails
 	fi
 	exit -1
+fi
+
+if [ ! -f "${AIR_RFD_FILE}" ]
+then
+	echo
+	echo "[$0:$LINENO] The '${AIR_RFD_FILE}' file does not exist."
+	echo
+	if [ "$2" = "" ]
+	then
+		displayRfdDetails
+	fi
 fi
 
 ##
@@ -282,43 +300,52 @@ fi
 
 
 ##
-# Capitalise the names
+# Capitalise the names of the airline dump file, if existing
 RFD_CAPITILISER=rfd_capitalise.awk
-awk -F'^' -v log_level=${LOG_LEVEL} -f ${RFD_CAPITILISER} ${RFD_RAW_FILE} \
-	> ${RFD_CAP_FILE}
+if [ -f "${AIR_RFD_FILE}" ]
+then
+	awk -F'^' -v log_level=${LOG_LEVEL} -f ${RFD_CAPITILISER} ${AIR_RFD_FILE} \
+		> ${AIR_RFD_CAP_FILE}
+fi
 
 ##
-# Generate a second version of the file with the ORI primary key
+# Capitalise the names of the geographical dump file
+awk -F'^' -v log_level=${LOG_LEVEL} -f ${RFD_CAPITILISER} ${GEO_RFD_FILE} \
+	> ${GEO_RFD_CAP_FILE}
+
+##
+# Generate a second version of the geographical file with the ORI primary key
 # (integrating the location type)
 ORI_PK_ADDER=${TOOLS_DIR}rfd_pk_creator.awk
 awk -F'^' -v log_level=${LOG_LEVEL} -f ${ORI_PK_ADDER} \
-	${GEO_ORI_FILE} ${RFD_CAP_FILE} > ${RFD_WPK_FILE}
-#sort -t'^' -k1,1 ${RFD_WPK_FILE}
+	${GEO_ORI_FILE} ${GEO_RFD_CAP_FILE} > ${GEO_RFD_WPK_FILE}
+#sort -t'^' -k1,1 ${GEO_RFD_WPK_FILE}
 
 ##
-# Remove the header (first line)
-RFD_WPK_FILE_TMP=${RFD_WPK_FILE}.tmp
-sed -e "s/^pk\(.\+\)//g" ${RFD_WPK_FILE} > ${RFD_WPK_FILE_TMP}
-sed -i -e "/^$/d" ${RFD_WPK_FILE_TMP}
+# Remove the header (first line) of the geographical file
+GEO_RFD_WPK_FILE_TMP=${GEO_RFD_WPK_FILE}.tmp
+sed -e "s/^pk\(.\+\)//g" ${GEO_RFD_WPK_FILE} > ${GEO_RFD_WPK_FILE_TMP}
+sed -i -e "/^$/d" ${GEO_RFD_WPK_FILE_TMP}
 
 
 ##
-# That version of the RFD dump file (without primary key) is sorted
-# according to the IATA code.
-sort -t'^' -k 1,1 ${RFD_WPK_FILE_TMP} > ${SORTED_RFD_WPK_FILE}
-\rm -f ${RFD_WPK_FILE_TMP}
+# That version of the RFD geographical dump file (without primary key)
+# is sorted according to the IATA code.
+sort -t'^' -k 1,1 ${GEO_RFD_WPK_FILE_TMP} > ${SORTED_GEO_RFD_WPK_FILE}
+\rm -f ${GEO_RFD_WPK_FILE_TMP}
 
 ##
-# Only four columns/fields are kept in that version of the file:
+# Only four columns/fields are kept in that version of the geographical file:
 # the primary key, airport/city IATA code and the geographical coordinates
 # (latitude, longitude).
-cut -d'^' -f 1,2,16,17 ${SORTED_RFD_WPK_FILE} > ${SORTED_CUT_RFD_WPK_FILE}
+cut -d'^' -f 1,2,16,17 ${SORTED_GEO_RFD_WPK_FILE} \
+	> ${SORTED_CUT_GEO_RFD_WPK_FILE}
 
 ##
 # Reporting
 echo
 echo "Preparation step"
 echo "----------------"
-echo "The '${RFD_CAP_FILE}', '${RFD_WPK_FILE}', '${SORTED_RFD_WPK_FILE}' and '${SORTED_CUT_RFD_WPK_FILE}' files have been derived from '${RFD_RAW_FILE}'."
+echo "The '${AIR_RFD_CAP_FILE}', '${GEO_RFD_CAP_FILE}', '${GEO_RFD_WPK_FILE}', '${SORTED_GEO_RFD_WPK_FILE}' and '${SORTED_CUT_GEO_RFD_WPK_FILE}' files have been derived from '${GEO_RFD_FILE}'."
 echo
 
