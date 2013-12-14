@@ -49,6 +49,7 @@
 #  * RESx:  Reserve (e.g., Maasai-Mara National Reserve)
 #  * PT:    Point (e.g., Long Point)
 #  * PLATx: Plateau (e.g., Truscott-Mungalalu Plateau)
+#  * VLC:   Volcano (e.g., Arenal Volcano)
 #  * MTx:   Mountain (e.g., Mount Hotham)
 #  * RK:    Rock (e.g., Ayers Rock)
 #  * MNx:   Mine (e.g., Osborne Mine)
@@ -616,8 +617,8 @@ BEGINFILE {
 	is_city += match (fcode, "PAN") + match (fcode, "CMP")
 	is_city += match (fcode, "CHN")
 	is_city += match (fcode, "PRK") + match (fcode, "RES")
-	is_city += match (fcode, "PT")
-	is_city += match (fcode, "PLAT") + match (fcode, "MT")
+	is_city += match (fcode, "PT") + match (fcode, "PLAT")
+	is_city += match (fcode, "VLC") + match (fcode, "MT")
 	is_city += match (fcode, "RK") + match (fcode, "MN")
 
 	# Travel-related part
