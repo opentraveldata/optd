@@ -52,6 +52,7 @@
 #  * PRK:   Park (e.g., Serengeti National Park)
 #  * RESx:  Reserve (e.g., Maasai-Mara National Reserve)
 #  * PT:    Point (e.g., Long Point)
+#  * PLATx: Plateau (e.g., Truscott-Mungalalu Plateau)
 #  * MTx:   Mountain (e.g., Mount Hotham)
 #  * RK:    Rock (e.g., Ayers Rock)
 #  * MNx:   Mine (e.g., Osborne Mine)
