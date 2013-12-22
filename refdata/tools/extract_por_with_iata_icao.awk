@@ -41,6 +41,7 @@
 #  * CHN:   Channel/sound (e.g., Greenway sound)
 #  * PRK:   Park (e.g., Serengeti National Park)
 #  * RESx:  Reserve (e.g., Maasai-Mara National Reserve)
+#  * AMUS:  Amusement Park (e.g., Disneyland Park Paris)
 #  * PT:    Point (e.g., Long Point)
 #  * PLATx: Plateau (e.g., Truscott-Mungalalu Plateau)
 #  * VLC:   Volcano (e.g., Arenal Volcano)
