@@ -47,6 +47,7 @@
 #  * HBRx:  Harbor (e.g., Port Canaveral)
 #  * DAM:   Dam (e.g., La Grande-3 Dam)
 #  * PANx:  Pan
+#  * OAS:   Oasis (e.g., Kufra Oasis)
 #  * CMPx:  Camp (e.g., Savuti Rest Camp)
 #  * CHN:   Channel/sound (e.g., Greenway sound)
 #  * PRK:   Park (e.g., Serengeti National Park)

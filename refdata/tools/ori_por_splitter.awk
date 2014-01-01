@@ -43,6 +43,7 @@
 #  * HBRx:  Harbor (e.g., Port Canaveral)
 #  * DAM:   Dam (e.g., La Grande-3 Dam)
 #  * PANx:  Pan
+#  * OAS:   Oasis (e.g., Kufra Oasis)
 #  * CMPx:  Camp (e.g., Savuti Rest Camp)
 #  * CHN:   Channel/sound (e.g., Greenway sound)
 #  * PRK:   Park (e.g., Serengeti National Park)
@@ -615,8 +616,8 @@ BEGINFILE {
 	is_city += match (fcode, "ISL") + match (fcode, "ATOL")
 	is_city += match (fcode, "LK") + match (fcode, "RSV")
 	is_city += match (fcode, "BAY") + match (fcode, "HBR")
-	is_city += match (fcode, "PAN") + match (fcode, "CMP")
-	is_city += match (fcode, "CHN")
+	is_city += match (fcode, "PAN") + match (fcode, "OAS")
+	is_city += match (fcode, "CMP") + match (fcode, "CHN")
 	is_city += match (fcode, "PRK") + match (fcode, "RES")
 	is_city += match (fcode, "AMUS")
 	is_city += match (fcode, "PT") + match (fcode, "PLAT")
