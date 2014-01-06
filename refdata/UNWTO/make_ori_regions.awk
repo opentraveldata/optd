@@ -98,6 +98,14 @@ BEGIN {
 		cnt_name = $3
 		cnt_code_1 = $4
 		cnt_code_2 = $5
+		# The 2-character ISO country code is extracted from the full
+		# country code, e.g., 'ML' (Mali) is extracted from '15ML'
+		cnt_code_iso2_idx = length(cnt_code_2) - 1
+		if (cnt_code_iso2_idx < 0) {
+			cnt_code_iso2_idx = 0
+			print "[" FNR "] Error with the country code ('" cnt_code_2 \
+					"'). Full line: " $0 > "/dev/stderr" 
+		}
 
 		# Remove the quotes, if existing
 		if (match (cnt_name, "^\"(.*)\"$")) {
@@ -105,7 +113,7 @@ BEGIN {
 		}
 
 		# Extract the 2-character ISO code
-		cnt_code_iso2 = substr(cnt_code_2, length(cnt_code_2) - 1)
+		cnt_code_iso2 = substr(cnt_code_2, cnt_code_iso2_idx)
 
 		# Convert the country code, if needed (for instance, UK -> GB)
 		if (cnt_code_iso2 in cnt_map) {
