@@ -105,7 +105,7 @@ BEGIN {
 		}
 
 		# Extract the 2-character ISO code
-		cnt_code_iso2 = substr(cnt_code_2, 3, 4)
+		cnt_code_iso2 = substr(cnt_code_2, length(cnt_code_2) - 1)
 
 		# Convert the country code, if needed (for instance, UK -> GB)
 		if (cnt_code_iso2 in cnt_map) {
