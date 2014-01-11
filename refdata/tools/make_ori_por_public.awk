@@ -152,22 +152,11 @@ BEGIN {
 			   "'), but is not. The whole line " $0) > error_stream
 	}
 
-	# Check whether it is a city
-	is_city = isLocTypeCity(por_type)
-
-	# Check whether it is travel-related
-	is_tvl = isLocTypeTvlRtd(por_type)
-
 	# PageRank value
 	pr_value = $3
 
-	# Store the PageRank value for that POR
-	if (is_city != 0) {
-		city_list[iata_code] = pr_value
-	}
-	if (is_tvl != 0) {
-		tvl_list[iata_code] = pr_value
-	}
+	#
+	registerPageRankValue(iata_code, por_type, $0, FNR, pr_value)
 }
 
 
@@ -221,25 +210,6 @@ BEGIN {
 	ctry_cont_name_list[country_code] = continent_name
 }
 
-
-##
-# Retrieve the PageRank value for that POR
-function getPageRank(myIataCode, myLocationType, myGeonamesID) {
-	is_city = isLocTypeCity(myLocationType)
-	is_tvl = isLocTypeTvlRtd(myLocationType)
-	
-	if (is_city != 0) {
-		page_rank = city_list[myIataCode]
-
-	} else if (is_tvl != 0) {
-		page_rank = tvl_list[myIataCode]
-
-	} else {
-		page_rank = ""
-	}
-
-	return page_rank
-}
 
 ##
 # Retrieve the time-zone ID for that country
@@ -341,7 +311,7 @@ function printAltNameSection(myAltNameSection) {
 		iata_code = $2
 
 		# PageRank value
-		page_rank = getPageRank(iata_code, location_type, geonames_id)
+		page_rank = getPageRank(iata_code, location_type)
 
 		# Is in Geonames?
 		geonameID = $10
@@ -468,7 +438,7 @@ function printAltNameSection(myAltNameSection) {
 		iata_code = $2
 
 		# PageRank value
-		page_rank = getPageRank(iata_code, location_type, geonames_id)
+		page_rank = getPageRank(iata_code, location_type)
 
 		# Is in Geonames?
 		geonameID = "0"
@@ -614,7 +584,7 @@ function printAltNameSection(myAltNameSection) {
 		iata_code = $2
 
 		# PageRank value
-		page_rank = getPageRank(iata_code, location_type, geonames_id)
+		page_rank = getPageRank(iata_code, location_type)
 
 		# Is in Geonames?
 		geonameID = $10
@@ -715,7 +685,7 @@ function printAltNameSection(myAltNameSection) {
 		iata_code = $1
 
 		# PageRank value
-		page_rank = getPageRank(iata_code, location_type, geonames_id)
+		page_rank = getPageRank(iata_code, location_type)
 
 		# Is in Geonames?
 		geonameID = "0"
