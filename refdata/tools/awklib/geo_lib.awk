@@ -24,6 +24,9 @@ function initGeoAwkLib(__igalParamAWKFile, __igalParamErrorStream, \
 
 	# Initialise the ORI-derived lists
 	resetORILineList()
+
+	# Initialise the PageRank-derived lists
+	resetPageRankList()
 }
 
 ##
@@ -47,8 +50,6 @@ function initFileGeoAwkLib() {
 	resetRFDLineList()
 	# Initialise the Innovata-derived lists
 	resetInnovataLineList()
-	# Initialise the PageRank-derived lists
-	resetPageRankList()
 }
 
 ##
