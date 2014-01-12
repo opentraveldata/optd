@@ -480,7 +480,7 @@ function printAltNameSection(myAltNameSection) {
 			printf ("%s", "^S^BUSTN")
 		} else if (is_port != 0) {
 			# The POR is a (maritime) port
-			printf ("%s", "^S^PORT")
+			printf ("%s", "^S^PRT")
 		} else if (is_ground != 0) {
 			# The POR is a ground station
 			printf ("%s", "^S^XXXX")
