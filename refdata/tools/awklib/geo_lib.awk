@@ -12,6 +12,10 @@ function initGeoAwkLib(__igalParamAWKFile, __igalParamErrorStream, \
 	__glGlobalIsForGeonames = 0
 	__glGlobalIsForRFD = 0
 	__glGlobalIsForInnovata = 0
+	__glGlobalPI = 4 * atan2(1,1)
+	__glGlobalRTOD = 180.0 / __glGlobalPI
+	__glGlobalDTOR = __glGlobalPI / 180.0
+	__glGlobalNM = 1852
 
 	# Debugging support
 	__glGlobalDebugIataCode = ""
@@ -20,7 +24,22 @@ function initGeoAwkLib(__igalParamAWKFile, __igalParamErrorStream, \
 
 	# Initialise the ORI-derived lists
 	resetORILineList()
+
+	# Initialise the PageRank-derived lists
+	resetPageRankList()
 }
+
+##
+# Various simple mathematics functions
+function Abs(x)    { return x < 0 ? -x : x }
+function Floor(x)  { return x < 0 ? int(x) - 1 : int(x) }
+function Mod(x,y)  { return x - y * Floor(x/y) }
+function Sin(x)    { return sin(x * __glGlobalDTOR) }
+function Cos(x)    { return cos(x * __glGlobalDTOR) }
+function Tan(x)    { return Sin(x)/Cos(x) }
+function ASin(x)   { return atan2(x,sqrt(1 - x * x))*__glGlobalRTOD }
+function ACos(x)   { return atan2(sqrt(1 - x * x),x)*__glGlobalRTOD }
+function ATan2(y,x){ return atan2(y,x)*__glGlobalRTOD }
 
 ##
 # Function to be called during the BEGINFILE section
@@ -805,6 +824,13 @@ function resetInnovataLineList() {
 }
 
 ##
+# Reset the list of the ORI-maintained PageRank entries
+function resetPageRankList() {
+	delete ori_pr_city_list
+	delete ori_pr_tvl_list
+}
+
+##
 # Suggest a next step for the user: add the given POR entry
 function displayNextStepAdd(__dnsaParamIataCode, __dnsaParamLocationType, \
 							__dnsaParamGeonamesID) {
@@ -925,6 +951,91 @@ function getMostSimilarLocType(__gmsltParamORILocType, __gmsltParamORIGeoID, \
 	}
 
 	return __resultMostSimilarLocType
+}
+
+##
+# More explicit name for the power function
+function pow(__powBase, __powPower) {
+	return __powBase^__powPower
+}
+
+##
+# Calculate the azimuth, giving the relative direction, from the first POR (point
+# of reference) to the second one
+function geoAzim(__gaLat1, __gaLon1, __gaLat2, __gaLon2) {
+	latdif = __gaLat1 - __gaLat2
+	londif = __gaLon1 - __gaLon2
+	meanlat = (__gaLat1 + __gaLat2) / 2
+	
+	__gaA = 2 * atan2 (londif * ((prcurt/mrcurt) * (cos(meanlat))), latdif)
+	__gaB = londif * (sin(meanlat))
+	__gaAz = (__gaA - __gaB) / 2
+	if (londif > 0 && latdif < 0) __gaAz += __glGlobalPI
+	if (londif < 0 && latdif < 0) __gaAz += __glGlobalPI
+	if (londif < 0 && latdif > 0) __gaAz += 2*__glGlobalPI
+	
+	return __gaAz * __glGlobalRTOD
+}
+
+##
+# Calculate the geographical (great circle) distance
+function geoDistance(__gdLat1, __gdLon1, __gdLat2, __gdLon2) {
+	__gdLatDif = __gdLat1 - __gdLat2
+	__gdLonDif = __gdLon1 - __gdLon2
+	__gdXProj = Sin(__gdLonDif / 2)
+	__gdYProj = Sin(__gdLatDif / 2)
+	__gdXMult = Cos(__gdLat1) * Cos(__gdLat2)
+	__gdDProj = sqrt(__gdYProj^2 + __gdXMult * __gdXProj^2)
+	__gdDistance = __glGlobalNM * 120.0 * ASin(__gdDProj)
+
+	return __gdDistance
+}
+
+##
+# Retrieve the PageRank value for that POR
+function getPageRank(__gprParamIataCode, __gprParamLocType) {
+	# Check whether it is a city
+	is_city = isLocTypeCity(__gprParamLocType)
+
+	# Check whether it is travel-related
+	is_tvl = isLocTypeTvlRtd(__gprParamLocType)
+	
+	if (is_city != 0) {
+		__gprPR = ori_pr_city_list[__gprParamIataCode]
+
+	} else if (is_tvl != 0) {
+		__gprPR = ori_pr_tvl_list[__gprParamIataCode]
+
+	} else {
+		__gprPR = 0.001
+	}
+
+	return __gprPR
+}
+
+##
+# Register the PageRank value for the given POR, specified by a
+# (IATA code, pseudo location type) combination.
+# The location type is a pseudo one, because it originally comes from
+# the analysis of schedule files; hence, one can distinguish only between
+# a city and a travel-related POR.
+function registerPageRankValue(__rprlParamIataCode, __rprlParamLocType, \
+							   __rprlParamFullLine, __rprlParamNbOfPOR, \
+							   __rprlParamPRValue) {
+	# Check whether it is a city
+	is_city = isLocTypeCity(__rprlParamLocType)
+
+	# Check whether it is travel-related
+	is_tvl = isLocTypeTvlRtd(__rprlParamLocType)
+
+	# Store the PageRank value for that POR
+	if (is_city != 0) {
+		addFieldToList(__rprlParamIataCode, ori_pr_city_list, __rprlParamPRValue)
+	}
+	if (is_tvl != 0) {
+		addFieldToList(__rprlParamIataCode, ori_pr_tvl_list, __rprlParamPRValue)
+	}
+
 }
 
 ##

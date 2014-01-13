@@ -37,6 +37,10 @@ then
 fi
 
 ##
+# Log level
+LOG_LEVEL=4
+
+##
 # ORI path
 OPTD_DIR=${EXEC_PATH}../
 ORI_DIR=${OPTD_DIR}ORI/
@@ -190,7 +194,7 @@ join -t'^' -a 1 -1 1 -2 1 ${GEO_FILE_2} ${GEO_FILE_1} > ${COMP_FILE_COORD_TMP}
 # geographical coordinate sets.
 # The file with the airport PageRank/popularity values is also given as input.
 AWK_DIST=${EXEC_PATH}distance.awk
-awk -F'^' -f ${AWK_DIST} \
+awk -F'^' -v log_level=${LOG_LEVEL} -f ${AWK_DIST} \
 	${AIRPORT_PR_FILE} ${COMP_FILE_COORD} > ${COMP_FILE_DIST}
 #echo "head -3 ${AIRPORT_PR_FILE} ${COMP_FILE_COORD} ${COMP_FILE_DIST}"
 

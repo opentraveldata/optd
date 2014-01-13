@@ -1,82 +1,15 @@
 #
-# AWK script to calculate the distance between two geographical points.
+# AWK script to calculate the distance between geographical points
+# of several sources:
+#  * ORI-maintained list of best known coordinates:
+#      ori_por_best_known_so_far.csv
+#  * Geonames dump data file:
+#      dump_from_geonames.csv
 #
 
 ##
-# More explicit name for the power function
-function pow (b, p) {
-	return b^p
-}
-
-##
-# Calculate the azimuth, giving the relative direction, from the first POR (point
-# of reference) to the second one
-function azim_func() {
-	latdif = lat1 - lat2
-	londif = lon1 - lon2
-	meanlat = (lat1 + lat2)/2
-	
-	A = 2 * atan2 (londif * ((prcurt/mrcurt) * (cos(meanlat))), latdif)
-	B = londif * (sin(meanlat))
-	Az = (A-B)/2
-	if (londif > 0 && latdif < 0) Az += M_PI
-	if (londif < 0 && latdif < 0) Az += M_PI
-	if (londif < 0 && latdif > 0) Az += 2*M_PI
-	
-	return Az*rad
-}
-
-##
-# Calculate the geographical (great circle) distance
-function distance_func() {
-	latdif = lat1 - lat2
-	londif = lon1 - lon2
-	meanlat = (lat1 + lat2)/2
-	
-	a = 6377276.345
-	b = 6356075.4131
-	e = sqrt ((a*a - b*b) / (a*a))
-	mrcurt = ( a * (1 - (e*e))) / pow((1-((e*e) * pow(sin(meanlat),2))), 1.5)
-	prcurt = a / sqrt (1-pow((e * sin(meanlat)), 2))
-	distance = sqrt (pow(londif * prcurt * cos(meanlat), 2) \
-					 + pow((latdif*mrcurt),2))
-}
-
-##
-# States whether that location type corresponds to a travel-related POR
-function isTravel(myLocationType) {
-	is_airport = match (myLocationType, "A")
-	is_rail = match (myLocationType, "R")
-	is_bus = match (myLocationType, "B")
-	is_heliport = match (myLocationType, "H")
-	is_port = match (myLocationType, "P")
-	is_ground = match (myLocationType, "G")
-	is_offpoint = match (myLocationType, "O")
-	is_travel = is_airport + is_rail + is_bus + is_heliport + is_port	\
-		+ is_ground + is_offpoint
-
-	return is_travel
-}
-
-##
-# Retrieve the PageRank value for that POR
-function getPageRank(myIataCode, myLocationType, myGeonamesID) {
-	is_city = match (myLocationType, "C")
-	is_tvl = isTravel(myLocationType)
-	
-	if (is_city != 0) {
-		page_rank = city_list[myIataCode]
-
-	} else if (is_tvl != 0) {
-		page_rank = tvl_list[myIataCode]
-
-	} else {
-		page_rank = 0.001
-	}
-
-	return page_rank
-}
-
+# Helper functions
+@include "awklib/geo_lib.awk"
 
 ##
 #
@@ -85,8 +18,58 @@ BEGIN {
 	error_stream = "/dev/stderr"
 	awk_file = "distance.awk"
 
-	M_PI = 4 * atan2(1,1)
-	rad = 180 / M_PI
+	# Initialisation of the Geo library
+	initGeoAwkLib(awk_file, error_stream, log_level)
+}
+
+##
+#
+BEGINFILE {
+	# Initialisation of the Geo library
+	initFileGeoAwkLib()
+}
+
+##
+# The ../ORI/ori_por_best_known_so_far.csv data file is used, in order to
+# specify the POR primary key and its location type.
+#
+# Sample lines:
+#  ALV-C-3041563^ALV^42.50779^1.52109^ALV^ (2 lines in ORI, 2 lines in Geonames)
+#  ALV-O-7730819^ALV^40.98^0.45^ALV^       (2 lines in ORI, 2 lines in Geonames)
+#  ARN-A-2725346^ARN^59.651944^17.918611^STO^ (2 lines in ORI, split from a
+#  ARN-R-8335457^ARN^59.649463^17.929^STO^     combined line, 1 line in Geonames)
+#  IES-CA-2846939^IES^51.3^13.28^IES^(1 combined line in ORI, 1 line in Geonames)
+#  IEV-A-6300960^IEV^50.401694^30.449697^IEV^(2 lines in ORI, split from a
+#  IEV-C-703448^IEV^50.401694^30.449697^IEV^  combined line, 2 lines in Geonames)
+#  KBP-A-6300952^KBP^50.345^30.894722^IEV^   (1 line in ORI, 1 line in Geonames)
+#  LHR-A-2647216^LHR^51.4775^-0.461389^LON^  (1 line in ORI, 1 line in Geonames)
+#  LON-C-2643743^LON^51.5^-0.1667^LON^       (1 line in ORI, 1 line in Geonames)
+#  NCE-CA-0^NCE^43.658411^7.215872^NCE^      (1 combined line in ORI
+#                                             2 lines in Geonames)
+#
+/^([A-Z]{3})-([A-Z]{1,2})-([0-9]{1,10})\^([A-Z]{3})\^/ {
+	# Store the full line
+	full_line = $0
+
+	# Primary key (combination of IATA code, location type and Geonames ID)
+	pk = $1
+
+	# IATA code of the POR (it should be the same as the one of the primary key)
+	iata_code2 = $2
+
+	# Geographical coordinates
+	latitude = $3
+	longitude = $4
+
+	# IATA code of the served city
+	srvd_city_code = $5
+
+	# Beginning date of the validity range
+	beg_date = $6
+
+	# Register the ORI-maintained line
+	registerORILine(pk, iata_code2, latitude, longitude, \
+					srvd_city_code, beg_date, full_line)
 }
 
 
@@ -148,22 +131,11 @@ BEGIN {
 			   "'), but is not. The whole line " $0) > error_stream
 	}
 
-	# Check whether it is a city
-	is_city = match (por_type, "C")
-
-	# Check whether it is travel-related
-	is_tvl = match (por_type, "A")
-
 	# PageRank value
 	pr_value = $3
 
-	# Store the PageRank value for that POR
-	if (is_city != 0) {
-		city_list[iata_code] = pr_value
-	}
-	if (is_tvl != 0) {
-		tvl_list[iata_code] = pr_value
-	}
+	#
+	registerPageRankValue(iata_code, por_type, $0, FNR, pr_value)
 }
 
 
@@ -197,12 +169,12 @@ BEGIN {
 	iata_code = $2
 	
 	# PageRank value
-	page_rank = getPageRank(iata_code, location_type, geonames_id)
+	page_rank = getPageRank(iata_code, location_type)
 
 	# Best known geographical coordinates (fields #3 and #4)
     if (NF >= 8) {
-		lat1 = $3 / rad
-		lon1 = $4 / rad
+		lat1 = $3
+		lon1 = $4
 	} else {
 		lat1 = 0
 		lon1 = 0
@@ -210,8 +182,8 @@ BEGIN {
 
 	# Geonames geographical coordinates, when existing (fields #8 and #9)
 	if (NF == 11 || NF == 9) {
-		lat2 = $8 / rad
-		lon2 = $9 / rad
+		lat2 = $8
+		lon2 = $9
 	} else {
 		lat2 = 0
 		lon2 = 0
@@ -221,7 +193,7 @@ BEGIN {
 	# input files
     if (NF == 11 || NF == 9) {
 		# Delegate the distance calculation
-		distance_func()
+		distance = geoDistance(lat1, lon1, lat2, lon2)
 
 		# IATA code
 		printf ("%s", iata_code "-")
