@@ -272,7 +272,7 @@ A4^^A4^702^Aerocomercial Oriente Norte^South Winds^^^^^
 A5^HOP^A5^163^Hop!^Hop!^^^P^^
 A6^LPV^A6^527^Air Alps Aviation^Alps Aviation^^^^^
 A7^AWN^A7^0^Air Niamey^Air Comet^^^^^
-A8^^A8^0^Benin Golf Air^Benin Golf^^^^^
+A8^^A8^0^Aerolink Uganda Limited^Aerolink Uganda Limited^^^P^^
 A9^^A9^606^Georgian Airways^Arizena Air^^^^^
 AA^AAL^AA^1^American Airlines^American^OneWorld^Member^^^
 AAF^AAF^ZI^439^Aigle Azur^Aigle Azur^^^^^
@@ -1021,7 +1021,7 @@ KV^^KV^360^Asian Express Airline^Kavminvodyav^^^^^
 KW^^KW^100^Wataniya Airways^^^^^^
 KX^CAY^KX^378^Cayman Airways^Cayman Air^^^^^
 KY^KNA^KY^833^Kunming Airlines^^^^^^
-KZ^^KZ^0^^^^^^^
+KZ^^KZ^0^Nippon Cargo Airlines^Nippon Cargo Airlines^^^P^^
 KZR^KZR^KC^465^Air Astana^Air Astana^^^^^
 L0^^L0^0^^^^^^^
 L1^^L1^0^E Savtravel^^^^^^
@@ -1304,7 +1304,7 @@ PG^BKP^PG^829^Bangkok Airways^Bangkok Air^^^^^
 PGA^PGA^NI^685^Portugalia^Portugalia^^^^^
 PGT^PGT^PC^624^Pegasus Airlines^Pegasus^^^^^
 PH^^PH^0^Transavia Denmark^Polynesian^^^^^
-PI^RKA^PI^545^Polar Airlines^Sol Del Parag^^^^^
+PI^RKA^PI^545^Polar Airlines^Polar Airlines OJSC^^^P^^
 PIA^PIA^PK^214^Pakistan International^P I A^^^^^
 PIC^PIC^BL^550^Jetstar Pacific Airlines^Pacific Air^^^^^
 PJ^^PJ^638^Air Saint Pierre^Air St Pierre^^^^^
@@ -1410,7 +1410,7 @@ RJ^RJA^RJ^512^Royal Jordanian^Ryljordania^OneWorld^Member^^^
 RJA^RJA^RJ^512^Royal Jordanian^Ryljordania^OneWorld^Member^^^
 RJD^RJD^RG^482^Rotana Jet^Rotana Jet^^^^^
 RK^^RK^0^Region Airline^^^^^^
-RKA^RKA^PI^545^Polar Airlines^Sol Del Parag^^^^^
+RKA^RKA^PI^545^Polar Airlines^Polar Airlines OJSC^^^P^^
 RL^RFJ^RL^372^Royal Falcon^^^^^^
 RLA^RLA^AN^0^Hop Airlinair^Hop Airlinair^^^^^
 RLB^RLB^R4^827^Reliable Unique Services^Stc Russia^^^^^
@@ -1566,7 +1566,7 @@ TBM^TBM^HH^283^Taban Airlines^^^^^^
 TBZ^TBZ^I3^917^Ata Airlines^^^^^^
 TC^ATC^TC^197^Air Tanzania^^^^^^
 TCV^TCV^VR^696^Tacv Cabo Verde Airlines^T A C V^^^^^
-TCX^TCX^MT^727^Thomas Cook Airlines^^^^^^
+TCX^TCX^MT^727^Thomas Cook Airlines UK^Thomas Cook Airlines UK^^^^^
 TD^^TD^432^Atlantis European Airways^Atlantis^^^^^
 TDM^TDM^TQ^38^Tandem Aero^^^^^^
 TE^IGA^TE^0^Sky Taxi^^^^^^
@@ -1771,10 +1771,10 @@ WSP^WSP^1P^523^Worldspan^Worldspan^^^^^
 WT^WSG^WT^0^Wasaya Airways^Wasaya Airways^^^P^^
 WU^WAU^WU^0^Wizz Air Ukraine Llc^^^^^^
 WV^MWA^WV^857^Midwest Airlines^Swe Fly^^^^^
-WW^^WW^0^Wow Air^^^^^^
+WW^^WW^0^Wow Air^Wow Air^^^P^^
 WX^BCY^WX^689^Cityjet^Cityjet^Skyteam^Affiliate^^^
 WY^OAS^WY^910^Oman Air^Oman Air^^^^^
-WZ^RWZ^WZ^309^Red Wings Airlines^^^^^^
+WZ^RWZ^WZ^309^Red Wings Airlines^Red Wings Airlines^^^^^
 WZZ^WZZ^W6^0^Wizz Air Hungary^^^^^^
 X0^^X0^0^^^^^^^
 X1^^X1^0^^^^^^^
