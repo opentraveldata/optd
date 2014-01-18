@@ -49,6 +49,7 @@
 #  * PRK:   Park (e.g., Serengeti National Park)
 #  * RESx:  Reserve (e.g., Maasai-Mara National Reserve)
 #  * AMUS:  Amusement Park (e.g., Disneyland Park Paris)
+#  * CAPE:  Cape (e.g., Cape Eleuthera)
 #  * PT:    Point (e.g., Long Point)
 #  * PLATx: Plateau (e.g., Truscott-Mungalalu Plateau)
 #  * VLC:   Volcano (e.g., Arenal Volcano)
@@ -620,7 +621,8 @@ BEGINFILE {
 	is_city += match (fcode, "CMP") + match (fcode, "CHN")
 	is_city += match (fcode, "PRK") + match (fcode, "RES")
 	is_city += match (fcode, "AMUS")
-	is_city += match (fcode, "PT") + match (fcode, "PLAT")
+	is_city += match (fcode, "CAPE") + match (fcode, "PT")
+	is_city += match (fcode, "PLAT")
 	is_city += match (fcode, "VLC") + match (fcode, "MT")
 	is_city += match (fcode, "RK") + match (fcode, "MN")
 

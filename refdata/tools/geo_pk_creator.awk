@@ -53,6 +53,7 @@
 #  * PRK:   Park (e.g., Serengeti National Park)
 #  * RESx:  Reserve (e.g., Maasai-Mara National Reserve)
 #  * AMUS:  Amusement Park (e.g., Disneyland Park Paris)
+#  * CAPE:  Cape (e.g., Cape Eleuthera)
 #  * PT:    Point (e.g., Long Point)
 #  * PLATx: Plateau (e.g., Truscott-Mungalalu Plateau)
 #  * VLC:   Volcano (e.g., Arenal Volcano)

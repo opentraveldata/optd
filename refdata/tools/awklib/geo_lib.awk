@@ -258,6 +258,7 @@ function isFeatCodeCity(__ifccParamFeatureCode) {
 	__resultIsCity += match (__ifccParamFeatureCode, "^PRK")
 	__resultIsCity += match (__ifccParamFeatureCode, "^RES")
 	__resultIsCity += match (__ifccParamFeatureCode, "^AMUS")
+	__resultIsCity += match (__ifccParamFeatureCode, "^CAPE")
 	__resultIsCity += match (__ifccParamFeatureCode, "^PT")
 	__resultIsCity += match (__ifccParamFeatureCode, "^PLAT")
 	__resultIsCity += match (__ifccParamFeatureCode, "^VLC")
