@@ -2,6 +2,7 @@ alliance_name^alliance_type^airline_iata_code_2c^airline_name^from_date^to_date
 OneWorld^Member^AB^Air Berlin^2012-03-20^
 OneWorld^Affiliate^HG^Niki^2012-03-20^
 OneWorld^Member^AA^American Airlines^1999-02-01^
+<<<<<<< HEAD
 OneWorld^Affiliate^MQ^American Eagle^^
 OneWorld^Affiliate^OW^Executive Airlines^^
 OneWorld^Affiliate^AX^Trans States Airlines^^
@@ -10,30 +11,53 @@ OneWorld^Affiliate^CJ^BA CityFlyer^^
 OneWorld^Affiliate^MN^Comair^^
 OneWorld^Affiliate^EC^OpenSkies^^
 OneWorld^Affiliate^EZ^Sun Air of Scandinavia^^
+=======
+OneWorld^Affiliate^MQ^American Eagle^1999-02-01^
+OneWorld^Affiliate^OW^Executive Airlines^1999-02-01^
+OneWorld^Affiliate^AX^Trans States Airlines^1999-02-01^
+OneWorld^Member^BA^British Airways^1999-02-01^
+OneWorld^Affiliate^CJ^BA CityFlyer^1999-02-01^
+OneWorld^Affiliate^MN^Comair Ltd^1999-02-01^
+OneWorld^Affiliate^EC^OpenSkies^1999-02-01^
+OneWorld^Affiliate^EZ^Sun Air of Scandinavia^1999-02-01^
+>>>>>>> added date_from information to oneworld affiliates
 OneWorld^Member^CX^Cathay Pacific^1999-02-01^
-OneWorld^Affiliate^KA^Dragonair^^
+OneWorld^Affiliate^KA^Dragonair^2007-11-01^
 OneWorld^Member^AY^Finnair^1999-09-01^
+<<<<<<< HEAD
+=======
+OneWorld^Affiliate^BE^Flybe Nordic^2012-10-28^
+>>>>>>> added date_from information to oneworld affiliates
 OneWorld^Member^IB^Iberia^1999-09-01^
-OneWorld^Affiliate^YW^Air Nostrum^^
-OneWorld^Affiliate^I2^Iberia Express^^
+OneWorld^Affiliate^YW^Air Nostrum^1999-09-01^
+OneWorld^Affiliate^I2^Iberia Express^2012-03-25^
 OneWorld^Member^JL^Japan Airlines^2007-04-01^
-OneWorld^Affiliate^XM^J-Air^^
-OneWorld^Affiliate^JC^JAL Express^^
-OneWorld^Affiliate^NU^Japan Transocean Air^^
+OneWorld^Affiliate^XM^J-Air^2007-04-01^
+OneWorld^Affiliate^JC^JAL Express^2007-04-01^
+OneWorld^Affiliate^NU^Japan Transocean Air^2007-04-01^
 OneWorld^Member^LA^LAN Airlines^2000-06-01^
+<<<<<<< HEAD
 OneWorld^Affiliate^4M^LAN Argentina^^
 OneWorld^Affiliate^XL^LAN Ecuador^^
 OneWorld^Affiliate^LU^LAN Express^^
 OneWorld^Affiliate^LP^LAN Peru^^
 OneWorld^Member^QF^Qantas Airways^999-02-01^
 OneWorld^Affiliate^NC^Cobham Aviation Services Australia^^
+=======
+OneWorld^Affiliate^4M^LAN Argentina^2007-04-01^
+OneWorld^Affiliate^4C^LAN Columbia^2013-10-01^
+OneWorld^Affiliate^XL^LAN Ecuador^2007-04-01^
+OneWorld^Affiliate^LU^LAN Express^2000-06-01^
+OneWorld^Affiliate^LP^LAN Peru^2000-06-01^
+OneWorld^Member^QF^Qantas Airways^1999-02-01^
+OneWorld^Affiliate^NC^Cobham Aviation Services Australia^2005-06-01^
+>>>>>>> added date_from information to oneworld affiliates
 OneWorld^Member^RJ^Royal Jordanian^2007-04-01^
 OneWorld^Member^S7^S7 Airlines^2010-11-15^
-OneWorld^Affiliate^GH^Globus^^
+OneWorld^Affiliate^GH^Globus^2008-12-01^
 OneWorld^Member^QR^Qatar Airways^2013-10-30^
 OneWorld^Future^UL^SriLankan Airlines^^
 OneWorld^Member^MH^Malaysia Airlines^2013-02-01^
-OneWorld^Future^IT^Kingfisher Airlines^^
 Skyteam^Member^SU^Aeroflot^2006-04-14^
 Skyteam^Affiliate^D9^Donavia^^
 Skyteam^Member^AR^Aerolineas Argentinas^2012-08-29^
