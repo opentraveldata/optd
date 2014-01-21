@@ -6,7 +6,7 @@ url = 'http://en.wikipedia.org/w/api.php?format=txt&action=query&titles=IATA_air
 f = open('../ORI/ori_aircraft.csv', 'w')
 print('Fetching aircraft information from wikipedia..')
 i=0
-f.write("iata_code^manufacturer^model")
+f.write("iata_code^manufacturer^model\n")
 for line in urllib2.urlopen(url):
   if line.startswith("| "):
     fields = line[1:].split("||");
