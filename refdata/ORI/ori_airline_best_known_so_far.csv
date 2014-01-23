@@ -1,4 +1,4 @@
-unified_code^3char_code^2char_code^num_code^name^name2^alliance_code^alliance_status^type(Cargo;Pax scheduled;Dummy;Gds;charTer;Ferry)^validity_from^validity_to
+unified_code^3char_code^2char_code^num_code^name^name2^alliance_code^alliance_status^type(Cargo;Pax scheduled;Dummy;Gds;charTer;Ferry;Rail)^validity_from^validity_to
 *A^^*A^0^Star Alliance^^^^^^
 *O^^*O^0^Oneworld^^^^^^
 *Q^^*Q^0^The Qualiflyer Group^^^^^^
@@ -28,7 +28,7 @@ unified_code^3char_code^2char_code^num_code^name^name2^alliance_code^alliance_st
 0W^^0W^0^W Caribbean Costa Rica^^^^^^
 0X^^0X^0^^^^^^^
 0Z^^0Z^0^^^^^^^
-1A^AGT^1A^790^Amadeus^Amadeus^^^^^
+1A^AGT^1A^790^Amadeus^Amadeus^^^G^^
 1B^^1B^0^Abacus^Abacus^^^^^
 1C^^1C^0^Eds Information Business^Gemini^^^^^
 1D^^1D^0^Raddix Solutions Intl^^^^^^
@@ -56,12 +56,12 @@ unified_code^3char_code^2char_code^num_code^name^name2^alliance_code^alliance_st
 1Z^APD^1Z^0^Fantasia Info Network Lt^Asia Pacific^^^^^
 2A^DBB^2A^0^Deutsche Bahn Ag^Deutsche Bahn^^^^^
 2B^^2B^441^Ak Bars Aero^Ak Bars Aero^^^P^^
-2C^^2C^0^Sncf^^^^^^
+2C^^2C^0^Sncf^^^^R^^
 2D^^2D^0^Amadeus Pdf D^^^^D^^
 2E^EIX^2E^0^Smokey Bay Air^Ei Air Export^^^^^
 2F^FTA^2F^517^Frontier Flying Service^Frontier^^^^^
 2G^^2G^735^Angara Airlines^^^^P^^
-2H^^2H^56^Thalys International^Thalys^^^^^
+2H^^2H^56^Thalys International^Thalys^^^R^^
 2I^SRU^2I^156^Star Peru^^^^^^
 2J^VBW^2J^226^Air Burkina^Air Burkina^^^^^
 2K^GLG^2K^547^Aerolineas Galapagos^Aerogal^^^^^
@@ -156,7 +156,7 @@ unified_code^3char_code^2char_code^num_code^name^name2^alliance_code^alliance_st
 5V^^5V^840^Everts^Lviv Airlines^^^^^
 5W^^5W^0^Speed Alliance Westbahn^Executive Exp^^^^^
 5X^^5X^0^^^^^^^
-5Y^^5Y^0^Atlas Air^Express Rail^^^^^
+5Y^^5Y^0^Atlas Air^Express Rail^^^C^^
 5Z^^5Z^0^Bismilah Airlines^Bismilah Airl^^^^^
 6A^^6A^0^Armenia Airways^Aviacsa^^^^^
 6B^BLX^6B^951^Tuifly Nordic^Britannia^^^^^
@@ -203,7 +203,7 @@ unified_code^3char_code^2char_code^num_code^name^name2^alliance_code^alliance_st
 7Q^^7Q^0^Nyasa Express^^^^^^
 7R^RLU^7R^362^Rusline^Rusline^^^^^
 7S^RYA^7S^792^Ryan Air Alaska^Arctic Transportation Services, Inc.^^^C^^
-7T^^7T^0^Trenitalia^^^^^^
+7T^^7T^0^Trenitalia^^^^R^^
 7U^ERG^7U^765^Aviaenergo^^^^^^
 7V^^7V^739^Federal Airlines^Federal Airl^^^^^
 7W^WRC^7W^461^Wind Rose Aviation^Wind Rose^^^^^
@@ -242,8 +242,8 @@ unified_code^3char_code^2char_code^num_code^name^name2^alliance_code^alliance_st
 9C^^9C^89^Spring Airlines^Haiti Caribb^^^^^
 9D^^9D^371^Toumai Air Tchad^Toumai Air^^^P^^
 9E^FLG^9E^430^Endeavor Air^Endeavor Air^^^^^
-9F^^9F^814^Eurostar^Eurostar Uk^^^^^
-9G^^9G^0^G Rail Ltd^^^^^^
+9F^^9F^814^Eurostar^Eurostar Uk^^^R^^
+9G^^9G^0^G Rail Ltd^^^^R^^
 9H^^9H^0^Dutch Antilles Express^Dae^^^^^
 9I^HTA^9I^0^Helitrans As^^^^^^
 9J^DAN^9J^0^Dana Airlines^^^^^^
@@ -564,7 +564,7 @@ DAO^DAO^D3^991^Daallo Airlines^Daallo Airlin^^^^^
 DAP^DAP^X8^0^Airmax^Aerovias Dap^^^^^
 DAT^DAT^SN^82^Brussels Airlines^Brussels Air^Star Alliance^Member^^^
 DB^BZH^DB^750^Hop Brit Air^Hop Brit Air^Skyteam^Affiliate^^^
-DBB^DBB^2A^0^Deutsche Bahn Ag^Deutsche Bahn^^^^^
+DBB^DBB^2A^0^Deutsche Bahn Ag^Deutsche Bahn^^^R^^
 DC^BRX^DC^215^Braathens Regional^Braathens Regional^^^P^^
 DCP^DCP^DQ^521^Delta Connection^Coastal Air^^^^^
 DD^^DD^0^Nok Air^^^^^^
@@ -1720,7 +1720,7 @@ VQ^^VQ^855^Novoair^^^^P^^
 VQI^VQI^VP^0^Villa Air^^^^^^
 VR^TCV^VR^696^Tacv Cabo Verde Airlines^T A C V^^^^^
 VRD^VRD^VX^984^Virgin America^Virgin Usa^^^^^
-VRR^VRR^2R^830^Via Rail Canada Inc^Via Rail^^^^^
+VRR^VRR^2R^830^Via Rail Canada Inc^Via Rail^^^R^^
 VS^VIR^VS^932^Virgin Atlantic^Virgin Atl^^^^^
 VT^VTA^VT^135^Air Tahiti^Air Tahiti^^^^^
 VTA^VTA^VT^135^Air Tahiti^Air Tahiti^^^^^
