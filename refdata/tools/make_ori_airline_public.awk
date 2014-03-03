@@ -49,7 +49,8 @@ BEGIN {
 	delete flt_freq
 
 	# Header
-	printf ("%s", "pk^3char_code^2char_code^num_code^name^name2")
+	printf ("%s", "pk^env_id^validity_from^validity_to^3char_code^2char_code")
+	printf ("%s", "^num_code^name^name2")
 	printf ("%s", "^alliance_code^alliance_status^type")
 	printf ("%s", "^wiki_link^flt_freq")
 	printf ("%s", "\n")
