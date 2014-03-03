@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Create the public version of the ORI-maintained list of airlines, from:
-# - ori_airline_best_known_so_far.csv (future)
-# - ori_airline_no_longer_valid.csv (future)
+# - ori_airline_best_known_so_far.csv
+# - ori_airline_no_longer_valid.csv
 # - ref_airline_nb_of_flights.csv (future)
 # - ori_airline_alliance_membership.csv
 # - dump_from_crb_airline.csv
@@ -101,10 +101,12 @@ RFD_CAP_FILE=${TOOLS_DIR}${RFD_CAP_FILENAME}
 ##
 # Target (generated files)
 ORI_AIR_PUBLIC_FILENAME=ori_airlines.csv
-ORI_AIR_DIFF_FILENAME=ori_airline_diff_w_alc.csv
+ORI_AIR_RFD_DIFF_FILENAME=ori_airline_diff_w_rfd.csv
+ORI_AIR_ALC_DIFF_FILENAME=ori_airline_diff_w_alc.csv
 #
 ORI_AIR_PUBLIC_FILE=${ORI_DIR}${ORI_AIR_PUBLIC_FILENAME}
-ORI_AIR_DIFF_FILE=${TOOLS_DIR}${ORI_AIR_DIFF_FILENAME}
+ORI_AIR_RFD_DIFF_FILE=${ORI_DIR}${ORI_AIR_RFD_DIFF_FILENAME}
+ORI_AIR_ALC_DIFF_FILE=${ORI_DIR}${ORI_AIR_ALC_DIFF_FILENAME}
 
 ##
 # Temporary
@@ -147,16 +149,17 @@ then
 	echo
 	echo "* Input data files"
 	echo "------------------"
-	echo " - [Future] ORI-maintained file of best known details: '${ORI_AIR_FILE}'"
-	echo " - [Future] ORI-maintained file of non longer valid IATA airlines: '${ORI_NOIATA_FILE}'"
-	echo " - [Future] ORI-maintained file of importance values: '${ORI_NF_FILE}'"
+	echo " - ORI-maintained file of best known details: '${ORI_AIR_FILE}'"
+	echo " - ORI-maintained file of non longer valid IATA airlines: '${ORI_NOIATA_FILE}'"
+	echo " - ORI-maintained file of importance values: '${ORI_NF_FILE}'"
 	echo " - ORI-maintained file of alliance membership details: '${ORI_AIR_ALC_FILE}'"
 	echo " - RFD data dump file: '${RFD_AIR_FILE}'"
 	echo
 	echo "* Output data file"
 	echo "------------------"
 	echo " - ORI-maintained public file of airlines: '${ORI_AIR_PUBLIC_FILE}'"
-	echo " - List of airlines for which the names are different: '${ORI_AIR_DIFF_FILE}'"
+	echo " - List of airlines for which the RFD-derived names are different: '${ORI_AIR_RFD_DIFF_FILE}'"
+	echo " - List of airlines for which the alliance-derived names are different: '${ORI_AIR_ALC_DIFF_FILE}'"
 	echo
 	exit
 fi
@@ -200,16 +203,19 @@ fi
 ##
 # Re-format the aggregated entries. See ${REDUCER} for more details and samples.
 REDUCER=make_ori_airline_public.awk
-awk -F'^' -v air_name_diff_file=${ORI_AIR_DIFF_FILE} -f ${REDUCER} \
-	${ORI_AIR_ALC_FILE} ${RFD_CAP_FILE} > ${ORI_AIR_PUBLIC_UNSORTED_FILE}
+awk -F'^' -v air_name_alc_diff_file=${ORI_AIR_ALC_DIFF_FILE} \
+	-v air_name_rfd_diff_file=${ORI_AIR_RFD_DIFF_FILE} \
+	-f ${REDUCER} ${ORI_AIR_ALC_FILE} ${ORI_NF_FILE} \
+	${ORI_AIR_FILE} ${ORI_NOIATA_FILE} ${RFD_CAP_FILE} \
+	> ${ORI_AIR_PUBLIC_UNSORTED_FILE}
 
 ##
 # Extract the header into temporary files
-grep "^unified_code\(.\+\)" ${ORI_AIR_PUBLIC_UNSORTED_FILE} > ${ORI_AIR_HEADER}
+grep "^pk\(.\+\)" ${ORI_AIR_PUBLIC_UNSORTED_FILE} > ${ORI_AIR_HEADER}
 
 ##
 # Remove the header
-sed -e "s/^unified_code\(.\+\)//g" ${ORI_AIR_PUBLIC_UNSORTED_FILE} \
+sed -e "s/^pk\(.\+\)//g" ${ORI_AIR_PUBLIC_UNSORTED_FILE} \
 	> ${ORI_AIR_WITH_NOHD}
 sed -i -e "/^$/d" ${ORI_AIR_WITH_NOHD}
 
@@ -232,5 +238,5 @@ echo
 echo "Reporting Step"
 echo "--------------"
 echo
-echo "wc -l ${ORI_AIR_PUBLIC_FILE} ${ORI_AIR_DIFF_FILE}"
+echo "wc -l ${ORI_AIR_PUBLIC_FILE} ${ORI_AIR_RFD_DIFF_FILE} ${ORI_AIR_ALC_DIFF_FILE}"
 echo

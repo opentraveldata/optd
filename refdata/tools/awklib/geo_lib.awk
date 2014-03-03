@@ -146,7 +146,7 @@ function capitaliseWords(__cwInStr) {
 	__cwGenStr = ""
 
 	# Loop until there is no more match (on words)
-	while (__cwIdx = match (__cwRmgStr, /(\/?[[:alpha:]]+)/)) {
+	while (__cwIdx = match (__cwRmgStr, /(\/?[[:alnum:]]+)/)) {
 
 		# Extract a single-character prefix, if any
 		__cwPrefixChar = substr (__cwRmgStr, __cwIdx, 1)
