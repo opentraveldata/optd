@@ -73,6 +73,7 @@ AN^1^HOP Airlinair<>Hop Airlinair
 AN^2^HOP Airlinair<>Hop Airlinair
 AP^1^Air One SpA<>Airone S P A
 APD^1^Fantasia Info Network<>Fantasia Info Network Lt
+APF^1^Amapola Flyg<>Amapola Flyg Ab
 AS^2^Alaska Airlines<>Alaska A L
 ASA^2^Alaska Airlines<>Alaska A L
 AT^2^Royal Air Maroc<>R Air Maroc
@@ -165,9 +166,8 @@ HE^1^LGW Luftfahrtges Walter<>Lgw Luftfahrtges Walter
 HKE^2^HK Express<>Hk Express
 HOP^1^HOP!<>Hop
 HOP^2^HOP!<>Airlinair
-HP^1^HS Aviation<>H S Aviation
+HP^1^Amapola Flyg<>Amapola Flyg Ab
 HS^1^Svenska Direktflyg<>Svenska Direktflyg Ab
-HSN^1^HS Aviation<>H S Aviation
 HSV^1^Svenska Direktflyg<>Svenska Direktflyg Ab
 HW^2^North Wright<>North Wrigh
 HZ^1^SAT Airlines<>Sat Airlines
@@ -237,6 +237,7 @@ MLA^2^Forty Miles Air<>Forty Miles A
 MN^1^Comair<>Comair Ltd
 MU^2^China Eastern Airlines<>China East
 N7^1^NHT Linhas Aereas<>Nht Linhas Aereas
+NAI^1^Norwegian Air International<>Norwegian Air International Ltd
 NC^1^Cobham Aviation Services Australia<>National Jet Systems
 NC^2^QantasLink<>
 NHG^1^NHT Linhas Aereas<>Nht Linhas Aereas
@@ -315,6 +316,7 @@ TAM^1^TAM Linhas Aereas<>Tam Linhas Aereas
 TAM^2^TAM Linh Aer<>Tam Linh Aer
 TAP^1^TAP Portugal<>Tap Portugal
 TAP^2^TAP Portugal<>Tap Portugal
+TAX^1^Thai Air Asia X<>Thai Airasia X Company
 TCV^2^TACV<>T A C V
 TGU^2^LADE<>L A D E
 TOM^1^Thomson Airways<>Thomson Airways Ltd
@@ -375,6 +377,7 @@ XB^1^IATA<>Iata
 XB^2^IATA<>Iata
 XC^2^KD Air<>K D Air
 XG^1^Sun Express Germany<>Sunexpress Germany
+XJ^1^Thai Air Asia X<>Thai Airasia X Company
 XL^1^LAN Ecuador<>Lanecuador Aerolane Sa
 XL^2^LAN Ecuador<>Lan Ecuador
 XLF^1^XL Airways France<>Xl Airways France
