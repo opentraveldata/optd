@@ -5,6 +5,7 @@ OneWorld^Member^AA^American Airlines^1999-02-01^
 OneWorld^Affiliate^MQ^American Eagle^1999-02-01^
 OneWorld^Affiliate^OW^Executive Airlines^1999-02-01^
 OneWorld^Affiliate^AX^Trans States Airlines^1999-02-01^
+OneWorld^Affiliate^US^US Airways^2014-03-31^
 OneWorld^Member^BA^British Airways^1999-02-01^
 OneWorld^Affiliate^CJ^BA CityFlyer^1999-02-01^
 OneWorld^Affiliate^MN^Comair^1999-02-01^
@@ -26,13 +27,14 @@ OneWorld^Affiliate^4C^LAN Columbia^2013-10-01^
 OneWorld^Affiliate^XL^LAN Ecuador^2007-04-01^
 OneWorld^Affiliate^LU^LAN Express^2000-06-01^
 OneWorld^Affiliate^LP^LAN Peru^2000-06-01^
+OneWorld^Member^JJ^LAN Peru^2000-06-01^
 OneWorld^Member^QF^Qantas Airways^1999-02-01^
 OneWorld^Affiliate^NC^Cobham Aviation Services Australia^2005-06-01^
 OneWorld^Member^RJ^Royal Jordanian^2007-04-01^
 OneWorld^Member^S7^S7 Airlines^2010-11-15^
 OneWorld^Affiliate^GH^Globus^2008-12-01^
 OneWorld^Member^QR^Qatar Airways^2013-10-30^
-OneWorld^Future^UL^SriLankan Airlines^^
+OneWorld^Member^UL^SriLankan Airlines^2014-05-01^
 OneWorld^Member^MH^Malaysia Airlines^2013-02-01^
 Skyteam^Member^SU^Aeroflot^2006-04-14^
 Skyteam^Affiliate^D9^Donavia^2006-04-14^
