@@ -41,7 +41,7 @@ air-aigle-azur^^^^AAF^ZI^439^Aigle Azur^Aigle Azur^^^^^12184
 air-air-algerie^^^^DAH^AH^124^Air Algerie^Air Algerie^^^^^33138
 air-air-alliance^^^^GGN^ZX^0^Air Alliance^^^^^^
 air-air-alps-aviation^^^^LPV^A6^527^Air Alps Aviation^Alps Aviation^^^^^
-air-air-alsie^^^^^6I^248^Air Alsie^^^^PT^^1035
+air-air-alsie^^^^^6I^248^Air Alsie^Air Alsie^^^PT^^1035
 air-air-antilles-express^^^^^3S^875^Air Antilles Express^Air Antilles^^^^^7485
 air-air-arabia-egypt^^^^RBG^E5^844^Air Arabia Egypt^Samara Airl^^^^^2103
 air-air-arabia^^^^^G9^514^Air Arabia^^^^^^49579
@@ -139,7 +139,7 @@ air-air-new-zealand^^^^ANZ^NZ^86^Air New Zealand^New Zealand^Star Alliance^Membe
 air-air-next^^^^NXA^7A^0^Air Next^Haines Air^^^^^
 air-air-niamey^^^^AWN^A7^0^Air Niamey^Air Comet^^^^^
 air-air-nigeria^^^^VGN^VK^786^Air Nigeria^^^^^^
-air-air-nippon^^^^ANK^EL^768^Air Nippon^^^^^^
+air-air-nippon^^^^ELB^EL^0^Ellinair^^^^^^
 air-air-nippon-wings^^^^^EH^0^ANA Wings^^^^^^98103
 air-air-niugini^^^^ANG^PX^656^Air Niugini^Air Niugini^^^^^31079
 air-air-north^^^^^4N^287^Air North^Air North^^^^^1026
@@ -167,7 +167,7 @@ air-air-uganda^^^^^U7^926^Air Uganda^Norcanair^^^^^6120
 air-air-urga^^^^URG^3N^746^Air Urga^Airvantage^^^^^
 air-air-vallee^^^^^DO^0^Discovery Airways^Air Vallee^^^^^1098
 air-air-vanuatu^^^^AVN^NF^218^Air Vanuatu^Air Vanuatu^^^^^13414
-air-air-via^^^^^VL^0^Air Via Ltd^Vancouver Air^^^^^
+air-air-via^^^^VIM^VL^0^Air Via^Vancouver Air^^^^^
 air-airways-international^^^^^J6^0^Airways International^^^^^^
 air-air-wisconsin^^^^AWI^ZW^303^Air Wisconsin^Airwisconsi^^^^^
 air-air-zimbabwe^^^^AZW^UM^168^Air Zimbabwe^Air Zimbabwe^^^^^2668
@@ -515,7 +515,7 @@ air-heli-air-monaco^^^^MCM^YO^747^Heli Air Monaco^Heliairmona^^^^^34118
 air-helicopteros-del-sureste^^^^^UV^662^Helicopteros Del Sureste^^^^^^
 air-helijet^^^^JBA^JB^613^Helijet International^Helijet^^^^^7396
 air-heli-securite^^^^^H4^0^Heli Securite^^^^^^
-air-helitrans-as^^^^HTA^9I^0^Helitrans As^^^^^^
+air-helitrans-as^^^^LLR^9I^0^Alliance Air^^^^^^
 air-helitt-lineas-aereas^^^^^H9^221^Helitt Lineas Aereas^^^^^^
 air-hellas-jet^^^^HEJ^HJ^681^Hellas Jet^Hellenic Star^^^^^
 air-hellenic-imperial-airways^^^^IMP^HT^570^Hellenic Imperial Airways^Aeromist Khar^^^^^
@@ -578,7 +578,7 @@ air-jazeera-airways^^^^^J9^486^Jazeera Airways^^^^^^10884
 air-jazz-aviation^^^^JZA^QK^983^Jazz Aviation^Jazz Air^^^^^
 air-jeju-air^^^^JJA^7C^806^Jeju Air^Jeju Air^^^^^31751
 air-jet2^^^^EXS^LS^949^Jet2^^^^^^37912
-air-jet-4-you^^^^^8J^0^Jet4You^^^^^^
+air-jet-4-you^^^^^8J^0^Linea Aerea Eco Jet^^^^^^
 air-jetairfly^^^^JAF^TB^0^Jetairfly^Jetairfly^^^^^17385
 air-jet-air^^^^^O2^0^Jet Air^Jet Air^^^^^
 air-jet-airways^^^^JAI^9W^589^Jet Airways^Jet Airways^^^^^180989
@@ -644,6 +644,7 @@ air-libyan-airlines^^^^LAA^LN^148^Libyan Airlines^Libyan Air^^^^^15550
 air-linea-aerea-cuencana^^^^^L5^0^Linea Aerea Cuencana^^^^^^2354
 air-linea-aerea-de-servicio^^^^LER^QL^782^Linea Aerea De Servicio^^^^^^3592
 air-linea-turistica-aereotuy^^^^^L4^445^Linea Turistica Aereotuy^^^^^^
+air-link^^^^^V6^0^Air Link^^^^^^
 air-lion-airlines^^^^^JT^990^Lion Airlines^Jaro Intl Arl^^^^^236584
 air-lion-air^^^^^SL^0^Thai Lion Mentari^Rio Sul^^^^^6838
 air-loganair^^^^^LM^682^Loganair^Livingston^^^^^23909
@@ -665,7 +666,7 @@ air-mandala-airlines^^^^MDL^RI^488^Mandala Airlines^Pt Mandala^^^^^7774
 air-mandarin-airlines^^^^MDA^AE^803^Mandarin Airlines^Mandarin Air^Skyteam^Affiliate^^^11321
 air-mango^^^^^JE^0^Mango^^^^^^8910
 air-manx^^^^^NM^0^Manx^^^^^^
-air-marsland-aviation^^^^MSL^M7^293^Marsland Aviation^Marsland^^^^^2571
+air-marsland-aviation^^^^MSL^M7^293^Marsland Aviation^^^^^^2571
 air-martinair^^^^MPH^MP^129^Martinair^Martinair^^^^^
 air-maswings^^^^MWG^7B^0^Maswings^^^^^^
 air-mat-airways^^^^^6F^0^Mat Airways^^^^^^
@@ -702,7 +703,7 @@ air-myanmar-utd^^^^^UB^0^UTD Myanmar^UTD Myanmar^^^^^
 air-nacil-indian-airline^^^^^IC^58^Nacil Indian Airline^^^^^^
 air-nakina-air-service^^^^^T2^0^Nakina Air Service^Taba Aereos^^^^^
 air-nasair^^^^KNE^XY^593^Nasair^Nasair^^^^^22490
-air-nasair-uair^^^^^UE^770^Nasair^Uair^^^^^2563
+air-nasair-uair^^^^^UE^770^Nasair^^^^^^2563
 air-national-airlines^^^^MUA^N8^416^National Airlines^^^^^^
 air-national-airways^^^^^7N^789^National Airways^^^^^^
 air-national-airways-cameroon^^^^^9O^357^National Airways Cameroon^Aircameroon^^^^^
@@ -720,6 +721,7 @@ air-new-livingston^^^^NVL^JN^401^New Livingston^Newlivingston^^^^^1632
 air-nextjet^^^^NTJ^2N^121^Nextjet^Nextjet^^^^^15489
 air-nht-linhas-aereas^^^^NHG^N7^0^NHT Linhas Aereas^Lagun Air^^^^^8538
 air-nice-helicopteres^^^^^JX^179^Nice Helicopteres^Nice Helicopt^^^^^
+air-niger-airlines^^^^NIN^6N^720^Niger Airlines^^^^^^
 air-nigerian-eagle^^^^NIG^NG^708^Aero Contractors Company Nigeria^^^^^^
 air-niki^^^^NLY^HG^0^Niki^Niki^OneWorld^Affiliate^^^23557
 air-nile-air^^^^NIA^NP^325^Nile Air^Nile Air^^^^^2204
@@ -763,7 +765,7 @@ air-pacific-wings^^^^ANV^LW^568^Pacific Wings^Air Nevada^^^^^10756
 air-pakistan-airlines^^^^PIA^PK^214^Pakistan International Airlines^PIA^^^^^39062
 air-palau-asia-pacific^^^^^0P^0^Palau Asia Pacific Air^^^^^^
 air-panama-airways^^^^^8A^691^Panama Airways^^^^^^
-air-panam-dominicana^^^^PWD^7Y^0^Pan Am World Airways Dominicana^^^^^^
+air-panam-dominicana^^^^^7Y^0^Mann Yadanarpon Airlines^^^^^^
 air-papillon-airways^^^^^HI^563^Papillon Airways^Papillonair^^^^^363
 air-pascan-aviation^^^^PSC^P6^0^Pascan Aviation^^^^^^16030
 air-passaredo^^^^PTB^P3^0^Passaredo^^^^^^
@@ -812,7 +814,7 @@ air-regional-express^^^^^ZL^899^Regional Express^Regional Exp^^^^^68901
 air-regionsair^^^^^3C^507^Calima Aviacion^Corporate Exp^^^^^123
 air-reliable-unique-services^^^^RLB^R4^827^Reliable Unique Services^Stc Russia^^^^^
 air-republic-airline^^^^MEP^YX^453^Republic Airline^Republic Airline^^^^^83759
-air-rheintalflug^^^^^WE^0^Rheintalflug^Rheintalflg^^^^^
+air-rheintalflug^^^^^WE^0^Thai Smile Airways^Rheintalflg^^^^^
 air-robin-hood-aviation^^^^^RH^0^Robin Hood Aviation^^^^^^
 air-romavia^^^^^WQ^0^Romavia^^^^^^
 air-rossiya-airlines^^^^SDM^FV^195^Rossiya Airlines^Rossiya^^^^^52320
@@ -921,7 +923,7 @@ air-star-flyer^^^^^7G^922^Star Flyer^^^^^^28372
 air-star-peru^^^^SRU^2I^156^Star Peru^^^^^^9412
 air-sta-travel^^^^^0O^0^Sta Travel^Sta Travel^^^^^
 air-sterling-air^^^^^NB^373^Sterling Air^^^^^^
-air-sterling-blue^^^^^DM^349^Sterling Blue^Sterling Blue^^^^^
+air-sterling-blue^^^^DEX^DM^0^Asian Air^Sterling Blue^^^^^
 air-stp-airways^^^^STP^8F^470^STP Airways^STP Airways^^^^^44
 air-strategic-airlines^^^^^VC^471^Strategic Airlines^^^^^^
 air-sudan-airways^^^^SUD^SD^200^Sudan Airways^Sudan Air^^^^^1421

@@ -42,7 +42,6 @@
 8F^1^STP Airways<>Stp Airways
 8F^2^STP Airways<>Stp Airways
 8H^1^BH Air<>Bh Air
-8J^1^Jet4You<>Jet4you Com
 8M^1^Myanmar Airways<>Myanmar Airways Intl
 9F^2^Eurostar UK<>Eurostar Uk
 9G^1^9G Rail<>9g Rail Ltd
@@ -189,7 +188,6 @@ JJ^1^TAM Linhas Aereas<>Tam Linhas Aereas
 JJ^2^TAM Linh Aer<>Tam Linh Aer
 JL^2^JAL<>J A L
 JU^2^JAT<>J A T
-JZ^2^<>Skyways Ab
 K4^1^ALS<>Als Ltd
 K5^1^SeaPort Airlines<>Seaport Airlines
 K5^2^Wings of Alaska<>Wings Alaska
@@ -345,7 +343,9 @@ VAU^1^Virgin Australia International<>Virgin Australia Intl
 VE^1^CAI Second SpA<>C A I Second S P A
 VE^2^CAI Second<>C A I Second
 VG^1^VLM<>Vlm
+VIM^1^Air Via<>Air Via Ltd
 VKG^1^Thomas Cook Airlines<>Thomas Cook Airlines A S
+VL^1^Air Via<>Air Via Ltd
 VLE^1^CAI Second SpA<>C A I Second S P A
 VLE^2^CAI Second<>C A I Second
 VM^1^Macair Jet<>Macair Jet S A
