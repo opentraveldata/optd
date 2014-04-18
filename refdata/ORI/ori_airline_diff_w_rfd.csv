@@ -20,7 +20,6 @@
 2R^2^VIA Rail<>Via Rail
 2Y^1^Amadeus PDF 2Y<>Amadeus Pdf 2y
 2Y^2^<>Air Andaman
-2Z^1^TTA<>Tta
 4L^1^Georgian International Air<>Georgian International Ai
 4M^1^LAN Argentina<>Lanargentina
 4M^2^LAN argentina<>Lanargentina
@@ -159,6 +158,7 @@ GIL^1^Georgian International Air<>Georgian International Ai
 GLO^1^Varig Linhas Aereas<>Vrg Linhas Aereas S A
 GLO^2^Varig Linhas<>Vrg Linhas As
 GT^2^GB Airways<>Gb Airways
+GW^1^SkyGreece Airlines<>Skygreece Airlines
 GZ^2^Air Rarotonga<>Air Rarotong
 HB^1^Asia Atlantic Airlines<>Homer Air
 HDA^2^HK Dragon<>Hk Dragon
@@ -293,6 +293,7 @@ SIT^1^SITA<>Sita
 SIT^2^SITA<>
 SJ^1^Sriwijaya Air<>Pt Sriwijaya Air
 SJY^1^Sriwijaya Air<>Pt Sriwijaya Air
+SKG^1^SkyGreece Airlines<>Skygreece Airlines
 SME^2^Nayzak Air<>M4 NAYZAK Air
 SMX^1^CAI First SpA<>C A I First S P A
 SMX^2^CAI First SpA<>Cai First Spa
@@ -323,7 +324,6 @@ TP^1^TAP Portugal<>Tap Portugal
 TP^2^TAP Portugal<>Tap Portugal
 TPC^2^Air Caledonie<>Aircaledoni
 TSD^1^TAF Linhas Aereas<>Taf Linhas Aereas
-TTA^1^TTA<>Tta
 TY^2^Air Caledonie<>Aircaledoni
 U5^2^USA 3000<>Usa 3000
 UB^1^UTD Myanmar<>

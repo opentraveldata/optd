@@ -355,7 +355,7 @@ air-city-airways^^^^SMK^E8^0^City Airways^Alpi Eagles^^^^
 air-cityjet^^^^BCY^WX^689^CityJet^CityJet^Skyteam^Affiliate^^http://en.wikipedia.org/wiki/CityJet
 air-closed-iraero^^^^IAE^IO^154^Closed Jsc Iraero^^^^^
 air-cm-airlines^^^^OMT^CC^0^CM Airlines^Macair Airl^^^^
-air-colgan-air^^^^^9L^426^Colgan Air^Colgan Air^^^^
+air-colgan-air^^^^WLN^9L^0^West Link Airways^Colgan Air^^^^
 air-comair^^^^CAW^MN^161^Comair^Comair^OneWorld^Affiliate^^
 air-comores-aviation^^^^KMZ^O5^174^Comores Aviation International^^^^^
 air-compagnie-africaine-d-aviation^^^^^BU^883^Compagnie Africaine D Aviation^Sas Norway^^^^
@@ -518,7 +518,7 @@ air-hellas-jet^^^^HEJ^HJ^681^Hellas Jet^Hellenic Star^^^^
 air-hellenic-imperial-airways^^^^IMP^HT^570^Hellenic Imperial Airways^Aeromist Khar^^^^
 air-helvetic-airways^^^^OAW^2L^102^Helvetic Airways^2L Helvetic^^^^
 air-hennan-airlines^^^^^VD^981^Hennan Airlines^^^^^
-air-hermes-airlines^^^^^H3^490^Hermes Airlines^Harbour Air^^^^
+air-hermes-airlines^^^^HRM^H3^490^Hermes Airlines^Harbour Air^^^^
 air-hesa-airlines^^^^^H8^0^Hesa Airlines^Auric Air^^^^
 air-hevi-lift^^^^ASN^IU^0^Hevi Lift Png Pty Ltd^Air Straubing^^^^
 air-hex-air^^^^HER^UD^848^Hex Air^Hex Air^^^^
@@ -613,7 +613,7 @@ air-klm^^^^KLM^KL^74^KLM Royal Dutch Airlines^KLM^Skyteam^Member^^
 air-kogalymavia-airlines^^^^^7K^0^Kogalymavia Airlines^^^^^
 air-korean-air^^^^KAL^KE^180^Korean Air^Korean Air^Skyteam^Member^^
 air-korongo-airlines^^^^^ZC^557^Korongo Airlines^Korongo Air^^^^
-air-kuban-airlines^^^^KIL^GW^113^Kuban Airlines^^^^^
+air-kuban-airlines^^^^SKG^GW^0^SkyGreece Airlines^^^^^
 air-kunming-airlines^^^^KNA^KY^833^Kunming Airlines^^^^^
 air-kuwait-airways^^^^KAC^KU^229^Kuwait Airways^Kuwait Air^^^^
 air-kyrgyz-airlines^^^^^LK^915^Kyrgyz Airlines^^^^^
@@ -678,7 +678,7 @@ air-mesa-airlines^^^^ASH^YV^533^Mesa Airlines^Mesaairline^^^^
 air-mesaba-airlines^^^^TAX^XJ^0^Thai Air Asia X^Mesaba Air^^^^
 air-mexicana^^^^MXA^MX^132^Mexicana^Mexicana^^^^
 air-mhs-aviation^^^^^M2^0^MHS Aviation^^^^^
-air-miami-air^^^^^LL^0^Miami Air International^^^^^
+air-miami-air^^^^BSK^LL^0^Miami Air International^^^^^
 air-miat-mongolian-airlines^^^^MGL^OM^289^Miat Mongolian Airlines^Miat^^^^
 air-middle-east-airlines^^^^MEA^ME^76^Middle East Airlines^Middle East^Skyteam^Member^^
 air-midwest-airlines^^^^MWA^WV^857^Midwest Airlines^Swe Fly^^^^
@@ -957,6 +957,7 @@ air-taquan-air-services^^^^^K3^0^Taquan Air Services^^^^^
 air-tarco-air^^^^TRQ^3T^0^Tarco Air^Turan Air^^^^
 air-tarom^^^^ROT^RO^281^Tarom^Tarom^Skyteam^Member^^
 air-tassili-airlines^^^^^SF^515^Tassili Airlines^^^^^
+air-tata-sia-airlines^^^^^UK^0^Tata Sia Airlines^^^^^
 air-tatarstan-air^^^^^U9^966^Tatarstan Air^^^^^
 air-tectimes-sudamerica^^^^^C1^322^Tectimes Sudamerica^^^^^
 air-thai-airasia^^^^AIQ^FD^900^Thai Airasia^Thai Airasia^^^^
@@ -994,7 +995,7 @@ air-travel-service-alaska^^^^TVQ^6D^0^Travel Service^Alaska Isl^^^^
 air-trigana-air^^2014-01-01^^^IL^0^Trigana Air Service^Istanbul Air^^^^
 air-trip^^^^^T4^661^Trip^^^^^
 air-tropic-air^^^^^9N^0^Tropic Air^Tropic Air^^^PC^
-air-tta^^^^TTA^2Z^0^TTA^^^^^
+air-tta^^^^PTB^2Z^678^Passaredo Transportes^^^^^
 air-tuifly-nordic^^^^BLX^6B^951^Tuifly Nordic^Britannia^^^^
 air-tuifly^^^^TUI^X3^617^Tuifly^Tuifly^^^^
 air-tunisair-express^^^^^UG^150^Tunisair Express^Tuninter^^^^
