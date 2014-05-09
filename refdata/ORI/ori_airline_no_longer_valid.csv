@@ -1,9 +1,12 @@
 pk^env_id^validity_from^validity_to^3char_code^2char_code^num_code^name^name2^alliance_code^alliance_status^type(Cargo;Pax scheduled;Dummy;Gds;charTer;Ferry;Rail)^wiki_link
 air-al-naser-airlines^1^^2013-12-31^MHK^6N^503^Al Naser Airlines^^^^^http://en.wikipedia.org/wiki/Al-Naser_Airlines
-air-cargolux-italia^1^^^2013-12-31^C8^0^Cargolux Italia^Cargolux Italia^^^C^
+air-brindabella-airlines^1^^2013-12-14^^FQ^0^Brindabella Airlines^^^^P^http://en.wikipedia.org/wiki/Brindabella_Airlines
+air-cargolux-italia^1^^2013-12-31^^C8^0^Cargolux Italia^Cargolux Italia^^^C^
 air-djibouti-airlines^1^^2013-12-31^DJB^D8^0^Djibouti Airlines^^^^^
 air-estafeta-carga-aerea^1^^^2013-12-31^E7^^Estafeta Carga Aerea^Estafeta Carga Aerea^^^C^
 air-eznis-airways^1^^2013-12-31^EZA^EF^646^Eznis Airways^Eznis Airways^^^PC^
 air-flycongo^1^^2013-31-12^ALX^EO^663^Flycongo^^^^^
+air-marsland-aviation^1^^2013-11-30^MSL^M7^293^Marsland Aviation^^^^^http://en.wikipedia.org/wiki/Marsland_Aviation
 air-national-jet-systems^1^^2009-02-28^NJS^NC^0^National Jet Systems^^OneWorld^Affiliate^^http://en.wikipedia.org/wiki/Cobham_Aviation_Services_Australia
-air-skyways^1^^2013-12-31^SKX^JZ^752^Skyways^Skyways^^^^
+air-scotairways^1^^2013-03-31^SAY^CB^969^ScotAirways^ScotAirways^^^^http://en.wikipedia.org/wiki/Suckling_Airways
+air-skyways^1^^2012-05-22^SKX^JZ^752^Skyways^Skyways^^^^http://en.wikipedia.org/wiki/Skyways_(airline)

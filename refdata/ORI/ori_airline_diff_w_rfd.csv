@@ -96,8 +96,12 @@ BD^2^British Midland<>
 BEA^1^BQB Lineas Aereas<>Bqb Lineas Aereas
 BEA^2^BQB Lineas<>Bqb Lineas
 BGH^1^BH Air<>Bh Air
+BM^1^bmi regional<>Bmi Regional
+BM^2^BMI Regional<>Bmi Regional
 BMA^1^British Midland<>British Midland International
 BMA^2^British Midland<>
+BMR^1^bmi regional<>Bmi Regional
+BMR^2^BMI Regional<>Bmi Regional
 BO^1^BB Airways<>Bb Airways
 BVI^1^BVI Airways<>Bvi Airways
 BY^1^Thomson Airways<>Thomson Airways Ltd
@@ -106,6 +110,7 @@ BZH^2^HOP Brit Air<>Hop Brit Air
 C6^2^Bright Airlines<>Bright Arl
 CAI^2^KD Air<>K D Air
 CAW^1^Comair<>Comair Ltd
+CB^2^<>Scotairways
 CC^1^CM Airlines<>Cm Airlines
 CES^2^China Eastern Airlines<>China East
 CFE^1^BA CityFlyer<>Ba Cityflyer
@@ -148,6 +153,7 @@ EH^1^ANA Wings<>Ana Wings
 EXS^1^Jet2<>Jet2 Com
 EZ^1^Sun Air of Scandinavia<>Sun Air Of Scandinavia
 FDY^1^Sun Air Express<>Sun Air Express Llc
+FQ^1^<>Brindabella Airlines
 FY^2^NW Regional<>Nw Regional
 G3^1^Varig Linhas Aereas<>Vrg Linhas Aereas S A
 G3^2^Varig Linhas<>Vrg Linhas As
@@ -245,8 +251,8 @@ NJS^1^<>National Jet Systems
 NM^1^Manx<>Manx2
 NO^1^Neos SpA<>Neos Spa
 NQ^1^Air Japan Company<>Air Japan Company Ltd
+NW^1^Northwest Airlines<>
 NW^2^Nwest Airlines<>Nwest Airli
-NWA^2^Nwest Airlines<>Nwest Airli
 O2^1^Jet Air<>
 OAW^2^2L Helvetic<>2l HELVETIC
 OB^2^<>Boliviana
@@ -329,8 +335,10 @@ U5^2^USA 3000<>Usa 3000
 UB^1^UTD Myanmar<>
 UB^2^UTD Myanmar<>Utd Myanmar
 UC^1^LAN Chile Cargo<>Lan Chile Cargo
-UH^1^US Helicopter Corp<>Us Helicopter Corp
+UH^1^AtlasJet Ukraine<>Atlasjet Ukraine
 UH^2^US Helicopter<>Us Helicopter
+UJX^1^AtlasJet Ukraine<>Atlasjet Ukraine
+UJX^2^US Helicopter<>Us Helicopter
 UL^1^SriLankan Airlines<>Srilankan Airlines
 UL^2^SriLankan Air<>Srilankan Air
 UO^2^HK Express<>Hk Express
@@ -401,3 +409,4 @@ Z5^1^GMG Airlines<>Gmg Airlines
 Z5^2^GMG Airlines<>Gmg Airlines
 Z8^1^Amaszonas SA<>Amaszonas S A
 ZA^1^Sky Wings Asia Airlines<>Skywings Asia Airlines
+ZS^1^Kazaviaspas<>Jsc Kazaviaspas
