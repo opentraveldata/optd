@@ -1,5 +1,5 @@
 pk^env_id^validity_from^validity_to^3char_code^2char_code^num_code^name^name2^alliance_code^alliance_status^type(Cargo;Pax scheduled;Dummy;Gds;charTer;Ferry;Rail)^wiki_link
-air-abc-aerolineas^^^^AIJ^4O^837^ABC Aerolineas^^^^^
+air-abc-aerolineas^^2005-12-01^^AIJ^4O^837^Interjet^ABC Aerolineas^^^^http://en.wikipedia.org/wiki/Interjet
 air-acg-air-cargo-germany^^^^ACX^6U^0^Acg Air Cargo Germany^Air Ukraine^^^^
 air-act-havayollari^^^^ABS^9T^556^Act Havayollari^Athabaska^^^^
 air-adria-airways^^^^ADR^JP^165^Adria Airways^Adria^Star Alliance^Member^^
@@ -15,7 +15,7 @@ air-aeroenlaces-nacionales^^^^VIV^VB^0^Aeroenlaces Nacionales^^^^^
 air-aeroflot^^^^AFL^SU^555^Aeroflot^Aeroflot^Skyteam^Member^^
 air-aerogaviota^^^^GTV^KG^854^Aerogaviota^King Island^^^^
 air-aerolinea-principal-chile^^^^PCP^5P^676^Aerolinea Principal Chile^Aerolinea Pr^^^P^
-air-aerolineas-argentinas^^^^ARG^AR^44^Aerolineas Argentinas^Argentinas^Skyteam^Member^^
+air-aerolineas-argentinas^^^^ARG^AR^44^Aerolineas Argentinas^Argentinas^Skyteam^Member^^http://en.wikipedia.org/wiki/Aerol%C3%ADneas_Argentinas
 air-aerolineas-galapagos^^^^GLG^2K^547^Aerolineas Galapagos^Aerogal^^^^
 air-aerolineas-mas^^^^^N3^877^Aerolineas Mas^Omskavia^^^^
 air-aerolineas-regionales^^^^^F2^0^Aerolineas Regionales^^^^P^
@@ -304,7 +304,7 @@ air-calm-air^^^^CAV^MO^622^Calm Air International^Calm Air Intl^^^^
 air-camair^^^^CRD^QC^40^Camair Co^Camair Co^^^^
 air-cambodia-angkor-air^^^^^K6^188^Cambodia Angkor Air^Cambodia Air^^^^
 air-canadian-north^^^^^5T^518^Canadian North^Canadian North^^^^
-air-canary-fly^^^^CNF^PM^496^Canary Fly^Tropic Air^^^^
+air-canary-fly^^^^CNF^PM^496^Canary Fly^Tropic Air^^^^http://en.wikipedia.org/wiki/Cape_Air
 air-canjet-airlines^^^^CJA^C6^0^Canjet Airlines^Bright Airlines^^^^
 air-cape-air^^^^KAP^9K^306^Cape Air^Cape Air^^^^
 air-cargolux^^^^^CV^0^Cargolux Airlines^Air Chatham^^^^
@@ -362,7 +362,7 @@ air-congo-express^^^^CXR^9X^0^Congo Express^New Axis Air^^^^
 air-continental-airlines^^^^COA^CO^5^Continental Airlines^Continental^^^^
 air-continental-micronesia^^^^CMI^CS^0^Continental Micronesia^Continl Micro^^^^
 air-conviasa^^^^VCV^V0^308^Conviasa^Conviasa^^^^
-air-copa-airlines^^^^CMP^CM^230^Copa Airlines^Copa Panamena^Star Alliance^Member^^
+air-copa-airlines^^^^CMP^CM^230^Copa Airlines^Compania Panamena de Aviacion^Star Alliance^Member^^http://en.wikipedia.org/wiki/Copa_Airlines
 air-corendon-airlines^^^^CAI^XC^0^Corendon Airlines^KD Air^^^^
 air-corendon-dutch-airlines^^^^CND^CD^0^Corendon Dutch Airlines^Seaview Air^^^^
 air-corsair^^^^CRL^SS^923^Corsair^Corse Air^^^^
@@ -544,6 +544,7 @@ air-insel-air^^^^^7I^958^Insel Air International^Insel Air^^^^
 air-insel-air-aruba^^^^^8I^778^Insel Air Aruba^Insel Air Aru^^^^
 air-inter-air^^^^INL^D6^625^Inter Air^Inter Air^^^^
 air-intercaribbean-airways^^^^^JY^653^Intercaribbean Airways^Air Turcks^^^^
+air-interjet-gr^^^^INJ^^0^InterJet^InterJet^^^^http://en.wikipedia.org/wiki/InterJet
 air-intersky^^^^ISK^3L^222^Intersky Luftfahrt^Intersky^^^^
 air-invest-avia^^^^TLG^IN^0^Invest Avia^Macedonianair^^^^
 air-iran-air^^^^IRA^IR^96^Iran Air^Iran Air^^^^
@@ -618,7 +619,7 @@ air-kyrgyz-trans-avia^^^^KTC^6K^0^Kyrgyz Trans Avia^Korsar^^^^
 air-lacbravo^^^^^4V^408^Lacbravo^^^^^
 air-lacsa^^^^LRC^LR^133^Avianca Costa Rica^Lacsa^^^^http://en.wikipedia.org/wiki/Avianca_Costa_Rica
 air-lam-mozambique^^^^LAM^TM^68^Lam Mozambique^Lam^^^^
-air-lan-airlines^^^^LAN^LA^45^LATAM Airlines Group^LAN Chile^OneWorld^Member^^
+air-lan-airlines^^^^LAN^LA^45^LAN Airlines^LATAM Airlines Group^OneWorld^Member^^http://en.wikipedia.org/wiki/LAN_Airlines
 air-lan-argentina^^^^^4M^469^LAN Argentina^LAN argentina^OneWorld^Affiliate^^
 air-lan-chile-cargo^^^^LCO^UC^0^LAN Chile Cargo^Ladeco^^^^
 air-lan-ecuador^^^^LNE^XL^462^LAN Ecuador^LAN Ecuador^OneWorld^Affiliate^^http://en.wikipedia.org/wiki/LAN_Ecuador
@@ -733,7 +734,7 @@ air-nova-airlines-northcoast^^^^NVR^N9^326^Nova Airlines^Northcoast Av^^^^
 air-nova-airlines^^^^NOV^O9^948^Nova Airlines^^^^^
 air-novoair^^^^^VQ^855^Novoair^^^^P^
 air-nyasa-express^^^^^7Q^0^Elite Airways^^^^^
-air-oceanair^^^^ONE^O6^247^Avianca Brasil^Oceanair^^^^
+air-oceanair^^^^ONE^O6^247^Avianca Brasil^Oceanair^^^^http://en.wikipedia.org/wiki/Avianca_Brazil
 air-okapi-airlines^^^^HND^OI^0^Hinterland Aviation^Italiatour^^^^
 air-okay-airways^^^^^BK^866^Okay Airways^Paradise Isl^^^^
 air-olt-express-germany^^^^OLT^OL^704^Olt Express Germany Gmbh^^^^^
@@ -841,7 +842,7 @@ air-scoot^^^^^TZ^668^Scoot^Scoot^^^^
 air-scott-air^^^^^I4^0^Scott Air^^^^^
 air-seaborne-airlines^^^^^BB^376^Seaborne Airlines^Seaborne Air^^^^
 air-seair^^^^^XO^0^Seair^Xinjiang^^^^
-air-seaport-airlines^^^^^K5^609^SeaPort Airlines^Wings of Alaska^^^P^
+air-seaport-airlines^^^^SQH^K5^609^SeaPort Airlines^Wings of Alaska^^^P^http://en.wikipedia.org/wiki/SeaPort_Airlines
 air-senegal-airlines^^^^^DN^440^Senegal Airlines^Senegal Air^^^^
 air-servant-air^^^^^8D^0^Servant Air^^^^^
 air-servicios-aereos-profesionales^^^^PSV^5S^0^Servicios Aereos Profesionales^^^^^
@@ -898,7 +899,7 @@ air-southern-star-airlines^^^^^4P^0^Travel Air^^^^^
 air-southwest-airlines^^^^SWA^WN^526^Southwest Airlines^SW Airlines^^^P^
 air-speed-alliance-westbahn^^^^^5W^0^Speed Alliance Westbahn^Executive Exp^^^^
 air-spicejet^^^^SEJ^SG^775^Spicejet^Sempati Air^^^^
-air-spirit-airlines^^^^^NK^487^Spirit Airlines^Spirit Airlin^^^^
+air-spirit-airlines^^^^NKS^NK^487^Spirit Airlines^Spirit Airlines^^^^http://en.wikipedia.org/wiki/Spirit_Airlines
 air-spring-airlines^^^^^9C^89^Spring Airlines^Haiti Caribb^^^^
 air-spring-airlines-jp^^^^^IJ^0^Spring Airlines Japan^^^^^
 air-sqiva-sistem^^^^^Q1^0^Sqiva Sistem^^^^^
@@ -939,7 +940,7 @@ air-taf-linhas-aereas^^^^TSD^R9^418^TAF Linhas Aereas^Air Charter^^^^
 air-tailwind-hava-yollari-as^^^^TWI^TI^0^Tailwind Hava Yollari As^Baltic Int^^^^
 air-tajik-air^^^^TJK^7J^502^Tajik Air^Tajik Air^^^^
 air-tame-linea-aerea-del-ecuador^^^^TAE^EQ^269^Tame Linea Aerea Del Ecuador^Tame^^^^
-air-tam-linhas-aereas^^^^TAM^JJ^957^TAM Linhas Aereas^TAM Linh Aer^Star Alliance^Member^^
+air-tam-linhas-aereas^^^^TAM^JJ^957^TAM Airlines^TAM Linhas Aereas^Star Alliance^Member^^http://en.wikipedia.org/wiki/TAM_Airlines
 air-tam-mercosur^^^^LAP^PZ^692^Tam Mercosur^Lapsa^^^^
 air-tampa-cargo^^^^TPA^QT^0^Tampa Cargo^Regional^^^^
 air-tanana-air-service^^^^TNR^4E^0^Tanana Air Service^Tanana Air^^^^

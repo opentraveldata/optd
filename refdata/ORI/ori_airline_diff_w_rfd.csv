@@ -24,7 +24,8 @@
 4L^1^Georgian International Air<>Georgian International Ai
 4M^1^LAN Argentina<>Lanargentina
 4M^2^LAN argentina<>Lanargentina
-4O^1^ABC Aerolineas<>Abc Aerolineas
+4O^1^Interjet<>Abc Aerolineas
+4O^2^ABC Aerolineas<>
 5G^1^Fly 540 Ghana<>540 Ghana
 5G^2^Skyservice Ghana<>Skyservice
 5Q^1^BQB Lineas Aereas<>Bqb Lineas Aereas
@@ -60,7 +61,8 @@ ADH^1^Air One<>Airone S P A
 ADH^2^Aliadriatica<>Aliadratica
 AI^1^Air India<>Air India Limited
 AIC^1^Air India<>Air India Limited
-AIJ^1^ABC Aerolineas<>Abc Aerolineas
+AIJ^1^Interjet<>Abc Aerolineas
+AIJ^2^ABC Aerolineas<>
 AJD^2^GB Airways<>Gb Airways
 AJX^1^Air Japan Company<>Air Japan Company Ltd
 AK^1^Air Asia<>Airasia Sdn Bhd
@@ -129,6 +131,8 @@ CJ^1^BA CityFlyer<>Ba Cityflyer
 CJA^2^Bright Airlines<>Bright Arl
 CL^1^Lufthansa CityLine<>Lufthansa Cityline
 CLH^1^Lufthansa CityLine<>Lufthansa Cityline
+CM^2^Compania Panamena de Aviacion<>Copa Panamena
+CMP^2^Compania Panamena de Aviacion<>Copa Panamena
 CR^1^OAG Worldwide<>Oag Worldwide
 CRN^1^Aero Caribbean<>Aerocaribbean
 CSA^1^Czech Airlines<>Csa Czech Airlines
@@ -204,8 +208,8 @@ JA^2^BH Airlines<>B H Airlines
 JAL^2^JAL<>J A L
 JAT^2^JAT<>J A T
 JC^1^JAL Express<>Jal Express
-JJ^1^TAM Linhas Aereas<>Tam Linhas Aereas
-JJ^2^TAM Linh Aer<>Tam Linh Aer
+JJ^1^TAM Airlines<>Tam Linhas Aereas
+JJ^2^TAM Linhas Aereas<>Tam Linh Aer
 JK^1^<>Spanair
 JK^2^<>Spanair
 JKK^1^<>Spanair
@@ -227,10 +231,10 @@ KLM^1^KLM Royal Dutch Airlines<>Klm Royal Dutch Airlines
 KLM^2^KLM<>Klm
 KNI^1^Kal Star Aviation<>Pt Kal Star Aviation
 KNI^2^KD Avia<>Kd Avia
-LA^1^LATAM Airlines Group<>Latam Airlines Group S A
-LA^2^LAN Chile<>Lan Chile
-LAN^1^LATAM Airlines Group<>Latam Airlines Group S A
-LAN^2^LAN Chile<>Lan Chile
+LA^1^LAN Airlines<>Latam Airlines Group S A
+LA^2^LATAM Airlines Group<>Lan Chile
+LAN^1^LAN Airlines<>Latam Airlines Group S A
+LAN^2^LATAM Airlines Group<>Lan Chile
 LB^2^LAB<>L A B
 LCO^1^LAN Chile Cargo<>Lan Chile Cargo
 LID^1^Alidaunia<>Alidaunia S R L
@@ -266,6 +270,7 @@ NC^1^Cobham Aviation Services Australia<>National Jet Systems
 NC^2^QantasLink<>
 NHG^1^NHT Linhas Aereas<>Nht Linhas Aereas
 NJS^1^<>National Jet Systems
+NK^2^Spirit Airlines<>Spirit Airlin
 NM^1^Manx<>Manx2
 NO^1^Neos<>Neos Spa
 NQ^1^Air Japan Company<>Air Japan Company Ltd
@@ -338,8 +343,8 @@ TA^1^TACA International Airlines<>Taca International Airlines
 TA^2^TACA<>Taca
 TAI^1^TACA International Airlines<>Taca International Airlines
 TAI^2^TACA<>Taca
-TAM^1^TAM Linhas Aereas<>Tam Linhas Aereas
-TAM^2^TAM Linh Aer<>Tam Linh Aer
+TAM^1^TAM Airlines<>Tam Linhas Aereas
+TAM^2^TAM Linhas Aereas<>Tam Linh Aer
 TAP^1^TAP Portugal<>Tap Portugal
 TAP^2^TAP Portugal<>Tap Portugal
 TAX^1^Thai Air Asia X<>Thai Airasia X Company
