@@ -144,9 +144,9 @@ air-air-nippon-wings^^^^^EH^0^ANA Wings^^^^^^98095
 air-air-niugini^^^^ANG^PX^656^Air Niugini^Air Niugini^^^^^27969
 air-air-north^^^^^4N^287^Air North^Air North^^^^^2307
 air-airnorth^^^^ANO^TL^935^Airnorth^Airnorth^^^^^8937
-air-air-nostrum^^^^ANS^YW^694^Air Nostrum^Air Nostrum^OneWorld^Affiliate^^^72882
-air-air-one^^^^ADH^AP^867^Air One SpA^Aliadratica^^^^^9635
-air-air-onix^^^^^OG^130^Air Onix^Air Onix^^^^^2719
+air-air-nostrum^^^^ANE^YW^694^Air Nostrum^Air Nostrum^OneWorld^Affiliate^^http://en.wikipedia.org/wiki/Air_Nostrum^72882
+air-air-one^^^^ADH^AP^867^Air One^Aliadriatica^^^^http://en.wikipedia.org/wiki/Air_One^9635
+air-air-onix^1^2012-04-28^2013-12-31^^OG^130^Air Onix^^^^^http://en.wikipedia.org/wiki/Air_Onix^2719
 air-air-panama^^^^PST^7P^23^Air Panama^Apa Intl^^^^^10671
 air-airphil-express^^^^GAP^2P^211^Airphil Express^Airphil Express^^^^^54245
 air-air-rarotonga^^^^^GZ^755^Air Rarotonga^Air Rarotonga^^^^^3764
@@ -160,7 +160,7 @@ air-air-tahiti-nui^^^^THT^TN^244^Air Tahiti Nui^Air Tahiti^^^^^17188
 air-air-tahiti^^^^VTA^VT^135^Air Tahiti^Air Tahiti^^^^^22426
 air-air-tanzania^^^^ATC^TC^197^Air Tanzania^^^^^^3138
 air-air-timor^^^^^6C^586^Air Timor^^^^^^
-air-air-tindi^^^^^8T^744^Air Tindi Ltd^^^^^^3768
+air-air-tindi^^^^TID^8T^744^Air Tindi^^^^^http://en.wikipedia.org/wiki/Air_Tindi^3768
 air-airtran-airways^^^^^FL^332^Airtran Airways^Airtran Air^^^^^38249
 air-air-transat^^^^TSC^TS^649^Air Transat^Air Transat^^^^^17784
 air-air-uganda^^^^^U7^926^Air Uganda^Norcanair^^^^^6748
@@ -203,14 +203,14 @@ air-amaszonas^^^^^Z8^464^Amaszonas SA^Amaszonas^^^^^22390
 air-american-airlines^^^^AAL^AA^1^American Airlines^American^OneWorld^Member^^^1190019
 air-american-eagle^^^^ENY^MQ^93^Envoy Air^^^^^http://en.wikipedia.org/wiki/Envoy_Air^
 air-amsterdam-airlines^^^^AAN^WD^562^Amsterdam Airlines Bv^Das Air^^^^^
-air-andes-lineas-aereas^^^^^OY^650^Andes Lineas Aereas^Andes^^^^^471
+air-andes-lineas-aereas^^2006-06-20^^ANS^OY^650^Andes Lineas Aereas^Andes^^^^http://en.wikipedia.org/wiki/Andes_L%C3%ADneas_A%C3%A9reas^471
 air-angara-airlines^^^^^2G^735^Angara Airlines^^^^P^^2013
 air-antrak-air^^^^^O4^916^Antrak Air^^^^^^3036
 air-arctic-circle-air^^^^ODM^5F^91^Pan African Airways^Bonaire Air^^^^^
 air-arc^^^^^XD^0^Arc^^^^^^
 air-ariana-afghan-airlines^^^^AFG^FG^255^Ariana Afghan Airlines^Ariana^^^^^2616
 air-arik-air^^^^ARA^W3^725^Arik Air^Arik Air^^^^^41743
-air-arkefly^^^^TFL^OR^178^Arkefly^Tui Airlines^^^PC^^2354
+air-arkefly^^^^TFL^OR^178^Arkefly^Arkefly^^^PC^http://en.wikipedia.org/wiki/Arkefly^2354
 air-arkia^^^^AIZ^IZ^238^Arkia^Arkia Israeli^^^^^10313
 air-armavia^^^^^U8^669^Armavia^^^^^^
 air-armenia-airways^^^^^6A^0^Armenia Airways^Aviacsa^^^^^
@@ -301,9 +301,9 @@ air-business-air^^^^BCC^8B^820^Business Air^Carribean Air^^^^^377
 air-business-aviation-centre^^^^^UQ^0^Business Aviation Centre^O Connor^^^^^
 air-bvi-airways^^^^BVI^XV^0^BVI Airways^^^^^^728
 air-caicos-express-airways^^^^CXE^9Q^0^Caicos Express Airways^PB Air^^^^^2354
-air-cai-first^^^^SMX^XM^0^CAI First SpA^CAI First SpA^^^^^1912
+air-cai-first^1^1997-10-01^2008-12-31^SMX^XM^0^CAI First^Alitalia Express^^^^http://en.wikipedia.org/wiki/CAI_First^1912
 air-cairo-aviation^^^^^OE^0^Cairo Aviation^^^^^^387
-air-cai-second^^^^VLE^VE^0^CAI Second SpA^CAI Second^^^^^1337
+air-cai-second^1^^2009-01-12^VLE^VE^0^CAI Second^Volare^^^^http://en.wikipedia.org/wiki/CAI_Second^1337
 air-calm-air^^^^CAV^MO^622^Calm Air International^Calm Air Intl^^^^^20327
 air-camair^^^^CRD^QC^40^Camair Co^Camair Co^^^^^4190
 air-cambodia-angkor-air^^^^^K6^188^Cambodia Angkor Air^Cambodia Air^^^^^14364
@@ -477,9 +477,9 @@ air-freshair^^^^FZW^Z7^0^Freshair^Easeon Air^^^^^
 air-frontier-airlines^^^^FTT^F9^422^Frontier Airlines^Frontier Air^^^^^53791
 air-frontier-flying-service^^^^AFU^2F^0^Afrinat International Airlines^Frontier^^^^^510
 air-fuji-dream-airlines^^^^FDA^JH^0^Fuji Dream Airlines^Nordeste^^^^^16423
-air-gamair^^^^BIH^BS^0^British International^Gamair Ltd^^^^^
-air-gambia-airlines^^^^GNR^GC^34^Gambia Intl Airlines^Gambia Intl^^^^^
-air-gambia-bird-airlines^^^^GBQ^3G^213^Gambia Bird Airlines Ltd^Gambia Bird^^^^^3510
+air-gamair^^^^BIH^BS^0^British International^Gamair^^^^^
+air-gambia-airlines^1^1996-01-23^2004-04-30^GNR^GC^34^Gambia International Airlines^Gambia Intl^^^^http://en.wikipedia.org/wiki/Gambia_International_Airlines^
+air-gambia-bird-airlines^^2012-10-01^^GBQ^3G^213^Gambia Bird^Gambia Bird^^^^http://en.wikipedia.org/wiki/Gambia_Bird^3510
 air-garuda-indonesia^^^^GIA^GA^126^Garuda Indonesia^Garuda^Skyteam^Future^^^194508
 air-gazpromavia^^^^GZP^4G^579^Gazpromavia^^^^^^1500
 air-georgian-air^^^^GIL^4L^0^Georgian International Air^^^^^^
@@ -524,7 +524,7 @@ air-helvetic-airways^^^^OAW^2L^102^Helvetic Airways^2L Helvetic^^^^^11369
 air-hennan-airlines^^^^^VD^981^Hennan Airlines^^^^^^
 air-hermes-airlines^^^^HRM^H3^490^Hermes Airlines^Harbour Air^^^^^292
 air-hesa-airlines^^^^^H8^0^Hesa Airlines^Auric Air^^^^^
-air-hevi-lift^^^^ASN^IU^0^Hevi Lift Png Pty Ltd^Air Straubing^^^^^
+air-hevi-lift^^1994-01-01^^ASN^IU^0^Hevilift^Air Straubing^^^^http://en.wikipedia.org/wiki/Hevilift^
 air-hex-air^^^^HER^UD^848^Hex Air^Hex Air^^^^^176
 air-hi-fly-transportes-aereo^^^^ODS^5K^654^Hi Fly Transportes Aereo^Sac Odessa^^^^^331
 air-hokkaido^^^^ADO^HD^0^Hokkaido International^^^^^^51920
@@ -713,7 +713,7 @@ air-national-jet-systems^1^^2009-02-28^NJS^NC^0^National Jet Systems^^OneWorld^A
 air-nature-air^^^^^5C^0^Nature Air^^^^^^12107
 air-naysa^^^^NAY^ZN^595^Naysa^Air Bourbon^^^^^23128
 air-nego-airline-one^^^^^YA^0^Nego Airline One^^^^^^
-air-neos^^^^^NO^703^Neos SpA^^^^^^
+air-neos^^2002-03-08^^NOS^NO^703^Neos^^^^^http://en.wikipedia.org/wiki/Neos_(airline)^
 air-nepal-airlines^^^^RNA^RA^285^Nepal Airlines^Nepal Air^^^^^1727
 air-nesma-airlines^^^^NMA^NE^0^Nesma Airlines^Skyeurope Air^^^^^
 air-netjets-aviation^^^^^1I^0^Netjets Aviation^^^^^^
@@ -909,7 +909,7 @@ air-south-airlines^^^^OTL^YG^233^South Airlines^South Airline^^^^^
 air-southern-air-charter^^^^^PL^0^Southern Air Charter^^^^^^11085
 air-southern-star-airlines^^^^^4P^0^Travel Air^^^^^^5234
 air-southwest-airlines^^^^SWA^WN^526^Southwest Airlines^SW Airlines^^^P^^557333
-air-spanair^^^^JKK^JK^680^Spanair^Spanair^^^^^
+air-spanair^1^1988-03-01^2012-01-27^JKK^JK^680^Spanair^Spanair^^^^http://en.wikipedia.org/wiki/Spanair^
 air-speed-alliance-westbahn^^^^^5W^0^Speed Alliance Westbahn^Executive Exp^^^^^
 air-spicejet^^^^SEJ^SG^775^Spicejet^Sempati Air^^^^^120901
 air-spirit-airlines^^^^^NK^487^Spirit Airlines^Spirit Airlin^^^^^83790

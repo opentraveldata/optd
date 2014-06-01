@@ -20,6 +20,7 @@
 2R^2^VIA Rail<>Via Rail
 2Y^1^Amadeus PDF 2Y<>Amadeus Pdf 2y
 2Y^2^<>Air Andaman
+3G^1^Gambia Bird<>Gambia Bird Airlines Ltd
 4L^1^Georgian International Air<>Georgian International Ai
 4M^1^LAN Argentina<>Lanargentina
 4M^2^LAN argentina<>Lanargentina
@@ -43,6 +44,7 @@
 8F^2^STP Airways<>Stp Airways
 8H^1^BH Air<>Bh Air
 8M^1^Myanmar Airways<>Myanmar Airways Intl
+8T^1^Air Tindi<>Air Tindi Ltd
 9F^2^Eurostar UK<>Eurostar Uk
 9G^1^9G Rail<>9g Rail Ltd
 9N^2^Tropic Air<>
@@ -54,7 +56,8 @@ A1^1^G Switch Works<>G2 Switch Works
 A5^1^HOP!<>Hop
 A5^2^HOP!<>Airlinair
 ACI^1^Air Calin<>Aircalin
-ADH^1^Air One SpA<>Airone S P A
+ADH^1^Air One<>Airone S P A
+ADH^2^Aliadriatica<>Aliadratica
 AI^1^Air India<>Air India Limited
 AIC^1^Air India<>Air India Limited
 AIJ^1^ABC Aerolineas<>Abc Aerolineas
@@ -70,11 +73,15 @@ AMX^1^AeroMexico<>Aeromexico
 AMX^2^AeroMexico<>Aeromexico
 AN^1^HOP Airlinair<>Hop Airlinair
 AN^2^HOP Airlinair<>Hop Airlinair
-AP^1^Air One SpA<>Airone S P A
+ANS^1^Andes Lineas Aereas<>Air Nostrum
+ANS^2^Andes<>Air Nostrum
+AP^1^Air One<>Airone S P A
+AP^2^Aliadriatica<>Aliadratica
 APD^1^Fantasia Info Network<>Fantasia Info Network Lt
 APF^1^Amapola Flyg<>Amapola Flyg Ab
 AS^2^Alaska Airlines<>Alaska A L
 ASA^2^Alaska Airlines<>Alaska A L
+ASN^1^Hevilift<>Hevi Lift Png Pty Ltd
 AT^2^Royal Air Maroc<>R Air Maroc
 ATA^2^ARC<>Arc
 AU^2^Austral LA<>Austral L A
@@ -97,6 +104,7 @@ BD^2^British Midland<>
 BEA^1^BQB Lineas Aereas<>Bqb Lineas Aereas
 BEA^2^BQB Lineas<>Bqb Lineas
 BGH^1^BH Air<>Bh Air
+BIH^2^Gamair<>Gamair Ltd
 BM^1^bmi regional<>Bmi Regional
 BM^2^BMI Regional<>Bmi Regional
 BMA^1^British Midland<>British Midland International
@@ -104,6 +112,7 @@ BMA^2^British Midland<>
 BMR^1^bmi regional<>Bmi Regional
 BMR^2^BMI Regional<>Bmi Regional
 BO^1^BB Airways<>Bb Airways
+BS^2^Gamair<>Gamair Ltd
 BVI^1^BVI Airways<>Bvi Airways
 BY^1^Thomson Airways<>Thomson Airways Ltd
 BZH^1^HOP Brit Air<>Hop Brit Air
@@ -157,11 +166,16 @@ FY^2^NW Regional<>Nw Regional
 G3^1^Varig Linhas Aereas<>Vrg Linhas Aereas S A
 G3^2^Varig Linhas<>Vrg Linhas As
 GAP^2^Airphil Express<>Airphil Exp
+GBQ^1^Gambia Bird<>Gambia Bird Airlines Ltd
+GC^1^<>Gambia Intl Airlines
+GC^2^<>Gambia Intl
 GH^1^Globus<>Globus Llc
 GHA^1^Globus<>Globus Llc
 GIL^1^Georgian International Air<>Georgian International Ai
 GLO^1^Varig Linhas Aereas<>Vrg Linhas Aereas S A
 GLO^2^Varig Linhas<>Vrg Linhas As
+GNR^1^<>Gambia Intl Airlines
+GNR^2^<>Gambia Intl
 GT^2^GB Airways<>Gb Airways
 GW^1^SkyGreece Airlines<>Skygreece Airlines
 GZ^2^Air Rarotonga<>Air Rarotong
@@ -183,6 +197,7 @@ I7^1^Indonesia Air Transport<>Pt Indonesia Air Transport
 IDA^1^Indonesia Air Transport<>Pt Indonesia Air Transport
 IK^1^Kaya Airlines LDA<>Kaya Airlines L D A
 IL^1^Trigana Air Service<>Pt Trigana Air Service
+IU^1^Hevilift<>Hevi Lift Png Pty Ltd
 IW^1^Wings Abadi Airlines<>Pt Wings Abadi Airlines
 JA^1^BH Airlines<>B H Airlines
 JA^2^BH Airlines<>B H Airlines
@@ -191,6 +206,10 @@ JAT^2^JAT<>J A T
 JC^1^JAL Express<>Jal Express
 JJ^1^TAM Linhas Aereas<>Tam Linhas Aereas
 JJ^2^TAM Linh Aer<>Tam Linh Aer
+JK^1^<>Spanair
+JK^2^<>Spanair
+JKK^1^<>Spanair
+JKK^2^<>Spanair
 JL^2^JAL<>J A L
 JU^2^JAT<>J A T
 K4^1^ALS<>Als Ltd
@@ -248,7 +267,7 @@ NC^2^QantasLink<>
 NHG^1^NHT Linhas Aereas<>Nht Linhas Aereas
 NJS^1^<>National Jet Systems
 NM^1^Manx<>Manx2
-NO^1^Neos SpA<>Neos Spa
+NO^1^Neos<>Neos Spa
 NQ^1^Air Japan Company<>Air Japan Company Ltd
 NW^1^Northwest Airlines<>
 NW^2^Nwest Airlines<>Nwest Airli
@@ -256,6 +275,8 @@ O2^1^Jet Air<>
 OAW^2^2L Helvetic<>2l HELVETIC
 OB^2^<>Boliviana
 OD^2^Malindo Air<>Malindo Airw
+OG^1^<>Air Onix
+OG^2^<>N
 OK^1^Czech Airlines<>Csa Czech Airlines
 OK^2^Czech Airlines<>Czech Airline
 OMT^1^CM Airlines<>Cm Airlines
@@ -300,8 +321,8 @@ SJ^1^Sriwijaya Air<>Pt Sriwijaya Air
 SJY^1^Sriwijaya Air<>Pt Sriwijaya Air
 SKG^1^SkyGreece Airlines<>Skygreece Airlines
 SME^2^Nayzak Air<>M4 NAYZAK Air
-SMX^1^CAI First SpA<>C A I First S P A
-SMX^2^CAI First SpA<>Cai First Spa
+SMX^1^<>C A I First S P A
+SMX^2^<>Cai First Spa
 SRQ^1^Tiger Air Philippines<>Tigerair Philippines
 SRQ^2^Tiger Air<>Tigerair
 STP^1^STP Airways<>Stp Airways
@@ -348,14 +369,14 @@ USA^2^US Airways<>Us Airways
 V1^1^IBS Software Services Americas<>Ibs Software Services Americas
 VA^1^Virgin Australia International<>Virgin Australia Intl
 VAU^1^Virgin Australia International<>Virgin Australia Intl
-VE^1^CAI Second SpA<>C A I Second S P A
-VE^2^CAI Second<>C A I Second
+VE^1^<>C A I Second S P A
+VE^2^<>C A I Second
 VG^1^VLM<>Vlm
 VIM^1^Air Via<>Air Via Ltd
 VKG^1^Thomas Cook Airlines<>Thomas Cook Airlines A S
 VL^1^Air Via<>Air Via Ltd
-VLE^1^CAI Second SpA<>C A I Second S P A
-VLE^2^CAI Second<>C A I Second
+VLE^1^<>C A I Second S P A
+VLE^2^<>C A I Second
 VM^1^Macair Jet<>Macair Jet S A
 VOZ^1^Virgin Australia<>Virgin Australia Airline
 VR^2^TACV<>T A C V
@@ -389,8 +410,8 @@ XJ^1^Thai Air Asia X<>Thai Airasia X Company
 XL^1^LAN Ecuador<>Lanecuador Aerolane Sa
 XL^2^LAN Ecuador<>Lan Ecuador
 XLF^1^XL Airways France<>Xl Airways France
-XM^1^CAI First SpA<>C A I First S P A
-XM^2^CAI First SpA<>Cai First Spa
+XM^1^<>C A I First S P A
+XM^2^<>Cai First Spa
 XR^1^Virgin Australia Regional<>Virgin Australia Regional Airl
 XS^1^SITA<>Sita
 XS^2^SITA<>
