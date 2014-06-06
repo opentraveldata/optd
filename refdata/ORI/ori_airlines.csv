@@ -14,11 +14,11 @@ air-aerocomercial-oriente-norte^^^^^A4^702^Aerocomercial Oriente Norte^South Win
 air-aeroenlaces-nacionales^^^^VIV^VB^0^Aeroenlaces Nacionales^^^^^^14234
 air-aeroflot^^^^AFL^SU^555^Aeroflot^Aeroflot^Skyteam^Member^^^166470
 air-aerogaviota^^^^GTV^KG^854^Aerogaviota^King Island^^^^^1986
-air-aerolinea-principal-chile^^^^PCP^5P^676^Aerolinea Principal Chile^Aerolinea Pr^^^P^^156
+air-aerolinea-principal-chile^^^^PCP^5P^676^PAL Airlines^Aerolinea Principal Chile^^^P^http://en.wikipedia.org/wiki/PAL_Airlines^156
 air-aerolineas-argentinas^^^^ARG^AR^44^Aerolineas Argentinas^Argentinas^Skyteam^Member^^http://en.wikipedia.org/wiki/Aerol%C3%ADneas_Argentinas^104879
 air-aerolineas-galapagos^^^^GLG^2K^547^Aerolineas Galapagos^Aerogal^^^^^21491
 air-aerolineas-mas^^^^^N3^877^Aerolineas Mas^Omskavia^^^^^1620
-air-aerolineas-regionales^^^^^F2^0^Aerolineas Regionales^^^^P^^8418
+air-aerolineas-regionales^^^^XLK^F2^0^Safarilink Aviation^^^^P^http://en.wikipedia.org/wiki/Safarilink_Aviation^8418
 air-aerolineas-sosa^^^^^P4^0^Aerolineas Sosa^Sosa^^^^^10097
 air-aerolitoral^^^^SLI^5D^642^Aerolitoral^^Skyteam^Affiliate^^^85754
 air-aeromar^^^^TAO^VW^942^Aeromar^Aeromar^^^^^36657
@@ -284,7 +284,7 @@ air-blue-panorama-airlines^^^^BPA^BV^4^Blue Panorama Airlines^Blue Panorama^^^^^
 air-bmi-regional^^^^BMR^BM^480^bmi regional^BMI Regional^^^^http://en.wikipedia.org/wiki/BMI_Regional^14845
 air-boliviana-de-aviacion^^^^^OB^930^Boliviana De Aviacion^^^^^^22977
 air-boutique-air^^^^^4B^184^Boutique Air^Boutique Air^^^^^15
-air-bqb^^^^BEA^5Q^567^BQB Lineas Aereas^BQB Lineas^^^^^8186
+air-bqb^^^^BEA^5Q^567^BQB Lineas Aereas^BQB Lineas^^^P^http://en.wikipedia.org/wiki/BQB_L%C3%ADneas_A%C3%A9reas^8186
 air-braathens-regional^^^^GAO^DC^215^Braathens Regional^Golden Air^^^P^^10161
 air-branson-air^^^^^1X^0^Branson Air^Gabriel^^^^^216
 air-brindabella-airlines^1^^2013-12-14^^FQ^0^Brindabella Airlines^^^^P^http://en.wikipedia.org/wiki/Brindabella_Airlines^
@@ -831,6 +831,7 @@ air-ruili-airlines^^^^^DR^0^Ruili Airlines^Air Link^^^^^3772
 air-rusline^^^^RLU^7R^362^Rusline^Rusline^^^^^22337
 air-rutaca^^^^^RM^0^Rutaca^^^^^^
 air-rwandair-express^^^^RWD^WB^459^Rwandair Express^Rwandair^^^^^11235
+air-ryanair-arctic-transportation^^^^RYA^7S^^Ryan Air Services^Arctic Transportation Services^^^C^http://en.wikipedia.org/wiki/Ryan_Air_Services^2198
 air-ryanair^^^^RYR^FR^0^Ryanair^Ryanair Ltd^^^^^
 air-sabaidee-airways^^^^^E3^0^Sabaidee Airways^^^^^^
 air-saereo^^^^^MZ^532^Saereo^Merpati^^^^^
@@ -1068,7 +1069,6 @@ air-wings-abadi-airlines^^^^^IW^513^Wings Abadi Airlines^Air Lib^^^^^76133
 air-wizz-air-hungary^^^^WZZ^W6^0^Wizz Air Hungary^^^^^^51949
 air-wizz-air-ukraine^^^^WAU^WU^0^Wizz Air Ukraine^^^^^^4829
 air-world-airways^^^^WOA^WO^468^World Airways^^^^^^
-air-world-ticket^^^^^W1^0^World Ticket Ltd^^^^^^
 air-worldwide-cargo-services^^^^^Y3^0^Worldwide Cargo Services^^^^^^
 air-wow-air^^^^^WW^0^Wow Air^^^^P^^6065
 air-wright-air-services^^^^^8V^0^Wright Air Services^Wright Air^^^P^^12294
@@ -1097,7 +1097,7 @@ alc-skyteam^^^^^*S^0^Skyteam^^^^^^
 alc-star-alliance^^^^^*A^0^Star Alliance^^^^^^
 alc-the-qualiflyer-group^^^^^*Q^0^The Qualiflyer Group^^^^^^
 gds-abacus^^^^^1B^0^Abacus^Abacus^^^G^^
-gds-amadeus^^^^AGT^1A^790^Amadeus^Amadeus^^^G^^
+gds-amadeus^^^^AGT^1A^790^Amadeus^Amadeus^^^G^http://en.wikipedia.org/wiki/Amadeus_IT_Group^
 gds-covia^^^^^1V^588^Galileo International^Covia^^^G^^
 gds-eds^^^^^1Y^0^Electronic Data Systems (EDS)^^^^G^^
 gds-eds-gemini^^^^^1C^0^EDS Information Business^Gemini^^^G^^
@@ -1118,6 +1118,7 @@ gds-sabre-1w^^^^^1W^0^Sabre^Sabre^^^G^^
 gds-sita^^^^SIT^XS^950^SITA^SITA^^^G^^
 gds-travelsky-technology^^^^^1E^252^Travelsky Technology^Civil China^^^G^^
 gds-worldspan^^^^WSP^1P^523^Travelport Worldspan^Worldspan^^^G^^
+gds-worldticket^^^^^W1^0^WorldTicket^^^^G^http://en.wikipedia.org/wiki/WorldTicket^
 tec-arc-reporting^^^^ATA^X6^889^Airlines Reporting Corp^ARC^^^^^
 tec-bird-information-systems^^^^^1R^0^Bird Information Systems^^^^^^
 tec-fantasia^^^^APD^1Z^0^Fantasia Info Network^Asia Pacific^^^^^

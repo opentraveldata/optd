@@ -28,6 +28,8 @@
 4O^2^ABC Aerolineas<>
 5G^1^Fly 540 Ghana<>540 Ghana
 5G^2^Skyservice Ghana<>Skyservice
+5P^1^PAL Airlines<>Aerolinea Principal Chile
+5P^2^Aerolinea Principal Chile<>
 5Q^1^BQB Lineas Aereas<>Bqb Lineas Aereas
 5Q^2^BQB Lineas<>Bqb Lineas
 5T^2^Canadian North<>Canadiannorth
@@ -38,8 +40,8 @@
 7E^1^Sylt Air<>Sylt Air Gmbh
 7L^1^Aero Caribbean<>Aerocaribbean
 7N^1^National Airways<>National Airways P L C
-7S^1^Amadeus PDF 7S<>Amadeus Pdf 7s
-7S^2^Amadeus 7S<>Amadeus 7s
+7S^1^Ryan Air Services<>Amadeus Pdf 7s
+7S^2^Arctic Transportation Services<>Amadeus 7s
 7V^2^Federal Airlines<>Federal Airl
 8F^1^STP Airways<>Stp Airways
 8F^2^STP Airways<>Stp Airways
@@ -290,6 +292,8 @@ P2^1^Air Kenya Express<>Airkenya Express
 P6^1^Pascan Aviation<>Pascan Aviation Inc
 P7^1^Small Planet Airline<>Small Planet Airline Ghd
 PA^1^AirBlue<>Airblue
+PCP^1^PAL Airlines<>Aerolinea Principal Chile
+PCP^2^Aerolinea Principal Chile<>
 PIA^1^Pakistan International Airlines<>Pakistan International
 PIA^2^PIA<>P I A
 PK^1^Pakistan International Airlines<>Pakistan International
@@ -389,6 +393,7 @@ VRD^2^Virgin USA<>Virgin Usa
 VRR^1^VIA Rail Canada<>Via Rail Canada Inc
 VRR^2^VIA Rail<>Via Rail
 VX^2^Virgin USA<>Virgin Usa
+W1^1^WorldTicket<>World Ticket Ltd
 W4^1^LC Busre<>Lc Busre
 WA^1^KLM Cityhopper<>Klm Cityhopper
 WA^2^KLM Cityhopper<>Klm Cityhopp
