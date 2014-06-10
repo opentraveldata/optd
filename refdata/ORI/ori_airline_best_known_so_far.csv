@@ -197,6 +197,7 @@ air-amadeus-pdf-9z^^^^^9Z^0^Amadeus PDF 9Z^^^^D^
 air-amadeus-seven^^^^XYC^7X^791^Amadeus Seven^Amadeus Seven^^^D^
 air-amadeus-six^^^^XYB^6X^172^Amadeus Six^Amadeus Six^^^D^
 air-amadeus-two^^^^XYA^2X^799^Amadeus Two^Amadeus Two^^^D^
+air-amadeus-7n^^^^^7N^^Amadeus 7N^Amadeus 7N^^^D^ 
 air-amaszonas^^^^^Z8^464^Amaszonas SA^Amaszonas^^^^
 air-american-airlines^^^^AAL^AA^1^American Airlines^American^OneWorld^Member^^
 air-american-eagle^^^^ENY^MQ^93^Envoy Air^^^^^http://en.wikipedia.org/wiki/Envoy_Air
@@ -359,7 +360,7 @@ air-compass-airlines^^^^^CP^3^Compass Airlines^Canadian^^^^
 air-condor-berlin^^^^CIB^DF^0^Condor Berlin^^^^^
 air-condor^^^^CFG^DE^881^Condor^Condor^^^^
 air-congo-express^^^^CXR^9X^0^Congo Express^New Axis Air^^^^
-air-continental-airlines^^^^COA^CO^5^Continental Airlines^Continental^^^^
+air-continental-airlines^^^2010-09-30^COA^CO^5^Continental Airlines^Continental^^^^http://fr.wikipedia.org/wiki/Continental_Airlines
 air-continental-micronesia^^^^CMI^CS^0^Continental Micronesia^Continl Micro^^^^
 air-conviasa^^^^VCV^V0^308^Conviasa^Conviasa^^^^
 air-copa-airlines^^^^CMP^CM^230^Copa Airlines^Compania Panamena de Aviacion^Star Alliance^Member^^http://en.wikipedia.org/wiki/Copa_Airlines
@@ -809,7 +810,7 @@ air-rheintalflug^^^^^WE^0^Thai Smile Airways^Rheintalflg^^^^
 air-robin-hood-aviation^^^^^RH^0^Robin Hood Aviation^^^^^
 air-romavia^^^^^WQ^0^Romavia^^^^^
 air-rossiya-airlines^^^^SDM^FV^195^Rossiya Airlines^Rossiya^^^^
-air-rotana-jet^^^^RJD^RG^482^Rotana Jet^Rotana Jet^^^^
+air-rotana-jet^^2011-04-18^^RJD^RG^482^Rotana Jet^Rotana Jet^^^^http://en.wikipedia.org/wiki/Rotana_Jet
 air-royal-air-force^^^^RFR^RR^0^Royal Air Force^RAF NO^^^^
 air-royal-air-maroc^^^^RAM^AT^147^Royal Air Maroc^Royal Air Maroc^^^^
 air-royal-brunei^^^^RBA^BI^672^Royal Brunei^Royalbrunei^^^^
@@ -1015,7 +1016,8 @@ air-uzbekistan-airways^^^^UZB^HY^250^Uzbekistan Airways^Uzbekistan^^^^
 air-valair^^^^^V4^0^Valair^^^^^
 air-valuair^^^^VLU^VF^896^Valuair^Valuair^^^^
 air-van-air-europe^^^^^V9^0^Van Air Europe^^^^^
-air-varig^^^^GLO^G3^127^Varig Linhas Aereas^Varig Linhas^^^^
+air-varig^^1927-05-07^2008-10-19^VRG^RG^^Varig Linhas^Viação Aérea Rio-Grandense S.A^^^^http://en.wikipedia.org/wiki/Varig
+air-gol-transportes-aereos^^2001-01-15^^GLO^G3^127^Gol Transportes Aéreos^Gol Linhas Aereas Inteligentes^^^^http://en.wikipedia.org/wiki/Gol_Transportes_A%C3%A9reos
 air-velvet-sky-aviation^^^^^VZ^0^Velvet Sky Aviation^^^^^
 air-videcom^^^^^U1^0^Videcom International^^^^^
 air-vietjet-aviation^^^^VJC^VJ^0^Vietjet Aviation^^^^^
@@ -1077,6 +1079,7 @@ air-zambian-airways^^^^MAZ^Q3^391^Zambian Airways^Zambian Air^^^^
 air-zanair^^^^TAN^B4^698^Zanair^Zanair^^^^
 air-zestair^^^^^Z2^457^Zestair^Zest Airways^^^P^
 air-zhejiang-loong-airlines^^^^^GJ^891^Zhejiang Loong Airlines^Eurofly^^^^
+air-ryanair-arctic-transportation^^^^RYA^7S^^Ryan Air^Arctic Transportation Services, Inc. dba Ryan Air^^^C^http://en.wikipedia.org/wiki/Ryan_Air_Services
 alc-oneworld^^^^^*O^0^Oneworld^^^^^
 alc-skyteam^^^^^*S^0^Skyteam^^^^^
 alc-star-alliance^^^^^*A^0^Star Alliance^^^^^
