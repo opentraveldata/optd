@@ -30,7 +30,7 @@ air-aeropostal^^^^^VH^152^Aeropostal^Aeropostal^^^^
 air-aero-republica^^^^RPB^P5^845^Aero Republica^Aerorepublica^^^^
 air-aerosur^^^^^5L^275^Aerosur^Aerosur^^^^
 air-aerosvit-airlines^^^^AEW^VV^870^Aerosvit Airlines^^^^^
-air-aero-vip^^^^AOG^NJ^592^Aero Vip^^^^^
+air-aero-vip^^1999-06-23^2010-11^AOG^2D^592^Aero VIP (Argentina)^Aero VIP (Argentina)^^^P^http://en.wikipedia.org/wiki/Aero_VIP_%28Argentina%29
 air-afghan-jet^^^^^HN^714^Afghan Jet International^^^^^
 air-african-express-airways^^^^^XU^0^African Express Airways^Link Airways^^^P^
 air-afric-aviation^^^^^L8^0^Afric Aviation^Air Luxor Gb^^^^
@@ -188,7 +188,7 @@ air-alpine-air^^^^^N6^758^Alpine Air^Aerocontinent^^^^
 air-alsa-grupo^^^^^5I^0^Alsa Grupo Slu^Air G^^^^
 air-als^^^^^K4^0^ALS^^^^^
 air-amadeus-eight^^^^XYD^8X^794^Amadeus Eight^Amadeus Eight^^^D^
-air-amadeus-pdf-0e^^^^XYS^0E^0^Amadeus PDF 0E^^^^D^
+air-amadeus-pdf-0e^^^^XYS^0E^0^Amadeus PDF 0E^Amadeus PDF 0E ^^^D^
 air-amadeus-pdf-2d^^^^^2D^0^Amadeus PDF 2D^^^^D^
 air-amadeus-pdf-2y^^^^^2Y^0^Amadeus PDF 2Y^^^^D^
 air-amadeus-pdf-7s^^^^XYW^7S^792^Amadeus PDF 7S^Amadeus 7S^^^D^
@@ -197,7 +197,8 @@ air-amadeus-pdf-9z^^^^^9Z^0^Amadeus PDF 9Z^^^^D^
 air-amadeus-seven^^^^XYC^7X^791^Amadeus Seven^Amadeus Seven^^^D^
 air-amadeus-six^^^^XYB^6X^172^Amadeus Six^Amadeus Six^^^D^
 air-amadeus-two^^^^XYA^2X^799^Amadeus Two^Amadeus Two^^^D^
-air-amadeus-7n^^^^^7N^^Amadeus 7N^Amadeus 7N^^^D^ 
+air-amadeus-7n^^2011-01-25^^^7N^^Amadeus 7N^Amadeus 7N^^^D^ 
+air-amadeus-8z^^^^^8Z^^Amadeus 8Z^Amadeus 8Z^^^D^
 air-amaszonas^^^^^Z8^464^Amaszonas SA^Amaszonas^^^^
 air-american-airlines^^^^AAL^AA^1^American Airlines^American^OneWorld^Member^^
 air-american-eagle^^^^ENY^MQ^93^Envoy Air^^^^^http://en.wikipedia.org/wiki/Envoy_Air
@@ -699,7 +700,7 @@ air-nasair^^^^KNE^XY^593^Nasair^Nasair^^^^
 air-nasair-uair^^^^^UE^770^Nasair^^^^^
 air-national-airlines^^^^MUA^N8^416^National Airlines^^^^^
 air-national-airways-cameroon^^^^^9O^357^National Airways Cameroon^Aircameroon^^^^
-air-national-airways^^^^^7N^789^National Airways^^^^^
+air-national-airways-ethiopia^^^^^7N^789^National Airways PLC^National Airways PLC Ethiopia^^^^
 air-national-jet-systems^^2009-03-01^^JTE^NC^0^Cobham Aviation Services Australia^QantasLink^OneWorld^Affiliate^^http://en.wikipedia.org/wiki/Cobham_Aviation_Services_Australia
 air-nature-air^^^^^5C^0^Nature Air^^^^^
 air-naysa^^^^NAY^ZN^595^Naysa^Air Bourbon^^^^
@@ -886,7 +887,7 @@ air-slok-air^^^^OKS^S0^503^Slok Air International^Slok Air^^^^
 air-small-planet-airline^^^^LLP^P7^0^Small Planet Airline^East Line Air^^^^
 air-smart-aviation^^^^SME^M4^334^Smart Aviation^Nayzak Air^^^^
 air-smartlynx-airlines^^^^LTC^6Y^0^Smartlynx Airlines^^^^^
-air-smartwings^^^^TVS^QS^797^Smartwings^Travelservice^^^^
+air-smartwings^^^^TVS^QS^797^Smartwings^Travel Service^^^^
 air-smokey-bay-air^^^^EIX^2E^0^Smokey Bay Air^Ei Air Export^^^^
 air-sol-aviation^^^^^ZS^0^Kazaviaspas^^^^^http://en.wikipedia.org/wiki/Kazaviaspas
 air-sol-lineas-aereas^^^^^8R^300^Sol Lineas Aereas^Sol Lineas^^^^
@@ -985,12 +986,13 @@ air-transnusa-aviation^^^^^M8^0^Transnusa Aviation^^^^^
 air-transportes-aereos-guatemaltecos^^^^TGU^5U^0^Transportes Aereos Guatemaltecos^LADE^^^^
 air-trans-states-airlines^^^^LOF^AX^414^Trans States Airlines^^OneWorld^Affiliate^^http://en.wikipedia.org/wiki/Trans_States_Airlines
 air-travel-service-legoforgalmi^^^^^7O^0^Travel Service Legoforgalmi^^^^^
-air-travel-service-polska^^^^TVP^3Z^0^Travel Service Polska^^^^^
+air-travel-service-polska^^^^TVP^3Z^0^Travel Service Polska^Travel Service Polska Sp. z.o.o.^^^T^https://en.wikipedia.org/wiki/Travel_Service_Polska
 air-travel-service-alaska^^^^TVQ^6D^0^Travel Service^Alaska Isl^^^^
 air-trigana-air^^2014-01-01^^^IL^0^Trigana Air Service^Istanbul Air^^^^
 air-trip^^^^^T4^661^Trip^^^^^
 air-tropic-air^^^^^9N^0^Tropic Air^Tropic Air^^^PC^
-air-tta^^^^PTB^2Z^678^Passaredo Transportes^^^^^
+air-tta-airlink^^^2014-04-30^^2Z^^TTA Airlink^TTA Airlink^^^P^https://en.wikipedia.org/wiki/TTA_Airlink
+air-passaredo-transportes^^2014-05-01^^PTB^2Z^678^Passaredo Transportes^^^^P^https://en.wikipedia.org/wiki/Passaredo_Linhas_A%C3%A9reas
 air-tuifly-nordic^^^^BLX^6B^951^Tuifly Nordic^Britannia^^^^
 air-tuifly^^^^TUI^X3^617^Tuifly^Tuifly^^^^
 air-tunisair-express^^^^^UG^150^Tunisair Express^Tuninter^^^^
