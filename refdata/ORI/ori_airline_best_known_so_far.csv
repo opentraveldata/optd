@@ -226,7 +226,7 @@ air-athens-airways^^^^^ZF^0^Athens Airways^Athens Airway^^^^
 air-atlantic-airways^^^^FLI^RC^767^Atlantic Airways^Atl Airways^^^^
 air-atlantic-express-airline^^^^ANX^4X^0^Atlantic Express Airline^^^^^
 air-atlantis-european-airways^^^^^TD^432^Atlantis European Airways^Atlantis^^^^
-air-atlas-air^^1992^^GTI^5Y^0^Atlas Air^Atlas Air^^^C^https://fr.wikipedia.org/wiki/Atlas_Air
+air-atlas-air^^1992^^GTI^5Y^0^Atlas Air^Atlas Air^^^C^http://fr.wikipedia.org/wiki/Atlas_Air
 air-atlasjet-airlines^^^^KKK^KK^610^Atlasjet Airlines^Atlasjet^^^^
 air-augsburg-airways^^^^AUB^IQ^614^Augsburg Airways^^^^^
 air-aurigny-air-services^^^^AUR^GR^924^Aurigny Air Services^Aurigny Air^^^^
@@ -886,7 +886,7 @@ air-skywork-airlines^^^^SRK^SX^772^Skywork Airlines^Skywork Air^^^^
 air-slok-air^^^^OKS^S0^503^Slok Air International^Slok Air^^^^
 air-small-planet-airline^^^^LLP^P7^0^Small Planet Airline^East Line Air^^^^
 air-smart-aviation^^^^SME^M4^334^Smart Aviation^Nayzak Air^^^^
-air-smartlynx-airlines^^1993^^ART^6Y^0^SmartLynx Airlines^SmartLynx Airlines^^^T^https://en.wikipedia.org/wiki/SmartLynx_Airlines
+air-smartlynx-airlines^^1993^^ART^6Y^0^SmartLynx Airlines^SmartLynx Airlines^^^T^http://en.wikipedia.org/wiki/SmartLynx_Airlines
 air-smartwings^^^^TVS^QS^797^Smartwings^Travel Service^^^^
 air-smokey-bay-air^^^^EIX^2E^0^Smokey Bay Air^Ei Air Export^^^^
 air-sol-aviation^^^^^ZS^0^Kazaviaspas^^^^^http://en.wikipedia.org/wiki/Kazaviaspas
@@ -986,13 +986,13 @@ air-transnusa-aviation^^^^^M8^0^Transnusa Aviation^^^^^
 air-transportes-aereos-guatemaltecos^^^^TGU^5U^0^Transportes Aereos Guatemaltecos^LADE^^^^
 air-trans-states-airlines^^^^LOF^AX^414^Trans States Airlines^^OneWorld^Affiliate^^http://en.wikipedia.org/wiki/Trans_States_Airlines
 air-travel-service-legoforgalmi^^^^^7O^0^Travel Service Legoforgalmi^^^^^
-air-travel-service-polska^^^^TVP^3Z^0^Travel Service Polska^Travel Service Polska Sp. z.o.o.^^^T^https://en.wikipedia.org/wiki/Travel_Service_Polska
+air-travel-service-polska^^^^TVP^3Z^0^Travel Service Polska^Travel Service Polska Sp. z.o.o.^^^T^http://en.wikipedia.org/wiki/Travel_Service_Polska
 air-travel-service-alaska^^^^TVQ^6D^0^Travel Service^Alaska Isl^^^^
 air-trigana-air^^2014-01-01^^^IL^0^Trigana Air Service^Istanbul Air^^^^
 air-trip^^^^^T4^661^Trip^^^^^
 air-tropic-air^^^^^9N^0^Tropic Air^Tropic Air^^^PC^
-air-tta-airlink^^^2014-04-30^^2Z^^TTA Airlink^TTA Airlink^^^P^https://en.wikipedia.org/wiki/TTA_Airlink
-air-passaredo-transportes^^2014-05-01^^PTB^2Z^678^Passaredo Transportes^^^^P^https://en.wikipedia.org/wiki/Passaredo_Linhas_A%C3%A9reas
+air-tta-airlink^^^2014-04-30^^2Z^^TTA Airlink^TTA Airlink^^^P^http://en.wikipedia.org/wiki/TTA_Airlink
+air-passaredo-transportes^^2014-05-01^^PTB^2Z^678^Passaredo Transportes^^^^P^http://en.wikipedia.org/wiki/Passaredo_Linhas_A%C3%A9reas
 air-tuifly-nordic^^^^BLX^6B^951^Tuifly Nordic^Britannia^^^^
 air-tuifly^^^^TUI^X3^617^Tuifly^Tuifly^^^^
 air-tunisair-express^^^^^UG^150^Tunisair Express^Tuninter^^^^
@@ -1072,7 +1072,7 @@ air-yellow-airtaxi^^^^^Y0^0^Yellow Airtaxi^Yellow Air^^^^
 air-yemen-airways^^^^IYE^IY^635^Yemen Airways^Yemen Airways^^^^
 air-yeti-airlines^^^^^YT^0^Yeti Airlines^^^^^
 air-ygnus-air^^^^RGN^Y2^571^Ygnus Air^^^^^
-air-yute-air-alaska^^^^TUD^4Y^0^Yute Air Alaska^Flight Alaska Inc. dba Yute Air Alaska^^^PT^https://en.wikipedia.org/wiki/Flight_Alaska
+air-yute-air-alaska^^^^TUD^4Y^0^Yute Air Alaska^Flight Alaska Inc. dba Yute Air Alaska^^^PT^http://en.wikipedia.org/wiki/Flight_Alaska
 air-zagros-air^^^^GZQ^Z4^541^Zagros Air^Zagros Air^^^^
 air-zagros-airlines^^^^IZG^ZV^0^Zagros Airlines^Air Midwest^^^^
 air-zambezi-airlines^^^^ZMA^ZJ^707^Zambezi Airlines^^^^^
@@ -1124,4 +1124,4 @@ trn-sncf^^^^^2C^0^SNCF^^^^R^
 trn-thalys^^^^^2H^56^Thalys International^Thalys^^^R^
 trn-trenitalia^^^^^7T^0^Trenitalia^^^^R^
 trn-via-rail-canada-inc^^^^VRR^2R^830^VIA Rail Canada^VIA Rail^^^R^
-trn-express-rail-link-malaysia^^^^^5Y^0^Express Rail Link^Express Rail Link, Malaysia^^^R^https://en.wikipedia.org/wiki/Express_Rail_Link
+trn-express-rail-link-malaysia^^^^^5Y^0^Express Rail Link^Express Rail Link, Malaysia^^^R^http://en.wikipedia.org/wiki/Express_Rail_Link
