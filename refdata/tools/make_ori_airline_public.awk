@@ -64,10 +64,10 @@ BEGIN {
 # ORI-maintained list of alliance memberships
 #
 # Sample input lines:
-# alliance_name^alliance_type^airline_iata_code_2c^airline_name
-# Skyteam^Member^AF^Air France
-# OneWorld^Member^BA^British Airways
-# Star Alliance^Member^LH^Lufthansa
+# alliance_name^alliance_type^airline_iata_code_2c^airline_name^from_date^to_date^env_id
+# Skyteam^Member^AF^Air France^2000-06-22^^
+# OneWorld^Member^BA^British Airways^1999-02-01^^
+# Star Alliance^Member^LH^Lufthansa^1999-05-01^^
 /^([A-Za-z ]+)\^([A-Za-z]+)\^([*A-Z0-9]{2})\^([A-Za-z0-9 ]+)$/ {
 	# Alliance name
 	alliance_name = $1
@@ -81,6 +81,9 @@ BEGIN {
 	# Airline Name
 	air_name = $4
 
+	# env_id
+	env_id = $7
+
 	# Sanity check
 	if (air_alliance_all_names[air_code_2c] != "") {
 		print ("[" awk_file "][" FNR "] !!!! Error, '" air_name			\
@@ -89,10 +92,13 @@ BEGIN {
 			   "Full line: " $0) > error_stream
 	}
 
-	# Register the alliance membership details
-	air_alliance_types[air_code_2c] = alliance_type
-	air_alliance_all_names[air_code_2c] = alliance_name
-	air_alliance_air_names[air_code_2c] = air_name
+	# only process active memberships
+	if (env_id == "") {
+		# Register the alliance membership details
+		air_alliance_types[air_code_2c] = alliance_type
+		air_alliance_all_names[air_code_2c] = alliance_name
+		air_alliance_air_names[air_code_2c] = air_name
+	}
 
 	# DEBUG
 	# print ("Airline: " air_name " (" air_code_2c ") => Alliance: " \
