@@ -1,249 +1,249 @@
-"country_code"^"country_name"^"region_code_unwto"^"region_name_unwto"^"sub_region_code_unwto"^"sub_region_name_unwto"^"region_iata_code"^"region7"^"schengen"^"schengen_from"
-"AD"^"Andorra"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^^
-"AE"^"UAE"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"MDE"^^
-"AF"^"Afghanistan"^"AS"^"Asia"^"AS_So"^"South Asia"^"SAS"^"ASI"^^
-"AG"^"Antigua and Barbuda"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"AI"^"Anguilla"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"AL"^"Albania"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^^
-"AM"^"Armenia"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"EUR"^^
-"AO"^"Angola"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"AFR"^^
-"AQ"^"Antarctica"^"PA"^"Pacific"^"PA_Oc"^"Oceania"^"SWP"^"SWP"^^
-"AR"^"Argentina"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"SCA"^^
-"AS"^"American Samoa"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"SWP"^^
-"AT"^"Austria"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"EUR"^1^"01.12.1997"
-"AU"^"Australia"^"PA"^"Pacific"^"PA_Oc"^"Oceania"^"SWP"^"SWP"^^
-"AW"^"Aruba"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"AX"^"Aland Islands"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"EUR"^1^"25.03.2001"
-"AZ"^"Azerbaijan"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"EUR"^^
-"BA"^"Bosnia-Herzegovina"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^^
-"BB"^"Barbados"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"BD"^"Bangladesh"^"AS"^"Asia"^"AS_So"^"South Asia"^"SAS"^"ASI"^^
-"BE"^"Belgium"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"EUR"^1^"26.03.1995"
-"BF"^"Burkina Faso"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"BG"^"Bulgaria"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"EUR"^^
-"BH"^"Bahrain"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"MDE"^^
-"BI"^"Burundi"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"BJ"^"Benin"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"BL"^"Saint Barthelemy"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"BM"^"Bermuda"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"BN"^"Brunei"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"ASI"^^
-"BO"^"Bolivia"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"SCA"^^
-"BQ"^"Bonaire, Saint Eustatius & Saba"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"BR"^"Brazil"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"SCA"^^
-"BS"^"Bahamas"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"BT"^"Bhutan"^"AS"^"Asia"^"AS_So"^"South Asia"^"SAS"^"ASI"^^
-"BW"^"Botswana"^"AF"^"Africa"^"AF_So"^"South Africa"^"AFR"^"AFR"^^
-"BY"^"Belarus"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"EUR"^^
-"BZ"^"Belize"^"AM"^"Americas"^"AM_Ce"^"Central America"^"CEM"^"SCA"^^
-"CA"^"Canada"^"AM"^"Americas"^"AM_No"^"North America"^"NOA"^"NOA"^^
-"CC"^"Cocos Islands"^"PA"^"Pacific"^"PA_Oc"^"Oceania"^"SWP"^"SWP"^^
-"CD"^"Congo, the Democratic Republic of the"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"AFR"^^
-"CF"^"Central African Republic"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"AFR"^^
-"CG"^"Congo, Republic of"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"AFR"^^
-"CH"^"Switzerland"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"EUR"^1^"12.12.2008"
-"CI"^"Ivory Coast"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"CK"^"Cook Islands"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"SWP"^^
-"CL"^"Chile"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"SCA"^^
-"CM"^"Cameroon"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"AFR"^^
-"CN"^"China"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"SEA"^"ASI"^^
-"CO"^"Colombia"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"SCA"^^
-"CR"^"Costa Rica"^"AM"^"Americas"^"AM_Ce"^"Central America"^"CEM"^"SCA"^^
-"CU"^"Cuba"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"CV"^"Cape Verde"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"CW"^"Curacao"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"CX"^"Christmas Island"^"PA"^"Pacific"^"PA_Oc"^"Oceania"^"SWP"^"SWP"^^
-"CY"^"Cyprus"^"AS"^"Asia"^"AS_We"^"West Asia"^"EUR"^"EUR"^^
-"CZ"^"Czech Republic"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"EUR"^1^"30.03.2008"
-"DE"^"Germany"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"EUR"^1^"26.03.1995"
-"DJ"^"Djibouti"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"DK"^"Denmark"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"EUR"^1^"25.03.2001"
-"DM"^"Dominica"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"DO"^"Dominican Republic"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"DZ"^"Algeria"^"AF"^"Africa"^"AF_No"^"North Africa"^"EUR"^"AFR"^^
-"EC"^"Ecuador"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"SCA"^^
-"EE"^"Estonia"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"EUR"^1^"30.03.2008"
-"EG"^"Egypt"^"AF"^"Africa"^"AF_No"^"North Africa"^"MDE"^"MDE"^^
-"EH"^"Western Sahara"^"AF"^"Africa"^"AF_No"^"North Africa"^"AFR"^"AFR"^^
-"EH"^"Western Sahara"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"ER"^"Eritrea"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"ES"^"Spain"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^1^"26.03.1995"
-"ET"^"Ethiopia"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"FI"^"Finland"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"EUR"^1^"25.03.2001"
-"FJ"^"Fiji"^"PA"^"Pacific"^"PA_Me"^"Melanesia"^"SWP"^"SWP"^^
-"FK"^"Falkland Islands"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"SCA"^^
-"FM"^"FSM"^"PA"^"Pacific"^"PA_Mi"^"Micronesia"^"SEA"^"ASI"^^
-"FO"^"Faeroe Islands"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"EUR"^^
-"FR"^"France"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"EUR"^1^"26.03.1995"
-"GA"^"Gabon"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"AFR"^^
-"GB"^"UK"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"EUR"^^
-"GD"^"Grenada"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"GE"^"Georgia"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"EUR"^^
-"GF"^"French Guyana"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"SCA"^^
-"GG"^"Guernsey"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"EUR"^^
-"GH"^"Ghana"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"GI"^"Gibraltar"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^^
-"GL"^"Greenland"^"AM"^"Americas"^"AM_No"^"North America"^"NOA"^"NOA"^^
-"GM"^"Gambia"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"GN"^"Guinea"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"GP"^"Guadeloupe"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"GQ"^"Equatorial Guinea"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"AFR"^^
-"GR"^"Greece"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^1^"26.03.2000"
-"GS"^"South Georgia & the South Sandwich Islands"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"SCA"^^
-"GT"^"Guatemala"^"AM"^"Americas"^"AM_Ce"^"Central America"^"CEM"^"SCA"^^
-"GU"^"Guam"^"PA"^"Pacific"^"PA_Mi"^"Micronesia"^"SEA"^"ASI"^^
-"GW"^"Guinea-Bissau"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"GY"^"Guyana"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"SCA"^^
-"HI"^"Hawaii"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"SWP"^^
-"HK"^"Hong Kong SAR"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"SEA"^"ASI"^^
-"HN"^"Honduras"^"AM"^"Americas"^"AM_Ce"^"Central America"^"CEM"^"SCA"^^
-"HO"^"Hong Kong SAR & Macau SAR"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"SEA"^"ASI"^^
-"HR"^"Croatia"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^^
-"HT"^"Haiti"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"HU"^"Hungary"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"EUR"^1^"30.03.2008"
-"ID"^"Indonesia"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"ASI"^^
-"IE"^"Ireland"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"EUR"^^
-"IL"^"Israel"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"MDE"^^
-"IM"^"Isle of Man"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"EUR"^^
-"IN"^"India"^"AS"^"Asia"^"AS_So"^"South Asia"^"SAS"^"ASI"^^
-"IQ"^"Iraq"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"MDE"^^
-"IR"^"Iran"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"MDE"^^
-"IS"^"Iceland"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"EUR"^1^"25.03.2001"
-"IT"^"Italy"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^1^"26.10.1997"
-"JE"^"Jersey"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"EUR"^^
-"JM"^"Jamaica"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"JO"^"Jordan"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"MDE"^^
-"JP"^"Japan"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"JAK"^"ASI"^^
-"KE"^"Kenya"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"KG"^"Kyrgyzstan"^"AS"^"Asia"^"AS_Ce"^"Central Asia"^"SEA"^"ASI"^^
-"KH"^"Cambodia"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"ASI"^^
-"KI"^"Kiribati"^"PA"^"Pacific"^"PA_Mi"^"Micronesia"^"SWP"^"SWP"^^
-"KM"^"Comoros"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"KN"^"St. Kitts-Nevis"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"KP"^"DPR Korea"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"JAK"^"ASI"^^
-"KR"^"Korea (ROK)"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"JAK"^"ASI"^^
-"KW"^"Kuwait"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"MDE"^^
-"KY"^"Cayman Islands"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"KZ"^"Kazakhstan"^"AS"^"Asia"^"AS_Ce"^"Central Asia"^"SEA"^"ASI"^^
-"LA"^"Lao PDR"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"ASI"^^
-"LB"^"Lebanon"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"MDE"^^
-"LC"^"St. Lucia"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"LI"^"Liechtenstein"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"EUR"^1^"19.12.2011"
-"LK"^"Sri Lanka"^"AS"^"Asia"^"AS_So"^"South Asia"^"SAS"^"ASI"^^
-"LR"^"Liberia"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"LS"^"Lesotho"^"AF"^"Africa"^"AF_So"^"South Africa"^"AFR"^"AFR"^^
-"LT"^"Lithuania"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"EUR"^1^"30.03.2008"
-"LU"^"Luxembourg"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"EUR"^1^"26.03.1995"
-"LV"^"Latvia"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"EUR"^1^"30.03.2008"
-"LY"^"Libya"^"AF"^"Africa"^"AF_No"^"North Africa"^"AFR"^"AFR"^^
-"MA"^"Morocco"^"AF"^"Africa"^"AF_No"^"North Africa"^"EUR"^"AFR"^^
-"MC"^"Monaco"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"EUR"^^
-"MD"^"Moldova"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"EUR"^^
-"ME"^"Montenegro"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^^
-"MF"^"Saint Martin"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"MG"^"Madagascar"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"MH"^"Marshall Islands"^"PA"^"Pacific"^"PA_Mi"^"Micronesia"^"SEA"^"ASI"^^
-"MK"^"Macedonia"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^^
-"ML"^"Mali"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"MM"^"Myanmar"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"ASI"^^
-"MN"^"Mongolia"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"SEA"^"ASI"^^
-"MO"^"Macau SAR"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"SEA"^"ASI"^^
-"MP"^"Northern Marianas"^"PA"^"Pacific"^"PA_Mi"^"Micronesia"^"SEA"^"ASI"^^
-"MQ"^"Martinique"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"MR"^"Mauritania"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"MS"^"Montserrat"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"MT"^"Malta"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^1^"30.03.2008"
-"MU"^"Mauritius"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"MV"^"Maldives"^"AS"^"Asia"^"AS_So"^"South Asia"^"SAS"^"ASI"^^
-"MW"^"Malawi"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"MX"^"Mexico"^"AM"^"Americas"^"AM_Ce"^"Central America"^"NOA"^"NOA"^^
-"MY"^"Malaysia"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"ASI"^^
-"MZ"^"Mozambique"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"NA"^"Namibia"^"AF"^"Africa"^"AF_So"^"South Africa"^"AFR"^"AFR"^^
-"NC"^"New Caledonia"^"PA"^"Pacific"^"PA_Me"^"Melanesia"^"SWP"^"SWP"^^
-"NE"^"Niger"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"NF"^"Norfolk Island"^"PA"^"Pacific"^"PA_Oc"^"Oceania"^"SWP"^"SWP"^^
-"NG"^"Nigeria"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"NI"^"Nicaragua"^"AM"^"Americas"^"AM_Ce"^"Central America"^"CEM"^"SCA"^^
-"NL"^"Netherlands"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"EUR"^1^"26.03.1995"
-"NO"^"Norway"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"EUR"^1^"25.03.2001"
-"NP"^"Nepal"^"AS"^"Asia"^"AS_So"^"South Asia"^"SAS"^"ASI"^^
-"NR"^"Nauru"^"PA"^"Pacific"^"PA_Mi"^"Micronesia"^"SWP"^"SWP"^^
-"NU"^"Niue"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"SWP"^^
-"NZ"^"New Zealand"^"PA"^"Pacific"^"PA_Oc"^"Oceania"^"SWP"^"SWP"^^
-"OM"^"Oman"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"MDE"^^
-"PA"^"Panama"^"AM"^"Americas"^"AM_Ce"^"Central America"^"SOA"^"SCA"^^
-"PE"^"Peru"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"SCA"^^
-"PF"^"French Polynesia (Tahiti)"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"SWP"^^
-"PG"^"Papua New Guinea"^"PA"^"Pacific"^"PA_Me"^"Melanesia"^"SWP"^"SWP"^^
-"PH"^"Philippines"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"ASI"^^
-"PK"^"Pakistan"^"AS"^"Asia"^"AS_So"^"South Asia"^"SAS"^"ASI"^^
-"PL"^"Poland"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"EUR"^1^"30.03.2008"
-"PM"^"St. Pierre & Miquelon"^"AM"^"Americas"^"AM_No"^"North America"^"NOA"^"NOA"^^
-"PR"^"Puerto Rico"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"PS"^"Palestine"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"MDE"^^
-"PT"^"Portugal"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^1^"26.03.1995"
-"PW"^"Palau"^"PA"^"Pacific"^"PA_Mi"^"Micronesia"^"SEA"^"ASI"^^
-"PY"^"Paraguay"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"SCA"^^
-"QA"^"Qatar"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"MDE"^^
-"RE"^"Reunion"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"RO"^"Romania"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"EUR"^^
-"RS"^"Serbia"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^^
-"RU"^"Russian Federation"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"EUR"^^
-"RW"^"Rwanda"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"SA"^"Saudi Arabia"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"MDE"^^
-"SB"^"Solomon Islands"^"PA"^"Pacific"^"PA_Me"^"Melanesia"^"SWP"^"SWP"^^
-"SC"^"Seychelles"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"SD"^"Sudan"^"AF"^"Africa"^"AF_No"^"North Africa"^"AFR"^"AFR"^^
-"SE"^"Sweden"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"EUR"^1^"25.03.2001"
-"SG"^"Singapore"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"ASI"^^
-"SH"^"Saint Helena"^"AF"^"Africa"^"AF_So"^"South Africa"^"AFR"^"AFR"^^
-"SI"^"Slovenia"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^1^"30.03.2008"
-"SJ"^"Svalbard and Jan Mayen"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"EUR"^1^"25.03.2001"
-"SK"^"Slovakia"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"EUR"^1^"30.03.2008"
-"SL"^"Sierra Leone"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"SM"^"San Marino"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^^
-"SN"^"Senegal"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"SO"^"Somalia"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"SR"^"Suriname"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"SCA"^^
-"SS"^"South Sudan"^"AF"^"Africa"^"AF_No"^"North Africa"^"AFR"^"AFR"^^
-"ST"^"Sao Tome and Principe"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"AFR"^^
-"SV"^"El Salvador"^"AM"^"Americas"^"AM_Ce"^"Central America"^"CEM"^"SCA"^^
-"SX"^"Sint Maarten"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"SY"^"Syria"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"MDE"^^
-"SZ"^"Swaziland"^"AF"^"Africa"^"AF_So"^"South Africa"^"AFR"^"AFR"^^
-"TC"^"Turks & Caicos Islands"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"TD"^"Chad"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"AFR"^^
-"TG"^"Togo"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"AFR"^^
-"TH"^"Thailand"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"ASI"^^
-"TJ"^"Tajikistan"^"AS"^"Asia"^"AS_Ce"^"Central Asia"^"SEA"^"ASI"^^
-"TK"^"Tokelau"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"SWP"^^
-"TL"^"Timor Leste"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"ASI"^^
-"TM"^"Turkmenistan"^"AS"^"Asia"^"AS_Ce"^"Central Asia"^"SEA"^"ASI"^^
-"TN"^"Tunisia"^"AF"^"Africa"^"AF_No"^"North Africa"^"EUR"^"AFR"^^
-"TO"^"Tonga"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"SWP"^^
-"TR"^"Turkey"^"AS"^"Asia"^"AS_We"^"West Asia"^"EUR"^"EUR"^^
-"TT"^"Trinidad & Tobago"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"TV"^"Tuvalu"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"SWP"^^
-"TW"^"Chinese Taipei"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"SEA"^"ASI"^^
-"TZ"^"Tanzania"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"UA"^"Ukraine"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"EUR"^^
-"UG"^"Uganda"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"UM"^"United States Minor Outlying Islands"^"AM"^"Americas"^"AM_No"^"North America"^"NOA"^"NOA"^^
-"US"^"USA"^"AM"^"Americas"^"AM_No"^"North America"^"NOA"^"NOA"^^
-"UY"^"Uruguay"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"SCA"^^
-"UZ"^"Uzbekistan"^"AS"^"Asia"^"AS_Ce"^"Central Asia"^"SEA"^"ASI"^^
-"VA"^"Holy See (Vatican)"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^^
-"VC"^"St. Vincent & the Grenadines"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"VE"^"Venezuela"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"SCA"^^
-"VG"^"Virgin Islands, British"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"VI"^"Virgin Islands, United States"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"SCA"^^
-"VN"^"Vietnam"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"ASI"^^
-"VU"^"Vanuatu"^"PA"^"Pacific"^"PA_Me"^"Melanesia"^"SWP"^"SWP"^^
-"WF"^"Wallis & Futuna Islands"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"SWP"^^
-"WS"^"Samoa"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"SWP"^^
-"XK"^"Kosovo"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"EUR"^^
-"YE"^"Yemen"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"MDE"^^
-"YT"^"Mayotte"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"ZA"^"South Africa"^"AF"^"Africa"^"AF_So"^"South Africa"^"AFR"^"AFR"^^
-"ZM"^"Zambia"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
-"ZW"^"Zimbabwe"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"AFR"^^
+"country_code"^"country_name"^"region_unwto_code"^"region_unwto_name"^"sub_region_unwto_code"^"sub_region_unwto_name"^"region_iata_code"^"region_iata_name"^"schengen"^"schengen_from"^"region_7_code"^"region_7_name"
+"AD"^"Andorra"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"AE"^"UAE"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"Middle East"^^^"MDE"^"Middle East"
+"AF"^"Afghanistan"^"AS"^"Asia"^"AS_So"^"South Asia"^"SAS"^"South Asia"^^^"ASI"^"Asia"
+"AG"^"Antigua and Barbuda"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"AI"^"Anguilla"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"AL"^"Albania"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"AM"^"Armenia"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"AO"^"Angola"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"AQ"^"Antarctica"^"PA"^"Pacific"^"PA_Oc"^"Oceania"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"AR"^"Argentina"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"South America"^^^"SCA"^"South and Central America"
+"AS"^"American Samoa"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"AT"^"Austria"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"Europe"^1^"01.12.1997"^"EUR"^"Europe"
+"AU"^"Australia"^"PA"^"Pacific"^"PA_Oc"^"Oceania"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"AW"^"Aruba"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"AX"^"Aland Islands"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"Europe"^1^"25.03.2001"^"EUR"^"Europe"
+"AZ"^"Azerbaijan"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"BA"^"Bosnia-Herzegovina"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"BB"^"Barbados"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"BD"^"Bangladesh"^"AS"^"Asia"^"AS_So"^"South Asia"^"SAS"^"South Asia"^^^"ASI"^"Asia"
+"BE"^"Belgium"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"Europe"^1^"26.03.1995"^"EUR"^"Europe"
+"BF"^"Burkina Faso"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"BG"^"Bulgaria"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"BH"^"Bahrain"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"Middle East"^^^"MDE"^"Middle East"
+"BI"^"Burundi"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"BJ"^"Benin"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"BL"^"Saint Barthelemy"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"BM"^"Bermuda"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"BN"^"Brunei"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"BO"^"Bolivia"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"South America"^^^"SCA"^"South and Central America"
+"BQ"^"Bonaire, Saint Eustatius & Saba"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"BR"^"Brazil"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"South America"^^^"SCA"^"South and Central America"
+"BS"^"Bahamas"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"BT"^"Bhutan"^"AS"^"Asia"^"AS_So"^"South Asia"^"SAS"^"South Asia"^^^"ASI"^"Asia"
+"BW"^"Botswana"^"AF"^"Africa"^"AF_So"^"South Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"BY"^"Belarus"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"BZ"^"Belize"^"AM"^"Americas"^"AM_Ce"^"Central America"^"CEM"^"Central America"^^^"SCA"^"South and Central America"
+"CA"^"Canada"^"AM"^"Americas"^"AM_No"^"North America"^"NOA"^"North America"^^^"NOA"^"North America"
+"CC"^"Cocos Islands"^"PA"^"Pacific"^"PA_Oc"^"Oceania"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"CD"^"Congo, the Democratic Republic of the"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"CF"^"Central African Republic"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"CG"^"Congo, Republic of"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"CH"^"Switzerland"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"Europe"^1^"12.12.2008"^"EUR"^"Europe"
+"CI"^"Ivory Coast"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"CK"^"Cook Islands"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"CL"^"Chile"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"South America"^^^"SCA"^"South and Central America"
+"CM"^"Cameroon"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"CN"^"China"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"CO"^"Colombia"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"South America"^^^"SCA"^"South and Central America"
+"CR"^"Costa Rica"^"AM"^"Americas"^"AM_Ce"^"Central America"^"CEM"^"Central America"^^^"SCA"^"South and Central America"
+"CU"^"Cuba"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"CV"^"Cape Verde"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"CW"^"Curacao"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"CX"^"Christmas Island"^"PA"^"Pacific"^"PA_Oc"^"Oceania"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"CY"^"Cyprus"^"AS"^"Asia"^"AS_We"^"West Asia"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"CZ"^"Czech Republic"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"Europe"^1^"30.03.2008"^"EUR"^"Europe"
+"DE"^"Germany"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"Europe"^1^"26.03.1995"^"EUR"^"Europe"
+"DJ"^"Djibouti"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"DK"^"Denmark"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"Europe"^1^"25.03.2001"^"EUR"^"Europe"
+"DM"^"Dominica"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"DO"^"Dominican Republic"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"DZ"^"Algeria"^"AF"^"Africa"^"AF_No"^"North Africa"^"EUR"^"Europe"^^^"AFR"^"Africa"
+"EC"^"Ecuador"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"South America"^^^"SCA"^"South and Central America"
+"EE"^"Estonia"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"Europe"^1^"30.03.2008"^"EUR"^"Europe"
+"EG"^"Egypt"^"AF"^"Africa"^"AF_No"^"North Africa"^"MDE"^"Middle East"^^^"MDE"^"Middle East"
+"EH"^"Western Sahara"^"AF"^"Africa"^"AF_No"^"North Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"EH"^"Western Sahara"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"ER"^"Eritrea"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"ES"^"Spain"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^1^"26.03.1995"^"EUR"^"Europe"
+"ET"^"Ethiopia"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"FI"^"Finland"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"Europe"^1^"25.03.2001"^"EUR"^"Europe"
+"FJ"^"Fiji"^"PA"^"Pacific"^"PA_Me"^"Melanesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"FK"^"Falkland Islands"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"South America"^^^"SCA"^"South and Central America"
+"FM"^"FSM"^"PA"^"Pacific"^"PA_Mi"^"Micronesia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"FO"^"Faeroe Islands"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"FR"^"France"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"Europe"^1^"26.03.1995"^"EUR"^"Europe"
+"GA"^"Gabon"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"GB"^"UK"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"GD"^"Grenada"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"GE"^"Georgia"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"GF"^"French Guyana"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"South America"^^^"SCA"^"South and Central America"
+"GG"^"Guernsey"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"GH"^"Ghana"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"GI"^"Gibraltar"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"GL"^"Greenland"^"AM"^"Americas"^"AM_No"^"North America"^"NOA"^"North America"^^^"NOA"^"North America"
+"GM"^"Gambia"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"GN"^"Guinea"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"GP"^"Guadeloupe"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"GQ"^"Equatorial Guinea"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"GR"^"Greece"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^1^"26.03.2000"^"EUR"^"Europe"
+"GS"^"South Georgia & the South Sandwich Islands"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"South America"^^^"SCA"^"South and Central America"
+"GT"^"Guatemala"^"AM"^"Americas"^"AM_Ce"^"Central America"^"CEM"^"Central America"^^^"SCA"^"South and Central America"
+"GU"^"Guam"^"PA"^"Pacific"^"PA_Mi"^"Micronesia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"GW"^"Guinea-Bissau"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"GY"^"Guyana"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"South America"^^^"SCA"^"South and Central America"
+"HI"^"Hawaii"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"HK"^"Hong Kong SAR"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"HN"^"Honduras"^"AM"^"Americas"^"AM_Ce"^"Central America"^"CEM"^"Central America"^^^"SCA"^"South and Central America"
+"HO"^"Hong Kong SAR & Macau SAR"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"HR"^"Croatia"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"HT"^"Haiti"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"HU"^"Hungary"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"Europe"^1^"30.03.2008"^"EUR"^"Europe"
+"ID"^"Indonesia"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"IE"^"Ireland"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"IL"^"Israel"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"Middle East"^^^"MDE"^"Middle East"
+"IM"^"Isle of Man"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"IN"^"India"^"AS"^"Asia"^"AS_So"^"South Asia"^"SAS"^"South Asia"^^^"ASI"^"Asia"
+"IQ"^"Iraq"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"Middle East"^^^"MDE"^"Middle East"
+"IR"^"Iran"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"Middle East"^^^"MDE"^"Middle East"
+"IS"^"Iceland"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"Europe"^1^"25.03.2001"^"EUR"^"Europe"
+"IT"^"Italy"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^1^"26.10.1997"^"EUR"^"Europe"
+"JE"^"Jersey"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"JM"^"Jamaica"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"JO"^"Jordan"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"Middle East"^^^"MDE"^"Middle East"
+"JP"^"Japan"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"JAK"^"Japan and Korea"^^^"ASI"^"Asia"
+"KE"^"Kenya"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"KG"^"Kyrgyzstan"^"AS"^"Asia"^"AS_Ce"^"Central Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"KH"^"Cambodia"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"KI"^"Kiribati"^"PA"^"Pacific"^"PA_Mi"^"Micronesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"KM"^"Comoros"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"KN"^"St. Kitts-Nevis"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"KP"^"DPR Korea"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"JAK"^"Japan and Korea"^^^"ASI"^"Asia"
+"KR"^"Korea (ROK)"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"JAK"^"Japan and Korea"^^^"ASI"^"Asia"
+"KW"^"Kuwait"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"Middle East"^^^"MDE"^"Middle East"
+"KY"^"Cayman Islands"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"KZ"^"Kazakhstan"^"AS"^"Asia"^"AS_Ce"^"Central Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"LA"^"Lao PDR"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"LB"^"Lebanon"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"Middle East"^^^"MDE"^"Middle East"
+"LC"^"St. Lucia"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"LI"^"Liechtenstein"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"Europe"^1^"19.12.2011"^"EUR"^"Europe"
+"LK"^"Sri Lanka"^"AS"^"Asia"^"AS_So"^"South Asia"^"SAS"^"South Asia"^^^"ASI"^"Asia"
+"LR"^"Liberia"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"LS"^"Lesotho"^"AF"^"Africa"^"AF_So"^"South Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"LT"^"Lithuania"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"Europe"^1^"30.03.2008"^"EUR"^"Europe"
+"LU"^"Luxembourg"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"Europe"^1^"26.03.1995"^"EUR"^"Europe"
+"LV"^"Latvia"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"Europe"^1^"30.03.2008"^"EUR"^"Europe"
+"LY"^"Libya"^"AF"^"Africa"^"AF_No"^"North Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"MA"^"Morocco"^"AF"^"Africa"^"AF_No"^"North Africa"^"EUR"^"Europe"^^^"AFR"^"Africa"
+"MC"^"Monaco"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"MD"^"Moldova"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"ME"^"Montenegro"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"MF"^"Saint Martin"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"MG"^"Madagascar"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"MH"^"Marshall Islands"^"PA"^"Pacific"^"PA_Mi"^"Micronesia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"MK"^"Macedonia"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"ML"^"Mali"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"MM"^"Myanmar"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"MN"^"Mongolia"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"MO"^"Macau SAR"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"MP"^"Northern Marianas"^"PA"^"Pacific"^"PA_Mi"^"Micronesia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"MQ"^"Martinique"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"MR"^"Mauritania"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"MS"^"Montserrat"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"MT"^"Malta"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^1^"30.03.2008"^"EUR"^"Europe"
+"MU"^"Mauritius"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"MV"^"Maldives"^"AS"^"Asia"^"AS_So"^"South Asia"^"SAS"^"South Asia"^^^"ASI"^"Asia"
+"MW"^"Malawi"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"MX"^"Mexico"^"AM"^"Americas"^"AM_Ce"^"Central America"^"NOA"^"North America"^^^"NOA"^"North America"
+"MY"^"Malaysia"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"MZ"^"Mozambique"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"NA"^"Namibia"^"AF"^"Africa"^"AF_So"^"South Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"NC"^"New Caledonia"^"PA"^"Pacific"^"PA_Me"^"Melanesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"NE"^"Niger"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"NF"^"Norfolk Island"^"PA"^"Pacific"^"PA_Oc"^"Oceania"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"NG"^"Nigeria"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"NI"^"Nicaragua"^"AM"^"Americas"^"AM_Ce"^"Central America"^"CEM"^"Central America"^^^"SCA"^"South and Central America"
+"NL"^"Netherlands"^"EU"^"Europe"^"EU_We"^"West Europe"^"EUR"^"Europe"^1^"26.03.1995"^"EUR"^"Europe"
+"NO"^"Norway"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"Europe"^1^"25.03.2001"^"EUR"^"Europe"
+"NP"^"Nepal"^"AS"^"Asia"^"AS_So"^"South Asia"^"SAS"^"South Asia"^^^"ASI"^"Asia"
+"NR"^"Nauru"^"PA"^"Pacific"^"PA_Mi"^"Micronesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"NU"^"Niue"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"NZ"^"New Zealand"^"PA"^"Pacific"^"PA_Oc"^"Oceania"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"OM"^"Oman"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"Middle East"^^^"MDE"^"Middle East"
+"PA"^"Panama"^"AM"^"Americas"^"AM_Ce"^"Central America"^"SOA"^"South America"^^^"SCA"^"South and Central America"
+"PE"^"Peru"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"South America"^^^"SCA"^"South and Central America"
+"PF"^"French Polynesia (Tahiti)"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"PG"^"Papua New Guinea"^"PA"^"Pacific"^"PA_Me"^"Melanesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"PH"^"Philippines"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"PK"^"Pakistan"^"AS"^"Asia"^"AS_So"^"South Asia"^"SAS"^"South Asia"^^^"ASI"^"Asia"
+"PL"^"Poland"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"Europe"^1^"30.03.2008"^"EUR"^"Europe"
+"PM"^"St. Pierre & Miquelon"^"AM"^"Americas"^"AM_No"^"North America"^"NOA"^"North America"^^^"NOA"^"North America"
+"PR"^"Puerto Rico"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"PS"^"Palestine"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"Middle East"^^^"MDE"^"Middle East"
+"PT"^"Portugal"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^1^"26.03.1995"^"EUR"^"Europe"
+"PW"^"Palau"^"PA"^"Pacific"^"PA_Mi"^"Micronesia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"PY"^"Paraguay"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"South America"^^^"SCA"^"South and Central America"
+"QA"^"Qatar"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"Middle East"^^^"MDE"^"Middle East"
+"RE"^"Reunion"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"RO"^"Romania"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"RS"^"Serbia"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"RU"^"Russian Federation"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"RW"^"Rwanda"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"SA"^"Saudi Arabia"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"Middle East"^^^"MDE"^"Middle East"
+"SB"^"Solomon Islands"^"PA"^"Pacific"^"PA_Me"^"Melanesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"SC"^"Seychelles"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"SD"^"Sudan"^"AF"^"Africa"^"AF_No"^"North Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"SE"^"Sweden"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"Europe"^1^"25.03.2001"^"EUR"^"Europe"
+"SG"^"Singapore"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"SH"^"Saint Helena"^"AF"^"Africa"^"AF_So"^"South Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"SI"^"Slovenia"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^1^"30.03.2008"^"EUR"^"Europe"
+"SJ"^"Svalbard and Jan Mayen"^"EU"^"Europe"^"EU_No"^"North Europe"^"EUR"^"Europe"^1^"25.03.2001"^"EUR"^"Europe"
+"SK"^"Slovakia"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"Europe"^1^"30.03.2008"^"EUR"^"Europe"
+"SL"^"Sierra Leone"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"SM"^"San Marino"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"SN"^"Senegal"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"SO"^"Somalia"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"SR"^"Suriname"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"South America"^^^"SCA"^"South and Central America"
+"SS"^"South Sudan"^"AF"^"Africa"^"AF_No"^"North Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"ST"^"Sao Tome and Principe"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"SV"^"El Salvador"^"AM"^"Americas"^"AM_Ce"^"Central America"^"CEM"^"Central America"^^^"SCA"^"South and Central America"
+"SX"^"Sint Maarten"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"SY"^"Syria"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"Middle East"^^^"MDE"^"Middle East"
+"SZ"^"Swaziland"^"AF"^"Africa"^"AF_So"^"South Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"TC"^"Turks & Caicos Islands"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"TD"^"Chad"^"AF"^"Africa"^"AF_Ce"^"Central Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"TG"^"Togo"^"AF"^"Africa"^"AF_We"^"West Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"TH"^"Thailand"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"TJ"^"Tajikistan"^"AS"^"Asia"^"AS_Ce"^"Central Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"TK"^"Tokelau"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"TL"^"Timor Leste"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"TM"^"Turkmenistan"^"AS"^"Asia"^"AS_Ce"^"Central Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"TN"^"Tunisia"^"AF"^"Africa"^"AF_No"^"North Africa"^"EUR"^"Europe"^^^"AFR"^"Africa"
+"TO"^"Tonga"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"TR"^"Turkey"^"AS"^"Asia"^"AS_We"^"West Asia"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"TT"^"Trinidad & Tobago"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"TV"^"Tuvalu"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"TW"^"Chinese Taipei"^"AS"^"Asia"^"AS_Ne"^"Northeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"TZ"^"Tanzania"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"UA"^"Ukraine"^"EU"^"Europe"^"EU_Ea"^"East Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"UG"^"Uganda"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"UM"^"United States Minor Outlying Islands"^"AM"^"Americas"^"AM_No"^"North America"^"NOA"^"North America"^^^"NOA"^"North America"
+"US"^"USA"^"AM"^"Americas"^"AM_No"^"North America"^"NOA"^"North America"^^^"NOA"^"North America"
+"UY"^"Uruguay"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"South America"^^^"SCA"^"South and Central America"
+"UZ"^"Uzbekistan"^"AS"^"Asia"^"AS_Ce"^"Central Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"VA"^"Holy See (Vatican)"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"VC"^"St. Vincent & the Grenadines"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"VE"^"Venezuela"^"AM"^"Americas"^"AM_So"^"South America"^"SOA"^"South America"^^^"SCA"^"South and Central America"
+"VG"^"Virgin Islands, British"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"VI"^"Virgin Islands, United States"^"AM"^"Americas"^"AM_Ca"^"Caribbean"^"CAR"^"Caribbean sea countries"^^^"SCA"^"South and Central America"
+"VN"^"Vietnam"^"AS"^"Asia"^"AS_Se"^"Southeast Asia"^"SEA"^"South-Eastern Asia"^^^"ASI"^"Asia"
+"VU"^"Vanuatu"^"PA"^"Pacific"^"PA_Me"^"Melanesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"WF"^"Wallis & Futuna Islands"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"WS"^"Samoa"^"PA"^"Pacific"^"PA_Po"^"Polynesia"^"SWP"^"South-West Pacific"^^^"SWP"^"South West Pacific"
+"XK"^"Kosovo"^"EU"^"Europe"^"EU_So"^"South Europe"^"EUR"^"Europe"^^^"EUR"^"Europe"
+"YE"^"Yemen"^"AS"^"Asia"^"AS_We"^"West Asia"^"MDE"^"Middle East"^^^"MDE"^"Middle East"
+"YT"^"Mayotte"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"ZA"^"South Africa"^"AF"^"Africa"^"AF_So"^"South Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"ZM"^"Zambia"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
+"ZW"^"Zimbabwe"^"AF"^"Africa"^"AF_Ea"^"East Africa"^"AFR"^"Africa"^^^"AFR"^"Africa"
