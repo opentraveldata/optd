@@ -374,7 +374,6 @@ air-daallo-airlines^^^^DAO^D3^991^Daallo Airlines^Daallo Airlin^^^^
 air-dagestan-airlines^^^^^N2^0^Dagestan Airlines^^^^^
 air-dana-airlines^^2008-01-01^^DAN^9J^234^Dana Air^^^^^http://en.wikipedia.org/wiki/Dana_Air
 air-danish-air-transport^^^^DTR^DX^243^Danish Air Transport^Danish Air^^^^
-air-darwin-airline^^^^DWT^0D^779^Darwin Airline^^^^^
 air-dauair^^^^DAE^D5^0^Dauair^Dauair^^^^
 air-delta-air-lines^^^^DAL^DL^6^Delta Air Lines^Delta Air^Skyteam^Member^^
 air-delta-connection^^^^DCP^DQ^521^Delta Connection^Coastal Air^^^^
@@ -421,7 +420,7 @@ air-estelar-latinoamerica^^^^^E4^52^Estelar Latinoamerica^^^^^
 air-estonian-air^^^^ELL^OV^960^Estonian Air^Estonian Air^^^^
 air-ethiopian-airlines^^^^ETH^ET^71^Ethiopian Airlines^Ethiopian^Star Alliance^Member^^
 air-etihad-airways^^^^ETD^EY^607^Etihad Airways^Etihad Air^^^^
-air-etihad-regional^^^^^F7^33^Etihad Regional^Darwin^^^^
+air-etihad-regional^^2003-01-01^^DWT^F7^33^Etihad Regional^Darwin^^^^http://en.wikipedia.org/wiki/Darwin_Airline
 air-eurasia-air^^^^^6Z^0^Eurasia Air^^^^^
 air-euroatlantic-airways^^^^MMZ^YU^551^Euroatlantic Airways^^^^^
 air-eurocypria-airlines^^^^AUK^UI^0^Auric Air Services^^^^^
