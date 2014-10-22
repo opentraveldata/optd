@@ -68,7 +68,10 @@ BEGIN {
 # Skyteam^Member^AF^Air France^2000-06-22^^
 # OneWorld^Member^BA^British Airways^1999-02-01^^
 # Star Alliance^Member^LH^Lufthansa^1999-05-01^^
-/^([A-Za-z ]+)\^([A-Za-z]+)\^([*A-Z0-9]{2})\^([A-Za-z0-9 ]+)$/ {
+
+# By requiring the env_id field to be empty, only active alliance memberships are considered.
+
+/^([A-Za-z ]+)\^([A-Za-z]+)\^([*A-Z0-9]{2})\^([A-Za-z0-9 ]+)\^[0-9-]*\^[0-9-]*\^$/ {
 	# Alliance name
 	alliance_name = $1
 
@@ -81,9 +84,6 @@ BEGIN {
 	# Airline Name
 	air_name = $4
 
-	# env_id
-	env_id = $7
-
 	# Sanity check
 	if (air_alliance_all_names[air_code_2c] != "") {
 		print ("[" awk_file "][" FNR "] !!!! Error, '" air_name			\
@@ -92,13 +92,10 @@ BEGIN {
 			   "Full line: " $0) > error_stream
 	}
 
-	# only process active memberships
-	if (env_id == "") {
-		# Register the alliance membership details
-		air_alliance_types[air_code_2c] = alliance_type
-		air_alliance_all_names[air_code_2c] = alliance_name
-		air_alliance_air_names[air_code_2c] = air_name
-	}
+	# Register the alliance membership details
+	air_alliance_types[air_code_2c] = alliance_type
+	air_alliance_all_names[air_code_2c] = alliance_name
+	air_alliance_air_names[air_code_2c] = air_name
 
 	# DEBUG
 	# print ("Airline: " air_name " (" air_code_2c ") => Alliance: " \
@@ -168,11 +165,11 @@ BEGIN {
 		# Name2
 		name2 = $9
 
-		# Alliance code
-		alc_code = $10
+		# Alliance code (taken from ori_airline_alliance_membership.csv)
+		alc_code = air_alliance_all_names[code_2char]
 
-		# Alliance status
-		alc_status = $11
+		# Alliance status (taken from ori_airline_alliance_membership.csv)
+		alc_status = air_alliance_types[code_2char]
 
 		# Airline type
 		type = $12
