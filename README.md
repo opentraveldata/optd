@@ -1,3 +1,11 @@
+**Warning**
+
+This repository is in read-only mode and all future development happens at the new
+[opentraveldata](https://github.com/opentraveldata/opentraveldata) repository. If you
+or your project relies on any data set stored here, no worries! All changes will be
+automatically synced back to keep backwards compatibility.
+
+
 # Open Travel Data
 
 To know more about the project, visit the [About](https://github.com/opentraveldata/optd/wiki/About) page and to know how to use the application, just go to the [this page](https://github.com/opentraveldata/optd/wiki/How-to-set-things-up).
