@@ -17,11 +17,11 @@
 # ori_por_public.csv CSV data file, which is a merge of three POR data files:
 #  - ORI-maintained data file: ori_por_best_known_so_far.csv
 #  - Geonames data file: dump_from_geonames.csv
-#  - (The public part of the) Amadeus RFD data file: dump_from_crb_city.csv
+#  - (The public part of the) Amadeus ref data file: dump_from_crb_city.csv
 
 ##
 # The ori_only_por.csv CSV data file contains (as of March 2012) 106 airports,
-# which appear neither in Geonames nor in Amadeus RFD. For instance, some
+# which appear neither in Geonames nor in the reference. For instance, some
 # Web sites mention AAD as the IATA code of the Ad-Dabbah airport in Sudan.
 # However, all those Web sites give unconsistent geographical coordinates,
 # and neither of those corresponds to an actual airport (as checked with
@@ -46,12 +46,12 @@
 #    integrated within the ori_por_best_known_so_far.csv file, only
 #    the POR details (e.g., the name, state, country) should be updated.
 #
-#  - By Amadeus RFD, within the dump_from_crb_city.csv file. Idem as for
+#  - By reference, within the dump_from_ref_city.csv file. Idem as for
 #    Geonames.
 
 ##
 # The ori_por.csv data file is deprecated, and should soon be removed. It was
-# made of a merge of the file of best known coordinates and of the Amadeus RFD
+# made of a merge of the file of best known coordinates and of the reference
 # data file. It did not integrate Geonames information. That is why it has been
 # replaced by ori_por_public.csv.
 
