@@ -251,7 +251,7 @@ air-ab-aviation-v1^^2013-01-01^^AYD^Y6^0^AB Aviation^^^^^http://en.wikipedia.org
 air-batik-air-indonesia-v1^^2013-05-03^^BTK^ID^0^Batik Air^^^^P^http://en.wikipedia.org/wiki/Batik_Air^en|Batik Air|^^air-batik-air-indonesia^1
 air-bb-airways-v1^^2012-09-13^^^BO^505^BB Airways^^^^^http://en.wikipedia.org/wiki/BB_Airways^en|BB Airways|^^air-bb-airways^1
 air-bearskin-airlines-v1^^1963-07-17^^BLS^JV^632^Bearskin Airlines^^^^^http://en.wikipedia.org/wiki/Bearskin_Airlines^en|Bearskin Airlines|^^air-bearskin-airlines^1
-air-beijing-capital-airlines-v1^^2010-05-01^^CBJ^JD^898^Beijing Capital Airlines^^^^^http://en.wikipedia.org/wiki/Beijing_Capital_Airlines^en|Beijing Capital Airlines|=pny|Shǒudū Hángkōng|=zh|首都航空|^HAK=HGH=PEK=SHE=SYX=XIY^air-beijing-capital-airlines^1
+air-beijing-capital-airlines-v1^^2010-05-01^^CBJ^JD^898^Beijing Capital Airlines^^^^^http://en.wikipedia.org/wiki/Beijing_Capital_Airlines^en|Beijing Capital Airlines|p=en|Capital_Airlines|s=en|Deer Jet Airlines|h=en|Deer Air|=pny|Shǒudū Hángkōng|p=pny|Jīnlù Hángkōng|=sign|CAPITAL JET|=zh|首都航空|p=zh|金鹿航空|h^HAK=HGH=PEK=SHE=SYX=XIY^air-beijing-capital-airlines^1
 air-bek-air-v1^^^^BEK^Z9^183^Jsc Bek Air^^^^^^en|Jsc Bek Air|^^air-bek-air^1
 air-belair-airlines-v1^^^^^4T^0^Belair Airlines^Russian Air^^^^^en|Belair Airlines|=en|Russian Air|^^air-belair-airlines^1
 air-belavia-v1^^1996-03-05^^BRU^B2^628^Belavia^^^^^http://en.wikipedia.org/wiki/Belavia^en|Belavia|^^air-belavia^1
@@ -637,7 +637,7 @@ air-links-air-v1^^1983-08-03^^LNQ^^^Links Air^^^^^http://en.wikipedia.org/wiki/L
 air-lion-airlines-v1^^2000-06-30^^LNI^JT^990^Lion Air^^^^^http://en.wikipedia.org/wiki/Lion_Air^en|Lion Air|^^air-lion-airlines^1
 air-lion-air-v1^^^^^SL^0^Thai Lion Mentari^Rio Sul^^^^^en|Thai Lion Mentari|=en|Rio Sul|^^air-lion-air^1
 air-loganair-v1^^^^^LM^682^Loganair^Livingston^^^^^en|Loganair|=en|Livingston|^^air-loganair^1
-air-lot-v1^^1929-01-01^^LOT^LO^80^LOT Polish Airlines^LOT^^Member^^http://en.wikipedia.org/wiki/LOT_Polish_Airlines^en|LOT Polish Airlines|=en|LOT|^^air-lot^1
+air-lot-v1^^1929-01-01^^LOT^LO^80^LOT Polish Airlines^^^Member^^http://en.wikipedia.org/wiki/LOT_Polish_Airlines^en|LOT Polish Airlines|=en|LOT|ps^WAW^air-lot^1
 air-lucky-air-v1^^2004-07-01^^LKE^8L^859^Lucky Air^^^^^http://en.wikipedia.org/wiki/Lucky_Air^en|Lucky Air|=en|Shilin Airlines|h=ja|雲南祥鵬航空|i=ko|럭키 에어|=pny|Xiángpéng Hángkōng Gōngsī|=wuu|祥鹏航空大厦|=yue|祥鵬航空大廈|=zh|祥鹏航空公司|^^air-lucky-air^1
 air-lufthansa-cityline-v1^^1958-01-01^^CLH^CL^683^Lufthansa CityLine^^^Member^^http://en.wikipedia.org/wiki/Lufthansa_CityLine^en|Lufthansa CityLine|^FRA=MUC^air-lufthansa-cityline^1
 air-lufthansa-v1^^1955-01-01^^DLH^LH^220^Lufthansa^^^Member^^http://en.wikipedia.org/wiki/Lufthansa^ar|لوفتهانزا|=en|Lufthansa|=el|Λουφτχάνσα|=fa|لوفت‌هانزا|=ja|ルフトハンザドイツ航空|=ko|루프트한자|=ru|Люфтганза|=ru|Люфтханза|=th|ลุฟต์ฮันซา|=wuu|汉莎航空|=yue|漢莎航空|^FRA=MUC^air-lufthansa^1
