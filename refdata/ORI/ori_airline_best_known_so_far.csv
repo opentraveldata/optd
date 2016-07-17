@@ -970,7 +970,7 @@ air-thomas-cook-eastland-v1^^^^VKG^DK^630^Thomas Cook Airlines^Eastland Air^^^^^
 air-thomson-airways-v1^^2004-01-01^^TOM^BY^754^Thomson Airways^Britannia Airways^^^^http://en.wikipedia.org/wiki/Thomson_Airways^en|Thomson Airways|=en|Britannia Airways|^^air-thomson-airways^1
 air-tianjin-airlines-v1^^2007-01-01^^GCR^GS^826^Tianjin Airlines^^^^^http://en.wikipedia.org/wiki/Tianjin_Airlines^en|Tianjin Airlines|^HAK=HET=TSN=URC=XIY^air-tianjin-airlines^1
 air-tiara-air-aruba-v1^^^^^3P^253^Tiara Air Aruba^Tiara Air^^^^^en|Tiara Air Aruba|=en|Tiara Air|^^air-tiara-air-aruba^1
-air-tibet-airlines-v3^^2014-02-02^^TBA^TV^88^Tibet Airlines^^^^^http://en.wikipedia.org/wiki/Tibet_Airlines^en|Tibet Airlines|^CTU=LXA^air-tibet-airlines^3
+air-tibet-airlines-v3^^2014-02-02^^TBA^TV^88^Tibet Airlines^^^^^http://en.wikipedia.org/wiki/Tibet_Airlines^en|Tibet Airlines|=sign|TIBET|^CTU^air-tibet-airlines^3
 air-tiger-air-philippines-v1^^^^SRQ^DG^931^Tiger Air Philippines^^^^^^en|Tiger Air Philippines|^^air-tiger-air-philippines^1
 air-tiger-air-australia-v1^^^^^TT^0^Tiger Airways Australia^Air Lithuania^^^^^en|Tiger Airways Australia|=en|Air Lithuania|^^air-tiger-air-australia^1
 air-tiger-air-taiwan-v1^^2014-11-26^^TTW^IT^608^Tigerair Taiwan^^^^^http://en.wikipedia.org/wiki/Tigerair_Taiwan^en|Tigerair Taiwan|^^air-tiger-air-taiwan^1
@@ -1066,7 +1066,7 @@ air-wow-air-v1^^^^^WW^0^Wow Air^^^^P^^en|Wow Air|^^air-wow-air^1
 air-wright-air-services-v1^^1967-01-01^^WRF^8V^0^Wright Air Services^^^^P^http://en.wikipedia.org/wiki/Wright_Air_Service^en|Wright Air Services|^^air-wright-air-services^1
 air-xiamen-airlines-v1^^1984-07-25^^CXA^MF^731^XiamenAir^^^Member^^http://en.wikipedia.org/wiki/XiamenAir^en|XiamenAir|^^air-xiamen-airlines^1
 air-xl-airways-france-v1^^^^XLF^SE^473^XL Airways France^Star Airlines^^^^^en|XL Airways France|=en|Star Airlines|^^air-xl-airways-france^1
-air-xpressair-v1^^2003-01-01^^XAR^XN^0^XpressAir^^^^^http://en.wikipedia.org/wiki/XpressAir^en|XpressAir|p=en|Express Air|h=en|fly express|h^UPG^air-xpressair^1
+air-xpressair-v1^^2003-01-01^^XAR^XN^0^XpressAir^^^^^http://en.wikipedia.org/wiki/XpressAir^en|XpressAir|p=en|Express Air|h=en|fly express|h^BDO=PKU=PLM^air-xpressair^1
 air-xtra-airways-v1^^^^CXP^XP^0^Xtra Airways^^^^^^en|Xtra Airways|^^air-xtra-airways^1
 air-yakutia-airlines-v1^^2002-01-01^^SYL^R3^849^Yakutia Airlines^^^^^http://en.wikipedia.org/wiki/Yakutia_Airlines^en|Yakutia Airlines|^YKT^air-yakutia-airlines^1
 air-yamal-airlines-v1^^^^LLM^YC^664^Yamal Airlines^^^^^^en|Yamal Airlines|^^air-yamal-airlines^1
