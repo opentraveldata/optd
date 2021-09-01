@@ -47,7 +47,7 @@
 		<dependency>
 			<groupId>org.neo4j</groupId>
 			<artifactId>neo4j</artifactId>
-			<version>1.4.M04</version>
+			<version>3.5.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
